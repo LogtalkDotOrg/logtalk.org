@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml-stylesheet type="text/css" href="logtalk.css" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head profile="http://www.w3.org/2005/10/profile">
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<title>Logtalk features</title>
+	<link rel="stylesheet" href="logtalk.css" type="text/css" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<meta name="author" lang="pt" content="Paulo Moura"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<div class="header">
+<a href="logtalk.html">Home</a> &gt; Features
+</div>
+
+<div class="title">
+Features
+</div>
+
+<p>
+Logtalk is a mature <a href="license.html">open source</a> object-oriented logic programming language that can use most Prolog implementations as a back-end compiler. Logtalk main features are:
+</p>
+<blockquote>
+<dl>
+	<dt><strong>Separation between interface and implementation</strong></dt>
+		<dd>Predicate directives (declarations) can be contained inside protocols (interfaces), which can be implemented by any object.</dd>
+</dl>
+<dl>
+	<dt><strong>Parametric objects</strong></dt>
+		<dd>Object identifiers can be compound terms containing free variables that can be used to parametrize object predicates. This allows us to interpret predicate clauses as providing <em>instantiations</em> of a parametric object identifier. I.e. through parametric object we can associate any number of <em>methods</em> with a compound term.</dd>
+</dl>
+<dl>
+	<dt><strong>Support for both class-based and prototype-based systems</strong></dt>
+		<dd>You may have, in the same application, class-based hierarchies (with instantiation and specialization relations) and prototype-based hierarchies (with extension relations). Moreover, fundamental language features such as protocols (interfaces) and categories (components) can be used simultaneously by classes, instances, and prototypes.</dd>
+</dl>
+<dl>
+	<dt><strong>Support for multiple object hierarchies</strong></dt>
+		<dd>No need to be constrained to a single, lengthy hierarchy rooted in some generic object.</dd>
+</dl>
+<dl>
+	<dt><strong>Private, protected, and public inheritance</strong></dt>
+		<dd>Logtalk supports private, protected, and public inheritance in a way similar to C++. Moreover, any entity relation can be qualified using a scope keyword. E.g. an object can <em>privately</em> implement a protocol, thus making all protocol declared predicates private.</dd>
+</dl>
+<dl>
+	<dt><strong>Private, protected, and public object predicates</strong></dt>
+		<dd>Set the scope of your object predicates to match your protocol design and let the runtime system enforce your choices.</dd>
+</dl>
+<dl>
+	<dt><strong>Static and dynamic objects</strong></dt>
+		<dd>Objects can be either static or dynamic. Static objects are defined in source files which are compiled and loaded in the same way as Prolog files. Dynamic object can be either defined in source files or created at runtime.</dd>
+</dl>
+<dl>
+	<dt><strong>Static and dynamic object predicates</strong></dt>
+		<dd>Any static object may contain both static and dynamic predicates.</dd>
+</dl>
+<dl>
+	<dt><strong>Logtalk syntax extends standard Prolog syntax</strong></dt>
+		<dd>Logtalk uses standard Prolog syntax with the addition of a few operators and directives for a smooth learning curve. Prolog code can be easily encapsulated inside objects with little or no changes. Moreover, Logtalk can transparently interpret most Prolog modules as Logtalk objects for easy reusing of existing code (e.g. libraries).</dd>
+</dl>
+<dl>
+	<dt><strong>Event-driven programming</strong></dt>
+		<dd>Predicates can be implicitly called when a spied event occurs, allowing programming solutions which minimize object coupling. In addition, events provide support for behavioral reflection and can be used to implement the concepts of <em>pointcut</em> and <em>advice</em> found on Aspect-Oriented Programming.</dd>
+</dl>
+<dl>
+	<dt><strong>Component-based programming</strong></dt>
+		<dd>Predicates can be encapsulated inside <em>categories</em>, which can be virtually imported by any object, without any code duplication and irrespective of object hierarchies. Thus, objects may be defined through composition of categories, which act as fine-grained units of code reuse. Categories may also extend existing objects. Categories can be used to implement <em>aspects</em> and mixin-like behavior without resorting to inheritance.</dd>
+</dl>
+<dl>
+	<dt><strong>Multi-threading programming</strong></dt>
+		<dd>High level multi-threading programming is available when running Logtalk with selected back-end Prolog compilers, allowing objects to support both synchronous and asynchronous messages. Independent and-parallelism and competitive or-parallelism are also supported. Easily take advantage of modern multi-processor and multi-core computers without bothering with the details of creating and destroying threads, implement thread communication, or synchronizing threads.</dd>
+</dl>
+<dl>
+	<dt><strong>Multi-inheritance and multiple-instantiation support</strong></dt>
+		<dd>Logtalk supports multi-inheritance of both protocol and implementation. An object may implement several protocols and extend, specialize, or instantiate several objects. Multi-inheritance conflicts can be solved implicitly by the Logtalk lookup algorithms or explicitly by using predicate directives.</dd>
+</dl>
+<dl>
+	<dt><strong>Good performance</strong></dt>
+		<dd>Logtalk code is compiled using the same technics that you use to write efficient Prolog code. In addition, Logtalk supports both static binding and dynamic binding (with method lookup caching), greatly improving performance. Benchmark results for some Prolog compilers are available <a href="performance.html">here</a>.</dd>
+</dl>
+<dl>
+	<dt><strong>Close integration with Prolog standards</strong></dt>
+		<dd>Logtalk is designed for smooth integration with any Prolog compiler that conforms or closely follows official and de facto Prolog standards.</dd>
+</dl>
+<dl>
+	<dt><strong>Compatible with most Prolog compilers</strong></dt>
+		<dd>Logtalk interfaces with a specific back-end Prolog compiler via a minimal configuration file making it compatible with almost any modern compiler.</dd>
+</dl>
+<dl>
+	<dt><strong>Comprehensive set of developer tools</strong></dt>
+		<dd>The Logtalk distribution includes debugging, documenting, diagraming, unit testing, assertion, and profiling developer tools.</dd>
+</dl>
+<dl>
+	<dt><strong>Dynamic language</strong></dt>
+		<dd>Logtalk is a dynamic language that allows hierarchies, objects, protocols, categories, and methods (predicates) to be freely created and modified at runtime. Other dynamic language features include support for meta-programming and both structural and behavioral reflection.</dd>
+</dl>
+</blockquote>
+
+<p>&nbsp;</p>
+
+<div class="navigation">
+<a href="news.html">News</a>&nbsp;&bull;&nbsp;Features&nbsp;&bull;&nbsp;<a href="compatibility.html">Compatibility</a>&nbsp;&bull;&nbsp;<a href="documentation.html">Documentation</a>&nbsp;&bull;&nbsp;<a href="download.html">Download</a>&nbsp;&bull;&nbsp;<a href="https://github.com/LogtalkDotOrg/logtalk3/">Developers</a>&nbsp;&bull;&nbsp;<a href="support.html">Support</a>&nbsp;&bull;&nbsp;<a href="http://forums.logtalk.org/">Forums</a>&nbsp;&bull;&nbsp;<a href="links.html">Links</a>&nbsp;&bull;&nbsp;<a href="http://blog.logtalk.org/">Blog</a>&nbsp;&bull;&nbsp;<a href="http://twitter.com/LogtalkDotOrg">Twitter</a>
+</div>
+
+<div class="footer">
+	<p><span class="left">
+		<a href="http://validator.w3.org/check/referer">XHTML</a> + <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a><br />
+		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
+	</span></p>
+	<p><span class="right">
+		August 3, 2015<br />
+		&copy; Paulo Moura, 1998-2016
+	</span></p>
+	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
+</div>
+
+</body>
+
+</html>

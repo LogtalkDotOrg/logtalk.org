@@ -1,0 +1,746 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml-stylesheet type="text/css" href="logtalk.css" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head profile="http://www.w3.org/2005/10/profile">
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<title>Logtalk performance</title>
+	<link rel="stylesheet" href="logtalk.css" type="text/css" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<meta name="author" lang="pt" content="Paulo Moura"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<div class="header">
+<a href="logtalk.html">Home</a> &gt; <a href="documentation.html">Documentation</a> &gt; Performance
+</div>
+
+<div class="title">
+Logtalk performance
+</div>
+
+<p>
+This page contains benchmark results for some Prolog compilers. The main goal of this page it to give you some data for comparing predicate performance in plain Prolog and using Logtalk objects. Benchmark results are provided for both static code and dynamic code.
+</p>
+
+<div class="topictitle">
+Benchmark goals
+</div>
+
+<p>
+All the tests have been performed using the <code>benchmarks</code> example distributed with Logtalk version 2.42.4 (r6128), using either static binding or dynamic binding but with optional features (including events support) disabled. This provides two relevant scenarios for comparing Logtalk performance with plain Prolog performance. The worst case scenario corresponds to only using dynamic binding with event support enabled. The <code>benchmarks</code> example contains loader files for easily setting up different test scenarios.
+</p>
+
+<div class="subtopictitle">
+Static code test goals
+</div>
+
+<p>
+The <code>benchmarks</code> example provides list length and naive list reverse predicates defined in plain Prolog, in a Prolog module, and in a Logtalk object (predicate definitions are the same in all cases). The following goals are used for the first two benchmark tests:
+</p>
+<blockquote>
+<dl>
+	<dt>s11: <code>generate_list(30, List), my_length(List, _)</code></dt>
+	<dt>s12: <code>generate_list(30, List), module:mod_length(List, _)</code></dt>
+	<dt>s13: <code>generate_list(30, List), object::length(List, _)</code></dt>
+</dl>
+<dl>
+	<dt>s21: <code>generate_list(30, List), my_nrev(List, _)</code></dt>
+	<dt>s22: <code>generate_list(30, List), module:mod_nrev(List, _)</code></dt>
+	<dt>s23: <code>generate_list(30, List), object::nrev(List, _)</code></dt>
+</dl>
+</blockquote>
+<p>
+These benchmark tests use a list of 30 elements as an argument to the list predicates. Increasing the list length may lead to decreasing performance differences between plain Prolog and Logtalk as the list length computation time starts to outweigh the overhead of the message sending mechanism. Likewise, decreasing the list length may lead to increasing performance differences between plain Prolog and Logtalk (up to the point you will be closing on the Logtalk message sending mechanism overhead when compared to plain Prolog predicate calls). However, these tests make use of common library predicates where static binding is easily enabled, eliminating the message sending mechanism overheads. The next two examples deal with graph search:
+</p>
+<blockquote>
+<dl>
+	<dt>s31: <code>maze_solve(1, 7, _)</code></dt>
+	<dt>s32: <code>module:mod_maze_solve(1, 7, _)</code></dt>
+	<dt>s33: <code>maze::solve(1, 7, _)</code></dt>
+</dl>
+<dl>
+	<dt>s41: <code>graph_path(0, 4, _)</code></dt>
+	<dt>s42: <code>module:mod_graph_path(0, 4, _)</code></dt>
+	<dt>s43: <code>graph::path(0, 4, _)</code></dt>
+</dl>
+</blockquote>
+<p>
+When static binding is used, the performance of each set of goals is expected to be similar. The performance of Logtalk can be worse due to the overhead of the extra argument added to each compiled object predicate for carrying execution context information. This overhead depends on the Prolog abstract machine and on the optimizations used to pass unchanged arguments between predicate calls.
+</p>
+
+<div class="subtopictitle">
+Category test goals
+</div>
+
+<p>
+Category predicates can be called using either the <code>::/1</code> or the <code>:/1</code> control constructs. When using the <code>:/1</code> control construct, the lookup for both the predicate declaration and the predicate definition begins in <em>this</em> and is restricted to the imported categories. Depending on how the category is compiled, Logtalk may use static binding for <code>:/1</code> calls, providing the same performance level as calls to local object predicates. The following goals are used for the benchmark tests:
+</p>
+<blockquote>
+<dl>
+	<dt>c1: <code>leaf::obj_local</code></dt>
+	<dt>c2: <code>leaf::ctg_direct</code></dt>
+	<dt>c3: <code>leaf::ctg_self</code></dt>
+</dl>
+</blockquote>
+<p>
+The <code>obj_local</code> method calls a local object predicate; the performance of such calls is equal or close to plain Prolog. The <code>ctg_direct</code> method uses the <code>:/1</code> control construct to call an imported category predicate. The <code>ctg_self</code> method uses the <code>::/1</code> message sending control construct to call an imported category predicate. While the <code>:/1</code> calls may use static binding, the <code>::/1</code> calls always use dynamic binding and a lookup caching mechanism. Note that the choice between either control construct is not simply a question of performance as the control constructs provide different semantics for calling imported category predicates. All three predicates perform the same computation (generating a list of twenty elements and calculating its length) using local predicates.
+</p>
+
+<div class="subtopictitle">
+Dynamic code test goals
+</div>
+
+<p>
+Dynamic code tests include both object database updates and creating and abolishing dynamic objects. The <code>benchmarks</code> example provides an object named <code>database</code>, which defines a set of predicates for testing the Logtalk built-in database methods as described below. The following goals are used for the benchmark tests:
+</p>
+
+<blockquote>
+<dl>
+	<dt>d1: <code>create_object(xpto, [], [], []), abolish_object(xpto)</code></dt>
+	<dt>d2: <code>plain_dyndb(_)</code></dt>
+	<dt>d3: <code>database::this_dyndb(_)</code></dt>
+	<dt>d4: <code>database::self_dyndb(_)</code></dt>
+	<dt>d5: <code>database::obj_dyndb(_)</code></dt>
+</dl>
+</blockquote>
+<p>
+The first test simply creates and abolishes a (dynamic) object. The remaining tests are used for benchmarking object database updates, comparing with plain Prolog database updates. The <code>*_dyndb</code> tests simply assert (using <code>assertz/1</code>) and retract a clause (using <code>retract/1</code>) of a dynamic predicate with arity one. The <code>plain_dyndb(_)</code> test uses the Prolog built-in database predicates. The other three tests use the Logtalk built-in database methods, using a direct method call (<code>this_dyndb(_)</code>), a call using <code>::/1</code> (<code>self_dyndb(_)</code>), and a call using <code>::/2</code> (<code>obj_dyndb(_)</code>).
+</p>
+
+<div class="topictitle">
+Static code benchmark results
+</div>
+
+<p>
+Apple MacBook Pro 15.4" Core 2 Duo 2.8GHz, 4GB RAM, MacOS X Intel 10.6.6. All results are given in number of calls per second. By default, the benchmark code repeats each goal up to 100000 times in order to get more accurate results. The last columns show the trade-off between plain Prolog and Logtalk. Dynamic binding is never used in the Prolog module tests.
+</p>
+
+<div class="subtopictitle">
+Static binding (no events support)
+</div>
+
+<table>
+	<tr>
+		<td>Prolog compiler</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s11&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s12&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s13&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;s13/s11&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s21&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s22&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s23&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;s23/s21&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s31&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s32&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s33&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;s33/s31&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s41&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s42&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s43&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;s43/s41&nbsp;&nbsp;</td>
+	</tr>
+	<tr>
+		<td>B-Prolog 7.4#3</td>
+		<td class="data">5555556</td>
+		<td class="data">-</td>
+		<td class="data">4464286</td>
+		<td class="data">80.3 %</td>
+		<td class="data">171674</td>
+		<td class="data">-</td>
+		<td class="data">159337</td>
+		<td class="data">92.8 %</td>
+		<td class="data">190331</td>
+		<td class="data">-</td>
+		<td class="data">163720</td>
+		<td class="data">86.0 %</td>
+		<td class="data">71459</td>
+		<td class="data">-</td>
+		<td class="data">53996</td>
+		<td class="data">75.6 %</td>
+	</tr>
+	<tr>
+		<td>CxProlog 0.97.5 (devel)</td>
+		<td class="data">143221</td>
+		<td class="data">-</td>
+		<td class="data">187624</td>
+		<td class="data">131.0 %</td>
+		<td class="data">36430</td>
+		<td class="data">-</td>
+		<td class="data">35185</td>
+		<td class="data">96.6 %</td>
+		<td class="data">59700</td>
+		<td class="data">-</td>
+		<td class="data">57068</td>
+		<td class="data">95.6 %</td>
+		<td class="data">14311</td>
+		<td class="data">-</td>
+		<td class="data">13613</td>
+		<td class="data">95.1 %</td>
+	</tr>
+	<tr>
+		<td>ECLiPSe 6.0#168</td>
+		<td class="data">2500000</td>
+		<td class="data">1369863</td>
+		<td class="data">2439024</td>
+		<td class="data">97.6 %</td>
+		<td class="data">97847</td>
+		<td class="data">90744</td>
+		<td class="data">97182</td>
+		<td class="data">99.3 %</td>
+		<td class="data">202429</td>
+		<td class="data">194553</td>
+		<td class="data">196078</td>
+		<td class="data">96.7 %</td>
+		<td class="data">45290</td>
+		<td class="data">41511</td>
+		<td class="data">43975</td>
+		<td class="data">97.1 %</td>
+	</tr>
+	<tr>
+		<td>GNU Prolog 1.4.0</td>
+		<td class="data">147929</td>
+		<td class="data">-</td>
+		<td class="data">138889</td>
+		<td class="data">93.9 %</td>
+		<td class="data">21299</td>
+		<td class="data">-</td>
+		<td class="data">20951</td>
+		<td class="data">98.4 %</td>
+		<td class="data">37175</td>
+		<td class="data">-</td>
+		<td class="data">35676</td>
+		<td class="data">96.0 %</td>
+		<td class="data">9858</td>
+		<td class="data">-</td>
+		<td class="data">9463</td>
+		<td class="data">96.0 %</td>
+	</tr>
+	<tr>
+		<td>Qu-Prolog 8.12</td>
+		<td class="data">434783</td>
+		<td class="data">-</td>
+		<td class="data">400000</td>
+		<td class="data">92.0 %</td>
+		<td class="data">25773</td>
+		<td class="data">-</td>
+		<td class="data">25253</td>
+		<td class="data">98.0 %</td>
+		<td class="data">51282</td>
+		<td class="data">-</td>
+		<td class="data">48544</td>
+		<td class="data">94.7 %</td>
+		<td class="data">8489</td>
+		<td class="data">-</td>
+		<td class="data">8285</td>
+		<td class="data">97.6 %</td>
+	</tr>
+	<tr>
+		<td>SICStus Prolog 4.1.0beta1</td>
+		<td class="data">1666667</td>
+		<td class="data">1666667</td>
+		<td class="data">1666667</td>
+		<td class="data">100.0 %</td>
+		<td class="data">142857</td>
+		<td class="data">140845</td>
+		<td class="data">138889</td>
+		<td class="data">97.2 %</td>
+		<td class="data">208333</td>
+		<td class="data">208333</td>
+		<td class="data">192308</td>
+		<td class="data">92.3 %</td>
+		<td class="data">65359</td>
+		<td class="data">64103</td>
+		<td class="data">54645</td>
+		<td class="data">83.6 %</td>
+	</tr>
+	<tr>
+		<td>SWI-Prolog 5.11.17 (64 bits)</td>
+		<td class="data">434783</td>
+		<td class="data">434783</td>
+		<td class="data">400000</td>
+		<td class="data">92.0 %</td>
+		<td class="data">18519</td>
+		<td class="data">18519</td>
+		<td class="data">17241</td>
+		<td class="data">93.1 %</td>
+		<td class="data">83333</td>
+		<td class="data">83333</td>
+		<td class="data">76923</td>
+		<td class="data">92.3 %</td>
+		<td class="data">21277</td>
+		<td class="data">21277</td>
+		<td class="data">19608</td>
+		<td class="data">92.2 %</td>
+	</tr>
+	<tr>
+		<td>XSB 3.3+ (CVS, 64 bits)</td>
+		<td class="data">909091</td>
+		<td class="data">862069</td>
+		<td class="data">884956</td>
+		<td class="data">97.3 %</td>
+		<td class="data">52994</td>
+		<td class="data">50429</td>
+		<td class="data">54496</td>
+		<td class="data">102.8 %</td>
+		<td class="data">132450</td>
+		<td class="data">129702</td>
+		<td class="data">126582</td>
+		<td class="data">95.6 %</td>
+		<td class="data">36258</td>
+		<td class="data">36010</td>
+		<td class="data">34072</td>
+		<td class="data">94.0 %</td>
+	</tr>
+	<tr>
+		<td>YAP 6.2.0 (git, 64 bits)</td>
+		<td class="data">2777778</td>
+		<td class="data">2702703</td>
+		<td class="data">2564103</td>
+		<td class="data">92.3 %</td>
+		<td class="data">131062</td>
+		<td class="data">130208</td>
+		<td class="data">128370</td>
+		<td class="data">97.9 %</td>
+		<td class="data">352113</td>
+		<td class="data">355872</td>
+		<td class="data">325733</td>
+		<td class="data">92.5 %</td>
+		<td class="data">75358</td>
+		<td class="data">72464</td>
+		<td class="data">71942</td>
+		<td class="data">95.5 %</td>
+	</tr>
+</table>
+
+
+<div class="subtopictitle">
+Dynamic binding (with predicate lookup caching but no events support)
+</div>
+
+<table>
+	<tr>
+		<td>Prolog compiler</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s11&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s12&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s13&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;s13/s11&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s21&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s22&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s23&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;s23/s21&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s31&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s32&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s33&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;s33/s31&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s41&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s42&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;s43&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;s43/s41&nbsp;&nbsp;</td>
+	</tr>
+	<tr>
+		<td>B-Prolog 7.4#3</td>
+		<td class="data">5555556</td>
+		<td class="data">-</td>
+		<td class="data">1219512</td>
+		<td class="data">22.0 %</td>
+		<td class="data">167785</td>
+		<td class="data">-</td>
+		<td class="data">144092</td>
+		<td class="data">85.9 %</td>
+		<td class="data">190476</td>
+		<td class="data">-</td>
+		<td class="data">144092</td>
+		<td class="data">75.6 %</td>
+		<td class="data">71839</td>
+		<td class="data">-</td>
+		<td class="data">51867</td>
+		<td class="data">72.2 %</td>
+	</tr>
+	<tr>
+		<td>CxProlog 0.97.5 (devel)</td>
+		<td class="data">145860</td>
+		<td class="data">-</td>
+		<td class="data">174633</td>
+		<td class="data">119.7 %</td>
+		<td class="data">36255</td>
+		<td class="data">-</td>
+		<td class="data">34784</td>
+		<td class="data">96.0 %</td>
+		<td class="data">59812</td>
+		<td class="data">-</td>
+		<td class="data">55854</td>
+		<td class="data">93.4 %</td>
+		<td class="data">14297</td>
+		<td class="data">-</td>
+		<td class="data">13579</td>
+		<td class="data">95.0 %</td>
+	</tr>
+	<tr>
+		<td>ECLiPSe 6.0#168</td>
+		<td class="data">2500000</td>
+		<td class="data">1369863</td>
+		<td class="data">847458</td>
+		<td class="data">33.9 %</td>
+		<td class="data">98135</td>
+		<td class="data">92421</td>
+		<td class="data">86133</td>
+		<td class="data">87.8 %</td>
+		<td class="data">206186</td>
+		<td class="data">195695</td>
+		<td class="data">159744</td>
+		<td class="data">77.4 %</td>
+		<td class="data">45558</td>
+		<td class="data">40502</td>
+		<td class="data">43459</td>
+		<td class="data">95.4 %</td>
+	</tr>
+	<tr>
+		<td>GNU Prolog 1.4.0</td>
+		<td class="data">144928</td>
+		<td class="data">-</td>
+		<td class="data">121803</td>
+		<td class="data">84.0 %</td>
+		<td class="data">21110</td>
+		<td class="data">-</td>
+		<td class="data">20687</td>
+		<td class="data">98.0 %</td>
+		<td class="data">36955</td>
+		<td class="data">-</td>
+		<td class="data">34602</td>
+		<td class="data">93.6 %</td>
+		<td class="data">9863</td>
+		<td class="data">-</td>
+		<td class="data">9446</td>
+		<td class="data">95.8 %</td>
+	</tr>
+	<tr>
+		<td>Qu-Prolog 8.12</td>
+		<td class="data">416667</td>
+		<td class="data">-</td>
+		<td class="data">333333</td>
+		<td class="data">80.0 %</td>
+		<td class="data">25773</td>
+		<td class="data">-</td>
+		<td class="data">24938</td>
+		<td class="data">96.8 %</td>
+		<td class="data">50761</td>
+		<td class="data">-</td>
+		<td class="data">45872</td>
+		<td class="data">90.4 %</td>
+		<td class="data">8460</td>
+		<td class="data">-</td>
+		<td class="data">8026</td>
+		<td class="data">94.9 %</td>
+	</tr>
+	<tr>
+		<td>SICStus Prolog 4.1.0beta1</td>
+		<td class="data">1666667</td>
+		<td class="data">1666667</td>
+		<td class="data">1111111</td>
+		<td class="data">66.7 %</td>
+		<td class="data">144928</td>
+		<td class="data">135135</td>
+		<td class="data">135135</td>
+		<td class="data">93.2 %</td>
+		<td class="data">212766</td>
+		<td class="data">208333</td>
+		<td class="data">172414</td>
+		<td class="data">81.0 %</td>
+		<td class="data">62112</td>
+		<td class="data">63694</td>
+		<td class="data">48780</td>
+		<td class="data">78.5 %</td>
+	</tr>
+	<tr>
+		<td>SWI-Prolog 5.11.17 (64 bits)</td>
+		<td class="data">434783</td>
+		<td class="data">434783</td>
+		<td class="data">357143</td>
+		<td class="data">82.1 %</td>
+		<td class="data">18519</td>
+		<td class="data">18519</td>
+		<td class="data">16949</td>
+		<td class="data">91.5 %</td>
+		<td class="data">83333</td>
+		<td class="data">83333</td>
+		<td class="data">71429</td>
+		<td class="data">85.7 %</td>
+		<td class="data">21277</td>
+		<td class="data">21277</td>
+		<td class="data">19608</td>
+		<td class="data">92.2 %</td>
+	</tr>
+	<tr>
+		<td>XSB 3.3+ (CVS, 64 bits)</td>
+		<td class="data">909091</td>
+		<td class="data">884956</td>
+		<td class="data">694444</td>
+		<td class="data">76.4 %</td>
+		<td class="data">53107</td>
+		<td class="data">50531</td>
+		<td class="data">53533</td>
+		<td class="data">100.8 %</td>
+		<td class="data">133511</td>
+		<td class="data">129366</td>
+		<td class="data">120192</td>
+		<td class="data">90.0 %</td>
+		<td class="data">35971</td>
+		<td class="data">35249</td>
+		<td class="data">33058</td>
+		<td class="data">91.9 %</td>
+	</tr>
+	<tr>
+		<td>YAP 6.2.0 (git, 64 bits)</td>
+		<td class="data">2777778</td>
+		<td class="data">2631579</td>
+		<td class="data">2500000</td>
+		<td class="data">90.0 %</td>
+		<td class="data">127714</td>
+		<td class="data">129534</td>
+		<td class="data">129702</td>
+		<td class="data">101.6 %</td>
+		<td class="data">350877</td>
+		<td class="data">347222</td>
+		<td class="data">324675</td>
+		<td class="data">92.5 %</td>
+		<td class="data">72569</td>
+		<td class="data">75586</td>
+		<td class="data">72939</td>
+		<td class="data">100.5 %</td>
+	</tr>
+</table>
+
+<div class="topictitle">
+Category benchmark results
+</div>
+
+<p>
+All results are given in number of calls per second. By default, the benchmark code repeats each goal up to 100000 times in order to get more accurate results. The last column shows the trade-off between static binding (<code>c2</code>) and dynamic binding (<code>c3</code>) when calling category predicates.
+</p>
+
+<div class="subtopictitle">
+Apple MacBook Pro 15.4" Core 2 Duo 2.8GHz, 4GB RAM, MacOS X Intel 10.6.6
+</div>
+
+<table>
+	<tr>
+		<td>Prolog compiler</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;c3/c2&nbsp;&nbsp;&nbsp;</td>
+	</tr>
+	<tr>
+		<td>B-Prolog 7.4#3</td>
+		<td class="data">476190</td>
+		<td class="data">476190</td>
+		<td class="data">344828</td>
+		<td class="data">72.4 %</td>
+	</tr>
+	<tr>
+		<td>CxProlog 0.97.5 (devel)</td>
+		<td class="data">79153</td>
+		<td class="data">79381</td>
+		<td class="data">74660</td>
+		<td class="data">94.1 %</td>
+	</tr>
+	<tr>
+		<td>ECLiPSe 6.0#168</td>
+		<td class="data">578035</td>
+		<td class="data">571429</td>
+		<td class="data">403226</td>
+		<td class="data">70.6 %</td>
+	</tr>
+	<tr>
+		<td>GNU Prolog 1.4.0</td>
+		<td class="data">80972</td>
+		<td class="data">79554</td>
+		<td class="data">74460</td>
+		<td class="data">93.6 %</td>
+	</tr>
+	<tr>
+		<td>Qu-Prolog 8.12</td>
+		<td class="data">128205</td>
+		<td class="data">126582</td>
+		<td class="data">116279</td>
+		<td class="data">91.9 %</td>
+	</tr>
+	<tr>
+		<td>SICStus Prolog 4.1.0beta1</td>
+		<td class="data">769231</td>
+		<td class="data">714286</td>
+		<td class="data">555556</td>
+		<td class="data">77.8 %</td>
+	</tr>
+	<tr>
+		<td>SWI-Prolog 5.11.17 (64 bits)</td>
+		<td class="data">181818</td>
+		<td class="data">166667</td>
+		<td class="data">158730</td>
+		<td class="data">95.2 %</td>
+	</tr>
+	<tr>
+		<td>XSB 3.3+ (CVS, 64 bits)</td>
+		<td class="data">374532</td>
+		<td class="data">373134</td>
+		<td class="data">328947</td>
+		<td class="data">88.2 %</td>
+	</tr>
+	<tr>
+		<td>YAP 6.2.0 (git, 64 bits)</td>
+		<td class="data">952381</td>
+		<td class="data">952381</td>
+		<td class="data">892857</td>
+		<td class="data">93.7 %</td>
+	</tr>
+</table>
+
+<div class="topictitle">
+Dynamic code benchmark results
+</div>
+
+<p>
+All results are given in number of calls per second. By default, the benchmark code repeats each goal up to 100000 times in order to get more accurate results. The last column shows the trade-off between plain Prolog (<code>d2</code>) and Logtalk using static binding (<code>d3</code>).
+</p>
+
+<div class="subtopictitle">
+Apple MacBook Pro 15.4" Core 2 Duo 2.8GHz, 4GB RAM, MacOS X Intel 10.6.6
+</div>
+
+<table>
+	<tr>
+		<td>Prolog compiler</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td>&nbsp;&nbsp;&nbsp;d3/d2&nbsp;&nbsp;&nbsp;</td>
+	</tr>
+	<tr>
+		<td>B-Prolog 7.4#3</td>
+		<td class="data">4082</td>
+		<td class="data">1162791</td>
+		<td class="data">961538</td>
+		<td class="data">411862</td>
+		<td class="data">364964</td>
+		<td class="data">82.7 %</td>
+	</tr>
+	<tr>
+		<td>CxProlog 0.97.5 (devel)</td>
+		<td class="data">976</td>
+		<td class="data">123570</td>
+		<td class="data">117534</td>
+		<td class="data">93810</td>
+		<td class="data">91586</td>
+		<td class="data">95.1 %</td>
+	</tr>
+	<tr>
+		<td>ECLiPSe 6.0#168</td>
+		<td class="data">4387</td>
+		<td class="data">775194</td>
+		<td class="data">746269</td>
+		<td class="data">302115</td>
+		<td class="data">303951</td>
+		<td class="data">96.3 %</td>
+	</tr>
+	<tr>
+		<td>GNU Prolog 1.4.0</td>
+		<td class="data">5681</td>
+		<td class="data">28177</td>
+		<td class="data">30618</td>
+		<td class="data">28918</td>
+		<td class="data">28466</td>
+		<td class="data">108.7 %</td>
+	</tr>
+	<tr>
+		<td>Qu-Prolog 8.12</td>
+		<td class="data">678</td>
+		<td class="data">48780</td>
+		<td class="data">46296</td>
+		<td class="data">40000</td>
+		<td class="data">39841</td>
+		<td class="data">94.9 %</td>
+	</tr>
+	<tr>
+		<td>SICStus Prolog 4.1.0beta1</td>
+		<td class="data">3700</td>
+		<td class="data">454545</td>
+		<td class="data">434783</td>
+		<td class="data">312500</td>
+		<td class="data">303030</td>
+		<td class="data">95.7 %</td>
+	</tr>
+	<tr>
+		<td>SWI-Prolog 5.11.17 (64 bits)</td>
+		<td class="data">5432</td>
+		<td class="data">769231</td>
+		<td class="data">625000</td>
+		<td class="data">384615</td>
+		<td class="data">357143</td>
+		<td class="data">81.2 %</td>
+	</tr>
+	<tr>
+		<td>XSB 3.3+ (CVS, 64 bits)</td>
+		<td class="data">1118</td>
+		<td class="data">81037</td>
+		<td class="data">82305</td>
+		<td class="data">72886</td>
+		<td class="data">70872</td>
+		<td class="data">101.6 %</td>
+	</tr>
+	<tr>
+		<td>YAP 6.2.0 (git, 64 bits)</td>
+		<td class="data">4095</td>
+		<td class="data">452489</td>
+		<td class="data">438596</td>
+		<td class="data">350877</td>
+		<td class="data">341297</td>
+		<td class="data">96.9 %</td>
+	</tr>
+</table>
+
+<div class="topictitle">
+Some unsorted comments
+</div>
+
+<ul>
+	<li>It's surprisingly difficult to get stable results, specially with some Prolog compilers. One the reasons seems to be the operating-system constant shuffling of processes between the cores.</li>
+	<li>Some results are odd, either above the expected maximum (100% of plain Prolog performance) or much lower than what's reasonable to expect. This happens mostly on the most simple benchmark goals. Benchmarks where a more significant amount of work is performed seem to be more (but not complete) immune to these issues.</li>
+	<li>All benchmark tests use the default memory allocation for the different program areas. Changing the size of these program areas can have a big impact on the benchmark results (e.g. increasing stack size to avoid wasting time expanding the stack or doing garbage collection).</li>
+	<li>Logtalk usually performs better with Prolog compilers with mature virtual machines when compared with Prolog compilers with younger and less optimized virtual machines. The presence, in Logtalk compiled code, of a hidden execution context predicate argument is a particular sensitive point in virtual machines optimization as this extra argument is usually passed unchanged between local predicate calls.</li>
+	<li>These are too few and too limited benchmark tests to effectively compare Prolog compiler performance.</li>
+	<li>Processor caches sometimes result in tests one order of magnitude better than the results posted above.</li>
+	<li>Some of the Prolog built-in predicates used for measuring CPU time are not as accurate as we would like. Despite each benchmark goal being proved by default 100000 times, repeating the tests always show some variation on the final results. Increasing the number of repetions often helps in getting more stable results.</li>
+	<li>The more real work your object and category predicates do, the less significant the Logtalk message sending overheads become.</li>
+	<li>In real-life applications, only testing can give you a balanced view on the trade-offs between plain Prolog performance and Logtalk programming features. Nevertheless, and as a general and rough estimate, you can expect a performance penalty between 5% and 10% when using static binding and a performance penalty between 10% and 20% when using dynamic binding.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<div class="navigation">
+<a href="news.html">News</a>&nbsp;&nbsp;<a href="features.html">Features</a>&nbsp;&nbsp;<a href="compatibility.html">Compatibility</a>&nbsp;&nbsp;<a href="documentation.html">Documentation</a>&nbsp;&nbsp;<a href="download.html">Download</a>&nbsp;&nbsp;<a href="https://github.com/LogtalkDotOrg/logtalk3/wiki/">Developers</a>&nbsp;&nbsp;<a href="support.html">Support</a>&nbsp;&nbsp;<a href="http://forums.logtalk.org/">Forums</a>&nbsp;&nbsp;<a href="links.html">Links</a>&nbsp;&nbsp;<a href="http://blog.logtalk.org/">Blog</a>&nbsp;&nbsp;<a href="http://twitter.com/LogtalkDotOrg">Twitter</a>
+</div>
+
+<div class="footer">
+	<p><span class="left">
+		<a href="http://validator.w3.org/check/referer">XHTML</a> + <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a><br />
+		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
+	</span></p>
+	<p><span class="right">
+		March 20, 2011<br />
+		&copy; Paulo Moura, 1998-2016
+	</span></p>
+	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
+</div>
+
+</body>
+
+</html>

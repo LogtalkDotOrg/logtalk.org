@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml-stylesheet type="text/css" href="logtalk.css" ?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head profile="http://www.w3.org/2005/10/profile">
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<title>Logtalk download</title>
+	<link rel="stylesheet" href="logtalk.css" type="text/css" />
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<meta name="author" lang="pt" content="Paulo Moura"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<div class="header">
+<a href="logtalk.html">Home</a> &gt; Download
+</div>
+
+<div class="title">
+Download
+</div>
+
+<p>
+From this page you can download the <a href="#sources">sources</a> of the current Logtalk release, <a href="#installers">installers</a> for most operating systems, and the latest version of the user and reference <a href="#manual">manuals</a>.
+</p>
+<p>
+Older releases are available <a href="/files/">here</a> (but note that time stamps do not match the release dates due to all the moving of these files between servers along the years).
+</p>
+<p>
+Note that Logtalk <strong>requires</strong> a <a href="compatibility.html">compatible</a> Prolog compiler to be properly installed in order to run. Be sure to install the Prolog systems that you want to use as back-end compilers before installing Logtalk.
+</p>
+<p>
+Consider <a href="regform.html">registering</a> if you become a Logtalk user.
+</p>
+
+<div class="topictitle">
+<a name="license">Logtalk license</a>
+</div>
+
+<p>
+Logtalk is an open source programming language, distributed under the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/LICENSE.txt">Apache License 2.0</a>. The copyright notice and license applies to all files in this release (including sources, documentation, and examples) unless otherwise explicitly stated.
+</p>
+
+<div class="topictitle">
+<a name="sources">Logtalk sources</a>
+</div>
+
+<p>
+Logtalk development is currently hosted at <a href="http://github.com/LogtalkDotOrg/logtalk3">GitHub</a>. You may keep up to date on development changes by subscribing to the <a href="https://github.com/LogtalkDotOrg/logtalk3/commits/master.atom">Logtalk 3.x commits RSS feed</a>. See the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md">release notes</a> for details.
+</p>
+<ul>
+	<li><a href="files/logtalk-3.05.0.tar.bz2"><code>logtalk-3.05.0.tar.bz2</code></a> (released on May 16, 2016)</li>
+	<li><code>baee2d64dd6b8e6b3218c4e52dcad29c838a83b9616c0397dff403bc9e2190f8</code> (SHA-256)</li>
+</ul>
+<p>
+Follow these <a href="https://github.com/LogtalkDotOrg/logtalk3/wiki/Running-Developer-Versions">steps</a> for running Logtalk development versions. You may keep up to date on development changes by subscribing to the Logtalk commits RSS <a href="https://github.com/LogtalkDotOrg/logtalk3/commits/master.atom">RSS feed</a>.
+</p>
+
+<div class="topictitle">
+<a name="installers">Logtalk installers</a>
+</div>
+
+<p>
+Be sure to read the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/README.md"><code>README.md</code></a>, <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/CUSTOMIZE.md"><code>CUSTOMIZE.md</code></a>, and <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/QUICK_START.md"><code>QUICK_START.md</code></a> files on the Logtalk user directory for important information, including instructions on how to customize and run Logtalk. For Windows users, this information is also available from the <code>Logtalk</code> program group in the <code>Start Menu</code>.
+</p>
+
+<p>
+The following installers are available for the latest version:
+</p>
+
+<div class="subtopictitle">
+<a name="macosx">Mac OS X</a>
+</div>
+<p>
+Based on the <a href="http://www.macports.org/">MacPorts</a> portfile. Installs Logtalk on <code>/opt/local/share/</code> with integration scripts for selected Prolog compilers on <code>/opt/local/bin</code>. Creates an <code>/Applications/Logtalk</code> folder with links to the installed files.
+</p>
+<ul>
+	<li><a href="files/logtalk-3.05.0.pkg.zip"><code>logtalk-3.05.0.pkg.zip</code></a></li>
+	<li><code>a864cb32bf74bbe80728332c23b3a30a245c7d37751a292531bc61f135ddaefc</code> (SHA-256)</li>
+</ul>
+<p>
+A <a href="http://www.macports.org/">MacPorts</a> portfile is also available. Users may simply type the command <code>sudo port install logtalk</code> (or <code>sudo port upgrade logtalk</code>) in order to install (or upgrade) Logtalk. <a href="http://mxcl.github.com/homebrew/">Homebrew</a> users may simply type the command <code>brew install logtalk</code> (or <code>brew upgrade logtalk</code>) in order to install (or upgrade) Logtalk. But do check first that the MacPorts portfile and the Homebrew formula are up-to-date.
+</p>
+
+<div class="subtopictitle">
+<a name="linux">Linux</a>
+</div>
+<p>
+Installs Logtalk on <code>/usr/local/share</code> with integration scripts for selected Prolog compilers on <code>/usr/local/bin</code>. Package installation from the command-line is recommended.
+</p>
+<ul>
+	<li><a href="files/logtalk-3.05.0-1.noarch.rpm"><code>logtalk-3.05.0-1.noarch.rpm</code></a></li>
+	<li><code>8cfc0f66bdfe31d2bac9cbc0f9255bc0310219fc20048026cb1cce6e9e21cca5</code> (SHA-256)</li>
+</ul>
+
+<div class="subtopictitle">
+<a name="debian">Debian (e.g. Ubuntu)</a>
+</div>
+<p>
+Requires dpkg 1.15.0 or a later version. Installs Logtalk on <code>/usr/share</code> with integration scripts for selected Prolog compilers on <code>/usr/bin</code>. Package installation from the command-line is recommended.
+</p>
+<ul>
+	<li><a href="files/logtalk_3.05.0-1_all.deb"><code>logtalk_3.05.0-1_all.deb</code></a></li>
+	<li><code>5764cdd3df22163574e8af8fccb32cfe9c871401382317acbd7578e0f977ce1d</code> (SHA-256)</li>
+</ul>
+
+<div class="subtopictitle">
+<a name="windows">Windows</a>
+</div>
+<p>
+Be sure to install a <a href="compatibility.html">compatible</a> Prolog compiler <strong>before</strong> running the Logtalk installer. Creates a <code>Logtalk</code> program group in the <code>Start Menu</code> with integration shortcuts for supported Prolog compilers and shortcuts for the accessing the Logtalk documentation. Can be used by both admin and non-admin users.
+</p>
+<ul>
+	<li><a href="files/logtalk-3.05.0.exe"><code>logtalk-3.05.0.exe</code></a></li>
+	<li><code>4158c681bc4dc3505f489d3373e71c5dfdcb4b0445a096b7ba5fff31b17b49d5</code> (SHA-256)</li>
+</ul>
+
+<div class="topictitle">
+<a name="manual">User and Reference Manuals and Tutorial</a>
+</div>
+<p>
+XHTML 1.1 version and PDF versions of the User and Reference Manuals (included in the source and binary packages)
+</p>
+<ul>
+	<li><a href="files/logtalk-manuals-3.05.0.tgz"><code>logtalk-manuals-3.05.0.tgz</code></a></li>
+	<li><code>b76b143f3c3caa669eeff55dbbe690d9e084ded9e8a5eb8220b6157f58cbae79</code> (SHA-256)</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<div class="navigation">
+<a href="news.html">News</a>&nbsp;&bull;&nbsp;<a href="features.html">Features</a>&nbsp;&bull;&nbsp;<a href="compatibility.html">Compatibility</a>&nbsp;&bull;&nbsp;<a href="documentation.html">Documentation</a>&nbsp;&bull;&nbsp;Download&nbsp;&bull;&nbsp;<a href="https://github.com/LogtalkDotOrg/logtalk3/">Developers</a>&nbsp;&bull;&nbsp;<a href="support.html">Support</a>&nbsp;&bull;&nbsp;<a href="http://forums.logtalk.org/">Forums</a>&nbsp;&bull;&nbsp;<a href="links.html">Links</a>&nbsp;&bull;&nbsp;<a href="http://blog.logtalk.org/">Blog</a>&nbsp;&bull;&nbsp;<a href="http://twitter.com/LogtalkDotOrg">Twitter</a>
+</div>
+
+<div class="footer">
+	<p><span class="left">
+		<a href="http://validator.w3.org/check/referer">XHTML</a> + <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a><br />
+		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
+	</span></p>
+	<p><span class="right">
+		May 16, 2016<br />
+		&copy; Paulo Moura, 1998-2016
+	</span></p>
+</div>
+
+</body>
+
+</html>
