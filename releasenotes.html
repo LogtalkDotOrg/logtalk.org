@@ -28,6 +28,122 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.06.0 - June 12, 2016
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: When adding a `begin/2` token to the list of tokens generated for
+printing a message, use the message kind term instead of just its functor.
+
+* ADDED: Threaded engines API. A threaded engine is a computing thread whose
+solutions can be lazily computed and retrieved. An engine also supports a term
+queue that allows passing arbitrary terms to an engine. Based on Paul Tarau's
+`engines` concepts.
+
+* ADDED: Support for specifying the `scratch_directory` flag value using
+library notation.
+
+* ADDED: By default, print information on how to get help using the `help` tool
+at Logtalk startup. Thanks to Anne Ogborn for the suggestion.
+
+* IMPROVED: Detection of missing `meta_predicate/1` directives.
+
+* IMPROVED: Compiler code cleanup and refactoring.
+
+* IMPROVED: The built-in predicates `threaded_call/1-2`, `threaded_once/1-2`,
+and `threaded_ignore/1` to avoid creating a thread if the goal argument is not
+callable at runtime.
+
+* FIXED: Regression when processing source file names with multiple periods.
+Thanks to Günter Kniesel for the bug report.
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: SWI-Prolog adapter file to enable tabling support when using version
+7.3.21 or later.
+
+Documentation
+-------------
+
+* ADDED: Sample test suite file, `tests-sample.lgt`.
+
+* UPDATED: User and Reference manuals for the threaded engines API.
+
+Tools
+-----
+
+* UPDATED: The `help` tool for the threaded engines API built-in predicates.
+
+* IMPROVED: The `help` tool to use name completions and to print alternatives
+when there is more than a single match for a request for help on a predicate
+indicator or a non-terminal indicator.
+
+* IMPROVED: The `help` tool now prints the general instructions on how to get
+help when if an unknown message is sent to the `help` object.
+
+* ADDED: Predicates `file/1-2` to the `wrapper` tool.
+
+* IMPROVED: The `wrapper` tool now tries to expand file paths with the defined
+Prolog extensions if the file path as given is not found.
+
+* ADDED: Support for using the Logtalk pack for SWI-Prolog as a backend option
+to the `logtalk_tester.sh` automation script.
+
+* IMPROVED: The `logtalk_tester.sh` automation script now also prints the total
+number of tests sets and the number of completed tests sets.
+
+* FIXED: The `logtalk_tester.sh` automation script to not override any existing
+log messages when tagging a test suite as a timeout or a crash.
+
+* FIXED: Workaround the lack of support for process substitution in the Git for
+Windows provided Git Bash when using the `logtalk_tester.sh` automation script.
+
+* IMPROVED: The `lgtunit` tool to print an error message when an invalid test
+outcome is found while compiling tests using the `test/3` testing dialect. 
+
+* FIXED: Regression in the `lgtunit` tool introduced in the previous release
+where an error in the added meta-predicate directives for local meta-predicates
+broke the `test/3` testing dialect.
+
+Tests
+-----
+
+* ADDED: Unit tests for the new threaded engines built-in predicates.
+
+Examples
+--------
+
+* RENAMED: Example `engines` to `carengines`.
+
+* ADDED: Set of examples, `engines`, illustrating using threaded engines
+and coroutining to implement fluents, lazy meta-predicates, interactors,
+and simple agents. Requires SWI-Prolog as the backend Prolog compiler.
+
+* ADDED: `blocks` example, a simpler version of the `bricks` example.
+
+* UPDATED: The `jpl` example with some benchmarks.
+
+* UPDATED: The `tabling` example to also run using SWI-Prolog as the backend
+compiler when using version 7.3.21 or later.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Syntax coloring and code completion support for the new threaded
+engines built-in predicates.
+
+* ADDED: Instructions for using GtkSourceView 3.x syntax highlighting support.
+
+* UPDATED: Sublime Text instructions for adding Logtalk editing support.
+
+* UPDATED: Instructions for adding syntax highlighting support to recent
+versions of the Gedit text editor.
+
+* FIXED: Make the external tools for the Gedit text editor executable.
+
 
 3.05.0 - May 16, 2016
 ======================
@@ -12749,7 +12865,7 @@ First release for registered users.
         <a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
     </span></p>
     <p><span class="right">
-		May 3, 2016<br />
+		June 12, 2016<br />
         &copy; Paulo Moura, 1998-2016
     </span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
