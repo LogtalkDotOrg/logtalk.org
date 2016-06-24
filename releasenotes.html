@@ -28,6 +28,36 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.06.1 - June 19, 2016
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* RENAMED: Threaded engine predicates `threaded_engine_stop/1` to
+`threaded_engine_destroy/1`, `threaded_engine_return/1` to
+`threaded_engine_yield/1`, and `threaded_engine_answer/2` to
+`threaded_engine_next/2`. After discussion on engine APIs predicate
+naming with Paul Tarau and Jan Wielemaker. This renaming makes it
+easier to compare and port code between coroutining and threaded
+versions of engine APIs.
+
+* ADDED: Threaded engine predicate `threaded_engine_next_reified/2`. This
+predicate follows Lean Prolog convention of returning `the(Answer)`, `no`,
+and `exception(Error)` terms as answers.
+
+Installers and installation scripts
+-----------------------------------
+
+* FIXED: The `logtalk` SWI-Prolog pack to load Logtalk silently.
+
+Examples
+--------
+
+* ADDED: Three new engines examples, `sums`, `whisper`, and `yield`, originally
+written by Jan Wielemaker.
+
+
 3.06.0 - June 12, 2016
 ======================
 
@@ -12865,7 +12895,7 @@ First release for registered users.
         <a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
     </span></p>
     <p><span class="right">
-		June 12, 2016<br />
+		June 19, 2016<br />
         &copy; Paulo Moura, 1998-2016
     </span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
