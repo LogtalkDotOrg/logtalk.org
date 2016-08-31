@@ -28,7 +28,109 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
-3.06.2 - July 18, 2016
+3.07.0 - August 31, 2016
+========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: A `unicode` read-only flag to describe the backend Prolog compiler
+support for the Unicode standard.
+
+* ADDED: Support for `++` (ground) and `--` (unbound) argument instantiation
+modes (declared as prefix operators) for use with the `mode/2` predicate
+directive.
+
+* ADDED: Support for `one_or_error` determinism specification in `mode/2`
+predicate directives. Useful for documenting type-checking predicates.
+
+* IMPROVED: Detect attempts to call existentially quantified goals outside the
+scope of `bagof/3` and `setof/3` calls.
+
+* FIXED: When compiling `uses/2` directives, don't create a linking clause for
+runtime use for built-in predicates in `user` when no alias is being defined.
+
+* FIXED: When propagating a compilation failure for a file to its parent files,
+ensure that the file ancestors will be reloaded starting with the top ancestor
+by the make mechanism.
+
+* FIXED: Avoid redundant file reloads when calling `logtalk_make/0` or
+`logtalk_make/1` with the target `all`.
+
+* FIXED: Detection of missing predicates in `^^/1` calls when calling
+`logtalk_make/1` with the target `missing`.
+
+* FIXED: Bug in the reflection API where some predicate cross-referencing
+information were not recorded. Thanks to Edward Schwartz for the bug report.
+
+Prolog adapter and integration files
+------------------------------------
+
+* FIXED: Embedding Logtalk in a GNU Prolog generated executable.
+
+* FIXED: Startup warnings about undefined multi-threading predicates when using
+Lean Prolog as the backend compiler.
+
+Documentation
+-------------
+
+* ADDED: Glossary entries for the different roles of source files.
+
+* IMPROVED: The glossary is now included in the PDF version of the Reference
+Manual.
+
+* IMPROVED: Description of the semantics of predicate scope directives in the
+User Manual.
+
+Library
+-------
+
+* ADDED: A user-extensible `type` object defining type testing and type
+checking predicates over common Logtalk and Prolog types.
+
+* ADDED: A user-extensible `arbitrary` category, which complements the library
+`type` object, defining predicates for generating arbitrary values for selected
+types.
+
+* UPDATED: Revised random number generator library. Added `between/3`,
+`member/2`, `select/3`, `sequence/4`, `set/4`, `get_seed/1`, and `set_seed/1`
+predicates.
+
+Tools
+-----
+
+* ADDED: QuickCheck support to the `lgtunit` tool. Includes both a new
+`quick_check/2-3` test dialect and `quick_check/1-3` public predicates
+for e.g. interactive use at the top-level interpreter.
+
+* ADDED: A `doclet` tool providing a simple solution to specify a set of goals
+and a set of shell commands to (re)generate documentation for a project.
+
+* CHANGED: The `lgtdoc` tool to always interpret the argument of the option
+`xml_docs_directory/1` as relative to the current directory for consistency
+with the `diagrams` tool.
+
+* FIXED: The `lgtdoc` tool to use the `startup` library name only when no other
+library for the same path is defined.
+
+* FIXED: The `lgtunit` tool to allow defining `test/3` tests with a `note/1`
+option whose argument is a variable to be instantiated by the test goal.
+
+* FIXED: Warning about a missing `meta_predicate/1` directive when compiling
+the `debugger` tool with some backend Prolog compilers such as Lean Prolog.
+
+Examples
+--------
+
+* ADDED: New `my_types` example of defining new types using the user-extensible
+`type` library object.
+
+* ADDED: New `quick_check` example on how to use the QuickCheck support in
+the `lgtunit` tool for both interactive testing at the top-level and for
+defining unit tests.
+
+
+3.07.0 - July 18, 2016
 ======================
 
 Logtalk compiler and runtime
@@ -12965,7 +13067,7 @@ First release for registered users.
         <a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
     </span></p>
     <p><span class="right">
-		July 18, 2016<br />
+		August 31, 2016<br />
         &copy; Paulo Moura, 1998-2016
     </span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
