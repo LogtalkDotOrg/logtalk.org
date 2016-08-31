@@ -26,16 +26,16 @@ Features
 </div>
 
 <p>
-Logtalk is a mature <a href="license.html">open source</a> object-oriented logic programming language that can use most Prolog implementations as a back-end compiler. Logtalk main features are:
+Logtalk is a mature <a href="license.html">open source</a> object-oriented logic programming language that can use most Prolog implementations as a back-end compiler. It provides code encapsulation and code reuses features for programming in the large. It doesn't provide, or attempt to bring to Prolog, any notion of mutable state that is not already available in plain Prolog or with Prolog modules. Logtalk main features are:
 </p>
 <blockquote>
 <dl>
 	<dt><strong>Separation between interface and implementation</strong></dt>
-		<dd>Predicate directives (declarations) can be contained inside protocols (interfaces), which can be implemented by any object.</dd>
+		<dd>Predicate directives (declarations) can be contained inside <em>protocols</em> (interfaces), which can be implemented by any object. Protocols are first-class entities, alongside objects and categories.</dd>
 </dl>
 <dl>
 	<dt><strong>Parametric objects</strong></dt>
-		<dd>Object identifiers can be compound terms containing free variables that can be used to parametrize object predicates. This allows us to interpret predicate clauses as providing <em>instantiations</em> of a parametric object identifier. I.e. through parametric object we can associate any number of <em>methods</em> with a compound term.</dd>
+		<dd>Object identifiers can be compound terms containing free variables that can be used to parametrize object predicates. This allows us to interpret predicate clauses as providing <em>instantiations</em> of a parametric object identifier. I.e. using a parametric object we can associate any number of predicates with a compound term.</dd>
 </dl>
 <dl>
 	<dt><strong>Support for both class-based and prototype-based systems</strong></dt>
@@ -66,16 +66,20 @@ Logtalk is a mature <a href="license.html">open source</a> object-oriented logic
 		<dd>Logtalk uses standard Prolog syntax with the addition of a few operators and directives for a smooth learning curve. Prolog code can be easily encapsulated inside objects with little or no changes. Moreover, Logtalk can transparently interpret most Prolog modules as Logtalk objects for easy reusing of existing code (e.g. libraries).</dd>
 </dl>
 <dl>
+	<dt><strong>Lambda expressions</strong></dt>
+		<dd>Native support for lambda expressions, including currying.</dd>
+</dl>
+<dl>
 	<dt><strong>Event-driven programming</strong></dt>
 		<dd>Predicates can be implicitly called when a spied event occurs, allowing programming solutions which minimize object coupling. In addition, events provide support for behavioral reflection and can be used to implement the concepts of <em>pointcut</em> and <em>advice</em> found on Aspect-Oriented Programming.</dd>
 </dl>
 <dl>
 	<dt><strong>Component-based programming</strong></dt>
-		<dd>Predicates can be encapsulated inside <em>categories</em>, which can be virtually imported by any object, without any code duplication and irrespective of object hierarchies. Thus, objects may be defined through composition of categories, which act as fine-grained units of code reuse. Categories may also extend existing objects. Categories can be used to implement <em>aspects</em> and mixin-like behavior without resorting to inheritance.</dd>
+		<dd>Predicates can be encapsulated inside <em>categories</em>, which can be virtually imported by any object, without any code duplication and irrespective of object hierarchies. Thus, objects may be defined through composition of categories, which act as fine-grained units of code reuse. Categories may also extend existing objects. Categories can be used to implement <em>aspects</em> and mixin-like behavior without resorting to inheritance. Categories also support <em>hot-patching</em> of running code.</dd>
 </dl>
 <dl>
 	<dt><strong>Multi-threading programming</strong></dt>
-		<dd>High level multi-threading programming is available when running Logtalk with selected back-end Prolog compilers, allowing objects to support both synchronous and asynchronous messages. Independent and-parallelism and competitive or-parallelism are also supported. Easily take advantage of modern multi-processor and multi-core computers without bothering with the details of creating and destroying threads, implement thread communication, or synchronizing threads.</dd>
+		<dd>High level multi-threading programming is available when running Logtalk with selected back-end Prolog compilers, allowing objects to support both synchronous and asynchronous messages. Threaded engines, independent and-parallelism, and competitive or-parallelism are also supported. Easily take advantage of modern multi-processor and multi-core computers without bothering with the details of creating and destroying threads, implement thread communication, or synchronizing threads.</dd>
 </dl>
 <dl>
 	<dt><strong>Multi-inheritance and multiple-instantiation support</strong></dt>
@@ -115,7 +119,7 @@ Logtalk is a mature <a href="license.html">open source</a> object-oriented logic
 		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
 	</span></p>
 	<p><span class="right">
-		August 3, 2015<br />
+		July 18, 2016<br />
 		&copy; Paulo Moura, 1998-2016
 	</span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
