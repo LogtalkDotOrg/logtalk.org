@@ -28,6 +28,188 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.08.0 - October 17, 2016
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: Ensure that in compiler error and warning messages the file and line
+information is always the last line for the reported issue.
+
+* CHANGED: Also save reflection data for `uses/2` directives for resources in
+the pseudo-object `user`.
+
+* ADDED: Define a library path for the `coding` directory as it may also
+contain source code for supporting editing services.
+
+* ADDED: Also generate entity `calls/2` properties for non-terminals listed
+in `uses/2` and `use_module/2` directives and add `non_terminal/1` and
+`alias/2` (when applicable) properties to the callee properties.
+
+* IMPROVED: More compact and easier to extend internal representation for the
+`calls/2` entity properties.
+
+* FIXED: Source file compilation error reporting when the errors occur before
+the intermediate Prolog file is created. The report would containing only the
+error but without file and line information. This bug only occurred when
+compiling the first source file term while checking for an `encoding/1`
+directive.
+
+* FIXED: Processing of the `at_same_line` token when printing a message where
+the line prefix would not be omitted.
+
+Documentation
+-------------
+
+* IMPROVED: Documentation of the `include/1` directive.
+
+* IMPROVED: Documentation of the `logtalk_load_context/2` built-in predicate.
+
+* FIXED: Examples in the User Manual of entity opening directives that still
+used old and no longer supported Logtalk 2.x syntax for enumerating multiple
+entities.
+
+Library
+-------
+
+* ADDED: A set of protocols specifying predicates for calling Java from Prolog
+and implementations of these protocols for SWI-Prolog (requires the bundled JPL
+library), YAP (requires updating the old bundled version of the JPL library),
+and JIProlog (experimental; not fully functional).
+
+* FIXED: Typo in the `arbitrary` category in the generation of random values
+for the `protocol` type. Thanks to Jan Burse for the bug report.
+
+* FIXED: Missing public declarations for the `check/1` and `valid/1` predicates
+in the `varlistp` protocol.
+
+* FIXED: Arity typos in the declaration of the meta-predicates aliases
+`scanl1/3` and `scanr1/3` in the `meta` object.
+
+* FIXED: The `os::directory_files/2` predicate when called with a path that
+requires expansion when using SWI-Prolog or XSB as the backend compiler.
+
+Tools
+-----
+
+* NEW: Dead code scanner tool, `dead_code_scanner`, co-developed with Barry
+Evans.
+
+* NEW: A `logtalk_doclet.sh` automation script for running all doclets found
+in a directory and its sub-directories.
+
+* ADDED: Predicates `leashing/1`, `spying/1`, and `spying/4` to the `debugger`
+tool.
+
+* ADDED: A `epsilon/1` utility predicate to the `lgtunit` tool.
+
+* CHANGED: The `lgtunit` tool no longer depends on the `date` and `time`
+library objects.
+
+* CHANGED: The default backend compiler for the `logtalk_tester.sh` automation
+script is now SWI-Prolog.
+
+* CHANGED: The default path prefix to be suppressed when running the
+`logtalk_tester.sh` automation script is now `$HOME/`.
+
+* IMPROVED: The `logtalk_tester.sh` automation script to avoiding printing grep
+errors when no test sets are found.
+
+* IMPROVED: The `lgtunit` tool `quick_check/1-3` predicates now also accept as
+template `::/2`, `&lt;&lt;/2`, and `:/2` arguments.
+
+* IMPROVED: Documentation and usage examples of the `doclet` tool.
+
+* IMPROVED: When generating cross-referencing diagrams, label predicate
+call edges for non-terminals using the non-terminal indicator instead of
+the corresponding predicate indicator.
+
+* FIXED: An off-by-one error in the `logtalk_tester.sh` automation script when
+no test sets are found.
+
+* FIXED: Bug in the `lgtunit::benchmark/2` predicate where it would fail when
+benchmarking goals that fail. Also fixed the `lgtunit::benchmark/2-3` predicate
+mode directives to specify that the predicates are expected to always succeed.
+
+* FIXED: Printing of notes when using the `test/3` dialect with `error/1`,
+`errors/1`, `ball/1`, and `balls/1` outcomes.
+
+* FIXED: Filtering of local calls when generating predicate cross-referencing
+diagrams using the `diagrams` tool.
+
+* FIXED: Added implementation of the `files/1-3` predicates for the library
+diagrams. This is a partial fix that just converts calls to the `files/1-3`
+predicates into calls to the `directories/3` predicate as the `files/1-3`
+predicates are usually not useful when generating library diagrams.
+
+* FIXED: Non-determinism of the `debugger::nospy/1` predicate and cases where
+it would fail to delete all matching spy points.
+
+Tests
+-----
+
+* ADDED: Unit tests for the `lgtunit` tool test dialects and utility
+predicates.
+
+* ADDED: Unit tests for the `debugger`, `diagrams`, and `lgtdoc` tools.
+
+* ADDED: Unit tests for the `calls/2` property of the `object_property/2` and
+`category_property` built-in predicates.
+
+* ADDED: Unit tests for the `info/1`, `info/2`, and `include/1` directives.
+
+* ADDED: Unit tests for the `before/3` and `after/3` built-in methods.
+
+* ADDED: Some more unit tests for the `self/1`, `sender/1`, and `this/1`
+built-in execution context methods.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: The `build_release.sh` script to also build a RPM installer.
+
+* UPDATED: The Windows installer to also detect ECLiPSe 7.0 (the current
+development version).
+
+VCS support
+-----------
+
+* ADDED: `Logtalk.gitignore`, `Logtalk.hgignore`, and `Logtalk.p4ignore`
+template files for versioning Logtalk projects using Git, Mercurial, and
+Perforce.
+
+Examples
+--------
+
+* ADDED: An example of object-based composition, `laptops`, to contrast with
+category-based composition.
+
+* RENAMED: The `jpl` example to `java`. Also updated the example benchmarks
+and some of the individual examples to run when using JIProlog as the backend
+compiler. This example now relies on the new library Java support.
+
+* UPDATED: The `errors` example to also illustrate the warnings printed for
+unused predicates and non-terminals referenced in `uses/2` and `use_module/2`
+directives when using the new `dead_code_scanner` tool.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Sample commands for compiling files, scanning for dead code, and
+generating HTML documentation from within the Atom text editor.
+
+* ADDED: Experimental build and REPL support for the Sublime Text 3 editor.
+
+* ADDED: Note on GNU Global, a source code tagging system that can be used via
+its Pygments parser in Logtalk projects.
+
+* UPDATED: Rogue support.
+
+* UPDATED: The ctags support to parse parametric entity identifiers and most
+entity and predicate directives.
+
+
 3.07.0 - August 31, 2016
 ========================
 
@@ -13067,7 +13249,7 @@ First release for registered users.
         <a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
     </span></p>
     <p><span class="right">
-		August 31, 2016<br />
+		October 17, 2016<br />
         &copy; Paulo Moura, 1998-2016
     </span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
