@@ -28,6 +28,332 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.09.1 - January 16, 2016
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Support for `number_of_rules/1` and `number_of_user_rules/1` object
+and category properties.
+
+* ADDED: Support for `number_of_rules/1` predicate property.
+
+* ADDED: Detection of `meta_predicate/1` directives that wrongly specify a goal
+meta-argument that is actually a closure passed to `call/2-N` meta-predicate
+calls. Thanks to Arun Majumdar for the report.
+
+* ADDED: Detection of missing predicate scope directives in the presence of
+`mode/2` directives.
+
+Prolog adapter and integration files
+------------------------------------
+
+* FIXED: SWI-Prolog integration hooks that allowed editing or loading a Logtalk
+source file specified library notation using the `edit/1`, `load_files/1-2`,
+and `consult/1` SWI-Prolog predicates.
+
+* FIXED: Workaround an incompatible change in the concept of working directory
+in recent XSB development versions that prevents setting the `scratch_directory`
+flag to a value other than `./`.
+
+Documentation
+-------------
+
+* UPDATED: Documentation of the SWI-Prolog Logtalk pack.
+
+* IMPROVED: User Manual description of object properties, category properties,
+and calling of category predicates.
+
+Library
+-------
+
+* ADDED: Predicates `terms_to_array/2` and `array_to_terms/2-3` to the `java`
+library object. Currently only implemented for the SWI-Prolog/YAP JPL library.
+
+Tools
+-----
+
+* ADDED: Prototype code metrics tool contributed by Ebrahim Azarisooreh.
+
+* FIXED: Bug in the `diagrams` tool when writing node captions for calls to
+external Prolog module predicates, when running using SWI-Prolog or YAP as
+the backend compiler, where the module prefix would be omitted.
+
+* FIXED: Error in the `dead_code_scanner` and `diagrams` tools when trying to
+get properties for referenced entities (usually external) that for some reason
+failed to load.
+
+Tests
+-----
+
+* ADDED: Additional unit tests for the 0'Char number notation.
+
+* ADDED: Additional unit tests for the `multifile` example.
+
+* FIXED: Workaround an operator related syntax error when using XSB as the
+backend compiler for running the `category_property/2` and `object_property/2`
+unit tests.
+
+Installers and installation scripts
+-----------------------------------
+
+* ADDED: Docker support (using SWI-Prolog as the backend compiler). Contributed
+by Sergio Castro.
+
+* IMPROVED: Use a shallow clone in the `build_release.sh` script.
+
+* FIXED: Issue with the build release script when writing the MacPorts portfile
+used for generating the macOS installer.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* FIXED: Emacs syntax coloring support for using tab-based indentation as per
+coding guidelines but to default to user-defined tab width.
+
+* FIXED: Emacs syntax coloring support for numbers in hexadecimal notation and
+for the `create_logtalk_flag/2` built-in predicate.
+
+
+3.09.0 - November 28, 2016
+==========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: Settings files are now also looked up in the user home directory
+when not found in the startup directory or in the Logtalk user directory.
+Setting the `settings_file` flag to `restrict` now restricts searching for
+a settings file to the Logtalk user directory and the user home directory.
+This changes are useful when a team shares a Logtalk installation with both
+the `LOGTALKHOME` and `LOGTALKUSER` environment variables pointing to the
+same directory. Thanks to Barry Evans for the suggestion.
+
+* CHANGED: The `logtalk::expand_library_path/2` predicate to also expand paths
+in library notation in addition to library aliases.
+
+* NEW: Inline calls in linking clauses to entity local predicates, to Prolog
+module, built-in, and foreign predicates, and to predicates defined in the
+`user` pseudo-object when compiling source files with the `optimize` flag
+turned on.
+
+* ADDED: Predicate property and predicate definition property `inline`.
+
+* ADDED: Object and category `updates/2` property for cross-referencing data
+on predicates that update dynamic predicates.
+
+* IMPROVED: Detect and report repeated entity relation clauses in entity
+opening directives. The repetitions are reported using a `repeat` permission
+error.
+
+* FIXED: Static binding of a closure meta-argument that is an alias to another
+predicate.
+
+* FIXED: Keep the relative order of file and object level `initialization/1`
+directives in a source file in the generated code.
+
+* FIXED: Compiler internal declaration of the `threaded_engine_fetch/1` as a
+built-in predicate.
+
+* FIXED: Checking that an object exists at runtime when sending trivial
+messages (such as `true/0` or `repeat/0`) would fail to check for
+instantiation errors.
+
+* FIXED: Spurious choice-point when using the `logtalk_compile/1-2` built-in
+predicates.
+
+* FIXED: Using the `{}/1` compiler bypass control construct as argument to the
+`if/1` and `elif/1` conditional compilation directives.
+
+* FIXED: Bug where `initialization/1`directives in included files would be
+ignored when the main file also have one or more `initialization/1`directives.
+
+* FIXED: The convenient notation `{Proxy}::Message` to use parametric object
+proxies is now translated to `({Proxy}, Proxy::Message)` before compilation as
+per documentation. This is also consistent with the compilation of other calls
+in `user` and provides a small performance improvement over the previous use
+of a `catch/3` wrapper for `Proxy`.
+
+* FIXED: Portability report of non-standard arithmetic functions with no
+arguments.
+
+* FIXED: Instantiation error when compiling `set_prolog_flag/2` directives
+setting a non-standard flag with the `portability` flag set to `warning`.
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: Also optimize message sending goals in plain Prolog source files
+and message sending goals from `user` in Logtalk source files when using YAP
+or SWI-Prolog.
+
+* CHANGED: Moved the dependency on the `standard:datime/1` predicate from the
+XSB adapter file, where it is no longer used, to the library `os` object.
+
+* ADDED: Normalization of arithmetic evaluation errors when using XSB.
+
+* ADDED: Commented out experimental definition (to the `swihooks.pl` file)
+for the SWI-Prolog `prolog:make_hook/2` hook predicate to automatically call
+`logtalk_make/0` when calling `make/0`.
+
+* ADDED: Commented out experimental definition (to the `swihooks.pl` file)
+for SWI-Prolog to print a stack trace for errors generated from top-level
+message sending calls.
+
+* IMPROVED: Faster implementation of the internal `'$lgt_predicate_property'/2`
+predicate for SWI-Prolog.
+
+* FIXED: Compilation of SWI-Prolog proprietary directives when decorating the
+generated code with source location data for using the SWI-Prolog own tools.
+
+Documentation
+-------------
+
+* IMPROVED: User Manual documentation on the predicate lookup procedures.
+
+* FIXED: Reference Manual descriptions of the `public/1` and `protected/1`
+directives regarding using declared non-terminals as arguments to the
+`phrase/2-3` built-in methods.
+
+Library
+-------
+
+* ADDED: Predicate `atom::replace_sub_atom/4` for replacing all occurrences
+of an atom by another atom in an atom.
+
+* ADDED: Predicate `make_library_path/1` to the `os` library.
+
+* ADDED: Predicate `value_reference/2` to the Java library.
+
+* ADDED: Predicate `map/3` to the `pairs` library.
+
+* FIXED: Added workaround to the `os` library when using SWI-Prolog as the
+backend compiler to allow correct expansion of Java file names with a `$`
+in the middle of the name.
+
+* FIXED: Avoid portability warnings when compiling the standard library
+due to calls to non-standard built-in predicates from within conditional
+compilation blocks.
+
+Tools
+-----
+
+* CHANGED: The default value of the diagrams option `node_type_captions/1`
+to `true`.
+
+* CHANGED: When generating diagrams for all loaded libraries, represent any
+loaded Prolog module library as an external library.
+
+* ADDED: Predicate `lgtunit::run/1` for running a unit test or a list of
+unit tests. Thanks to Barry Evans for the suggestion.
+
+* ADDED: Predicate `lgtunit::benchmark/4` supporting the specification of
+the clock to be used (either `cpu` or `wall`). The `wall` clock is useful
+for benchmarking goals that spawn threads. Thanks to Barry Evans for the
+suggestion.
+
+* ADDED: Zoom option to the `diagrams` tool that allows linking library
+diagrams to entity diagrams to predicate cross-referencing diagrams.
+
+* ADDED: Doclet examples, `zoom_doclet` and `tools_doclet`, illustrating
+linking diagrams using the `zoom/1` option.
+
+* IMPROVED: The `lgtdoc` tool now expands the directory and file arguments
+of the `xml_docs_directory/1`, `omit_path_prefixes/1`, `exclude_files/1`,
+`exclude_paths/1`, `entity_xsl_file/1`, and `index_xsl_file/1` options.
+
+* IMPROVED: Predicate cross-referencing diagrams now include edges for
+predicates called in *self* and for *super* calls.
+
+* IMPROVED: Documentation of the `wrapper` tool and added `.prolog` and
+`.pro` file extensions to the default list of recognized Prolog file name
+extensions.
+
+* IMPROVED: Represent non-terminal callers in predicate cross-referencing
+diagrams as non-terminals instead of using the corresponding predicate form.
+
+* FIXED: Bug in the generation of library cross-referencing diagrams where
+all external predicates would be assigned to the `user` pseudo-object.
+
+* FIXED: Bug in some diagram methods that would fail to reset the internal
+database before generating a diagram.
+
+* FIXED: When generating entity diagrams, don't generate nodes for dynamic
+predicates that have no clauses defined at compilation time.
+
+* FIXED: Bug in predicate cross-referencing diagrams display where some
+external calls from non-terminals would not be represented correctly.
+
+* FIXED: Cases where the `exclude_libraries/1` option would be ignored when
+generating library diagrams.
+
+* FIXED: Example doclets to prevent issues with different concepts of working
+directory across supported backend Prolog compilers.
+
+* FIXED: Avoid portability warnings when compiling the developer tools due to
+directives and calls to non-standard built-in predicates found in conditional
+compilation blocks.
+
+* FIXED: Bug in library dependency diagrams where edges could be generated for
+libraries without entity dependencies.
+
+* FIXED: Escape terms in dot HTML-like labels for most backend Prolog systems.
+
+Examples
+--------
+
+* CHANGED: The `named_databases` example definition of the `db_save/2`
+predicate for SWI-Prolog and YAP to only save dynamic predicate definitions.
+This ensures portability and prevents errors when using SWI-Prolog with the
+(recently added) `protect_static_code` flag set to `true`.
+
+* ADDED: Simple example, `inlining`, illustrating inlining of predicate
+definitions.
+
+* FIXED: Two dead links to the original Prolog code in the `adventure` example.
+Thanks to Eric Charikane for the updated links.
+
+Tests
+-----
+
+* ADDED: Additional tests for the `include/1` directive to check compilation
+of multiple `initialization/1` directives in the main file and in the included
+files.
+
+* ADDED: Unit tests for the new `updates/2` object and category property.
+
+* ADDED: Unit tests for the `logtalk_make/0-1` built-in predicates.
+
+* ADDED: Some more unit tests for the public predicates of the `logtalk`
+built-in object.
+
+* UPDATED: Unit tests for the `securemp` example to take into account that
+message sending goals from `user` may be optimized.
+
+Installers and installation scripts
+-----------------------------------
+
+* IMPROVED: The `update_html_docs.sh` and `update_svg_diagrams.sh` scripts now
+use the `LOGTALKHOME` and `LOGTALKUSER` environment variables to specify paths
+instead of hard-coded paths.
+
+* FIXED: The `install.sh` manual installation script to allow using it from
+any directory. Thanks to Jan Wielemaker for the bug report.
+
+* FIXED: Windows installer script bug that resulted in integration shortcuts
+for SWI-Prolog not being created in 32 bits versions of Windows. Thanks to
+Michael Richter for the bug report.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Preliminary extension for the Visual Studio Code text editor.
+
+* UPDATED: Contributed an updated Logtalk mode for the SWI-Prolog native text
+editor.
+
+
 3.08.0 - October 17, 2016
 =========================
 
@@ -13249,8 +13575,8 @@ First release for registered users.
         <a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
     </span></p>
     <p><span class="right">
-		October 17, 2016<br />
-        &copy; Paulo Moura, 1998-2016
+		January 16, 2017<br />
+        &copy; Paulo Moura, 1998-2017
     </span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
 </div>
