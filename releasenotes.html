@@ -28,7 +28,109 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
-3.09.1 - January 16, 2016
+3.09.2 - February 15, 2017
+==========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: Expand the file argument of `include/1` directives as a source file
+argument (thus allowing the file name extension to be omitted).
+
+* CHANGED: Exception thrown when a category attempts to complement itself for
+consistency with similar cases.
+
+* IMPROVED: More strict compiler checking for valid entity relations when
+compiling entity opening directives.
+
+* FIXED: Bug where the compiler would fail to report an error when a class
+attempts to specialize a prototype.
+
+* FIXED: Spurious choice-point when compiling non-standard file-level
+directives.
+
+* FIXED: Handling of the `debug` and `optimize` flags. Turning on one of them
+failed to explicitly turn off the other. This bug would prevent in some cases
+overriding the default compilation mode.
+
+* FIXED: Spurious reports on missing scope directives when using `mode/2`
+directives to document non-terminals.
+
+Prolog adapter and integration files
+------------------------------------
+
+* FIXED: Expanding source file paths when we have a sub-directory and a file
+with the same name in a directory when using ECLiPSe as the backend compiler.
+
+* FIXED: Passing to the Logtalk compiler discontiguous predicate warning
+events posted by the ECLiPSe compiler.
+
+Library
+-------
+
+* ADDED: Plain Prolog version of the Unicode 6.2 standard.
+
+* ADDED: Predicate `atom::split/3` for splitting an atom into a list of
+sub-atoms given another atom as delimiter.
+
+* IMPROVED: Implementation of the `java::array_to_terms/2-3` predicates when
+using the SWI-Prolog/YAP JPL library.
+
+* FIXED: Missing `compound` type implementation in the `type` library object.
+Thanks to Ebrahim Azarisooreh for the bug report.
+
+* FIXED: Inconsistent licensing terms of `rbtree` code. As the Logtalk version
+was originally released under the Artistic License 2.0, we use this license
+relicensing clause to re-release it under Logtalk's Apache License 2.0. Thanks
+to Per Mildner for reporting.
+
+Tools
+-----
+
+* CHANGED: Renamed `help` tool `control/4` predicate to `control_construct/4`.
+
+* IMPROVED: Documentation of the `lgtunit` tool.
+
+* FIXED: Runtime error in the `dead_code_scanner` tool when scanning source
+files that define protocols.
+
+* FIXED: Bug in the `lgtunit` tool when compiling in debug mode tests using the
+`test/3` dialect where condition, setup, and cleanup goals would be missing the
+execution context.
+
+Tests
+-----
+
+* ADDED: Unit tests for the `set_logtalk_flag/2` built-in predicate to verify
+the expected behavior for the `debug` and `optimize` flags.
+
+* ADDED: Unit tests for the `create_object/4`, `create_protocol/3`, and
+`create_category/4` built-in predicates to check the expected errors when
+the declared entity relations are not valid.
+
+Examples
+--------
+
+* FIXED: The options used for generating the API HTML documentation in the
+`zoom_doclet` example.
+
+Installers and installation scripts
+-----------------------------------
+
+* FIXED: Outdated and fragile constructs in most Bash shell scripts.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: IntelliJ IDEA plug-in. Contributed by Sergio Castro.
+
+* ADDED: Helper shell script for publishing Docker images at Docker Hub.
+Contributed by Sergio Castro.
+
+* IMPROVED: Documentation of the Logtalk support for the Atom text editor.
+
+
+3.09.1 - January 16, 2017
 =========================
 
 Logtalk compiler and runtime
@@ -13575,7 +13677,7 @@ First release for registered users.
         <a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
     </span></p>
     <p><span class="right">
-		January 16, 2017<br />
+		February 15, 2017<br />
         &copy; Paulo Moura, 1998-2017
     </span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
