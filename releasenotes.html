@@ -28,6 +28,52 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.10.1 - March 2, 2017
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* FIXED: Bug where an included file specified using a relative path would not
+be found when the main file is being loaded from a directory other than the
+one that contains it.
+
+* FIXED: Bug where a Prolog module would not be found when an included file
+uses `ensure_loaded/1` or `use_module/1-2` directives where the Prolog module
+is specified using a relative path.
+
+Library
+-------
+
+* ADDED: Predicate `pairs::group_by_key/2`.
+
+Tools
+-----
+
+* IMPROVED: The `diagrams` tool nows prints a warning message when generating
+a diagram fails and ensures that the output stream is closed in this case.
+
+* IMPROVED: When generating cross-referencing diagrams, print a warning instead
+of generating entity existence errors when referenced entities are not loaded.
+
+Tests
+-----
+
+* ADDED: Unit tests for the `include/1` directive to check additional cases of
+using relative paths.
+
+Examples
+--------
+
+* FIXED: Portability issue with one of the `errors` example loader files.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Atom text editor command for running a doclet found on the directory
+of an open file.
+
+
 3.10.0 - February 27, 2017
 ==========================
 
@@ -13803,7 +13849,7 @@ First release for registered users.
         <a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
     </span></p>
     <p><span class="right">
-		February 27, 2017<br />
+		March 2, 2017<br />
         &copy; Paulo Moura, 1998-2017
     </span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
