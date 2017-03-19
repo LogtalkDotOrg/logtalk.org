@@ -28,6 +28,88 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.10.2 - March 13, 2017
+=======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: Allow the primary declaration for a multifile predicate to declare
+the predicate protected or private instead of being restricted to public scope.
+This allows using multifile predicates for distributed predicate definitions
+without making them part of the public interface of the objects holding their
+primary declarations.
+
+* CHANGED: Calls to `logtalk_make(missing)` no longer report predicates for
+messages sent to objects implementing the `forwarding` protocol. This avoids
+false positives when using e.g. the `java` library.
+
+* FIXED: Calls to the `^^/1` and `::/1` control constructs when called from
+predicates that are being called from multifile predicate clauses.
+
+* FIXED: Also print line numbers in warnings for clauses that define reserved
+predicates declared in built-in protocols that are not declared as implemented.
+
+* FIXED: Cases where terms in compiler error and warning messages would not be
+printed as quoted terms.
+
+Documentation
+-------------
+
+* IMPROVED: Documentation of the `logtalk_make/1` built-in predicate.
+
+* IMPROVED: Documentation of the sample loader file.
+
+Library
+-------
+
+* ADDED: Support for the operating-system types `file`, `file(Extensions)`,
+`directory`, and `environment_variable` for type-checking when using the
+`type` library object.
+
+* ADDED: Support for types `stream`, `stream_or_alias`, `stream(Property)`,
+and `stream_or_alias(Property)` to the `type` library object. Suggested by
+Barry Evans.
+
+Tools
+-----
+
+* UPDATED: The `code_metrics` and `dead_code_scanner` tools to print a warning
+message when an item to be analyzed is not loaded or does not exist.
+
+* IMPROVED: Documentation on how to debug failing unit tests.
+
+Tests
+-----
+
+* ADDED: Unit tests for the `sender/1` and `self/1` built-in methods to check
+results when called from within multifile predicate clauses.
+
+Examples
+--------
+
+* ADDED: Example `family_alt` providing an alternative version of the `family`
+example using a family registry implemented using multifile predicates to avoid
+dynamic binding.
+
+* IMPROVED: Simplify the `includes` example as the compiler no longer changes
+the working directory when compiling files thus making the example portability
+workaround unnecessary.
+
+* IMPROVED: Documentation of the `pardicts` example.
+
+* FIXED: The `benchmarks` example loader file used for benchmarking with event
+support turned on was not loading all required source files.
+
+* FIXED: Layout of comments in some examples to follow the coding guidelines.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* UPDATED: Support for the Visual Studio Code text editor to take advantage of
+the support for language specific default settings introduced in version 1.10.
+
+
 3.10.1 - March 2, 2017
 ======================
 
@@ -13840,7 +13922,7 @@ First release for registered users.
 <p>&nbsp;</p>
 
 <div class="navigation">
-<a href="news.html">News</a>&nbsp;&bull;&nbsp;<a href="features.html">Features</a>&nbsp;&bull;&nbsp;<a href="compatibility.html">Compatibility</a>&nbsp;&bull;&nbsp;<a href="documentation.html">Documentation</a>&nbsp;&bull;&nbsp;<a href="download.html">Download</a>&nbsp;&bull;&nbsp;<a href="https://github.com/LogtalkDotOrg/logtalk3/">Developers</a>&nbsp;&bull;&nbsp;<a href="support.html">Support</a>&nbsp;&bull;&nbsp;<a href="http://forums.logtalk.org/">Forums</a>&nbsp;&bull;&nbsp;<a href="links.html">Links</a>&nbsp;&bull;&nbsp;<a href="http://blog.logtalk.org/">Blog</a>&nbsp;&bull;&nbsp;<a href="http://twitter.com/LogtalkDotOrg">Twitter</a>
+<a href="news.html">News</a>&nbsp;&bull;&nbsp;<a href="features.html">Features</a>&nbsp;&bull;&nbsp;<a href="compatibility.html">Compatibility</a>&nbsp;&bull;&nbsp;<a href="documentation.html">Documentation</a>&nbsp;&bull;&nbsp;<a href="download.html">Download</a>&nbsp;&bull;&nbsp;<a href="https://github.com/LogtalkDotOrg/logtalk3/">Developers</a>&nbsp;&bull;&nbsp;<a href="support.html">Support</a>&nbsp;&bull;&nbsp;<a href="https://gitter.im/LogtalkDotOrg/logtalk3">Chat</a>&nbsp;&bull;&nbsp;<a href="http://forums.logtalk.org/">Forums</a>&nbsp;&bull;&nbsp;<a href="links.html">Links</a>&nbsp;&bull;&nbsp;<a href="http://blog.logtalk.org/">Blog</a>&nbsp;&bull;&nbsp;<a href="http://twitter.com/LogtalkDotOrg">Twitter</a>
 </div>
 
 <div class="footer">
@@ -13849,7 +13931,7 @@ First release for registered users.
         <a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
     </span></p>
     <p><span class="right">
-		March 2, 2017<br />
+		March 13, 2017<br />
         &copy; Paulo Moura, 1998-2017
     </span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
