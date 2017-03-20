@@ -28,6 +28,48 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.10.3 - March 20, 2017
+=======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* IMPROVED: Simplified code generated for multifile predicates.
+
+* FIXED: Regression in previous release in the compilation of multifile
+predicate clauses that make calls to the `::/1-2` control constructs.
+
+Documentation
+-------------
+
+* IMPROVED: Documentation of the `type` library object.
+
+Library
+-------
+
+* ADDED: Predicate `loop::foreach/4`. Suggested by Xin Wang.
+
+* ADDED: Type `predicate` to the library `type` object for checking for an
+object public predicate.
+
+* FIXED: The new operating-system types added in the previous release by the
+`os_types` category introduced a spurious choice-point for the `type::type/1`
+and `type::check/2` predicates.
+
+* FIXED: Mode templates of some of the `java_utils_protocol` predicates.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* UPDATED: IntelliJ IDEA plug-in. Contributed by Sergio Castro.
+
+* ADDED: Sample command for generating SVG diagrams from within the Atom text
+editor.
+
+* FIXED: Sample command for generating HTML documentation from within the Atom
+text editor.
+
+
 3.10.2 - March 13, 2017
 =======================
 
@@ -13931,7 +13973,7 @@ First release for registered users.
         <a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
     </span></p>
     <p><span class="right">
-		March 13, 2017<br />
+		March 20, 2017<br />
         &copy; Paulo Moura, 1998-2017
     </span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
