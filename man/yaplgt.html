@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<title>yaplgt man page</title>
+<meta name="generator" content="roffit">
+<STYLE type="text/css">
+pre {
+  overflow: auto;
+  margin: 0;
+}
+
+P.level0, pre.level0 {
+ padding-left: 2em;
+}
+
+P.level1, pre.level1 {
+ padding-left: 4em;
+}
+
+P.level2, pre.level2 {
+ padding-left: 6em;
+}
+
+span.emphasis {
+ font-style: italic;
+}
+
+span.bold {
+ font-weight: bold;
+}
+
+span.manpage {
+ font-weight: bold;
+}
+
+h2.nroffsh {
+ background-color: #e0e0e0;
+}
+
+span.nroffip {
+ font-weight: bold;
+ font-size: 120%;
+ font-family: monospace;
+}
+
+p.roffit {
+ text-align: center;
+ font-size: 80%;
+}
+</STYLE>
+</head><body>
+
+<p class="level0">
+<p class="level0"><a name="NAME"></a><h2 class="nroffsh">NAME</h2>
+<p class="level0">yaplgt - Logtalk integration script for YAP 
+<p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">SYNOPSIS</h2>
+<p class="level0"><span Class="bold">yaplgt</span> [ <span Class="bold">-g</span> <span Class="emphasis">goal</span> ] 
+<p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">DESCRIPTION</h2>
+<p class="level0"><span Class="bold">yaplgt</span> is a Logtalk integration script for YAP. It automatically loads the YAP adapter file, the Logtalk compiler and runtime, the Logtalk default table of library names and paths, and any existing settings file found on the startup directory or in the Logtalk user directory. 
+<p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">OPTIONS</h2>
+<p class="level0">
+<p class="level0"><span Class="bold">-g \ goal</span> Initialization goal, written between double quotes, to be executed after Logtalk startup. 
+<p class="level0"><a name="REQUIREMENTS"></a><h2 class="nroffsh">REQUIREMENTS</h2>
+<p class="level0">YAP 6.3.4 or later is required. YAP can be compiled with either tabling or threads support, among other options. Check the YAP flag "system_options" before trying to run examples or applications that require YAP to be compiled with specific options.  This integration script looks for a "yap" executable in the system path. 
+<p class="level0"><a name="ENVIRONMENT"></a><h2 class="nroffsh">ENVIRONMENT</h2>
+<p class="level0">
+<p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. 
+<p class="level0"><span Class="bold">LOGTALKUSER</span> Specifies the location of the Logtalk user directory. 
+<p class="level0"><a name="FILES"></a><h2 class="nroffsh">FILES</h2>
+<p class="level0">
+<p class="level0"><span Class="bold">$LOGTALKHOME/integration/logtalk_yap.pl</span> Prolog file used for loading the necessary files for starting Logtalk using YAP as the back-end compiler. 
+<p class="level0"><span Class="bold">$LOGTALKHOME/adapters/yap.pl</span> The YAP adapter file. 
+<p class="level0"><span Class="bold">$LOGTALKHOME/core/core.pl</span> The Logtalk core compiler and runtime file. 
+<p class="level0"><span Class="bold">$LOGTALKHOME/paths/paths.pl</span> The default table of library names and paths. 
+<p class="level0"><span Class="bold">./settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). May not exist. 
+<p class="level0"><span Class="bold">$LOGTALKUSER/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). May not exist. 
+<p class="level0"><a name="SEE"></a><h2 class="nroffsh">SEE ALSO</h2>
+<p class="level0">The Logtalk website at &lt;<a href="http://logtalk.org/&gt;">http://logtalk.org/&gt;</a> 
+<p class="level0">The Logtalk User and Reference Manuals at <span Class="bold">$LOGTALKHOME/manuals/index.html</span> 
+<p class="level0">The YAP website at &lt;<a href="http://www.dcc.fc.up.pt/~vsc/Yap/&gt;">http://www.dcc.fc.up.pt/~vsc/Yap/&gt;</a> 
+<p class="level0">logtalk_user_setup(1),&nbsp;logtalk_version_select(1),&nbsp;logtalk_backend_select(1) 
+<p class="level0"><a name="AUTHOR"></a><h2 class="nroffsh">AUTHOR</h2>
+<p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt; 
+<p class="level0"><a name="COPYRIGHT"></a><h2 class="nroffsh">COPYRIGHT</h2>
+<p class="level0">Copyright (c) 1998-2015 Paulo Moura. <p class="roffit">
+ This HTML page was made with <a href="http://daniel.haxx.se/projects/roffit/">roffit</a>.
+</body></html>
