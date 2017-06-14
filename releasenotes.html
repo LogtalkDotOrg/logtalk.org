@@ -28,6 +28,177 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.10.9 - June 14, 2017
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: The `defines/2` property returned by calls to the `object_property/2`
+and `category_property/2` predicates now returns a list with `number_of_rules(0)`
+and `number_of_clauses(0)` properties instead of an empty list for multifile and
+dynamic predicates with no local or initial set of clauses.
+
+* IMPROVED: Allow safe cases of static binding for objects compiled with the
+`complements` flag set to `restrict`. This notably allows use of static binding
+for calls to the library `type::valid/2` and `type::check/2-3` predicates.
+
+Prolog adapter and integration files
+------------------------------------
+
+* FIXED: Handle all possible `table/1` directive syntaxes when using SWI-Prolog
+or YAP as the backend compilers.
+
+Library
+-------
+
+* CHANGED: Loader file for the `unicode_data` library to load all data files
+using the `reload(skip)` compiler option to prevent accidental reload of this
+large resource due to e.g. changes to the default compilation mode.
+
+Tools
+-----
+
+* ADDED: New `lgtunit::assertion/2` meta-predicate. Mainly used in the code
+generated for tests using the `test/2-3` dialects.
+
+* CHANGED: Reporting of the `lgtunit` test dialects `test/2-3` when using the
+`true(Assertion)` or `deterministic(Assertion)` outcomes to print assertion
+error and failure messages for easier debugging of failed tests.  Suggested
+by Ebrahim Azarisooreh.
+
+Examples
+--------
+
+* FIXED: Do not try to run the `redis` example unit tests when using backend
+Prolog systems that do not support the `redis` library.
+
+* FIXED: Singleton variable bug in the `inheritance` example.
+
+
+3.10.8 - May 30, 2017
+=====================
+
+Logtalk compiler and runtime
+----------------------------
+
+* FIXED: Bug where the `call/2-N` built-in method would not be opaque to cuts.
+The bug occurred in some cases where the constructed goal was a call to a cut
+transparent control construct.
+
+Prolog adapter and integration files
+------------------------------------
+
+* FIXED: SWI-Prolog hooks file to avoid a spurious meta-predicate lint warning.
+
+Documentation
+-------------
+
+* IMPROVED: Documentation of the `abolish/1`, `asserta/1`, `assertz/1`,
+`current_op/3`, `current_predicate/1`, and `predicate_property/2` built-in
+methods.
+
+* IMPROVED: Documentation of the `dynamic/1`, `initialization/1`, `if/1`,
+`elif/1`, `meta_non_terminal/1`, `mode/2`, `multifile/1`, and `use_module/2`
+directives.
+
+* FIXED: Outdated `include/1` directive documentation on limitations that no
+longer apply.
+
+* FIXED: Grammar description of the `dynamic/1`, `multifile/1`, and
+`use_module/2` directives.
+
+* FIXED: Typo in the error terms in the documentation of the `create_object/4`,
+`create_protocol/3`, and `create_category/4` built-in predicates.
+
+Library
+-------
+
+* ADDED: New `optional` library. Suggested by Sergio Castro.
+
+Tests
+-----
+
+* ADDED: Unit tests for the `call/1-N`, `ignore/1`, and `once/1` built-in
+methods to check that they are opaque to cuts.
+
+* IMPROVED: Unit tests for the `initialization/1` directive.
+
+* IMPROVED: Better test coverage of the `findall/4` built-in method.
+
+* FIXED: Unit test for the `logtalk::file_type_extension/2` predicate to
+account for backend Prolog compilers that don't generate temporary files
+when compiling source files.
+
+Examples
+--------
+
+* UPDATED: The `errors` example to illustrate the error reported when trying
+to define a multifile predicate in the absence of its primary declaration.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Reference to the `highlighter` source code highlighting package
+support for Logtalk.
+
+
+3.10.7 - May 10, 2017
+=====================
+
+Logtalk compiler and runtime
+----------------------------
+
+* RENAMED: The `logtalk_make/1` target `missing` to `check`.
+
+* ADDED: Support for extending `logtalk_make/1` targets with user defined
+actions using the new multifile predicate `logtalk_make_target_action/1`.
+
+* ADDED: Compiler lint checks for tautology and falsehood entity goals.
+Currently checked are calls to Prolog unification, comparison, and type
+testing built-in predicates. Suggested by Barry Evans.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: An `eclipsehooks.pl` file for integration with ECLiPSe developer
+tools. Added hook to automatically call the built-in `make/0` predicate
+when calling `logtalk_make/0` or `logtalk_make/1` with the `all` target.
+
+* UPDATED: The SWI-Prolog hooks file to automatically call the built-in
+`make/0` predicate when calling `logtalk_make/0` or `logtalk_make/1` with
+the `all` target.
+
+Library
+-------
+
+* FIXED: Bug in the `pairs::group_by_key/2` predicate.
+
+Tools
+-----
+
+* CHANGED: The `dead_code_scanner` tool log messages from type `information`
+to `comment` so that the tool output is minimized when setting the `report`
+flag to `warnings`.
+
+* ADDED: Integration of the `dead_code_scanner` tool with the `logtalk_make/1`
+target `check`.
+
+* FIXED: Exception in the `dead_code_scanner` tool when checking parametric
+entity properties.
+
+Tests
+-----
+
+* ADDED: Unit tests for the `lgtunit` tool support for parametric tests.
+
+Examples
+--------
+
+* UPDATED: The `errors` example to illustrate reporting of goals that are
+always true or false.
+
+
 3.10.6 - May 1, 2017
 ====================
 
@@ -14169,7 +14340,7 @@ First release for registered users.
 		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
 	</span></p>
 	<p><span class="right">
-		May 1, 2017<br />
+		June 14, 2017<br />
 		&copy; Paulo Moura, 1998-2017
 	</span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
