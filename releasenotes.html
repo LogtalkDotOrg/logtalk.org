@@ -28,6 +28,285 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.11.2 - August 28, 2017
+========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* IMPROVED: The implementation of threaded engines no longer requires the
+use of a thread local dynamic predicate.
+
+* IMPROVED: Replaced use of the `mutex_lock/1` and `mutex_unlock/1` Prolog
+predicates in the implementation of the `threaded_engine_create/3` and
+`threaded_engine_destroy/1` predicates.
+
+* FIXED: Calls to the `logtalk_load/1-2` predicates now fail when loading
+the generated Prolog intermediate code unexpectedly fails (usually due to
+a backend Prolog compiler bug). In previous versions, an informative error
+message was printed but the call still succeeded.
+
+Prolog adapter and integration files
+------------------------------------
+
+* IMPROVED: The SWI-Prolog adapter file to also try to term-expand directives
+`use_module/1-2`, `ensure_loaded/1`, and `reexport/1-2` whose file spec is a
+file in the current directory.
+
+* FIXED: The SWI-Prolog adapter file to no longer try to expand `include/1`
+directives when compiling a module as an object as these directives are now
+handled by the Logtalk compiler.
+
+* UPDATED: The ECLiPSe adapter file to load the `setup_call_cleanup` and
+`threads` libraries when available. As multi-threading support when using
+this backend system is still experimental, it is turned off by default.
+Thanks to Joachim Schimpf for feedback, testing, and patches.
+
+* UPDATED: The ECLiPSe adapter file to import into `user` the standard
+`predicate_property/2` predicate when available (requires version 7.0.26
+or later).
+
+* FIXED: The ECLiPSe adapter file for recent changes to this system ISO Prolog
+libraries.
+
+* FIXED: The ECLiPSe adapter file expansion of `import/1` and `reexport/1`
+directives.
+
+Library
+-------
+
+* RENAMED: The `os::expand_path/2` predicate to `os::absolute_file_name/2`.
+The old name is deprecated but still available as an alias.
+
+* ADDED: Predicate `os::decompose_file_name/3` to decompose a file into its
+directory and basename.
+
+* ADDED: Cross-referencing information to several library entities.
+
+* ADDED: Predicates `proper_prefix/3`, `proper_suffix/3`, `take/3`, and
+`drop/3` to the `listp`, `list`, and `difflist` entities.
+
+* FIXED: Definition of the predicate `difflist::proper_prefix/2`.
+
+* ADDED: Definition of type `optional` to the `optional` library object.
+
+* ADDED: Definitions for number and float derived types to the `type` library
+object.
+
+* FIXED: The definition of the type `nonvar` in the `type` library object to
+throw an `instantiation_error` when the checked term is not instantiated.
+
+Tools
+-----
+
+* ADDED: Cross-referencing information to the `doclet` and `diagrams` tool
+entities.
+
+* ADDED: Test outcome `false` as an alias to test outcome `fail`.
+
+* IMPROVED: The `logtalk_tester` script now also reports skipped and broken
+test suites.
+
+* IMPROVED: The `logtalk_tester` script now returns different non-zero exit
+status for failed tests, timed out test sets, broken test sets, and crashed
+test sets. See the script man page for details.
+
+* IMPROVED: The `logtalk_doclet` script now returns different non-zero exit
+status for failed doclets, timed out doclets, and crashed doclets. See the
+script man page for details.
+
+* FIXED: Note on lack of dependencies on other entities when converting entity
+API documentation into human-readable formats.
+
+Examples
+--------
+
+* UPDATED: The `mtbatch` example to support ECLiPSe.
+
+Tests
+-----
+
+* ADDED: Additional compliance tests for the `=../2` standard Prolog predicate.
+
+* FIXED: Tests for ISO Prolog compliance of the `get_byte/2`, `get_char/2`,
+`get_code/2`, `peek_byte/2`, `peek_char/2`, `peek_code/2`, `put_byte/2`,
+`put_char/2`, `put_code/2`, `read_term/3`, and `write_term/3` built-in
+predicates when trying to get input from a stream. Thanks to Joachim Schimpf
+for the bug report.
+
+
+3.11.1 - July 17, 2017
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* IMPROVED: Compiler warning and error messages to make them more uniform
+to facilitate parsing by editors and IDEs and to avoid printing potentially
+large terms.
+
+* IMPROVED: The compiler no longer requires calls to the database and
+reflection predicates where the first argument is a module-qualified
+term to be wrapped using the `{}/1` compiler bypass control construct.
+
+* IMPROVED: Compiler error-checking for database and reflection predicate
+calls where the first argument is a module-qualified term.
+
+* IMPROVED: Minimize the number of file reloads triggered by calls to the
+`logtalk_make/0-1` predicates.
+
+* FIXED: Case where the `logtalk_make/0-1` predicates would fail to reload
+a file whose compilation generated a compiler error.
+
+* FIXED: Case where trying to reload a file with compilation errors without
+first fixing those errors could lead to an endless loop.
+
+* FIXED: Default message when no settings file is found at startup to mention
+all three lookup directories.
+
+* FIXED: Saving referenced modules for use by the reflection API when the
+module is only bound at runtime.
+
+Tools
+-----
+
+* CHANGED: The `diagrams` tool `exclude_libraries/1` option to exclude the
+`startup` library by default.
+
+* FIXED: Display of non-library nodes in library load and dependency diagrams.
+
+* FIXED: The `diagrams` tool `dot_graph_language` object for XSB.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Sample `tasks.json` file for the Visual Studio Code text editor. The
+compile file, run tests, and scan for dead code tasks include problem matchers
+to allow quick jumping to compiler errors, warnings, failed tests, and dead
+predicate locations.
+
+
+3.11.0 - July 3, 2017
+=====================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: The built-in predicate `current_event/5` to always instantiate the
+first argument when called with it unbound.
+
+* ADDED: Support for overriding the default scratch directory by defining
+the library alias `scratch_directory` in a backend Prolog initialization file
+(assumed to be loaded prior to Logtalk loading). After a discussion with
+Douglas R. Miles on supporting installing Logtalk in a read-only directory
+and running multiple Logtalk instances concurrently without conflict.
+
+* ADDED: A `context/1` built-in context execution method to provide access
+to a predicate call execution context. Mainly used for providing a default
+error context when type-checking predicate arguments.
+
+* ADDED: Support for printing messages of kind `debug` and `debug(_)`. These
+messages are only printed, by default, when the `debug` flag is turned on.
+
+* ADDED: Property `includes(File)` to the `logtalk::loaded_file_property/2`
+predicate to allow enumerating, by backtracking, all files included by a
+loaded file (using `include/1` directives).
+
+* IMPROVED: The `logtalk_make/0-1` predicates are now aware of included files.
+A change to an included file since loaded now triggers reloading of the main
+file.
+
+* IMPROVED: Error-checking of the multi-threading and threaded engine built-in
+predicates when the goal arguments are module qualified.
+
+* FIXED: Utility predicates for the decompilation of predicate indicators and
+clause heads, when using a backend Prolog compiler that supports modules, to
+take into account Logtalk being loaded into a module other than `user`.
+
+* FIXED: Bug in the processing of nested conditional compilation directives.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: Meta-predicate directives for the multi-threading and threaded engine
+built-in predicates to support implicit module qualified goal arguments when
+using SWI-Prolog or YAP as the backend Prolog system.
+
+* FIXED: SWI-Prolog adapter file optimization for message-sending goals made
+from within modules to account for Logtalk being loaded into a module other
+than `user`.
+
+Documentation
+-------------
+
+* ADDED: `CONTRIBUTING.md` file detailing how best to contribute to Logtalk.
+
+* ADDED: User Manual section on debugging messages.
+
+* UPDATED: User Manual section on error handling.
+
+* UPDATED: The `settings-sample.lgt` with a code sample on how to convert all
+`debug` and `debug(_)` messages into the equivalent of a `write(Message), nl`
+goal without the need to specify `message_tokens//2` rules for converting the
+messages.
+
+Library
+-------
+
+* ADDED: Type `qualified_callable` to the `type` library object for checking
+possibly module-qualified callable terms. Available when using a backend Prolog
+system supporting modules.
+
+* UPDATED: Error-checking code in library entities to use the new `context/1`
+method.
+
+Tools
+-----
+
+* UPDATED: The `diagrams` tool to also display included files in file loading
+diagrams.
+
+Tests
+-----
+
+* ADDED: Some more tests for the `current_event/5` built-in predicate.
+
+* ADDED: Some more tests for the `before/3` and `after/3` built-in methods.
+
+* ADDED: Some more tests for the conditional compilation directives.
+
+Examples
+--------
+
+* UPDATED: The `tabling` example for the updated tabling support found in
+SWI-Prolog 7.5.9.
+
+* UPDATED: The `expansion` example to avoid having to check for and undefine
+a backend Prolog system `public` operator to avoid compilation syntax errors.
+
+* UPDATED: Simplified the `operators` example to not require the `os` library.
+
+* UPDATED: Error-checking code in example entities to use the new `context/1`
+method.
+
+Installers and installation scripts
+-----------------------------------
+
+* ADDED: An *experimental* version of the SWI-Prolog pack that loads Logtalk
+into a `logtalk` module instead of loading it into `user`.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Syntax coloring support for the new `context/1` built-in method to
+most of the supported text editors and syntax highlighters.
+
+* UPDATED: Instructions for Pygments Logtalk syntax coloring support.
+
+* FIXED: Vim syntax coloring support for the `create_logtalk_flag/3` and
+`current_logtalk_flag/2` built-in predicates.
+
+
 3.10.9 - June 14, 2017
 ======================
 
@@ -14340,7 +14619,7 @@ First release for registered users.
 		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
 	</span></p>
 	<p><span class="right">
-		June 14, 2017<br />
+		August 28, 2017<br />
 		&copy; Paulo Moura, 1998-2017
 	</span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>

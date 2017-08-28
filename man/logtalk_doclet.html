@@ -56,7 +56,7 @@ p.roffit {
 <p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">SYNOPSIS</h2>
 <p class="level0"><span Class="bold">logtalk_doclet -v</span> <br><span Class="bold">logtalk_doclet [-p </span> <span Class="emphasis">prolog</span> <span Class="bold">] [-d</span> <span Class="emphasis">results</span> <span Class="bold">] [-t</span> <span Class="emphasis">timeout</span> <span Class="bold">] [-s</span> <span Class="emphasis">prefix</span> <span Class="bold">] [--</span> <span Class="emphasis">arguments</span> <span Class="bold">]</span> <br><span Class="bold">logtalk_doclet -h</span> 
 <p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">DESCRIPTION</h2>
-<p class="level0"><span Class="bold">logtalk_doclet</span> is a script for automating running Logtalk doclets. This script runs doclets found on a directory and recursively in its sub-directories by scanning for <span Class="emphasis">doclet.lgt</span> and <span Class="emphasis">doclet.logtalk</span> source files. In case of failed doclets, timed out doclets, or crashed tdoclets, this script returns an exit code of <span Class="emphasis">1</span>. The script assumes that the doclets use an <span Class="emphasis">initialization/1</span> directive to automatically run the documentation generation goal at loading time. 
+<p class="level0"><span Class="bold">logtalk_doclet</span> is a script for automating running Logtalk doclets. This script runs doclets found on a directory and recursively in its sub-directories by scanning for <span Class="emphasis">doclet.lgt</span> and <span Class="emphasis">doclet.logtalk</span> source files. The script assumes that the doclets use an <span Class="emphasis">initialization/1</span> directive to automatically run the documentation generation goal at loading time. A non-zero exit status is returned in case of failed doclets, timed out doclets, or crashed doclets. 
 <p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">OPTIONS</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">-v</span> Print script version. 
@@ -66,6 +66,12 @@ p.roffit {
 <p class="level0"><span Class="bold">-s</span> Path prefix to supress when printing doclet paths. Default is the empty string. 
 <p class="level0"><span Class="bold">--</span> Arguments to be passed to the integration script used to run the doclets (no default). 
 <p class="level0"><span Class="bold">-h</span> Provide help on script usage. 
+<p class="level0"><a name="EXIT"></a><h2 class="nroffsh">EXIT STATUS</h2>
+<p class="level0">
+<p class="level0"><span Class="bold">0</span> All doclets succeeded and there are no timed out or crashed doclets. 
+<p class="level0"><span Class="bold">1</span> Some doclets failed but there are no timed out or crashed doclets. 
+<p class="level0"><span Class="bold">3</span> One or more doclets timed out while executing but there are no crashed doclets. 
+<p class="level0"><span Class="bold">7</span> One or more doclets crashed the process running them. 
 <p class="level0"><a name="ENVIRONMENT"></a><h2 class="nroffsh">ENVIRONMENT</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. 
