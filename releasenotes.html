@@ -28,6 +28,92 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.12.0 - October 10, 2017
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Defined a set of meta messages for use with the message printing
+mechanism that don't require user-defined tokenization rules for default
+handling. These meta messages are typically used for debugging messages.
+See the API documentation on the `logtalk` built-in object for details.
+
+* FIXED: When using `uses/2` directives to declare a dependency on a `user`
+built-in predicate, a `calls/2` entity property would be wrongly recorded as
+no linking clause for the predicate is required and thus would be created to
+cope with runtime constructed calls.
+
+Documentation
+-------------
+
+* ADDED: Documentation of the default set of message kinds and printing
+defaults for each kind of message to the `logtalk` built-in object.
+
+* IMPROVED: Documentation for the built-in database and reflection methods.
+
+Library
+-------
+
+* ADDED: Predicate `list::sort/4`, modeled after the SWI-Prolog `sort/4`
+built-in predicate specification.
+
+* ADDED: Predicate `os::directory_files/3` to return a filtered list of files.
+Files can be filtered by type or file extensions, can be returned using either
+relative or absolute paths, and files starting with a dot can be filtered out.
+
+* ADDED: Normalization predicates `normalize_range/2-4`, `normalize_unit/2`,
+`normalize_scalar/2`, and `rescale/3` to the `numberlist` library object.
+
+* ADDED: Predicate `z_normalization/2` to the `statistics` library.
+
+* ADDED: Definition of predicate `os::delete_directory/1` for CxProlog.
+
+* ADDED: Definition of predicate `os::wall_time/1` for CxProlog, JIProlog,
+and Qu-Prolog.
+
+* FIXED: Bug in the definition of the predicate `os::file_exists/1` for YAP
+where the predicate all succeed with any kind of file instead of just for
+regular files.
+
+* FIXED: Broken definition of predicate `os::delete_directory/1` for YAP.
+
+* FIXED: Definition of the predicate `os::absolute_file_name/2` for XSB when
+both arguments are instantiated.
+
+* FIXED: Predicate `os::working_directory/1` when using GNU Prolog as the
+backend compiler on Windows.
+
+Tools
+-----
+
+* ADDED: Predicate `benchmark_reified/3` to `lgtunit` as a variant of the
+predicate `benchmark/2` returning the goal result (`success`, `failure`, or
+`error(Error)`).
+
+* UPDATED: Generalized the `=~=/2` predicate of `lgtunit` to also support the
+comparison of the corresponding elements in two lists of floats.
+
+* FIXED: The `logtalk_tester` shell script no longer exports the `LC_ALL`
+environment variable and instead uses it only locally to fix the tests sorting
+order when searching for the `tester.lgt` and `tester.logtalk` files. This
+change fixes tests sorting order in Ubuntu and avoids locale-related issues in
+Centos/RHEL.
+
+Tests
+-----
+
+* ADDED: More tests for the `between/3` de facto standard Prolog predicate.
+
+* ADDED: Tests for the `os::directory_files/2-3` library predicates.
+
+* ADDED: Tests for the `list::sort/4` library predicate.
+
+* ADDED: Tests for the new list of numbers normalization predicates.
+
+* ADDED: Tests for the generalized `lgtunit::(=~=)/2` predicate.
+
+
 3.11.2 - August 28, 2017
 ========================
 
@@ -14619,7 +14705,7 @@ First release for registered users.
 		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
 	</span></p>
 	<p><span class="right">
-		August 28, 2017<br />
+		October 10, 2017<br />
 		&copy; Paulo Moura, 1998-2017
 	</span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
