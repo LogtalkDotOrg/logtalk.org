@@ -28,6 +28,264 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.14.0 - January 4, 2018
+========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* NEW: Support for _parameter variables_ providing an alternative to the
+`parameter/2` and `this/1` built-in methods to access entity parameters.
+Parameter variables are variables used in the parametric entity identifier
+that start and end with an underscore (`_VariableName_`). Any occurrence
+of a parameter variable in an entity clause is implicitly unified with the
+entity parameter. This allows entity parameters to be added, rearranged, or
+removed without requiring any changes to the clauses that refer to them.
+Parameter variables are only supported for parametric entities defined in
+source files.
+
+* NEW: Convenience error throwing built-in methods `instantiation_error/0`,
+`type_error/2`, `domain_error/2`, `existence_error/2`, `permission_error/3`,
+`representation_error/1`, `evaluation_error/1`, and `resource_error/1`. These
+methods throw standard `error/2` exception terms and are equivalent to a
+sequence of `context/1` and `throw/1` method calls.
+
+* ADDED: New `documentation` target to the `logtalk_make/1` built-in predicate.
+This target runs all defined documentation actions.
+
+* FIXED: Detection of variable file terms and reporting of the corresponding
+instantiation errors when processing `include/1` directives.
+
+* FIXED: Runtime error when calling `logtalk_make(check)` with missing
+predicates found in included files.
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: Moved the definition of the `logtalk_make_target_action/1` hook
+predicate for ECLiPSe and SWI-Prolog from the corresponding hooks file into
+the `settings-sample.lgt` file.
+
+* ADDED: Shortcut `{#}` for calling `logtalk_make(documentation)` to all the
+adapter files.
+
+* FIXED: Workaround lack of compliance of B-Prolog and Qu-Prolog `read_term/3`
+option `variable_names/1`.
+
+Documentation
+-------------
+
+* ADDED: User and Reference manual sections on the new error throwing built-in
+methods.
+
+* UPDATED: User Manual section on debugging messages.
+
+* UPDATED: The `diagrams` tool documentation with a workaround for the GraphViz
+dot command random crashes.
+
+Library
+-------
+
+* CHANGED: Moved the declarations of the `randomp` protocol `reset_seed/0`
+and `randomize/1` predicates to the `random` object.
+
+* ADDED: New random library `fast_random` and `backend_random` objects.
+
+* ADDED: Options `prefixes/1` and `suffixes/1` to the `os::directory_files/3`
+predicate.
+
+* ADDED: Clauses for the `arbitrary::arbitrary/1-2` predicates to the `maybe`
+object to allow generating random values for the `maybe(Type)` type.
+
+* ADDED: Predicate `optional(_)::or_else_fail/1`.
+
+* ADDED: New `expected` library for representing expected term references.
+
+* ADDED: Experimental `either` library object providing types and predicates
+for type-checking and handling expected term references.
+
+* FIXED: Typo in the `info/2` directive for the `metap::map_reduce/5` predicate
+that prevented its description to be displayed in the API HTML documentation.
+
+Tools
+-----
+
+* NEW: Support for running a set of test suites as a unified suite to the
+`lgtunit` tool, generating a single code coverage report, a single TAP
+report/output, and a single xUnit report/output. This allows better tool
+scalability when using parametric test objects or multiple tests objects
+per unit.
+
+* CHANGED: Several print message terms of the `lgtunit` tool, adding the
+test object as an additional argument, to support the new tool features.
+
+* IMPROVED: Readability of the default console output of the `lgtunit` tool.
+
+* UPDATED: The `lgtunit` tool to support callable terms as test identifiers.
+
+* UPDATED: The `help` tool for the new error throwing built-in methods.
+
+* UPDATED: The `doclet` tool to add a definition for the hook predicate
+`logtalk_make_target_action/1` with target `documentation` on loading.
+The hook definition checks that a single doclet object is loaded and, if
+true, sends an `update/0` message to it.
+
+* REMOVED: The `code_metric_protocols` protocol.
+
+* CHANGED: The `code_metrics` predicate `entity_score/2` is now specified as
+deterministic.
+
+* IMPROVED: The `code_metrics_messages` category no longer requires changes
+when adding a new metric.
+
+* UPDATED: The `code_metrics` tool to allow applying individual metrics.
+
+* FIXED: The `logtalk_tester` shell script detection of broken tests sets
+where test set crashes would also be reported as broken test sets.
+
+Tests
+-----
+
+* ADDED: Unit tests for the new error throwing built-in methods.
+
+* ADDED: Unit tests for the new `os::directory_files/3` predicate options.
+
+* ADDED: Two more tests for the Prolog standard `arg/3` built-in predicate.
+
+* ADDED: Unit tests for the `optional` library predicates `or_else_call/2`
+and `or_else_fail/1`.
+
+* ADDED: Unit tests for the `expected` library.
+
+Examples
+--------
+
+* ADDED: A new example, `parvars`, providing an alternative version of the
+`parametric` example using _parameter variables_ instead of the `parameter/2`
+and `this/1` built-in methods to access entity parameters.
+
+* UPDATED: The `errors` example to illustrate detection of variable file terms
+when processing `include/1` directives.
+
+* UPDATED: The `buckets` multi-threading example to use the new library
+`backend_random` stateless object.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: Synced the settings files used by the SWI-Prolog packs with the
+settings sample file.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Syntax coloring support for the new error throwing built-in methods.
+
+* UPDATED: Logtalk support installation instructions for the Kate text editor.
+
+
+3.13.0 - November 8, 2017
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* NEW: Compiler support for detecting calls to local static predicates with
+no matching clauses (aka trivial fails).
+
+* ADDED: Four alternative library paths files (splitting the core, tool,
+example, and contribution paths) for use when embedding or deploying
+applications where e.g. tools or example paths should not included.
+
+* FIXED: A bug where the entity property `declares/2` would fail to return
+`mode/2` properties for non-terminals.
+
+* FIXED: A harmless performance bug where compilation of auxiliary predicates
+would result in duplicated entity predicate definition table entries.
+
+Documentation
+-------------
+
+* ADDED: User manual section describing the compiler linter checks.
+
+* IMPROVED: API documentation of the `optional` library.
+
+Library
+-------
+
+* CHANGED: The `optional(_)::or_else_get/2` meta-predicate to be consistent
+with the `optional(_)::get/1` predicate by throwing the same exception when
+the optional is empty and a term cannot be computed.
+
+* ADDED: Predicate `java::is_object/1` to the library.
+
+* ADDED: Experimental `maybe` library object providing types and predicates
+for type-checking and handling optionals.
+
+* ADDED: Meta-predicate `optional(_)::or_else_call/2`.
+
+* FIXED: Meta-predicate directive for the `optional(_)::or_else_get/2`
+predicate.
+
+* FIXED: Ensure the `atom::split/3` predicate always throws an error when the
+first argument is not bound to an atom (assuming a compliant implementation of
+the standard `sub_atom/5` predicate).
+
+Tools
+-----
+
+* CHANGED: Default value of the `lgtdoc` tool option `omit_path_prefixes/1` to
+omit the home directory. 
+
+* ADDED: User-customizable documentation metric to the `code_metrics` tool.
+
+* UPDATED: The `help` tool for the recently added `context/1` built-in method.
+
+* FIXED: The documentation of the instantiation modes of the predicates
+`lgtunit::benchmark/3-4`.
+
+* FIXED: References to entity and index XSLT files in XML files generated by
+the `lgtdoc` tool.
+
+* FIXED: Processing of default options by the `lgtdoc` tool to ensure that the
+`xml_docs` directory is created as expected as a sub-directory of the directory
+of the source files being documented.
+
+Tests
+-----
+
+* ADDED: Missing `sub_atom/5` predicate Prolog compliance tests for the
+expected error when the first argument is bound to a number.
+
+Examples
+--------
+
+* ADDED: A new example, `persistency` illustrating a very simple solution for
+persisting an object dynamic state across sessions.
+
+* UPDATED: The `errors` example to illustrate trivial fail warnings.
+
+* FIXED: Detection of the SWI-Prolog/YAP JPL library in the `java` example.
+
+Installers and installation scripts
+-----------------------------------
+
+* ADDED: File `.travis.yml` for supporting automated Travis CI builds. The
+builds check that Logtalk can be successfully installed and that all unit
+tests (with the exception of the Prolog compliance tests) pass.
+
+* FIXED: The Docker file for SWI-Prolog as `swipl` is now an official Docker
+repository.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* UPDATED: Logtalk support installation instructions for the Atom text editor.
+
+* UPDATED: Logtalk support installation instructions for the Visual Studio Code
+text editor.
+
+
 3.12.0 - October 10, 2017
 =========================
 
@@ -14705,8 +14963,8 @@ First release for registered users.
 		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
 	</span></p>
 	<p><span class="right">
-		October 10, 2017<br />
-		&copy; Paulo Moura, 1998-2017
+		January 4, 2018<br />
+		&copy; Paulo Moura, 1998-2018
 	</span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
 </div>
