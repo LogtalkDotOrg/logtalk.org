@@ -28,6 +28,544 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.16.0 - April 24, 2018
+=======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: All cases where exception context arguments used the old format
+`logtalk(Call, Entity)` to use the new `logtalk(Call, ExecutionContext)`
+format.
+
+* CHANGED: Compile calls to the built-in predicates to perform compile time
+type-checking when the arguments are sufficiently instantiated and to return
+the actual execution context in case of runtime error.
+
+* CHANGED: The compilation of calls to the built-in `logtalk_compile/1-2`
+and `logtalk_load/1-2` predicates to pass the directory of the source file
+containing the call, which is used for default resolving of relative source
+file paths. This notably allows the generated code for loader files to be
+relocatable, thus simplifying embedding of applications.
+
+* CHANGED: Resolve calls to the `logtalk_load_context/2` built-in predicate
+from source file `initialization/1` directives at compile time when the first
+argument is instantiated.
+
+* CHANGED: Report `assert/1` predicate calls and messages as deprecated.
+
+* CHANGED: The `paths.pl` and `paths_core.pl` files to always set the library
+aliases `logtalk_home` and `logtalk_user` to the corresponding environment
+variables. Previously, the aliases would be set to the current directory when
+the variables are not defined but that is no longer necessary when embedding
+Logtalk and Logtalk applications.
+
+* ADDED: Compiler option `relative_to/1` to allow specifying a directory for
+resolving relative source file paths.
+
+* ADDED: Compiler option `duplicated_directives/1` to control printing of
+duplicated directive warnings.
+
+* ADDED: Compiler option `lambda_variables/1` to control printing of lambda
+variable related warnings.
+
+* ADDED: Compiler option `trivial_goal_fails/1` to control printing of
+warnings for calls to local static predicates with no matching clauses.
+
+* ADDED: Compiler option `always_true_or_false_goals/1` to control printing
+of warnings for goals that are always true or false.
+
+* ADDED: Compiler option `lambda_variables/1` to control printing of lambda
+variable related warnings.
+
+* ADDED: Compiler option `deprecated/1` to control printing of deprecated
+directive, control construct, and flag warnings.
+
+* ADDED: Support for goal-expansion of complex goal arguments found in
+`initialization/1`, `if/1`, and `elif/1` directives.
+
+* ADDED: Read-only compiler option `engines`. Useful to signal that a backend
+Prolog compiler provides sufficient low level multi-threading features for
+supporting Logtalk threaded engines.
+
+* IMPROVED: Compile calls to the `set_logtalk_flag/2` built-in predicate from
+source file `initialization/1` directives when sufficiently instantiated to
+improve performance by avoid runtime type-checking.
+
+* IMPROVED: Feedback to user when using the `logtalk_make/1` predicate with
+targets `debug`, `normal`, or `optimal`.
+
+FIXED: Avoid trying to redo the startup initialization when including Logtalk
+in a backend Prolog saved state.
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: The ECLiPSe adapter file to enable Logtalk threaded engines when
+running version 7.0.35 or later.
+
+* CHANGED: The GNU Prolog integration script and the Windows shortcut to use
+the `--entry-goal` command-line option to load Logtalk. This change allows
+the previously used `--init-goal` option to be available for passing goals
+that must be run before loading Logtalk (e.g. for setting unique scratch
+directories when running parallel Logtalk processes).
+
+* CHANGED: Restore using of default values for the `scratch_directory` flag
+on XSB.
+
+* IMPROVED: Less verbose Logtalk startup when using SICStus Prolog.
+
+Documentation
+-------------
+
+* UPDATED: The documentation of the built-in predicates `logtalk_load/1-2`,
+`logtalk_compile/1-2`, and `logtalk_load_context/2`.
+
+* FIXED: Typo in link to the `context/1` built-in method from the Reference
+Manual index.
+
+Library
+-------
+
+* ADDED: Prolog file, `parallel_logtalk_processes_setup.pl`, with sample code
+for selected backend Prolog compilers for initializing Logtalk processes such
+that each process uses a unique scratch directory therefore allowing parallel
+process execution (e.g. for usage at continuous integration servers).
+
+* ADDED: Hook object, `expand_library_alias_paths`, for expanding library alias
+paths in logtalk_library_path/2 facts. Mainly used when embedding Logtalk and
+Logtalk applications.
+
+* ADDED: Type-check and arbitrary term generation for grammar rules.
+
+* FIXED: Portability issue with some backend Prolog compilers when embedding
+the `character` library object.
+
+Tools
+-----
+
+* IMPROVED: The `lgtunit` tool output format for failed tests due to the wrong
+error being generated.
+
+* FIXED: Workaround a Lean Prolog parser bug when loading the `lgtunit` tool.
+
+Tests
+-----
+
+* CHANGED: Refactoring of the built-in entity and event tests.
+
+* ADDED: Tests for calls to the `logtalk_load_context/2` built-in predicate
+from file and entity `initialization/1` directives.
+
+* ADDED: Missing tests for error conditions of the `create_protocol/3`
+built-in predicate.
+
+* ADDED: Missing tests for several flags for the `current_logtalk_flag/2`
+built-in predicate.
+
+* FIXED: The tests for the `blackboard` multi-threading example to suppress
+irrelevant output.
+
+Examples
+--------
+
+* CHANGED: Enable running the threaded engines examples when using ECLiPSe
+7.0.35 or a later version.
+
+* FIXED: Singleton variable in branch warnings in the `searching` example
+`slat/3` object heuristics.
+
+Installers and installation scripts
+-----------------------------------
+
+* ADDED: Sample embedding settings file and examples of using the embedding
+scripts.
+
+* ADDED: Sample Bash shell embedding scripts for CxProlog and YAP.
+
+* UPDATED: The sample embedding scripts to also allow embedding an optional
+settings file and an optional application.
+
+* UPDATED: The sample embedding scripts to allow selecting a library paths
+file other than the `paths_core.pl` default file.
+
+* UPDATED: The sample embedding scripts to allow expanding library aliases
+paths to avoid dependencies on environment variables.
+
+* FIXED: The sample embedding scripts for ECLiPSe, SICStus Prolog, and
+SWI-Prolog to avoid discontiguous predicate warnings.
+
+* UPDATED: The `logtalk_user_setup.sh` script and the Windows installer to
+also create links to the `ACKNOWLEDGMENTS.md` and `CONTRIBUTING.md` files.
+
+* UPDATED: The `logtalk_user_setup.sh` script to also create links to the
+`integration` and `scripts` directories.
+
+
+3.15.0 - March 21, 2018
+=======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: The `::/1-2`, `^^/1`, and `[]/1` control constructs are no longer
+declared as meta-predicates and the compiler no longer warns about missing
+meta-predicate directives when using these constructs with runtime bound
+arguments.
+
+* ADDED: Also check for duplicated `discontiguous/1`, `dynamic/1`,
+`meta_predicate/1`, `meta_non_terminal/1`, and `multifile/1` directives.
+
+* IMPROVED: Distinguish between repeated scope directives (which now print a
+compiler warning) and conflicting scope directives (which continue to generate
+a compiler error).
+
+* IMPROVED: Runtime performance by recognizing additional cases where static
+binding can be applied.
+
+* FIXED: Avoid a false positive when checking for trivial fails when there
+is a single clause for a predicate that makes a recursive call and the used
+backend Prolog compiler performs unifications using occurs check by default.
+
+* FIXED: Reporting of misplaced or ignored `encoding/1` directives and of
+duplicated debug handlers would not increment the warnings counter.
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: The GNU Prolog adapter file to require version 1.4.5 or later due
+to a critical bug fix in the handling of multifile predicates.
+
+* CHANGED: The JIProlog adapter file to require version 4.1.6.1 or later due
+to critical bug fixes, updated versions of the file system access predicates
+that expand paths with environment variables, and the addition of the de
+facto standard `format/2-3` predicates.
+
+* CHANGED: The XSB adapter file to require version 3.8.0 or later due to
+critical bug fixes.
+
+* CHANGED: The CxProlog, SICStus Prolog, and XSB definitions for the missing
+`setup_call_cleanup/3` built-in predicate to ignore success or failure of the
+cleanup goal.
+
+* IMPROVED: The accuracy of file term positions when using SICStus Prolog.
+
+* UPDATED: Removed use of Bash deprecated features from the Prolog integration
+scripts.
+
+* UPDATED: The ECLiPSe adapter file for the final release of ECLiPSe 7.0.
+
+* UPDATED: The JIProlog adapter file to detect the operating-system and choose
+accordingly the default value for the scratch directory (`./lgt_tmp/` when
+running on Windows and `./.lgt_tmp/` otherwise).
+
+* UPDATED: The GNU Prolog adapter file with a faster version of the internal
+`'$lgt_directory_hash_as_atom'/2` predicate.
+
+* FIXED: Error when embedding Logtalk in a GNU Prolog executable. The error
+is due to a `gplc` limitation with multifile predicates that requires a
+workaround in the `logtalk.lgt` core file.
+
+* FIXED: Compiler report of term start and end lines in warnings and errors
+when using GNU Prolog. Thanks to Daniel Diaz for his advice.
+
+* FIXED: Workaround parser issue in the Lean Prolog adapter file.
+
+* FIXED: Handling of the `float/1` function in the Quintus Prolog adapter file.
+
+* ADDED: Hacks for some missing standard byte and char input/output predicates
+to the Quintus Prolog adapter file.
+
+Documentation
+-------------
+
+* ADDED: Missing reference manual section on the `logtalk_make_target_action/1`
+hook predicate.
+
+* ADDED: Inheritance diagram for the third-party contributions.
+
+* IMPROVED: Documentation of the `lgtunit` tool.
+
+* FIXED: The `update_html_docs.sh` script to also update the contributions API
+documentation.
+
+* UPDATED: Notes on the Windows installer.
+
+Library
+-------
+
+* CHANGED: Generating arbitrary pairs now only uses non-empty atoms or
+integers for the key.
+
+* ADDED: Type `list(Type, Min, Max)` to the `type` library object for type-
+checking lists with bounded terms. Term comparison uses standard order.
+
+* ADDED: Types `non_empty_atom` and `non_empty_list` to the library `type`
+object.
+
+* ADDED: Types `difference_list` and `difference_list(Type)` to the library
+`type` object and the `arbitrary` category.
+
+* ADDED: Type `ground(Type)` to the `type` library object and the `arbitrary`
+category.
+
+* ADDED: Support for generating and shrink arbitrary values for the new
+`list(Type, Min, Max)` type to the `arbitrary` category.
+
+* ADDED: Support for generating values for all number types to the `arbitrary`
+category.
+
+* ADDED: Support for generating and shrink `clause_or_partial_clause` terms
+to the `arbitrary` category.
+
+* ADDED: Support for shrink additional number, list, predicate/non-terminal
+indicator, pair, compound, callable, clause, ground, and entity identifier
+terms to the `arbitrary` category.
+
+* ADDED: Predicate `sleep/1` to the `os` library.
+
+* UPDATED: The `os` library for JIProlog changes in upcoming version 4.1.6.1.
+
+* FIXED: Added missing `either` library source file.
+
+* FIXED: Workaround XSB parser bug when loading the `random` library.
+
+* FIXED: Bug in the `random` library predicates `between/3`, `sequence/4`,
+and `set/4` when working with a range of negative integers. Thanks to Ebrahim
+Azarisooreh for the bug report.
+
+* FIXED: Typo in the OS type `directory` exception term generated when a
+directory does not exist.
+
+* FIXED: Bug in the implementation of the `os::operating_system_type/1`
+predicate for GNU Prolog.
+
+* FIXED: Ensure that the `os::directory_file/2` predicate always expands its
+first argument for all supported backend Prolog systems.
+
+* FIXED: Bug in the definition of the `difflist::valid/1` predicate.
+
+* FIXED: Bug in the `arbitrary` category `shrink/3` predicate where an empty
+list would be shrink to itself.
+
+* FIXED: Fix typos in `meta_predicate/1` directives in the library objects
+`bintree` and `rbtree`.
+
+Tools
+-----
+
+* IMPROVED: The XML code coverage reports generated by the `lgtunit` tool
+now include entity and predicate file and line number data. The default
+XSLT file to convert the reports to HTML now accepts `url`, `prefix`, and
+`host` parameters to generate entity and predicate links to selected source
+code hosting providers (currently Bitbucket, GitHub, or GitLab).
+
+* IMPROVED: The `lgtunit` tool QuickCheck test dialects and predicates now
+accept a `{}/1` template argument notation for specifying argument values
+as-is instead of generating random values for those arguments.
+
+* IMPROVED: The `lgtunit` tool QuickCheck test dialects and predicates now
+also check output arguments.
+
+* IMPROVED: The `lgtunit` tool QuickCheck support now reports non-expected
+errors such as the tested predicate not existing.
+
+* IMPROVED: The `lgtunit` tool deterministic tests now indicate if the test
+failed due to the test goal succeeding non-deterministically.
+
+* IMPROVED: The `lgtunit::run/1` predicate now also prints test results and
+code coverage summaries.
+
+* ADDED: Support for automatically running a test set when calling the built-in
+predicate `logtalk_make/1`. Test set objects can now define a `make(Target)`
+clause with a `check` or `all` argument to define the make target action that
+will trigger the tests.
+
+* ADDED: Utility predicate `assertion/1` to the `lgtunit` tool.
+
+* ADDED: Predicates to the `lgtunit` tool that return assertions to be used
+when checking for expected text and binary input and output. These predicates
+provide an alternative to the predicates that check text and binary input and
+output. These new predicates can be used for easier debugging of failed tests.
+
+* ADDED: Predicate `deterministic/2` to the `lgtunit` tool. This predicate is
+a reified version of the `deterministic/1` predicate.
+
+* ADDED: Predicates `suppress_text_output/0` and `suppress_binary_output/0` to
+the `lgtunit` tool. Useful to avoid irrelevant output from predicates being
+tested cluttering the test logs.
+
+* ADDED: Support to the `diagrams` tool to generate predicate cross-referencing
+diagrams with links from predicate relations (e.g. `calls` or `updates`) to the
+source file line for the corresponding predicate clause. 
+
+* ADDED: Predicate `port/5` to the `ports` tool for public access to collected
+port profiling data.
+
+* UPDATED: The `diagrams` tool option `exclude_libraries/1` to also exclude the
+`scratch_directory` library.
+
+* UPDATED: The `assertions` tool to allow generating code coverage information
+when running its tests.
+
+* ADDED: Predicates to the `code_metrics` tool to compute file, directory, and
+library scores. Modified most metrics to compute these new scores.
+
+* ADDED: Simple source code size metric to the `code_metrics` tool.
+
+* IMPROVED: New version of the `code_metrics` tool with an extended interface
+for simplifying implementation of new code metrics.
+
+* CHANGED: The number of clauses metric to print just the total number of
+clauses per entity, library, file, or directory.
+
+* UPDATED: The coupling metric to also compute entity afferent coupling and
+entity instability.
+
+* UPDATED: Removed use of Bash deprecated features from the `lgtdoc` tool
+helper scripts.
+
+* ADDED: Option to pass an initialization goal to the `logtalk_tester` script.
+
+* FIXED: Updated the `logtalk_tester` script to use the GNU `sed` command when
+available to workaround failed tests resulting in invalid byte sequences in
+test log files. This issue can result in a truncated list of failed tests.
+
+* FIXED: The coupling metric failed to consider external calls to Prolog module
+predicates and would give wrong results when predicates with the same functor
+are declared in multiple objects.
+
+* FIXED: Missing and broken links to documentation pages in the `help` tool.
+
+Tests
+-----
+
+* CHANGED: Generalize the tests for the de facto standard `forall/2` predicate
+that check for type errors as the non-callable term reported is implementation
+dependent and the specification of this predicate is still informal.
+
+* CHANGED: Split the tests for the standard stream properties to simplify
+checking which individual properties are not compliant.
+
+* IMPROVED: Tests for the Logtalk `encoding/1` directive to better cope with
+different backend Prolog systems supporting different sets of text encodings.
+
+* IMPROVED: Tests for the `logtalk_make/0-1` predicates.
+
+* ADDED: Unit tests for the soft-cut `if/3` built-in predicate.
+
+* ADDED: Unit tests for the de facto standard `format/2-3` and `msort/2`
+predicates.
+
+* ADDED: Unit tests for the de facto standard `e/0` built-in evaluable functor.
+
+* ADDED: Unit tests for the ISO Prolog standard `false/0` control construct.
+
+* ADDED: Additional unit tests for the `->/2` and `*->/2` control constructs
+to check for correct behavior when the arguments contain cuts.
+
+* ADDED: Additional unit tests for the ISO Prolog standard `acyclic_term/1`,
+`close/1-2`, `current_op/3`, `float/1`, `integer/1`, `nl/1`, `setof/3`,
+`sort/2`, `subsumes_term/2`, `stream_property/2`, `term_variables/2`,
+`unify_with_occurs_check/2`, and term comparison built-in predicates.
+
+* ADDED: Unit tests for the new `lgtunit::deterministic/2` predicate.
+
+* ADDED: Unit tests for the `lgtunit` tool input/output testing predicates.
+
+* ADDED: Unit tests for the `random` library.
+
+* ADDED: Elementary unit tests for the `ports` tool.
+
+* ADDED: Unit tests for the `help` tool.
+
+* UPDATED: The ISO Prolog standard `write_term/3` built-in predicate unit
+tests to use assertions for easier debugging.
+
+* UPDATED: Unit tests for the ISO Prolog standard `^/2` built-in function and
+the `functor/3` built-in predicate for the changes in the ISO/IEC 13211-1
+Technical Corrigendum 3:2017.
+
+* UPDATED: A `current_op/3` unit test that checks the expected error when the
+operator specifier is not an atom to accept both the ISO mandated error term
+(which doesn't follow the standard own policy for errors) and the correct one.
+
+* FIXED: The unit tests for the ISO Prolog standard `call/1` control construct
+to delay expected errors to runtime to avoid aborting the tests compilation
+with type errors when using some backend Prolog compilers such as XSB.
+
+* FIXED: The unit tests for the ISO Prolog standard `call/2-N` built-in
+predicates assumed that the `:/2` operator was defined for all backend.
+
+* FIXED: Workaround XSB parser bug in the unit tests for the ISO Prolog
+standard `!/0` control construct.
+
+* FIXED: The unit tests for the `call/N` Logtalk method to delay expected
+errors to runtime.
+
+* FIXED: The tools unit tests to use the `test/2` dialect with a
+`deterministic` outcome for easier diagnosing of failed tests.
+
+Examples
+--------
+
+* CHANGED: The `localizations` example to illustrate the use of the new
+`lgtunit` predicates that return assertions to be used when checking for
+expected text and binary input and output.
+
+* UPDATED: The `errors` example to illustrate the compiler errors when
+duplicated directives are found.
+
+* UPDATED: The `multifile` example to also run when using XSB as the backend
+compiler. Requires XSB r9206 or a later version.
+
+* FIXED: The `localizations` and `patches` examples when using Windows.
+
+* FIXED: The `dcgs` example `iban` test to be skipped when using backend
+Prolog compilers with bounded arithmetic.
+
+* FIXED: The `errors` example to allow its `warnings_loader` file to succeed
+with only warnings as intended with more backend Prolog systems.
+
+* FIXED: The tests for the `birthdays` and `philosophers` multi-threading
+examples to suppress irrelevant output.
+
+* FIXED: The `xpce` example to allow loading it from any directory.
+
+Contributions
+-------------
+
+* FIXED: Typo in `flags` contribution in the scope directive of the predicate
+`print_flags/0`.
+
+Installers and installation scripts
+-----------------------------------
+
+* ADDED: Bash shell script to create a new GNU Prolog top-level executable
+that embeds the Logtalk compiler/runtime.
+
+* ADDED: Bash shell script to create a SWI-Prolog QLF file with the Logtalk
+compiler/runtime.
+
+* ADDED: Bash shell script to create a SICStus Prolog `.po` file with the
+Logtalk compiler/runtime.
+
+* ADDED: Bash shell script to create a XSB `.xwam` file with the Logtalk
+compiler/runtime.
+
+* ADDED: Bash shell script to create a JIProlog `.jip` file with the Logtalk
+compiler/runtime.
+
+* ADDED: Bash shell script to create a ECLiPSe `.eco` file with the Logtalk
+compiler/runtime.
+
+* UPDATED: The Windows installation script to also detect ECLiPSe 7.1
+development versions now that the 7.0 version is final.
+
+* UPDATED: The Windows installation script to also detect SICStus Prolog
+4.4.x versions.
+
+
 3.14.0 - January 4, 2018
 ========================
 
@@ -14963,7 +15501,7 @@ First release for registered users.
 		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
 	</span></p>
 	<p><span class="right">
-		January 4, 2018<br />
+		April 24, 2018<br />
 		&copy; Paulo Moura, 1998-2018
 	</span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
