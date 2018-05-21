@@ -28,6 +28,119 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.17.0 - May 21, 2018
+=====================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: Calls from the `user` pseudo-object now use the the default value
+of the `events` flag instead of a fixed `allow` value. This change provides
+more intuitive semantics whew playing with event-aware applications at the
+top-level interpreter and also avoids the small event-handling overhead for
+messages sent from `user` when not using events.
+
+* ADDED: Compiler lint check and warning for suspicious calls to the message
+to self control construct, `::/1`, in clauses that apparently are meant to
+implement recursive predicate definitions where the user intention is to call
+the local predicate.
+
+* ADDED: New make target, `caches`, for cleaning the dynamic binding caches.
+Mainly for development use, specially when benchmarking.
+
+* IMPROVED: Small dynamic binding performance optimization (~10%) for `::/2`
+calls (when the object is only know at runtime) and `^^/2` calls (when the
+predicate is only know at runtime).
+
+* FIXED: An unwanted dependency on the message sender for calls to the
+`threaded_call/1-2`, `threaded_once/1-2`, `threaded_peek/1-2` and
+`threaded_exit/1-2` predicates that could result in unexpected failures
+when accessing threaded goals results.
+
+* FIXED: Increment the compiler warnings counter when printing a non-standard
+file directive portability warning.
+
+* FIXED: Don't return `number_of_clauses/1` and `number_of_rules/1` predicate
+definition properties when calling the built-in predicates `object_property/2`
+and `category_property/2` for dynamically created entities.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: Make shortcut, `$`, for the new `caches` target to all adapter files.
+
+* UPDATED: All integration scripts to write error messages to `stderr`.
+
+* FIXED: Compilation of `table/1` directives for SWI-Prolog and YAP when using
+mode-directed tabling. After discussion in the SWI-Prolog mailing list.
+
+Documentation
+-------------
+
+* UPDATED: Manual installation instructions.
+
+Library
+-------
+
+* FIXED: Spurious choice-points for some of the predicates of the `character`
+library object.
+
+Tools
+-----
+
+* UPDATED: All `lgtdoc` scripts to write error messages to `stderr`.
+
+* CLEANUP: Style issues in all `lgtdoc` scripts.
+
+Tests
+-----
+
+* ADDED: Additional unit tests for the `logtalk` and `user` built-in objects.
+
+Examples
+--------
+
+* CLEANUP: Simplified the threaded engines loader and tester files to check
+only the `engines` flag when testing for compatibility.
+
+* IMPROVED: The `bricks` and `blocks` examples no longer change the default
+value of the `events` flag.
+
+* UPDATED: The `tabling` example for the tabling library becoming native in
+the forthcoming SWI-Prolog 7.7.14 version.
+
+* UPDATED: The `errors` example to illustrate the new compiler lint check for
+suspicious calls.
+
+* FIXED: Outdated sample query in the `SCRIPT.txt` file for the `benchmarks`
+example. Thanks to Per Mildner for reporting.
+
+Contributions
+-------------
+
+* FIXED: Missing meta-predicate directive in the `verdi_neruda` contribution.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: The `logtalk_backend_select` script to also allow removing the
+`logtalk` alias to the selected integration script.
+
+* UPDATED: All bundled scripts to write error messages to `stderr`.
+
+* CLEANUP: Style issues in all bundled scripts.
+
+* FIXED: Spurious warnings when running the GNU Prolog embedding script when
+creating an executable with just the Logtalk compiler and runtime.
+
+* FIXED: The `debian/copyright` file to be machine parseable. Thanks to Per
+Mildner for reporting.
+
+* FIXED: Missing `else` in the `logtalk_user_setup.sh` script that could
+result in a misleading message when the `LOGTALKHOME` environment variables
+is not defined.
+
+
 3.16.0 - April 24, 2018
 =======================
 
@@ -15501,7 +15614,7 @@ First release for registered users.
 		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
 	</span></p>
 	<p><span class="right">
-		April 24, 2018<br />
+		May 21, 2018<br />
 		&copy; Paulo Moura, 1998-2018
 	</span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
