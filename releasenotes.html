@@ -28,6 +28,156 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.18.0 - June 26, 2018
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* UPDATED: The `user` object now also implements the `expanding` protocol by
+defining `term_expansion/2` and `goal_expansion/2` as multifile and dynamic
+predicates. This change avoids predicate existence errors when compiling
+source files with the `hook` flag to `user` as the expansion predicates are
+only natively declared in some of the supported backend Prolog compilers.
+
+* ADDED: Compiler option `suspicious_calls/1` to control printing of
+suspicious call warnings.
+
+* ADDED: Compiler lint check and warning for `::/2` calls that send a message
+to _self_ instead of using the `::/1` control construct.
+
+* ADDED: Compiler lint check and warning for `::/2` calls in objects that send
+a message to _this_ instead of simply calling the local predicate.
+
+* IMPROVED: Suspicious call lint warnings now also print the recommended
+alternative call.
+
+* IMPROVED: Entity compilation and dynamic entity creation performance
+improvement (up to ~2% for objects, ~5% for categories, and ~18% for
+protocols).
+
+* FIXED: Enable inlining of linking clauses that call Prolog module predicates.
+
+* FIXED: Reporting of singleton variables using parameter variable syntax for
+backend Prolog systems with the `underscore_variables` compiler option set to
+`dont_care`.
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: Deleted the `portray/1` hook for Logtalk goals execution context
+from the `swihooks.pl` file.
+
+* UPDATED: The SWI-Prolog adapter file by adding to the `prolog_loader/1` flag
+definition the new `load_files/2` option `optimise(true)`. Requires SWI-Prolog
+7.7.17 or later version (the option is silently ignored in previous versions).
+
+* UPDATED: The SWI-Prolog adapter file to detect the recent ISO standard
+compliance fix to the `read_term/3` predicate `singletons/1` option and set
+the `underscore_variables` flag accordingly.
+
+* UPDATED: SWI-Prolog experimental hack to get a top-level stack trace for
+errors generated from message sending calls. Commented out by default in the
+`swihooks.pl` file. Thanks to Jan Wielemaker for his clarifications about
+the stack trace mechanism.
+
+* UPDATED: Support for SWI-Prolog `edit/1` predicate to also locate source
+files (without forcing library notation), included files, entities, and
+object public predicates declaration and definition.
+
+* IMPROVED: SWI-Prolog integration to avoid the `listing/0` predicate listing
+Logtalk built-in predicates. Requires recent SWI-Prolog bug fix.
+
+* FIXED: Two harmless warnings when using SWI-Prolog `make/0` predicate.
+
+* UPDATED: The JIProlog adapter file to recognize the `*->/2` soft-cut control
+construct as built-in.
+
+* FIXED: SICStus Prolog error normalization when Logtalk is loaded into a
+module other than `user`.
+
+Documentation
+-------------
+
+* CHANGED: Updated the contributing guidelines, moving from the Contribution
+License Agreement (CLA) to the more developer friendly Developer Certificate
+of Origin (DCO).
+
+* ADDED: Explain the caveats of setting a Prolog module or `user` as a hook
+object in the user manual.
+
+* IMPROVED: Documentation of the `uses/2` and `use_module/2` directives.
+
+Library
+-------
+
+* CHANGED: All individual library documentation files to Markdown files.
+
+* ADDED: Port of Peter Van Roy EDCGs implementation.
+
+* ADDED: Predicate `invoke/2` to the Java interface library.
+
+* ADDED: Hook object, `java_hook`, to optimize calls to the JPL-based Java
+interface library (ensuring zero overhead compared with direct use of JPL).
+
+* IMPROVED: Documentation of most of the libraries.
+
+Tools
+-----
+
+* ADDED: Description and link to the Logtalk plugin for the `asdf` extendable
+version manager.
+
+* ADDED: Halstead complexity metric to the `code_metrics` tool. Experimental.
+Thanks to Daniel Speicher for his feedback on the implementation.
+
+* FIXED: The `lgtunit` tool global clause coverage statistics when there are
+entities declared as covered but without any tests for their predicates.
+
+* FIXED: Error instead of failure in the `code_metrics` tool when calling the
+`entity/1` and `entity_score/2` predicates with a compound term for a non-
+loaded parametric category or object.
+
+Tests
+-----
+
+* ADDED: Unit test for the ISO standard `read_term/3` predicate `singletons/1`
+option.
+
+* ADDED: Unit tests for the ISO standard `write_term/3` predicate `quoted/1`
+and `ignore_ops/1` options.
+
+Examples
+--------
+
+* ADDED: Example `edcgs` with a port of Peter Van Roy and Michael Hendricks
+EDCGs examples and tests.
+
+* ADDED: Example `optionals` illustrating the use of the optional terms
+library.
+
+* ADDED: Example `expecteds` illustrating the use of the optional terms
+library.
+
+* UPDATED: The `java` example to take advantage of the library `java_hook`
+hook object when run using the JPL-based Java interface library.
+
+* UPDATED: The `inlining` example to illustrate inlining of linking clauses
+that call Prolog module predicates.
+
+* UPDATED: The `errors` example to illustrate the new compiler lint check for
+suspicious calls to the `::/2` control construct.
+
+* IMPROVED: State representation for the `salt/3` state-space in the
+`searching` example.
+
+* IMPROVED: Simplified the `bridge` puzzle solution in the `searching`
+example.
+
+* FIXED: The `searching` example for the events related changes in the
+previous version for the `user` pseudo-object.
+
+
 3.17.0 - May 21, 2018
 =====================
 
@@ -15614,7 +15764,7 @@ First release for registered users.
 		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
 	</span></p>
 	<p><span class="right">
-		May 21, 2018<br />
+		June 26, 2018<br />
 		&copy; Paulo Moura, 1998-2018
 	</span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
