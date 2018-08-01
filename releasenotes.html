@@ -28,6 +28,203 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.19.0 - August 1, 2018
+=======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Support for defining additional Prolog built-in predicates for lint
+checks of goals that are always true or false to the adapter files using the
+hook predicate `'$lgt_candidate_tautology_or_falsehood_goal_hook'/1`.
+
+* ADDED: Object property `module` for objects that result from the compilation
+of Prolog modules.
+
+* ADDED: Convenience error throwing built-in methods `syntax_error/1` and
+`system_error/0`. These methods throw standard `error/2` exception terms
+and are equivalent to a sequence of `context/1` and `throw/1` method calls.
+
+* REMOVED: Support for deprecated Logtalk 2.x `calls/1`, `uses/1`, and
+`alias/3` directives.
+
+* REMOVED: Support for deprecated Logtalk 2.x `:/1` control construct.
+
+* REMOVED: Support for deprecated Logtalk 2.x `unknown`, `singletons`,
+`tmpdir`, and `version` compiler flags.
+
+* CHANGED: The user-defined default compiler hooks are now compiled using the
+default value of the `events` flag.
+
+* IMPROVED: Simplified and faster runtime initialization.
+
+* FIXED: Processing of the `include/1` directive when the included file
+contains `op/3` directives.
+
+* FIXED: Performance bug that prevented using static-binding optimizations
+for meta-arguments of meta-predicate messages sent from `user`.
+
+* FIXED: Load the core entity source files using the `reload(skip)` option.
+
+* FIXED: The `logtalk_make/1` predicate no longer tries to reload files that
+were loaded using the `reload(skip)` option.
+
+* FIXED: Detection of instantiation errors when compiling entity relations
+crafted using an entity argument list with a variable tail.
+
+* FIXED: The `retract/1` method would allow retracting clauses for a local
+dynamic predicate without a scope directive from objects other than the
+object containing the predicate.
+
+* FIXED: Bug in the `abolish/1` method when abolishing a dynamic predicate
+with a dynamic declaration with no clauses where a subsequent call to the
+predicate using the `&lt;&lt;/2` debugging control construct would fail instead
+of generating a predicate existence error.
+
+* FIXED: The compiler would not recognize the `logtalk_make_target_action/1`
+predicate as a built-in predicate.
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: The representation of the Prolog version as returned by the
+`prolog_version` flag now uses a `v/3` compound term.
+
+* REMOVED: The `'$lgt_startup_directory'/1`, `'$lgt_user_directory'/1`, and
+`'$lgt_home_directory'/1` internal predicates from all adapter files.
+
+* UPDATED: GNU Prolog adapter file to assume version 1.4.5 or later.
+
+* FIXED: Quintus Prolog adapter file no longer tries to redefine the built-in
+`peek_char/1-2` predicates.
+
+* FIXED: Workaround Lean Prolog lack of compliance of when returning the list
+of variables of a read term.
+
+* FIXED: Workaround Qu-Prolog lack of support for the standard `float/1`
+arithmetic function.
+
+Documentation
+-------------
+
+* IMPROVED: Fixed several typos and improved several sections of the reference
+manual.
+
+Library
+-------
+
+* ADDED: Utility predicates `approximately_equal/3`, `essentially_equal/3`,
+`tolerance_equal/4`, and `=~=/2` to the `number` object. These predicates are
+non type-checked variants of the same predicates found in the `lgtunit` tool.
+
+* ADDED: Predicates `maybe/0-2` to the `random` library.
+
+* UPDATED: Several library objects to take advantage of the recently introduced
+error throwing built-in methods.
+
+* FIXED: Workaround for some backend Prolog compilers (such as SWI-Prolog)
+lack of float arithmetic standard compliance to ensure that statistics and
+number list predicates that compute floats don't return integers when the
+fractional part is zero.
+
+Tools
+-----
+
+* CHANGED: The number of entity clauses metric to compute both the total number
+of clauses and the number of user clauses.
+
+* ADDED: Number of entity rules metric, computing both the total number of
+rules and the number of user rules.
+
+* ADDED: Cyclomatic complexity metric. Experimental.
+
+* UPDATED: The Halstead metric to also take into account updates to dynamic
+predicates.
+
+* ADDED: Utility predicates `approximately_equal/3`, `essentially_equal/3`,
+and `tolerance_equal/4` to the `lgtunit` tool. These are type-checked variants
+of the same predicates found in the `number` library object.
+
+* IMPROVED: Simplified handling of `quick_test/3` test dialect by `lgtunit`.
+
+* IMPROVED: Simplified the implementation of the `lgtunit` predicate `=~=/2`
+and added more strict type-checking.
+
+* UPDATED: The `lgtunit` tool to use an accurate `epsilon` value when using
+ECLiPSe as the backend compiler.
+
+* UPDATED: The `lgtunit` tool to take advantage of the recently introduced
+error throwing built-in methods.
+
+* FIXED: Float type error in the `code_metrics` documentation metric when
+using some backend Prolog systems such as ECLiPSe.
+
+* FIXED: Workaround for some backend Prolog compilers (such as SWI-Prolog)
+lack of float arithmetic standard compliance to ensure that coupling metric
+entity scores return float values for instability and abstractness instead
+of integers when the fractional part is zero.
+
+* FIXED: Workaround `lgtunit` portability issue when running on XSB due to
+the de facto standard `between/3` predicate being a library predicate and
+the semantics of the XSB atom-based module system.
+
+* FIXED: Bug in the `lgtunit` tool that prevented marking tests using the
+`quick_check/2-3` dialects as skipped.
+
+* FIXED: Generation of auxiliary predicates for test options by the `lgtunit`
+tool would result in unexpected failures when the predicates accessed entity
+parameters.
+
+Tests
+-----
+
+* ADDED: Tests for the de facto standard `epsilon/0` evaluable functor.
+
+* ADDED: Tests for syntax errors in atoms, lists, numbers, and curly bracketed
+terms to the Prolog compliance suite.
+
+* ADDED: Test for included files that contain `op/3` operators.
+
+* ADDED: Tests for the `random` library `maybe/0-2` predicates. The tests use
+a 2% margin for checking for an even distribution.
+
+* CHANGED: Skip the tests for the `random` library predicates `get_seed/1`
+and `set_seed/1` when testing the `backend_random` object as several backend
+Prolog systems don't provide implementations for these predicates.
+
+* ADDED: Tests for the `retract/1` and `retractall/1` built-in methods for
+local dynamic predicates with no scope directives.
+
+* ADDED: Tests for the `abolish/1` built-in method when calling an abolished
+dynamic predicate with a dynamic declaration.
+
+Examples
+--------
+
+* ADDED: Example `now_you_see_me` illustrating requirements dictated by
+inheritance semantics for the implementation of `^^/1` calls and dynamic
+predicates.
+
+* ADDED: Example `bench` with a classic set of Prolog benchmark programs and
+Logtalk wrappers for those programs. Copied from SWI-Prolog after discussion
+with Jan Wielemaker.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Support for the highlight.js syntax highlighter.
+
+* ADDED: Syntax coloring support for the new error throwing built-in methods.
+
+* ADDED: Syntax coloring support for the `logtalk_make_target_action/1`
+built-in predicate.
+
+* ADDED: Note on Textadept Logtalk syntax coloring support contributed by
+Michael T. Richter.
+
+* UPDATED: Text completions for supported text editors.
+
+
 3.18.0 - June 26, 2018
 ======================
 
@@ -15764,7 +15961,7 @@ First release for registered users.
 		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
 	</span></p>
 	<p><span class="right">
-		June 26, 2018<br />
+		August 1, 2018<br />
 		&copy; Paulo Moura, 1998-2018
 	</span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
