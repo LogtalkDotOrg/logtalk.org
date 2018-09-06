@@ -28,6 +28,98 @@ Release Notes
 <p>&nbsp;</p>
 
 <pre>
+3.20.0 - September 5, 2018
+==========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* IMPROVED: Avoid spurious missing `meta_predicate/1` directive warnings when
+the actual meta-call don't share variables with the clause head.
+
+* IMPROVED: Allow using lambda expressions in grammar rules without requiring
+a `call//1` wrapper.
+
+* FIXED: Optimization bug in the compilation of a closure meta-argument when
+the resulting goal is a call to a Prolog built-in predicate due to inlining of
+a user predicate definition.
+
+* FIXED: Optimization bug in the compilation of a closure meta-argument when
+the resulting goal is a call to a Prolog `:/2` control construct.
+
+Documentation
+-------------
+
+* IMPROVED: Reference manual description of the `^^/1` control construct.
+
+Library
+-------
+
+* ADDED: Support for describing registered meta-types using the new multifile
+predicate `type::meta_type/3`.
+
+* ADDED: Type `type` for checking type specifications.
+
+* ADDED: Predicates `maybe_call/1-2` to the `random` library.
+
+* ADDED: Predicates `as_set/2` and `as_list/2` to the sets library.
+
+* IMPROVED: Performance of the Java library when using JPL as the backend.
+
+* UPDATED: The meta-compiler to also process closures that are explicitly
+module qualified.
+
+* FIXED: Term-expansion cleanup actions for the `edcgs` and `meta_compiler`
+library objects. Due to the compiler being a multi-pass compiler, cleanup
+actions should be performed when an open entity directive is found instead
+of when expanding the ending entity directive.
+
+Examples
+--------
+
+* CHANGED: Compile the `lambdas` and `lambdas_compiled` examples with the
+`optimize` flag turned on so that the benchmarks best reflect the overheads
+of meta-predicates and lambda expressions.
+
+* ADDED: Examples and tests of using lambda expressions in grammar rules to
+the `dcgs` example.
+
+* ADDED: Simple example, `scopes`, illustrating predicate scope semantics.
+
+* ADDED: Simple example, `self_messages`, illustrating the semantics of
+messages to "self".
+
+* ADDED: Simple example, `super_calls`, illustrating that "super" calls
+preserve the value of "self".
+
+* ADDED: Simple example, `elephants`, illustrating the concept of prototype.
+
+* ADDED: Simple example, `planets`, illustrating the concepts of protocol
+and category.
+
+* ADDED: Simple example, `roles`, illustrating the different roles that an
+object can play.
+
+* ADDED: Simple example, `clustering`, of using a Java library for performing
+clustering of a set of numbers.
+
+* UPDATED: The `metapredicates` and `metapredicates_compiled` examples to
+help visually illustrate the differences between left and right folds.
+
+* UPDATED: The `xpce` example loader files to detect if XPCE is available.
+
+* IMPROVED: Simplified the `pardicts` example by using parameter variables.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Support for the 0'\Char number notation to most text editors and
+syntax highlighters.
+
+* ADDED: Note on the Vis multi-platform text editor support for Logtalk
+syntax highlighting.
+
+
 3.19.0 - August 1, 2018
 =======================
 
@@ -15961,7 +16053,7 @@ First release for registered users.
 		<a href="mailto:webmaster@logtalk.org">webmaster@logtalk.org</a>
 	</span></p>
 	<p><span class="right">
-		August 1, 2018<br />
+		September 5, 2018<br />
 		&copy; Paulo Moura, 1998-2018
 	</span></p>
 	<p class="middle"><a href="http://www.dreamhost.com/donate.cgi?id=7489">web hosting supporting donations</a></p>
