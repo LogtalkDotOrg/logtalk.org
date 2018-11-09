@@ -1,0 +1,1014 @@
+<!DOCTYPE html><html lang="en">
+  <head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Rationale - Logtalk</title>
+
+<meta name="description" content="Declarative object-oriented logic programming language
+">
+<link rel="canonical" href="http://localhost:4000/rationale.html"><link rel="alternate" type="application/rss+xml" title="Logtalk" href="/feed.xml">
+<!-- begin favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#355b95">
+<meta name="theme-color" content="#ffffff">
+<!-- end favicon --><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
+<script>(function() {
+  window.isArray = function(val) {
+    return Object.prototype.toString.call(val) === '[object Array]';
+  };
+  window.isString = function(val) {
+    return typeof val === 'string';
+  };
+
+  window.decodeUrl = function(str) {
+    return str ? decodeURIComponent(str.replace(/\+/g, '%20')) : '';
+  };
+
+
+  window.hasEvent = function(event) {
+    return 'on'.concat(event) in window.document;
+  };
+
+  window.isOverallScroller = function(node) {
+    return node === document.documentElement || node === document.body || node === window;
+  };
+
+  window.pageLoad = (function () {
+    var loaded = false, cbs = [];
+    window.addEventListener('load', function () {
+      var i, cb; loaded = true;
+      if (cbs.length > 0) {
+        for (i = 0; i < cbs.length; i++) {
+          cb = cbs[i]; cb();
+        }
+      }
+    });
+    return {
+      then: function(cb) {
+        cb && (loaded ? cb() : (cbs.push(cb)));
+      }
+    };
+  })();
+})();(function() {
+  window.throttle = function(func, wait) {
+    var args, result, thisArg, timeoutId, lastCalled = 0;
+
+    function trailingCall() {
+      lastCalled = new Date;
+      timeoutId = null;
+      result = func.apply(thisArg, args);
+    }
+    return function() {
+      var now = new Date,
+        remaining = wait - (now - lastCalled);
+
+      args = arguments;
+      thisArg = this;
+
+      if (remaining <= 0) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+        lastCalled = now;
+        result = func.apply(thisArg, args);
+      } else if (!timeoutId) {
+        timeoutId = setTimeout(trailingCall, remaining);
+      }
+      return result;
+    };
+  };
+})();(function() {
+  var Set = (function() {
+    var add = function(item) {
+      var i, data = this._data;
+      for (i = 0; i < data.length; i++) {
+        if (data[i] === item) {
+          return;
+        }
+      }
+      this.size ++;
+      data.push(item);
+      return data;
+    };
+
+    var Set = function(data) {
+      this.size = 0;
+      this._data = [];
+      var i;
+      if (data.length > 0) {
+        for (i = 0; i < data.length; i++) {
+          add.call(this, data[i]);
+        }
+      }
+    };
+    Set.prototype.add = add;
+    Set.prototype.get = function(index) { return this._data[index]; };
+    Set.prototype.has = function(item) {
+      var i, data = this._data;
+      for (i = 0; i < data.length; i++) {
+        if (this.get(i) === item) {
+          return true;
+        }
+      }
+      return false;
+    };
+    Set.prototype.is = function(map) {
+      if (map._data.length !== this._data.length) { return false; }
+      var i, j, flag, tData = this._data, mData = map._data;
+      for (i = 0; i < tData.length; i++) {
+        for (flag = false, j = 0; j < mData.length; j++) {
+          if (tData[i] === mData[j]) {
+            flag = true;
+            break;
+          }
+        }
+        if (!flag) { return false; }
+      }
+      return true;
+    };
+    Set.prototype.values = function() {
+      return this._data;
+    };
+    return Set;
+  })();
+
+  window.Lazyload = (function(doc) {
+    var queue = {js: [], css: []}, sources = {js: {}, css: {}}, context = this;
+    var createNode = function(name, attrs) {
+      var node = doc.createElement(name), attr;
+      for (attr in attrs) {
+        if (attrs.hasOwnProperty(attr)) {
+          node.setAttribute(attr, attrs[attr]);
+        }
+      }
+      return node;
+    };
+    var end = function(type, url) {
+      var s, q, qi, cbs, i, j, cur, val, flag;
+      if (type === 'js' || type ==='css') {
+        s = sources[type], q = queue[type];
+        s[url] = true;
+        for (i = 0; i < q.length; i++) {
+          cur = q[i];
+          if (cur.urls.has(url)) {
+            qi = cur, val = qi.urls.values();
+            qi && (cbs = qi.callbacks);
+            for (flag = true, j = 0; j < val.length; j++) {
+              cur = val[j];
+              if (!s[cur]) {
+                flag = false;
+              }
+            }
+            if (flag && cbs && cbs.length > 0) {
+              for (j = 0; j < cbs.length; j++) {
+                cbs[j].call(context);
+              }
+              qi.load = true;
+            }
+          }
+        }
+      }
+    };
+    var load = function(type, urls, callback) {
+      var s, q, qi, node, i, cur,
+        _urls = typeof urls === 'string' ? new Set([urls]) : new Set(urls), val, url;
+      if (type === 'js' || type ==='css') {
+        s = sources[type], q = queue[type];
+        for (i = 0; i < q.length; i++) {
+          cur = q[i];
+          if (_urls.is(cur.urls)) {
+            qi = cur;
+            break;
+          }
+        }
+        val = _urls.values();
+        if (qi) {
+          callback && (qi.load || qi.callbacks.push(callback));
+          callback && (qi.load && callback());
+        } else {
+          q.push({
+            urls: _urls,
+            callbacks: callback ? [callback] : [],
+            load: false
+          });
+          for (i = 0; i < val.length; i++) {
+            node = null, url = val[i];
+            if (s[url] === undefined) {
+              (type === 'js' ) && (node = createNode('script', { src: url }));
+              (type === 'css') && (node = createNode('link', { rel: 'stylesheet', href: url }));
+              if (node) {
+                node.onload = (function(type, url) {
+                  return function() {
+                    end(type, url);
+                  };
+                })(type, url);
+                (doc.head || doc.body).appendChild(node);
+                s[url] = false;
+              }
+            }
+          }
+        }
+      }
+    };
+    return {
+      js: function(url, callback) {
+        load('js', url, callback);
+      },
+      css: function(url, callback) {
+        load('css', url, callback);
+      }
+    };
+  })(this.document);
+})();</script><script>
+  (function() {
+    var TEXT_VARIABLES = {
+      version: '2.2.2',
+      sources: {
+        font_awesome: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css',
+        jquery: 'https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js',
+        leancloud_js_sdk: '//cdn1.lncld.net/static/js/3.4.1/av-min.js',
+        chart: 'https://cdn.bootcss.com/Chart.js/2.7.2/Chart.bundle.min.js',
+        gitalk: {
+          js: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.js',
+          css: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.css'
+        },
+        mathjax: 'https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML',
+        mermaid: 'https://cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min.js'
+      },
+      site: {
+        toc: {
+          selectors: 'h1,h2,h3'
+        }
+      },
+      paths: {
+        search_js: '/assets/search.js'
+      }
+    };
+    window.TEXT_VARIABLES = TEXT_VARIABLES;
+  })();
+</script></head>
+  <body>
+    <div class="root" data-is-touch="false">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
+
+      <div class="page__main-inner">
+        <div></div><div class="page__header d-print-none"><header class="header"><div class="main">
+      <div class="header__title">
+        <div class="header__brand">
+          <strong>[ ⊨ ]&nbsp;</strong><a title="Declarative object-oriented logic programming language
+" href="/">Logtalk</a></div>
+<!--
+        <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
+-->
+      </div><nav class="navigation">
+        <ul><li class="navigation__link navigation__link--active"><a href="/rationale.html">Rationale</a></li><li class="navigation__link"><a href="/features.html">Features</a></li><li class="navigation__link"><a href="/documentation.html">Documentation</a></li><li class="navigation__link"><a href="/download.html">Download</a></li><li class="navigation__link"><a href="/tools.html">Tools</a></li><li class="navigation__link"><a href="/guides.html">Guides</a></li><li class="navigation__link"><a href="/support.html">Support</a></li><li class="navigation__link"><a href="/related.html">Related</a></li><li class="navigation__link"><a href="/news.html">News</a></li><li class="navigation__link"><a href="/search.html"><i class="fa fa-search" aria-hidden="true"></i></a></li><!--
+          <li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
+-->
+        </ul>
+      </nav></div>
+  </header>
+</div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
+
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
+
+              <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Rationale</h1></header></div><meta itemprop="headline" content="Rationale"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
+
+  <div class="article__content" itemprop="articleBody"><h2 id="why-logtalk">Why Logtalk?</h2>
+
+<p>Logtalk is designed to <em>extend</em> Prolog, not to replace it. It provides, however, an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of developer tools. By Prolog modules we assume here the de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:</p>
+
+<ul>
+  <li>Designed as a simple solution to to hide auxiliary predicates</li>
+  <li>Based on a <em>predicate prefixing</em> mechanism</li>
+  <li>Reuse based on <em>import/export</em> semantics</li>
+</ul>
+
+<p>These fundamental characteristics make module systems relatively simple to implement but also effectively prevent extending them to provide several key features present in Logtalk, some of them described here, that support a wide range of code encapsulation and reuse scenarios typically found in applications.</p>
+
+<p>Logtalk also fixes some murky semantics found in Prolog and improves some it its key mechanisms. Note that all advantages described next <em>coexist</em> with Prolog. I.e. Logtalk acts strictly as an <em>add-on</em>. It does not patch or modify Prolog own built-in features.</p>
+
+<h3 id="protocols">Protocols</h3>
+
+<p>Protocols are first-class entities in Logtalk. Being able to define a protocol (or interface) and provide multiple implementations is one of the most basic features for an encapsulation mechanisms. Protocols are also a key part of many design patterns in software engineering. Its absence in module systems twists practice and leads to non scalable, brittle solutions.</p>
+
+<p>The current and recommended practice with Prolog modules is that <em>exported</em> predicates should not clash and to prefer <code class="highlighter-rouge">use_module/1</code> directives over <code class="highlighter-rouge">use_module/2</code> directives or explicit qualification. These recommendations are as convenient (specially for new users) as they are problematic. The first consequence, is that modules, as encapsulation units, are in practice only there to prevent clashes in <em>private</em> predicates. But there isn’t any central authority for modules. Nor is reasonable to expect or demand that programmers all over the world sync before deciding the names of exported predicates when releasing a public module library. Users may also find that newly released libraries clash with their private modules. The preference for <code class="highlighter-rouge">use_module/1</code> directives also means that adding a new exported predicate to a module library can cause a module conflict and thus break existing applications that, necessarily, don’t use the new predicate. Another consequence is that module exported predicates are often prefixed with an abbreviation of the module name to prevent clashes (see e.g. the <code class="highlighter-rouge">ordsets</code>, <code class="highlighter-rouge">random</code>, or <code class="highlighter-rouge">rbtrees</code> modules).</p>
+
+<p>Note that separation of interface and implementation for modules (with multiple modules implementing the same interface) is not a question of finding an hypothetical ingenious solution: is simply not possible without giving up module predicate import/export semantics as you cannot load in the same context two modules exporting the same predicates.</p>
+
+<h3 id="consistent-call-semantics">Consistent call semantics</h3>
+
+<p>In Logtalk, implicit message sending, using <code class="highlighter-rouge">uses/2</code> directive to resolve the messages, and explicit message sending, using the <code class="highlighter-rouge">::/2</code> control construct, have the same semantics for both meta-predicates and non meta-predicates. I.e. using using implicit or explicit messages is simply a matter of programming style and programmer preference. For meta-predicates, this results in clear and clean meta-predicate semantics: meta-arguments are <strong>always</strong> called in the meta-predicate <em>calling context</em>.</p>
+
+<p>Prolog modules, however, provide different semantics for implicit and explicit qualified calls to meta-predicates. Calling a module meta-predicate with implicit qualification (by using <code class="highlighter-rouge">use_module/1-2</code> directives) results in the meta-arguments being called in the meta-predicate <em>calling context</em>. But calling the same module meta-predicate using explicit qualification results in the meta-arguments being called in the meta-predicate <em>definition context</em>, not in the <em>calling context</em>.</p>
+
+<h3 id="declaring-a-predicate-vs-defining-a-predicate"><em>Declaring</em> a predicate vs <em>defining</em> a predicate</h3>
+
+<p>Logtalk provides a clear distinction between <em>declaring</em> and <em>defining</em> a predicate and thus clear closed world assumption semantics. Messages or calls for declared but undefined predicates fail. Messages or calls for unknown (not declared) predicates throw an error. Note that this is a fundamental requirement for protocols/interfaces: we must be able to <em>declare</em> a predicate without necessarily <em>defining</em> it.</p>
+
+<p>In contrast, in module systems it’s either a compiler error to try to export a predicate that is not defined or a predicate existence error to try to call an exported predicate that is not defined. The absence of a protocol/interface concept in module systems is sometimes hacked using <code class="highlighter-rouge">include/1</code> directives. But that leads to versioning of files instead of versioning of interfaces and does not provide a solution that allows two or more modules to implement the same interface as discussed above.</p>
+
+<p>Note that modules are a <em>predicate prefixing</em> solution and thus any call to a module predicate requires it to be defined in the module that is implicit or explicit in the call (otherwise a predicate existence error is generated). There is no predicate <em>lookup</em> that would allow to verify that a predicate is <em>declared</em> prior to calling it.</p>
+
+<h3 id="loading-a-file-vs-using-an-entity"><em>Loading</em> a file vs <em>using</em> an entity</h3>
+
+<p>Logtalk provides a clear separation between loading a file and using an entity. Loading a file does not imply any kind of <em>using</em> relation between existing entities and the entities being loaded. But in Prolog module systems, the <code class="highlighter-rouge">use_module/1-2</code> directives take as first argument a specification of a file to be loaded and not a module name (which may or may not be the same as the file basename) and both load the file and import the listed predicates (in case of a <code class="highlighter-rouge">use_module/2</code> directive) or all exported predicates of the module being loaded (in case of a <code class="highlighter-rouge">use_module/1</code> directive). The <code class="highlighter-rouge">ensure_loaded/1</code> directive also takes a file specification as argument but, depending on the Prolog system, it either behaves as <code class="highlighter-rouge">use_module/1</code> directive or as a <code class="highlighter-rouge">use_module/2</code> directive with an empty list as second argument. The potential problems of the implicit importing of the <code class="highlighter-rouge">use_module/1</code> directive have already been discussed.</p>
+
+<h3 id="no-predicate-loading-conflicts">No predicate loading conflicts</h3>
+
+<p>Loading two or more objects that declare the same predicate as public does not create any conflicts as Logtalk does not use the concept of predicates importing/exporting found in Prolog modules. This means e.g. that a Logtalk update that adds new public predicates to its libraries cannot break existing applications. But loading two modules exporting the same predicate is a compilation error that can only be solved by either renaming one of the predicates (in module systems that happen to support such feature) or by using a <code class="highlighter-rouge">use_module/2</code> directive with an empty import list as second argument and resorting to explicit qualification. This means that <strong>any</strong> update that adds new exported predicates to module libraries have the potential to break existing applications.</p>
+
+<h3 id="predicate-names-are-not-owned-by-objects">Predicate names are not owned by objects</h3>
+
+<p>The same predicate name can be a public predicate of any number of objects. This means that object interfaces can use the best possible predicate names, simplifying and minimizing protocols vocabulary, making APIs easy to learn. In contrast, current practice with Prolog modules is that exported predicates should never conflict. But this is not scalable and results with different vocabulary being used for otherwise similar module interfaces. As an example, <code class="highlighter-rouge">member/2</code> is a predicate usually exported by a <code class="highlighter-rouge">lists</code> module. But <code class="highlighter-rouge">member/2</code> is also a good name for e.g. modules representing sets or trees. But the emphasis in implicit qualification using <code class="highlighter-rouge">use_module/1</code> directives effectively prevents using the <code class="highlighter-rouge">member/2</code> predicate name for anything other than lists.</p>
+
+<h3 id="simple-scope-rules-for-flags">Simple scope rules for flags</h3>
+
+<p>The <code class="highlighter-rouge">set_logtalk_flag</code> <strong>directive</strong> is always local to their scope, which can be an entity or a source file. Only calls to the <code class="highlighter-rouge">set_logtalk_flag</code> built-in <strong>predicate</strong> set the global default value for a flag.</p>
+
+<p>In contrast, some Prolog flags have local scope while others have global scope. Worse, there are differences between Prolog systems that support modules with some flags being local to a module in a system and global in another. A notable case are <code class="highlighter-rouge">op/3</code> directives, which are local to modules in some systems and global in others.</p>
+
+<h3 id="enforcement-of-encapsulation">Enforcement of encapsulation</h3>
+
+<p>Most Prolog module systems allow any predicate to be called using explicit qualification. This is usually not an issue when  coding guidelines are enforced by strong team discipline. Logtalk, instead of relying solely in good practices, enforces encapsulation and generates an error on any attempt to call a predicate that is out of scope. Logtalk also prevents using specially crafted meta-predicates to break encapsulation and using code loading order to hack a module predicate to become multifile.</p>
+
+<h3 id="strict-compiler">Strict compiler</h3>
+
+<p>Most Prolog compilers are permissive, silently accepting problematic code. The Logtalk compiler is strict and either rejects or warns the user of a large number of code issues, contributing to earlier detection and warning of source code issues.</p>
+
+<h3 id="objects-subsume-modules">Objects subsume modules</h3>
+
+<p>Logtalk objects <em>subsume</em> Prolog modules but the reverse is not true in general. You can’t go from an object solution to a module solution easily or without significant hacking when you’re taking advantage of e.g. inheritance, self/super calls, protocols, or parametric objects. Using a more general solution is worthy by itself and orthogonal to the programming in the small/large perspective.</p>
+
+<p>As Prolog modules <em>are</em> objects, prototypes to be exact, most module-based solution can be easily translated into an object-based solution. So easy in fact that the Logtalk compiler does it for you (minus proprietary stuff that choke it, which varies from Prolog system to Prolog system; blame lack of standardization).</p>
+
+<div class="language-logtalk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">:- module</span><span class="p">(</span>foo<span class="p">,</span> <span class="p">[</span>bar<span class="o">/</span><span class="m">1</span><span class="p">,</span> baz<span class="o">/</span><span class="m">2</span><span class="p">]).</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p>or</p>
+
+<div class="language-logtalk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">:- module</span><span class="p">(</span>foo<span class="p">,</span> <span class="p">[]).</span>
+<span class="k">:- export</span><span class="p">([</span>bar<span class="o">/</span><span class="m">1</span><span class="p">,</span> baz<span class="o">/</span><span class="m">2</span><span class="p">]).</span>
+<span class="p">...</span>
+</code></pre></div></div>
+
+<p>is simply interpreted by the Logtalk compiler as:</p>
+
+<div class="language-logtalk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">:- object</span><span class="p">(</span>foo<span class="p">).</span>
+<span class="k">    :- public</span><span class="p">([</span>bar<span class="o">/</span><span class="m">1</span><span class="p">,</span> baz<span class="o">/</span><span class="m">2</span><span class="p">]).</span>
+    <span class="p">...</span>
+<span class="k">:- end_object</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>The Logtalk code is as readable as the module code, provides the same performance, and requires just one more directive, <code class="highlighter-rouge">end_object/0</code>, that any decent editor will type for you by expanding an object template. Note, however, that Logtalk does not use a predicate prefixing mechanism and does not provide the predicate exporting semantics found in Prolog modules. Thus, the interpretation of modules as objects is not a case of alternative syntax but results in different predicate <strong>usage</strong> semantics: by compiling a Prolog module as a Logtalk object, the exported predicates become public predicates that must be called either using the <code class="highlighter-rouge">::/2</code> message sending control construct or using an <code class="highlighter-rouge">uses/2</code> directive to list them as implicit messages to the object.</p>
+
+<h3 id="portability">Portability</h3>
+
+<p>Logtalk is written in highly portable code and currently supports 12 backend Prolog systems. It can support any Prolog system that complies with official and de facto core standards. Logtalk libraries and developer tools are also portable.</p>
+
+<p>In contrast, the ISO Prolog standard for modules is ignored (for sound reasons) by Prolog implementers. Worse, Prolog systems implementing a module system have significant differences that hinder portability. A few examples:</p>
+
+<ul>
+  <li>ECLiPSe - no <code class="highlighter-rouge">module/2</code> directive</li>
+  <li>SICStus Prolog and XSB - no <code class="highlighter-rouge">reexport/1-2</code> directives</li>
+  <li>ISO standard - no <code class="highlighter-rouge">use_module/1-2</code> directives</li>
+  <li>SWI-Prolog - operators are local to modules</li>
+  <li>SICStus Prolog - operators are global</li>
+  <li>XSB - atom-based module system</li>
+  <li>ECLiPSe, SICStus Prolog, SWI-Prolog, YAP - predicate-based module system</li>
+</ul>
+
+<p>In addition, not all Prolog systems implemented modules. Examples include B-Prolog, CxProlog, GNU Prolog, and Qu-Prolog. Logtalk highly portable code works as-is and independently of the presence or absence of a module system.</p>
+
+<h3 id="key-mechanisms">Key mechanisms</h3>
+
+<p>Logtalk provides <strong>fully portable</strong> implementations of key mechanisms to all supported backend Prolog compilers. These include:</p>
+
+<ul>
+  <li>Conditional compilation directives</li>
+  <li>Term-expansion</li>
+  <li>Message printing</li>
+  <li>Question asking</li>
+</ul>
+
+<p>Conditional compilation directives are found nowadays in most Prolog systems although some implementations are buggy, including in some high profile systems, if you need more than the very basic usage.</p>
+
+<p>The term-expansion mechanism can be traced back to Quintus Prolog. Nevertheless, it is only found in some of the supported systems but with proprietary variations that hinder portability. The Logtalk implementation, besides being portable and working the same in all supported systems, provides improved functionality that subsumes most existing implementations and allows fine control of expansion pipelines.</p>
+
+<p>The message printing mechanism can also be traced back to Quintus Prolog. But it is only supported by some Prolog systems. The Logtalk implementation extends the original implementation by introducing a <em>component</em> argument that allows easy filtering of messages per component in large applications and helps avoiding message term conflicts between components. It also provides support for <em>meta messages</em> avoiding the need of defining grammar rules for translating each and every message as in the original implementation.</p>
+
+<p>The question asking mechanism is original to Logtalk and the dual of the message printing mechanism. It allows abstracting asking questions to a user in the same way that the message printing mechanism abstracts printing messages to the user. It is an uncommon mechanism. But it facilitates abstracting applications input/output interfaces while also allowing common requested features such as logging to be plugged in.</p>
+
+<h2 id="why-not-logtalk">Why not Logtalk?</h2>
+
+<p>Logtalk materializes a number of design choices that may not be ideal for some Prolog programming scenarios.</p>
+
+<h3 id="increased-startup-times">Increased startup times</h3>
+
+<p>Starting a Logtalk application requires loading both the chosen backend Prolog system and the Logtalk compiler and runtime. This necessarily increases the time it takes to start an application. This may be an issue where very fast startup times are required (of course, this is only meaningful if the applications themselves are small compared with the size of the Logtalk compiler and runtime). Note, however, that the Logtalk compiler and runtime can be precompiled by some Prolog systems for faster loading thus minimizing startup time (e.g. SWI-Prolog supports a Quick Load Format, QLF). The same solution when available can be applied to a Logtalk application.</p>
+
+<h3 id="increased-application-compilation-times">Increased application compilation times</h3>
+
+<p>Currently, Logtalk is implemented as a trans-compiler to Prolog. This means that a Logtalk source file is compiled into an intermediate Prolog source file that in turn is compiled using the chosen backend Prolog compiler, thus potentially increasing application compilation times compared with a Prolog only solution. That said, a portable <em>make</em> tool is provided to limit source file recompilation to only changed files helping minimizing compilation time during development. Note that a comparison of application compilation times is only meaningful, however, for applications that don’t take advantage of Logtalk unique features.</p>
+
+<h3 id="compatibility-with-prolog-native-tools">Compatibility with Prolog native tools</h3>
+
+<p>Although Logtalk provides a complete set of developer tools, it only supports <a href="tools.html#third-party-tools">selected</a> native Prolog developer tools.
+Complex applications may require using both Logtalk and Prolog tools, demanding that the programmer learns how to be productive with a larger number of tools.</p>
+
+<h3 id="dynamic-binding-performance">Dynamic binding performance</h3>
+
+<p>Logtalk applications making heavy use of dynamic binding may require a backend Prolog compiler with good predicate clause indexing for best performance.</p>
+
+<h3 id="no-implicit-predicate-imports">No implicit predicate imports</h3>
+
+<p>Logtalk favors resilience to changes over convenience and thus does not support implicit predicate imports as in the Prolog <code class="highlighter-rouge">use_module/1</code> directive. In objects (and categories), only <code class="highlighter-rouge">use_module/2</code> directives (or its Logtalk equivalent, the <code class="highlighter-rouge">uses/2</code> directive) can be used. The practical consequence is that you need to use a <code class="highlighter-rouge">use_module/2</code> directive for implicitly calling module predicates and a <code class="highlighter-rouge">uses/2</code> directive for implicitly sending messages to objects. I.e. you need to either explicitly list the predicates or use explicit qualification. This can make the code more verbose (but it also prevents applications from breaking when new library predicates are implemented).</p>
+
+<p>Note: the adapter files for some Prolog systems are able to convert in the fly <code class="highlighter-rouge">use_module/1</code> directives into <code class="highlighter-rouge">use_module/2</code> directives in some cases. This, however, is not recommended for the reasons stated above.</p>
+
+<h3 id="temporary-files">Temporary files</h3>
+
+<p>The Logtalk compiler generates temporary Prolog files when compiling and loading source files. By default, these temporary files are automatically deleted. This requires Logtalk to either work from a writable volume or to define the operating-system temporary directory as the scratch directory. As all common operating-systems natively provide a directory for temporary files, this is not considered an actual limitation although it is worth noting characteristic. Note that running embedded Logtalk applications doesn’t not require any runtime compilation of the application source files (as embedding is accomplished using precompiled code).</p>
+</div><footer class="article__footer"><!-- this will show at every article content's bottom --></footer>
+
+  <div class="d-print-none"></div>
+
+</div>
+
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    $(function() {
+      var $this ,$scroll;
+      var $articleContent = $('.js-article-content');
+      var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+      var scroll = hasSidebar ? '.js-page-main' : 'html, body';
+      $scroll = $(scroll);
+
+      $articleContent.find('.highlight').each(function() {
+        $this = $(this);
+        $this.attr('data-lang', $this.find('code').attr('data-lang'));
+      });
+      $articleContent.find('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').each(function() {
+        $this = $(this);
+        $this.append($('<a class="anchor d-print-none" aria-hidden="true"></a>').html('<i class="fas fa-anchor"></i>'));
+      });
+      $articleContent.on('click', '.anchor', function() {
+        $scroll.scrollToAnchor('#' + $(this).parent().attr('id'), 400);
+      });
+    });
+  });
+})();</script></div><section class="page__comments d-print-none"></section></article>
+              </div>
+            </div></div></div>
+
+        <div class="page__footer d-print-none">
+<div class="footer js-page-footer">
+  <div class="main"><aside  itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Paulo Moura"><meta itemprop="url" content="/"><meta itemprop="description" content="Logtalk author and developer."><div class="footer__author-links"><div class="author-links">
+  <ul class="menu menu--nowrap menu--inline"><li title="Contact us.">
+      <a class="button button--circle mail-button" itemprop="email" href="mailto:support@logtalk.org" target="_blank">
+        <i class="fas fa-envelope"></i>
+      </a><li title="Follow us on Twitter.">
+        <a class="button button--circle twitter-button" itemprop="sameAs" href="https://twitter.com/LogtalkDotOrg" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1024.032 194.432c-37.664 16.704-78.176 28-120.672 33.088 43.36-26.016 76.672-67.168 92.384-116.224-40.608 24.064-85.568 41.568-133.408 50.976-38.336-40.832-92.928-66.336-153.344-66.336-116.032 0-210.08 94.048-210.08 210.08 0 16.48 1.856 32.512 5.44 47.872-174.592-8.768-329.408-92.416-433.024-219.52-18.08 31.04-28.448 67.104-28.448 105.632 0 72.896 37.088 137.184 93.472 174.88-34.432-1.088-66.816-10.528-95.168-26.272-0.032 0.864-0.032 1.76-0.032 2.656 0 101.792 72.416 186.688 168.512 205.984-17.632 4.8-36.192 7.36-55.36 7.36-13.536 0-26.688-1.312-39.52-3.776 26.72 83.456 104.32 144.192 196.256 145.888-71.904 56.352-162.496 89.92-260.928 89.92-16.96 0-33.664-0.992-50.112-2.944 92.96 59.616 203.392 94.4 322.048 94.4 386.432 0 597.728-320.128 597.728-597.76 0-9.12-0.192-18.176-0.608-27.168 41.056-29.632 76.672-66.624 104.832-108.736z" />
+</svg>
+</div>
+        </a>
+      </li><li title="Follow us on Github.">
+        <a class="button button--circle github-button" itemprop="sameAs" href="https://github.com/LogtalkDotOrg/logtalk3" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path class="svgpath" data-index="path_0" fill="#272636" d="M0 525.2c0 223.6 143.3 413.7 343 483.5 26.9 6.8 22.8-12.4 22.8-25.4l0-88.7c-155.3 18.2-161.5-84.6-172-101.7-21.1-36-70.8-45.2-56-62.3 35.4-18.2 71.4 4.6 113.1 66.3 30.2 44.7 89.1 37.2 119 29.7 6.5-26.9 20.5-50.9 39.7-69.6C248.8 728.2 181.7 630 181.7 513.2c0-56.6 18.7-108.7 55.3-150.7-23.3-69.3 2.2-128.5 5.6-137.3 66.5-6 135.5 47.6 140.9 51.8 37.8-10.2 80.9-15.6 129.1-15.6 48.5 0 91.8 5.6 129.8 15.9 12.9-9.8 77-55.8 138.8-50.2 3.3 8.8 28.2 66.7 6.3 135 37.1 42.1 56 94.6 56 151.4 0 117-67.5 215.3-228.8 243.7 26.9 26.6 43.6 63.4 43.6 104.2l0 128.8c0.9 10.3 0 20.5 17.2 20.5C878.1 942.4 1024 750.9 1024 525.3c0-282.9-229.3-512-512-512C229.1 13.2 0 242.3 0 525.2L0 525.2z" />
+</svg>
+</div>
+        </a>
+      </li><li title="Chat with us.">
+        <a class="button button--circle gitter-button" itemprop="sameAs" href="https://gitter.im/LogtalkDotOrg/logtalk3" target="_blank">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M66.4 322.5H16V0h50.4v322.5zM166.9 76.1h-50.4V512h50.4V76.1zm100.6 0h-50.4V512h50.4V76.1zM368 76h-50.4v247H368V76z"/></svg>
+<!--
+Font Awesome Free 5.4.1 by @fontawesome - https://fontawesome.com
+License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+--></div>
+        </a>
+      </li></ul>
+</div>
+</div>
+    </aside>
+    <footer class="site-info"><p class="menu menu--center">
+        <span>© Paulo Moura 2018</span>
+        <a type="application/rss+xml" href="/feed.xml">RSS</a>
+      </p>
+      <p>Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
+        title="TeXt is a succinct theme for blogging." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
+      </p>
+    </footer>
+  </div>
+</div></div>
+      </div>
+    </div><div class="page__search-panel d-print-none""><div class="search search--dark">
+  <div class="main">
+    <div class="search__header">Search</div>
+    <div class="search-bar">
+      <div class="search-box js-search-box">
+        <div class="search-box__icon-search"><i class="fas fa-search"></i></div>
+        <input type="text" />
+        <div class="search-box__icon-clear js-icon-clear">
+          <a><i class="fas fa-times"></i></a>
+        </div>
+      </div>
+      <button class="button button--secondary button--pill search__cancel js-search-toggle">
+        Cancel</button>
+    </div>
+    <div class="search-result js-search-result"></div>
+  </div>
+</div>
+
+<script>var SOURCES = window.TEXT_VARIABLES.sources;
+var PAHTS = window.TEXT_VARIABLES.paths;
+window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
+  var searchData = window.TEXT_SEARCH_DATA ? initData(window.TEXT_SEARCH_DATA) : {};
+
+  function memorize(f) {
+    var cache = {};
+    return function () {
+      var key = Array.prototype.join.call(arguments, ',');
+      if (key in cache) return cache[key];
+      else return cache[key] = f.apply(this, arguments);
+    };
+  }
+
+  function initData(data) {
+    var _data = [], i, j, key, keys, cur;
+    keys = Object.keys(data);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i], _data[key] = [];
+      for (j = 0; j < data[key].length; j++) {
+        cur = data[key][j];
+        cur.title = window.decodeUrl(cur.title);
+        cur.url = window.decodeUrl(cur.url);
+        _data[key].push(cur);
+      }
+    }
+    return _data;
+  }
+
+  /// search
+  function searchByQuery(query) {
+    var i, j, key, keys, cur, _title, result = {};
+    keys = Object.keys(searchData);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i];
+      for (j = 0; j < searchData[key].length; j++) {
+        cur = searchData[key][j], _title = cur.title;
+        if ((result[key] === undefined || result[key] && result[key].length < 4 )
+          && _title.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+          if (result[key] === undefined) {
+            result[key] = [];
+          }
+          result[key].push(cur);
+        }
+      }
+    }
+    return result;
+  }
+
+  var renderHeader = memorize(function(header) {
+    return $('<p class="search-result__header">' + header + '</p>');
+  });
+
+  var renderItem = function(index, title, url) {
+    return $('<li class="search-result__item" data-index="' + index + '"><a class="button" href="' + url + '">' + title + '</a></li>');
+  };
+
+  function render(data) {
+    if (!data) {
+      return null;
+    }
+    var $root = $('<ul></ul>'), i, j, key, keys, cur, itemIndex = 0;
+    keys = Object.keys(data);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i];
+      $root.append(renderHeader(key));
+      for (j = 0; j < data[key].length; j++) {
+        cur = data[key][j];
+        $root.append(renderItem(itemIndex++, cur.title, cur.url));
+      }
+    }
+    return $root;
+  }
+
+  // search box
+  var $searchBox = $('.js-search-box');
+  var $searchInput = $searchBox.children('input');
+  var $searchClear = $searchBox.children('.js-icon-clear');
+  var $result = $('.js-search-result'), $resultItems;
+  var lastActiveIndex, activeIndex;
+
+  function searchBoxEmpty() {
+    $searchBox.removeClass('not-empty'); $result.html(null);
+    $resultItems = $('.search-result__item'); activeIndex = 0;
+  }
+
+  $searchInput.on('input', window.throttle(function() {
+    var val = $(this).val();
+    if (val === '' || typeof val !== 'string') {
+      searchBoxEmpty();
+    } else {
+      $searchBox.addClass('not-empty'); $result.html(render(searchByQuery(val)));
+      $resultItems = $('.search-result__item'); activeIndex = 0;
+      $resultItems.eq(0).addClass('active');
+    }
+  }, 400));
+  $searchInput.on('focus', function() {
+    $(this).addClass('focus');
+  });
+  $searchInput.on('blur', function() {
+    $(this).removeClass('focus');
+  });
+  $searchClear.on('click', function() {
+    $searchInput.val(''); searchBoxEmpty();
+  });
+
+  // search panel
+  var $pageRoot = $('.js-page-root');
+  var $pageMain = $('.js-page-main');
+  var $searchToggle = $('.js-search-toggle');
+  var showSearch = false;
+  var scrollTop;
+
+  function openSearchPanel() {
+    scrollTop = $(window).scrollTop() || $pageMain.scrollTop();
+    $pageRoot.addClass('show-search-panel');
+    $pageMain.scrollTop(scrollTop);
+    $searchInput[0].focus();
+  }
+
+  function closeSearchPanel() {
+    $pageRoot.removeClass('show-search-panel');
+    $(window).scrollTop(scrollTop);
+    $searchInput[0].blur();
+    setTimeout(function() {
+      $searchInput.val(''); searchBoxEmpty();
+      window.pageAsideAffix && window.pageAsideAffix.refresh();
+    }, 400);
+  }
+
+  // Char Code: 13  Enter, 27  ESC, 37  ⬅, 38  ⬆, 39  ➡, 40  ⬇, 83  S, 191 /
+  function isFormElement(e) {
+    var tagName = e.target.tagName || e.srcElement.tagName;
+    return tagName === 'INPUT' || tagName === 'SELECT' || tagName === 'TEXTAREA';
+  }
+  function charCodeFilter(e) {
+    return e.target === $searchInput[0] && (e.which === 13 || e.which === 27 || e.which === 38 || e.which === 40);
+  }
+
+  function updateResultItems() {
+    lastActiveIndex >= 0 && $resultItems.eq(lastActiveIndex).removeClass('active');
+    activeIndex >= 0 && $resultItems.eq(activeIndex).addClass('active');
+  }
+
+  function moveActiveIndex(direction) {
+    var itemsCount = $resultItems ? $resultItems.length : 0;
+    if (itemsCount > 1) {
+      lastActiveIndex = activeIndex;
+      if (direction === 'up') {
+        activeIndex = (activeIndex - 1 + itemsCount) % itemsCount;
+      } else if (direction === 'down') {
+        activeIndex = (activeIndex + 1 + itemsCount) % itemsCount;
+      }
+      updateResultItems();
+    }
+  }
+
+  $(document).on('keyup', function(e) {
+    if (!isFormElement(e) || charCodeFilter(e)) {
+      if (e.which === 83 || e.which === 191) {
+        showSearch || (showSearch = true, openSearchPanel());
+      } else if (e.which ===  27) {
+        showSearch && (showSearch = false, closeSearchPanel());
+      } else if (e.which === 38) {
+        showSearch && moveActiveIndex('up');
+      } else if (e.which === 40) {
+        showSearch && moveActiveIndex('down');
+      } else if (e.which === 13) {
+        showSearch && $resultItems && activeIndex >= 0 && $resultItems.eq(activeIndex).children('a')[0].click();
+      }
+    }
+  });
+
+  $result.on('mouseover', '.search-result__item > a', function() {
+    var itemIndex = $(this).parent().data('index');
+    itemIndex >= 0 && (lastActiveIndex = activeIndex, activeIndex = itemIndex, updateResultItems());
+  });
+
+  $searchToggle.on('click', function() {
+    showSearch = !showSearch;
+    showSearch ? openSearchPanel() : closeSearchPanel();
+  });
+});</script></div></div>
+
+
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function scrollToAnchor(anchor, duration, callback) {
+      var $root = this;
+      $root.animate({ scrollTop: $(anchor).position().top }, duration, function() {
+        window.history.replaceState(null, '', window.location.href.split('#')[0] + anchor);
+        callback && callback();
+      });
+    }
+    $.fn.scrollToAnchor = scrollToAnchor;
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function affix(options) {
+      var $root = this, $window = $(window), $scrollTarget, $scroll,
+        offsetBottom = 0, scrollTarget = window, scroll = window.document, disabled = false, isOverallScroller = true,
+        rootTop, rootLeft, rootHeight, scrollBottom, rootBottomTop,
+        hasInit = false, curState;
+
+      function setOptions(options) {
+        var _options = options || {};
+        _options.offsetBottom && (offsetBottom = _options.offsetBottom);
+        _options.scrollTarget && (scrollTarget = _options.scrollTarget);
+        _options.scroll && (scroll = _options.scroll);
+        _options.disabled !== undefined && (disabled = _options.disabled);
+        $scrollTarget = $(scrollTarget);
+        isOverallScroller = window.isOverallScroller($scrollTarget[0]);
+        $scroll = $(scroll);
+      }
+      function preCalc() {
+        top();
+        rootHeight = $root.outerHeight();
+        rootTop = $root.offset().top + (isOverallScroller ? 0 :  $scrollTarget.scrollTop());
+        rootLeft = $root.offset().left;
+      }
+      function calc(needPreCalc) {
+        needPreCalc && preCalc();
+        scrollBottom = $scroll.outerHeight() - offsetBottom - rootHeight;
+        rootBottomTop = scrollBottom - rootTop;
+      }
+      function top() {
+        if (curState !== 'top') {
+          $root.removeClass('fixed').css({
+            left: 0,
+            top: 0
+          });
+          curState = 'top';
+        }
+      }
+      function fixed() {
+        if (curState !== 'fixed') {
+          $root.addClass('fixed').css({
+            left: rootLeft + 'px',
+            top: 0
+          });
+          curState = 'fixed';
+        }
+      }
+      function bottom() {
+        if (curState !== 'bottom') {
+          $root.removeClass('fixed').css({
+            left: 0,
+            top: rootBottomTop + 'px'
+          });
+          curState = 'bottom';
+        }
+      }
+      function setState() {
+        var scrollTop = $scrollTarget.scrollTop();
+        if (scrollTop >= rootTop && scrollTop <= scrollBottom) {
+          fixed();
+        } else if (scrollTop < rootTop) {
+          top();
+        } else {
+          bottom();
+        }
+      }
+      function init() {
+        if(!hasInit) {
+          var interval, timeout;
+          calc(true); setState();
+          // run calc every 100 millisecond
+          interval = setInterval(function() {
+            calc();
+          }, 100);
+          timeout = setTimeout(function() {
+            clearInterval(interval);
+          }, 45000);
+          window.pageLoad.then(function() {
+            setTimeout(function() {
+              clearInterval(interval);
+              clearTimeout(timeout);
+            }, 3000);
+          });
+          $scrollTarget.on('scroll', function() {
+            disabled || setState();
+          });
+          $window.on('resize', function() {
+            disabled || (calc(true), setState());
+          });
+          hasInit = true;
+        }
+      }
+
+      setOptions(options);
+      if (!disabled) {
+        init();
+      }
+      $window.on('resize', window.throttle(function() {
+        init();
+      }, 200));
+      return {
+        setOptions: setOptions,
+        refresh: function() {
+          calc(true); setState();
+        }
+      };
+    }
+    $.fn.affix = affix;
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function toc(options) {
+      var $root = this, $window = $(window), $scrollTarget, $scroller, $tocUl = $('<ul class="toc"></ul>'), $tocLi, $headings, $activeLast, $activeCur,
+        selectors = 'h1,h2,h3', container = 'body', scrollTarget = window, scroller = 'html, body', disabled = false,
+        headingsPos, scrolling = false, hasRendered = false, hasInit = false;
+
+      function setOptions(options) {
+        var _options = options || {};
+        _options.selectors && (selectors = _options.selectors);
+        _options.container && (container = _options.container);
+        _options.scrollTarget && (scrollTarget = _options.scrollTarget);
+        _options.scroller && (scroller = _options.scroller);
+        _options.disabled !== undefined && (disabled = _options.disabled);
+        $headings = $(container).find(selectors).filter('[id]');
+        $scrollTarget = $(scrollTarget);
+        $scroller = $(scroller);
+      }
+      function calc() {
+        headingsPos = [];
+        $headings.each(function() {
+          headingsPos.push(Math.floor($(this).position().top));
+        });
+      }
+      function setState(element, disabled) {
+        var scrollTop = $scrollTarget.scrollTop(), i;
+        if (disabled || !headingsPos || headingsPos.length < 1) { return; }
+        if (element) {
+          $activeCur = element;
+        } else {
+          for (i = 0; i < headingsPos.length; i++) {
+            if (scrollTop >= headingsPos[i]) {
+              $activeCur = $tocLi.eq(i);
+            } else {
+              $activeCur || ($activeCur = $tocLi.eq(i));
+              break;
+            }
+          }
+        }
+        $activeLast && $activeLast.removeClass('active');
+        ($activeLast = $activeCur).addClass('active');
+      }
+      function render() {
+        if(!hasRendered) {
+          $root.append($tocUl);
+          $headings.each(function() {
+            var $this = $(this);
+            $tocUl.append($('<li></li>').addClass('toc-' + $this.prop('tagName').toLowerCase())
+              .append($('<a></a>').text($this.text()).attr('href', '#' + $this.prop('id'))));
+          });
+          $tocLi = $tocUl.children('li');
+          $tocUl.on('click', 'a', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            scrolling = true;
+            setState($this.parent());
+            $scroller.scrollToAnchor($this.attr('href'), 400, function() {
+              scrolling = false;
+            });
+          });
+        }
+        hasRendered = true;
+      }
+      function init() {
+        var interval, timeout;
+        if(!hasInit) {
+          render(); calc(); setState(null, scrolling);
+          // run calc every 100 millisecond
+          interval = setInterval(function() {
+            calc();
+          }, 100);
+          timeout = setTimeout(function() {
+            clearInterval(interval);
+          }, 45000);
+          window.pageLoad.then(function() {
+            setTimeout(function() {
+              clearInterval(interval);
+              clearTimeout(timeout);
+            }, 3000);
+          });
+          $scrollTarget.on('scroll', function() {
+            disabled || setState(null, scrolling);
+          });
+          $window.on('resize', window.throttle(function() {
+            if (!disabled) {
+              render(); calc(); setState(null, scrolling);
+            }
+          }, 100));
+        }
+        hasInit = true;
+      }
+
+      setOptions(options);
+      if (!disabled) {
+        init();
+      }
+      $window.on('resize', window.throttle(function() {
+        init();
+      }, 200));
+      return {
+        setOptions: setOptions
+      };
+    }
+    $.fn.toc = toc;
+  });
+})();/*(function () {
+
+})();*/</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();</script>
+    </div>
+    <script>(function () {
+  var $root = document.getElementsByClassName('root')[0];
+  if (window.hasEvent('touchstart')) {
+    $root.dataset.isTouch = true;
+    document.addEventListener('touchstart', function(){}, false);
+  }
+})();</script>
+  </body>
+</html>

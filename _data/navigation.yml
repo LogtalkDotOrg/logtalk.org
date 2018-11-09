@@ -1,0 +1,21 @@
+header:
+  - title: Rationale
+    url:   /rationale.html
+  - title: Features
+    url:   /features.html
+  - title: Documentation
+    url:   /documentation.html
+  - title: Download
+    url:   /download.html
+  - title: Tools
+    url:   /tools.html
+  - title: Guides
+    url:   /guides.html
+  - title: Support
+    url:   /support.html
+  - title: Related
+    url:   /related.html
+  - title: News
+    url:   /news.html
+  - title: <i class="fa fa-search" aria-hidden="true"></i>
+    url:   /search.html

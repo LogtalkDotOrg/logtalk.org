@@ -1,0 +1,1385 @@
+<!DOCTYPE html><html lang="en">
+  <head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Documentation - Logtalk</title>
+
+<meta name="description" content="Declarative object-oriented logic programming language
+">
+<link rel="canonical" href="http://localhost:4000/documentation.html"><link rel="alternate" type="application/rss+xml" title="Logtalk" href="/feed.xml">
+<!-- begin favicon -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#355b95">
+<meta name="theme-color" content="#ffffff">
+<!-- end favicon --><link rel="stylesheet" href="/assets/css/main.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
+<script>(function() {
+  window.isArray = function(val) {
+    return Object.prototype.toString.call(val) === '[object Array]';
+  };
+  window.isString = function(val) {
+    return typeof val === 'string';
+  };
+
+  window.decodeUrl = function(str) {
+    return str ? decodeURIComponent(str.replace(/\+/g, '%20')) : '';
+  };
+
+
+  window.hasEvent = function(event) {
+    return 'on'.concat(event) in window.document;
+  };
+
+  window.isOverallScroller = function(node) {
+    return node === document.documentElement || node === document.body || node === window;
+  };
+
+  window.pageLoad = (function () {
+    var loaded = false, cbs = [];
+    window.addEventListener('load', function () {
+      var i, cb; loaded = true;
+      if (cbs.length > 0) {
+        for (i = 0; i < cbs.length; i++) {
+          cb = cbs[i]; cb();
+        }
+      }
+    });
+    return {
+      then: function(cb) {
+        cb && (loaded ? cb() : (cbs.push(cb)));
+      }
+    };
+  })();
+})();(function() {
+  window.throttle = function(func, wait) {
+    var args, result, thisArg, timeoutId, lastCalled = 0;
+
+    function trailingCall() {
+      lastCalled = new Date;
+      timeoutId = null;
+      result = func.apply(thisArg, args);
+    }
+    return function() {
+      var now = new Date,
+        remaining = wait - (now - lastCalled);
+
+      args = arguments;
+      thisArg = this;
+
+      if (remaining <= 0) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+        lastCalled = now;
+        result = func.apply(thisArg, args);
+      } else if (!timeoutId) {
+        timeoutId = setTimeout(trailingCall, remaining);
+      }
+      return result;
+    };
+  };
+})();(function() {
+  var Set = (function() {
+    var add = function(item) {
+      var i, data = this._data;
+      for (i = 0; i < data.length; i++) {
+        if (data[i] === item) {
+          return;
+        }
+      }
+      this.size ++;
+      data.push(item);
+      return data;
+    };
+
+    var Set = function(data) {
+      this.size = 0;
+      this._data = [];
+      var i;
+      if (data.length > 0) {
+        for (i = 0; i < data.length; i++) {
+          add.call(this, data[i]);
+        }
+      }
+    };
+    Set.prototype.add = add;
+    Set.prototype.get = function(index) { return this._data[index]; };
+    Set.prototype.has = function(item) {
+      var i, data = this._data;
+      for (i = 0; i < data.length; i++) {
+        if (this.get(i) === item) {
+          return true;
+        }
+      }
+      return false;
+    };
+    Set.prototype.is = function(map) {
+      if (map._data.length !== this._data.length) { return false; }
+      var i, j, flag, tData = this._data, mData = map._data;
+      for (i = 0; i < tData.length; i++) {
+        for (flag = false, j = 0; j < mData.length; j++) {
+          if (tData[i] === mData[j]) {
+            flag = true;
+            break;
+          }
+        }
+        if (!flag) { return false; }
+      }
+      return true;
+    };
+    Set.prototype.values = function() {
+      return this._data;
+    };
+    return Set;
+  })();
+
+  window.Lazyload = (function(doc) {
+    var queue = {js: [], css: []}, sources = {js: {}, css: {}}, context = this;
+    var createNode = function(name, attrs) {
+      var node = doc.createElement(name), attr;
+      for (attr in attrs) {
+        if (attrs.hasOwnProperty(attr)) {
+          node.setAttribute(attr, attrs[attr]);
+        }
+      }
+      return node;
+    };
+    var end = function(type, url) {
+      var s, q, qi, cbs, i, j, cur, val, flag;
+      if (type === 'js' || type ==='css') {
+        s = sources[type], q = queue[type];
+        s[url] = true;
+        for (i = 0; i < q.length; i++) {
+          cur = q[i];
+          if (cur.urls.has(url)) {
+            qi = cur, val = qi.urls.values();
+            qi && (cbs = qi.callbacks);
+            for (flag = true, j = 0; j < val.length; j++) {
+              cur = val[j];
+              if (!s[cur]) {
+                flag = false;
+              }
+            }
+            if (flag && cbs && cbs.length > 0) {
+              for (j = 0; j < cbs.length; j++) {
+                cbs[j].call(context);
+              }
+              qi.load = true;
+            }
+          }
+        }
+      }
+    };
+    var load = function(type, urls, callback) {
+      var s, q, qi, node, i, cur,
+        _urls = typeof urls === 'string' ? new Set([urls]) : new Set(urls), val, url;
+      if (type === 'js' || type ==='css') {
+        s = sources[type], q = queue[type];
+        for (i = 0; i < q.length; i++) {
+          cur = q[i];
+          if (_urls.is(cur.urls)) {
+            qi = cur;
+            break;
+          }
+        }
+        val = _urls.values();
+        if (qi) {
+          callback && (qi.load || qi.callbacks.push(callback));
+          callback && (qi.load && callback());
+        } else {
+          q.push({
+            urls: _urls,
+            callbacks: callback ? [callback] : [],
+            load: false
+          });
+          for (i = 0; i < val.length; i++) {
+            node = null, url = val[i];
+            if (s[url] === undefined) {
+              (type === 'js' ) && (node = createNode('script', { src: url }));
+              (type === 'css') && (node = createNode('link', { rel: 'stylesheet', href: url }));
+              if (node) {
+                node.onload = (function(type, url) {
+                  return function() {
+                    end(type, url);
+                  };
+                })(type, url);
+                (doc.head || doc.body).appendChild(node);
+                s[url] = false;
+              }
+            }
+          }
+        }
+      }
+    };
+    return {
+      js: function(url, callback) {
+        load('js', url, callback);
+      },
+      css: function(url, callback) {
+        load('css', url, callback);
+      }
+    };
+  })(this.document);
+})();</script><script>
+  (function() {
+    var TEXT_VARIABLES = {
+      version: '2.2.2',
+      sources: {
+        font_awesome: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css',
+        jquery: 'https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js',
+        leancloud_js_sdk: '//cdn1.lncld.net/static/js/3.4.1/av-min.js',
+        chart: 'https://cdn.bootcss.com/Chart.js/2.7.2/Chart.bundle.min.js',
+        gitalk: {
+          js: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.js',
+          css: 'https://cdn.bootcss.com/gitalk/1.2.2/gitalk.min.css'
+        },
+        mathjax: 'https://cdn.bootcss.com/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML',
+        mermaid: 'https://cdn.bootcss.com/mermaid/8.0.0-rc.8/mermaid.min.js'
+      },
+      site: {
+        toc: {
+          selectors: 'h1,h2,h3'
+        }
+      },
+      paths: {
+        search_js: '/assets/search.js'
+      }
+    };
+    window.TEXT_VARIABLES = TEXT_VARIABLES;
+  })();
+</script></head>
+  <body>
+    <div class="root" data-is-touch="false">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
+
+      <div class="page__main-inner">
+        <div></div><div class="page__header d-print-none"><header class="header"><div class="main">
+      <div class="header__title">
+        <div class="header__brand">
+          <strong>[ ⊨ ]&nbsp;</strong><a title="Declarative object-oriented logic programming language
+" href="/">Logtalk</a></div>
+<!--
+        <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
+-->
+      </div><nav class="navigation">
+        <ul><li class="navigation__link"><a href="/rationale.html">Rationale</a></li><li class="navigation__link"><a href="/features.html">Features</a></li><li class="navigation__link navigation__link--active"><a href="/documentation.html">Documentation</a></li><li class="navigation__link"><a href="/download.html">Download</a></li><li class="navigation__link"><a href="/tools.html">Tools</a></li><li class="navigation__link"><a href="/guides.html">Guides</a></li><li class="navigation__link"><a href="/support.html">Support</a></li><li class="navigation__link"><a href="/related.html">Related</a></li><li class="navigation__link"><a href="/news.html">News</a></li><li class="navigation__link"><a href="/search.html"><i class="fa fa-search" aria-hidden="true"></i></a></li><!--
+          <li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
+-->
+        </ul>
+      </nav></div>
+  </header>
+</div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
+
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
+
+              <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Documentation</h1></header></div><meta itemprop="headline" content="Documentation"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
+
+  <div class="article__content" itemprop="articleBody"><h2 id="tutorials">Tutorials</h2>
+
+<ul>
+  <li>Learn X in Y minutes Where X=Logtalk:
+<a href="https://learnxinyminutes.com/docs/logtalk/">English</a>
+<a href="https://learnxinyminutes.com/docs/it-it/logtalk-it/">Italian</a> (recommended starting point for new users)</li>
+  <li><a href="manuals/tutorial/index.html">Handbook tutorial</a></li>
+</ul>
+
+<h2 id="handbook">Handbook</h2>
+
+<p>The Logtalk Handbook includes a tutorial, the User Manual, the Reference Manual, and the FAQ.</p>
+
+<ul>
+  <li><a href="manuals/index.html">Stable version</a> @ the Logtalk website</li>
+  <li><a href="https://logtalk3.readthedocs.io/en/latest/">Latest git version</a> @ the Read the Docs website</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li><a href="manuals/TheLogtalkHandbook-3.21.0.pdf">PDF version (stable)</a></li>
+  <li><a href="manuals/TheLogtalkHandbook-3.21.0.epub">ePub version (stable)</a></li>
+</ul>
+
+<h2 id="apis">APIs</h2>
+
+<p>Core, Library, Tools, and Contributions API documentation</p>
+
+<ul>
+  <li><a href="library/index.html">HTML API documentation</a> (automatically generated)</li>
+  <li>SVG diagrams (automatically generated)
+    <ul>
+      <li><a href="library/core_inheritance_diagram.svg">Core</a></li>
+      <li><a href="library/library_inheritance_diagram.svg">Library</a></li>
+      <li><a href="library/tools_inheritance_diagram.svg">Tools</a></li>
+      <li><a href="library/contributions_inheritance_diagram.svg">Contributions</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p>The SVG diagrams provide links to both the API documentation and to the
+source code.</p>
+
+<h2 id="tools">Tools</h2>
+
+<p>The documentation for each developer tool is included in the tool
+source directory in a <code class="highlighter-rouge">NOTES.md</code> file. See also the of the tools
+<a href="tools.html">overview and usage examples</a>.</p>
+
+<p>Development:</p>
+
+<ul>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/code_metrics/NOTES.md">code_metrics</a></li>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/dead_code_scanner/NOTES.md">dead_code_scanner</a></li>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/help/NOTES.md">help</a></li>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md">make</a></li>
+</ul>
+
+<p>Debugging:</p>
+
+<ul>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/assertions/NOTES.md">assertions</a></li>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md">debugger</a></li>
+</ul>
+
+<p>Profiling tools:</p>
+
+<ul>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/ports/NOTES.md">ports</a></li>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/profiler/NOTES.md">profiler</a></li>
+</ul>
+
+<p>Documenting:</p>
+
+<ul>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtdoc/NOTES.md">lgtdoc</a></li>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md">doclet</a></li>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md">diagrams</a></li>
+</ul>
+
+<p>Testing:</p>
+
+<ul>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtunit/NOTES.md">lgtunit</a></li>
+</ul>
+
+<p>Version management tools:</p>
+
+<ul>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/asdf/NOTES.md">asdf</a></li>
+</ul>
+
+<p>Porting:</p>
+
+<ul>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/wrapper/NOTES.md">wrapper</a></li>
+</ul>
+
+<h2 id="release-notes">Release notes</h2>
+
+<p>Check the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md">release notes</a> for the latest goodies.</p>
+
+<h2 id="man-pages">Man pages</h2>
+
+<p>Prolog integration scripts:</p>
+
+<ul>
+  <li>B-Prolog: <a href="man/bplgt.html">bplgt</a></li>
+  <li>CxProlog: <a href="man/cxlgt.html">cxlgt</a></li>
+  <li>ECLiPSe: <a href="man/eclipselgt.html">eclipselgt</a></li>
+  <li>GNU Prolog: <a href="man/gplgt.html">gplgt</a></li>
+  <li>JIProlog: <a href="man/jiplgt.html">jiplgt</a></li>
+  <li>Lean Prolog: <a href="man/lplgt.html">lplgt</a></li>
+  <li>Qu-Prolog: <a href="man/qplgt.html">qplgt</a></li>
+  <li>Quintus Prolog: <a href="man/quintuslgt.html">quintuslgt</a></li>
+  <li>SICStus Prolog: <a href="man/sicstuslgt.html">sicstuslgt</a></li>
+  <li>SWI-Prolog: <a href="man/swilgt.html">swilgt</a></li>
+  <li>XSB: <a href="man/xsblgt.html">xsblgt</a></li>
+  <li>XSB (mt): <a href="man/xsbmtlgt.html">xsbmtlgt</a></li>
+  <li>YAP: <a href="man/yaplgt.html">yaplgt</a></li>
+</ul>
+
+<p>Configuration scripts:</p>
+
+<ul>
+  <li><a href="man/logtalk_user_setup.html">logtalk_user_setup</a></li>
+  <li><a href="man/logtalk_backend_select.html">logtalk_backend_select</a></li>
+  <li><a href="man/logtalk_version_select.html">logtalk_version_select</a></li>
+</ul>
+
+<p>Testing scripts:</p>
+
+<ul>
+  <li><a href="man/logtalk_tester.html">logtalk_tester</a></li>
+</ul>
+
+<p>Documentation scripts:</p>
+
+<ul>
+  <li><a href="man/logtalk_doclet.html">logtalk_doclet</a></li>
+  <li><a href="man/lgt2html.html">lgt2html</a></li>
+  <li><a href="man/lgt2md.html">lgt2md</a></li>
+  <li><a href="man/lgt2pdf.html">lgt2pdf</a></li>
+  <li><a href="man/lgt2rst.html">lgt2rst</a></li>
+  <li><a href="man/lgt2txt.html">lgt2txt</a></li>
+  <li><a href="man/lgt2xml.html">lgt2xml</a></li>
+</ul>
+
+<h2 id="publications">Publications</h2>
+
+<ul>
+  <li><a href="http://dx.doi.org/10.1007/978-3-642-45284-0_6">A Portable and Efficient Implementation of Coinductive Logic
+Programming</a>. Paulo
+Moura. Proceedings of the Fifteenth International Symposium on
+Practical Aspects of Declarative Languages (PADL 2013), 2013.
+Springer LNCS 7752.</li>
+  <li><a href="http://dx.doi.org/10.1007/978-3-642-32211-2_11">Meta-Predicate
+Semantics</a>. Paulo
+Moura. Post-Proceedings of the 21st International Symposium on
+Logic-Based Program Synthesis and Transformation (LOPSTR
+2011), 2012. Springer LNCS 7225.</li>
+  <li><a href="http://arxiv.org/abs/1112.3783">L-FLAT: Logtalk Toolkit for Formal Languages and Automata
+Theory</a>. Paulo Moura and Artur
+Miguel Dias. Proceedings of the 11th Colloquium on Implementation of
+Constraint LOgic Programming Systems (CICLOPS), July 2011.</li>
+  <li><a href="http://dx.doi.org/10.1007/978-3-642-20589-7_4">Programming Patterns for Logtalk Parametric
+Objects</a>. Paulo
+Moura. Applications of Declarative Programming and Knowledge
+Management, Lecture Notes in Artificial Intelligence Vol. 6547,
+April 2011</li>
+  <li><a href="http://arxiv.org/abs/1009.3773">Towards a Study of Meta-Predicate
+Semantics</a>. Paulo Moura. Proceedings
+of the 10th Colloquium on Implementation of Constraint LOgic
+Programming Systems (CICLOPS), July 2010.
+(<a href="http://logtalk.org/papers/ciclops2010/logtalk_ciclops2010.pdf">slides</a>)</li>
+  <li>Knowledge Representation Using Logtalk Parametric Objects. Paulo
+Moura. Proceedings of the International Conference on Applications
+of Declarative Programming and Knowledge Management (INAP),
+University of Évora, Portugal, November 2009, pp 225-240.
+(<a href="http://logtalk.org/papers/inap2009/parametric_inap2009.pdf">slides</a>)</li>
+  <li><a href="http://dx.doi.org/10.1007/978-3-642-02846-5_3">From Plain Prolog to Logtalk Objects: Effective Code Encapsulation
+and Reuse (Invited
+Talk)</a>. Paulo Moura.
+Proceedings of the 25th International Conference on Logic
+Programming (ICLP), July 2009. LNCS 5649. Springer-Verlag Berlin
+Heidelberg".
+(<a href="http://logtalk.org/papers/iclp2009/logtalk_iclp2009.pdf">slides</a>)
+(<a href="http://logtalk.org/papers/logtalk_utdallas_2011.pdf">updated
+slides</a> for a
+talk at U.T. Dallas in Summer 2011)</li>
+  <li><a href="http://dx.doi.org/10.1007/978-3-540-92995-6_19">Secure Implementation of
+Meta-predicates</a>.
+Paulo Moura. Proceedings of the 11th International Symposium on
+Practical Aspects of Declarative Languages (PADL), January 2009.
+LNCS 5418. Springer-Verlag Berlin Heidelberg.</li>
+  <li><a href="http://dx.doi.org/10.1007/978-3-540-92995-6_8">High Level Thread-Based Competitive Or-Parallelism in
+Logtalk</a>. Paulo
+Moura, Ricardo Rocha, and Sara C. Madeira. Proceedings of the 11th
+International Symposium on Practical Aspects of Declarative
+Languages (PADL), January 2009. LNCS 5418. Springer-Verlag Berlin
+Heidelberg.</li>
+  <li><a href="http://dx.doi.org/10.1007/978-3-540-89982-2_63">Thread-Based Competitive
+Or-Parallelism</a>.
+Paulo Moura, Ricardo Rocha, and Sara C. Madeira. Proceedings of the
+24th International Conference on Logic Programming (ICLP),
+December 2008. LNCS 5366. Springer-Verlag Berlin Heidelberg.</li>
+  <li><a href="http://dx.doi.org/10.1007/978-3-540-77442-6_18">High-Level Multi-threading Programming in
+Logtalk</a>. Paulo
+Moura, Paul Crocker, and Paulo Nunes. Proceedings of the 10th
+International Symposium on Practical Aspects of Declarative
+Languages (PADL), January 2008. LNCS 4902. Springer-Verlag Berlin
+Heidelberg.</li>
+  <li><a href="http://dx.doi.org/10.1007/11799573_45">Logtalk Processing of STEP Part 21
+Files</a>. Paulo Moura and
+Vincent Marchetti. Proceedings of the 22nd International Conference
+on Logic Programming (ICLP), August 2006. LNCS 4079. Springer-Verlag
+Berlin Heidelberg.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Download a <a href="papers/thesis.pdf">PhD thesis</a> on Logtalk design and
+implementation (PDF, A4 paper). Thesis submitted on May 2003, and
+publicly defended on September 2003 (Supervisor: Prof. Abel Gomes;
+Discussants: Prof. Mário Martins (University of Minho, Portugal),
+Prof. Salvador Abreu (University of Évora, Portugal), Prof. Vitor
+Costa (University of Porto, Portugal), Prof. Ana Moreira (New
+University of Lisbon, Portugal)).</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Download an unpublished paper on Logtalk categories (submitted to
+both <a href="papers/categories_oopsla.pdf">OOPSLA 2000</a> and <a href="papers/categories_ecoop.pdf">ECOOP
+2001</a>). Categories are also described
+in the Logtalk technical report and PhD thesis. Categories are
+implemented in Logtalk since is first public release in 1998.</li>
+</ul>
+
+<!-- -->
+
+<ul>
+  <li>Download a Technical Report on Logtalk 2.6, published on July, 2000:
+<a href="papers/trdmi20001a4.pdf">PDF A4 paper</a>, <a href="papers/trdmi20001us.pdf">PDF US Letter
+paper</a>.</li>
+</ul>
+
+<h3 id="opinion-articles">Opinion articles</h3>
+
+<ul>
+  <li><a href="http://www.cs.kuleuven.ac.be/~dtai/projects/ALP/newsletter/feb09/content/Articles/doc5/content.html#moura">Uniting the Prolog Community: Personal
+Notes</a>.
+Paulo Moura, Association for Logic Programming (ALP) Newsletter,
+Vol. 22/1, March 2009.</li>
+  <li><a href="http://www.cs.kuleuven.ac.be/~dtai/projects/ALP/newsletter/aug05/nav/articles/three/article.html">Prolog Portability and
+Standardization</a>.
+Paulo Moura, Association for Logic Programming (ALP) Newsletter,
+Vol. 18/3, August 2005.</li>
+  <li><a href="http://www.cs.kuleuven.ac.be/~dtai/projects/ALP/newsletter/aug04/nav/articles/logtalk/logtalk.html">Logtalk
+2.18.0</a>.
+Paulo Moura, Association for Logic Programming (ALP) Newsletter,
+Vol. 17/3, August 2004.</li>
+  <li>Some notes on porting a Prolog program to 22 Prolog compilers or the
+relevance of the ISO Prolog standard. Paulo Moura, Association for
+Logic Programming (ALP) Newsletter, Vol. 12/2, May 1999.</li>
+</ul>
+
+<h2 id="third-party-publications">Third-party publications</h2>
+
+<p>Publications on research and applications using Logtalk:</p>
+
+<ul>
+  <li><a href="http://ieeexplore.ieee.org/document/7174811/">Automatic Discovery of Software Attacks via Backward
+Reasoning</a>. Cataldo
+Basile, Daniele Canavese, Jerome d'Annoville, Bjorn De Sutter, and
+Fulvio Valenza. IEEE/ACM 1st International Workshop on Software
+Protection (SPRO), May 2015.</li>
+  <li><a href="https://www.researchgate.net/publication/265301265_A_Portable_Approach_for_Bidirectional_Integration_between_a_Logic_and_a_Statically-Typed_Object-Oriented_Programming_Language">A Portable Approach for Bidirectional Integration between a Logic
+and a Statically-Typed Object-Oriented Programming
+Language</a>.
+Sergio Castro. PhD thesis. September 2014.</li>
+  <li><a href="http://arxiv.org/abs/1405.2693">Customisable Handling of Java References in Prolog
+Programs</a>. Sergio Castro, Kim Mens,
+and Paulo Moura. Proceedings of the 30th International Conference on
+Logic Programming. July 2014.</li>
+  <li>LogicObjects: A Portable and Extensible Approach for Linguistic
+Symbiosis between an Object-Oriented and a Logic Programming
+Language. Sergio Castro. Proceedings of the International Conference
+on Logic Programming Doctoral Consortium (ICLP DC), 2013. TPLP 13
+(4-5): Online Supplement, July 2013.
+(<a href="http://journals.cambridge.org/downloadsup.php?file=/tlp2013030.pdf">PDF</a>)</li>
+  <li><a href="http://ieeexplore.ieee.org/document/6596408/">Logical programming and data mining as engine for MDA model
+transformation
+implementation</a>. A.Y.
+Sokolov, I.N. Terekhin, E.A. Cherkashin, S.O. Butakov, and A.A.
+Larionov. Proceedings of the 36th International Convention on
+Information &amp; Communication Technology Electronics &amp;
+Microelectronics (MIPRO), May 2013</li>
+  <li><a href="http://dx.doi.org/10.1007/978-3-642-45284-0_3">LogicObjects: Enabling Logic Programming in Java Through Linguistic
+Symbiosis</a>. Sergio
+Castro, Kim Mens, and Paulo Moura. Proceedings of the Fifteenth
+International Symposium on Practical Aspects of Declarative
+Languages (PADL 2013), 2013. Springer LNCS 7752.</li>
+  <li><a href="http://dx.doi.org/10.1007/978-3-642-38197-3_3">A Declarative Pipeline Language for Complex Data
+Analysis</a>. Henning
+Christiansen, Christian Theil Have, Ole Torp Lassen, Matthieu Petit.
+Post-Proceedings of the 22nd International Symposium on Logic-Based
+Program Synthesis and Transformation (LOPSTR 2012), 2013. Springer
+LNCS 7844.</li>
+  <li><a href="http://www.tfzr.rs/esociety/issues/eSocietyVol3No2.pdf#page=6">Information Systems Framework Synthesis on the Base of a Logical
+Approach</a>.
+E.A. Cherkashin, V.V. Paramonov, R.K. Fedorov, I.N. Terehin, E.I.
+Pozdnyak, and D.V. Annenkov. E-society Journal: research and
+applications, Vol. 3, No. 2, December 2012</li>
+  <li><a href="http://doi.acm.org/10.1145/2237887.2237890">LogicObjects: A Linguistic Symbiosis Approach to Bring the
+Declarative Power of Prolog to
+Java</a>. Sergio Castro,
+Kim Mens, and Paulo Moura. Proceedings of the 9th Workshop on
+Reflection, AOP and Meta-Data for Software Evolution (RAM-SE).
+June 2012.</li>
+  <li><a href="http://opus4.kobv.de/opus4-ubbayreuth/frontdoor/index/index/docId/888">ESProNa - Eine Constraintsprache zur multimodalen
+Prozessmodellierung und navigationsgestützten
+Ausführung</a>
+(ESProNa - A Constraint-Language for multimodal Process Modeling
+supporting Navigation-Based Process Execution). Michael Igler. PhD
+thesis. July 2012.</li>
+  <li><a href="https://scholar.google.ru/citations?view_op=view_citation&amp;hl=ru&amp;user=ilJUQ0MAAAAJ&amp;citation_for_view=ilJUQ0MAAAAJ:5nxA0vEk-isC">Model Driven Architecture is a Complex
+System</a>.
+Cherkashin, Е.А., Paramonov V.V., Ipatov S. A., Tertychniy V.S.,
+Terehin I.N. E-Society Journal, Research and Applications,
+University of Novi Sad, Technical Faculty "Mihajlo Pupin"
+Zrenjanin, 2011, Vol. 2, N2. - C. 15-23. November 2011.</li>
+  <li><a href="http://ieeexplore.ieee.org/document/5967191/">Information modeling of business processes in X-ray fluorescent
+analysis</a>. O. P.
+Vorobyeva, E. A. Cherkashin, S. A. Ipatov, and V. V. Paramonov.
+Proceedings of the 34th International Convention MIPRO. May 2011</li>
+  <li><a href="http://dx.doi.org/10.1007/978-3-642-23960-1_48">Using Argumentation for Ambient Assisted
+Living</a>. Julien
+Marcais, Nikolaos Spanoudakis, and Pavlos Moraitis. IFIP Advances in
+Information and Communication Technology. Vol. 364. Springer Berlin
+Heidelberg. 2011.</li>
+  <li><a href="http://dx.doi.org/10.4108/icst.collaboratecom.2010.47">Modeling and Planning Collaboration using Organizational
+Constraints</a>.
+Michael Igler, Paulo Moura, Matthias Faerber, Michael Zeising, and
+Stefan Jablonski, The 6th International Conference on Collaborative
+Computing: Networking, Applications and Worksharing
+(CollaborateCom), October 2010.</li>
+  <li><a href="http://dx.doi.org/10.1109/EDOCW.2010.10">ESProNa: Constraint-Based Declarative Business Process
+Modeling</a>. Michael Igler,
+Paulo Moura, Michael Zeising, and Stefan Jablonski. Proceedings of
+the Third International Workshop on Dynamic and Declarative Business
+Processes, October 2010.</li>
+  <li><a href="http://urn.kb.se/resolve?urn=urn:nbn:se:liu:diva-57363">A comparison of SL- and unit-resolution search rules for stratified
+logic
+programs</a>.
+Victor Lagerkvist. Bachelor thesis, Linköping University, Department
+of Computer and Information Science, June 2010.</li>
+  <li><a href="http://dx.doi.org/10.1109/RCIS.2010.5507358">IT Architecture Automatic Verification: A network evidence-based
+approach</a>. António
+Alegria and André Vasconcelos. Proceedings of the Fourth IEEE
+International Conference on Research Challenges in Information
+Science, RCIS 2010.</li>
+  <li><a href="http://www-rocq.inria.fr/~geurts/thesis/thesis.pdf">A Document Engineering Model and Processing Framework for
+Multimedia
+Documents</a>.
+Joost Geurts. PhD Thesis, Technische Universiteit Eindhoven,
+February 2010. SIKS Dissertation Series No. 2010-03.</li>
+  <li><a href="https://fenix.tecnico.ulisboa.pt/downloadFile/395139409126/dissertacao.pdf">Verificação Automática de Modelos de Arquitectura Tecnológica de
+Sistemas de Informação em
+Rede</a>.
+António Manuel de Carvalho Alegria. Master Thesis, Instituto
+Superior Técnico, Portugal, November 2009</li>
+  <li><a href="http://dx.doi.org/10.4108/ICST.COLLABORATECOM2009.8299">Supporting Collaborative Work Through Flexible Process
+Execution</a>.
+Stefan Jablonski, Michael Igler, and Christoph Gunther. Proceedings
+of the 5th International Conference on Collaborative Computing:
+Networking, Applications and Worksharing (CollaborateCom 2009),
+November 2009. IEEE.</li>
+  <li><a href="http://dx.doi.org/10.1007/978-3-642-04238-6_54">Gorgias-C: Extending Argumentation with Constraint
+Solving</a>. Victor
+Noël and Antonis C. Kakas. Proceedings of the 10th International
+Conference on Logic Programming and Nonmonotonic Reasoning,
+September, 2009. LNCS 5753. Springer-Verlag Berlin Heidelberg.</li>
+  <li><a href="http://dx.doi.org/10.1007/978-3-642-20095-3_29">Dialogue Organization in
+Polint-112-SMS</a>.
+Justyna Walkowska. Human Language Technology. Challenges for
+Computer Science and Linguistics. LNCS 6562. Springer Berlin
+Heidelberg.</li>
+  <li><a href="http://www.monicadogaru.com/pdf/BachelorScThesis_MartaMonicaDOGARU.pdf">Object-Oriented Logic
+Programming</a>.
+Marta-Monica Dogaru. Bachelor Thesis, Technical University of
+Catalonia, Babeş-Bolyai University Cluj-Napoca, Faculty of
+Mathematics and Computer Science, Romania, 2008.</li>
+  <li><a href="http://www.cwi.nl/ftp/CWIreports/INS/INS-R0205.pdf">Design Dependencies Within the Automatic Generation of Hypermedia
+Presentations</a>.
+Oscar Rosell Martinez. Master Thesis, Technical University of
+Catalonia, June 30, 2002. CWI technical report INS-R0205.</li>
+  <li>(more to come)</li>
+</ul>
+
+<h2 id="authors">Authors</h2>
+
+<ul>
+  <li>Paulo Moura (language designer, developer, and maintainer)</li>
+</ul>
+
+<h2 id="contributors">Contributors</h2>
+
+<ul>
+  <li>Abramo Bagnara (efficient expansion of once/1 goals and bug reports
+in corner cases when compiling disjunctions)</li>
+  <li>Andreas Becker (PDT support for Logtalk; bug reports)</li>
+  <li>Anne Ogborn (bug reports, usability suggestions)</li>
+  <li>Artur Miguel Dias (testing, lambda expression examples)</li>
+  <li>Artur Wang (Visual Studio Code support for Logtalk)</li>
+  <li>Arun Majumdar (bug reports, usability suggestions)</li>
+  <li>Barry Evans (dead code scanner tool, usability suggestions)</li>
+  <li>Clara Dimene (GeSHi syntax highlighter)</li>
+  <li>Damien Roch (Docker support)</li>
+  <li>Daniel L. Dudley (made the ISO 8601 library object available)</li>
+  <li>Davide Ancona (coinduction examples)</li>
+  <li>Douglas R. Miles (suggestions, bug reports, Logtalk on SWISH experiments)</li>
+  <li>Ebrahim Azarisooreh (code metrics tool, Arch Linux package; made
+<a href="https://github.com/eazar001/lgtinit">lgtinit</a> available)</li>
+  <li>Eva Stöwe (PDT support for Logtalk)</li>
+  <li>Feliks Kluzniak (coinduction examples and bug reports)</li>
+  <li>François Fages (meta-predicate safety bug reports)</li>
+  <li>Günter Kniesel (PDT support for Logtalk; feedback on Logtalk OOP features)</li>
+  <li>Gopal Gupta (coinduction examples)</li>
+  <li>Ivan Bratko (search methods in the state-space searching example)</li>
+  <li>Jan Burse (unit tests patches and feedback)</li>
+  <li>Jan Wielemaker (feedback on Prolog compliance testing)</li>
+  <li>Joachim Schimpf (feedback on Prolog compliance testing)</li>
+  <li>Joerg Schuster (bug reports)</li>
+  <li>John Fletcher (made <a href="http://www.binding-time.co.uk/xmlpl.html">XML
+parser</a> available)</li>
+  <li>John Stewart (Java interface suggestions and solutions)</li>
+  <li>Joost Geurts (bug reports)</li>
+  <li>Markus Triska (help in porting CLP(FD) examples)</li>
+  <li>Mats Carlsson (bug reports)</li>
+  <li>Michael Covington (DCGs tokenizer example)</li>
+  <li>Michael Hendricks (EDCGs examples and tests)</li>
+  <li>Michael Igler (testing, bug reports)</li>
+  <li>Michael Sheets (text editor support)</li>
+  <li>Michael T. Richter (Textadept text editor support)</li>
+  <li>Neda Saeedloei (coinduction examples)</li>
+  <li>Neng-Fa Zhou (bug reports)</li>
+  <li>Nicolas Pelletier (bug reports, text editor support)</li>
+  <li>Parker Jones (testing, unit tests, bug reports)</li>
+  <li>Paul Crocker (testing, multi-threading and meta-predicates examples, bug reports)</li>
+  <li>Paul Fodor (library enhancements)</li>
+  <li>Paul Tarau (feedback on threaded engines API and examples)</li>
+  <li>Paula Marisa Sampaio (state-space searching examples)</li>
+  <li>Paulo Nunes (multi-threading testing)</li>
+  <li>Per Mildner (code for helping decompose file paths and feedback on
+Prolog compliance testing)</li>
+  <li>Peter Van Roy (EDCGs implementation)</li>
+  <li>rbt (bug reports)</li>
+  <li>Rémy Haemmerlé (meta-predicate safety bug reports)</li>
+  <li>Richard O'Keefe (heaps and ordered sets library code)</li>
+  <li>Robert Sasak (PDDL 3.0 parser contribution)</li>
+  <li>Robert Shiplett (bug reports)</li>
+  <li>Rui Marques (bug reports)</li>
+  <li>Sergio Castro (Docker support, IntelliJ IDEA support, testing,
+suggestions, and bug reports)</li>
+  <li>Timon Van Overveldt (multi-threading optimization and bug reports)</li>
+  <li>Theofrastos Mantadelis ("flags" contribution, ProbLog integration
+support, benchmark tests)</li>
+  <li>Ulrich Neumerkel (lambda expression examples, bug reports, and
+feedback on Prolog compliance testing)</li>
+  <li>Victor Lagerkvist (testing, library enhancements, made <a href="http://joelbyte.github.com/verdi-neruda/">Verdi
+Neruda</a> available)</li>
+  <li>Victor Noel (bug reports)</li>
+  <li>Vítor Santos Costa (red-black tree library)</li>
+  <li>Xin Wang (bug reports)</li>
+</ul>
+
+<p>A special thanks to all the Prolog implementers who fixed bugs and
+implemented enhancements that greatly helped in improving Logtalk
+portability and reliability.</p>
+
+<p>This list may be incomplete. Logtalk contributions and feedback occur in
+multiple forms, from private mail to public forums and paper reviews.
+Your contributions are greatly appreciated. If your name is missing,
+please accept our apologies and contact us so we can fix the omission.
+Contact us also if, for some reason, you don't want your name on this
+list.</p>
+
+<h2 id="research-support">Research support</h2>
+
+<ul>
+  <li><a href="http://cracs.fc.up.pt">Center for Research in Advanced Computing Systems
+(CRACS)</a>, <a href="https://www.inesctec.pt/en">INESC
+TEC</a>, Portugal</li>
+</ul>
+
+<h2 id="sponsors">Sponsors</h2>
+
+<ul>
+  <li><a href="http://kyndi.com">Kyndi Inc.</a> — 2015–2017</li>
+  <li>VivoMind Research, LLC — 2012–2013</li>
+</ul>
+
+<h2 id="open-source-credits">Open-source credits</h2>
+
+<p>Open-source software used by Logtalk development and distribution.</p>
+
+<ul>
+  <li><a href="download.html#requirements">Several open-source Prolog compilers</a> (development)</li>
+  <li><a href="https://github.com/textmate/textmate">TextMate</a> (coding)</li>
+  <li><a href="http://www.macports.org/">MacPorts</a> (macOS installer)</li>
+  <li><a href="http://www.jrsoftware.org/isinfo.php">InnoSetup</a> (Windows installer)</li>
+  <li><a href="http://www.rpm.org/">RPM</a> (Linux installer)</li>
+  <li><a href="http://wiki.debian.org/dpkg">dpkg</a> (Debian installer)</li>
+  <li><a href="http://git-scm.com/">Git</a> (source code version control)</li>
+  <li><a href="http://www.sphinx-doc.org/en/master/index.html">Sphinx</a> (HTML, PDF, and ePub documentation)</li>
+  <li><a href="https://github.com/rtfd/sphinx_rtd_theme">Read the Docs Sphinx Theme</a> (HTML, PDF, and ePub documentation)</li>
+  <li><a href="http://graphviz.org">Graphviz</a> (diagrams)</li>
+  <li><a href="http://www.phpbb.com/">phpBB</a> (discussion forums)</li>
+  <li><a href="http://wordpress.org/">WordPress</a> (blog)</li>
+  <li><a href="https://jekyllrb.com">Jekyll</a> (website)</li>
+  <li><a href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Jekyll theme</a> (website)</li>
+  <li><a href="https://github.com/bagder/roffit">roffit</a> (man pages to HTML converter)</li>
+</ul>
+</div><footer class="article__footer"><!-- this will show at every article content's bottom --></footer>
+
+  <div class="d-print-none"></div>
+
+</div>
+
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    $(function() {
+      var $this ,$scroll;
+      var $articleContent = $('.js-article-content');
+      var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+      var scroll = hasSidebar ? '.js-page-main' : 'html, body';
+      $scroll = $(scroll);
+
+      $articleContent.find('.highlight').each(function() {
+        $this = $(this);
+        $this.attr('data-lang', $this.find('code').attr('data-lang'));
+      });
+      $articleContent.find('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').each(function() {
+        $this = $(this);
+        $this.append($('<a class="anchor d-print-none" aria-hidden="true"></a>').html('<i class="fas fa-anchor"></i>'));
+      });
+      $articleContent.on('click', '.anchor', function() {
+        $scroll.scrollToAnchor('#' + $(this).parent().attr('id'), 400);
+      });
+    });
+  });
+})();</script></div><section class="page__comments d-print-none"></section></article>
+              </div>
+            </div></div></div>
+
+        <div class="page__footer d-print-none">
+<div class="footer js-page-footer">
+  <div class="main"><aside  itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Paulo Moura"><meta itemprop="url" content="/"><meta itemprop="description" content="Logtalk author and developer."><div class="footer__author-links"><div class="author-links">
+  <ul class="menu menu--nowrap menu--inline"><li title="Contact us.">
+      <a class="button button--circle mail-button" itemprop="email" href="mailto:support@logtalk.org" target="_blank">
+        <i class="fas fa-envelope"></i>
+      </a><li title="Follow us on Twitter.">
+        <a class="button button--circle twitter-button" itemprop="sameAs" href="https://twitter.com/LogtalkDotOrg" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1024.032 194.432c-37.664 16.704-78.176 28-120.672 33.088 43.36-26.016 76.672-67.168 92.384-116.224-40.608 24.064-85.568 41.568-133.408 50.976-38.336-40.832-92.928-66.336-153.344-66.336-116.032 0-210.08 94.048-210.08 210.08 0 16.48 1.856 32.512 5.44 47.872-174.592-8.768-329.408-92.416-433.024-219.52-18.08 31.04-28.448 67.104-28.448 105.632 0 72.896 37.088 137.184 93.472 174.88-34.432-1.088-66.816-10.528-95.168-26.272-0.032 0.864-0.032 1.76-0.032 2.656 0 101.792 72.416 186.688 168.512 205.984-17.632 4.8-36.192 7.36-55.36 7.36-13.536 0-26.688-1.312-39.52-3.776 26.72 83.456 104.32 144.192 196.256 145.888-71.904 56.352-162.496 89.92-260.928 89.92-16.96 0-33.664-0.992-50.112-2.944 92.96 59.616 203.392 94.4 322.048 94.4 386.432 0 597.728-320.128 597.728-597.76 0-9.12-0.192-18.176-0.608-27.168 41.056-29.632 76.672-66.624 104.832-108.736z" />
+</svg>
+</div>
+        </a>
+      </li><li title="Follow us on Github.">
+        <a class="button button--circle github-button" itemprop="sameAs" href="https://github.com/LogtalkDotOrg/logtalk3" target="_blank">
+          <div class="icon"><svg fill="#000000" width="24px" height="24px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path class="svgpath" data-index="path_0" fill="#272636" d="M0 525.2c0 223.6 143.3 413.7 343 483.5 26.9 6.8 22.8-12.4 22.8-25.4l0-88.7c-155.3 18.2-161.5-84.6-172-101.7-21.1-36-70.8-45.2-56-62.3 35.4-18.2 71.4 4.6 113.1 66.3 30.2 44.7 89.1 37.2 119 29.7 6.5-26.9 20.5-50.9 39.7-69.6C248.8 728.2 181.7 630 181.7 513.2c0-56.6 18.7-108.7 55.3-150.7-23.3-69.3 2.2-128.5 5.6-137.3 66.5-6 135.5 47.6 140.9 51.8 37.8-10.2 80.9-15.6 129.1-15.6 48.5 0 91.8 5.6 129.8 15.9 12.9-9.8 77-55.8 138.8-50.2 3.3 8.8 28.2 66.7 6.3 135 37.1 42.1 56 94.6 56 151.4 0 117-67.5 215.3-228.8 243.7 26.9 26.6 43.6 63.4 43.6 104.2l0 128.8c0.9 10.3 0 20.5 17.2 20.5C878.1 942.4 1024 750.9 1024 525.3c0-282.9-229.3-512-512-512C229.1 13.2 0 242.3 0 525.2L0 525.2z" />
+</svg>
+</div>
+        </a>
+      </li><li title="Chat with us.">
+        <a class="button button--circle gitter-button" itemprop="sameAs" href="https://gitter.im/LogtalkDotOrg/logtalk3" target="_blank">
+          <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M66.4 322.5H16V0h50.4v322.5zM166.9 76.1h-50.4V512h50.4V76.1zm100.6 0h-50.4V512h50.4V76.1zM368 76h-50.4v247H368V76z"/></svg>
+<!--
+Font Awesome Free 5.4.1 by @fontawesome - https://fontawesome.com
+License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+--></div>
+        </a>
+      </li></ul>
+</div>
+</div>
+    </aside>
+    <footer class="site-info"><p class="menu menu--center">
+        <span>© Paulo Moura 2018</span>
+        <a type="application/rss+xml" href="/feed.xml">RSS</a>
+      </p>
+      <p>Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
+        title="TeXt is a succinct theme for blogging." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
+      </p>
+    </footer>
+  </div>
+</div></div>
+      </div>
+    </div><div class="page__search-panel d-print-none""><div class="search search--dark">
+  <div class="main">
+    <div class="search__header">Search</div>
+    <div class="search-bar">
+      <div class="search-box js-search-box">
+        <div class="search-box__icon-search"><i class="fas fa-search"></i></div>
+        <input type="text" />
+        <div class="search-box__icon-clear js-icon-clear">
+          <a><i class="fas fa-times"></i></a>
+        </div>
+      </div>
+      <button class="button button--secondary button--pill search__cancel js-search-toggle">
+        Cancel</button>
+    </div>
+    <div class="search-result js-search-result"></div>
+  </div>
+</div>
+
+<script>var SOURCES = window.TEXT_VARIABLES.sources;
+var PAHTS = window.TEXT_VARIABLES.paths;
+window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
+  var searchData = window.TEXT_SEARCH_DATA ? initData(window.TEXT_SEARCH_DATA) : {};
+
+  function memorize(f) {
+    var cache = {};
+    return function () {
+      var key = Array.prototype.join.call(arguments, ',');
+      if (key in cache) return cache[key];
+      else return cache[key] = f.apply(this, arguments);
+    };
+  }
+
+  function initData(data) {
+    var _data = [], i, j, key, keys, cur;
+    keys = Object.keys(data);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i], _data[key] = [];
+      for (j = 0; j < data[key].length; j++) {
+        cur = data[key][j];
+        cur.title = window.decodeUrl(cur.title);
+        cur.url = window.decodeUrl(cur.url);
+        _data[key].push(cur);
+      }
+    }
+    return _data;
+  }
+
+  /// search
+  function searchByQuery(query) {
+    var i, j, key, keys, cur, _title, result = {};
+    keys = Object.keys(searchData);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i];
+      for (j = 0; j < searchData[key].length; j++) {
+        cur = searchData[key][j], _title = cur.title;
+        if ((result[key] === undefined || result[key] && result[key].length < 4 )
+          && _title.toLowerCase().indexOf(query.toLowerCase()) >= 0) {
+          if (result[key] === undefined) {
+            result[key] = [];
+          }
+          result[key].push(cur);
+        }
+      }
+    }
+    return result;
+  }
+
+  var renderHeader = memorize(function(header) {
+    return $('<p class="search-result__header">' + header + '</p>');
+  });
+
+  var renderItem = function(index, title, url) {
+    return $('<li class="search-result__item" data-index="' + index + '"><a class="button" href="' + url + '">' + title + '</a></li>');
+  };
+
+  function render(data) {
+    if (!data) {
+      return null;
+    }
+    var $root = $('<ul></ul>'), i, j, key, keys, cur, itemIndex = 0;
+    keys = Object.keys(data);
+    for (i = 0; i < keys.length; i++) {
+      key = keys[i];
+      $root.append(renderHeader(key));
+      for (j = 0; j < data[key].length; j++) {
+        cur = data[key][j];
+        $root.append(renderItem(itemIndex++, cur.title, cur.url));
+      }
+    }
+    return $root;
+  }
+
+  // search box
+  var $searchBox = $('.js-search-box');
+  var $searchInput = $searchBox.children('input');
+  var $searchClear = $searchBox.children('.js-icon-clear');
+  var $result = $('.js-search-result'), $resultItems;
+  var lastActiveIndex, activeIndex;
+
+  function searchBoxEmpty() {
+    $searchBox.removeClass('not-empty'); $result.html(null);
+    $resultItems = $('.search-result__item'); activeIndex = 0;
+  }
+
+  $searchInput.on('input', window.throttle(function() {
+    var val = $(this).val();
+    if (val === '' || typeof val !== 'string') {
+      searchBoxEmpty();
+    } else {
+      $searchBox.addClass('not-empty'); $result.html(render(searchByQuery(val)));
+      $resultItems = $('.search-result__item'); activeIndex = 0;
+      $resultItems.eq(0).addClass('active');
+    }
+  }, 400));
+  $searchInput.on('focus', function() {
+    $(this).addClass('focus');
+  });
+  $searchInput.on('blur', function() {
+    $(this).removeClass('focus');
+  });
+  $searchClear.on('click', function() {
+    $searchInput.val(''); searchBoxEmpty();
+  });
+
+  // search panel
+  var $pageRoot = $('.js-page-root');
+  var $pageMain = $('.js-page-main');
+  var $searchToggle = $('.js-search-toggle');
+  var showSearch = false;
+  var scrollTop;
+
+  function openSearchPanel() {
+    scrollTop = $(window).scrollTop() || $pageMain.scrollTop();
+    $pageRoot.addClass('show-search-panel');
+    $pageMain.scrollTop(scrollTop);
+    $searchInput[0].focus();
+  }
+
+  function closeSearchPanel() {
+    $pageRoot.removeClass('show-search-panel');
+    $(window).scrollTop(scrollTop);
+    $searchInput[0].blur();
+    setTimeout(function() {
+      $searchInput.val(''); searchBoxEmpty();
+      window.pageAsideAffix && window.pageAsideAffix.refresh();
+    }, 400);
+  }
+
+  // Char Code: 13  Enter, 27  ESC, 37  ⬅, 38  ⬆, 39  ➡, 40  ⬇, 83  S, 191 /
+  function isFormElement(e) {
+    var tagName = e.target.tagName || e.srcElement.tagName;
+    return tagName === 'INPUT' || tagName === 'SELECT' || tagName === 'TEXTAREA';
+  }
+  function charCodeFilter(e) {
+    return e.target === $searchInput[0] && (e.which === 13 || e.which === 27 || e.which === 38 || e.which === 40);
+  }
+
+  function updateResultItems() {
+    lastActiveIndex >= 0 && $resultItems.eq(lastActiveIndex).removeClass('active');
+    activeIndex >= 0 && $resultItems.eq(activeIndex).addClass('active');
+  }
+
+  function moveActiveIndex(direction) {
+    var itemsCount = $resultItems ? $resultItems.length : 0;
+    if (itemsCount > 1) {
+      lastActiveIndex = activeIndex;
+      if (direction === 'up') {
+        activeIndex = (activeIndex - 1 + itemsCount) % itemsCount;
+      } else if (direction === 'down') {
+        activeIndex = (activeIndex + 1 + itemsCount) % itemsCount;
+      }
+      updateResultItems();
+    }
+  }
+
+  $(document).on('keyup', function(e) {
+    if (!isFormElement(e) || charCodeFilter(e)) {
+      if (e.which === 83 || e.which === 191) {
+        showSearch || (showSearch = true, openSearchPanel());
+      } else if (e.which ===  27) {
+        showSearch && (showSearch = false, closeSearchPanel());
+      } else if (e.which === 38) {
+        showSearch && moveActiveIndex('up');
+      } else if (e.which === 40) {
+        showSearch && moveActiveIndex('down');
+      } else if (e.which === 13) {
+        showSearch && $resultItems && activeIndex >= 0 && $resultItems.eq(activeIndex).children('a')[0].click();
+      }
+    }
+  });
+
+  $result.on('mouseover', '.search-result__item > a', function() {
+    var itemIndex = $(this).parent().data('index');
+    itemIndex >= 0 && (lastActiveIndex = activeIndex, activeIndex = itemIndex, updateResultItems());
+  });
+
+  $searchToggle.on('click', function() {
+    showSearch = !showSearch;
+    showSearch ? openSearchPanel() : closeSearchPanel();
+  });
+});</script></div></div>
+
+
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function scrollToAnchor(anchor, duration, callback) {
+      var $root = this;
+      $root.animate({ scrollTop: $(anchor).position().top }, duration, function() {
+        window.history.replaceState(null, '', window.location.href.split('#')[0] + anchor);
+        callback && callback();
+      });
+    }
+    $.fn.scrollToAnchor = scrollToAnchor;
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function affix(options) {
+      var $root = this, $window = $(window), $scrollTarget, $scroll,
+        offsetBottom = 0, scrollTarget = window, scroll = window.document, disabled = false, isOverallScroller = true,
+        rootTop, rootLeft, rootHeight, scrollBottom, rootBottomTop,
+        hasInit = false, curState;
+
+      function setOptions(options) {
+        var _options = options || {};
+        _options.offsetBottom && (offsetBottom = _options.offsetBottom);
+        _options.scrollTarget && (scrollTarget = _options.scrollTarget);
+        _options.scroll && (scroll = _options.scroll);
+        _options.disabled !== undefined && (disabled = _options.disabled);
+        $scrollTarget = $(scrollTarget);
+        isOverallScroller = window.isOverallScroller($scrollTarget[0]);
+        $scroll = $(scroll);
+      }
+      function preCalc() {
+        top();
+        rootHeight = $root.outerHeight();
+        rootTop = $root.offset().top + (isOverallScroller ? 0 :  $scrollTarget.scrollTop());
+        rootLeft = $root.offset().left;
+      }
+      function calc(needPreCalc) {
+        needPreCalc && preCalc();
+        scrollBottom = $scroll.outerHeight() - offsetBottom - rootHeight;
+        rootBottomTop = scrollBottom - rootTop;
+      }
+      function top() {
+        if (curState !== 'top') {
+          $root.removeClass('fixed').css({
+            left: 0,
+            top: 0
+          });
+          curState = 'top';
+        }
+      }
+      function fixed() {
+        if (curState !== 'fixed') {
+          $root.addClass('fixed').css({
+            left: rootLeft + 'px',
+            top: 0
+          });
+          curState = 'fixed';
+        }
+      }
+      function bottom() {
+        if (curState !== 'bottom') {
+          $root.removeClass('fixed').css({
+            left: 0,
+            top: rootBottomTop + 'px'
+          });
+          curState = 'bottom';
+        }
+      }
+      function setState() {
+        var scrollTop = $scrollTarget.scrollTop();
+        if (scrollTop >= rootTop && scrollTop <= scrollBottom) {
+          fixed();
+        } else if (scrollTop < rootTop) {
+          top();
+        } else {
+          bottom();
+        }
+      }
+      function init() {
+        if(!hasInit) {
+          var interval, timeout;
+          calc(true); setState();
+          // run calc every 100 millisecond
+          interval = setInterval(function() {
+            calc();
+          }, 100);
+          timeout = setTimeout(function() {
+            clearInterval(interval);
+          }, 45000);
+          window.pageLoad.then(function() {
+            setTimeout(function() {
+              clearInterval(interval);
+              clearTimeout(timeout);
+            }, 3000);
+          });
+          $scrollTarget.on('scroll', function() {
+            disabled || setState();
+          });
+          $window.on('resize', function() {
+            disabled || (calc(true), setState());
+          });
+          hasInit = true;
+        }
+      }
+
+      setOptions(options);
+      if (!disabled) {
+        init();
+      }
+      $window.on('resize', window.throttle(function() {
+        init();
+      }, 200));
+      return {
+        setOptions: setOptions,
+        refresh: function() {
+          calc(true); setState();
+        }
+      };
+    }
+    $.fn.affix = affix;
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    function toc(options) {
+      var $root = this, $window = $(window), $scrollTarget, $scroller, $tocUl = $('<ul class="toc"></ul>'), $tocLi, $headings, $activeLast, $activeCur,
+        selectors = 'h1,h2,h3', container = 'body', scrollTarget = window, scroller = 'html, body', disabled = false,
+        headingsPos, scrolling = false, hasRendered = false, hasInit = false;
+
+      function setOptions(options) {
+        var _options = options || {};
+        _options.selectors && (selectors = _options.selectors);
+        _options.container && (container = _options.container);
+        _options.scrollTarget && (scrollTarget = _options.scrollTarget);
+        _options.scroller && (scroller = _options.scroller);
+        _options.disabled !== undefined && (disabled = _options.disabled);
+        $headings = $(container).find(selectors).filter('[id]');
+        $scrollTarget = $(scrollTarget);
+        $scroller = $(scroller);
+      }
+      function calc() {
+        headingsPos = [];
+        $headings.each(function() {
+          headingsPos.push(Math.floor($(this).position().top));
+        });
+      }
+      function setState(element, disabled) {
+        var scrollTop = $scrollTarget.scrollTop(), i;
+        if (disabled || !headingsPos || headingsPos.length < 1) { return; }
+        if (element) {
+          $activeCur = element;
+        } else {
+          for (i = 0; i < headingsPos.length; i++) {
+            if (scrollTop >= headingsPos[i]) {
+              $activeCur = $tocLi.eq(i);
+            } else {
+              $activeCur || ($activeCur = $tocLi.eq(i));
+              break;
+            }
+          }
+        }
+        $activeLast && $activeLast.removeClass('active');
+        ($activeLast = $activeCur).addClass('active');
+      }
+      function render() {
+        if(!hasRendered) {
+          $root.append($tocUl);
+          $headings.each(function() {
+            var $this = $(this);
+            $tocUl.append($('<li></li>').addClass('toc-' + $this.prop('tagName').toLowerCase())
+              .append($('<a></a>').text($this.text()).attr('href', '#' + $this.prop('id'))));
+          });
+          $tocLi = $tocUl.children('li');
+          $tocUl.on('click', 'a', function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            scrolling = true;
+            setState($this.parent());
+            $scroller.scrollToAnchor($this.attr('href'), 400, function() {
+              scrolling = false;
+            });
+          });
+        }
+        hasRendered = true;
+      }
+      function init() {
+        var interval, timeout;
+        if(!hasInit) {
+          render(); calc(); setState(null, scrolling);
+          // run calc every 100 millisecond
+          interval = setInterval(function() {
+            calc();
+          }, 100);
+          timeout = setTimeout(function() {
+            clearInterval(interval);
+          }, 45000);
+          window.pageLoad.then(function() {
+            setTimeout(function() {
+              clearInterval(interval);
+              clearTimeout(timeout);
+            }, 3000);
+          });
+          $scrollTarget.on('scroll', function() {
+            disabled || setState(null, scrolling);
+          });
+          $window.on('resize', window.throttle(function() {
+            if (!disabled) {
+              render(); calc(); setState(null, scrolling);
+            }
+          }, 100));
+        }
+        hasInit = true;
+      }
+
+      setOptions(options);
+      if (!disabled) {
+        init();
+      }
+      $window.on('resize', window.throttle(function() {
+        init();
+      }, 200));
+      return {
+        setOptions: setOptions
+      };
+    }
+    $.fn.toc = toc;
+  });
+})();/*(function () {
+
+})();*/</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();</script>
+    </div>
+    <script>(function () {
+  var $root = document.getElementsByClassName('root')[0];
+  if (window.hasEvent('touchstart')) {
+    $root.dataset.isTouch = true;
+    document.addEventListener('touchstart', function(){}, false);
+  }
+})();</script>
+  </body>
+</html>
