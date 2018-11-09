@@ -48,45 +48,49 @@ The documentation for each developer tool is included in the tool
 source directory in a `NOTES.md` file. See also the of the tools
 [overview and usage examples](tools.html).
 
-Development:
+The tools listed in this section are complemented by a set of
+[scripts](#man-pages) that automate common tasks.
+
+### Development
 
 -   [code_metrics](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/code_metrics/NOTES.md)
 -   [dead_code_scanner](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/dead_code_scanner/NOTES.md)
 -   [help](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/help/NOTES.md)
 -   [make](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md)
 
-Debugging:
+### Debugging
 
 -   [assertions](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/assertions/NOTES.md)
 -   [debugger](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md)
 
-Profiling tools:
+### Profiling
 
 -   [ports](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/ports/NOTES.md)
 -   [profiler](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/profiler/NOTES.md)
 
-Documenting:
+### Documenting
 
 -   [lgtdoc](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtdoc/NOTES.md)
--   [doclet](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md)
 -   [diagrams](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md)
+-   [doclet](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md)
 
-Testing:
+### Testing
 
 -   [lgtunit](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtunit/NOTES.md)
 
-Version management tools:
+### Version management
 
 -   [asdf](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/asdf/NOTES.md)
 
-Porting:
+### Porting
 
 -   [wrapper](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/wrapper/NOTES.md)
 
 
 ## Release notes
 
-Check the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md) for the latest goodies.
+Check the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md)
+for the latest goodies.
 
 
 ## Man pages
