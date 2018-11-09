@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /files
+Disallow: /tools
+Disallow: /assets
+Disallow: /manuals/_sources
+Disallow: /manuals/_static
+Disallow: /library/_sources
+Disallow: /library/_static
+Disallow: /library/_templates
+Disallow: /library/sources
+Disallow: /xml
