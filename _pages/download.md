@@ -122,7 +122,7 @@ Requires dpkg 1.15.0 or a later version. Installs Logtalk on
 
 ### Windows
 
-Be sure to install a [compatible](compatibility.html) Prolog compiler
+Be sure to install a [compatible](#requirements) Prolog compiler
 **before** running the Logtalk installer. Creates a `Logtalk` program
 group in the `Start Menu` with integration shortcuts for supported
 Prolog compilers and shortcuts for the accessing the Logtalk
