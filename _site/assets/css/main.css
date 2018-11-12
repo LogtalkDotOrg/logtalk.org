@@ -98,9 +98,9 @@ pre.lineno { color: #8e908c !important; }
 .root[data-is-touch] .text--dark a:not(.button):not(.swiper__button).active, .root[data-is-touch] .card__image > .overlay a:not(.button):not(.swiper__button).active, .root[data-is-touch] .card__image > .overlay--dark a:not(.button):not(.swiper__button).active, .root[data-is-touch] .hero--dark a:not(.button):not(.swiper__button).active, .root[data-is-touch] .header--dark a:not(.button):not(.swiper__button).active, .root[data-is-touch] .text--dark a:not(.button):not(.swiper__button):active, .root[data-is-touch] .card__image > .overlay a:not(.button):not(.swiper__button):active, .root[data-is-touch] .card__image > .overlay--dark a:not(.button):not(.swiper__button):active, .root[data-is-touch] .hero--dark a:not(.button):not(.swiper__button):active, .root[data-is-touch] .header--dark a:not(.button):not(.swiper__button):active { color: #0a345a; }
 .text--dark a:not(.button):not(.swiper__button).disabled, .card__image > .overlay a:not(.button):not(.swiper__button).disabled, .card__image > .overlay--dark a:not(.button):not(.swiper__button).disabled, .hero--dark a:not(.button):not(.swiper__button).disabled, .header--dark a:not(.button):not(.swiper__button).disabled, .text--dark a:not(.button):not(.swiper__button):disabled, .card__image > .overlay a:not(.button):not(.swiper__button):disabled, .card__image > .overlay--dark a:not(.button):not(.swiper__button):disabled, .hero--dark a:not(.button):not(.swiper__button):disabled, .header--dark a:not(.button):not(.swiper__button):disabled { color: rgba(255, 255, 255, 0.2) !important; }
 
-.box-shadow-1 { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
+.box-shadow-1 { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.23), 0 1px 3px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.02); }
 
-.box-shadow-2 { box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08); }
+.box-shadow-2 { box-shadow: 0 8px 16px rgba(0, 0, 0, 0.23), 0 2px 6px rgba(0, 0, 0, 0.08), 0 12px 24px rgba(0, 0, 0, 0.02); }
 
 .mt-0 { margin-top: 0; }
 
@@ -632,7 +632,7 @@ input:focus { outline: none; }
 
 .image--xs { width: 4rem; }
 
-.card { max-width: 18rem; border-radius: 0.4rem; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); -webkit-transition: box-shadow 0.4s ease-in-out; transition: box-shadow 0.4s ease-in-out; }
+.card { max-width: 18rem; border-radius: 0.4rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.23), 0 1px 3px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.02); -webkit-transition: box-shadow 0.4s ease-in-out; transition: box-shadow 0.4s ease-in-out; }
 .card > :first-child { border-top-left-radius: 0.4rem; border-top-right-radius: 0.4rem; }
 .card > :last-child { border-bottom-right-radius: 0.4rem; border-bottom-left-radius: 0.4rem; }
 
@@ -656,7 +656,7 @@ a.card__header.disabled, a.card__header:disabled, .card__header > a.disabled, .c
 .card__image > .overlay--light { background: rgba(255, 255, 255, 0.4); }
 
 .card--clickable { cursor: pointer; }
-.root[data-is-touch="false"] .card--clickable:hover { box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08); }
+.root[data-is-touch="false"] .card--clickable:hover { box-shadow: 0 8px 16px rgba(0, 0, 0, 0.23), 0 2px 6px rgba(0, 0, 0, 0.08), 0 12px 24px rgba(0, 0, 0, 0.02); }
 .root[data-is-touch="false"] .card--clickable:hover .card__image > img { height: inherit; }
 
 .card--flat { box-shadow: none; }
@@ -773,17 +773,17 @@ a.item__header.disabled, a.item__header:disabled, .item__header > a.disabled, .i
 
 .item__meta { color: #888; }
 
-.item__description, .item__description .article__content { font-size: 0.875rem; line-height: 1.6; }
+.item__description, .item__description .article__content { font-size: 0.75rem; line-height: 1.6; }
 .item__description h1, .item__description h2, .item__description h3, .item__description h4, .item__description h5, .item__description h6, .item__description p, .item__description hr, .item__description blockquote, .item__description figure, .item__description pre, .item__description .highlighter-rouge, .item__description ul, .item__description ol, .item__description dl, .item__description table, .item__description .footnotes, .item__description .article__content h1, .item__description .article__content h2, .item__description .article__content h3, .item__description .article__content h4, .item__description .article__content h5, .item__description .article__content h6, .item__description .article__content p, .item__description .article__content hr, .item__description .article__content blockquote, .item__description .article__content figure, .item__description .article__content pre, .item__description .article__content .highlighter-rouge, .item__description .article__content ul, .item__description .article__content ol, .item__description .article__content dl, .item__description .article__content table, .item__description .article__content .footnotes { margin-top: 0.5rem; margin-bottom: 0.5rem; }
 .item__description h1, .item__description h2, .item__description h3, .item__description h4, .item__description h5, .item__description h6, .item__description .article__content h1, .item__description .article__content h2, .item__description .article__content h3, .item__description .article__content h4, .item__description .article__content h5, .item__description .article__content h6 { margin-top: 1rem; }
 .item__description h1, .item__description h2, .item__description h3, .item__description .article__content h1, .item__description .article__content h2, .item__description .article__content h3 { color: #222; }
 .item__description h1, .item__description h2, .item__description .article__content h1, .item__description .article__content h2 { padding: 0; border: none; }
-.item__description h1, .item__description .article__content h1 { font-size: 2rem; }
-.item__description h2, .item__description .article__content h2 { font-size: 1.5rem; }
-.item__description h3, .item__description .article__content h3 { font-size: 1.35rem; }
-.item__description h4, .item__description .article__content h4 { font-size: 1.15rem; }
-.item__description h5, .item__description .article__content h5 { font-size: 1rem; }
-.item__description h6, .item__description .article__content h6 { font-size: 1rem; }
+.item__description h1, .item__description .article__content h1 { font-size: 1rem; }
+.item__description h2, .item__description .article__content h2 { font-size: 0.9rem; }
+.item__description h3, .item__description .article__content h3 { font-size: 0.85rem; }
+.item__description h4, .item__description .article__content h4 { font-size: 0.8rem; }
+.item__description h5, .item__description .article__content h5 { font-size: 0.75rem; }
+.item__description h6, .item__description .article__content h6 { font-size: 0.75rem; }
 .item__description img, .item__description .article__content img { max-height: 32rem; }
 @media (max-width: 499px) { .item__description img, .item__description .article__content img { max-height: 14rem; } }
 
@@ -1254,12 +1254,14 @@ a.item__header.disabled, a.item__header:disabled, .item__header > a.disabled, .i
 
 .extensions { margin: 1rem 0; }
 
-.extensions--video, .extensions--slide { position: relative; width: 100%; padding: 0; }
-.extensions--video > iframe, .extensions--slide > iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.extensions--video, .extensions--slide, .extensions--demo { position: relative; width: 100%; padding: 0; }
+.extensions--video > iframe, .extensions--slide > iframe, .extensions--demo > iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 .extensions--video { padding-top: 56.25%; }
 
 .extensions--slide { padding-top: 81.3021702838%; }
+
+.extensions--demo { min-height: 340px; padding-top: 56.25%; }
 
 .extensions--audio { display: block; max-width: 100% !important; }
 
@@ -1273,7 +1275,7 @@ a.item__header.disabled, a.item__header:disabled, .item__header > a.disabled, .i
 .article__content code.warning { color: #fff; background-color: #fa8c16; }
 .article__content code.error { color: #fff; background-color: #f5222d; }
 
-.article__content img.shadow, .article__content .shadow > img { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); }
+.article__content img.shadow, .article__content .shadow > img { box-shadow: 0 4px 8px rgba(0, 0, 0, 0.23), 0 1px 3px rgba(0, 0, 0, 0.08), 0 6px 12px rgba(0, 0, 0, 0.02); }
 .article__content img.border, .article__content .border > img { border: 1px solid #e6e6e6; }
 .article__content img.rounded, .article__content .rounded > img { border-radius: 0.4rem; }
 .article__content img.circle, .article__content .circle > img { border-radius: 50%; }
@@ -1310,6 +1312,7 @@ a.item__header.disabled, a.item__header:disabled, .item__header > a.disabled, .i
 .layout--page .page__main-inner .col-aside > aside { position: absolute; width: 220px; overflow: hidden; }
 .layout--page .page__content { padding-bottom: 10rem; margin: 0 auto; }
 @media print { .layout--page .page__content { padding-bottom: 0; } }
+.layout--page .hide-footer .page__content { padding-bottom: 0; }
 .layout--page .page__comments { margin: 1.5rem 0; }
 .layout--page .page__aside .toc-aside { padding: 3rem 0 1rem 3rem; }
 .layout--page .page__footer { position: absolute; bottom: 0; width: 100%; }
