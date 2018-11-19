@@ -275,29 +275,28 @@
 
               <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Features</h1></header></div><meta itemprop="headline" content="Features"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
 
-  <div class="article__content" itemprop="articleBody"><p>Logtalk is a mature <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/LICENSE.txt">open source</a> object-oriented logic
-programming language that can use most Prolog implementations as a
-backend compiler. It provides code encapsulation and code reuses
-features for programming in the large. It doesn't provide, or attempt
+  <div class="article__content" itemprop="articleBody"><p>Logtalk is a mature <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/LICENSE.txt">open source</a>
+object-oriented logic programming language that can use most Prolog
+implementations as a backend compiler. It provides code encapsulation and code
+reuses features for programming in the large. It doesn't provide, or attempt
 to bring to Prolog, any notion of mutable state that is not already
 available in plain Prolog or with Prolog modules. Logtalk main features
 are:</p>
 
 <h3 id="protocols-interfaces">Protocols (interfaces)</h3>
 
-<p>Separation between interface and implementation is supported.
-Predicate directives (declarations) can be contained inside
-<em>protocols</em> (interfaces), which can be implemented by any object.
-Protocols are first-class entities, alongside objects and
-categories.</p>
+<p>Separation between interface and implementation is supported. Predicate
+directives (declarations) can be contained inside <em>protocols</em> (interfaces),
+which can be implemented by any number of objects (and categories). Protocols
+are first-class entities, alongside objects and categories.</p>
 
-<h3 id="parametric-objects">Parametric objects</h3>
+<h3 id="parametric-objects-and-categories">Parametric objects (and categories)</h3>
 
-<p>Object identifiers can be compound terms containing free variables
-that can be used to parametrize object predicates. This allows us
-to interpret predicate clauses as providing <em>instantiations</em> of a
-parametric object identifier. I.e. using a parametric object we
-can associate any number of predicates with a compound term.</p>
+<p>Object (and category) identifiers can be compound terms containing free
+variables that can be used to parametrize object (or category) predicates.
+Notably, this allows the interpretation of predicate clauses as providing
+<em>instantiations</em> of a parametric object identifier. I.e. using a parametric
+object we can associate any number of predicates with a compound term.</p>
 
 <h3 id="prototypes-and-classes">Prototypes and classes</h3>
 

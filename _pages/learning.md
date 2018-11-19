@@ -73,6 +73,10 @@ Looking for how to express traditional OOP class concepts from other languages i
 * `instvars`
 * `people`
 
+Now that you got the basics of OOP in Logtalk, time to take it to the next level:
+
+* `design_patterns` (currently only in the git version)
+
 But Logtalk is a _declarative_ language supporting all those features that drive people to logic programming. Some good examples are:
 
 * `dcgs`
@@ -214,4 +218,4 @@ true.
 
 At this point, you should have a good understanding of the basics of Logtalk programming. But there are more features to explore and many more examples for you to play with. We suggest that you look into the [examples summary](https://github.com/LogtalkDotOrg/logtalk3/blob/master/examples/NOTES.md) and choose the next ones according to your interests.
 
-Enjoy and remember: the [Logtalk discussion forums](http://forums.logtalk.org/) and the [Logtalk chat room](https://gitter.im/LogtalkDotOrg/logtalk3) are at your disposable. Don't be a stranger. 
+Enjoy and remember: the [Logtalk discussion forums](http://forums.logtalk.org/) and the [Logtalk chat room](https://gitter.im/LogtalkDotOrg/logtalk3) welcome your participation. Don't be a stranger. 

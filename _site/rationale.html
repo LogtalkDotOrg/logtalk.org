@@ -325,7 +325,7 @@
 
 <h3 id="simple-scope-rules-for-flags">Simple scope rules for flags</h3>
 
-<p>The <code class="highlighter-rouge">set_logtalk_flag</code> <strong>directive</strong> is always local to their scope, which can be an entity or a source file. Only calls to the <code class="highlighter-rouge">set_logtalk_flag</code> built-in <strong>predicate</strong> set the global default value for a flag.</p>
+<p>The <code class="highlighter-rouge">set_logtalk_flag</code> <strong>directive</strong> is always local to their scope, which can be an entity or a source file. Only calls to the <code class="highlighter-rouge">set_logtalk_flag</code> <strong>predicate</strong> set the global default value for a flag.</p>
 
 <p>In contrast, some Prolog flags have local scope while others have global scope. Worse, there are differences between Prolog systems that support modules with some flags being local to a module in a system and global in another. A notable case are <code class="highlighter-rouge">op/3</code> directives, which are local to modules in some systems and global in others.</p>
 
@@ -424,13 +424,13 @@ Complex applications may require using both Logtalk and Prolog tools, demanding 
 
 <h3 id="no-implicit-predicate-imports">No implicit predicate imports</h3>
 
-<p>Logtalk favors resilience to changes over convenience and thus does not support implicit predicate imports as in the Prolog <code class="highlighter-rouge">use_module/1</code> directive. In objects (and categories), only <code class="highlighter-rouge">use_module/2</code> directives (or its Logtalk equivalent, the <code class="highlighter-rouge">uses/2</code> directive) can be used. The practical consequence is that you need to use a <code class="highlighter-rouge">use_module/2</code> directive for implicitly calling module predicates and a <code class="highlighter-rouge">uses/2</code> directive for implicitly sending messages to objects. I.e. you need to either explicitly list the predicates or use explicit qualification. This can make the code more verbose (but it also prevents applications from breaking when new library predicates are implemented).</p>
+<p>Logtalk favors resilience to changes over convenience and thus does not support implicit predicate imports as in the Prolog <code class="highlighter-rouge">use_module/1</code> directive. In objects (and categories), only <code class="highlighter-rouge">use_module/2</code> directives (or its Logtalk equivalent, the <code class="highlighter-rouge">uses/2</code> directive) can be used. The practical consequence is that you need to use a <code class="highlighter-rouge">use_module/2</code> directive for implicitly calling module predicates and a <code class="highlighter-rouge">uses/2</code> directive for implicitly sending messages to objects. I.e. you need to either explicitly list the predicates or use explicit qualification. This can make the code a bit more verbose but it also prevents applications from breaking when new library predicates are implemented.</p>
 
 <p>Note: the adapter files for some Prolog systems are able to convert in the fly <code class="highlighter-rouge">use_module/1</code> directives into <code class="highlighter-rouge">use_module/2</code> directives in some cases. This, however, is not recommended for the reasons stated above.</p>
 
 <h3 id="temporary-files">Temporary files</h3>
 
-<p>The Logtalk compiler generates temporary Prolog files when compiling and loading source files. By default, these temporary files are automatically deleted. This requires Logtalk to either work from a writable volume or to define the operating-system temporary directory as the scratch directory. As all common operating-systems natively provide a directory for temporary files, this is not considered an actual limitation although it is worth noting characteristic. Note that running embedded Logtalk applications doesn’t not require any runtime compilation of the application source files (as embedding is accomplished using precompiled code).</p>
+<p>The Logtalk compiler generates temporary Prolog files when compiling and loading source files. By default, these temporary files are kept out of the way and automatically deleted. This requires Logtalk to either work from a writable volume or to define the operating-system temporary directory as the scratch directory. As all common operating-systems natively provide a directory for temporary files, this is not considered an actual limitation although it is worth noting characteristic. Note that running embedded Logtalk applications doesn’t not require any runtime compilation of the application source files (as embedding is accomplished using precompiled code).</p>
 </div><footer class="article__footer"><!-- this will show at every article content's bottom --></footer>
 
   <div class="d-print-none"></div>

@@ -54,7 +54,7 @@ The same predicate name can be a public predicate of any number of objects. This
 
 ### Simple scope rules for flags
 
-The `set_logtalk_flag` **directive** is always local to their scope, which can be an entity or a source file. Only calls to the `set_logtalk_flag` built-in **predicate** set the global default value for a flag.
+The `set_logtalk_flag` **directive** is always local to their scope, which can be an entity or a source file. Only calls to the `set_logtalk_flag` **predicate** set the global default value for a flag.
 
 In contrast, some Prolog flags have local scope while others have global scope. Worse, there are differences between Prolog systems that support modules with some flags being local to a module in a system and global in another. A notable case are `op/3` directives, which are local to modules in some systems and global in others.
 
@@ -153,10 +153,10 @@ Logtalk applications making heavy use of dynamic binding may require a backend P
 
 ### No implicit predicate imports
 
-Logtalk favors resilience to changes over convenience and thus does not support implicit predicate imports as in the Prolog `use_module/1` directive. In objects (and categories), only `use_module/2` directives (or its Logtalk equivalent, the `uses/2` directive) can be used. The practical consequence is that you need to use a `use_module/2` directive for implicitly calling module predicates and a `uses/2` directive for implicitly sending messages to objects. I.e. you need to either explicitly list the predicates or use explicit qualification. This can make the code more verbose (but it also prevents applications from breaking when new library predicates are implemented).
+Logtalk favors resilience to changes over convenience and thus does not support implicit predicate imports as in the Prolog `use_module/1` directive. In objects (and categories), only `use_module/2` directives (or its Logtalk equivalent, the `uses/2` directive) can be used. The practical consequence is that you need to use a `use_module/2` directive for implicitly calling module predicates and a `uses/2` directive for implicitly sending messages to objects. I.e. you need to either explicitly list the predicates or use explicit qualification. This can make the code a bit more verbose but it also prevents applications from breaking when new library predicates are implemented.
 
 Note: the adapter files for some Prolog systems are able to convert in the fly `use_module/1` directives into `use_module/2` directives in some cases. This, however, is not recommended for the reasons stated above.
 
 ### Temporary files
 
-The Logtalk compiler generates temporary Prolog files when compiling and loading source files. By default, these temporary files are automatically deleted. This requires Logtalk to either work from a writable volume or to define the operating-system temporary directory as the scratch directory. As all common operating-systems natively provide a directory for temporary files, this is not considered an actual limitation although it is worth noting characteristic. Note that running embedded Logtalk applications doesn't not require any runtime compilation of the application source files (as embedding is accomplished using precompiled code).
+The Logtalk compiler generates temporary Prolog files when compiling and loading source files. By default, these temporary files are kept out of the way and automatically deleted. This requires Logtalk to either work from a writable volume or to define the operating-system temporary directory as the scratch directory. As all common operating-systems natively provide a directory for temporary files, this is not considered an actual limitation although it is worth noting characteristic. Note that running embedded Logtalk applications doesn't not require any runtime compilation of the application source files (as embedding is accomplished using precompiled code).

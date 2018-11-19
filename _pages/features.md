@@ -6,10 +6,10 @@ aside:
   toc: true
 ---
 
-Logtalk is a mature [open source](https://github.com/LogtalkDotOrg/logtalk3/blob/master/LICENSE.txt) object-oriented logic
-programming language that can use most Prolog implementations as a
-backend compiler. It provides code encapsulation and code reuses
-features for programming in the large. It doesn\'t provide, or attempt
+Logtalk is a mature [open source](https://github.com/LogtalkDotOrg/logtalk3/blob/master/LICENSE.txt)
+object-oriented logic programming language that can use most Prolog
+implementations as a backend compiler. It provides code encapsulation and code
+reuses features for programming in the large. It doesn\'t provide, or attempt
 to bring to Prolog, any notion of mutable state that is not already
 available in plain Prolog or with Prolog modules. Logtalk main features
 are:
@@ -17,20 +17,19 @@ are:
 
 ### Protocols (interfaces)
 
-Separation between interface and implementation is supported.
-Predicate directives (declarations) can be contained inside
-*protocols* (interfaces), which can be implemented by any object.
-Protocols are first-class entities, alongside objects and
-categories.
+Separation between interface and implementation is supported. Predicate
+directives (declarations) can be contained inside *protocols* (interfaces),
+which can be implemented by any number of objects (and categories). Protocols
+are first-class entities, alongside objects and categories.
 
 
-### Parametric objects
+### Parametric objects (and categories)
 
-Object identifiers can be compound terms containing free variables
-that can be used to parametrize object predicates. This allows us
-to interpret predicate clauses as providing *instantiations* of a
-parametric object identifier. I.e. using a parametric object we
-can associate any number of predicates with a compound term.
+Object (and category) identifiers can be compound terms containing free
+variables that can be used to parametrize object (or category) predicates.
+Notably, this allows the interpretation of predicate clauses as providing
+*instantiations* of a parametric object identifier. I.e. using a parametric
+object we can associate any number of predicates with a compound term.
 
 
 ### Prototypes and classes
