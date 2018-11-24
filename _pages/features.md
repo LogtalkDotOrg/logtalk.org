@@ -6,13 +6,12 @@ aside:
   toc: true
 ---
 
-Logtalk is a mature [open source](https://github.com/LogtalkDotOrg/logtalk3/blob/master/LICENSE.txt)
-object-oriented logic programming language that can use most Prolog
-implementations as a backend compiler. It provides code encapsulation and code
-reuses features for programming in the large. It doesn\'t provide, or attempt
-to bring to Prolog, any notion of mutable state that is not already
-available in plain Prolog or with Prolog modules. Logtalk main features
-are:
+Logtalk is a  *declarative object-oriented logic programming language* that
+can use most Prolog implementations as a backend compiler. It provides code
+encapsulation and code reuses features for programming in the large. It
+doesn\'t provide, or attempt to bring to Prolog, any notion of mutable state
+that is not already available in plain Prolog or with Prolog modules. Logtalk
+main features include:
 
 
 ### Protocols (interfaces)

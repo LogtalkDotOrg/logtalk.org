@@ -277,7 +277,7 @@
 
   <div class="article__content" itemprop="articleBody"><p>Follow these steps to run a Logtalk developer version:</p>
 
-<h2 id="checking-out-the-latest-logtalk-development-version">Checking out the latest Logtalk development version</h2>
+<h2 id="checking-out-the-latest-development-version">Checking out the latest development version</h2>
 
 <p>From the command-line, type the following commands:</p>
 
@@ -293,11 +293,9 @@
 
 <p>In alternative, use one of several available GUI front-ends to <code class="highlighter-rouge">git</code>.</p>
 
-<h2 id="installing-logtalk">Installing Logtalk</h2>
+<h2 id="installing">Installing</h2>
 
-<ul>
-  <li>POSIX installation</li>
-</ul>
+<h3 id="posix-installation">POSIX installation</h3>
 
 <p>If you use a bash shell, add the following lines to your <code class="highlighter-rouge">~/.profile</code> file:</p>
 
@@ -318,31 +316,25 @@ setenv MANPATH <span class="k">${</span><span class="nv">MANPATH</span><span cla
 
 <p>If your <code class="highlighter-rouge">lgt3git</code> directory is not in your home directory, adjust the paths above accordingly. Don’t use relative paths such as <code class="highlighter-rouge">../</code> or <code class="highlighter-rouge">./</code> in the definition of the environment variables. Some Prolog compilers have trouble expanding environment variables, resulting in <code class="highlighter-rouge">file not found</code> errors when attempting to use the Logtalk integration scripts.</p>
 
-<ul>
-  <li>Windows installation</li>
-</ul>
+<h3 id="windows-installation">Windows installation</h3>
 
 <p>Checkout the Logtalk development version into the directory <code class="highlighter-rouge">C:\lgt3git</code>. If you want to have Logtalk integration shortcuts for the supported Prolog compilers created, install <a href="http://www.jrsoftware.org/isinfo.php">Inno Setup Unicode 5.3.0</a> (or a later version) and open the <code class="highlighter-rouge">C:\lgt3git\scripts\windows\logtalk.iss</code> file. Rebuild the Windows GUI installer and run it to install the Logtalk development version. In alternative, install a Bash shell such as the one provided by <a href="http://msysgit.github.io">Git for Windows</a> and follow the steps above for the POSIX installation.</p>
 
-<h2 id="running-logtalk">Running Logtalk</h2>
+<h2 id="running">Running</h2>
 
-<ul>
-  <li>POSIX systems</li>
-</ul>
+<h3 id="posix-systems">POSIX systems</h3>
 
 <p>You may run Logtalk by typing the name of the integration script with the <code class="highlighter-rouge">.sh</code> extension. For example, to run Logtalk using SWI-Prolog as the back-end compiler type <code class="highlighter-rouge">swilgt.sh</code>.</p>
 
-<ul>
-  <li>Windows systems</li>
-</ul>
+<h3 id="windows-systems">Windows systems</h3>
 
 <p>Use the shortcuts available from the <code class="highlighter-rouge">Logtalk</code> program group in the <code class="highlighter-rouge">Start Menu</code>. Note that, depending on the chosen backend Prolog compiler, the first run of some shortcuts may need to be run as administrator.</p>
 
-<h2 id="customizing-logtalk">Customizing Logtalk</h2>
+<h2 id="customizing">Customizing</h2>
 
 <p>See the file <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/CUSTOMIZE.md"><code class="highlighter-rouge">CUSTOMIZE.md</code></a> for tips on how to customize Logtalk.</p>
 
-<h2 id="switching-between-installed-logtalk-versions">Switching Between Installed Logtalk Versions</h2>
+<h2 id="switching-between-installed-versions">Switching between installed versions</h2>
 
 <p>If you want to run both stable and development versions of Logtalk on a POSIX system, you may instead keep the default values for the environment variables <code class="highlighter-rouge">LOGTALKHOME</code> and <code class="highlighter-rouge">LOGTALKUSER</code> and use the <code class="highlighter-rouge">logtalk_version_select</code> command to switch between installed versions. Simply perform a <code class="highlighter-rouge">git clone</code> of the Logtalk development version and install it by following the steps:</p>
 

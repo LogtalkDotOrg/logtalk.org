@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>How to release a new stable version - Logtalk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Releasing new stable versions - Logtalk</title>
 
 <meta name="description" content="Declarative object-oriented logic programming language
 ">
@@ -273,23 +273,23 @@
 
               <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
 
-              <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>How to release a new stable version</h1></header></div><meta itemprop="headline" content="How to release a new stable version"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
+              <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Releasing new stable versions</h1></header></div><meta itemprop="headline" content="Releasing new stable versions"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
 
   <div class="article__content" itemprop="articleBody"><p>The resources for releasing a new stable version are included in the
 distribution:</p>
 
-<p>https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts</p>
+<p><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts</a></p>
 
 <p>See the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/NOTES.md"><code class="highlighter-rouge">NOTES.md</code></a>
 file in the directory for details. The main release script is:</p>
 
-<p>https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/build_release.sh</p>
+<p><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/build_release.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/build_release.sh</a></p>
 
 <p>This script performs a git clone and builds the sources archive, the manuals archive, the SWI-Prolog pack, and all the installers with the exception of the Windows installer.</p>
 
 <p>To build the Windows <code class="highlighter-rouge">.exe</code> installer requires a PC or a virtual machine running Windows 7 or later and using the Inno Setup script that is also included with the distribution:</p>
 
-<p>https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/windows</p>
+<p><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/windows">https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/windows</a></p>
 
 <p>Build the Windows <code class="highlighter-rouge">.exe</code> installer first before running the
 <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/build_release.sh"><code class="highlighter-rouge">build_release.sh</code></a>
@@ -301,9 +301,9 @@ release in case some installer issue is found.</p>
 <p>The HTML and SVG versions of the Handbook and the API documentation are usually kept
 up-to-date using the scripts:</p>
 
-<p>https://github.com/LogtalkDotOrg/logtalk3/blob/master/manuals/sources/build_manuals.sh
-https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_html_docs.sh
-https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh</p>
+<p><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/manuals/sources/build_manuals.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/manuals/sources/build_manuals.sh</a>
+<a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_html_docs.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_html_docs.sh</a>
+<a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh</a></p>
 
 <p>The HTML version requires <a href="http://sphinx-doc.org/">Sphinx</a> with the
 <a href="https://github.com/rtfd/sphinx_rtd_theme">Read the Docs theme</a> installed.
@@ -311,7 +311,7 @@ Before running the scripts, the version data in the <code class="highlighter-rou
 
 <p>After tagging the stable release (and pushing the tag to GitHub), the stable release Docker images are generated using the script at:</p>
 
-<p>https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/docker</p>
+<p><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/docker">https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/docker</a></p>
 
 <p>After uploading the generated archives, to update the SWI-Prolog pack, start <code class="highlighter-rouge">swipl</code> and use the following queries (replace <code class="highlighter-rouge">XY.Z</code> with the version numbers):</p>
 

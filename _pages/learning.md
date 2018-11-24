@@ -1,7 +1,7 @@
 ---
 layout: article
 permalink: learning.html
-title: Learning
+title: Learning by examples
 aside:
   toc: true
 ---

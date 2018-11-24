@@ -20,7 +20,7 @@ Logtalk also fixes some murky semantics found in Prolog and improves some it its
 
 ### Protocols
 
-Protocols are first-class entities in Logtalk. Being able to define a protocol (or interface) and provide multiple implementations is one of the most basic features for an encapsulation mechanisms. Protocols are also a key part of many design patterns in software engineering. Its absence in module systems twists practice and leads to non scalable, brittle solutions.
+Protocols are first-class entities in Logtalk. Being able to define a protocol (or interface) and provide multiple implementations is one of the most basic features for an encapsulation mechanisms. Protocols are also a key part of most design patterns in software engineering. Its absence in module systems twists practice and leads to non scalable, brittle solutions.
 
 The current and recommended practice with Prolog modules is that *exported* predicates should not clash and to prefer `use_module/1` directives over `use_module/2` directives or explicit qualification. These recommendations are as convenient (specially for new users) as they are problematic. The first consequence, is that modules, as encapsulation units, are in practice only there to prevent clashes in *private* predicates. But there isn't any central authority for modules. Nor is reasonable to expect or demand that programmers all over the world sync before deciding the names of exported predicates when releasing a public module library. Users may also find that newly released libraries clash with their private modules. The preference for `use_module/1` directives also means that adding a new exported predicate to a module library can cause a module conflict and thus break existing applications that, necessarily, don't use the new predicate. Another consequence is that module exported predicates are often prefixed with an abbreviation of the module name to prevent clashes (see e.g. the `ordsets`, `random`, or `rbtrees` modules).
 
@@ -116,7 +116,7 @@ In addition, not all Prolog systems implemented modules. Examples include B-Prol
 
 Logtalk provides **fully portable** implementations of key mechanisms to all supported backend Prolog compilers. These include:
 
-* Conditional compilation directives
+* Conditional compilation
 * Term-expansion
 * Message printing
 * Question asking
