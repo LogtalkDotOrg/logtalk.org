@@ -277,12 +277,13 @@
 
   <div class="article__content" itemprop="articleBody"><h2 id="why-logtalk">Why Logtalk?</h2>
 
-<p>Logtalk is designed to <em>extend</em> Prolog, not to replace it. It provides, however, an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of developer tools. By Prolog modules we assume here the de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:</p>
+<p>Logtalk is designed to <em>extend</em> and <em>leverage</em> Prolog. It provides an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of developer tools. By Prolog modules we assume here the de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:</p>
 
 <ul>
   <li>Designed as a simple solution to to hide auxiliary predicates</li>
   <li>Based on a <em>predicate prefixing</em> mechanism</li>
   <li>Reuse based on <em>import/export</em> semantics</li>
+  <li>Strongly biased towards implicit predicate qualification</li>
 </ul>
 
 <p>These fundamental characteristics make module systems relatively simple to implement but also effectively prevent extending them to provide several key features present in Logtalk, some of them described here, that support a wide range of code encapsulation and reuse scenarios typically found in applications.</p>

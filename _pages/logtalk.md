@@ -15,8 +15,8 @@ permalink: index.html
 
 Logtalk is a *declarative object-oriented logic programming language*
 that extends and leverages the Prolog language with modern code
-encapsulation and code reuse mechanisms without compromising its
-declarative programming features.
+encapsulation and code reuse mechanisms while also providing improved
+predicate semantics.
 
 Implemented as a trans-compiler in highly portable code, it can use most
 modern and standards compliant Prolog implementations as a backend
