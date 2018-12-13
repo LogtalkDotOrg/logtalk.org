@@ -370,7 +370,7 @@ Deployment
 >
 > For instructions on how to embed Logtalk and Logtalk applications see
 > the [Logtalk wiki section on
-> embedding](https://github.com/LogtalkDotOrg/logtalk3/wiki/Embedding-Logtalk).
+> embedding](embedding.html).
 
 ::: {.subtopictitle}
 Performance
@@ -408,7 +408,7 @@ Performance
 > same as a predicate call in plain Prolog. Performance of dynamic
 > binding when lookups are cached is close to the performance that would
 > be achieved with static binding. See the [Logtalk wiki section on
-> performance](https://github.com/LogtalkDotOrg/logtalk3/wiki/Performance)
+> performance](performance.html)
 > for more details.
 
 > []{#performance-4}*Which Prolog-dependent factors are most crucial for

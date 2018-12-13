@@ -52,7 +52,7 @@ The Logtalk git repo is currently hosted at
 [GitHub](http://github.com/LogtalkDotOrg/logtalk3). You may keep up to
 date on development changes by subscribing to the [Logtalk 3.x commits
 RSS feed](https://github.com/LogtalkDotOrg/logtalk3/commits/master.atom).
-Follow these [steps](https://github.com/LogtalkDotOrg/logtalk3/wiki/Running-Developer-Versions)
+Follow these [steps](running_developer_versions.html)
 for running Logtalk development versions.
 
 See the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md)
