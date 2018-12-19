@@ -23,8 +23,8 @@ The Logtalk Handbook includes a tutorial, the User Manual, the Reference Manual,
 
 <!-- -->
 
--   [PDF version (stable)](manuals/TheLogtalkHandbook-3.21.0.pdf)
--   [ePub version (stable)](manuals/TheLogtalkHandbook-3.21.0.epub)
+-   [PDF version (stable)](papers/TheLogtalkHandbook-3.22.0.pdf)
+-   [ePub version (stable)](papers/TheLogtalkHandbook-3.22.0.epub)
 
 
 ## APIs

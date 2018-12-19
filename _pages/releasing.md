@@ -49,6 +49,6 @@ After uploading the generated archives, to update the SWI-Prolog pack, start `sw
 ```logtalk
 ?- pack_remove(logtalk).    % if installed
 ...
-?- pack_install('http://logtalk.org/files/swi-prolog/packs/logtalk-3.XY.Z.tgz').
+?- pack_install('https://logtalk.org/files/swi-prolog/packs/logtalk-3.XY.Z.tgz').
 ...
 ```

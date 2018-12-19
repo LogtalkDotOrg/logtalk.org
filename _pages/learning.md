@@ -24,83 +24,84 @@ All examples include a `NOTES.md` file with a description and a `SCRIPT.txt` fil
 
 ## Examples recommended walkthrough
 
-* `hello_world` - mandatory example; can't be avoided
-* `roles` - learn about the different roles that an object can play
-* `scopes` - learn about predicate scopes
-* `self_messages` - learn how to use messages to self to call redefined predicates
-* `super_calls` - learn how to use super calls to specialize inherited predicates
-* `elephants` - learn about the concept of prototypes
-* `prototypes` - another example on prototypes
-* `planets` - learn how to define and use protocols and categories
-* `carengines` - learn more about categories
-* `shapes` - learn about the differences between class and prototype hierarchies
-* `inheritance` - learn more about inheritance
-* `family` - no self respecting logic programming example can do without a family relations example
+* [`hello_world`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/hello_world) - mandatory example; cannot be avoided
+* [`roles`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/roles) - learn about the different roles that an object can play
+* [`scopes`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/scopes) - learn about predicate scopes
+* [`self_messages`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/self_messages) - learn how to use messages to self to call redefined predicates
+* [`super_calls`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/super_calls) - learn how to use super calls to specialize inherited predicates
+* [`elephants`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/elephants) - learn about the concept of prototypes
+* [`prototypes`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/prototypes) - another example on prototypes
+* [`planets`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/planets) - learn how to define and use protocols and categories
+* [`carengines`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/carengines) - learn more about categories
+* [`shapes`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/shapes) - learn about the differences between class and prototype hierarchies
+* [`inheritance`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/inheritance) - learn more about inheritance
+* [`family`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/family) - no self respecting logic programming language can do without a family relations example
 
 Next a break after playing with the above examples? Have fun with the following ones:
 
-* `adventure` - text-based adventure games; beware of the monsters!
-* `puzzles` - logical puzzles
+* [`adventure`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/adventure) - text-based adventure games; beware of the monsters!
+* [`puzzles`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/puzzles) - logical puzzles
 
 The Logtalk compiler does extended lint checks. Trouble understanding compiler output? Want to learn more about compilation errors and warnings? There's an example for that:
 
-* `errors` - learn about compiler errors and warnings
+* [`errors`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/errors) - learn about compiler errors and warnings
 
 Want to learn about parametric objects (and categories)? See the following examples:
 
-* `parametric`
-* `parvars`
-* `proxies`
-* `symdiff`
+* [`parametric`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/parametric)
+* [`parvars`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/parvars)
+* [`proxies`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/proxies)
+* [`symdiff`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/symdiff)
 
 Logtalk support for _composition_ using categories provides an alternative to _inheritance_. Two good examples are:
 
-* `points`
-* `polygons`
+* [`points`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/points)
+* [`polygons`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/polygons)
 
 Another distinctive Logtalk feature is the support for _event-driven programing_. Some illustrative examples are:
 
-* `profiling`
-* `blocks`
+* [`profiling`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/profiling)
+* [`blocks`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/blocks)
 
 Looking for how to express traditional OOP class concepts from other languages in Logtalk? See:
 
-* `roots`
-* `metaclasses`
-* `classmethods`
-* `classvars`
-* `instmethods`
-* `instvars`
-* `people`
+* [`roots`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/roots)
+* [`metaclasses`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/metaclasses)
+* [`classmethods`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/classmethods)
+* [`classvars`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/classvars)
+* [`instmethods`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/instmethods)
+* [`instvars`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/instvars)
+* [`people`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/people)
 
 Now that you got the basics of OOP in Logtalk, time to take it to the next level:
 
-* `design_patterns` (currently only in the git version)
+* [`design_patterns`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/design_patterns)
 
 But Logtalk is a _declarative_ language supporting all those features that drive people to logic programming. Some good examples are:
 
-* `dcgs`
-* `metainterpreters`
-* `metapredicates`
-* `lambdas`
-* `searching`
-* `coinduction`
-* `constraints`
-* `engines`
-* `tabling`
+* [`dcgs`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/dcgs)
+* [`metainterpreters`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/metainterpreters)
+* [`metapredicates`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/metapredicates)
+* [`lambdas`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/lambdas)
+* [`searching`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/searching)
+* [`coinduction`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/coinduction)
+* [`constraints`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/constraints)
+* [`engines`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/engines)
+* [`tabling`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/tabling)
 
 Looking for extending Logtalk with your constructs? Logtalk supports a term-expansion mechanism (aka as macros):
 
-* `hooks`
-* `wrappers`
+* [`hooks`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/hooks)
+* [`wrappers`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/wrappers)
 
 Happy about your progress? Time to celebrate with:
 
-* `bottles` - sing along!
+* [`bottles`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/bottles) - sing along!
 
 ## Running example queries in the debugger
 
-Running a query using the debugger can help understand the inference process. An example session, using the `planets` example:
+Running a query using the debugger can help understand the inference process.
+An example session, using the [`planets`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/planets) example:
 
 ```
 ?- {planets(loader)}.

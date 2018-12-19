@@ -4,6 +4,105 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.22.0 - December 18, 2018
+==========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* IMPROVED: Caching of default flags at runtime initialization is now more
+robust to file assembling order issues when embedding Logtalk or a Logtalk
+application.
+
+* FIXED: When compiling `uses/2` and `use_module/2` directives, don't try
+to create a local definition for specified predicates that would clash with
+built-in methods, which cannot be overridden.
+
+Prolog adapter and integration files
+------------------------------------
+
+* IMPROVED: The adapter files for ECLiPSe, SICStus Prolog, SWI-Prolog, XSB,
+and YAP to better support expansion of Prolog module directives when used
+within objects and categories.
+
+* UPDATED: The adapter files for B-Prolog, SWI-Prolog, XSB, and YAP to support
+using grammar rule non-terminal indicators in `table/1` directives.
+
+Documentation
+-------------
+
+* ADDED: User manual section on declarative object-oriented programming.
+
+* IMPROVED: User manual sections on the structured message printing, question
+asking, and term expansion mechanisms.
+
+* IMPROVED: Using of favicons in mobile and desktop browsers for the HTML
+versions of the Handbook and APIs documentation.
+
+* IMPROVED: Readability of Handbook PDF version by using more readable fonts.
+
+* IMPROVED: Formatting of inline code fragments in the HTML versions of the
+Handbook and APIs documentation.
+
+* UPDATED: Warn about the portability issues of using operator notation with
+some predicate directives such as `dynamic/1`.
+
+* FIXED: Typo in the description of the equivalent calls to the error throwing
+built-in methods.
+
+* FIXED: Handbook link to the generated index from the sub-sections.
+
+* FIXED: Workaround lack of character escaping in Sphinx preventing correct
+display of parametric entity names with two or more arguments in the index.
+
+Library
+-------
+
+* FIXED: The `parallel_logtalk_processes_setup.pl` sample code to account for
+the operating-system reusing process identifiers.
+
+Tools
+-----
+
+* FIXED: The `logtalk_tester` script to pass the default backend when sourcing
+a `tester.sh` script when called without any arguments.
+
+Examples
+--------
+
+* ADDED: New set of examples, `design_patters`, with sample implementations
+of 28 object-oriented behavioral, creational, and structural design patters.
+
+* ADDED: Simple example, `document_converter`, of using a Java library for
+converting documents to text.
+
+* UPDATED: The `pardicts` example to avoid instantiation errors when compiled
+in optimal mode due to SWI-Prolog different semantics for clauses that contain
+`./2` terms when the clauses are asserted versus compiled from a source file. 
+
+Installers and installation scripts
+-----------------------------------
+
+* IMPROVED: The sample embedding scripts to create and use a temporary
+directory for the intermediate files.
+
+* FIXED: A file order bug in the sample embedding script for GNU Prolog,
+`gprolog_embed_logtalk.sh`, could result in multiple values being returned
+for some flags.
+
+* UPDATED: The `build_release.sh` script to also build the experimental pack
+for SWI-Prolog.
+
+* REMOVED: The unused `build_release.sh` script option to pass a custom
+version string.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: CodeMirror mode supporting syntax highlighting, code folding, and
+code completion.
+
+
 3.21.0 - October 30, 2018
 =========================
 

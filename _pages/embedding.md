@@ -31,9 +31,9 @@ After starting Logtalk using your favorite backend Prolog compiler, type the que
 Assuming, for example, that you're using a POSIX system and GNU Prolog as the backend compiler, we need to copy the adapter and default paths files to the directory where we're collecting all the files (`$HOME/collect` in our example):
 
 ```shell
-$ cp $LOGTALKHOME/adapters/gnu.pl $HOME/collect/gnu.pl
-$ cp $LOGTALKHOME/paths/paths_core.pl $HOME/collect/paths_core.pl
-$ cp $LOGTALKHOME/core/core.pl $HOME/collect/core.pl
+$ cp "$LOGTALKHOME"/adapters/gnu.pl "$HOME"/collect/gnu.pl
+$ cp "$LOGTALKHOME"/paths/paths_core.pl "$HOME"/collect/paths_core.pl
+$ cp "$LOGTALKHOME"/core/core.pl "$HOME"/collect/core.pl
 ```
 
 Now that we have all the necessary files in one place, its a good idea to take a look to the files in the `integration` directory for the chosen backend Prolog compiler and check if some changes to the core files are advised. For example, in the case of GNU Prolog, we can edit the `$HOME/collect/core.pl` file and add the line `:- built_in.` to the top to give all the predicates implementing the Logtalk compiler and runtime `built-in` status. After this step, the details to embed the collected Prolog files that implement Logtalk depend on the backend Prolog compiler.
@@ -43,7 +43,7 @@ As the `paths.pl` and `core.pl` files contain initialization goals, the order of
 Continuing to use GNU Prolog for our tutorial, we can generate a new top-level executable file by typing (ignore the suspicious predicate warnings about `{}/1`):
 
 ```shell
-$ cd $HOME/collect
+$ cd "$HOME"/collect
 $ gplc -o logtalk gnu.pl expanding*_lgt.pl monitoring*_lgt.pl forwarding*_lgt.pl user*_lgt.pl logtalk*_lgt.pl core_messages*_lgt.pl core.pl paths.pl
 ```
 
@@ -69,7 +69,7 @@ Turning off the `source_data` flag minimizes the size of the generated code (ass
 Your application may use libraries with their own loader files. If so, these files should be deleted before proceeding:
 
 ```shell
-$ rm -f "$HOME/collect_app_files/*loader*"
+$ rm -f "$HOME"/collect_app_files/*loader*
 ```
 
 Now that we have all necessary application files in the `$HOME/collect_app_files/` directory, we can concatenate them in a single Prolog file (on POSIX system we can use the `cat` utility in an automation script), say, `app_resources.pl `:
@@ -81,10 +81,10 @@ $ cat $(ls -t $HOME/collect_app_files/*.pl) > app_resources.pl
 But for the Logtalk own files you cannot use the same trick as the order (show above) is important. Not a problem as there are only nine files to concatenate into, say, a `logtalk_resources.pl` file:
 
 ```shell
-$ cd $HOME/collect
-$ cp $LOGTALKHOME/adapters/swi.pl .
-$ cp $LOGTALKHOME/paths/paths_core.pl .
-$ cp $LOGTALKHOME/core/core.pl .
+$ cd "$HOME"/collect
+$ cp "$LOGTALKHOME"/adapters/swi.pl .
+$ cp "$LOGTALKHOME"/paths/paths_core.pl .
+$ cp "$LOGTALKHOME"/core/core.pl .
 $ cat swi.pl paths_core.pl expanding_*_lgt.pl monitoring_*_lgt.pl forwarding_*_lgt.pl user_*_lgt.pl logtalk_*_lgt.pl core_messages_*_lgt.pl core.pl > logtalk_resources.pl
 ```
 

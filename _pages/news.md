@@ -8,6 +8,19 @@ aside:
 
 ### 2018
 
+##### December 18
+
+> Logtalk 3.22.0 is now available for [downloading](download.html). This
+> release provides new and improved handbook sections; improves the
+> readability of PDF and HTML versions of the handbook and the APIs
+> documentation; adds sample implementations of object-oriented behavioral,
+> creational, and structural design patters; improves the sample embedding
+> scripts; adds CodeMirror support; plus other improvements and fixes to
+> the compiler, runtime, adapter files, documentation, library, tools,
+> examples, and installation scripts. For details and a complete list of
+> changes, please consult the the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### October 30
 
 > Logtalk 3.21.0 is now available for [downloading](download.html). This
@@ -16,7 +29,7 @@ aside:
 > contributions APIs documentation to Sphinx using the Read the Docs theme;
 > includes support for publishing user applications API documentation using
 > Sphinx; improves support for hot patching; improves test automation support;
-> updates and improves some of the examples; fix a Windows shortcuts issue;
+> updates and improves some of the examples; fixes a Windows shortcuts issue;
 > plus other improvements and fixes to the documentation, library, tools,
 > and coding support. For details and a complete list of changes, please
 > consult the the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).

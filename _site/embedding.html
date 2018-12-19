@@ -298,9 +298,9 @@
 
 <p>Assuming, for example, that you’re using a POSIX system and GNU Prolog as the backend compiler, we need to copy the adapter and default paths files to the directory where we’re collecting all the files (<code class="highlighter-rouge">$HOME/collect</code> in our example):</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cp <span class="nv">$LOGTALKHOME</span>/adapters/gnu.pl <span class="nv">$HOME</span>/collect/gnu.pl
-<span class="nv">$ </span>cp <span class="nv">$LOGTALKHOME</span>/paths/paths_core.pl <span class="nv">$HOME</span>/collect/paths_core.pl
-<span class="nv">$ </span>cp <span class="nv">$LOGTALKHOME</span>/core/core.pl <span class="nv">$HOME</span>/collect/core.pl
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cp <span class="s2">"</span><span class="nv">$LOGTALKHOME</span><span class="s2">"</span>/adapters/gnu.pl <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">"</span>/collect/gnu.pl
+<span class="nv">$ </span>cp <span class="s2">"</span><span class="nv">$LOGTALKHOME</span><span class="s2">"</span>/paths/paths_core.pl <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">"</span>/collect/paths_core.pl
+<span class="nv">$ </span>cp <span class="s2">"</span><span class="nv">$LOGTALKHOME</span><span class="s2">"</span>/core/core.pl <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">"</span>/collect/core.pl
 </code></pre></div></div>
 
 <p>Now that we have all the necessary files in one place, its a good idea to take a look to the files in the <code class="highlighter-rouge">integration</code> directory for the chosen backend Prolog compiler and check if some changes to the core files are advised. For example, in the case of GNU Prolog, we can edit the <code class="highlighter-rouge">$HOME/collect/core.pl</code> file and add the line <code class="highlighter-rouge"><span class="k">:- built_in</span><span class="p">.</span></code> to the top to give all the predicates implementing the Logtalk compiler and runtime <code class="highlighter-rouge">built-in</code> status. After this step, the details to embed the collected Prolog files that implement Logtalk depend on the backend Prolog compiler.</p>
@@ -309,7 +309,7 @@
 
 <p>Continuing to use GNU Prolog for our tutorial, we can generate a new top-level executable file by typing (ignore the suspicious predicate warnings about <code class="highlighter-rouge">{}/1</code>):</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="nv">$HOME</span>/collect
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">"</span>/collect
 <span class="nv">$ </span>gplc <span class="nt">-o</span> logtalk gnu.pl expanding<span class="k">*</span>_lgt.pl monitoring<span class="k">*</span>_lgt.pl forwarding<span class="k">*</span>_lgt.pl user<span class="k">*</span>_lgt.pl logtalk<span class="k">*</span>_lgt.pl core_messages<span class="k">*</span>_lgt.pl core.pl paths.pl
 </code></pre></div></div>
 
@@ -333,7 +333,7 @@
 
 <p>Your application may use libraries with their own loader files. If so, these files should be deleted before proceeding:</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rm <span class="nt">-f</span> <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">/collect_app_files/*loader*"</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rm <span class="nt">-f</span> <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">"</span>/collect_app_files/<span class="k">*</span>loader<span class="k">*</span>
 </code></pre></div></div>
 
 <p>Now that we have all necessary application files in the <code class="highlighter-rouge">$HOME/collect_app_files/</code> directory, we can concatenate them in a single Prolog file (on POSIX system we can use the <code class="highlighter-rouge">cat</code> utility in an automation script), say, <code class="highlighter-rouge">app_resources.pl </code>:</p>
@@ -343,10 +343,10 @@
 
 <p>But for the Logtalk own files you cannot use the same trick as the order (show above) is important. Not a problem as there are only nine files to concatenate into, say, a <code class="highlighter-rouge">logtalk_resources.pl</code> file:</p>
 
-<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="nv">$HOME</span>/collect
-<span class="nv">$ </span>cp <span class="nv">$LOGTALKHOME</span>/adapters/swi.pl <span class="nb">.</span>
-<span class="nv">$ </span>cp <span class="nv">$LOGTALKHOME</span>/paths/paths_core.pl <span class="nb">.</span>
-<span class="nv">$ </span>cp <span class="nv">$LOGTALKHOME</span>/core/core.pl <span class="nb">.</span>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">"</span>/collect
+<span class="nv">$ </span>cp <span class="s2">"</span><span class="nv">$LOGTALKHOME</span><span class="s2">"</span>/adapters/swi.pl <span class="nb">.</span>
+<span class="nv">$ </span>cp <span class="s2">"</span><span class="nv">$LOGTALKHOME</span><span class="s2">"</span>/paths/paths_core.pl <span class="nb">.</span>
+<span class="nv">$ </span>cp <span class="s2">"</span><span class="nv">$LOGTALKHOME</span><span class="s2">"</span>/core/core.pl <span class="nb">.</span>
 <span class="nv">$ </span><span class="nb">cat </span>swi.pl paths_core.pl expanding_<span class="k">*</span>_lgt.pl monitoring_<span class="k">*</span>_lgt.pl forwarding_<span class="k">*</span>_lgt.pl user_<span class="k">*</span>_lgt.pl logtalk_<span class="k">*</span>_lgt.pl core_messages_<span class="k">*</span>_lgt.pl core.pl <span class="o">&gt;</span> logtalk_resources.pl
 </code></pre></div></div>
 
