@@ -64,6 +64,8 @@ feed](https://github.com/LogtalkDotOrg/logtalk3/commits/master.atom).
 > [`logtalk-3.22.0.tar.bz2`](files/logtalk-3.22.0.tar.bz2)  
 > `00ed857a95ed1bd9a0eb161187b04880a05309dc2a05093db420cecc90bc0d70` (SHA-256)
 
+Includes the HTML versions of the Handbook and the APIs documentation.
+
 
 ## Installers
 
