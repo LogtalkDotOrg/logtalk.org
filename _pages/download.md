@@ -27,7 +27,7 @@ distribution includes adapter files for all supported Prolog compilers:
 -   [SICStus Prolog 4.1.0 or later versions](https://sicstus.sics.se)
 -   [SWI Prolog 6.6.0 or later versions](http://www.swi-prolog.org/)
 -   [XSB 3.8.0 or later versions](http://xsb.sourceforge.net/)
--   [YAP 6.3.4 or later versions](http://www.dcc.fc.up.pt/~vsc/Yap/)
+-   [YAP 6.3.4 or later versions](https://www.dcc.fc.up.pt/~vsc/yap/)
 
 Legacy Logtalk versions (2.x) provide support for some other Prolog
 compilers, which are no longer supported due to lack of compliance with
@@ -84,7 +84,7 @@ The following installers are available for the latest version:
 ### macOS
 
 Based on the [MacPorts](http://www.macports.org/) portfile. Installs
-Logtalk on `/opt/local/share/` with integration scripts for selected
+Logtalk on `/opt/local/share/` with integration scripts for supported
 Prolog compilers on `/opt/local/bin`. Creates an `/Applications/Logtalk`
 folder with links to the installed files.
 
@@ -103,7 +103,7 @@ portfile and the Homebrew formula are up-to-date.
 ### Linux
 
 Installs Logtalk on `/usr/local/share` with integration scripts for
-selected Prolog compilers on `/usr/local/bin`. Package installation from
+supported Prolog compilers on `/usr/local/bin`. Package installation from
 the command-line is recommended.
 
 > [`logtalk-3.22.0-1.noarch.rpm`](files/logtalk-3.22.0-1.noarch.rpm)  
@@ -113,7 +113,7 @@ the command-line is recommended.
 ### Debian (e.g. Ubuntu)
 
 Requires dpkg 1.15.0 or a later version. Installs Logtalk on
-`/usr/share` with integration scripts for selected Prolog compilers on
+`/usr/share` with integration scripts for supported Prolog compilers on
 `/usr/bin`. Package installation from the command-line is recommended.
 
 > [`logtalk_3.22.0-1_all.deb`](files/logtalk_3.22.0-1_all.deb)  

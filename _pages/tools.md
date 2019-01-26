@@ -32,15 +32,14 @@ source code issues. Lint checks include:
 -   Lambda expression unclassified variables and mixed up variables
 -   Singleton variables
 
-Additional checks are provided by the [make]() and
-[dead_code_scanner](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/dead_code_scanner/NOTES.md) tools.
+Additional checks are provided by the [`make`](#make) and [`dead_code_scanner`](#dead-code-scanner) tools.
 
 
 ## Documenting
 
-Logtalk includes two documenting tools, [lgtdoc](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtdoc/NOTES.md)
-and [doclet](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md), and an
-automation script, [logtalk_doclet](man/logtalk_doclet.html). The `lgtdoc` tool exports API
+Logtalk includes two documenting tools, [`lgtdoc`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtdoc/NOTES.md)
+and [`doclet`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md), and an
+automation script, [`logtalk_doclet`](man/logtalk_doclet.html). The `lgtdoc` tool exports API
 documentation files in XML format and includes scripts to convert
 these files into a final format such as HTML, PDF, or Markdown.
 The `doclet` tool can be used to automate the steps to generate API
@@ -62,13 +61,13 @@ This information is made available for tools such as `lgtdoc` using the reflecti
 
 ##### Examples
 
--   API documentation in HTML format of the [iso8601](library/iso8601_0.html) library
+-   API documentation in HTML format of the [`iso8601`](library/iso8601_0.html) library
 -   [Core, library, and tools](library/index.html) API documentation in HTML format illustrating the generated indexes
 
 
 ## Diagrams
 
-The [diagrams](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md) tool supports:
+The [`diagrams`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md) tool supports:
 
 -   Library loading diagrams
 -   Library dependency diagrams
@@ -93,7 +92,7 @@ The [diagrams](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagr
 
 ## Testing
 
-The [lgtunit](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtunit/NOTES.md) testing tool
+The [`lgtunit`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtunit/NOTES.md) testing tool
 can be used to test both Logtalk and Prolog code and provides an extensive set of features including:
 
 -   Multiple test dialects
@@ -115,7 +114,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 -   Support for test subsets (with generation of a single code coverage report)
 -   Make tool integration
 
-Test automation is provided by the [logtalk_tester](man/logtalk_tester.html) script.
+Test automation is provided by the [`logtalk_tester`](man/logtalk_tester.html) script.
 See also the [testing guide](testing.html) for more information.
 
 ##### Examples
@@ -126,14 +125,15 @@ See also the [testing guide](testing.html) for more information.
 
 ## Dead code scanner
 
-The [dead_code_scanner](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/dead_code_scanner/NOTES.md)
-tool detects likely dead code in Logtalk entities and in Prolog modules (when compiled as objects). It can also detect
-code typos that often result in false positives. It can be run automatically was one of the actions of the `make` tool.
+The [`dead_code_scanner`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/dead_code_scanner/NOTES.md)
+tool detects likely dead code in Logtalk entities and in Prolog modules (when compiled as objects). It can also
+detect code typos that often result in false positives. It can be run automatically was one of the actions of
+the [`make`](#make) tool.
 
 
 ## Code metrics
 
-The [code_metrics](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/code_metrics/NOTES.md)
+The [`code_metrics`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/code_metrics/NOTES.md)
 tool allows applying code metrics to source code. Several basic metrics are provided:
 
 -   Halstead complexity
@@ -153,9 +153,9 @@ The tool is extensible allowing users to define their own metrics.
 
 ## Ports profiler
 
-The [ports](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/ports/NOTES.md)
+The [`ports_profiler`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/ports_profiler/NOTES.md)
 tool is a code profiling tool based on the extended procedure
-box model (using the same reflection API as the `debugger` tool) to count and
+box model (using the same reflection API as the [`debugger`](#debugging) tool) to count and
 report the number of times each port is traversed during the execution of
 queries. It provides valuable insight on predicate usage allowing e.g. the
 detection of problems that can cause poor performance.
@@ -165,9 +165,9 @@ detection of problems that can cause poor performance.
 -   Profiling [session](https://forums.logtalk.org/viewtopic.php?f=21&t=240) of the `searching` example sample queries.
 
 
-## Debugger
+## Debugging
 
-Logtalk provides an extended procedure box model [debugger](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md) supporting:
+Logtalk provides an extended procedure box model [`debugger`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md) supporting:
 
 -   Classic call, exit, redo, fail ports
 -   Exception port
@@ -179,13 +179,16 @@ Logtalk provides an extended procedure box model [debugger](https://github.com/L
 
 Related, Logtalk provides a [debugging control construct](manuals/refman/control/context_switch_2.html)
 for calling and testing local object predicates. The Logtalk message printing mechanism also supports a set of predefined
-[meta messages](library/logtalk_0.html#remarks) that are handy for debugging. The User Manual have a
-section on [debugging](manuals/userman/programming.html#programming_debugging).
+[meta messages](library/logtalk_0.html#remarks) that are handy for debugging. See the Handbook section
+[debugging](manuals/userman/programming.html#programming_debugging) for details.
+
+Also provided is a [`debug_messages`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debug_messages/NOTES.md)
+tool for selectively enabling debug messages.
 
 
 ## Make
 
-Logtalk supports extended [make](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md) functionality:
+Logtalk supports extended [`make`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md) functionality:
 
 -   Reloading of modified files
 -   Cleaning of the intermediate Prolog files generated by the compiler
@@ -203,7 +206,7 @@ for all the `make` features.
 
 ## Prolog porting
 
-The [wrapper](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/wrapper/NOTES.md)
+The [`wrapper`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/wrapper/NOTES.md)
 tool can be used to help port a plain Prolog application to Logtalk by analyzing its source
 files and suggesting object wrappers and their public interfaces. It can also be used to enable
 applying other Logtalk developer tools, such as the documenting and diagramming tools, to plain
@@ -229,7 +232,7 @@ simplify packaging and delivering of applications and can be used as basis for e
 
 ## Version management
 
-The Logtalk distribution includes a [logtalk_version_select](man/logtalk_version_select.html)
+The Logtalk distribution includes a [`logtalk_version_select`](man/logtalk_version_select.html)
 script that allows listing and switching between installed versions.
 
 A [Logtalk plugin](https://github.com/LogtalkDotOrg/asdf-logtalk) for the `asdf` extendable version manager is also available.
@@ -289,9 +292,9 @@ control systems such as Git and Mercurial.
 
 ### Source code stats
 
-[cloc](https://github.com/AlDanial/cloc),
-[ohcount](https://github.com/blackducksoftware/ohcount), and
-[tokei](https://github.com/Aaronepower/tokei) are open-source command-line
+[`cloc`](https://github.com/AlDanial/cloc),
+[`ohcount`](https://github.com/blackducksoftware/ohcount), and
+[`tokei`](https://github.com/Aaronepower/tokei) are open-source command-line
 tools that count blank lines, comment lines, and lines of source code in
 many programming languages including Logtalk.
 

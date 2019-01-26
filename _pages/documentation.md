@@ -37,6 +37,7 @@ Core, Library, Tools, and Contributions API documentation
     -   [Library](library/library_inheritance_diagram.svg)
     -   [Tools](library/tools_inheritance_diagram.svg)
     -   [Contributions](library/contributions_inheritance_diagram.svg)
+    -   [Ports](library/ports_inheritance_diagram.svg)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -61,11 +62,12 @@ The tools listed in this section are complemented by a set of
 ### Debugging
 
 -   [assertions](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/assertions/NOTES.md)
+-   [debug_messages](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debug_messages/NOTES.md)
 -   [debugger](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md)
 
 ### Profiling
 
--   [ports](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/ports/NOTES.md)
+-   [ports_profiler](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/ports_profiler/NOTES.md)
 -   [profiler](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/profiler/NOTES.md)
 
 ### Documenting
