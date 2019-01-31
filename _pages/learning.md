@@ -37,7 +37,7 @@ All examples include a `NOTES.md` file with a description and a `SCRIPT.txt` fil
 * [`inheritance`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/inheritance) - learn more about inheritance
 * [`family`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/family) - no self respecting logic programming language can do without a family relations example
 
-Next a break after playing with the above examples? Have fun with the following ones:
+Need a break after playing with the above examples? Have fun with the following ones:
 
 * [`adventure`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/adventure) - text-based adventure games; beware of the monsters!
 * [`puzzles`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/puzzles) - logical puzzles
@@ -159,36 +159,36 @@ We can now trace the query:
    Debugger switched on: tracing everything for all objects compiled in debug mode.
 true.
 
-?- mars::weight(m2, W2).
-   Call: (7) weight(m2,_994) ? 
-   Rule: (7) weight(m2,_994) ? x
+?-  mars::weight(m2, W2).
+   Call: (1) weight(m2,_1228) ? 
+   Rule: (1) weight(m2,_1228) ? x
      Entity:            planet
      Sender:            user
      This:              mars
      Self:              mars
      Meta-call context: []
      Coinduction stack: []
-   Rule: (7) weight(m2,_994) ? 
-   Call: (8) m2::mass(_2040) ? 
-   Call: (9) mass(_2040) ? 
-   Fact: (9) mass(4) ? 
-   Exit: (9) mass(4) ? 
-   Exit: (8) m2::mass(4) ? 
-   Call: (10) ::gravitational_acceleration(_4208) ? 
-   Call: (11) gravitational_acceleration(_4208) ? 
-   Fact: (11) gravitational_acceleration(3.72076) ? x
+   Rule: (1) weight(m2,_1228) ? 
+   Call: (2) m2::mass(_2348) ? 
+   Call: (3) mass(_2348) ? 
+   Fact: (3) mass(4) ? 
+   Exit: (3) mass(4) ? 
+   Exit: (2) m2::mass(4) ? 
+   Call: (4) ::gravitational_acceleration(_4622) ? 
+   Call: (5) gravitational_acceleration(_4622) ? 
+   Fact: (5) gravitational_acceleration(3.72076) ? x
      Entity:            mars
      Sender:            mars
      This:              mars
      Self:              mars
      Meta-call context: []
      Coinduction stack: []
-   Fact: (11) gravitational_acceleration(3.72076) ? 
-   Exit: (11) gravitational_acceleration(3.72076) ? 
-   Exit: (10) ::gravitational_acceleration(3.72076) ? 
-   Call: (12) _994 is 4*3.72076 ? 
-   Exit: (12) 14.88304 is 4*3.72076 ? 
-   Exit: (7) weight(m2,14.88304) ? 
+   Fact: (5) gravitational_acceleration(3.72076) ? 
+   Exit: (5) gravitational_acceleration(3.72076) ? 
+   Exit: (4) ::gravitational_acceleration(3.72076) ? 
+   Call: (6) _22 is 4*3.72076 ? 
+   Exit: (6) 14.88304 is 4*3.72076 ? 
+   Exit: (1) weight(m2,14.88304) ? 
 W2 = 14.88304.
 ```
 

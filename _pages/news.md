@@ -6,6 +6,20 @@ aside:
   toc: true
 ---
 
+### 2019
+
+##### January 30
+
+> Logtalk 3.23.0 is now available for [downloading](download.html). This
+> release includes compiler and documentation improvements and fixes; new
+> coroutining and list zipper libraries; improved expected and optional term
+> libraries; a new `debug_messages` tool; improvements to the `lgtunit` tool;
+> a port of the Metagol ILP system; new tests; new examples of serialization
+> of objects, application of zippers, and application of expected terms;
+> updated Windows installer for detecting the new SICStus Prolog 4.5.0
+> version; and portability updates for SICStus Prolog and SWI-Prolog. For
+> details and a complete list of changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ### 2018
 
 ##### December 18
@@ -18,8 +32,7 @@ aside:
 > scripts; adds CodeMirror support; plus other improvements and fixes to
 > the compiler, runtime, adapter files, documentation, library, tools,
 > examples, and installation scripts. For details and a complete list of
-> changes, please consult the the
-> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+> changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
 
 ##### October 30
 

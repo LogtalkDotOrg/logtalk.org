@@ -4,6 +4,171 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.23.0 - January 30, 2019
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* IMPROVED: The compiler now suppresses `logtalk::print_message/3` calls for
+`debug` and `debug(Group)` messages when the `optimize` flag is turned on.
+
+* IMPROVED: Detection of missing meta-predicate directives when compiling
+closures.
+
+* IMPROVED: The question asking mechanism when using SICStus Prolog or
+SWI-Prolog as the backend compiler by avoiding the intrusion of the default
+read prompt.
+
+* IMPROVED: Allow inlining of meta-predicate definitions in safe cases.
+
+* FIXED: A case are predicate definition inlining would give wrong results
+when meta-calling the predicate from `bagof/3` or `setof/3` goals due to the
+presence of anonymous variables in the predicate definition.
+
+* FIXED: Enable message sending static binding optimization when the message
+is an alias of a meta-predicate.
+
+* FIXED: Misspelling of `instantiation_error` in some exceptions throw by the
+compiler.
+
+Prolog adapter and integration files
+------------------------------------
+
+* FIXED: O-Prolog adapter file definition of the `'$lgt_compile_prolog_code'/3`
+internal predicate.
+
+Documentation
+-------------
+
+* ADDED: Handbook section on reflection support.
+
+* IMPROVED: Handbook sections on debugging and the term-expansion mechanism.
+
+* IMPROVED: Handbook reference page on the `current_predicate/1` built-in
+method.
+
+* IMPROVED: Glossary definitions of entity and parametric entity identifiers.
+
+* IMPROVED: Clarify definitions of object and category number of clauses and
+number of rules properties regarding definitions of multifile predicates.
+
+* FIXED: HTML favicon bug that resulted in a non-valid ePub version of the
+Handbook.
+
+Library
+-------
+
+* CHANGED: The `list` library object will use the backend Prolog system native
+implementation of the de facto standard `length/2` predicate when available.
+
+* ADDED: Coroutining library supporting ECLiPSe, SICStus Prolog, SWI-Prolog,
+and YAP as backend Prolog systems. Provides a portable abstraction over how
+the coroutining predicates are made available by each Prolog system.
+
+* ADDED: Library zipper protocol, `zipperp`, and list zipper object, `zlist`.
+
+* ADDED: Predicate `remove_duplicates/2` to the library list entities.
+
+* ADDED: New optional term constructor, `from_goal/3`.
+
+* ADDED: New expected term constructors, `from_goal/3` and `from_goal/4`.
+
+* ADDED: New expected term `or_else_throw/1` predicate.
+
+* IMPROVED: Descriptions of the `optional` and `expected` library predicates.
+
+* IMPROVED: Documentation cross-referencing for library entities.
+
+* UPDATED: The instructions on the `parallel_logtalk_processes_setup.pl`
+sample code for SICStus Prolog to take into account the changes in the new
+4.5.0 release.
+
+* FIXED: Bug in the implementation of the `either::partition/3` library
+predicate.
+
+Tools
+-----
+
+* CHANGED: The `lgtunit` tool now considers multifile predicates defined for
+other entities when reporting entity and predicates code coverage results.
+This change may result in lower percentages of code coverage than reported
+in previous versions for entities defining multifile predicates for other
+entities.
+
+* RENAMED: The `ports` tool to `ports_profiler`. The `ports` library alias is
+now used for the directory containing ports of third-party software.
+
+* ADDED: A `debug_messages` tool supporting enabling and disabling of `debug`
+and `debug(Group)` messages for code compiled in normal mode.
+
+* ADDED: Sample Sphinx configuration file, `conf-sample.py`, to the `lgtdoc`
+tool.
+
+Ports
+-----
+
+* ADDED: Port of `metagol`, an inductive logic programming (ILP) system based
+on meta-interpretive learning.
+
+Tests
+-----
+
+* ADDED: Library alias `tests` to the `paths/paths.pl` file.
+
+* ADDED: Unit tests for the new library list zipper predicates.
+
+* ADDED: Unit tests for the de facto Prolog standard `length/2` predicate.
+
+* IMPROVED: Unit tests for the entity creation built-in predicates.
+
+* IMPROVED: Unit tests for the `optional` library.
+
+* IMPROVED: Unit tests for the `expected` library.
+
+* IMPROVED: Unit tests for the `os` library.
+
+Examples
+--------
+
+* ADDED: Descriptions of "state-space search", "many worlds", and "expert
+system " AI design patterns to the `design_patterns` example.
+
+* ADDED: Simple example, `serialization`, of serializing objects to a file.
+
+* ADDED: Simple example, `slides`, of using the library list zipper support.
+
+* ADDED: Simple example, `cascade`, of using expected terms as an alternative
+to the traditional catch/throw mechanism to call a conjunction of goals where
+any of them may cause an error condition.
+
+* ADDED: Unit tests for the `metaclasses` and `msglog` examples.
+
+* IMPROVED: Implementation of the hill climbing search method found in the
+`searching` example.
+
+* UPDATED: The `optionals` example to use the new `from_goal/3` constructor.
+
+* UPDATED: The `expecteds` example to use the new `from_goal/4` constructor.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: The Windows installation script to also detect SICStus Prolog
+4.5.x versions.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* CHANGED: The source code for the IntelliJ IDEA plugin is now available
+from its own repository.
+
+* ADDED: EditorConfig root file, `.editorconfig`, to set the indentation
+preferences as per coding guidelines.
+
+* FIXED: GtkSourceView syntax highlighting of the `as` infix operator.
+
+
 3.22.0 - December 18, 2018
 ==========================
 

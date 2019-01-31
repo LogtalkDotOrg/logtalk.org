@@ -11,7 +11,7 @@ permalink: index.html
   </div>
 </div>
 
-<p align="right" style="font-size:12px; padding:0px; margin:0px">@ v3.22.0 - December 18, 2018</p>
+<p align="right" style="font-size:12px; padding:0px; margin:0px">@ v3.23.0 - January 30, 2019</p>
 
 Logtalk is a *declarative object-oriented logic programming language*
 that extends and leverages the Prolog language with modern code
