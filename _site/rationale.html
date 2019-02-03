@@ -277,7 +277,7 @@
 
   <div class="article__content" itemprop="articleBody"><h2 id="why-logtalk">Why Logtalk?</h2>
 
-<p>Logtalk is designed to <em>extend</em> and <em>leverage</em> Prolog. It provides an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of developer tools. By Prolog modules we assume here the de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:</p>
+<p>Logtalk is designed to <em>extend</em> and <em>leverage</em> Prolog. It provides an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of <a href="tools.html">developer tools</a>. By Prolog modules we assume here the de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:</p>
 
 <ul>
   <li>Designed as a simple solution to to hide auxiliary predicates</li>
@@ -286,9 +286,9 @@
   <li>Strongly biased towards implicit predicate qualification</li>
 </ul>
 
-<p>These fundamental characteristics make module systems relatively simple to implement but also effectively prevent extending them to provide several key features present in Logtalk, some of them described here, that support a wide range of code encapsulation and reuse scenarios typically found in applications.</p>
+<p>These fundamental characteristics make module systems relatively simple to implement but also effectively prevent extending them to provide several key features present in Logtalk, some of them described here, that support a wide range of code encapsulation and reuse scenarios typically found in applications. Notably, Logtalk enables simple implementations of common design patterns that are cumbersome at best using Prolog modules.</p>
 
-<p>Logtalk also fixes some murky semantics found in Prolog and improves some it its key mechanisms. Note that all advantages described next <em>coexist</em> with Prolog. I.e. Logtalk acts strictly as an <em>add-on</em>. It does not patch or modify Prolog own built-in features.</p>
+<p>Logtalk also fixes some murky predicate semantics found in Prolog, improves some it its key mechanisms, and provides unique libraries. Note that all advantages described next <em>coexist</em> with Prolog. I.e. Logtalk acts strictly as an <em>add-on</em>. It does not patch or modify Prolog own built-in features.</p>
 
 <h3 id="protocols-interfaces">Protocols (interfaces)</h3>
 
@@ -340,7 +340,7 @@
 
 <h3 id="strict-compiler">Strict compiler</h3>
 
-<p>Most Prolog compilers are permissive, silently accepting problematic code. The Logtalk compiler is strict and either rejects or warns the user of a large number of code issues, contributing to earlier detection and warning of source code issues.</p>
+<p>Most Prolog compilers are permissive, silently accepting problematic code. The Logtalk compiler is strict and either rejects or warns the user of a <a href="tools.html#lint-checker">large number of code issues</a>, contributing to earlier detection and warning of source code issues.</p>
 
 <h3 id="objects-subsume-modules">Objects subsume modules</h3>
 
@@ -371,7 +371,7 @@
 
 <h3 id="portability">Portability</h3>
 
-<p>Logtalk is written in highly portable code and currently supports 12 backend Prolog systems. It can support any Prolog system that complies with official and de facto core standards. Logtalk libraries and developer tools are also portable.</p>
+<p>Logtalk is written in highly portable code and currently supports <a href="download.html#requirements">12 backend Prolog systems</a>. It can support any Prolog system that complies with official and de facto core standards. Logtalk libraries and <a href="tools.html">developer tools</a> are also portable.</p>
 
 <p>In contrast, the ISO Prolog standard for modules is ignored (for sound reasons) by Prolog implementers. Worse, Prolog systems implementing a module system have significant differences that hinder portability. A few examples:</p>
 
@@ -422,7 +422,7 @@
 
 <h3 id="compatibility-with-prolog-native-tools">Compatibility with Prolog native tools</h3>
 
-<p>Although Logtalk provides a complete set of developer tools, it only supports <a href="tools.html#third-party-tools">selected</a> native Prolog developer tools.
+<p>Although Logtalk provides a complete set of <a href="tools.html">developer tools</a>, it only supports <a href="tools.html#third-party-tools">selected</a> native Prolog developer tools.
 Complex applications may require using both Logtalk and Prolog tools, demanding that the programmer learns how to be productive with a larger number of tools.</p>
 
 <h3 id="dynamic-binding-performance">Dynamic binding performance</h3>

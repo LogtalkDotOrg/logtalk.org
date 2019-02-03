@@ -447,25 +447,31 @@ detection of problems that can cause poor performance.</p>
 
 <h2 id="debugging">Debugging</h2>
 
-<p>Logtalk provides an extended procedure box model <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md"><code class="highlighter-rouge">debugger</code></a> supporting:</p>
+<p>Logtalk provides an extended procedure box model that supports:</p>
 
 <ul>
   <li>Classic call, exit, redo, fail ports</li>
   <li>Exception port</li>
   <li>Fact and rule unification ports</li>
+</ul>
+
+<p>This procedure box model is leveraged by the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md"><code class="highlighter-rouge">debugger</code></a>
+tool to provide:</p>
+
+<ul>
   <li>Predicate spy points</li>
   <li>Context spy points</li>
   <li>Breakpoints (aka line number spy points)</li>
   <li>Extended set of debugging commands at leashed ports</li>
 </ul>
 
-<p>Related, Logtalk provides a <a href="manuals/refman/control/context_switch_2.html">debugging control construct</a>
-for calling and testing local object predicates. The Logtalk message printing mechanism also supports a set of predefined
-<a href="library/logtalk_0.html#remarks">meta messages</a> that are handy for debugging. See the Handbook section
-<a href="manuals/userman/programming.html#programming_debugging">debugging</a> for details.</p>
+<p>Another debugging tool, <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debug_messages/NOTES.md"><code class="highlighter-rouge">debug_messages</code></a>.
+allows selectively enabling of debug messages. Related, the Logtalk message printing mechanism supports a set of predefined
+<a href="library/logtalk_0.html#remarks">meta messages</a> that are handy for debugging.</p>
 
-<p>Also provided is a <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debug_messages/NOTES.md"><code class="highlighter-rouge">debug_messages</code></a>
-tool for selectively enabling debug messages.</p>
+<p>Logtalk also provides a <a href="manuals/refman/control/context_switch_2.html">debugging control construct</a> for calling and testing local object predicates.</p>
+
+<p>See the Handbook section on <a href="manuals/userman/programming.html#programming_debugging">debugging</a> for more details.</p>
 
 <h2 id="make">Make</h2>
 

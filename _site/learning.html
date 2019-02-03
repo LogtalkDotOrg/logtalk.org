@@ -289,7 +289,7 @@ The examples included are fully documented with source code comments and sample 
 <p><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples">Programming examples</a>
 (described <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/examples/NOTES.md">here</a>).</p>
 
-<p>All examples include a <code class="highlighter-rouge">NOTES.md</code> file with a description and a <code class="highlighter-rouge">SCRIPT.txt</code> file with sample queries for you to try. Being programming examples, it is expected that you run them side-by-side with the source code open in your <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding">favorite editor</a>. Follows a suggested order for playing with the examples:</p>
+<p>All examples include a <code class="highlighter-rouge">loader.lgt</code> file that loads the example and any dependencies, a <code class="highlighter-rouge">NOTES.md</code> file with a description of the example, and a <code class="highlighter-rouge">SCRIPT.txt</code> file with sample queries for you to try. Most examples also include a <code class="highlighter-rouge">tests.lgt</code> file with unit tests and a <code class="highlighter-rouge">tester.lgt</code> loader file to run them. Being programming examples, it is expected that you run them side-by-side with the source code open in your <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding">favorite editor</a>. Follows a suggested order for playing with the examples:</p>
 
 <h2 id="examples-recommended-walkthrough">Examples recommended walkthrough</h2>
 
@@ -400,8 +400,8 @@ An example session, using the <a href="https://github.com/LogtalkDotOrg/logtalk3
 % (0 warnings)
 true.
 </code></pre></div></div>
-<p>The <code class="highlighter-rouge">{}/1</code> goal is just a handy top-level shortcut for the
-<a href="https://logtalk.org/manuals/refman/predicates/logtalk_load_1.html"><code class="highlighter-rouge">logtalk_load/1</code></a>
+<p>In the context of the top-level interpreter, the <code class="highlighter-rouge">{}/1</code> goal is just a handy shortcut for
+the <a href="https://logtalk.org/manuals/refman/predicates/logtalk_load_1.html"><code class="highlighter-rouge">logtalk_load/1</code></a>
 predicate. Let’s try a query:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?- mars::weight(m2, W2).
@@ -478,7 +478,7 @@ true.
 W2 = 14.88304.
 </code></pre></div></div>
 
-<p>The debugger supports a several handy options. Type <code class="highlighter-rouge">h</code> or <code class="highlighter-rouge">?</code> at its prompt for inline help. Consult the  <a href="https://logtalk.org/manuals/userman/index.html">user manual</a> for further information.</p>
+<p>The debugger supports a several handy options. Type <code class="highlighter-rouge">h</code> or <code class="highlighter-rouge">?</code> at its prompt for inline help. Consult the user manual section on <a href="https://logtalk.org/manuals/userman/debugging.html">debugging</a> for further information.</p>
 
 <p>To terminate the debugging session, you can turn off the debugger and recompile the files in normal (or optimized mode):</p>
 
@@ -504,7 +504,7 @@ true.
 
 <p>At this point, you should have a good understanding of the basics of Logtalk programming. But there are more features to explore and many more examples for you to play with. We suggest that you look into the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/examples/NOTES.md">examples summary</a> and choose the next ones according to your interests.</p>
 
-<p>Enjoy and remember: the <a href="http://forums.logtalk.org/">Logtalk discussion forums</a> and the <a href="https://gitter.im/LogtalkDotOrg/logtalk3">Logtalk chat room</a> welcome your participation. Don’t be a stranger.</p>
+<p>Enjoy and remember: the <a href="http://forums.logtalk.org/">discussion forums</a> and the <a href="https://gitter.im/LogtalkDotOrg/logtalk3">chat room</a> welcome your participation. Don’t be a stranger.</p>
 </div><footer class="article__footer"><!-- this will show at every article content's bottom --></footer>
 
   <div class="d-print-none"></div>

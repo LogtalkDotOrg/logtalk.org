@@ -159,21 +159,21 @@ Documentation scripts:
     Semantics](http://arxiv.org/abs/1009.3773). Paulo Moura. Proceedings
     of the 10th Colloquium on Implementation of Constraint LOgic
     Programming Systems (CICLOPS), July 2010.
-    ([slides](http://logtalk.org/papers/ciclops2010/logtalk_ciclops2010.pdf))
+    ([slides](https://logtalk.org/papers/ciclops2010/logtalk_ciclops2010.pdf))
 -   Knowledge Representation Using Logtalk Parametric Objects. Paulo
     Moura. Proceedings of the International Conference on Applications
     of Declarative Programming and Knowledge Management (INAP),
     University of Évora, Portugal, November 2009, pp 225-240.
-    ([slides](http://logtalk.org/papers/inap2009/parametric_inap2009.pdf))
+    ([slides](https://logtalk.org/papers/inap2009/parametric_inap2009.pdf))
 -   [From Plain Prolog to Logtalk Objects: Effective Code Encapsulation
     and Reuse (Invited
     Talk)](http://dx.doi.org/10.1007/978-3-642-02846-5_3). Paulo Moura.
     Proceedings of the 25th International Conference on Logic
     Programming (ICLP), July 2009. LNCS 5649. Springer-Verlag Berlin
     Heidelberg\".
-    ([slides](http://logtalk.org/papers/iclp2009/logtalk_iclp2009.pdf))
+    ([slides](https://logtalk.org/papers/iclp2009/logtalk_iclp2009.pdf))
     ([updated
-    slides](http://logtalk.org/papers/logtalk_utdallas_2011.pdf) for a
+    slides](https://logtalk.org/papers/logtalk_utdallas_2011.pdf) for a
     talk at U.T. Dallas in Summer 2011)
 -   [Secure Implementation of
     Meta-predicates](http://dx.doi.org/10.1007/978-3-540-92995-6_19).

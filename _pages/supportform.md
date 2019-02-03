@@ -16,7 +16,7 @@ information described in the form below to the email address
 	<input type="hidden" name="required" value="realname,email,topic,message" />
 	<input type="hidden" name="print_config" value="realname,email" />
 	<input type="hidden" name="print_blank_fields" value="1" />
-	<input type="hidden" name="return_link_url" value="http://logtalk.org/" />
+	<input type="hidden" name="return_link_url" value="https://logtalk.org/" />
 	<input type="hidden" name="return_link_title" value="Back to the Logtalk web site." />
 	<input type="hidden" name="bgcolor" value="#e0e0e0" />
 	<input type="hidden" name="text_color" value="#353535" />

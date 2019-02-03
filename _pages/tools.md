@@ -167,24 +167,27 @@ detection of problems that can cause poor performance.
 
 ## Debugging
 
-Logtalk provides an extended procedure box model [`debugger`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md) supporting:
+Logtalk provides an extended procedure box model that supports:
 
 -   Classic call, exit, redo, fail ports
 -   Exception port
 -   Fact and rule unification ports
+
+This procedure box model is leveraged by the [`debugger`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md)
+tool to provide:
+
 -   Predicate spy points
 -   Context spy points
 -   Breakpoints (aka line number spy points)
 -   Extended set of debugging commands at leashed ports
 
-Related, Logtalk provides a [debugging control construct](manuals/refman/control/context_switch_2.html)
-for calling and testing local object predicates. The Logtalk message printing mechanism also supports a set of predefined
-[meta messages](library/logtalk_0.html#remarks) that are handy for debugging. See the Handbook section
-[debugging](manuals/userman/programming.html#programming_debugging) for details.
+Another debugging tool, [`debug_messages`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debug_messages/NOTES.md).
+allows selectively enabling of debug messages. Related, the Logtalk message printing mechanism supports a set of predefined
+[meta messages](library/logtalk_0.html#remarks) that are handy for debugging.
 
-Also provided is a [`debug_messages`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debug_messages/NOTES.md)
-tool for selectively enabling debug messages.
+Logtalk also provides a [debugging control construct](manuals/refman/control/context_switch_2.html) for calling and testing local object predicates.
 
+See the Handbook section on [debugging](manuals/userman/programming.html#programming_debugging) for more details.
 
 ## Make
 
