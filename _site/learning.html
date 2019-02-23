@@ -502,6 +502,58 @@ true.
 true.
 </code></pre></div></div>
 
+<h2 id="modifying-and-reloading-an-example">Modifying and reloading an example</h2>
+
+<p>But don’t just run the provided examples. Experiment also modifying them. Continuing to use the <code class="highlighter-rouge">planets</code> example, let’s add another planet, <code class="highlighter-rouge">jupiter</code>, by editing the <code class="highlighter-rouge">planets.lgt</code> file. At the end of the file, we can write:</p>
+
+<div class="language-logtalk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">:- object</span><span class="p">(</span>jupiter<span class="p">,</span>
+    <span class="k">imports</span><span class="p">(</span>planet<span class="p">)).</span>
+
+    gravitational_acceleration<span class="p">(</span><span class="m">3.72076</span><span class="p">).</span>
+<span class="k">
+:- end_object</span><span class="p">.</span>
+</code></pre></div></div>
+
+<p>As we just modified a loaded file, we can use the make tool to reload it:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?- {*}.
+% Redefining protocol physical_properties
+% Redefining category planet
+% Redefining object m1
+% Redefining object m2
+% Redefining object earth
+% Redefining object mars
+% [ /Users/pmoura/logtalk/examples/planets/planets.lgt reloaded ]
+% (0 warnings)
+% Reloaded all Logtalk source files modified or that required
+% recompilation due to a change to the compilation mode
+true.
+</code></pre></div></div>
+
+<p>The <code class="highlighter-rouge">{*}</code> goal is a top-level shortcut to the <code class="highlighter-rouge">logtalk_make</code> goal (and the <code class="highlighter-rouge">logtalk_make(all)</code> goal).</p>
+
+<h2 id="running-example-tests">Running example tests</h2>
+
+<p>Next we could also modify the example unit tests to account for the newly added <code class="highlighter-rouge">jupiter</code> object by editing the <code class="highlighter-rouge">tests.lgt</code> file. The tests can be run by simply loading the <code class="highlighter-rouge">tester.lgt</code> file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?- {planets(tester)}.
+% 
+% tests started at 2019/2/20, 14:34:43
+% 
+% running tests from object tests
+% file: /Users/pmoura/logtalk/examples/planets/tests.lgt
+% 
+% planets_01: success
+% planets_02: success
+% planets_03: success
+% planets_04: success
+% 
+% 4 tests: 0 skipped, 4 passed, 0 failed
+% completed tests from object tests
+%
+...
+</code></pre></div></div>
+
 <p>At this point, you should have a good understanding of the basics of Logtalk programming. But there are more features to explore and many more examples for you to play with. We suggest that you look into the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/examples/NOTES.md">examples summary</a> and choose the next ones according to your interests.</p>
 
 <p>Enjoy and remember: the <a href="http://forums.logtalk.org/">discussion forums</a> and the <a href="https://gitter.im/LogtalkDotOrg/logtalk3">chat room</a> welcome your participation. Don’t be a stranger.</p>

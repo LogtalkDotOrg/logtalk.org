@@ -292,18 +292,21 @@ Publications on research and applications using Logtalk:
     E.A. Cherkashin, V.V. Paramonov, R.K. Fedorov, I.N. Terehin, E.I.
     Pozdnyak, and D.V. Annenkov. E-society Journal: research and
     applications, Vol. 3, No. 2, December 2012
--   [LogicObjects: A Linguistic Symbiosis Approach to Bring the
-    Declarative Power of Prolog to
-    Java](http://doi.acm.org/10.1145/2237887.2237890). Sergio Castro,
-    Kim Mens, and Paulo Moura. Proceedings of the 9th Workshop on
-    Reflection, AOP and Meta-Data for Software Evolution (RAM-SE).
-    June 2012.
 -   [ESProNa - Eine Constraintsprache zur multimodalen
     Prozessmodellierung und navigationsgestützten
     Ausführung](http://opus4.kobv.de/opus4-ubbayreuth/frontdoor/index/index/docId/888)
     (ESProNa - A Constraint-Language for multimodal Process Modeling
     supporting Navigation-Based Process Execution). Michael Igler. PhD
     thesis. July 2012.
+-   [LogicObjects: A Linguistic Symbiosis Approach to Bring the
+    Declarative Power of Prolog to
+    Java](http://doi.acm.org/10.1145/2237887.2237890). Sergio Castro,
+    Kim Mens, and Paulo Moura. Proceedings of the 9th Workshop on
+    Reflection, AOP and Meta-Data for Software Evolution (RAM-SE).
+    June 2012.
+-   [New transformation approach for Model Driven Architecture](https://ieeexplore.ieee.org/document/6240804).
+    E.A. Cherkashin, I.N. Terehin, V.V. Paramonov, V.S. Tertychniy.
+    Proceedings of the 35th International Convention MIPRO. May 2012
 -   [Model Driven Architecture is a Complex
     System](https://scholar.google.ru/citations?view_op=view_citation&hl=ru&user=ilJUQ0MAAAAJ&citation_for_view=ilJUQ0MAAAAJ:5nxA0vEk-isC).
     Cherkashin, Е.А., Paramonov V.V., Ipatov S. A., Tertychniy V.S.,

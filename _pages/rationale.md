@@ -11,8 +11,9 @@ aside:
 Logtalk is designed to _extend_ and _leverage_ Prolog. It provides an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of [developer tools](tools.html). By Prolog modules we assume here the de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:
 
 * Designed as a simple solution to to hide auxiliary predicates
-* Based on a _predicate prefixing_ mechanism
+* Based on a _predicate prefixing_ compilation mechanism
 * Reuse based on _import/export_ semantics
+* Default importing of module exported predicates when loading a module file
 * Strongly biased towards implicit predicate qualification
 
 These fundamental characteristics make module systems relatively simple to implement but also effectively prevent extending them to provide several key features present in Logtalk, some of them described here, that support a wide range of code encapsulation and reuse scenarios typically found in applications. Notably, Logtalk enables simple implementations of common design patterns that are cumbersome at best using Prolog modules.
@@ -21,7 +22,7 @@ Logtalk also fixes some murky predicate semantics found in Prolog, improves some
 
 ### Protocols (interfaces)
 
-Protocols are first-class entities in Logtalk. Being able to define a protocol (or interface) and provide multiple implementations is one of the most basic features for an encapsulation mechanisms. Protocols are also a key part of most design patterns in software engineering. Its absence in module systems twists practice and leads to non scalable, brittle solutions.
+Protocols are first-class entities in Logtalk. Being able to define a protocol (or interface) and provide multiple implementations is key for most design patterns in software engineering and one of the most basic features for an encapsulation mechanisms. Its absence in module systems twists practice and leads to non scalable, brittle solutions.
 
 The current and recommended practice with Prolog modules is that *exported* predicates should not clash and to prefer `use_module/1` directives over `use_module/2` directives or explicit module qualification. These recommendations are as convenient (specially for new users) as they are problematic. The first consequence, is that modules, as encapsulation units, are in practice only there to prevent clashes between *private* predicates. But there isn't any central authority for modules. Nor is reasonable to expect or demand that programmers all over the world sync before deciding the names of exported predicates when releasing a public module library. Users may also find that newly released libraries clash with their own modules. The preference for `use_module/1` directives also means that adding a new exported predicate to a module library can cause a module conflict and thus break existing applications that, necessarily, don't use the new predicate. A common symptom (and workaround) for these issues is prefixing exported module predicates with an abbreviation of the module name to prevent clashes (see e.g. the `ordsets`, `random`, or `rbtrees` modules).
 
@@ -31,9 +32,9 @@ Note that separation of interface and implementation for modules, with multiple 
 
 Logtalk provides a clear distinction between _declaring_ and _defining_ a predicate and thus clear closed world assumption semantics. Messages or calls for declared but undefined predicates fail. Messages or calls for unknown (not declared) predicates throw an error. Note that this is a fundamental requirement for protocols/interfaces: we must be able to *declare* a predicate without necessarily *defining* it.
 
-In contrast, in module systems it's either a compiler error to try to export a predicate that is not defined or a predicate existence error to try to call an exported predicate that is not defined. The absence of a protocol/interface concept in module systems is sometimes hacked using `include/1` directives. But that leads to versioning of files instead of versioning of interfaces and does not provide a solution that allows two or more modules to implement the same interface as discussed above.
+In contrast, in module systems it's either a compiler error to try to export a predicate that is not defined or a predicate existence error to try to call an exported predicate that is not defined. The absence of a protocol/interface concept in module systems is sometimes hacked using `include/1` directives. But that leads to versioning of files instead of versioning of interfaces and does not provide a clean solution that allows two or more modules to implement the same interface as discussed above.
 
-Note that modules are a _predicate prefixing_ solution and thus any call to a module predicate requires it to be defined in the module that is implicit or explicit in the call (otherwise a predicate existence error is generated). There is no predicate _lookup_ that would allow to verify that a predicate is _declared_ prior to calling it.
+Note that modules are a _predicate prefixing_ solution and thus any call to a module predicate requires it to be defined in the module that is implicit or explicit in the call (otherwise a predicate existence error is generated). There is no predicate _lookup_ that would allow to verify that a predicate is _declared_ prior to calling it or that would allow _inheriting_ a predicate definition.
 
 ### Consistent predicate call semantics
 
@@ -45,9 +46,9 @@ Consistent predicate call semantics require an implicit and comprehensive execut
 
 ### No predicate loading conflicts 
 
-Module predicate import/export semantics and the common (and often recommended) practice of using `use_module/1` directives prevents loading in the same context two modules exporting the same predicate. This means that **any** update that strictly adds new exported predicates to module libraries have the potential to break existing applications. These loading conflicts can only be prevented by using `use_module/2` directives or resorting to explicit qualification.
+Module predicate import/export semantics and the common (and often recommended) practice of using `use_module/1` directives prevents loading in the same context two modules exporting the same predicate. This means that **any** update that strictly adds new exported predicates to module libraries have the potential to break existing applications. These loading conflicts can only be prevented by using `use_module/2` directives or resorting to explicit qualification. Preventing these loading conflicts also results in practice in programmers continuously inventing new predicate names instead of reusing existing names that convey the same _intention_.
 
-In contrast, loading two or more objects that declare the same predicate as public does not create any conflicts as Logtalk does not use the concept of predicates importing/exporting found in Prolog modules. This means e.g. that a Logtalk update that strictly adds new public predicates to its libraries cannot break existing applications as implicit message sending is only possible using `uses/2` directives. No equivalent to `use_module/1` directives is provided.
+In contrast, loading two or more objects that declare the same predicate as public does not create any conflicts as Logtalk does not use the concept of predicates importing/exporting found in Prolog modules and a default implicit predicate importing upon loading. This means e.g. that a Logtalk update that strictly adds new public predicates to its libraries cannot break existing applications as implicit message sending is only possible using `uses/2` directives. By design, no equivalent to a `use_module/1` directive is provided.
 
 ### _Loading_ a file vs _using_ an entity
 
@@ -73,7 +74,7 @@ Most Prolog compilers are permissive, silently accepting problematic code. The L
 
 ### Objects subsume modules
 
-Logtalk objects *subsume* Prolog modules but the reverse is not true in general. You can't go from an object solution to a module solution easily or without significant hacking when you're taking advantage of e.g. inheritance, self and super calls, protocols, or parametric objects. Using a more general solution is worthy by itself and orthogonal to the programming in the small/large perspective.
+Logtalk objects *subsume* Prolog modules but the reverse is not true in general. You can't go from an object solution to a module solution easily or without significant hacking when you're taking advantage of e.g. inheritance, _self_ and _super_ calls, protocols, or parametric objects. Using a more general solution is worthy by itself and orthogonal to the programming in the small/large perspective.
 
 As Prolog modules *are* objects, prototypes to be exact, most module-based solution can be easily translated into an object-based solution. So easy in fact that the Logtalk compiler does it for you (minus proprietary stuff that choke it, which varies from Prolog system to Prolog system; blame lack of standardization).
 
@@ -127,6 +128,7 @@ Logtalk provides **fully portable** implementations of key mechanisms to all sup
 * Term-expansion
 * Message printing
 * Question asking
+* Reflection
 
 Conditional compilation directives are found nowadays in most Prolog systems although some implementations are buggy, including in some high profile systems, if you need more than the very basic usage.
 
@@ -136,6 +138,7 @@ The message printing mechanism can also be traced back to Quintus Prolog. But it
 
 The question asking mechanism is original to Logtalk and the dual of the message printing mechanism. It allows abstracting asking questions to a user in the same way that the message printing mechanism abstracts printing messages to the user. It is an uncommon mechanism. But it facilitates abstracting applications input/output interfaces while also allowing common requested features such as logging to be plugged in.
 
+Logtalk provides extensive and portable reflection support that enables developer tools to display and use comprehensive information about applications and their libraries, files, and predicates with full cross-referencing information. All Logtalk developer tools are regular applications using only the public reflection API. In constrast, Prolog systems support for reflection is either non-existant or limited with tools support often limited to a basic built-in debugger.
 
 ## Why not Logtalk?
 

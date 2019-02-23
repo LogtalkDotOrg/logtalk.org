@@ -10,7 +10,9 @@ aside:
 
 -   [Quick start](https://github.com/LogtalkDotOrg/logtalk3/blob/master/QUICK_START.md)
 -   [Tutorials](documentation.html#tutorials)
+-   [Glossary](https://logtalk.org/manuals/glossary.html)
 -   [Learning by examples](learning.html)
+-   [Comparison with other OOP languages](https://logtalk.org/manuals/userman/nomenclature.html)
 
 
 ## Development

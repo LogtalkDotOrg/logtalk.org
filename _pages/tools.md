@@ -169,7 +169,7 @@ detection of problems that can cause poor performance.
 
 Logtalk provides an extended procedure box model that supports:
 
--   Classic call, exit, redo, fail ports
+-   Classic call, exit, redo, and fail ports
 -   Exception port
 -   Fact and rule unification ports
 

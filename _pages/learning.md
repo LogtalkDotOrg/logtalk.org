@@ -217,6 +217,61 @@ true.
 true.
 ```
 
+## Modifying and reloading an example
+
+But don't just run the provided examples. Experiment also modifying them. Continuing to use the `planets` example, let's add another planet, `jupiter`, by editing the `planets.lgt` file. At the end of the file, we can write:
+
+```logtalk
+:- object(jupiter,
+    imports(planet)).
+
+    gravitational_acceleration(3.72076).
+
+:- end_object.
+```
+
+As we just modified a loaded file, we can use the make tool to reload it:
+
+```
+?- {*}.
+% Redefining protocol physical_properties
+% Redefining category planet
+% Redefining object m1
+% Redefining object m2
+% Redefining object earth
+% Redefining object mars
+% [ /Users/pmoura/logtalk/examples/planets/planets.lgt reloaded ]
+% (0 warnings)
+% Reloaded all Logtalk source files modified or that required
+% recompilation due to a change to the compilation mode
+true.
+```
+
+The `{*}` goal is a top-level shortcut to the `logtalk_make` goal (and the `logtalk_make(all)` goal).
+
+## Running example tests
+
+Next we could also modify the example unit tests to account for the newly added `jupiter` object by editing the `tests.lgt` file. The tests can be run by simply loading the `tester.lgt` file:
+
+```
+?- {planets(tester)}.
+% 
+% tests started at 2019/2/20, 14:34:43
+% 
+% running tests from object tests
+% file: /Users/pmoura/logtalk/examples/planets/tests.lgt
+% 
+% planets_01: success
+% planets_02: success
+% planets_03: success
+% planets_04: success
+% 
+% 4 tests: 0 skipped, 4 passed, 0 failed
+% completed tests from object tests
+%
+...
+```
+
 At this point, you should have a good understanding of the basics of Logtalk programming. But there are more features to explore and many more examples for you to play with. We suggest that you look into the [examples summary](https://github.com/LogtalkDotOrg/logtalk3/blob/master/examples/NOTES.md) and choose the next ones according to your interests.
 
 Enjoy and remember: the [discussion forums](http://forums.logtalk.org/) and the [chat room](https://gitter.im/LogtalkDotOrg/logtalk3) welcome your participation. Don't be a stranger. 
