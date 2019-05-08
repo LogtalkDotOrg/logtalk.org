@@ -11,16 +11,16 @@ permalink: index.html
   </div>
 </div>
 
-<p align="right" style="font-size:12px; padding:0px; margin:0px">@ v3.23.0 - January 30, 2019</p>
+<p align="right" style="font-size:12px; padding:0px; margin:0px">@ v3.26.0 - May 8, 2019</p>
 
 Logtalk is a *declarative object-oriented logic programming language*
 that extends and leverages the Prolog language with modern code
 encapsulation and code reuse mechanisms while also providing improved
 predicate semantics.
 
-Implemented as a trans-compiler in highly portable code, it can use most
-modern and standards compliant Prolog implementations as a backend
-compiler.
+Implemented as a trans-compiler in highly portable, extensively tested, and
+well documented code, it can use most modern and standards compliant Prolog
+implementations as a backend compiler.
 
 As a multi-paradigm language, it includes support for modules,
 prototypes, classes, protocols (interfaces), categories (components and

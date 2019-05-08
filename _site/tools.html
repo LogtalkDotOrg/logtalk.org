@@ -284,8 +284,9 @@ tool and some usage examples.</p>
 <h2 id="lint-checker">Lint checker</h2>
 
 <p>Although not technically a developer tool, it is worth mentioning the Logtalk
-compiler lint checks as they contribute to earlier detection and warning of
-source code issues. Lint checks include:</p>
+extensive compiler lint checks as they contribute to earlier detection and
+warning of source code issues, helping the user in writing working code. Lint
+checks include:</p>
 
 <ul>
   <li>Missing directives (including scope, meta-predicate, dynamic, discontiguous, and multifile directives)</li>
@@ -301,6 +302,15 @@ source code issues. Lint checks include:</p>
   <li>Redefined built-in predicates</li>
   <li>Lambda expression unclassified variables and mixed up variables</li>
   <li>Singleton variables</li>
+  <li>If-then-else and soft cut control constructs without an else part</li>
+  <li>Cuts in clauses for multifile predicates</li>
+  <li>Missing cut in repeat loops</li>
+  <li>Possible non-steadfast predicate definitions</li>
+  <li>Redundant calls to control constructs and built-in predicates</li>
+  <li>Calls to all-solutions predicates with existentially qualified variables not occurring in the qualified goal</li>
+  <li>Calls to all-solutions predicates with no shared variables between template and goal</li>
+  <li>Entity, predicate, and variable names not following official coding guidelines</li>
+  <li>Variable names that differ only on case</li>
 </ul>
 
 <p>Additional checks are provided by the <a href="#make"><code class="highlighter-rouge">make</code></a> and <a href="#dead-code-scanner"><code class="highlighter-rouge">dead_code_scanner</code></a> tools.</p>
@@ -345,6 +355,8 @@ extensive API information on entities and their predicates including:</p>
 <ul>
   <li>Library loading diagrams</li>
   <li>Library dependency diagrams</li>
+  <li>Directory loading diagrams</li>
+  <li>Directory dependency diagrams</li>
   <li>File loading diagrams</li>
   <li>File dependency diagrams</li>
   <li>Inheritance diagrams</li>
@@ -352,18 +364,24 @@ extensive API information on entities and their predicates including:</p>
   <li>Predicate cross-referencing diagrams</li>
   <li>Diagrams with links to source code repositories and API documentation</li>
   <li>Linked diagrams for source code navigation from libraries to entities to predicates</li>
+  <li>Linked diagrams for source code navigation from directories to files</li>
+  <li>Automatic generation of linked sub-diagrams</li>
   <li>Diagrams represented in Graphviz dot language</li>
   <li>Exporting of diagrams to SVG, PDF, and other formats</li>
+  <li>Diagram exporting automation scripts (for use with e.g. the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md"><code class="highlighter-rouge">doclet</code></a> tool)</li>
   <li>User customization of diagram details</li>
+  <li>Support for generating diagrams for module applications when using selected Prolog systems</li>
 </ul>
 
 <h5 id="examples-1">Examples</h5>
 
+<p>Linked diagrams with live URLs to code and documentation (click on the nodes, zoom icons, and directory and file names to navigate):</p>
+
 <ul>
-  <li><a href="library/tools_inheritance_diagram.svg">Tools diagram</a> with links to code and documentation</li>
-  <li><a href="diagrams/zoom_example/tools_library_dependency_diagram.svg">Zoom linked diagrams</a> of the Logtalk developer tools (click on the zoom icons to navigate)</li>
-  <li>An example of using the diagrams tool with Prolog using the <a href="diagrams/swi_prolog_library_entity_diagram.svg">SWI-Prolog library</a> (with links to code and documentation):</li>
-  <li>Another example of using the diagrams tool to generate a <a href="diagrams/pengines_module_xref_diagram.pdf">predicate cross-referencing diagram</a> for the SWI-Prolog pengines module</li>
+  <li><a href="docs/ports_profiler_object_xref_diagram.svg"><code class="highlighter-rouge">ports_profiler</code> object cross-referencing diagram</a></li>
+  <li><a href="library/tools_inheritance_diagram.svg">Logtalk developer <code class="highlighter-rouge">tools</code> library diagram</a></li>
+  <li><a href="diagrams/talespin/talespin_entity_diagram.svg">SWI-Prolog Talespin application entity diagram</a></li>
+  <li><a href="diagrams/cliopatria/cliopatria_directory_load_diagram.svg">SWI-Prolog ClioPatria application directory diagram</a></li>
 </ul>
 
 <h2 id="testing">Testing</h2>
@@ -392,13 +410,15 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
   <li>Make tool integration</li>
 </ul>
 
+<p>QuickCheck support includes both test idioms and predicates that can be used e.g. at the top-level for quick testing of plain Prolog predicates and Prolog modules predicates besides Logtalk object predicates.</p>
+
 <p>Test automation is provided by the <a href="man/logtalk_tester.html"><code class="highlighter-rouge">logtalk_tester</code></a> script.
 See also the <a href="testing.html">testing guide</a> for more information.</p>
 
 <h5 id="examples-2">Examples</h5>
 
 <ul>
-  <li><a href="diagrams/coverage_report.html">Code coverage report</a> for the diagrams tool</li>
+  <li><a href="diagrams/coverage_report.html">Code coverage report</a> for the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md"><code class="highlighter-rouge">diagrams</code></a> tool</li>
   <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/tests/prolog">Prolog standards conformance suite</a></li>
 </ul>
 

@@ -4,6 +4,547 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.26.0 - May 8, 2019
+====================
+
+Logtalk compiler and runtime
+----------------------------
+
+* FIXED: Decompilation of exceptions thrown by the `<</2` control construct
+when in debug mode.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: SWI-Prolog adapter file specification for the built-in meta-predicate
+`call_with_inference_limit/3`.
+
+* ADDED: Unsupported adapter file for Scryer Prolog.
+
+Documentation
+-------------
+
+* ADDED: Predicate cross-referencing diagrams linked from the core, library,
+tools, ports, and contributions inheritance diagrams.
+
+Library
+-------
+
+* ADDED: Timeout portability library supporting B-Prolog, ECLiPSe, SICStus
+Prolog, SWI-Prolog, and YAP as backend Prolog systems. Provides a portable
+abstraction over how the to call a predicate with a time limit.
+
+Tools
+-----
+
+* CHANGED: Predicate nodes in cross-referencing diagrams (with the exception
+of external nodes) now link to source code instead of documentation.
+
+* CHANGED: Predicate cross-referencing diagrams now use `::Predicate` and
+`^^Predicate` external nodes for, respectively, calls in *self* and *super*
+calls.
+
+* CHANGED: Predicate cross-referencing call edges to use a normal arrow and
+dynamic predicate update edges to use a diamond arrow.
+
+* CHANGED: Directory and library nodes to use a tab instead of a 3D box and
+predicate nodes to use a rectangle instead of an ellipse for more compact
+diagrams.
+
+* CHANGED: When using the `zoom(true)` option, also link to non-empty protocol
+cross-referencing diagrams to allow linking and thus quick access to the source
+file lines of the predicate declarations.
+
+* CHANGED: Diagram external nodes are no longer grouped to allow for better
+layouts.
+
+* CHANGED: Default value for the `entity_url_suffix_target/2` option for the
+library diagrams for compatibility with Sphinx-based API documentation.
+
+* CHANGED: Default uses diagram layout to top to bottom.
+
+* CHANGED: Don't define a default value for the `url_prefixes/2` option to
+allow preventing the generation of node URLs for prefixes that are not
+specified in `path_url_prefixes/2` options.
+
+* ADDED: Support for generating sub-diagrams when using the `zoom(true)`
+option.
+
+* ADDED: Support for generating directory loading and directory dependency
+diagrams.
+
+* ADDED: Predicates `rdirectory/1-3` to the `diagrams` tool for generating
+diagrams for a directory and its sub-directories.
+
+* ADDED: POSIX and Windows scripts for converting Graphviz `.dot` files into
+`.svg` files to the `diagrams` tool.
+
+* ADDED: Boolean option `externals/1` to the `diagrams` tool to control
+printing of external modes.
+
+* ADDED: Support for URL links for module predicate external nodes.
+
+* UPDATED: The `diagrams` tool predicates to print log messages for the
+diagrams being created. These log messages can be suppressed by setting the
+`report` flag to `warnings` or `off`.
+
+* IMPROVED: The `diagrams` tool support for Prolog module applications is now
+able to detect and report implicit module dependencies that are handled by the
+autoloading mechanism when using SWI-Prolog as the backend compiler.
+
+* IMPROVED: Print the diagram description after the user supplied title.
+
+* IMPROVED: Library diagrams now clearly show that the container of a library
+node is the library directory.
+
+* IMPROVED: Output missing external nodes (usually due to unloaded resources)
+that are referenced from diagram edges.
+
+* IMPROVED: Associate directory and file URLs with graph labels instead of the
+whole graph background to avoid accidental clicks.
+
+* IMPROVED: Support for `initialization/1` directive nodes in predicate
+cross-referencing diagrams.
+
+* IMPROVED: The `diagrams` tool now prints a warning when failing to locate a
+library, directory, or file.
+
+* FIXED: Predicate documentation cross-reference nodes to link to the actual
+predicate declaration.
+
+* FIXED: Bug when generating predicate cross-referencing diagrams where a call
+to a multifile predicate for a parametric entity would result in a duplicated
+node.
+
+* FIXED: Bug where a diagram node with an empty label could be generated.
+
+* FIXED: Don't append line numbers to local file URLs when generating diagrams.
+
+* FIXED: Cases where a diagram node identifier would not be unique.
+
+* FIXED: Bug where a diagram predicate node would be generated instead of a
+non-terminal node due to a predicate calling a declared but not defined
+non-terminal.
+
+* FIXED: Only generate diagram node documentation links when the documentation
+URL prefix is defined.
+
+* FIXED: Label for root directory in directory diagrams.
+
+* FIXED: Use only SVG colors for diagram elements.
+
+* FIXED: Bug where a non-terminal diagram node could be wrongly captioned as
+`local` instead of using its scope for the caption.
+
+* FIXED: Case where URL links would not be generated for external Logtalk
+entities in entity, inheritance, or uses diagrams.
+
+* FIXED: Case where predicate cross-referencing diagrams would includes nodes
+for local auxiliary predicates.
+
+Tests
+-----
+
+* ADDED: Unit tests for the new `timeout` library.
+
+Examples
+--------
+
+* UPDATED: The `super_calls` example to illustrate that *super* calls force
+dynamic binding when the called predicate is dynamic.
+
+* UPDATED: The `sicstus` example to use parameter variables.
+
+Ports
+-----
+
+* ADDED: Port of Metagol examples from the (Evans & Greffenstette, 2018) paper.
+Original Prolog examples source code files contributed by MystikNinja.
+
+* UPDATED: Sync Metagol port with upstream changes (commit 044f337).
+
+Installers and installation scripts
+-----------------------------------
+
+* IMPROVED: The `update_svg_diagrams.sh` script to use a git hash to keep node
+URLs links to source file lines accurate.
+
+
+3.25.0 - April 2, 2019
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: Prevent goal-expansion resulting in an infinite loop when the goal
+to be expanded resulted from a previous expansion of the same goal (checked
+using term equality). After a discussion with Peter Ludemann and Jan Wielemaker
+on the SWI-Prolog public forum.
+
+* CHANGED: Print an empty line after a compiler error or compiler warning for
+better readability.
+
+* ADDED: Lint check for `->/2` and `*->/2` calls without an else part.
+
+* ADDED: Lint check for redundant uses of the `{}/1` compiler bypass control
+construct (controlled by the `suspicious_calls` compiler flag).
+
+* ADDED: Lint check for cuts in clauses for multifile predicates.
+
+* ADDED: Lint check for `bagof/3` and `setof/3` calls with existentially
+qualified variables not occurring in the qualified goal.
+
+* ADDED: Lint check for `bagof/3`, `setof/3`, and `findall/3-4` calls with
+a non-ground template and no shared variables between template and goal.
+
+* ADDED: Lint check for `forall/2` calls with non-ground arguments with no
+shared variables.
+
+* ADDED: Lint check for redundant uses of the `call/1` control construct.
+
+* ADDED: Lint check for redundant uses of the `=../1` standard predicate.
+
+* ADDED: Lint check for redundant uses of the `::/2` message sending control
+construct to call predicates in `user`.
+
+* ADDED: Lint check for `is/2` goals that are always false due to the first
+argument being a term other than a variable or a number.
+
+* ADDED: Lint check for `is/2` goals where a variable occurs in both arguments.
+
+* ADDED: Lint check for missing cut after a call to the standard `repeat/0`
+predicate.
+
+* ADDED: Lint check for entity names, predicate names, and variable names as
+per official coding guidelines.
+
+* ADDED: Lint check for variable names that differ only on case.
+
+* ADDED: Lint check for possible non-steadfast predicate and non-terminal
+definitions.
+
+* ADDED: Compiler option `naming` to control output of predicate name and
+variable name warnings. Default value is `silent` due to the the curent
+limitation to ASCII names and the computational cost of the checks.
+
+* ADDED: Compiler option `steadfastness` to control output of steadfast
+predicate warnings. Default value is `silent` due to the possibility of
+false positives.
+
+* UPDATED: Include the standard atomic term processing plus term creation
+and decomposition predicates in the list of predicates for the lint check
+for goals that are always true or false.
+
+* UPDATED: The `coinductive/1` directive to also accept non-terminal
+indicators.
+
+* FIXED: The lint check for unclassified variables in lambda expressions to
+avoid spurious warnings when compiling in optimized mode and using lambda
+expressions with currying as meta-predicate arguments.
+
+* FIXED: Compiler bug when checking for a discontiguous predicate in the
+presence of two clauses for the same predicate with heads whose unification
+would create a cyclic term.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: Unsupported adapter file for Tau Prolog.
+
+* UPDATED: GNU Prolog definition of the hook predicate for candidate tautology
+or falsehood goals to include non-standard type testing built-in predicates.
+
+* UPDATED: SICStus Prolog definition of the hook predicate for candidate
+tautology or falsehood goals to include non-standard type testing and
+unification built-in predicates.
+
+* UPDATED: The SWI-Prolog and YAP hooks files for the recently added
+`threaded_cancel/1` built-in predicate.
+
+* FIXED: SWI-Prolog and YAP adapter file definitions for expanding top-level
+and module calls to the `::/2` message sending control construct to reject
+expanding a variable goal.
+
+Documentation
+-------------
+
+* ADDED: Handbook documentation about the new `naming` and `steadfastness`
+compiler options.
+
+* ADDED: Handbook glossary entry for "steadfastness".
+
+* IMPROVED: Handbook session on calling Prolog module meta-predicates.
+
+* UPDATED: Handbook session on performance with an overview of compilation
+modes and debug mode overhead.
+
+* UPDATED: The Handbook `conf.py` file for compatibility with Sphinx 2.x.
+
+* FIXED: Spurious and empty index section in the PDF version of the Handbook.
+
+* FIXED: Hyperlinks to compiler flags in the PDF version of the Handbook.
+
+Library
+-------
+
+* CHANGED: Specification fo the `arbitrary` category `shrink/3` hook predicate
+to allow for generating multiple solutions for improved shrinking of failed
+goals by the QuickCheck implementation in the `lgtunit` tool.
+
+* CHANGED: Generation of arbitrary values for the types `character_code` and
+`character` to default to the `ascii_full` character set.
+
+* CHANGED: Generation of arbitrary values for the entity, predicate, and
+non-terminal identifier types plus compound and callable types to default
+to an `ascii_identifier` functor.
+
+* ADDED: Multifile predicate `shrinker/1` to the `arbitrary` category to
+support declaring shrinkers for new types.
+
+* ADDED: Multifile predicate `edge_case/2` to the `arbitrary` category to
+support defining edge cases for new and existing types.
+
+* ADDED: Type and arbitrary support for the `ascii_identifier` character set.
+
+* ADDED: Type definitions for `atom(CharSet)`, `non_empty_atom(Charset)`,
+`character_code(CharSet)`, and `character(CharSet)`.
+
+* ADDED: Type definitions for the common type abbreviations `codes`,
+`codes(CharSet)`, `chars`, `chars(CharSet)`, `code`, `code(CharSet)`,
+`char`, and `char(CharSet)`.
+
+* ADDED: Generation of arbitrary values for the `character(CharSet)`,
+`qualified_callable`, `operator_priority`, and `operator_specifier` types.
+
+* ADDED: Generation of arbitrary values for the common type abbreviations
+`codes`, `codes(CharSet)`, `chars`, `chars(CharSet)`, `code`, `code(CharSet)`,
+`char`, and `char(CharSet)`.
+
+* ADDED: Support for shrinking values of types `nonvar`, `atomic`, `var_or/1`,
+`atom(CharSet)`, `non_empty_atom(CharSet)`,`probability`, `qualified_callable`,
+`types/1`, `negative_number`, `non_positive_number`, `negative_float`,
+`non_positive_float`, `negative_integer`, and `non_positive_integer`.
+
+* IMPROVED: Shrinking of lists by the `arbitrary` category now generates
+multiple solutions by incrementally reducing the generated list size and
+shrinking the list elements between each reduction.
+
+* IMPROVED: Shrinking of compound terms by also replacing a compound by
+any of its arguments.
+
+* FIXED: Shrinking of `integer` and `non_negative_integer` type values to
+fail when the value is zero.
+
+* FIXED: Bug when generating arbitrary values for the `compound` type where
+an atom could be produced.
+
+* FIXED: Add to the `numberlistp` protocol declarations for the `max/2` and
+`min/2` predicates as these override inherited declaration from the `listp`
+protocol to use arithmetic order instead of standard order.
+
+* FIXED: Non-steadfast `flatten/2` predicate definition in `list`, `varlist`
+and `hook_pipeline/1` objects.
+
+* FIXED: Non-steadfast `bintree` object `min/3`, `max/3`, `delete_min/4`, and
+`delete_max/4` predicate definitions.
+
+* FIXED: Non-steadfast `heap/1` object `insert/4` and `top_next/4` predicate
+definitions.
+
+* FIXED: Non-steadfast `zlist::zip_index/4` predicate definition.
+
+* FIXED: Warnings printed by the new lint checks while compiling the libraries.
+
+Tools
+-----
+
+* CHANGED: The `lgtunit` tool QuickCheck implementation to print a failure
+instead of an error message when the test goal output arguments do not conform
+to the template signature.
+
+* ADDED: The `lgtunit` tool QuickCheck test idioms and predicates now supports
+a `s/1` option for specifying the maximum number of shrink operations.
+
+* IMPROVED: The `lgtunit` tool QuickCheck implementation to try common edge
+values (e.g. empty atom, empty list, or zero) before generating arbitrary
+values for common types.
+
+* IMPROVED: The `lgtunit` tool QuickCheck implementation to support shrinking
+predicates that can generated multiple solutions, allowing finding simpler
+counter-examples when shrinking a failed goal.
+
+* IMPROVED: The `lgtunit` tool QuickCheck implementation to print the test
+number and the number of shrinks operations in failed test messages.
+
+* FIXED: The QuickCheck implementation in the `lgtunit` tool to prevent
+accidental binding of goal variables when shrinking it.
+
+* FIXED: Warnings printed by the new lint checks while compiling the `wrapper`
+tool.
+
+Tests
+-----
+
+* ADDED: New unit tests for the `expand_goal/2` and `goal_expansion/2` methods
+to check the changes to the goal-expansion mechanism.
+
+* UPDATED: Unit tests for the `coinductive/1` directive.
+
+Examples
+--------
+
+* UPDATED: The `errors` example to illustrate the new compiler lint checks.
+
+* UPDATED: The `aliases` example to use parameter variables and improved test
+coverage.
+
+* UPDATED: The `proxies` example to use parameter variables. Also added sample
+benchmark calls.
+
+* FIXED: Warnings printed by the new lint checks while compiling the examples.
+
+* FIXED: Deleted `lambdas` example sample queries and unit tests that used
+unclassified variables in the lambda expressions.
+
+* CHANGED: Moved the `lambdas` example object used to illustrate lint checks
+of lambda expressions to a separate source file.
+
+Contributions
+-------------
+
+* CHANGED: The `verdi_neruda` contribution loader file to enable reporting of
+compilation warnings and to require a manual start to not interfere with the
+automation scripts for generating API documentation.
+
+* FIXED: Harmless bug in the `verdi_neruda` contribution in a `bagof/3` call
+with a existentially qualified variable not occurring in the qualified goal.
+
+* FIXED: Warnings printed by the new lint checks while compiling the PDDL
+parser.
+
+Ports
+-----
+
+* FIXED: Warnings printed by the new lint checks while compiling a Metagol
+example.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* FIXED: Kate and Pygments highlighting of directives with no arguments to not
+colorize the ending dot for consistency with other directives coloring.
+
+
+3.24.0 - February 28, 2019
+==========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Built-in predicate `threaded_cancel/1` to allow cancelation of
+asynchronous calls started using the `threaded_call/2` and `threaded_once/2`
+predicates.
+
+* IMPROVED: Allow the compiler linter to suggest more than one alternative for
+a suspicious call.
+
+* IMPROVED: Only print a warning about a debug handler provider already being
+loaded when the old and new provider are not the same object due to reloading.
+
+* FIXED: The compiler now throws a permission error when attempting to create
+an entity that would be both built-in and dynamic.
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: The SWI-Prolog hooks file, `swihooks.pl`, now includes a definition
+for the `prolog:message//1` multifile predicate that prints Logtalk runtime
+exceptions with full execution context details. This is a workaround for the
+issue of the SWI-Prolog top-level intercepting those exceptions but printing
+only the culprit goal.
+
+* FIXED: Workaround problematic SWI-Prolog declaration of the ISO standard
+`op/3` predicate as a meta-predicate.
+
+Documentation
+-------------
+
+* ADDED: Handbook section on Smalltalk nomenclature, comparing its concepts to
+Logtalk counterparts.
+
+* ADDED: Glossary entries for "predicate declaration", "predicate definition",
+"scratch directory", "library alias", "library notation", "message lookup",
+"component", and "polymorphism".
+
+* ADDED: Handbook sections on generating exceptions and type-checking terms.
+
+* IMPROVED: Documentation of the `call//1-N` built-in non-terminal and of
+the `threaded_engine_next/2` and `threaded_engine_next_reified/2` built-in
+predicates.
+
+* IMPROVED: Handbook section on performance now includes a subsection on the
+size of the code generated by the compiler.
+
+* IMPROVED: Handbook cross-referencing.
+
+* IMPROVED: The Handbook ePub version cover now includes the release data.
+
+* UPDATED: Handbook and APIs documentation are now generated using sphinx
+1.8.4 and sphinx-rtd-theme-0.4.3.
+
+* UPDATED: Man pages for the `lgtdoc` scripts.
+
+Library
+-------
+
+* ADDED: Library `reader` object with predicates for reading text file and
+text stream contents to lists of terms, characters, or character codes.
+
+Tools
+-----
+
+* IMPROVED: When using the `lgt2rst` documentation script with the `-s` option,
+the `sphinx-quickstart` interactive script is now called with a `conf.py_t`
+template file using the `$LOGTALKUSER/tools/lgtdoc/xml` directory as the
+templates directory. The provided `conf.py_t` template results in similar
+output to the Logtalk own API documentation.
+
+* IMPROVED: Simplify the `ports_profiler::data(Entity)` predicate to omit the
+entity column.
+
+Tests
+-----
+
+* ADDED: Unit tests for the new `threaded_cancel/1` built-in predicate.
+
+* ADDED: Unit tests for the `built_in/0` directive.
+
+* ADDED: Unit tests for the new `reader` library object.
+
+Examples
+--------
+
+* ADDED: Logic design pattern "threading state" to the `design_patterns`
+example.
+
+* ADDED: An alternative implementation of the `cascade` example using DCGs.
+
+* ADDED: Simple example of working with "futures", a common concurrent
+programming idiom, using the high-level multi-threading predicates.
+
+* IMPROVED: The source code comments of the `roles` and `scopes` examples.
+
+* UPDATED: Enable code coverage for the `planets` example tests.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Syntax coloring support for the new `threaded_cancel/1` built-in
+predicate.
+
+* ADDED: SubEthaEdit 4.x/5.x text editor support.
+
+
 3.23.0 - January 30, 2019
 =========================
 

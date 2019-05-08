@@ -35,7 +35,10 @@ If you use a bash shell, add the following lines to your `~/.profile` file:
 ```shell
 LOGTALKHOME=$HOME/lgt3git
 LOGTALKUSER=$HOME/lgt3git
-PATH=$PATH:$LOGTALKHOME/tools/lgtdoc/xml:$LOGTALKHOME/scripts:$LOGTALKHOME/integration
+PATH=$PATH:$LOGTALKHOME/tools/diagrams
+PATH=$PATH:$LOGTALKHOME/tools/lgtdoc/xml
+PATH=$PATH:$LOGTALKHOME/scripts
+PATH=$PATH:$LOGTALKHOME/integration
 MANPATH=$MANPATH:$LOGTALKHOME/man
 export LOGTALKHOME LOGTALKUSER PATH MANPATH
 ```
@@ -43,10 +46,13 @@ export LOGTALKHOME LOGTALKUSER PATH MANPATH
 If you use a csh shell, add the following line to your `~/.cshrc` file:
 
 ```shell
-setenv LOGTALKHOME ${HOME}/lgt3git
-setenv LOGTALKUSER ${HOME}/lgt3git
-setenv PATH ${PATH}:${LOGTALKHOME}/tools/lgtdoc/xml:${LOGTALKHOME}/scripts:${LOGTALKHOME}/integration
-setenv MANPATH ${MANPATH}:${LOGTALKHOME}/man
+setenv LOGTALKHOME "${HOME}"/lgt3git
+setenv LOGTALKUSER "${HOME}"/lgt3git
+setenv PATH "${PATH}":"${LOGTALKHOME}"/tools/diagrams
+setenv PATH "${PATH}":"${LOGTALKHOME}"/tools/lgtdoc/xml
+setenv PATH "${PATH}":"${LOGTALKHOME}"/scripts
+setenv PATH "${PATH}":"${LOGTALKHOME}"/integration
+setenv MANPATH "${MANPATH}":"${LOGTALKHOME}"/man
 ```
 
 If your `lgt3git` directory is not in your home directory, adjust the paths above accordingly. Don't use relative paths such as `../` or `./` in the definition of the environment variables. Some Prolog compilers have trouble expanding environment variables, resulting in `file not found` errors when attempting to use the Logtalk integration scripts.

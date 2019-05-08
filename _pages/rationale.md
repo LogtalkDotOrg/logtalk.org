@@ -138,7 +138,7 @@ The message printing mechanism can also be traced back to Quintus Prolog. But it
 
 The question asking mechanism is original to Logtalk and the dual of the message printing mechanism. It allows abstracting asking questions to a user in the same way that the message printing mechanism abstracts printing messages to the user. It is an uncommon mechanism. But it facilitates abstracting applications input/output interfaces while also allowing common requested features such as logging to be plugged in.
 
-Logtalk provides extensive and portable reflection support that enables developer tools to display and use comprehensive information about applications and their libraries, files, and predicates with full cross-referencing information. All Logtalk developer tools are regular applications using only the public reflection API. In constrast, Prolog systems support for reflection is either non-existant or limited with tools support often limited to a basic built-in debugger.
+Logtalk provides extensive and portable reflection support that enables developer tools to display and use comprehensive information about applications and their libraries, files, and predicates with full cross-referencing information. All Logtalk developer tools are regular applications using only the public reflection API. In constrast, most Prolog systems support for reflection is either non-existant or limited with tools support often limited to a basic built-in debugger.
 
 ## Why not Logtalk?
 

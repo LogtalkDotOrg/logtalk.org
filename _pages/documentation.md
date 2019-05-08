@@ -23,8 +23,8 @@ The Logtalk Handbook includes a tutorial, the User Manual, the Reference Manual,
 
 <!-- -->
 
--   [PDF version (stable)](papers/TheLogtalkHandbook-3.23.0.pdf)
--   [ePub version (stable)](papers/TheLogtalkHandbook-3.23.0.epub)
+-   [PDF version (stable)](papers/TheLogtalkHandbook-3.26.0.pdf)
+-   [ePub version (stable)](papers/TheLogtalkHandbook-3.26.0.epub)
 
 
 ## APIs
@@ -250,14 +250,21 @@ Documentation scripts:
 
 Publications on research and applications using Logtalk:
 
+-	[A Computational Independent Model for a Medical Quality Management Information System](http://ceur-ws.org/Vol-2221/).
+	Evgeny A. Cherkashin, Ljubica Kazi, Alexey O. Shigarov, Viacheslav V. Paramonov.
+	Proceedings for First Scientific-practical Workshop Information Technologies: Algorithms, Models, Systems
+	Irkutsk, Russia. September  2018.
+-	[Model Driven Architecture Implementation Using Linked Data](https://link.springer.com/chapter/10.1007/978-3-319-99972-2_34).
+	Evgeny Cherkashin, Alexey Kopaygorodsky, Ljubica Kazi, Alexey Shigarov, Viacheslav Paramonov.
+	In: Damaševičius R., Vasiljevienė G. (eds) Information and Software Technologies. ICIST 2018.
+	Communications in Computer and Information Science, vol 920. Springer, Cham. August 2018.
 -   [Automatic Discovery of Software Attacks via Backward
     Reasoning](http://ieeexplore.ieee.org/document/7174811/). Cataldo
     Basile, Daniele Canavese, Jerome d\'Annoville, Bjorn De Sutter, and
     Fulvio Valenza. IEEE/ACM 1st International Workshop on Software
     Protection (SPRO), May 2015.
 -   [A Portable Approach for Bidirectional Integration between a Logic
-    and a Statically-Typed Object-Oriented Programming
-    Language](https://www.researchgate.net/publication/265301265_A_Portable_Approach_for_Bidirectional_Integration_between_a_Logic_and_a_Statically-Typed_Object-Oriented_Programming_Language).
+    and a Statically-Typed Object-Oriented Programming Language](https://www.researchgate.net/publication/265301265_A_Portable_Approach_for_Bidirectional_Integration_between_a_Logic_and_a_Statically-Typed_Object-Oriented_Programming_Language).
     Sergio Castro. PhD thesis. September 2014.
 -   [Customisable Handling of Java References in Prolog
     Programs](http://arxiv.org/abs/1405.2693). Sergio Castro, Kim Mens,

@@ -15,8 +15,9 @@ tool and some usage examples.
 ## Lint checker
 
 Although not technically a developer tool, it is worth mentioning the Logtalk
-compiler lint checks as they contribute to earlier detection and warning of
-source code issues. Lint checks include:
+extensive compiler lint checks as they contribute to earlier detection and
+warning of source code issues, helping the user in writing working code. Lint
+checks include:
 
 -   Missing directives (including scope, meta-predicate, dynamic, discontiguous, and multifile directives)
 -   Duplicated directives
@@ -31,6 +32,15 @@ source code issues. Lint checks include:
 -   Redefined built-in predicates
 -   Lambda expression unclassified variables and mixed up variables
 -   Singleton variables
+-   If-then-else and soft cut control constructs without an else part
+-   Cuts in clauses for multifile predicates
+-   Missing cut in repeat loops
+-   Possible non-steadfast predicate definitions
+-   Redundant calls to control constructs and built-in predicates
+-   Calls to all-solutions predicates with existentially qualified variables not occurring in the qualified goal
+-   Calls to all-solutions predicates with no shared variables between template and goal
+-   Entity, predicate, and variable names not following official coding guidelines
+-   Variable names that differ only on case
 
 Additional checks are provided by the [`make`](#make) and [`dead_code_scanner`](#dead-code-scanner) tools.
 
@@ -71,6 +81,8 @@ The [`diagrams`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/dia
 
 -   Library loading diagrams
 -   Library dependency diagrams
+-   Directory loading diagrams
+-   Directory dependency diagrams
 -   File loading diagrams
 -   File dependency diagrams
 -   Inheritance diagrams
@@ -78,17 +90,22 @@ The [`diagrams`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/dia
 -   Predicate cross-referencing diagrams
 -   Diagrams with links to source code repositories and API documentation
 -   Linked diagrams for source code navigation from libraries to entities to predicates
+-   Linked diagrams for source code navigation from directories to files
+-	Automatic generation of linked sub-diagrams
 -   Diagrams represented in Graphviz dot language
 -   Exporting of diagrams to SVG, PDF, and other formats
+-	Diagram exporting automation scripts (for use with e.g. the [`doclet`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md) tool)
 -   User customization of diagram details
+-	Support for generating diagrams for module applications when using selected Prolog systems
 
 ##### Examples
 
--   [Tools diagram](library/tools_inheritance_diagram.svg) with links to code and documentation
--   [Zoom linked diagrams](diagrams/zoom_example/tools_library_dependency_diagram.svg) of the Logtalk developer tools (click on the zoom icons to navigate)
--   An example of using the diagrams tool with Prolog using the [SWI-Prolog library](diagrams/swi_prolog_library_entity_diagram.svg) (with links to code and documentation): 
--   Another example of using the diagrams tool to generate a [predicate cross-referencing diagram](diagrams/pengines_module_xref_diagram.pdf) for the SWI-Prolog pengines module
+Linked diagrams with live URLs to code and documentation (click on the nodes, zoom icons, and directory and file names to navigate):
 
+-	[`ports_profiler` object cross-referencing diagram](docs/ports_profiler_object_xref_diagram.svg)
+-   [Logtalk developer `tools` library diagram](library/tools_inheritance_diagram.svg)
+-   [SWI-Prolog Talespin application entity diagram](diagrams/talespin/talespin_entity_diagram.svg)
+-   [SWI-Prolog ClioPatria application directory diagram](diagrams/cliopatria/cliopatria_directory_load_diagram.svg)
 
 ## Testing
 
@@ -114,12 +131,14 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 -   Support for test subsets (with generation of a single code coverage report)
 -   Make tool integration
 
+QuickCheck support includes both test idioms and predicates that can be used e.g. at the top-level for quick testing of plain Prolog predicates and Prolog modules predicates besides Logtalk object predicates.
+
 Test automation is provided by the [`logtalk_tester`](man/logtalk_tester.html) script.
 See also the [testing guide](testing.html) for more information.
 
 ##### Examples
 
--   [Code coverage report](diagrams/coverage_report.html) for the diagrams tool
+-   [Code coverage report](diagrams/coverage_report.html) for the [`diagrams`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md) tool
 -   [Prolog standards conformance suite](https://github.com/LogtalkDotOrg/logtalk3/tree/master/tests/prolog)
 
 

@@ -8,6 +8,51 @@ aside:
 
 ### 2019
 
+##### May 8
+
+> Logtalk 3.26.0 is now available for [downloading](download.html). This
+> release features a new version of the `diagrams` tool with significant
+> improvements and includes a new `timeout` portability library, an updated
+> Metagol port, and updated examples. For details and a complete
+> list of changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
+##### April 2
+
+> Logtalk 3.25.0 is now available for [downloading](download.html). This
+> release focus on compiler linter and QuickCheck improvements. It adds 15
+> new linter checks, notably for possibly non-steadfast predicates, predicate
+> and variable names that do not follow coding guidelines, repeat loops
+> without a cut, redundant calls to built-in predicates and control constructs,
+> cuts in clauses for multifile predicates, variable use in all-solutions
+> predicate calls, and several others suspicious calls and constructs; adds
+> two new compiler flags, `steadfastness` and `naming`, to control the
+> corresponding linter warnings; improves the goal-expansion mechanism to
+> prevent infinite loops when the goal to be expanded resulted from a
+> previous expansion of the same goal; updates the `coinductive/1` directive
+> to also accept non-terminal indicators; updates the Handbook glossary;
+> improves the Handbook sections on performance and on calling Prolog
+> meta-predicates; fixes issues in the PDF version of the Handbook;
+> improves `lgtunit` tool support for QuickCheck by allowing the
+> user to specify the maximum number of shrink operations and by testing
+> edge cases first; adds definitions for new types that take as argument a
+> character set; adds shrinking supporty for most of the types supported by
+> the `arbitrary` category; adds support for defining type edge cases to the
+> `arbitrary` category; improves shrinking of list types; fixes steadfastness
+> issues with some library predicates; and provides portability updates for
+> GNU Prolog, SICStus Prolog, SWI-Prolog, and YAP. For details and a complete
+> list of changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
+##### February 28
+
+> Logtalk 3.24.0 is now available for [downloading](download.html). This
+> release adds a `threaded_cancel/1` built-in predicate; includes compiler
+> linter improvements; adds new handbook sections and includes several
+> improvements to existing sections; new file/stream reader library; improves
+> support for generating API documentation in Sphinx format; new tests; new
+> examples of using futures and threading state; new support for the SubEthaEdit
+> 4.x/5.x text editor; and portability updates for SWI-Prolog. For details and
+> a complete list of changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### January 30
 
 > Logtalk 3.23.0 is now available for [downloading](download.html). This
