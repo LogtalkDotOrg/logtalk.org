@@ -133,6 +133,10 @@ Documentation scripts:
 -   [lgt2txt](man/lgt2txt.html)
 -   [lgt2xml](man/lgt2xml.html)
 
+Diagrams scripts:
+
+-   [lgt2svg](man/lgt2svg.html)
+
 
 ## Publications
 
