@@ -112,7 +112,11 @@ true.
 ```
 In the context of the top-level interpreter, the `{}/1` goal is just a handy shortcut for
 the [`logtalk_load/1`](https://logtalk.org/manuals/refman/predicates/logtalk_load_1.html)
-predicate. Let's try a query:
+predicate. The argument uses _library notation_ to specify the file to load: `planets` is
+the library name (an alias to a directory of source files) and `loader` is the
+file name (with the extension omitted).
+
+Let's try a query:
 
 ```
 ?- mars::weight(m2, W2).

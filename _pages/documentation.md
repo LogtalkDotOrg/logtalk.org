@@ -18,26 +18,31 @@ aside:
 
 The Logtalk Handbook includes a tutorial, the User Manual, the Reference Manual, and the FAQ.
 
--   [Stable version](manuals/index.html) @ the Logtalk website
--   [Latest git version](https://logtalk3.readthedocs.io/en/latest/) @ the Read the Docs website
+-   [HTML version](manuals/index.html) @ the Logtalk website (stable)
+-   [PDF version](papers/TheLogtalkHandbook-3.26.0.pdf) (stable)
+-   [ePub version](papers/TheLogtalkHandbook-3.26.0.epub) (stable)
 
 <!-- -->
 
--   [PDF version (stable)](papers/TheLogtalkHandbook-3.26.0.pdf)
--   [ePub version (stable)](papers/TheLogtalkHandbook-3.26.0.epub)
+-   [HTML version](https://logtalk3.readthedocs.io/en/latest/) @ the Read the Docs website (latest)
+-   [Texinfo version](papers/TheLogtalkHandbook-3.27.0.info) (latest; experimental)
 
 
 ## APIs
 
 Core, Library, Tools, and Contributions API documentation
 
--   [HTML API documentation](library/index.html) (automatically generated)
--   SVG diagrams (automatically generated)
+-   [HTML API documentation](library/index.html) (stable; automatically generated)
+-   SVG diagrams (stable; automatically generated)
     -   [Core](library/core_inheritance_diagram.svg)
     -   [Library](library/library_inheritance_diagram.svg)
     -   [Tools](library/tools_inheritance_diagram.svg)
     -   [Contributions](library/contributions_inheritance_diagram.svg)
     -   [Ports](library/ports_inheritance_diagram.svg)
+
+<!-- -->
+
+-   [Texinfo version](docs/LogtalkAPIs-3.27.0.info) (latest; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.

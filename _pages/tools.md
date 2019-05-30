@@ -100,9 +100,9 @@ The [`diagrams`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/dia
 
 ##### Examples
 
-Linked diagrams with live URLs to code and documentation (click on the nodes, zoom icons, and directory and file names to navigate):
+Linked diagrams with live URLs to code and documentation (click on the nodes, labels, zoom icons, and directory and file names to navigate):
 
--	[`ports_profiler` object cross-referencing diagram](docs/ports_profiler_object_xref_diagram.svg)
+-	[Logtalk `ports_profiler` object cross-referencing diagram](docs/ports_profiler_object_xref_diagram.svg)
 -   [Logtalk developer `tools` library diagram](library/tools_inheritance_diagram.svg)
 -   [SWI-Prolog Talespin application entity diagram](diagrams/talespin/talespin_entity_diagram.svg)
 -   [SWI-Prolog ClioPatria application directory diagram](diagrams/cliopatria/cliopatria_directory_load_diagram.svg)

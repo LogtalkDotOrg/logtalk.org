@@ -137,7 +137,7 @@ documentation. Can be used by both admin and non-admin users.
 
 Logtalk is also available as a SWI-Prolog pack. The
 [pack](http://www.swi-prolog.org/pack/list?p=logtalk) is handy for
-*deployment* but not ideal for *development*, however, as the all the
+*deployment* but not ideal for *development*, however, as all the
 files in the distribution are buried in a relatively deep sub-directory.
 The pack can be easily installed typing the query `pack_install(logtalk)`
 at the top-level. Also available as a manual download.
