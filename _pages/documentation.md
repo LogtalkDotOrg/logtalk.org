@@ -19,8 +19,8 @@ aside:
 The Logtalk Handbook includes a tutorial, the User Manual, the Reference Manual, and the FAQ.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](papers/TheLogtalkHandbook-3.26.0.pdf) (stable)
--   [ePub version](papers/TheLogtalkHandbook-3.26.0.epub) (stable)
+-   [PDF version](papers/TheLogtalkHandbook-3.27.0.pdf) (stable)
+-   [ePub version](papers/TheLogtalkHandbook-3.27.0.epub) (stable)
 
 <!-- -->
 
@@ -51,8 +51,8 @@ source code.
 ## Tools
 
 The documentation for each developer tool is included in the tool
-source directory in a `NOTES.md` file. See also the of the tools
-[overview and usage examples](tools.html).
+source directory in a `NOTES.md` file and in the [Handbook](#handbook).
+See also the tools [overview and usage examples](tools.html).
 
 The tools listed in this section are complemented by a set of
 [scripts](#man-pages) that automate common tasks.

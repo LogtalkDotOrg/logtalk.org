@@ -8,6 +8,23 @@ aside:
 
 ### 2019
 
+##### June 18
+
+> Logtalk 3.27.0 is now available for [downloading](download.html). This
+> release adds a `uses/1` directive for declaring object aliases, updates
+> the `uses/2` and `use_module/2` directives to support using a parameter
+> variable in place of the object or module identifier (thus allowing using
+> implicit message sending and implicit module qualification with dynamic
+> binding), adds a lint check for built-in predicates used as directives,
+> improves navigation of APIs documentation, adds the documentation of the
+> developer tools to the Handbook, adds support for generating Texinfo
+> versions of the Handbook and the APIs documentation, reorganizes the
+> libraries to simplify usage, adds unit tests for most of the libraries,
+> includes fixes and improvements for libraries and developer tools, and
+> provides portability updates for SWI-Prolog. For details and a complete
+> list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### May 8
 
 > Logtalk 3.26.0 is now available for [downloading](download.html). This

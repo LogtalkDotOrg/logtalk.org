@@ -4,6 +4,204 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.27.0 - June 18, 2019
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Object and category `uses/1` directive to support the declaration of
+object aliases. The aliased object can be a parameter variable when using the
+directive in a parametric object or a parametric category.
+
+* ADDED: The object argument in a `uses/2` directive and the module argument
+in a `use_module/2` directive can now be a parameter variable when using the
+directives in a parametric object or a parametric category.
+
+* ADDED: Compiler lint check for Logtalk built-in predicates being used as
+directives.
+
+* FIXED: Bug in the compilation of module meta-predicate calls in debug mode
+where the module prefix would be missing.
+
+* FIXED: Compiler warning and error messages when the reported issue is in the
+first line to print "at line 1" instead of "at or above line 1".
+
+* FIXED: Compilation of secondary auxiliary clauses and initialization
+directives that are generated during the compilation of an initial set
+of auxiliary clauses (e.g. when using hook pipelines).
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: SWI-Prolog adapter file declarations for the recently added `tnot/1`
+built-in meta-predicate plus `table/1` and `untable/1` built-in predicates.
+
+Documentation
+-------------
+
+* ADDED: The developer tools documentation is now included in the Handbook.
+
+* ADDED: Experimental support for generating Texinfo versions of the Handbook
+and the APIs.
+
+* IMPROVED: Handbook index cross-referencing.
+
+* IMPROVED: Entity protocol navigation in API documentation when using Sphinx.
+
+* FIXED: Workaround Sphinx HTML builder bug where it fails to escape special
+characters for the sole case of the `<` character in hyperlinks.
+
+Library
+-------
+
+* CHANGED: Moved most of the individual libraries to their own directories and
+renamed their loader files to `loader.lgt` for uniformity and simplicity.
+
+* CHANGED: The now deprecated library loader files to load the individual
+libraries from their new directories. 
+
+* CHANGED: Renamed the `setp` protocol `length/2` predicate to `size/2` for
+naming consistency with other libraries. Added `length/2` as an alias to the
+`size/2` predicate to the `set` object for backwards compatibility.
+
+* MOVED: The heaps implementation from the `types` library to a separate
+`heaps` library.
+
+* MOVED: The queues implementation from the `types` library to a separate
+`queues` library.
+
+* MOVED: The sets implementation from the `types` library to a separate `sets`
+library.
+
+* MOVED: The dictionary protocol and implementations from the `types` library
+to a separate `dictionaries` library.
+
+* ADDED: Types `list(Type,Length)`, `list(Type,Length,Min,Max)`, and
+`atom(CharSet,Length)` with support for generating and shrinking arbitrary
+values.
+
+* ADDED: Additional edge cases for numbers when using a backend Prolog compiler
+with bounded arithmetic. Additional edge cases for the `callable` type.
+
+ADDED: Edge cases for the `ground`, `ground(Type)`, `types(Types)`, and
+`var_or(Type)` types.
+
+* ADDED: Predicate `values/2` to the `dictionaries` library protocol.
+
+* ADDED: Port of the SWI-Prolog `assoc` library under the name `avltree` and
+complying with the `dictionaries` library protocol.
+
+* FIXED: Missing definition of predicate `bintree::valid/1`.
+
+* FIXED: Bug where the `bintree::as_dictionary/2` predicate would return an
+invalid tree.
+
+* FIXED: Bug where the `bintree::apply/4` predicate would return an invalid
+tree.
+
+* FIXED: Bug where the `bintree::delete/4` predicate that would succeed when
+the lookup key was not found.
+
+* FIXED: Bug in the `rbtree::map/3` predicate that could result in pairs with
+a wrong value.
+
+* FIXED: Bug in the `heap/1::merge/3` predicate that resulted in failed merges.
+
+* FIXED: Bug in the `set::delete/3` predicate that could result in a missing
+element in the resulting set.
+
+* FIXED: Bug in the `interval::overlaps/2` predicate where it could succeed
+for non-overlapping intervals.
+
+* FIXED: Off-by-one bug in the definition of the `statistics` predicates
+`mean_deviation/2`, `media_deviation/2`, and `average_deviation/3`.
+
+* FIXED: Broken definition of the `statistics::range/2` predicate.
+
+* FIXED: Typo in the definition of the arbitrary generator for character codes.
+
+* FIXED: Updated the `arbitrary` category to workaround backend Prolog
+compilers that either don't support the null character or provide buggy
+results when calling `char_code/2` with a code of zero.
+
+* FIXED: Missing documentation and diagram for the `cloning` protocol.
+
+* FIXED: Workaround B-Prolog atom size limitation in the `arbitrary` library.
+
+* FIXED: JIProlog implementation of the `java/2::invoke/2` predicate.
+
+Tools
+-----
+
+* CHANGED: The `lgtdoc` tool XML output specification removing the deprecated
+`calls` tag and updating the `uses` tag to include a `functor` tag for use with
+Sphinx output.
+
+* IMPROVED: The `lgtdoc` tool generated XML documenting files now include
+information about `uses` relations.
+
+* UPDATED: The `help` tool to open the library documentation index when calling
+the `library/1` predicate with a valid library name.
+
+* UPDATED: The `logtalk_tester` shell script to also print the tests object
+identifier after the test results.
+
+* FIXED: The `lgtunit` tool QuickCheck implementation now ensures that
+generated values for `++Type` arguments are indeed ground.
+
+* FIXED: The `lgtunit` tool QuickCheck implementation check for `@Type`
+arguments to actually check that the generated values are not modified
+by the property being tested.
+
+* FIXED: The `lgtdoc` tool XSLT files that generate final documentation
+formats ignored `complements` category relations.
+
+* FIXED: The `lgtdoc` tool processing of `mode/2` directives for non-terminals.
+
+* FIXED: The `assertions` tool to prevent accidental expansion of `::/2` goals
+with unbound arguments.
+
+Tests
+-----
+
+* MOVED: All library tests from `tests/logtalk/library` to the individual
+library directories.
+
+* ADDED: Unit tests for the `assignvars`, `coroutining`, `dictionaries`,
+`gensym`, `heaps`, `hierarchies`, `hook_flows`, `intervals`, `java`, `loops`,
+`meta`, `meta_compiler`, `queues`, and `sets` libraries.
+
+* ADDED: Unit tests for the new object and category `uses/1` directive.
+
+* ADDED: Unit tests for the ISO Prolog standard arithmetic function `div/2`.
+
+* IMPROVED: Unit tests for the `statistics` library.
+
+* IMPROVED: Unit tests for the `forward/1` built-in method.
+
+Examples
+--------
+
+* RENAMED: The `assignvars`, `expecteds`, `java`, `logging`, and `optionals`
+are renamed to, respectively, `assign_parameters`, `missing_data`, `jpl`,
+`logs`, and `books`.
+
+* MOVED: The `redis` example, which only contains tests, to the
+`tests/logtalk/library/redis` directory.
+
+* ADDED: Simple example, `object_aliases`, illustrating the use of object
+aliases.
+
+* UPDATED: The `errors` example to illustrate warnings and errors when
+declaring object aliases.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* UPDATED: Syntax highlighting test files for the new `uses/1` directive.
+
+
 3.26.0 - May 8, 2019
 ====================
 
