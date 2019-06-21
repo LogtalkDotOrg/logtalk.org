@@ -10,7 +10,7 @@ aside: false
 
 Even if you're not currently using Logtalk [high-level multi-threading support](https://logtalk.org/manuals/userman/threads.html) to speed up your application in your shining new multi-core hardware, it's quite easy to make your Logtalk objects and libraries multi-threading ready. Here's how:
 
-First, locate all your objects defining predicates that have side-effects. For example, predicates that perform input/output operations or use the (object) dynamic database. Second, add `<a href="https://logtalk.org/manuals/refman/directives/synchronized1.html">synchronized/1</a>` directives for those predicates. Third, well, there is not third step.
+First, locate all your objects defining predicates that have side-effects. For example, predicates that perform input/output operations or use the (object) dynamic database. Second, add [`synchronized/1`](https://logtalk.org/manuals/refman/directives/synchronized_1.html) directives for those predicates. Third, well, there is not third step.
 
 A simple example, based on the Logtalk `gensym` library object:
 
