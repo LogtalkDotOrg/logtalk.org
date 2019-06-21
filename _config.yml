@@ -20,9 +20,9 @@ text_skin: blue # "default" (default), "dark", "forest", "ocean", "chocolate", "
 highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
 url     : https://logtalk.org # the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl : / # does not include hostname
-title   : Logtalk
+title   : "Logtalk"
 description: > # this means to ignore newlines until "Language & timezone"
-  Declarative object-oriented logic programming language
+  Logtalk - Declarative object-oriented logic programming language
 ## => Language and Timezone
 ##############################
 lang: en # the language of your site, "en" (default, English), "zh"(简体中文), "zh-Hans"(简体中文), "zh-Hant"(繁體中文)
@@ -157,16 +157,17 @@ analytics:
 ## => Build
 ##############################
 markdown    : kramdown
-highlighter : rouge
+highlighter : pygments
 permalink   : date
 
 include:
+  - blog.html
   - versions.txt
   - /_pages
+  - /_posts
   - /man
 exclude:
   - about.md
-  - archive.html
   - CHANGELOG.md
   - HOW_TO_RELEASE.md
   - Gemfile
@@ -184,6 +185,7 @@ exclude:
   - /screenshots
   - /test
   - /vendor
+  - /_drafts
 
 defaults:
   - scope:
@@ -192,7 +194,7 @@ defaults:
     values:
       layout: article
       sharing: true
-      license: true
+      license: false
       aside:
         toc: true
       show_edit_on_github: true

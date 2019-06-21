@@ -1,0 +1,40 @@
+---
+title: ICLP'08 session on "Uniting the Prolog Community" - personal notes
+author: Paulo Moura
+layout: article
+tags:
+  - iclp
+  - community
+show_edit_on_github: false
+aside: false
+---
+
+Bart Demoen and Tom Schrijvers kindly invited me to share my experience in writing portable Prolog applications at the ICLP'08 session on "Uniting the Prolog Community". My experience comes mostly from developing Logtalk and from my work with implementers and with the ISO committee towards Prolog standardization. What follows is an extended version of the main points in my short (10 minutes) presentation. Be sure to read the session manifesto in the ICLP'08 proceedings for the context of these notes.
+
+**Prolog portability**
+
+There are more than 20 Prolog compilers available today. Some of them are academic experiments, some of them are commercial products, and a healthy percentage of them are free, open source compilers. Most of them are actively maintained today. I have 12 of these compilers installed on my laptop. While doing Logtalk development, I rotate daily between a subset of them. This might sound crazy, and certainly would not be feasible for many applications, but it is generally possible in the case of Logtalk and it helps me finding portability problems and bugs both in my own code and in the Prolog compilers. Just to give you a quick example, while developing the latest Logtalk stable release (2.35.0), I found two bugs in my code. One of them only manifested itself in B-Prolog. The other one was only apparent in ECLiPSe. In the past 10 years, this working routine helped finding, isolating, reporting, and sometimes fixing, a few hundreds bugs in Prolog compilers. Most of the trouble could be avoided, with obvious productivity gains, if Prolog compilers would fully comply with the ISO Prolog Core Standard (Part I), published in 1995 (i.e. 14 years ago!). The good news is that the current status of standard compliance improved considerably in recent years. The bad news is that the missing bits still can cause a lot of grief when writing portable applications. One of the lingering problems is the exceptions thrown by built-in predicates. In error cases, some compilers fail instead of throwing an exception while others throw an exception term that doesn't comply with the standard. Operators can also be problematic. Some compilers choke when parsing valid code that uses operators and not all compilers make module declared operators local. A third issue are meta-predicates, specially when closures are used. Compounded with flawed modules systems, these and other problems make write portable Prolog applications something that is avoided rather than being the norm.
+
+**QA**
+
+Quality assurance (QA) is missing in action for too many Prolog compilers. Some may argue that QA is something that one only have the right to demand for commercial Prolog compilers. I disagree. Embarrassing bugs are embarrassing bugs, no matter where you find them. With a significant amount of Prolog development occurring in the open source realm, users, specially industrial users, need to trust our development processes. That means, among other things, unit testing applied in a systematic way.
+
+**ISO Prolog standards**
+
+The "Uniting the Prolog Community" manifesto in the ICLP'08 proceedings contains the following comment regarding the ISO Prolog standardization process:
+
+> "Despite many (also recent) efforts, the ISO committee seems unable to make substantial progress on the core standard, let alone to impose the modules standard."
+
+I find this remark to be a good summary of the current status of of ISO Prolog standardization. It's also a misleading remark. The ISO Prolog standardization is an open process where anyone can participate. The ISO committee is you, me, and anyone willing to contribute. True, there are formal voting procedures but that does not prevent in any way attending a meeting, presenting a case, and helping improving the current draft proposals. Criticizing the ISO committee for the sore state of Prolog standardization is easy but, most of the time, is just plain blame shifting. Very few people actively participate. Case in point: most Prolog implementers at ICLP'08 didn't bother to attend the ISO meeting. The same happened in previous meetings, held during past ICLP events. Besides the yearly meetings, there is also a mailing list and standardization forums. Both are ignored most of the time. Nevertheless, despite the lack of human resources, progress is being made! Five draft documents cover Definite Clause Grammars, Core revision, Threads, operating-system interface, and Globals. Being drafts means there are still rough on the edges. More work is needed to improve their quality. The published standards are not perfect either. They have flaws and we must have the courage to correct them, despite their official status. Two examples are the limited way of dealing with different text encodings in Part 1 and most of Part 2 (the modules standard).
+
+**Libraries and code sharing**
+
+There is no systematic development of Prolog libraries. Even when considering only pure Prolog libraries, a lot of desirable functionality is incomplete or missing. Pure Prolog libraries are the perfect candidate for code sharing among systems. Or so it seems at first glance. The trouble begins when a library predicate needs to call a built-in predicate, say, `arg/3`, whose behavior when called with a non-existing argument number is implementation dependent. Suddenly, applications using the library and working perfectly in Prolog X fail unexpectedly when run with Prolog Y. The library writer, faced with the prospect of writing once and testing everywhere, often chooses to make its library Prolog-specific.
+
+Reliable, portable libraries require Prolog compilers that comply to a core standard, include adequate documentation, and come with a set of unit tests. Thus, we need portable documenting tools and portable unit test frameworks. One of the problems is that most of work that needs to be done hardly warrants you any publications. Commercial development of Prolog libraries is hardly feasible giving the small size of our community. Everyone is pressed on time so&#8230; we need code sharing at all levels, not only libraries but also at the compiler level. Developing, for example, a common source reader, a common foreign-language interface, or using common stream handling code would strength collaboration and improve portability. The SWI-Prolog and YAP developers are already hard at work doing joint development. Hopefully, others will follow their lead.
+
+During the ICLP session, while discussing how Prolog systems could collaborate, someone remarked that "the fittest may survive". In order for the fittest to survive we do not need any community at all. The fragmentation of our community, expressed by the large number of Prolog dialects is indeed a problem. Most implementations, however, specially the smaller ones, contain unique and interesting features that we should consider keeping while looking for new ways to cooperate and unit our efforts.
+
+**Not our father's Prolog!**
+
+Prolog compilers have came a long way since the first implementations at Marseille and Edinburgh. Nowadays, we've unicode, tabling, constraints, threads, modules and objects, graphical source-level debuggers, profilers, foreign-language interfaces among other features. Most Prolog compilers provide a subset of these features making them suitable for a broad range of application domains. We do, however, have a marketing problem! A big one. Is quite frequent to find people disdainful of Prolog, claiming that it's slow, quirky, a relic from old AI language wars, useless as a general purpose programming language. Mention Prolog in a research grant request and you risk getting a short, dismissive sentence as a reward. Thus, improved collaboration among Prolog implementers only goes half way. We also need to show the rest of the world that Prolog implementations have come a long way and can be an effective tool for solving non-academic problems.

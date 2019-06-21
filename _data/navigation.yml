@@ -17,5 +17,7 @@ header:
     url:   /related.html
   - title: News
     url:   /news.html
+  - title: Blog
+    url:   /blog.html
   - title: <i class="fa fa-search" aria-hidden="true"></i>
     url:   /search.html
