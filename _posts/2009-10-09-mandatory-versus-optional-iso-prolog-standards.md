@@ -4,6 +4,7 @@ author: Paulo Moura
 layout: article
 tags:
   - standard
+  - modules
 show_edit_on_github: false
 aside: false
 ---
