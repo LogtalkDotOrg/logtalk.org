@@ -12,6 +12,7 @@ aside:
 -   [Tutorials](documentation.html#tutorials)
 -   [Glossary](https://logtalk.org/manuals/glossary.html)
 -   [Learning by examples](learning.html)
+-	[Classical symbolic AI examples](symbolic_ai_examples.html)
 -   [Comparison with other OOP languages](https://logtalk.org/manuals/userman/nomenclature.html)
 
 
