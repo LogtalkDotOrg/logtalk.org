@@ -65,7 +65,9 @@ feed](https://github.com/LogtalkDotOrg/logtalk3/commits/master.atom).
 > [`logtalk-3.27.0.tar.bz2`](files/logtalk-3.27.0.tar.bz2)  
 > `aa7211e97d1a2cf975d3b4bc52df990c34646bbc4dc478569354ad5786c01112` (SHA-256)
 
-Includes the HTML versions of the Handbook and the APIs documentation.
+Includes the HTML versions of the Handbook and the APIs documentation. The bundled 
+[`INSTALL.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/INSTALL.md)
+file contains manual installation instructions.
 
 
 ## Installers
