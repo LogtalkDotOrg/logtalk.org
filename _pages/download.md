@@ -134,6 +134,9 @@ documentation. Can be used by both admin and non-admin users.
 > [`logtalk-3.27.0.exe`](files/logtalk-3.27.0.exe)  
 > `ed9c0fe4f5a93f12fb46d4057d5419abb5db7ccfe6f82fef747fee0d4dfd20cb` (SHA-256)
 
+Alternatively, on Windows 10 or Windows Server 2019, you can use the
+Windows Subsystem for Linux (WSL) and install Logtalk using one of the
+Linux installers listed above.
 
 ### SWI-Prolog pack
 
