@@ -30,7 +30,7 @@ How do we QuickCheck the predicate? Assuming Logtalk is already installed, we st
 ... 
 ```
 
-The `lgtunit::quick_check/1` predicate takes a predicate property (or signature) and runs random generated tests (100 by default). Here we specify `list(integer)` argument types simply to simplify the results:
+The `lgtunit::quick_check/1` predicate takes a predicate property (or [signature](https://logtalk.org/manuals/userman/predicates.html#mode-directive)) and runs random generated tests (100 by default). Here we specify `list(integer)` argument types simply to simplify the results:
 
 ```text
 ?- lgtunit::quick_check(every_other(+list(integer), -list(integer))).
@@ -73,13 +73,25 @@ There is also a `lgtunit::quick_check/3` predicate that returns results in reifi
 ```text
 ?- lgtunit::quick_check(foo(+list(integer)), Result, [n(42), s(10)]).
 Result = failed(foo([1])).
+
+?- lgtunit::quick_check(pairs_keys_values(+list(pair(atom,integer)),-list(atom),-list(integer)), Result, []).
+Result = passed.
 ```
 
 For details about the `lgtunit::quick_check/1-3` predicates (and the QuickCheck test idioms), see the `lgtunit` tool [documentation](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtunit/NOTES.md).
 
+A special syntax for predicate signatures is worth mention. In some cases, we need to fix one or more input arguments instead of generating random values for them. For example, assume that we want to check that the defined shrinkers produce valid values. We can accomplish this using the query:
+
+```text
+?- forall((type::shrinker(Type), ground(Type)), lgtunit::quick_check(shrink_value({Type}, -Type))).
+true.
+```
+
+The `{}/1` handy notation allow us to pass an argument value as-is, avoiding in this case the need of defining an auxiliary predicate to fix the argument.
+
 For use in the predicate property/signatures, the Logtalk library (as of release 3.28.0) makes available 92 types (several of them parameterizable), can generate arbitrary (random) values for 79 of those types, and is able to shrink values for 54 types. The type definitions, random type value generators, and shrinkers are defined in the [`type`](https://logtalk.org/library/type_0.html) and [`arbitrary`](https://logtalk.org/library/arbitrary_0.html) library entities, which are user-extensible using multifile predicates.
 
-A noteworthy feature of Logtalk QuickCheck implementation is the support for testing any defined **type edge cases** (e.g. `0` or `[]` or `''`). Currently, 79 edge cases for common types are defined by default. These edge cases are tried before resorting to generating random values. This helps prevent the otherwise random nature of of QuickCheck testing missing those edge cases that often expose bugs in the predicates being tested. The user can easily define additional edge cases using a multifile predicate.
+Another noteworthy feature of the Logtalk QuickCheck implementation is the support for testing any defined **type edge cases** (e.g. `0` or `[]` or `''`). Currently, 79 edge cases for common types are defined by default. These edge cases are tried before resorting to generating random values. This helps prevent the otherwise random nature of of QuickCheck testing missing those edge cases that often expose bugs in the predicates being tested. The user can easily define additional edge cases using a multifile predicate.
 
 If you type a few QuickCheck queries at the top-level interpreter to check your code, don't let those queries be wasted. The `lgtunit` tool support for QuickCheck test dialects allows you to easily saved those queries to a test set. As an example, the queries above could be used to define the following test set:
 
