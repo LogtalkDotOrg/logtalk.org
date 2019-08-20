@@ -275,9 +275,169 @@
 
               <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Release Notes</h1></header></div><meta itemprop="headline" content="Release Notes"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
 
-  <div class="article__content" itemprop="articleBody"><h1 id="3270---june-18-2019">3.27.0 - June 18, 2019</h1>
+  <div class="article__content" itemprop="articleBody"><h1 id="3280---august-14-2019">3.28.0 - August 14, 2019</h1>
 
 <h2 id="logtalk-compiler-and-runtime">Logtalk compiler and runtime</h2>
+
+<ul>
+  <li>
+    <p>CHANGED: The compiler <code class="highlighter-rouge">missing_scope_directive/5</code> warning message term to
+<code class="highlighter-rouge">missing_scope_directive/6</code> to pass the name of the directive that triggers
+the warning.</p>
+  </li>
+  <li>
+    <p>CHANGED: The compiler <code class="highlighter-rouge">ignored_directive/3</code> warning message term to
+<code class="highlighter-rouge">ignored_encoding_directive/2</code>.</p>
+  </li>
+  <li>
+    <p>ADDED: Support parametric object arguments in <code class="highlighter-rouge">uses/2</code> directives where one
+or more parameters are parameter variables of the object (or category) that
+contains the directive.</p>
+  </li>
+  <li>
+    <p>ADDED: Compiler check for calls to the deprecated <code class="highlighter-rouge">not/1</code> Prolog built-in
+predicate.</p>
+  </li>
+  <li>
+    <p>IMPROVED: When reporting a deprecated predicate, also report its replacement
+when applicable.</p>
+  </li>
+  <li>
+    <p>IMPROVED: Detect and report as a permission error any attempt to declare
+another entity static predicate (or static non-terminal) as dynamic during
+the compilation first stage. In previous versions, the predicate (or non-
+terminal) would remain static but, depending on the backend Prolog compiler,
+a loading error could be raised.</p>
+  </li>
+  <li>
+    <p>IMPROVED: The exception term used by the compiler to report attempts to
+make another entity predicate (or non-terminal) multifile now include the
+entity.</p>
+  </li>
+  <li>
+    <p>FIXED: Reporting of singleton variables in included files would wrongly
+report the main file and the line of the <code class="highlighter-rouge">include/1</code> directive instead of
+the actual location.</p>
+  </li>
+  <li>
+    <p>FIXED: Line spacing issue when printing errors without a source file context.</p>
+  </li>
+</ul>
+
+<h2 id="prolog-adapter-and-integration-files">Prolog adapter and integration files</h2>
+
+<ul>
+  <li>
+    <p>IMPROVED: Report an instantiation error when calling the <code class="highlighter-rouge">{}/1</code> top-level
+interpreter shortcut with an unbound argument.</p>
+  </li>
+  <li>
+    <p>UPDATED: The SWI-Prolog adapter file to support tabling directives with
+table property declarations.</p>
+  </li>
+  <li>
+    <p>UPDATED: The SWI-Prolog adapter file to support its new proprietary
+<code class="highlighter-rouge">dynamic/2</code> directive.</p>
+  </li>
+</ul>
+
+<h2 id="documentation">Documentation</h2>
+
+<ul>
+  <li>
+    <p>ADDED: Glossary definition of <em>hook predicate</em>.</p>
+  </li>
+  <li>
+    <p>IMPROVED: Handbook sessions on multifile predicates and lambda expressions.</p>
+  </li>
+  <li>
+    <p>UPDATED: Manual installation instructions for Windows users.</p>
+  </li>
+  <li>
+    <p>FIXED: Missing <code class="highlighter-rouge">loops</code> library API documentation.</p>
+  </li>
+  <li>
+    <p>FIXED: The category opening directive can have up to arity four. Thanks to
+Anton Danilov for the bug report.</p>
+  </li>
+</ul>
+
+<h2 id="tools">Tools</h2>
+
+<ul>
+  <li>
+    <p>ADDED: New developer tool, <code class="highlighter-rouge">tutor</code>, aimed to help new users in understanding
+and acting on compiler warning and error messages. The tool adds explanations
+and fix suggestions for selected compiler messages.</p>
+  </li>
+  <li>
+    <p>FIXED: The <code class="highlighter-rouge">help</code> tool reported the category opening directive to have a
+maximum arity of three instead of four.</p>
+  </li>
+</ul>
+
+<h2 id="tests">Tests</h2>
+
+<ul>
+  <li>
+    <p>ADDED: New unit tests for the <code class="highlighter-rouge">uses/1</code> directive for improved coverage.</p>
+  </li>
+  <li>
+    <p>ADDED: New unit test for the <code class="highlighter-rouge">uses/2</code> directive where the object argument is
+a parametric object where a parameter is a parameter variable of the object
+containing the directive.</p>
+  </li>
+  <li>
+    <p>ADDED: New unit test for the ISO Prolog standard <code class="highlighter-rouge">read_term/3</code> predicate to
+check the <code class="highlighter-rouge">variables/1</code>, <code class="highlighter-rouge">variable_names/1</code>, and <code class="highlighter-rouge">singletons/1</code> options when
+reading the <code class="highlighter-rouge">end_of_file</code> term.</p>
+  </li>
+</ul>
+
+<h2 id="installers-and-installation-scripts">Installers and installation scripts</h2>
+
+<ul>
+  <li>
+    <p>ADDED: AppVeyor script to build a Windows installer per commit.</p>
+  </li>
+  <li>
+    <p>UPDATED: The Windows installer to allow running in silent mode when using
+the command-line options <code class="highlighter-rouge">/SILENT</code> or <code class="highlighter-rouge">/VERYSILENT</code>.</p>
+  </li>
+  <li>
+    <p>UPDATED: The Windows installer to print instructions on how to manually
+create integration shortcuts when a backend Prolog compiler installation
+cannot be found.</p>
+  </li>
+  <li>
+    <p>FIXED: Workaround recent SWI-Prolog Windows installers no longer writing
+registry keys with its home directory by checking for the default installation
+directory as the last resort.</p>
+  </li>
+  <li>
+    <p>FIXED: Add UTF-8 BOM to Inno Setup script to avoid text display glitches.</p>
+  </li>
+</ul>
+
+<h2 id="ides-text-editors-and-syntax-highlighters-support">IDEs, text editors, and syntax highlighters support</h2>
+
+<ul>
+  <li>
+    <p>UPDATED: Syntax highlighting test files to test representing a single quote
+inside a quoted atom using an escape sequence.</p>
+  </li>
+  <li>
+    <p>FIXED: Kate and SubEthaEdit 4.x/5.x syntax coloring of escape sequences in
+quoted atoms.</p>
+  </li>
+  <li>
+    <p>FIXED: GeSHi, Pygments, and Rouge support for the 0’\Char number notation.</p>
+  </li>
+</ul>
+
+<h1 id="3270---june-18-2019">3.27.0 - June 18, 2019</h1>
+
+<h2 id="logtalk-compiler-and-runtime-1">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -309,14 +469,14 @@ of auxiliary clauses (e.g. when using hook pipelines).</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-1">Prolog adapter and integration files</h2>
 
 <ul>
   <li>ADDED: SWI-Prolog adapter file declarations for the recently added <code class="highlighter-rouge">tnot/1</code>
 built-in meta-predicate plus <code class="highlighter-rouge">table/1</code> and <code class="highlighter-rouge">untable/1</code> built-in predicates.</li>
 </ul>
 
-<h2 id="documentation">Documentation</h2>
+<h2 id="documentation-1">Documentation</h2>
 
 <ul>
   <li>
@@ -448,7 +608,7 @@ results when calling <code class="highlighter-rouge">char_code/2</code> with a c
   </li>
 </ul>
 
-<h2 id="tools">Tools</h2>
+<h2 id="tools-1">Tools</h2>
 
 <ul>
   <li>
@@ -490,7 +650,7 @@ with unbound arguments.</p>
   </li>
 </ul>
 
-<h2 id="tests">Tests</h2>
+<h2 id="tests-1">Tests</h2>
 
 <ul>
   <li>
@@ -538,7 +698,7 @@ declaring object aliases.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-1">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: Syntax highlighting test files for the new <code class="highlighter-rouge">uses/1</code> directive.</li>
@@ -546,14 +706,14 @@ declaring object aliases.</p>
 
 <h1 id="3260---may-8-2019">3.26.0 - May 8, 2019</h1>
 
-<h2 id="logtalk-compiler-and-runtime-1">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-2">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>FIXED: Decompilation of exceptions thrown by the <code class="highlighter-rouge">&lt;&lt;/2</code> control construct
 when in debug mode.</li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-1">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-2">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -565,7 +725,7 @@ when in debug mode.</li>
   </li>
 </ul>
 
-<h2 id="documentation-1">Documentation</h2>
+<h2 id="documentation-2">Documentation</h2>
 
 <ul>
   <li>ADDED: Predicate cross-referencing diagrams linked from the core, library,
@@ -580,7 +740,7 @@ Prolog, SWI-Prolog, and YAP as backend Prolog systems. Provides a portable
 abstraction over how the to call a predicate with a time limit.</li>
 </ul>
 
-<h2 id="tools-1">Tools</h2>
+<h2 id="tools-2">Tools</h2>
 
 <ul>
   <li>
@@ -725,7 +885,7 @@ for local auxiliary predicates.</p>
   </li>
 </ul>
 
-<h2 id="tests-1">Tests</h2>
+<h2 id="tests-2">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the new <code class="highlighter-rouge">timeout</code> library.</li>
@@ -755,7 +915,7 @@ Original Prolog examples source code files contributed by MystikNinja.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-1">Installers and installation scripts</h2>
 
 <ul>
   <li>IMPROVED: The <code class="highlighter-rouge">update_svg_diagrams.sh</code> script to use a git hash to keep node
@@ -764,7 +924,7 @@ URLs links to source file lines accurate.</li>
 
 <h1 id="3250---april-2-2019">3.25.0 - April 2, 2019</h1>
 
-<h2 id="logtalk-compiler-and-runtime-2">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-3">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -862,7 +1022,7 @@ would create a cyclic term.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-2">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-3">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -888,7 +1048,7 @@ expanding a variable goal.</p>
   </li>
 </ul>
 
-<h2 id="documentation-2">Documentation</h2>
+<h2 id="documentation-3">Documentation</h2>
 
 <ul>
   <li>
@@ -1010,7 +1170,7 @@ definitions.</p>
   </li>
 </ul>
 
-<h2 id="tools-2">Tools</h2>
+<h2 id="tools-3">Tools</h2>
 
 <ul>
   <li>
@@ -1046,7 +1206,7 @@ tool.</p>
   </li>
 </ul>
 
-<h2 id="tests-2">Tests</h2>
+<h2 id="tests-3">Tests</h2>
 
 <ul>
   <li>
@@ -1110,7 +1270,7 @@ parser.</p>
 example.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-1">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-2">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>FIXED: Kate and Pygments highlighting of directives with no arguments to not
@@ -1119,7 +1279,7 @@ colorize the ending dot for consistency with other directives coloring.</li>
 
 <h1 id="3240---february-28-2019">3.24.0 - February 28, 2019</h1>
 
-<h2 id="logtalk-compiler-and-runtime-3">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-4">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -1141,7 +1301,7 @@ an entity that would be both built-in and dynamic.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-3">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-4">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -1157,7 +1317,7 @@ only the culprit goal.</p>
   </li>
 </ul>
 
-<h2 id="documentation-3">Documentation</h2>
+<h2 id="documentation-4">Documentation</h2>
 
 <ul>
   <li>
@@ -1203,7 +1363,7 @@ size of the code generated by the compiler.</p>
 text stream contents to lists of terms, characters, or character codes.</li>
 </ul>
 
-<h2 id="tools-3">Tools</h2>
+<h2 id="tools-4">Tools</h2>
 
 <ul>
   <li>
@@ -1219,7 +1379,7 @@ entity column.</p>
   </li>
 </ul>
 
-<h2 id="tests-3">Tests</h2>
+<h2 id="tests-4">Tests</h2>
 
 <ul>
   <li>
@@ -1255,7 +1415,7 @@ programming idiom, using the high-level multi-threading predicates.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-2">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-3">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -1269,7 +1429,7 @@ predicate.</p>
 
 <h1 id="3230---january-30-2019">3.23.0 - January 30, 2019</h1>
 
-<h2 id="logtalk-compiler-and-runtime-4">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-5">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -1303,14 +1463,14 @@ compiler.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-4">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-5">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: O-Prolog adapter file definition of the <code class="highlighter-rouge">'$lgt_compile_prolog_code'/3</code>
 internal predicate.</li>
 </ul>
 
-<h2 id="documentation-4">Documentation</h2>
+<h2 id="documentation-5">Documentation</h2>
 
 <ul>
   <li>
@@ -1380,7 +1540,7 @@ predicate.</p>
   </li>
 </ul>
 
-<h2 id="tools-4">Tools</h2>
+<h2 id="tools-5">Tools</h2>
 
 <ul>
   <li>
@@ -1411,7 +1571,7 @@ tool.</p>
 on meta-interpretive learning.</li>
 </ul>
 
-<h2 id="tests-4">Tests</h2>
+<h2 id="tests-5">Tests</h2>
 
 <ul>
   <li>
@@ -1470,14 +1630,14 @@ any of them may cause an error condition.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-1">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-2">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The Windows installation script to also detect SICStus Prolog
 4.5.x versions.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-3">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-4">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -1495,7 +1655,7 @@ preferences as per coding guidelines.</p>
 
 <h1 id="3220---december-18-2018">3.22.0 - December 18, 2018</h1>
 
-<h2 id="logtalk-compiler-and-runtime-5">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-6">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -1510,7 +1670,7 @@ built-in methods, which cannot be overridden.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-5">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-6">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -1524,7 +1684,7 @@ using grammar rule non-terminal indicators in <code class="highlighter-rouge">ta
   </li>
 </ul>
 
-<h2 id="documentation-5">Documentation</h2>
+<h2 id="documentation-6">Documentation</h2>
 
 <ul>
   <li>
@@ -1569,7 +1729,7 @@ display of parametric entity names with two or more arguments in the index.</p>
 the operating-system reusing process identifiers.</li>
 </ul>
 
-<h2 id="tools-5">Tools</h2>
+<h2 id="tools-6">Tools</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">logtalk_tester</code> script to pass the default backend when sourcing
@@ -1594,7 +1754,7 @@ in optimal mode due to SWI-Prolog different semantics for clauses that contain
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-2">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-3">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -1616,7 +1776,7 @@ version string.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-4">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-5">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: CodeMirror mode supporting syntax highlighting, code folding, and
@@ -1625,7 +1785,7 @@ code completion.</li>
 
 <h1 id="3210---october-30-2018">3.21.0 - October 30, 2018</h1>
 
-<h2 id="logtalk-compiler-and-runtime-6">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-7">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>CHANGED: Allow a complementing category to add a predicate scope directive
@@ -1633,7 +1793,7 @@ but no predicate definition allowing any definitions in complemented objects
 (compiled with the <code class="highlighter-rouge">complements</code> flag set to <code class="highlighter-rouge">allow</code>) to be found and used.</li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-6">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-7">Prolog adapter and integration files</h2>
 
 <ul>
   <li>REMOVED: Unsupported/non-functional adapter file for Jekejeke Prolog as
@@ -1641,7 +1801,7 @@ requested by its developer who claims that Jekejeke Prolog license forbids
 using it to run Logtalk.</li>
 </ul>
 
-<h2 id="documentation-6">Documentation</h2>
+<h2 id="documentation-7">Documentation</h2>
 
 <ul>
   <li>
@@ -1688,7 +1848,7 @@ code for ECLiPSe and SICStus Prolog and usage alternatives.</p>
   </li>
 </ul>
 
-<h2 id="tools-6">Tools</h2>
+<h2 id="tools-7">Tools</h2>
 
 <ul>
   <li>
@@ -1741,14 +1901,14 @@ reading a term).</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-3">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-4">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: Issue in the Windows installer where the Start Menu shortcuts to
 the APIs documentation and the sample settings file could be invalid.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-5">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-6">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -1762,7 +1922,7 @@ can be easily customized for displaying Logtalk and Prolog source files.</p>
 
 <h1 id="3200---september-5-2018">3.20.0 - September 5, 2018</h1>
 
-<h2 id="logtalk-compiler-and-runtime-7">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-8">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -1784,7 +1944,7 @@ the resulting goal is a call to a Prolog <code class="highlighter-rouge">:/2</co
   </li>
 </ul>
 
-<h2 id="documentation-7">Documentation</h2>
+<h2 id="documentation-8">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Reference manual description of the <code class="highlighter-rouge">^^/1</code> control construct.</li>
@@ -1871,7 +2031,7 @@ help visually illustrate the differences between left and right folds.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-6">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-7">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -1886,7 +2046,7 @@ syntax highlighting.</p>
 
 <h1 id="3190---august-1-2018">3.19.0 - August 1, 2018</h1>
 
-<h2 id="logtalk-compiler-and-runtime-8">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-9">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -1957,7 +2117,7 @@ predicate as a built-in predicate.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-7">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-8">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -1985,7 +2145,7 @@ arithmetic function.</p>
   </li>
 </ul>
 
-<h2 id="documentation-8">Documentation</h2>
+<h2 id="documentation-9">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Fixed several typos and improved several sections of the reference
@@ -2015,7 +2175,7 @@ fractional part is zero.</p>
   </li>
 </ul>
 
-<h2 id="tools-7">Tools</h2>
+<h2 id="tools-8">Tools</h2>
 
 <ul>
   <li>
@@ -2079,7 +2239,7 @@ parameters.</p>
   </li>
 </ul>
 
-<h2 id="tests-5">Tests</h2>
+<h2 id="tests-6">Tests</h2>
 
 <ul>
   <li>
@@ -2126,7 +2286,7 @@ with Jan Wielemaker.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-7">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-8">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -2150,7 +2310,7 @@ Michael T. Richter.</p>
 
 <h1 id="3180---june-26-2018">3.18.0 - June 26, 2018</h1>
 
-<h2 id="logtalk-compiler-and-runtime-9">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-10">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -2191,7 +2351,7 @@ backend Prolog systems with the <code class="highlighter-rouge">underscore_varia
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-8">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-9">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -2236,7 +2396,7 @@ module other than <code class="highlighter-rouge">user</code>.</p>
   </li>
 </ul>
 
-<h2 id="documentation-9">Documentation</h2>
+<h2 id="documentation-10">Documentation</h2>
 
 <ul>
   <li>
@@ -2274,7 +2434,7 @@ interface library (ensuring zero overhead compared with direct use of JPL).</p>
   </li>
 </ul>
 
-<h2 id="tools-8">Tools</h2>
+<h2 id="tools-9">Tools</h2>
 
 <ul>
   <li>
@@ -2296,7 +2456,7 @@ loaded parametric category or object.</p>
   </li>
 </ul>
 
-<h2 id="tests-6">Tests</h2>
+<h2 id="tests-7">Tests</h2>
 
 <ul>
   <li>
@@ -2352,7 +2512,7 @@ previous version for the <code class="highlighter-rouge">user</code> pseudo-obje
 
 <h1 id="3170---may-21-2018">3.17.0 - May 21, 2018</h1>
 
-<h2 id="logtalk-compiler-and-runtime-10">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-11">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -2394,7 +2554,7 @@ and <code class="highlighter-rouge">category_property/2</code> for dynamically c
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-9">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-10">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -2409,7 +2569,7 @@ mode-directed tabling. After discussion in the SWI-Prolog mailing list.</p>
   </li>
 </ul>
 
-<h2 id="documentation-10">Documentation</h2>
+<h2 id="documentation-11">Documentation</h2>
 
 <ul>
   <li>UPDATED: Manual installation instructions.</li>
@@ -2422,7 +2582,7 @@ mode-directed tabling. After discussion in the SWI-Prolog mailing list.</p>
 library object.</li>
 </ul>
 
-<h2 id="tools-9">Tools</h2>
+<h2 id="tools-10">Tools</h2>
 
 <ul>
   <li>
@@ -2433,7 +2593,7 @@ library object.</li>
   </li>
 </ul>
 
-<h2 id="tests-7">Tests</h2>
+<h2 id="tests-8">Tests</h2>
 
 <ul>
   <li>ADDED: Additional unit tests for the <code class="highlighter-rouge">logtalk</code> and <code class="highlighter-rouge">user</code> built-in objects.</li>
@@ -2470,7 +2630,7 @@ example. Thanks to Per Mildner for reporting.</p>
   <li>FIXED: Missing meta-predicate directive in the <code class="highlighter-rouge">verdi_neruda</code> contribution.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-4">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-5">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -2500,7 +2660,7 @@ is not defined.</p>
 
 <h1 id="3160---april-24-2018">3.16.0 - April 24, 2018</h1>
 
-<h2 id="logtalk-compiler-and-runtime-11">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-12">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -2586,7 +2746,7 @@ targets <code class="highlighter-rouge">debug</code>, <code class="highlighter-r
 <p>FIXED: Avoid trying to redo the startup initialization when including Logtalk
 in a backend Prolog saved state.</p>
 
-<h2 id="prolog-adapter-and-integration-files-10">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-11">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -2609,7 +2769,7 @@ on XSB.</p>
   </li>
 </ul>
 
-<h2 id="documentation-11">Documentation</h2>
+<h2 id="documentation-12">Documentation</h2>
 
 <ul>
   <li>
@@ -2645,7 +2805,7 @@ the <code class="highlighter-rouge">character</code> library object.</p>
   </li>
 </ul>
 
-<h2 id="tools-10">Tools</h2>
+<h2 id="tools-11">Tools</h2>
 
 <ul>
   <li>
@@ -2657,7 +2817,7 @@ error being generated.</p>
   </li>
 </ul>
 
-<h2 id="tests-8">Tests</h2>
+<h2 id="tests-9">Tests</h2>
 
 <ul>
   <li>
@@ -2694,7 +2854,7 @@ irrelevant output.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-5">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-6">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -2732,7 +2892,7 @@ also create links to the <code class="highlighter-rouge">ACKNOWLEDGMENTS.md</cod
 
 <h1 id="3150---march-21-2018">3.15.0 - March 21, 2018</h1>
 
-<h2 id="logtalk-compiler-and-runtime-12">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-13">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -2765,7 +2925,7 @@ duplicated debug handlers would not increment the warnings counter.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-11">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-12">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -2827,7 +2987,7 @@ to the Quintus Prolog adapter file.</p>
   </li>
 </ul>
 
-<h2 id="documentation-12">Documentation</h2>
+<h2 id="documentation-13">Documentation</h2>
 
 <ul>
   <li>
@@ -2931,7 +3091,7 @@ list would be shrink to itself.</p>
   </li>
 </ul>
 
-<h2 id="tools-11">Tools</h2>
+<h2 id="tools-12">Tools</h2>
 
 <ul>
   <li>
@@ -3044,7 +3204,7 @@ are declared in multiple objects.</p>
   </li>
 </ul>
 
-<h2 id="tests-9">Tests</h2>
+<h2 id="tests-10">Tests</h2>
 
 <ul>
   <li>
@@ -3181,7 +3341,7 @@ examples to suppress irrelevant output.</p>
 <code class="highlighter-rouge">print_flags/0</code>.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-6">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-7">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -3220,7 +3380,7 @@ development versions now that the 7.0 version is final.</p>
 
 <h1 id="3140---january-4-2018">3.14.0 - January 4, 2018</h1>
 
-<h2 id="logtalk-compiler-and-runtime-13">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-14">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -3255,7 +3415,7 @@ predicates found in included files.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-12">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-13">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -3273,7 +3433,7 @@ option <code class="highlighter-rouge">variable_names/1</code>.</p>
   </li>
 </ul>
 
-<h2 id="documentation-13">Documentation</h2>
+<h2 id="documentation-14">Documentation</h2>
 
 <ul>
   <li>
@@ -3323,7 +3483,7 @@ that prevented its description to be displayed in the API HTML documentation.</p
   </li>
 </ul>
 
-<h2 id="tools-12">Tools</h2>
+<h2 id="tools-13">Tools</h2>
 
 <ul>
   <li>
@@ -3372,7 +3532,7 @@ where test set crashes would also be reported as broken test sets.</p>
   </li>
 </ul>
 
-<h2 id="tests-10">Tests</h2>
+<h2 id="tests-11">Tests</h2>
 
 <ul>
   <li>
@@ -3411,14 +3571,14 @@ when processing <code class="highlighter-rouge">include/1</code> directives.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-7">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-8">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: Synced the settings files used by the SWI-Prolog packs with the
 settings sample file.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-8">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-9">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -3431,7 +3591,7 @@ settings sample file.</li>
 
 <h1 id="3130---november-8-2017">3.13.0 - November 8, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-14">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-15">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -3453,7 +3613,7 @@ would result in duplicated entity predicate definition table entries.</p>
   </li>
 </ul>
 
-<h2 id="documentation-14">Documentation</h2>
+<h2 id="documentation-15">Documentation</h2>
 
 <ul>
   <li>
@@ -3493,7 +3653,7 @@ the standard <code class="highlighter-rouge">sub_atom/5</code> predicate).</p>
   </li>
 </ul>
 
-<h2 id="tools-13">Tools</h2>
+<h2 id="tools-14">Tools</h2>
 
 <ul>
   <li>
@@ -3521,7 +3681,7 @@ of the source files being documented.</p>
   </li>
 </ul>
 
-<h2 id="tests-11">Tests</h2>
+<h2 id="tests-12">Tests</h2>
 
 <ul>
   <li>ADDED: Missing <code class="highlighter-rouge">sub_atom/5</code> predicate Prolog compliance tests for the
@@ -3543,7 +3703,7 @@ persisting an object dynamic state across sessions.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-8">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-9">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -3557,7 +3717,7 @@ repository.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-9">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-10">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -3571,7 +3731,7 @@ text editor.</p>
 
 <h1 id="3120---october-10-2017">3.12.0 - October 10, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-15">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-16">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -3588,7 +3748,7 @@ cope with runtime constructed calls.</p>
   </li>
 </ul>
 
-<h2 id="documentation-15">Documentation</h2>
+<h2 id="documentation-16">Documentation</h2>
 
 <ul>
   <li>
@@ -3644,7 +3804,7 @@ backend compiler on Windows.</p>
   </li>
 </ul>
 
-<h2 id="tools-14">Tools</h2>
+<h2 id="tools-15">Tools</h2>
 
 <ul>
   <li>
@@ -3665,7 +3825,7 @@ Centos/RHEL.</p>
   </li>
 </ul>
 
-<h2 id="tests-12">Tests</h2>
+<h2 id="tests-13">Tests</h2>
 
 <ul>
   <li>
@@ -3687,7 +3847,7 @@ Centos/RHEL.</p>
 
 <h1 id="3112---august-28-2017">3.11.2 - August 28, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-16">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-17">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -3707,7 +3867,7 @@ message was printed but the call still succeeded.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-13">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-14">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -3775,7 +3935,7 @@ throw an <code class="highlighter-rouge">instantiation_error</code> when the che
   </li>
 </ul>
 
-<h2 id="tools-15">Tools</h2>
+<h2 id="tools-16">Tools</h2>
 
 <ul>
   <li>
@@ -3811,7 +3971,7 @@ API documentation into human-readable formats.</p>
   <li>UPDATED: The <code class="highlighter-rouge">mtbatch</code> example to support ECLiPSe.</li>
 </ul>
 
-<h2 id="tests-13">Tests</h2>
+<h2 id="tests-14">Tests</h2>
 
 <ul>
   <li>
@@ -3828,7 +3988,7 @@ for the bug report.</p>
 
 <h1 id="3111---july-17-2017">3.11.1 - July 17, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-17">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-18">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -3867,7 +4027,7 @@ module is only bound at runtime.</p>
   </li>
 </ul>
 
-<h2 id="tools-16">Tools</h2>
+<h2 id="tools-17">Tools</h2>
 
 <ul>
   <li>
@@ -3882,7 +4042,7 @@ module is only bound at runtime.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-10">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-11">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Sample <code class="highlighter-rouge">tasks.json</code> file for the Visual Studio Code text editor. The
@@ -3893,7 +4053,7 @@ predicate locations.</li>
 
 <h1 id="3110---july-3-2017">3.11.0 - July 3, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-18">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-19">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -3940,7 +4100,7 @@ take into account Logtalk being loaded into a module other than <code class="hig
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-14">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-15">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -3955,7 +4115,7 @@ than <code class="highlighter-rouge">user</code>.</p>
   </li>
 </ul>
 
-<h2 id="documentation-16">Documentation</h2>
+<h2 id="documentation-17">Documentation</h2>
 
 <ul>
   <li>
@@ -3989,14 +4149,14 @@ method.</p>
   </li>
 </ul>
 
-<h2 id="tools-17">Tools</h2>
+<h2 id="tools-18">Tools</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">diagrams</code> tool to also display included files in file loading
 diagrams.</li>
 </ul>
 
-<h2 id="tests-14">Tests</h2>
+<h2 id="tests-15">Tests</h2>
 
 <ul>
   <li>
@@ -4030,14 +4190,14 @@ method.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-9">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-10">Installers and installation scripts</h2>
 
 <ul>
   <li>ADDED: An <em>experimental</em> version of the SWI-Prolog pack that loads Logtalk
 into a <code class="highlighter-rouge">logtalk</code> module instead of loading it into <code class="highlighter-rouge">user</code>.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-11">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-12">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -4055,7 +4215,7 @@ most of the supported text editors and syntax highlighters.</p>
 
 <h1 id="3109---june-14-2017">3.10.9 - June 14, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-19">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-20">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -4071,7 +4231,7 @@ for calls to the library <code class="highlighter-rouge">type::valid/2</code> an
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-15">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-16">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Handle all possible <code class="highlighter-rouge">table/1</code> directive syntaxes when using SWI-Prolog
@@ -4086,7 +4246,7 @@ using the <code class="highlighter-rouge">reload(skip)</code> compiler option to
 large resource due to e.g. changes to the default compilation mode.</li>
 </ul>
 
-<h2 id="tools-18">Tools</h2>
+<h2 id="tools-19">Tools</h2>
 
 <ul>
   <li>
@@ -4115,7 +4275,7 @@ Prolog systems that do not support the <code class="highlighter-rouge">redis</co
 
 <h1 id="3108---may-30-2017">3.10.8 - May 30, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-20">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-21">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>FIXED: Bug where the <code class="highlighter-rouge">call/2-N</code> built-in method would not be opaque to cuts.
@@ -4123,13 +4283,13 @@ The bug occurred in some cases where the constructed goal was a call to a cut
 transparent control construct.</li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-16">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-17">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: SWI-Prolog hooks file to avoid a spurious meta-predicate lint warning.</li>
 </ul>
 
-<h2 id="documentation-17">Documentation</h2>
+<h2 id="documentation-18">Documentation</h2>
 
 <ul>
   <li>
@@ -4162,7 +4322,7 @@ longer apply.</p>
   <li>ADDED: New <code class="highlighter-rouge">optional</code> library. Suggested by Sergio Castro.</li>
 </ul>
 
-<h2 id="tests-15">Tests</h2>
+<h2 id="tests-16">Tests</h2>
 
 <ul>
   <li>
@@ -4189,7 +4349,7 @@ when compiling source files.</p>
 to define a multifile predicate in the absence of its primary declaration.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-12">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-13">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Reference to the <code class="highlighter-rouge">highlighter</code> source code highlighting package
@@ -4198,7 +4358,7 @@ support for Logtalk.</li>
 
 <h1 id="3107---may-10-2017">3.10.7 - May 10, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-21">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-22">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -4215,7 +4375,7 @@ testing built-in predicates. Suggested by Barry Evans.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-17">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-18">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -4236,7 +4396,7 @@ the <code class="highlighter-rouge">all</code> target.</p>
   <li>FIXED: Bug in the <code class="highlighter-rouge">pairs::group_by_key/2</code> predicate.</li>
 </ul>
 
-<h2 id="tools-19">Tools</h2>
+<h2 id="tools-20">Tools</h2>
 
 <ul>
   <li>
@@ -4254,7 +4414,7 @@ entity properties.</p>
   </li>
 </ul>
 
-<h2 id="tests-16">Tests</h2>
+<h2 id="tests-17">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the <code class="highlighter-rouge">lgtunit</code> tool support for parametric tests.</li>
@@ -4269,7 +4429,7 @@ always true or false.</li>
 
 <h1 id="3106---may-1-2017">3.10.6 - May 1, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-22">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-23">Logtalk compiler and runtime</h2>
 
 <p>ADDED: Predicate <code class="highlighter-rouge">logtalk::file_type_extension/2</code> for accessing the file type
 extensions defined in the Prolog adapter files.</p>
@@ -4298,7 +4458,7 @@ first fixing its errors.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-18">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-19">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: All adapter files with definitions for <code class="highlighter-rouge">{+d}</code>, <code class="highlighter-rouge">{+n}</code>, and <code class="highlighter-rouge">{+o}</code>
@@ -4314,7 +4474,7 @@ GNU Prolog library written by Sean Charles. Thanks to Ebrahim Azarisooreh
 for porting and testing help.</li>
 </ul>
 
-<h2 id="tools-20">Tools</h2>
+<h2 id="tools-21">Tools</h2>
 
 <ul>
   <li>
@@ -4340,7 +4500,7 @@ tools to take advantage of the new <code class="highlighter-rouge">logtalk::file
   <li>ADDED: New <code class="highlighter-rouge">redis</code> example with unit tests for the Redis client library.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-13">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-14">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: IntelliJ IDEA plug-in. Contributed by Sergio Castro.</li>
@@ -4348,7 +4508,7 @@ tools to take advantage of the new <code class="highlighter-rouge">logtalk::file
 
 <h1 id="3105---april-17-2017">3.10.5 - April 17, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-23">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-24">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -4362,7 +4522,7 @@ generated by the term-expanding mechanism).</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-19">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-20">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Adapter files for Quintus Prolog, SICStus Prolog, and YAP to ensure
@@ -4370,7 +4530,7 @@ that changes to the <code class="highlighter-rouge">syntax_errors</code> Prolog 
 which expects exceptions to be generated for syntax errors.</li>
 </ul>
 
-<h2 id="tools-21">Tools</h2>
+<h2 id="tools-22">Tools</h2>
 
 <ul>
   <li>
@@ -4395,14 +4555,14 @@ information is collected.</p>
   </li>
 </ul>
 
-<h2 id="tests-17">Tests</h2>
+<h2 id="tests-18">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for metas-calls to the <code class="highlighter-rouge">this/1</code> and <code class="highlighter-rouge">self/1</code> execution
 context built-in methods.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-14">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-15">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: Syntax highlighting test files for recently added instantiation
@@ -4411,7 +4571,7 @@ mode operators.</li>
 
 <h1 id="3104---april-6-2017">3.10.4 - April 6, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-24">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-25">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -4425,7 +4585,7 @@ predicates that resulted in a generic error instead of the specific error.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-20">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-21">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Declare the compiler internal <code class="highlighter-rouge">'$lgt_current_engine_'/4</code> predicate as
@@ -4433,7 +4593,7 @@ predicates that resulted in a generic error instead of the specific error.</p>
 Douglas Miles for the bug report.</li>
 </ul>
 
-<h2 id="documentation-18">Documentation</h2>
+<h2 id="documentation-19">Documentation</h2>
 
 <ul>
   <li>
@@ -4457,7 +4617,7 @@ Quintus Prolog to ensure that the specified file is a regular file.</p>
   </li>
 </ul>
 
-<h2 id="tools-22">Tools</h2>
+<h2 id="tools-23">Tools</h2>
 
 <ul>
   <li>
@@ -4488,7 +4648,7 @@ reporting coverage for predicates derived from non-terminals.</p>
   </li>
 </ul>
 
-<h2 id="tests-18">Tests</h2>
+<h2 id="tests-19">Tests</h2>
 
 <ul>
   <li>
@@ -4505,7 +4665,7 @@ reporting coverage for predicates derived from non-terminals.</p>
   <li>CHANGED: The <code class="highlighter-rouge">localizations</code> example to generate a code coverage report.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-15">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-16">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -4521,7 +4681,7 @@ reporting coverage for predicates derived from non-terminals.</p>
 
 <h1 id="3103---march-20-2017">3.10.3 - March 20, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-25">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-26">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -4533,7 +4693,7 @@ predicate clauses that make calls to the <code class="highlighter-rouge">::/1-2<
   </li>
 </ul>
 
-<h2 id="documentation-19">Documentation</h2>
+<h2 id="documentation-20">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of the <code class="highlighter-rouge">type</code> library object.</li>
@@ -4559,7 +4719,7 @@ and <code class="highlighter-rouge">type::check/2</code> predicates.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-16">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-17">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -4577,7 +4737,7 @@ text editor.</p>
 
 <h1 id="3102---march-13-2017">3.10.2 - March 13, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-26">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-27">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -4606,7 +4766,7 @@ printed as quoted terms.</p>
   </li>
 </ul>
 
-<h2 id="documentation-20">Documentation</h2>
+<h2 id="documentation-21">Documentation</h2>
 
 <ul>
   <li>
@@ -4632,7 +4792,7 @@ Barry Evans.</p>
   </li>
 </ul>
 
-<h2 id="tools-23">Tools</h2>
+<h2 id="tools-24">Tools</h2>
 
 <ul>
   <li>
@@ -4644,7 +4804,7 @@ message when an item to be analyzed is not loaded or does not exist.</p>
   </li>
 </ul>
 
-<h2 id="tests-19">Tests</h2>
+<h2 id="tests-20">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the <code class="highlighter-rouge">sender/1</code> and <code class="highlighter-rouge">self/1</code> built-in methods to check
@@ -4676,7 +4836,7 @@ support turned on was not loading all required source files.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-17">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-18">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: Support for the Visual Studio Code text editor to take advantage of
@@ -4685,7 +4845,7 @@ the support for language specific default settings introduced in version 1.10.</
 
 <h1 id="3101---march-2-2017">3.10.1 - March 2, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-27">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-28">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -4706,7 +4866,7 @@ is specified using a relative path.</p>
   <li>ADDED: Predicate <code class="highlighter-rouge">pairs::group_by_key/2</code>.</li>
 </ul>
 
-<h2 id="tools-24">Tools</h2>
+<h2 id="tools-25">Tools</h2>
 
 <ul>
   <li>
@@ -4719,7 +4879,7 @@ of generating entity existence errors when referenced entities are not loaded.</
   </li>
 </ul>
 
-<h2 id="tests-20">Tests</h2>
+<h2 id="tests-21">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the <code class="highlighter-rouge">include/1</code> directive to check additional cases of
@@ -4732,7 +4892,7 @@ using relative paths.</li>
   <li>FIXED: Portability issue with one of the <code class="highlighter-rouge">errors</code> example loader files.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-18">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-19">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Atom text editor command for running a doclet found on the directory
@@ -4741,7 +4901,7 @@ of an open file.</li>
 
 <h1 id="3100---february-27-2017">3.10.0 - February 27, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-28">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-29">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -4775,7 +4935,7 @@ the file being included when processing an <code class="highlighter-rouge">inclu
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-21">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-22">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -4797,7 +4957,7 @@ and integration scripts to allow running the current Logtalk version.</p>
   </li>
 </ul>
 
-<h2 id="documentation-21">Documentation</h2>
+<h2 id="documentation-22">Documentation</h2>
 
 <p>UPDATED: Documentation of the portable <code class="highlighter-rouge">os</code> library.</p>
 
@@ -4818,7 +4978,7 @@ and integration scripts to allow running the current Logtalk version.</p>
   </li>
 </ul>
 
-<h2 id="tools-25">Tools</h2>
+<h2 id="tools-26">Tools</h2>
 
 <ul>
   <li>
@@ -4848,7 +5008,7 @@ predicate definition in the <code class="highlighter-rouge">code_metrics</code> 
   </li>
 </ul>
 
-<h2 id="tests-21">Tests</h2>
+<h2 id="tests-22">Tests</h2>
 
 <ul>
   <li>
@@ -4872,7 +5032,7 @@ of <code class="highlighter-rouge">initialization/1</code> directive goals.</p>
 the <code class="highlighter-rouge">include/1</code> directive.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-10">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-11">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -4887,7 +5047,7 @@ deploy stable versions but not using the tagged stable commits.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-19">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-20">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -4907,7 +5067,7 @@ when used on Windows systems.</p>
 
 <h1 id="3092---february-15-2017">3.09.2 - February 15, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-29">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-30">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -4941,7 +5101,7 @@ directives to document non-terminals.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-22">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-23">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -4980,7 +5140,7 @@ to Per Mildner for reporting.</p>
   </li>
 </ul>
 
-<h2 id="tools-26">Tools</h2>
+<h2 id="tools-27">Tools</h2>
 
 <ul>
   <li>
@@ -5000,7 +5160,7 @@ execution context.</p>
   </li>
 </ul>
 
-<h2 id="tests-22">Tests</h2>
+<h2 id="tests-23">Tests</h2>
 
 <ul>
   <li>
@@ -5021,13 +5181,13 @@ the declared entity relations are not valid.</p>
 <code class="highlighter-rouge">zoom_doclet</code> example.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-11">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-12">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: Outdated and fragile constructs in most Bash shell scripts.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-20">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-21">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -5044,7 +5204,7 @@ Contributed by Sergio Castro.</p>
 
 <h1 id="3091---january-16-2017">3.09.1 - January 16, 2017</h1>
 
-<h2 id="logtalk-compiler-and-runtime-30">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-31">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -5065,7 +5225,7 @@ calls. Thanks to Arun Majumdar for the report.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-23">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-24">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -5080,7 +5240,7 @@ flag to a value other than <code class="highlighter-rouge">./</code>.</p>
   </li>
 </ul>
 
-<h2 id="documentation-22">Documentation</h2>
+<h2 id="documentation-23">Documentation</h2>
 
 <ul>
   <li>
@@ -5099,7 +5259,7 @@ and calling of category predicates.</p>
 library object. Currently only implemented for the SWI-Prolog/YAP JPL library.</li>
 </ul>
 
-<h2 id="tools-27">Tools</h2>
+<h2 id="tools-28">Tools</h2>
 
 <ul>
   <li>
@@ -5117,7 +5277,7 @@ failed to load.</p>
   </li>
 </ul>
 
-<h2 id="tests-23">Tests</h2>
+<h2 id="tests-24">Tests</h2>
 
 <ul>
   <li>
@@ -5133,7 +5293,7 @@ unit tests.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-12">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-13">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -5149,7 +5309,7 @@ used for generating the macOS installer.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-21">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-22">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -5164,7 +5324,7 @@ for the <code class="highlighter-rouge">create_logtalk_flag/2</code> built-in pr
 
 <h1 id="3090---november-28-2016">3.09.0 - November 28, 2016</h1>
 
-<h2 id="logtalk-compiler-and-runtime-31">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-32">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -5244,7 +5404,7 @@ setting a non-standard flag with the <code class="highlighter-rouge">portability
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-24">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-25">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -5279,7 +5439,7 @@ generated code with source location data for using the SWI-Prolog own tools.</p>
   </li>
 </ul>
 
-<h2 id="documentation-23">Documentation</h2>
+<h2 id="documentation-24">Documentation</h2>
 
 <ul>
   <li>
@@ -5320,7 +5480,7 @@ compilation blocks.</p>
   </li>
 </ul>
 
-<h2 id="tools-28">Tools</h2>
+<h2 id="tools-29">Tools</h2>
 
 <ul>
   <li>
@@ -5424,7 +5584,7 @@ Thanks to Eric Charikane for the updated links.</p>
   </li>
 </ul>
 
-<h2 id="tests-24">Tests</h2>
+<h2 id="tests-25">Tests</h2>
 
 <ul>
   <li>
@@ -5448,7 +5608,7 @@ message sending goals from <code class="highlighter-rouge">user</code> may be op
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-13">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-14">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -5467,7 +5627,7 @@ Michael Richter for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-22">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-23">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -5481,7 +5641,7 @@ editor.</p>
 
 <h1 id="3080---october-17-2016">3.08.0 - October 17, 2016</h1>
 
-<h2 id="logtalk-compiler-and-runtime-32">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-33">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -5518,7 +5678,7 @@ the line prefix would not be omitted.</p>
   </li>
 </ul>
 
-<h2 id="documentation-24">Documentation</h2>
+<h2 id="documentation-25">Documentation</h2>
 
 <ul>
   <li>
@@ -5561,7 +5721,7 @@ requires expansion when using SWI-Prolog or XSB as the backend compiler.</p>
   </li>
 </ul>
 
-<h2 id="tools-29">Tools</h2>
+<h2 id="tools-30">Tools</h2>
 
 <ul>
   <li>
@@ -5636,7 +5796,7 @@ it would fail to delete all matching spy points.</p>
   </li>
 </ul>
 
-<h2 id="tests-25">Tests</h2>
+<h2 id="tests-26">Tests</h2>
 
 <ul>
   <li>
@@ -5662,7 +5822,7 @@ built-in execution context methods.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-14">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-15">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -5701,7 +5861,7 @@ directives when using the new <code class="highlighter-rouge">dead_code_scanner<
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-23">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-24">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -5726,7 +5886,7 @@ entity and predicate directives.</p>
 
 <h1 id="3070---august-31-2016">3.07.0 - August 31, 2016</h1>
 
-<h2 id="logtalk-compiler-and-runtime-33">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-34">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -5769,7 +5929,7 @@ information were not recorded. Thanks to Edward Schwartz for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-25">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-26">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -5781,7 +5941,7 @@ Lean Prolog as the backend compiler.</p>
   </li>
 </ul>
 
-<h2 id="documentation-25">Documentation</h2>
+<h2 id="documentation-26">Documentation</h2>
 
 <ul>
   <li>
@@ -5816,7 +5976,7 @@ predicates.</p>
   </li>
 </ul>
 
-<h2 id="tools-30">Tools</h2>
+<h2 id="tools-31">Tools</h2>
 
 <ul>
   <li>
@@ -5863,7 +6023,7 @@ defining unit tests.</p>
 
 <h1 id="3070---july-18-2016">3.07.0 - July 18, 2016</h1>
 
-<h2 id="logtalk-compiler-and-runtime-34">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-35">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -5887,14 +6047,14 @@ supported.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-26">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-27">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Startup of Logtalk using the multi-threading version of XSB as the
 backend compiler.</li>
 </ul>
 
-<h2 id="documentation-26">Documentation</h2>
+<h2 id="documentation-27">Documentation</h2>
 
 <ul>
   <li>
@@ -5913,7 +6073,7 @@ built-in methods no longer refer to the Prolog ISO standard.</p>
   </li>
 </ul>
 
-<h2 id="tools-31">Tools</h2>
+<h2 id="tools-32">Tools</h2>
 
 <ul>
   <li>
@@ -5933,7 +6093,7 @@ private meta-predicates.</p>
   </li>
 </ul>
 
-<h2 id="tests-26">Tests</h2>
+<h2 id="tests-27">Tests</h2>
 
 <ul>
   <li>
@@ -5948,7 +6108,7 @@ and <code class="highlighter-rouge">logtalk_compile/1-2</code> built-in predicat
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-15">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-16">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: The installer and user setup scripts to copy the <code class="highlighter-rouge">tests-sample.lgt</code>
@@ -5957,7 +6117,7 @@ to the <code class="highlighter-rouge">$LOGTALKUSER</code> folder.</li>
 
 <h1 id="3061---june-19-2016">3.06.1 - June 19, 2016</h1>
 
-<h2 id="logtalk-compiler-and-runtime-35">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-36">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -5976,7 +6136,7 @@ and <code class="highlighter-rouge">exception(Error)</code> terms as answers.</p
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-16">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-17">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">logtalk</code> SWI-Prolog pack to load Logtalk silently.</li>
@@ -5991,7 +6151,7 @@ written by Jan Wielemaker.</li>
 
 <h1 id="3060---june-12-2016">3.06.0 - June 12, 2016</h1>
 
-<h2 id="logtalk-compiler-and-runtime-36">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-37">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -6029,14 +6189,14 @@ Thanks to Günter Kniesel for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-27">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-28">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: SWI-Prolog adapter file to enable tabling support when using version
 7.3.21 or later.</li>
 </ul>
 
-<h2 id="documentation-27">Documentation</h2>
+<h2 id="documentation-28">Documentation</h2>
 
 <ul>
   <li>
@@ -6047,7 +6207,7 @@ Thanks to Günter Kniesel for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="tools-32">Tools</h2>
+<h2 id="tools-33">Tools</h2>
 
 <ul>
   <li>
@@ -6096,7 +6256,7 @@ broke the <code class="highlighter-rouge">test/3</code> testing dialect.</p>
   </li>
 </ul>
 
-<h2 id="tests-27">Tests</h2>
+<h2 id="tests-28">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the new threaded engines built-in predicates.</li>
@@ -6125,7 +6285,7 @@ compiler when using version 7.3.21 or later.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-24">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-25">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -6149,7 +6309,7 @@ versions of the Gedit text editor.</p>
 
 <h1 id="3050---may-16-2016">3.05.0 - May 16, 2016</h1>
 
-<h2 id="logtalk-compiler-and-runtime-37">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-38">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -6187,14 +6347,14 @@ into a call to <code class="highlighter-rouge">true/0</code>.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-28">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-29">Prolog adapter and integration files</h2>
 
 <ul>
   <li>ADDED: Tag the de facto standard <code class="highlighter-rouge">listing/1</code> Prolog predicate as a database
 predicate for all supported backend Prolog compilers.</li>
 </ul>
 
-<h2 id="documentation-28">Documentation</h2>
+<h2 id="documentation-29">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation for the developer tools.</li>
@@ -6207,7 +6367,7 @@ predicate for all supported backend Prolog compilers.</li>
 some library entities.</li>
 </ul>
 
-<h2 id="tools-33">Tools</h2>
+<h2 id="tools-34">Tools</h2>
 
 <ul>
   <li>
@@ -6286,7 +6446,7 @@ the <code class="highlighter-rouge">debugger</code>, <code class="highlighter-ro
   </li>
 </ul>
 
-<h2 id="tests-28">Tests</h2>
+<h2 id="tests-29">Tests</h2>
 
 <ul>
   <li>
@@ -6304,7 +6464,7 @@ re-declaration semantics.</p>
 
 <h1 id="3042---may-3-2016">3.04.2 - May 3, 2016</h1>
 
-<h2 id="logtalk-compiler-and-runtime-38">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-39">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -6317,20 +6477,20 @@ that are explicit-qualified module terms.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-29">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-30">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Definition of the <code class="highlighter-rouge">logtalk_make/1</code> shortcut <code class="highlighter-rouge">{?}</code> for Lean Prolog.</li>
 </ul>
 
-<h2 id="documentation-29">Documentation</h2>
+<h2 id="documentation-30">Documentation</h2>
 
 <ul>
   <li>FIXED: Description of the search order for predicate definitions for
 class hierarchies in the User Manual.</li>
 </ul>
 
-<h2 id="tools-34">Tools</h2>
+<h2 id="tools-35">Tools</h2>
 
 <ul>
   <li>
@@ -6367,7 +6527,7 @@ when the test is skipped.</p>
   </li>
 </ul>
 
-<h2 id="tests-29">Tests</h2>
+<h2 id="tests-30">Tests</h2>
 
 <ul>
   <li>ADDED: Determinism tests for the <code class="highlighter-rouge">object_property/2</code>, <code class="highlighter-rouge">protocol_property/2</code>,
@@ -6376,7 +6536,7 @@ and <code class="highlighter-rouge">category_property/2</code> built-in predicat
 
 <h1 id="3041---march-16-2016">3.04.1 - March 16, 2016</h1>
 
-<h2 id="logtalk-compiler-and-runtime-39">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-40">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -6394,14 +6554,14 @@ arguments to be deterministic.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-30">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-31">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: The CxProlog adapter file to require version 0.98.1 or later as the
 new version fixes Prolog standard compliance issues.</li>
 </ul>
 
-<h2 id="tools-35">Tools</h2>
+<h2 id="tools-36">Tools</h2>
 
 <ul>
   <li>
@@ -6466,7 +6626,7 @@ non-terminals.</p>
   </li>
 </ul>
 
-<h2 id="tests-30">Tests</h2>
+<h2 id="tests-31">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the <code class="highlighter-rouge">iso8601</code> library contribution taken from its
@@ -6475,7 +6635,7 @@ documentation examples.</li>
 
 <h1 id="3040---march-7-2016">3.04.0 - March 7, 2016</h1>
 
-<h2 id="logtalk-compiler-and-runtime-40">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-41">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -6495,7 +6655,7 @@ were not checked.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-31">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-32">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -6518,7 +6678,7 @@ scripts). With the help of Jan Wielemaker.</p>
 the <code class="highlighter-rouge">difflist</code> and <code class="highlighter-rouge">list</code> objects.</li>
 </ul>
 
-<h2 id="tools-36">Tools</h2>
+<h2 id="tools-37">Tools</h2>
 
 <ul>
   <li>
@@ -6591,7 +6751,7 @@ for proper sub-libraries.</p>
   </li>
 </ul>
 
-<h2 id="tests-31">Tests</h2>
+<h2 id="tests-32">Tests</h2>
 
 <ul>
   <li>
@@ -6622,7 +6782,7 @@ predicates.</p>
 
 <h1 id="3030---february-16-2016">3.03.0 - February 16, 2016</h1>
 
-<h2 id="logtalk-compiler-and-runtime-41">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-42">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -6653,7 +6813,7 @@ identifiers in error and warning messages.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-32">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-33">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -6688,7 +6848,7 @@ execution context for Logtalk goals.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-17">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-18">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">logtalk</code> SWI-Prolog pack now loads Logtalk into a <code class="highlighter-rouge">logtalk</code>
@@ -6696,13 +6856,13 @@ module that exports all Logtalk built-in predicates and the shortcuts for
 loading and make features.</li>
 </ul>
 
-<h2 id="documentation-30">Documentation</h2>
+<h2 id="documentation-31">Documentation</h2>
 
 <ul>
   <li>FIXED: Several typos in the User and Reference manuals.</li>
 </ul>
 
-<h2 id="tests-32">Tests</h2>
+<h2 id="tests-33">Tests</h2>
 
 <ul>
   <li>FIXED: Workaround an issue with operator parsing when testing the Logtalk 
@@ -6724,7 +6884,7 @@ these declarations to ensure correcting parsing of the example unit tests.</p>
 
 <h1 id="3022---december-22-2015">3.02.2 - December 22, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-42">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-43">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -6738,7 +6898,7 @@ failing.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-33">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-34">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: B-Prolog adapter file to recognize the built-in <code class="highlighter-rouge">time/1</code>
@@ -6763,7 +6923,7 @@ to the <code class="highlighter-rouge">map/2-8</code> meta-predicates.</p>
   </li>
 </ul>
 
-<h2 id="tools-37">Tools</h2>
+<h2 id="tools-38">Tools</h2>
 
 <ul>
   <li>IMPROVED: Startup message when loading the <code class="highlighter-rouge">help</code> tool now also includes
@@ -6779,7 +6939,7 @@ using B-Prolog as the backend compiler. Added more unit tests.</li>
 
 <h1 id="3021---november-12-2015">3.02.1 - November 12, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-43">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-44">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -6825,21 +6985,21 @@ for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="documentation-31">Documentation</h2>
+<h2 id="documentation-32">Documentation</h2>
 
 <p>ADDED: Small section on optimizing applications to the user manual section on
 Logtalk programming.</p>
 
 <p>UPDATED: Settings examples.</p>
 
-<h2 id="prolog-adapter-and-integration-files-34">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-35">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: Lean Prolog 4.5.7 or a later version is now required when using
 this backend compiler.</li>
 </ul>
 
-<h2 id="tests-33">Tests</h2>
+<h2 id="tests-34">Tests</h2>
 
 <ul>
   <li>
@@ -6863,7 +7023,7 @@ functions. Thanks to Jan Burse for the bug report.</p>
 
 <h1 id="3020---november-2-2015">3.02.0 - November 2, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-44">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-45">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -6925,7 +7085,7 @@ fail when running with the <code class="highlighter-rouge">optimize</code> flat 
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-35">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-36">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -6949,7 +7109,7 @@ read file terms to also accept an empty list of options.</p>
   </li>
 </ul>
 
-<h2 id="documentation-32">Documentation</h2>
+<h2 id="documentation-33">Documentation</h2>
 
 <p>ADDED: Documentation on multifile predicate definition caveats.</p>
 
@@ -6971,14 +7131,14 @@ Prolog used in the portable operating-system library.</p>
   </li>
 </ul>
 
-<h2 id="tools-38">Tools</h2>
+<h2 id="tools-39">Tools</h2>
 
 <ul>
   <li>IMPROVED: Better coding style for the tools multifile message predicate and
 non-terminal definitions.</li>
 </ul>
 
-<h2 id="tests-34">Tests</h2>
+<h2 id="tests-35">Tests</h2>
 
 <ul>
   <li>
@@ -7025,7 +7185,7 @@ compiler with the <code class="highlighter-rouge">wrappers</code> example.</p>
 
 <h1 id="3012---october-18-2015">3.01.2 - October 18, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-45">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-46">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -7052,7 +7212,7 @@ the call.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-36">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-37">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Some typos in the SWI-Prolog integration files in declarations for
@@ -7060,7 +7220,7 @@ internal Logtalk predicates that should be hidden when using the XPCE profiler
 and XPCE graphical debugger.</li>
 </ul>
 
-<h2 id="documentation-33">Documentation</h2>
+<h2 id="documentation-34">Documentation</h2>
 
 <ul>
   <li>
@@ -7099,7 +7259,7 @@ exception of Qu-Prolog.</p>
   </li>
 </ul>
 
-<h2 id="tools-39">Tools</h2>
+<h2 id="tools-40">Tools</h2>
 
 <ul>
   <li>
@@ -7151,7 +7311,7 @@ complementing category to patch an object.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-25">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-26">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">ctags</code> support to also recognize module opening directives plus
@@ -7160,7 +7320,7 @@ dynamic, meta-predicate, and multifile predicate directives.</li>
 
 <h1 id="3011---september-30-2015">3.01.1 - September 30, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-46">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-47">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -7180,7 +7340,7 @@ replaced using a complementing category.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-37">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-38">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -7200,7 +7360,7 @@ CxProlog, Qu-Prolog, Quintus Prolog, and SICStus Prolog backend compilers.</p>
   <li>ADDED: Predicate <code class="highlighter-rouge">decompose_file_name/4</code> to the <code class="highlighter-rouge">os</code> library.</li>
 </ul>
 
-<h2 id="tools-40">Tools</h2>
+<h2 id="tools-41">Tools</h2>
 
 <ul>
   <li>
@@ -7211,7 +7371,7 @@ CxProlog, Qu-Prolog, Quintus Prolog, and SICStus Prolog backend compilers.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-26">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-27">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -7224,7 +7384,7 @@ support.</p>
   </li>
 </ul>
 
-<h2 id="tests-35">Tests</h2>
+<h2 id="tests-36">Tests</h2>
 
 <ul>
   <li>
@@ -7252,7 +7412,7 @@ license change is kindly sponsored by Kyndi Inc.</li>
 
 <h1 id="3007---september-4-2015">3.00.7 - September 4, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-47">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-48">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -7293,14 +7453,14 @@ compilation when dynamically creating an entity.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-38">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-39">Prolog adapter and integration files</h2>
 
 <ul>
   <li>ADDED: Updated the Lean Prolog adapter file with support for using <code class="highlighter-rouge">index/1</code>
 directives in objects and categories.</li>
 </ul>
 
-<h2 id="documentation-34">Documentation</h2>
+<h2 id="documentation-35">Documentation</h2>
 
 <ul>
   <li>
@@ -7320,7 +7480,7 @@ keys when performing goal-expansion.</p>
 <code class="highlighter-rouge">assignvars_loader.lgt</code>.</li>
 </ul>
 
-<h2 id="tools-41">Tools</h2>
+<h2 id="tools-42">Tools</h2>
 
 <ul>
   <li>
@@ -7342,7 +7502,7 @@ question asking mechanisms predicates and for the coinduction hook predicates.</
   </li>
 </ul>
 
-<h2 id="tests-36">Tests</h2>
+<h2 id="tests-37">Tests</h2>
 
 <ul>
   <li>
@@ -7371,7 +7531,7 @@ natural languages.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-27">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-28">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -7388,7 +7548,7 @@ coding.</p>
 
 <h1 id="3006---august-3-2015">3.00.6 - August 3, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-48">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-49">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -7404,7 +7564,7 @@ using embedded <code class="highlighter-rouge">if/1</code> directives.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-39">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-40">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -7444,7 +7604,7 @@ Added an <code class="highlighter-rouge">assignvars_loader</code> loader file th
   </li>
 </ul>
 
-<h2 id="tests-37">Tests</h2>
+<h2 id="tests-38">Tests</h2>
 
 <ul>
   <li>
@@ -7458,7 +7618,7 @@ backend Prolog compilers.</p>
 
 <h1 id="3005---july-27-2015">3.00.5 - July 27, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-49">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-50">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -7477,7 +7637,7 @@ when loading the Logtalk compiler/runtime.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-40">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-41">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -7490,7 +7650,7 @@ returned term begin line is offset by one.</p>
   </li>
 </ul>
 
-<h2 id="documentation-35">Documentation</h2>
+<h2 id="documentation-36">Documentation</h2>
 
 <ul>
   <li>
@@ -7526,14 +7686,14 @@ built-in predicate.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-18">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-19">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The Windows installer to also detect ECLiPSe 6.2 (the current
 development version).</li>
 </ul>
 
-<h2 id="tools-42">Tools</h2>
+<h2 id="tools-43">Tools</h2>
 
 <ul>
   <li>
@@ -7556,7 +7716,7 @@ in this release for the compilation of super calls in complementing categories.<
 
 <h1 id="3004---june-23-2015">3.00.4 - June 23, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-50">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-51">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>FIXED: Regression in the compilation of source file level <code class="highlighter-rouge">multifile/1</code>,
@@ -7565,7 +7725,7 @@ in this release for the compilation of super calls in complementing categories.<
 
 <h1 id="3003---june-22-2015">3.00.3 - June 22, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-51">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-52">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -7582,14 +7742,14 @@ when compiling <code class="highlighter-rouge">initialization/1</code>, <code cl
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-41">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-42">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: JIProlog 4.0.18 or a later version is now required as this version
 introduces support for the standard <code class="highlighter-rouge">discontiguous/1</code> directive.</li>
 </ul>
 
-<h2 id="tools-43">Tools</h2>
+<h2 id="tools-44">Tools</h2>
 
 <ul>
   <li>
@@ -7613,7 +7773,7 @@ allow specification of per test notes and condition, setup, and cleanup goals.</
   </li>
 </ul>
 
-<h2 id="tests-38">Tests</h2>
+<h2 id="tests-39">Tests</h2>
 
 <ul>
   <li>
@@ -7650,7 +7810,7 @@ library when using recent SWI-Prolog releases.</li>
 
 <h1 id="3002---may-27-2015">3.00.2 - May 27, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-52">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-53">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -7669,7 +7829,7 @@ instead of “above” when the culprit term begin and end lines are the same.</
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-42">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-43">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -7700,7 +7860,7 @@ compliant <code class="highlighter-rouge">setup_call_cleanup/3</code> implementa
   </li>
 </ul>
 
-<h2 id="tools-44">Tools</h2>
+<h2 id="tools-45">Tools</h2>
 
 <ul>
   <li>
@@ -7723,7 +7883,7 @@ versions of the tests to run.</p>
   </li>
 </ul>
 
-<h2 id="tests-39">Tests</h2>
+<h2 id="tests-40">Tests</h2>
 
 <ul>
   <li>
@@ -7818,7 +7978,7 @@ report.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-19">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-20">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: Missing <code class="highlighter-rouge">settings.lgt</code> file in the SWI-Prolog logtalk pack.</li>
@@ -7826,7 +7986,7 @@ report.</p>
 
 <h1 id="3001---february-25-2015">3.00.1 - February 25, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-53">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-54">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -7908,7 +8068,7 @@ would be type-checked twice.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-43">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-44">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -7948,7 +8108,7 @@ for JIProlog.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-20">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-21">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -7966,7 +8126,7 @@ instead of simply writing it out to the current directory.</p>
   </li>
 </ul>
 
-<h2 id="documentation-36">Documentation</h2>
+<h2 id="documentation-37">Documentation</h2>
 
 <ul>
   <li>
@@ -7986,7 +8146,7 @@ the <code class="highlighter-rouge">hook/1</code> compiler flag.</p>
   </li>
 </ul>
 
-<h2 id="tools-45">Tools</h2>
+<h2 id="tools-46">Tools</h2>
 
 <ul>
   <li>
@@ -7997,7 +8157,7 @@ the <code class="highlighter-rouge">hook/1</code> compiler flag.</p>
   </li>
 </ul>
 
-<h2 id="tests-40">Tests</h2>
+<h2 id="tests-41">Tests</h2>
 
 <ul>
   <li>ADDED: More unit tests for the ISO Prolog standard term comparison
@@ -8019,7 +8179,7 @@ examples found in the JPL distribution.</p>
 
 <h1 id="3000---january-7-2015">3.00.0 - January 7, 2015</h1>
 
-<h2 id="logtalk-compiler-and-runtime-54">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-55">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -8033,7 +8193,7 @@ tags to decide when to decorate compiled terms with source location data
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-44">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-45">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -8048,7 +8208,7 @@ was not yet loaded. Thanks to Andrew Becker for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="documentation-37">Documentation</h2>
+<h2 id="documentation-38">Documentation</h2>
 
 <ul>
   <li>UPDATED: The POSIX integration script man pages with details on the Prolog
@@ -8062,7 +8222,7 @@ executable name requirements.</li>
 <code class="highlighter-rouge">monitoring</code> protocol.</li>
 </ul>
 
-<h2 id="tools-46">Tools</h2>
+<h2 id="tools-47">Tools</h2>
 
 <ul>
   <li>
@@ -8088,7 +8248,7 @@ directives and properties.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-28">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-29">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Snippet for extended categories to the TextMate 2 text editor.</li>
@@ -8096,7 +8256,7 @@ directives and properties.</p>
 
 <h1 id="3000-release-candidate-9---december-19-2014">3.00.0 Release Candidate 9 - December 19, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-55">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-56">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -8146,7 +8306,7 @@ module predicates when the module is only known at runtime.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-45">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-46">Prolog adapter and integration files</h2>
 
 <ul>
   <li>CHANGED: When using SWI-Prolog as the backend compiler, a new Prolog flag,
@@ -8157,7 +8317,7 @@ generated by the compilation of Logtalk source files. Setting this flag to
 as the graphical tracer. See the <code class="highlighter-rouge">settings-sample.lgt</code> file for details.</li>
 </ul>
 
-<h2 id="documentation-38">Documentation</h2>
+<h2 id="documentation-39">Documentation</h2>
 
 <ul>
   <li>
@@ -8170,7 +8330,7 @@ User Manual.</p>
   </li>
 </ul>
 
-<h2 id="tools-47">Tools</h2>
+<h2 id="tools-48">Tools</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">dump_trace</code> utility object to also redirect debugger tracing
@@ -8179,7 +8339,7 @@ messages that have a maximum term write depth argument.</li>
 
 <h1 id="3000-release-candidate-8---december-9-2014">3.00.0 Release Candidate 8 - December 9, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-56">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-57">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -8229,7 +8389,7 @@ as argument to entity relations in entity opening directives.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-46">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-47">Prolog adapter and integration files</h2>
 
 <ul>
   <li>CHANGED: SWI-Prolog version 6.6.0 or later is now required when using this
@@ -8260,7 +8420,7 @@ B-Prolog, Quintus Prolog, and SWI-Prolog.</p>
   </li>
 </ul>
 
-<h2 id="tools-48">Tools</h2>
+<h2 id="tools-49">Tools</h2>
 
 <ul>
   <li>
@@ -8273,7 +8433,7 @@ results in files that are guessed as binary files.</p>
   </li>
 </ul>
 
-<h2 id="tests-41">Tests</h2>
+<h2 id="tests-42">Tests</h2>
 
 <ul>
   <li>
@@ -8301,7 +8461,7 @@ directives.</p>
 
 <h1 id="3000-release-candidate-7---december-1-2014">3.00.0 Release Candidate 7 - December 1, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-57">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-58">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -8349,7 +8509,7 @@ with some backend Prolog compilers.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-47">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-48">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -8375,7 +8535,7 @@ standard <code class="highlighter-rouge">findall/4</code> predicate.</p>
 for XSB.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-21">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-22">Installers and installation scripts</h2>
 
 <ul>
   <li>IMPROVED: The Windows installer will now warn the user and cancel the
@@ -8384,7 +8544,7 @@ created. Also converted the <code class="highlighter-rouge">logtalk.iss</code> i
 the Inno Setup Unicode version is now required to compile it).</li>
 </ul>
 
-<h2 id="tools-49">Tools</h2>
+<h2 id="tools-50">Tools</h2>
 
 <ul>
   <li>
@@ -8407,7 +8567,7 @@ the current locale and the logging of failed test results.</p>
   </li>
 </ul>
 
-<h2 id="tests-42">Tests</h2>
+<h2 id="tests-43">Tests</h2>
 
 <ul>
   <li>
@@ -8435,7 +8595,7 @@ standard predicate.</p>
 
 <h1 id="3000-release-candidate-6---november-19-2014">3.00.0 Release Candidate 6 - November 19, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-58">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-59">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -8475,20 +8635,20 @@ errors.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-48">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-49">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: The (still unsupported) Jekejeke adapter file for changes in
 release 1.0.4.</li>
 </ul>
 
-<h2 id="documentation-39">Documentation</h2>
+<h2 id="documentation-40">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of the <code class="highlighter-rouge">lgtunit</code> tool.</li>
 </ul>
 
-<h2 id="tests-43">Tests</h2>
+<h2 id="tests-44">Tests</h2>
 
 <ul>
   <li>
@@ -8521,7 +8681,7 @@ to delay errors in expressions to runtime to properly test exception terms.</p>
 
 <h1 id="3000-release-candidate-5---november-12-2014">3.00.0 Release Candidate 5 - November 12, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-59">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-60">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -8541,7 +8701,7 @@ source file term, the remaining source file terms would still be read.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-49">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-50">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -8569,7 +8729,7 @@ predicates <code class="highlighter-rouge">assert_static/1</code>, <code class="
 used a built-in predicate that apparently is no longer available).</li>
 </ul>
 
-<h2 id="documentation-40">Documentation</h2>
+<h2 id="documentation-41">Documentation</h2>
 
 <ul>
   <li>
@@ -8584,7 +8744,7 @@ using the <code class="highlighter-rouge">diagrams</code> tool.</p>
   </li>
 </ul>
 
-<h2 id="tools-50">Tools</h2>
+<h2 id="tools-51">Tools</h2>
 
 <ul>
   <li>
@@ -8624,7 +8784,7 @@ an ending slash.</p>
   </li>
 </ul>
 
-<h2 id="tests-44">Tests</h2>
+<h2 id="tests-45">Tests</h2>
 
 <ul>
   <li>
@@ -8643,7 +8803,7 @@ compilers that support cyclic terms.</p>
 
 <h1 id="3000-release-candidate-4---october-28-2014">3.00.0 Release Candidate 4 - October 28, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-60">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-61">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -8676,7 +8836,7 @@ when compiling a source file where the wrong scratch directory could be used.</p
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-50">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-51">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -8702,7 +8862,7 @@ predicates.</p>
 library.</li>
 </ul>
 
-<h2 id="documentation-41">Documentation</h2>
+<h2 id="documentation-42">Documentation</h2>
 
 <ul>
   <li>
@@ -8720,7 +8880,7 @@ solutions (as there can be multiple proofs for the same solution).</p>
   </li>
 </ul>
 
-<h2 id="tools-51">Tools</h2>
+<h2 id="tools-52">Tools</h2>
 
 <ul>
   <li>
@@ -8750,7 +8910,7 @@ directive second argument.</p>
 with a mixed data representation using both data objects and Prolog facts.</li>
 </ul>
 
-<h2 id="tests-45">Tests</h2>
+<h2 id="tests-46">Tests</h2>
 
 <ul>
   <li>
@@ -8768,7 +8928,7 @@ in the initial test versions.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-29">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-30">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Support for arithmetic functions and operators introduced in the
@@ -8778,7 +8938,7 @@ and syntax highlighters.</li>
 
 <h1 id="3000-release-candidate-3---october-3-2014">3.00.0 Release Candidate 3 - October 3, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-61">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-62">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -8798,7 +8958,7 @@ protocol or category.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-51">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-52">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -8823,7 +8983,7 @@ predicates to distinguish between files and directories.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-22">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-23">Installers and installation scripts</h2>
 
 <ul>
   <li>CHANGED: The installers and installation scripts to delete the suffix
@@ -8847,7 +9007,7 @@ predicate to ensure that it’s a regular file instead of e.g. a directory.</p>
   </li>
 </ul>
 
-<h2 id="tools-52">Tools</h2>
+<h2 id="tools-53">Tools</h2>
 
 <ul>
   <li>
@@ -8895,7 +9055,7 @@ and the enhancements to the puzzle implementation.</p>
   </li>
 </ul>
 
-<h2 id="tests-46">Tests</h2>
+<h2 id="tests-47">Tests</h2>
 
 <ul>
   <li>FIXED: Tests of the <code class="highlighter-rouge">multifile/1</code> directive to avoid discontiguous predicate
@@ -8904,7 +9064,7 @@ issues with some backend Prolog compilers such as GNU Prolog.</li>
 
 <h1 id="3000-release-candidate-2---september-22-2014">3.00.0 Release Candidate 2 - September 22, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-62">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-63">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -8946,7 +9106,7 @@ the <code class="highlighter-rouge">error/2</code> wrapper with its context argu
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-52">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-53">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -8973,13 +9133,13 @@ files.</p>
   </li>
 </ul>
 
-<h2 id="documentation-42">Documentation</h2>
+<h2 id="documentation-43">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of the <code class="highlighter-rouge">phrase/2-3</code> built-in methods.</li>
 </ul>
 
-<h2 id="tools-53">Tools</h2>
+<h2 id="tools-54">Tools</h2>
 
 <ul>
   <li>
@@ -8996,14 +9156,14 @@ the <code class="highlighter-rouge">discontiguous/1</code> directive.</p>
   </li>
 </ul>
 
-<h2 id="tests-47">Tests</h2>
+<h2 id="tests-48">Tests</h2>
 
 <ul>
   <li>FIXED: Updated the unit tests for the conditional compilation directives to
 avoid a clash with a Lean Prolog built-in predicate.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-30">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-31">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -9026,7 +9186,7 @@ from Georg Brandl and David Corbett, Pygments developers).</p>
 
 <h1 id="3000-release-candidate-1---september-3-2014">3.00.0 Release Candidate 1 - September 3, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-63">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-64">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -9111,7 +9271,7 @@ when calling a Prolog meta-predicate that takes a closure as argument.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-53">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-54">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -9134,7 +9294,7 @@ integration files.</p>
   </li>
 </ul>
 
-<h2 id="tools-54">Tools</h2>
+<h2 id="tools-55">Tools</h2>
 
 <ul>
   <li>
@@ -9205,7 +9365,7 @@ in the exclusion list when specified without an extension.</p>
   </li>
 </ul>
 
-<h2 id="tests-48">Tests</h2>
+<h2 id="tests-49">Tests</h2>
 
 <ul>
   <li>
@@ -9220,7 +9380,7 @@ when used from parametric categories to the <code class="highlighter-rouge">para
 
 <h1 id="3000-beta-9---july-31-2014">3.00.0 Beta 9 - July 31, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-64">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-65">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -9235,7 +9395,7 @@ due to some compilation or loading error.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-54">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-55">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -9249,7 +9409,7 @@ entity source file.</p>
   </li>
 </ul>
 
-<h2 id="documentation-43">Documentation</h2>
+<h2 id="documentation-44">Documentation</h2>
 
 <ul>
   <li>
@@ -9265,7 +9425,7 @@ directive and for the <code class="highlighter-rouge">info/2</code> predicate di
   </li>
 </ul>
 
-<h2 id="tools-55">Tools</h2>
+<h2 id="tools-56">Tools</h2>
 
 <ul>
   <li>
@@ -9352,7 +9512,7 @@ in proprietary applications. Also removed the (mostly redundant) additional
 restrictions that were used as per GNU GPLv3 Section 7.</li>
 </ul>
 
-<h2 id="logtalk-compiler-and-runtime-65">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-66">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -9415,7 +9575,7 @@ when the message kind is unknown.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-55">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-56">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -9435,7 +9595,7 @@ non-related terms using the same functor and arity.</p>
   </li>
 </ul>
 
-<h2 id="tools-56">Tools</h2>
+<h2 id="tools-57">Tools</h2>
 
 <ul>
   <li>
@@ -9479,7 +9639,7 @@ Andrew Fall.</li>
 
 <h1 id="3000-beta-7---june-17-2014">3.00.0 Beta 7 - June 17, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-66">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-67">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -9503,7 +9663,7 @@ database methods would be missed by the compiler.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-56">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-57">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -9516,7 +9676,7 @@ built-in meta-predicate to the adapter files of CxProlog and XSB.</p>
   </li>
 </ul>
 
-<h2 id="tools-57">Tools</h2>
+<h2 id="tools-58">Tools</h2>
 
 <ul>
   <li>
@@ -9536,7 +9696,7 @@ directive and corresponding object and category property.</p>
 
 <h1 id="3000-beta-6---june-11-2014">3.00.0 Beta 6 - June 11, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-67">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-68">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -9607,21 +9767,21 @@ turned on while using the <code class="highlighter-rouge">{}/1</code> syntax to 
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-57">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-58">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Added missing definition for the standard <code class="highlighter-rouge">acyclic_term/1</code> predicate
 to the Quintus Prolog adapter file.</li>
 </ul>
 
-<h2 id="documentation-44">Documentation</h2>
+<h2 id="documentation-45">Documentation</h2>
 
 <ul>
   <li>ADDED: Sample tester file, <code class="highlighter-rouge">tester-sample.lgt</code>, for helping automating
 running unit tests.</li>
 </ul>
 
-<h2 id="tools-58">Tools</h2>
+<h2 id="tools-59">Tools</h2>
 
 <ul>
   <li>
@@ -9643,7 +9803,7 @@ clauses.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-31">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-32">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Syntax coloring support for the <code class="highlighter-rouge">as/2</code> predicate alias operator to
@@ -9652,7 +9812,7 @@ most of the supported text editors and syntax highlighters.</li>
 
 <h1 id="3000-beta-5---may-26-2014">3.00.0 Beta 5 - May 26, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-68">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-69">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -9691,7 +9851,7 @@ syntax.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-58">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-59">Prolog adapter and integration files</h2>
 
 <ul>
   <li>CHANGED: The <code class="highlighter-rouge">adapters/xpcehooks.pl</code> file have been renamed and moved to the
@@ -9724,7 +9884,7 @@ dictionary term for representing object parameters.</p>
 
 <h1 id="3000-beta-4---may-14-2014">3.00.0 Beta 4 - May 14, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-69">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-70">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -9766,7 +9926,7 @@ predicates) when the <em>sender</em> is not the same object as <em>this</em>.</p
   </li>
 </ul>
 
-<h2 id="tests-49">Tests</h2>
+<h2 id="tests-50">Tests</h2>
 
 <ul>
   <li>
@@ -9781,7 +9941,7 @@ where a conjunction of predicate indicators is used instead of a list.</p>
 
 <h1 id="3000-beta-3---may-2-2014">3.00.0 Beta 3 - May 2, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-70">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-71">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -9834,7 +9994,7 @@ predicate properties when querying for a predicate alias.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-59">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-60">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -9847,7 +10007,7 @@ startup. Complex applications, however, may still need to adjust memory areas.</
   </li>
 </ul>
 
-<h2 id="documentation-45">Documentation</h2>
+<h2 id="documentation-46">Documentation</h2>
 
 <ul>
   <li>IMPROVED: User Manual sections on calling user-defined Prolog predicates from
@@ -9864,7 +10024,7 @@ temporal interval relations in the <code class="highlighter-rouge">interval</cod
 predicate, <code class="highlighter-rouge">new/3</code>, to the <code class="highlighter-rouge">intervalp</code> protocol and the <code class="highlighter-rouge">interval</code> object.</li>
 </ul>
 
-<h2 id="tools-59">Tools</h2>
+<h2 id="tools-60">Tools</h2>
 
 <ul>
   <li>
@@ -9882,7 +10042,7 @@ and Qu-Prolog when running the <code class="highlighter-rouge">diagrams</code> t
   </li>
 </ul>
 
-<h2 id="tests-50">Tests</h2>
+<h2 id="tests-51">Tests</h2>
 
 <ul>
   <li>
@@ -9918,7 +10078,7 @@ functionality of complementing categories when using different settings
 for the <code class="highlighter-rouge">complements</code> flag.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-32">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-33">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -9932,7 +10092,7 @@ highlighter.</p>
 
 <h1 id="3000-beta-2---april-21-2014">3.00.0 Beta 2 - April 21, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-71">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-72">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -9975,7 +10135,7 @@ references to unknown objects during source file compilation.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-60">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-61">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -9990,7 +10150,7 @@ using GNU Prolog.</p>
   </li>
 </ul>
 
-<h2 id="tests-51">Tests</h2>
+<h2 id="tests-52">Tests</h2>
 
 <ul>
   <li>
@@ -10005,7 +10165,7 @@ identifiers.</p>
 
 <h1 id="3000-beta-1---april-9-2014">3.00.0 Beta 1 - April 9, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-72">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-73">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -10055,7 +10215,7 @@ all otherwise silent compiler messages.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-61">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-62">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -10073,7 +10233,7 @@ some Linux distributions.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-23">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-24">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -10086,14 +10246,14 @@ Prolog.</p>
   </li>
 </ul>
 
-<h2 id="documentation-46">Documentation</h2>
+<h2 id="documentation-47">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of the built-in predicates <code class="highlighter-rouge">logtalk_library_path/2</code>
 and <code class="highlighter-rouge">logtalk_load_context/2</code>.</li>
 </ul>
 
-<h2 id="tools-60">Tools</h2>
+<h2 id="tools-61">Tools</h2>
 
 <ul>
   <li>
@@ -10166,7 +10326,7 @@ to a file.</p>
   </li>
 </ul>
 
-<h2 id="tests-52">Tests</h2>
+<h2 id="tests-53">Tests</h2>
 
 <ul>
   <li>
@@ -10199,7 +10359,7 @@ name conflicts when loading this example with the <code class="highlighter-rouge
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-33">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-34">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>FIXED: TextMate 2 bundle commands for generating (X)HTML, PDF, and text
@@ -10208,7 +10368,7 @@ documentation for source files.</li>
 
 <h1 id="3000-alpha-36---february-26-2014">3.00.0 Alpha 36 - February 26, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-73">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-74">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -10257,7 +10417,7 @@ defining the meta-predicate.</p>
 provided by B-Prolog 8.1 when using this back-end compiler.</li>
 </ul>
 
-<h2 id="tests-53">Tests</h2>
+<h2 id="tests-54">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for error conditions of <code class="highlighter-rouge">bagof/3</code> and <code class="highlighter-rouge">setof/3</code> built-in
@@ -10266,7 +10426,7 @@ method calls.</li>
 
 <h1 id="3000-alpha-35---february-17-2014">3.00.0 Alpha 35 - February 17, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-74">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-75">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -10296,7 +10456,7 @@ reporting issues in the <code class="highlighter-rouge">debugger</code> and <cod
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-62">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-63">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -10316,7 +10476,7 @@ application.</p>
   </li>
 </ul>
 
-<h2 id="documentation-47">Documentation</h2>
+<h2 id="documentation-48">Documentation</h2>
 
 <ul>
   <li>
@@ -10327,7 +10487,7 @@ application.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-24">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-25">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: The Windows installer failed to copy the <code class="highlighter-rouge">tests</code> directory to the
@@ -10341,7 +10501,7 @@ Logtalk user folder.</li>
 types as a lighter alternative to the <code class="highlighter-rouge">types_loader.lgt</code> file.</li>
 </ul>
 
-<h2 id="tools-61">Tools</h2>
+<h2 id="tools-62">Tools</h2>
 
 <ul>
   <li>
@@ -10361,7 +10521,7 @@ of the current Logtalk release when printing its version string.</p>
   </li>
 </ul>
 
-<h2 id="tests-54">Tests</h2>
+<h2 id="tests-55">Tests</h2>
 
 <ul>
   <li>
@@ -10376,7 +10536,7 @@ predicate <code class="highlighter-rouge">logtalk_load_context/2</code>.</p>
 
 <h1 id="3000-alpha-34---january-30-2014">3.00.0 Alpha 34 - January 30, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-75">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-76">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>IMPROVED: Performance of database <code class="highlighter-rouge">asserta/1</code>, <code class="highlighter-rouge">assertz/1</code>, <code class="highlighter-rouge">retract/1</code>,
@@ -10384,7 +10544,7 @@ and <code class="highlighter-rouge">retractall/1</code> messages when sent to a 
 flag turned on by using static binding whenever possible.</li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-63">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-64">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -10401,7 +10561,7 @@ when checking the version of an existing Logtalk user folder.</p>
   </li>
 </ul>
 
-<h2 id="tools-62">Tools</h2>
+<h2 id="tools-63">Tools</h2>
 
 <ul>
   <li>
@@ -10425,14 +10585,14 @@ It can be loaded using the <code class="highlighter-rouge">os_loader.lgt</code> 
 can be found in the <code class="highlighter-rouge">os.txt</code> file.</li>
 </ul>
 
-<h2 id="documentation-48">Documentation</h2>
+<h2 id="documentation-49">Documentation</h2>
 
 <ul>
   <li>CHANGED: Renamed most documentation <code class="highlighter-rouge">NOTES.txt</code> files that use Markdown
 syntax to <code class="highlighter-rouge">NOTES.md</code>.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-25">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-26">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">logtalk.iss</code> Inno Setup script now ensures that <code class="highlighter-rouge">.md</code> files
@@ -10461,7 +10621,7 @@ compatibility with existing code.</p>
   <li>UPDATED: Port of John Fletcher’s Prolog XML parser to release 3.5.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-34">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-35">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: Instructions on using the LaTeX <code class="highlighter-rouge">lstlang0.sty</code> file.</li>
@@ -10469,7 +10629,7 @@ compatibility with existing code.</p>
 
 <h1 id="3000-alpha-33---january-15-2014">3.00.0 Alpha 33 - January 15, 2014</h1>
 
-<h2 id="logtalk-compiler-and-runtime-76">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-77">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -10492,7 +10652,7 @@ imported by an object due to the use of extended categories.</p>
   </li>
 </ul>
 
-<h2 id="tools-63">Tools</h2>
+<h2 id="tools-64">Tools</h2>
 
 <ul>
   <li>
@@ -10510,7 +10670,7 @@ and fixes all known bugs in its previous version.</p>
   </li>
 </ul>
 
-<h2 id="tests-55">Tests</h2>
+<h2 id="tests-56">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the <code class="highlighter-rouge">create_object/4</code> and <code class="highlighter-rouge">create_category/4</code> built-in
@@ -10542,7 +10702,7 @@ variables between the arguments.</p>
 
 <h1 id="3000-alpha-32---december-18-2013">3.00.0 Alpha 32 - December 18, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-77">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-78">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -10588,14 +10748,14 @@ when called with both arguments instantiated.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-64">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-65">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: YAP 6.3.4 or a later version is now required when using this
 backend compiler.</li>
 </ul>
 
-<h2 id="tools-64">Tools</h2>
+<h2 id="tools-65">Tools</h2>
 
 <ul>
   <li>
@@ -10645,7 +10805,7 @@ now public.</p>
   </li>
 </ul>
 
-<h2 id="tests-56">Tests</h2>
+<h2 id="tests-57">Tests</h2>
 
 <ul>
   <li>FIXED: Only runs tests for the <code class="highlighter-rouge">coinductive/1</code> directive with backend
@@ -10663,7 +10823,7 @@ Prolog compilers that support coinduction.</li>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-35">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-36">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: Add tab triggers to all predicate and entity templates used in
@@ -10672,7 +10832,7 @@ the TextMate text editor.</li>
 
 <h1 id="3000-alpha-31---november-19-2013">3.00.0 Alpha 31 - November 19, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-78">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-79">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -10711,7 +10871,7 @@ parametric object proxies.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-65">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-66">Prolog adapter and integration files</h2>
 
 <ul>
   <li>CHANGED: Removed from the SWI-Prolog adapter file the workaround for the
@@ -10720,14 +10880,14 @@ clashes seldom occur in practice and the source file compilation performance
 hit was significant.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-26">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-27">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: Bug in the <code class="highlighter-rouge">logtalk_version_select.sh</code> POSIX script that prevented
 switching the installed version.</li>
 </ul>
 
-<h2 id="tests-57">Tests</h2>
+<h2 id="tests-58">Tests</h2>
 
 <ul>
   <li>
@@ -10751,7 +10911,7 @@ prefix operator.</li>
 
 <h1 id="3000-alpha-30---november-12-2013">3.00.0 Alpha 30 - November 12, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-79">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-80">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -10773,7 +10933,7 @@ leading to misleading warnings when reloading files.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-66">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-67">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -10797,7 +10957,7 @@ querying predicate properties.</p>
   </li>
 </ul>
 
-<h2 id="documentation-49">Documentation</h2>
+<h2 id="documentation-50">Documentation</h2>
 
 <ul>
   <li>
@@ -10832,7 +10992,7 @@ the Prolog <code class="highlighter-rouge">double_quotes</code> flag from <code 
 
 <h1 id="3000-alpha-29---october-31-2013">3.00.0 Alpha 29 - October 31, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-80">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-81">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -10853,7 +11013,7 @@ templates of the database predicates).</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-67">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-68">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -10871,7 +11031,7 @@ of seconds as per the standardization proposal.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-27">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-28">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -10892,7 +11052,7 @@ all start with the <code class="highlighter-rouge">logtalk-</code> prefix.</p>
   </li>
 </ul>
 
-<h2 id="documentation-50">Documentation</h2>
+<h2 id="documentation-51">Documentation</h2>
 
 <ul>
   <li>ADDED: PDF versions of the User and Reference manuals.</li>
@@ -10918,7 +11078,7 @@ originally coded for a Rosetta Code programming task (added to the
 
 <h1 id="3000-alpha-28---october-16-2013">3.00.0 Alpha 28 - October 16, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-81">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-82">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -10943,7 +11103,7 @@ after it in a group as a consequence of an ancestor <code class="highlighter-rou
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-68">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-69">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -10957,14 +11117,14 @@ indicator for ground terms as <code class="highlighter-rouge">*</code> (i.e. a n
   </li>
 </ul>
 
-<h2 id="documentation-51">Documentation</h2>
+<h2 id="documentation-52">Documentation</h2>
 
 <ul>
   <li>UPDATED: User Manual section on loader files, explaining how to set the
 <code class="highlighter-rouge">reload</code> flag locally to improve their usability during development.</li>
 </ul>
 
-<h2 id="tools-65">Tools</h2>
+<h2 id="tools-66">Tools</h2>
 
 <ul>
   <li>IMPROVED: Extended the <code class="highlighter-rouge">lgtdoc</code> and <code class="highlighter-rouge">diagrams</code> tools with support for the
@@ -10989,7 +11149,7 @@ on the description of the corresponding Rosetta Code programming task.</p>
 
 <h1 id="3000-alpha-27---october-10-2013">3.00.0 Alpha 27 - October 10, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-82">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-83">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -11024,7 +11184,7 @@ pseudo-module.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-69">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-70">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -11052,7 +11212,7 @@ Documentation
 
 <h1 id="3000-alpha-26---october-4-2013">3.00.0 Alpha 26 - October 4, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-83">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-84">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -11094,7 +11254,7 @@ parametric object proxies.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-70">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-71">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -11109,14 +11269,14 @@ Logtalk.</p>
   </li>
 </ul>
 
-<h2 id="documentation-52">Documentation</h2>
+<h2 id="documentation-53">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Use a single directory, <code class="highlighter-rouge">docs</code>, for the XHTML documentation of all
 the core, library, tool, and contribution entities.</li>
 </ul>
 
-<h2 id="tools-66">Tools</h2>
+<h2 id="tools-67">Tools</h2>
 
 <ul>
   <li>
@@ -11137,7 +11297,7 @@ continuation lines with recent versions of SWI-Prolog.</li>
 
 <h1 id="3000-alpha-25---september-25-2013">3.00.0 Alpha 25 - September 25, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-84">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-85">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -11170,7 +11330,7 @@ by the built-in <code class="highlighter-rouge">predicate_property/2</code> meth
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-71">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-72">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -11190,14 +11350,14 @@ SICStus Prolog, SWI-Prolog, XSB, and YAP by taking advantage of the internal
   </li>
 </ul>
 
-<h2 id="documentation-53">Documentation</h2>
+<h2 id="documentation-54">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of meta-predicate argument mode indicators and their
 intended use.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-28">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-29">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">logtalk.iss</code> Inno Setup script, used for building binary
@@ -11218,7 +11378,7 @@ files (<code class="highlighter-rouge">assignvars.lgt</code>, <code class="highl
   </li>
 </ul>
 
-<h2 id="tools-67">Tools</h2>
+<h2 id="tools-68">Tools</h2>
 
 <ul>
   <li>
@@ -11256,7 +11416,7 @@ example.</p>
 
 <h1 id="3000-alpha-24---september-16-2013">3.00.0 Alpha 24 - September 16, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-85">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-86">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -11312,7 +11472,7 @@ compiler flags are the same used before.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-72">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-73">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -11324,7 +11484,7 @@ compiler flags are the same used before.</p>
   </li>
 </ul>
 
-<h2 id="tests-58">Tests</h2>
+<h2 id="tests-59">Tests</h2>
 
 <ul>
   <li>ADDED: Two unit tests for the <code class="highlighter-rouge">setof/3</code> built-in method taken from a thread
@@ -11339,14 +11499,14 @@ sometimes useful solution to get a grammar rule difference list arguments using
 lambda expressions.</li>
 </ul>
 
-<h2 id="documentation-54">Documentation</h2>
+<h2 id="documentation-55">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of available shorthands for the <code class="highlighter-rouge">logtalk_load/1</code> and
 <code class="highlighter-rouge">logtalk_make/1</code> built-in predicates.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-36">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-37">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -11388,7 +11548,7 @@ that prevented importing the <code class="highlighter-rouge">logtalk.pts</code> 
 
 <h1 id="3000-alpha-23---august-28-2013">3.00.0 Alpha 23 - August 28, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-86">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-87">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -11416,7 +11576,7 @@ running with, respectively, ECLiPSe or SWI-Prolog as the backend compilers.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-73">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-74">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -11440,7 +11600,7 @@ when using, respectively, ECLiPSe or SWI-Prolog as the backend compilers.</p>
   </li>
 </ul>
 
-<h2 id="documentation-55">Documentation</h2>
+<h2 id="documentation-56">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of the term expansion mechanism and its predicates.</li>
@@ -11454,7 +11614,7 @@ that require support for B-Prolog action rules as these are currently not
 supported.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-37">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-38">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>IMPROVED: Text layout of <code class="highlighter-rouge">info/1-2</code> directives found in the entity and
@@ -11463,7 +11623,7 @@ predicate declaration templates for several text editors.</li>
 
 <h1 id="3000-alpha-22---august-16-2013">3.00.0 Alpha 22 - August 16, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-87">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-88">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -11492,7 +11652,7 @@ using relative paths.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-74">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-75">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -11529,7 +11689,7 @@ files generated by the compilation of the intermediate Prolog files when the
 
 <h1 id="3000-alpha-21---august-6-2013">3.00.0 Alpha 21 - August 6, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-88">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-89">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -11546,7 +11706,7 @@ internal runtime table of loaded files.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-75">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-76">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -11567,14 +11727,14 @@ B-Prolog adapter file would fail to expand relative file paths.</p>
   </li>
 </ul>
 
-<h2 id="documentation-56">Documentation</h2>
+<h2 id="documentation-57">Documentation</h2>
 
 <ul>
   <li>FIXED: Some unresolved internal links in the Reference Manual that affected
 generating the PDF version.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-29">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-30">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">logtalk.iss</code> Inno Setup script, used for building binary
@@ -11582,7 +11742,7 @@ Windows installers, would use an incompatible ECLiPSe 6.0 version if no
 ECLiPSe 6.1 version was detected.</li>
 </ul>
 
-<h2 id="tools-68">Tools</h2>
+<h2 id="tools-69">Tools</h2>
 
 <ul>
   <li>
@@ -11600,7 +11760,7 @@ predicates in these systems.</p>
   </li>
 </ul>
 
-<h2 id="tests-59">Tests</h2>
+<h2 id="tests-60">Tests</h2>
 
 <ul>
   <li>
@@ -11618,7 +11778,7 @@ multifile predicates.</p>
 
 <h1 id="3000-alpha-20---july-31-2013">3.00.0 Alpha 20 - July 31, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-89">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-90">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -11644,7 +11804,7 @@ source file global directives.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-76">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-77">Prolog adapter and integration files</h2>
 
 <ul>
   <li>ADDED: Description of a workaround for supporting settings files in the
@@ -11661,7 +11821,7 @@ of the source files with the <code class="highlighter-rouge">optimize</code> fla
 
 <h1 id="3000-alpha-19---june-10-2013">3.00.0 Alpha 19 - June 10, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-90">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-91">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -11684,7 +11844,7 @@ holding the primary declaration defined no clauses for the predicate.</p>
   </li>
 </ul>
 
-<h2 id="tests-60">Tests</h2>
+<h2 id="tests-61">Tests</h2>
 
 <ul>
   <li>
@@ -11700,7 +11860,7 @@ files.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-30">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-31">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -11721,7 +11881,7 @@ also copy back any <code class="highlighter-rouge">settings.logtalk</code> file 
 
 <h1 id="3000-alpha-18---june-3-2013">3.00.0 Alpha 18 - June 3, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-91">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-92">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -11758,7 +11918,7 @@ term as final, the compiler would not check that the expanded term is callable.<
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-77">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-78">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -11775,7 +11935,7 @@ compiler internal predicate when using the <code class="highlighter-rouge">make/
   </li>
 </ul>
 
-<h2 id="tests-61">Tests</h2>
+<h2 id="tests-62">Tests</h2>
 
 <ul>
   <li>
@@ -11800,7 +11960,7 @@ methods and the <code class="highlighter-rouge">discontiguous/1</code>, <code cl
 using the now removed support for annotation expansion predicates.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-38">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-39">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Support for the alternative <code class="highlighter-rouge">.logtalk</code> file name extension to most
@@ -11809,7 +11969,7 @@ of the supported text editors and syntax highlighters.</li>
 
 <h1 id="3000-alpha-17---may-20-2013">3.00.0 Alpha 17 - May 20, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-92">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-93">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -11867,7 +12027,7 @@ part.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-78">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-79">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -11897,7 +12057,7 @@ developed or maintained.</p>
   </li>
 </ul>
 
-<h2 id="documentation-57">Documentation</h2>
+<h2 id="documentation-58">Documentation</h2>
 
 <ul>
   <li>
@@ -11934,7 +12094,7 @@ called non-terminals and meta-predicates defined elsewhere.</p>
   </li>
 </ul>
 
-<h2 id="tests-62">Tests</h2>
+<h2 id="tests-63">Tests</h2>
 
 <ul>
   <li>
@@ -11962,7 +12122,7 @@ once when running a batch of benchmark tests.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-31">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-32">Installers and installation scripts</h2>
 
 <ul>
   <li>IMPROVED: The Windows installer now deletes any XSB <code class="highlighter-rouge">.xwam</code> files found
@@ -11973,7 +12133,7 @@ backend Prolog compiler.</li>
 
 <h1 id="3000-alpha-16---may-6-2013">3.00.0 Alpha 16 - May 6, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-93">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-94">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -11999,7 +12159,7 @@ existing intermediate files, forcing source file recompilation.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-79">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-80">Prolog adapter and integration files</h2>
 
 <ul>
   <li>CHANGED: The default value of the <code class="highlighter-rouge">optimize</code> flag is now <code class="highlighter-rouge">off</code>. This is more
@@ -12008,7 +12168,7 @@ consistent with the default values of other flags such as <code class="highlight
 (not the deployment) of applications.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-39">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-40">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Syntax coloring support for the new <code class="highlighter-rouge">built_in/0</code> directive to all
@@ -12017,7 +12177,7 @@ supported text editors and syntax highlighters.</li>
 
 <h1 id="3000-alpha-15---april-29-2013">3.00.0 Alpha 15 - April 29, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-94">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-95">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -12059,14 +12219,14 @@ they may contain <code class="highlighter-rouge">initialization/1</code> directi
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-80">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-81">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: Ensure that the de facto standard <code class="highlighter-rouge">between/3</code> predicate is available
 for all supported backend Prolog compilers.</li>
 </ul>
 
-<h2 id="tools-69">Tools</h2>
+<h2 id="tools-70">Tools</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">logtalk_tester.sh</code> shell script used in the automation of unit
@@ -12082,7 +12242,7 @@ of lambda expressions with unclassified or mixed-up variables.</li>
 
 <h1 id="3000-alpha-14---april-10-2013">3.00.0 Alpha 14 - April 10, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-95">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-96">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -12139,7 +12299,7 @@ when using default settings.</p>
 for GNU Prolog.</li>
 </ul>
 
-<h2 id="tools-70">Tools</h2>
+<h2 id="tools-71">Tools</h2>
 
 <ul>
   <li>
@@ -12159,7 +12319,7 @@ context (using the trace option <code class="highlighter-rouge">x</code>) for th
 implementation of the predicate <code class="highlighter-rouge">cpu_time/1</code> for SWI-Prolog.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-40">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-41">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Syntax coloring support for the <code class="highlighter-rouge">forward/1</code> method to all supported
@@ -12168,7 +12328,7 @@ text editors and syntax highlighters.</li>
 
 <h1 id="3000-alpha-13---march-28-2013">3.00.0 Alpha 13 - March 28, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-96">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-97">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -12214,7 +12374,7 @@ directory exists for a generated intermediate file.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-81">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-82">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: The adapter files for SICStus Prolog, SWI-Prolog, and YAP now
@@ -12225,13 +12385,13 @@ likely result in missing discontiguous predicate warnings, however, when
 compiling Prolog code.</li>
 </ul>
 
-<h2 id="documentation-58">Documentation</h2>
+<h2 id="documentation-59">Documentation</h2>
 
 <ul>
   <li>UPDATED: User Manual with information on the <code class="highlighter-rouge">forwarding</code> built-in protocol.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-41">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-42">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: The TextMate 2 bundle now sets the <code class="highlighter-rouge">indentOnPaste</code> key to <code class="highlighter-rouge">simple</code>
@@ -12240,7 +12400,7 @@ to avoid the editor messing up the text indentation when pasting code.</li>
 
 <h1 id="3000-alpha-12---march-12-2013">3.00.0 Alpha 12 - March 12, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-97">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-98">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -12316,7 +12476,7 @@ directives, and clauses.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-82">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-83">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -12332,7 +12492,7 @@ of the term reading internal predicate.</p>
 
 <h1 id="3000-alpha-11---march-4-2013">3.00.0 Alpha 11 - March 4, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-98">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-99">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -12373,7 +12533,7 @@ could be missing.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-83">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-84">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -12396,7 +12556,7 @@ calls to the auxiliary predicates generated for coinductive predicates.</p>
 
 <h1 id="3000-alpha-10---february-25-2013">3.00.0 Alpha 10 - February 25, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-99">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-100">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -12447,7 +12607,7 @@ explicitly-qualified module predicates than it should.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-84">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-85">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -12461,7 +12621,7 @@ this back-end Prolog compiler.</p>
   </li>
 </ul>
 
-<h2 id="documentation-59">Documentation</h2>
+<h2 id="documentation-60">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of the <code class="highlighter-rouge">multifile/1</code> predicate directive.</li>
@@ -12469,7 +12629,7 @@ this back-end Prolog compiler.</p>
 
 <h1 id="3000-alpha-9---february-11-2013">3.00.0 Alpha 9 - February 11, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-100">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-101">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -12524,7 +12684,7 @@ to update the internal runtime table of complemented objects.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-85">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-86">Prolog adapter and integration files</h2>
 
 <ul>
   <li>CHANGED: ECLiPSe 6.1#143 and Qu-Prolog 9.0 (or later versions) are now
@@ -12533,7 +12693,7 @@ Schimpf for his feedback on the necessary updates to the ECLiPSe adapter
 file.</li>
 </ul>
 
-<h2 id="tools-71">Tools</h2>
+<h2 id="tools-72">Tools</h2>
 
 <ul>
   <li>
@@ -12555,14 +12715,14 @@ by default. Also improved the tool documentation.</p>
 SWI-Prolog now expand the path arguments before calling the native predicates.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-32">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-33">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">uninstall.sh</code> POSIX shell script failed to delete some installed
 script symbolic links and man pages.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-42">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-43">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Syntax coloring support for the <code class="highlighter-rouge">false/0</code> ISO Prolog standard
@@ -12571,7 +12731,7 @@ predicate to all supported text editors and syntax highlighters.</li>
 
 <h1 id="3000-alpha-8---january-18-2013">3.00.0 Alpha 8 - January 18, 2013</h1>
 
-<h2 id="logtalk-compiler-and-runtime-101">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-102">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -12594,7 +12754,7 @@ as private instead of public.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-86">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-87">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -12617,14 +12777,14 @@ and user <code class="highlighter-rouge">VERSION.txt</code> files instead of har
   </li>
 </ul>
 
-<h2 id="documentation-60">Documentation</h2>
+<h2 id="documentation-61">Documentation</h2>
 
 <ul>
   <li>IMPROVED: POSIX man pages for integration, documentation, and helper shell
 scripts.</li>
 </ul>
 
-<h2 id="tools-72">Tools</h2>
+<h2 id="tools-73">Tools</h2>
 
 <ul>
   <li>
@@ -12639,7 +12799,7 @@ recent SICStus Prolog 4 versions (tested with version 4.2.3).</p>
   </li>
 </ul>
 
-<h2 id="tests-63">Tests</h2>
+<h2 id="tests-64">Tests</h2>
 
 <ul>
   <li>ADDED: Support for multi-threading and 64 bits versions of XSB to the
@@ -12658,7 +12818,7 @@ control construct as a message to self.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-33">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-34">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -12701,7 +12861,7 @@ was looking for versions older than 2.44.0 instead of 3.00.0.</p>
 
 <h1 id="3000-alpha-7---december-21-2012">3.00.0 Alpha 7 - December 21, 2012</h1>
 
-<h2 id="logtalk-compiler-and-runtime-102">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-103">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -12794,7 +12954,7 @@ within a dynamic entity. Thanks to Andreas Becker for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-87">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-88">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -12814,7 +12974,7 @@ executable file.</p>
   </li>
 </ul>
 
-<h2 id="documentation-61">Documentation</h2>
+<h2 id="documentation-62">Documentation</h2>
 
 <ul>
   <li>REMOVED: All references to the no longer supported <code class="highlighter-rouge">annotation/1</code> experimental
@@ -12833,7 +12993,7 @@ annotation support.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-34">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-35">Installers and installation scripts</h2>
 
 <ul>
   <li>CHANGED: The Windows installer now creates integration shortcuts that start
@@ -12845,7 +13005,7 @@ don’t have write access.</li>
 
 <h1 id="3000-alpha-6---december-3-2012">3.00.0 Alpha 6 - December 3, 2012</h1>
 
-<h2 id="logtalk-compiler-and-runtime-103">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-104">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -12925,7 +13085,7 @@ the exception term would not include a <code class="highlighter-rouge">logtalk/2
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-88">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-89">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -12949,7 +13109,7 @@ the Logtalk compiler/runtime).</p>
   </li>
 </ul>
 
-<h2 id="documentation-62">Documentation</h2>
+<h2 id="documentation-63">Documentation</h2>
 
 <ul>
   <li>FIXED: Several issues that prevented using the <code class="highlighter-rouge">scripts/build_release.sh</code>
@@ -12957,7 +13117,7 @@ shell script to generate installers and the PDF versions of the User and
 Reference Manuals.</li>
 </ul>
 
-<h2 id="tools-73">Tools</h2>
+<h2 id="tools-74">Tools</h2>
 
 <ul>
   <li>
@@ -13003,7 +13163,7 @@ file).</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-35">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-36">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">logtalk_user_setup.*</code> scripts to create a copy of the <code class="highlighter-rouge">tests</code>
@@ -13012,7 +13172,7 @@ directory in the Logtalk user directory.</li>
 
 <h1 id="3000-alpha-5---november-5-2012">3.00.0 Alpha 5 - November 5, 2012</h1>
 
-<h2 id="logtalk-compiler-and-runtime-104">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-105">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -13063,7 +13223,7 @@ predicates is only performed when the module name is know at compile time.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-89">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-90">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -13087,7 +13247,7 @@ example.</li>
 
 <h1 id="3000-alpha-4---october-22-2012">3.00.0 Alpha 4 - October 22, 2012</h1>
 
-<h2 id="logtalk-compiler-and-runtime-105">Logtalk compiler and runtime</h2>
+<h2 id="logtalk-compiler-and-runtime-106">Logtalk compiler and runtime</h2>
 
 <ul>
   <li>
@@ -13184,7 +13344,7 @@ loading a settings file.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-90">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-91">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -13240,7 +13400,7 @@ and runtime now use portable, standard-based definitions of these predicates).</
   </li>
 </ul>
 
-<h2 id="documentation-63">Documentation</h2>
+<h2 id="documentation-64">Documentation</h2>
 
 <ul>
   <li>
@@ -13259,7 +13419,7 @@ type, following the example of the SWI-Prolog release notes.</p>
   <li>MOVED: The unit test framework have been moved into the <code class="highlighter-rouge">tools</code> directory.</li>
 </ul>
 
-<h2 id="tools-74">Tools</h2>
+<h2 id="tools-75">Tools</h2>
 
 <ul>
   <li>
@@ -13301,7 +13461,7 @@ O’Keefe post on the SWI-Prolog mailing list.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-36">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-37">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -13318,7 +13478,7 @@ the Windows installer.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-43">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-44">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>

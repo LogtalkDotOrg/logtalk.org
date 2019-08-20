@@ -8,6 +8,21 @@ aside:
 
 ### 2019
 
+##### August 14
+
+> Logtalk 3.28.0 is now available for [downloading](download.html). This
+> release adds a new `tutor` learning tool for helping new users understand
+> compiler warning and error messages, improves compiler lint checks, fixes
+> reporting of singleton variables in included files, improves the Windows
+> installer, provides a workaround for recent SWI-Prolog Windows installers
+> no longer writing registry keys, adds an AppVeyor script to build and make
+> available a Windows installer per commit, adds new unit tests, includes
+> documentation updates and improvements, improves syntax coloring of escape
+> sequences in quoted atoms and character code number notation, and provides
+> portability updates for SWI-Prolog. For details and a complete list of
+> changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### June 18
 
 > Logtalk 3.27.0 is now available for [downloading](download.html). This

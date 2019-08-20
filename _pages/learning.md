@@ -22,6 +22,13 @@ The examples included are fully documented with source code comments and sample 
 
 All examples include a `loader.lgt` file that loads the example and any dependencies, a `NOTES.md` file with a description of the example, and a `SCRIPT.txt` file with sample queries for you to try. Most examples also include a `tests.lgt` file with unit tests and a `tester.lgt` loader file to run them. Being programming examples, it is expected that you run them side-by-side with the source code open in your [favorite editor](https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding). Follows a suggested order for playing with the examples:
 
+[Learning and development tools](tools.html)
+
+To help new users understand and act on compiler and runtime warning and error messages, load the [`tutor`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/tutor/NOTES.md) at startup.
+This learning tool and developer tools (e.g. for debugging and testing) can be automatically loaded
+at startup by defining a default
+[settings file](https://github.com/LogtalkDotOrg/logtalk3/tree/master/settings-sample.lgt).
+
 ## Examples recommended walkthrough
 
 * [`hello_world`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/hello_world) - mandatory example; cannot be avoided

@@ -19,13 +19,13 @@ aside:
 The Logtalk Handbook includes a tutorial, the User Manual, the Reference Manual, and the FAQ.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](papers/TheLogtalkHandbook-3.27.0.pdf) (stable)
--   [ePub version](papers/TheLogtalkHandbook-3.27.0.epub) (stable)
+-   [PDF version](papers/TheLogtalkHandbook-3.28.0.pdf) (stable)
+-   [ePub version](papers/TheLogtalkHandbook-3.28.0.epub) (stable)
 
 <!-- -->
 
 -   [HTML version](https://logtalk3.readthedocs.io/en/latest/) @ the Read the Docs website (latest)
--   [Texinfo version](papers/TheLogtalkHandbook-3.27.0.info) (latest; experimental)
+-   [Texinfo version](papers/TheLogtalkHandbook-3.28.0.info) (latest; experimental)
 
 
 ## APIs
@@ -42,7 +42,7 @@ Core, Library, Tools, and Contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.27.0.info) (latest; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.28.0.info) (latest; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -57,41 +57,45 @@ See also the tools [overview and usage examples](tools.html).
 The tools listed in this section are complemented by a set of
 [scripts](#man-pages) that automate common tasks.
 
+### Learning
+
+-   [`tutor`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/tutor/NOTES.md)
+
 ### Development
 
--   [code_metrics](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/code_metrics/NOTES.md)
--   [dead_code_scanner](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/dead_code_scanner/NOTES.md)
--   [help](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/help/NOTES.md)
--   [make](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md)
+-   [`code_metrics`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/code_metrics/NOTES.md)
+-   [`dead_code_scanner`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/dead_code_scanner/NOTES.md)
+-   [`help`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/help/NOTES.md)
+-   [`make`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md)
 
 ### Debugging
 
--   [assertions](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/assertions/NOTES.md)
--   [debug_messages](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debug_messages/NOTES.md)
--   [debugger](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md)
+-   [`assertions`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/assertions/NOTES.md)
+-   [`debug_messages`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debug_messages/NOTES.md)
+-   [`debugger`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md)
 
 ### Profiling
 
--   [ports_profiler](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/ports_profiler/NOTES.md)
--   [profiler](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/profiler/NOTES.md)
+-   [`ports_profiler`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/ports_profiler/NOTES.md)
+-   [`profiler`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/profiler/NOTES.md)
 
 ### Documenting
 
--   [lgtdoc](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtdoc/NOTES.md)
--   [diagrams](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md)
--   [doclet](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md)
+-   [`lgtdoc`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtdoc/NOTES.md)
+-   [`diagrams`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md)
+-   [`doclet`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md)
 
 ### Testing
 
--   [lgtunit](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtunit/NOTES.md)
+-   [`lgtunit`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtunit/NOTES.md)
 
 ### Version management
 
--   [asdf](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/asdf/NOTES.md)
+-   [`asdf`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/asdf/NOTES.md)
 
 ### Porting
 
--   [wrapper](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/wrapper/NOTES.md)
+-   [`wrapper`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/wrapper/NOTES.md)
 
 
 ## Release notes
@@ -104,43 +108,43 @@ for the latest goodies.
 
 Prolog integration scripts:
 
--   B-Prolog: [bplgt](man/bplgt.html)
--   CxProlog: [cxlgt](man/cxlgt.html)
--   ECLiPSe: [eclipselgt](man/eclipselgt.html)
--   GNU Prolog: [gplgt](man/gplgt.html)
--   JIProlog: [jiplgt](man/jiplgt.html)
--   Lean Prolog: [lplgt](man/lplgt.html)
--   Qu-Prolog: [qplgt](man/qplgt.html)
--   Quintus Prolog: [quintuslgt](man/quintuslgt.html)
--   SICStus Prolog: [sicstuslgt](man/sicstuslgt.html)
--   SWI-Prolog: [swilgt](man/swilgt.html)
--   XSB: [xsblgt](man/xsblgt.html)
--   XSB (mt): [xsbmtlgt](man/xsbmtlgt.html)
--   YAP: [yaplgt](man/yaplgt.html)
+-   B-Prolog: [`bplgt`](man/bplgt.html)
+-   CxProlog: [`cxlgt`](man/cxlgt.html)
+-   ECLiPSe: [`eclipselgt`](man/eclipselgt.html)
+-   GNU Prolog: [`gplgt`](man/gplgt.html)
+-   JIProlog: [`jiplgt`](man/jiplgt.html)
+-   Lean Prolog: [`lplgt`](man/lplgt.html)
+-   Qu-Prolog: [`qplgt`](man/qplgt.html)
+-   Quintus Prolog: [`quintuslgt`](man/quintuslgt.html)
+-   SICStus Prolog: [`sicstuslgt`](man/sicstuslgt.html)
+-   SWI-Prolog: [`swilgt`](man/swilgt.html)
+-   XSB: [`xsblgt`](man/xsblgt.html)
+-   XSB (mt): [`xsbmtlgt`](man/xsbmtlgt.html)
+-   YAP: [`yaplgt`](man/yaplgt.html)
 
 Configuration scripts:
 
--   [logtalk_user_setup](man/logtalk_user_setup.html)
--   [logtalk_backend_select](man/logtalk_backend_select.html)
--   [logtalk_version_select](man/logtalk_version_select.html)
+-   [`logtalk_user_setup`](man/logtalk_user_setup.html)
+-   [`logtalk_backend_select`](man/logtalk_backend_select.html)
+-   [`logtalk_version_select`](man/logtalk_version_select.html)
 
 Testing scripts:
 
--   [logtalk_tester](man/logtalk_tester.html)
+-   [`logtalk_tester`](man/logtalk_tester.html)
 
 Documentation scripts:
 
--   [logtalk_doclet](man/logtalk_doclet.html)
--   [lgt2html](man/lgt2html.html)
--   [lgt2md](man/lgt2md.html)
--   [lgt2pdf](man/lgt2pdf.html)
--   [lgt2rst](man/lgt2rst.html)
--   [lgt2txt](man/lgt2txt.html)
--   [lgt2xml](man/lgt2xml.html)
+-   [`logtalk_doclet`](man/logtalk_doclet.html)
+-   [`lgt2html`](man/lgt2html.html)
+-   [`lgt2md`](man/lgt2md.html)
+-   [`lgt2pdf`](man/lgt2pdf.html)
+-   [`lgt2rst`](man/lgt2rst.html)
+-   [`lgt2txt`](man/lgt2txt.html)
+-   [`lgt2xml`](man/lgt2xml.html)
 
 Diagrams scripts:
 
--   [lgt2svg](man/lgt2svg.html)
+-   [`lgt2svg`](man/lgt2svg.html)
 
 
 ## Publications

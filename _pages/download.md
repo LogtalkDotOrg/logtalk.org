@@ -6,8 +6,8 @@ aside:
   toc: true
 ---
 
-**Latest stable version:** 3.27.0  
-**Release date:** June 18, 2019
+**Latest stable version:** 3.28.0  
+**Release date:** August 14, 2019
 
 ## Requirements
 
@@ -62,8 +62,8 @@ feed](https://github.com/LogtalkDotOrg/logtalk3/commits/master.atom).
 
 ## Sources
 
-> [`logtalk-3.27.0.tar.bz2`](files/logtalk-3.27.0.tar.bz2)  
-> `aa7211e97d1a2cf975d3b4bc52df990c34646bbc4dc478569354ad5786c01112` (SHA-256)
+> [`logtalk-3.28.0.tar.bz2`](files/logtalk-3.28.0.tar.bz2)  
+> `b709b9fc0eccb4abdb1d7a5707fc82f818684ce613e89aa2b69420276b52776e` (SHA-256)
 
 Includes the HTML versions of the Handbook and the APIs documentation. The bundled 
 [`INSTALL.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/INSTALL.md)
@@ -91,8 +91,8 @@ Logtalk on `/opt/local/share/` with integration scripts for supported
 Prolog compilers on `/opt/local/bin`. Creates an `/Applications/Logtalk`
 folder with links to the installed files.
 
-> [`logtalk-3.27.0.pkg.zip`](files/logtalk-3.27.0.pkg.zip)  
-> `c022c3bd357100782f5e552c707f67265f0551b3e91b01cca1ab693f693250fc` (SHA-256)
+> [`logtalk-3.28.0.pkg.zip`](files/logtalk-3.28.0.pkg.zip)  
+> `aa08e6bdacf0c2bc533159eea66860fc9531d49c50075c7b6c893ba82927fa30` (SHA-256)
 
 A [MacPorts](http://www.macports.org/) portfile is also available. Users
 may simply type the command `sudo port install logtalk` (or
@@ -109,8 +109,8 @@ Installs Logtalk on `/usr/local/share` with integration scripts for
 supported Prolog compilers on `/usr/local/bin`. Package installation from
 the command-line is recommended.
 
-> [`logtalk-3.27.0-1.noarch.rpm`](files/logtalk-3.27.0-1.noarch.rpm)  
-> `3a376f3f34b3c1514ffa2dd46bb94b6db08db7f8481eea97c81578467c58e0ad` (SHA-256)
+> [`logtalk-3.28.0-1.noarch.rpm`](files/logtalk-3.28.0-1.noarch.rpm)  
+> `d69fb3e6ca33dc13b2f6814a2587aa7c2501d648f177adbb8081cded6a821998` (SHA-256)
 
 
 ### Debian (e.g. Ubuntu)
@@ -119,8 +119,8 @@ Requires dpkg 1.15.0 or a later version. Installs Logtalk on
 `/usr/share` with integration scripts for supported Prolog compilers on
 `/usr/bin`. Package installation from the command-line is recommended.
 
-> [`logtalk_3.27.0-1_all.deb`](files/logtalk_3.27.0-1_all.deb)  
-> `191dfa83de5f1999887fd616397c5310910c84e69298d6f15f3b005c30b57e1a` (SHA-256)
+> [`logtalk_3.28.0-1_all.deb`](files/logtalk_3.28.0-1_all.deb)  
+> `2c8494514ddabf54b7a6cf277b6855789e7c1f817b14e857a64b0427661c4a6c` (SHA-256)
 
 
 ### Windows
@@ -131,12 +131,15 @@ group in the `Start Menu` with integration shortcuts for supported
 Prolog compilers and shortcuts for the accessing the Logtalk
 documentation. Can be used by both admin and non-admin users.
 
-> [`logtalk-3.27.0.exe`](files/logtalk-3.27.0.exe)  
-> `ed9c0fe4f5a93f12fb46d4057d5419abb5db7ccfe6f82fef747fee0d4dfd20cb` (SHA-256)
+> [`logtalk-3.28.0.exe`](files/logtalk-3.28.0.exe)  
+> `815dc421362e020a05a1fb1b984f840bb086c5929df955f3a5048230d1a577ff` (SHA-256)
 
 Alternatively, on Windows 10 or Windows Server 2019, you can use the
 Windows Subsystem for Linux (WSL) and install Logtalk using one of the
 Linux installers listed above.
+
+Installers for the latest git version can be download from
+[AppVeyor](https://ci.appveyor.com/project/pmoura/logtalk3/build/artifacts).
 
 ### SWI-Prolog pack
 
@@ -147,7 +150,7 @@ files in the distribution are buried in a relatively deep sub-directory.
 The pack can be easily installed typing the query `pack_install(logtalk)`
 at the top-level. Also available as a manual download.
 
-> [`logtalk-3.27.0.tgz`](files/swi-prolog/packs/logtalk-3.27.0.tgz)  
+> [`logtalk-3.28.0.tgz`](files/swi-prolog/packs/logtalk-3.28.0.tgz)  
 > `aa25e6608e67ceb078dcc68d2ac0767de4c68a66b4da60e1d90e80635594d861` (SHA-256)
 
 
@@ -163,8 +166,8 @@ Ebrahim Azarisooreh.
 HTML, ePub, and PDF versions of the Handbook (includes a tutorial, the User Manual, the Reference Manual, and the FAQ).
 Note that the HTML version is **included** in the source and binary packages.
 
-> [`logtalk-manuals-3.27.0.tgz`](files/logtalk-manuals-3.27.0.tgz)  
-> `e829907680dfd073544e88b762e27bb9e1746bcb7a4051a69bcb941bcc3d52ac` (SHA-256)
+> [`logtalk-manuals-3.28.0.tgz`](files/logtalk-manuals-3.28.0.tgz)  
+> `de0f0b0bbadca639f9041b47f9b75e57532663681b490a4f6505d9ed2fcb80af` (SHA-256)
 
 
 ## Docker images

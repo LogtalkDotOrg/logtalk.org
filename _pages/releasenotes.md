@@ -4,6 +4,124 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.28.0 - August 14, 2019
+========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: The compiler `missing_scope_directive/5` warning message term to
+`missing_scope_directive/6` to pass the name of the directive that triggers
+the warning.
+
+* CHANGED: The compiler `ignored_directive/3` warning message term to
+`ignored_encoding_directive/2`.
+
+* ADDED: Support parametric object arguments in `uses/2` directives where one
+or more parameters are parameter variables of the object (or category) that
+contains the directive.
+
+* ADDED: Compiler check for calls to the deprecated `not/1` Prolog built-in
+predicate.
+
+* IMPROVED: When reporting a deprecated predicate, also report its replacement
+when applicable.
+
+* IMPROVED: Detect and report as a permission error any attempt to declare
+another entity static predicate (or static non-terminal) as dynamic during
+the compilation first stage. In previous versions, the predicate (or non-
+terminal) would remain static but, depending on the backend Prolog compiler,
+a loading error could be raised.
+
+* IMPROVED: The exception term used by the compiler to report attempts to
+make another entity predicate (or non-terminal) multifile now include the
+entity.
+
+* FIXED: Reporting of singleton variables in included files would wrongly
+report the main file and the line of the `include/1` directive instead of
+the actual location.
+
+* FIXED: Line spacing issue when printing errors without a source file context.
+
+Prolog adapter and integration files
+------------------------------------
+
+* IMPROVED: Report an instantiation error when calling the `{}/1` top-level
+interpreter shortcut with an unbound argument.
+
+* UPDATED: The SWI-Prolog adapter file to support tabling directives with
+table property declarations.
+
+* UPDATED: The SWI-Prolog adapter file to support its new proprietary
+`dynamic/2` directive.
+
+Documentation
+-------------
+
+* ADDED: Glossary definition of *hook predicate*.
+
+* IMPROVED: Handbook sessions on multifile predicates and lambda expressions.
+
+* UPDATED: Manual installation instructions for Windows users.
+
+* FIXED: Missing `loops` library API documentation.
+
+* FIXED: The category opening directive can have up to arity four. Thanks to
+Anton Danilov for the bug report.
+
+Tools
+-----
+
+* ADDED: New developer tool, `tutor`, aimed to help new users in understanding
+and acting on compiler warning and error messages. The tool adds explanations
+and fix suggestions for selected compiler messages.
+
+* FIXED: The `help` tool reported the category opening directive to have a
+maximum arity of three instead of four.
+
+Tests
+-----
+
+* ADDED: New unit tests for the `uses/1` directive for improved coverage.
+
+* ADDED: New unit test for the `uses/2` directive where the object argument is
+a parametric object where a parameter is a parameter variable of the object
+containing the directive.
+
+* ADDED: New unit test for the ISO Prolog standard `read_term/3` predicate to
+check the `variables/1`, `variable_names/1`, and `singletons/1` options when
+reading the `end_of_file` term.
+
+Installers and installation scripts
+-----------------------------------
+
+* ADDED: AppVeyor script to build a Windows installer per commit.
+
+* UPDATED: The Windows installer to allow running in silent mode when using
+the command-line options `/SILENT` or `/VERYSILENT`.
+
+* UPDATED: The Windows installer to print instructions on how to manually
+create integration shortcuts when a backend Prolog compiler installation
+cannot be found.
+
+* FIXED: Workaround recent SWI-Prolog Windows installers no longer writing
+registry keys with its home directory by checking for the default installation
+directory as the last resort.
+
+* FIXED: Add UTF-8 BOM to Inno Setup script to avoid text display glitches.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* UPDATED: Syntax highlighting test files to test representing a single quote
+inside a quoted atom using an escape sequence.
+
+* FIXED: Kate and SubEthaEdit 4.x/5.x syntax coloring of escape sequences in
+quoted atoms.
+
+* FIXED: GeSHi, Pygments, and Rouge support for the 0'\Char number notation.
+
+
 3.27.0 - June 18, 2019
 ======================
 

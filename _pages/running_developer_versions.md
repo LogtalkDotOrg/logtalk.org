@@ -59,7 +59,7 @@ If your `lgt3git` directory is not in your home directory, adjust the paths abov
 
 ### Windows installation
 
-Checkout the Logtalk development version into the directory `C:\lgt3git`. If you want to have Logtalk integration shortcuts for the supported Prolog compilers created, install [Inno Setup Unicode 5.3.0](http://www.jrsoftware.org/isinfo.php) (or a later version) and open the `C:\lgt3git\scripts\windows\logtalk.iss` file. Rebuild the Windows GUI installer and run it to install the Logtalk development version. In alternative, install a Bash shell such as the one provided by [Git for Windows](http://msysgit.github.io) and follow the steps above for the POSIX installation. 
+Checkout the Logtalk development version into the directory `C:\lgt3git`. If you want to have Logtalk integration shortcuts for the supported Prolog compilers created, install [Inno Setup Unicode 5.3.0](http://www.jrsoftware.org/isinfo.php) (or a later version) and open the `C:\lgt3git\scripts\windows\logtalk.iss` file. Rebuild the Windows GUI installer and run it to install the Logtalk development version. You can also download an installer for the latest git commit from [AppVeyor](https://ci.appveyor.com/project/pmoura/logtalk3/build/artifacts). In alternative, install Windows Subsystem for Linux (WSL) or a Bash shell such as the one provided by [Git for Windows](http://msysgit.github.io) and follow the steps above for the POSIX installation.
 
 ## Running
 

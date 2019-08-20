@@ -12,6 +12,12 @@ implemented as Logtalk applications using the reflection API. This API can be
 used to implement alternative tools or new tools. Follows an overview of each
 tool and some usage examples.
 
+## Learning
+
+The [`tutor`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/tutor/NOTES.md)
+helps new users understand the compiler and runtime warning and error messages
+by adding explanations and suggestions to selected messages.
+
 ## Lint checker
 
 Although not technically a developer tool, it is worth mentioning the Logtalk
