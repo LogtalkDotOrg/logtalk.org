@@ -82,6 +82,6 @@ Most errors messages are also extended with explanations and suggested fixes. Fo
 !     Typo in the alias or the object name?
 ```
 
-Hope you enjoy this new tool, specially if you're learning Logtalk or using in a classroom. The tool is still in development and there may be some compiler warning and error messages that are not yet explained or whose explanations can be improved. As always your feedback and suggestions are most appreciated.
+Hope you enjoy this new tool, specially if you're learning Logtalk or using it in a classroom. The tool is still in development and there may be some compiler warning and error messages that are not yet explained or whose explanations can be improved. As always your feedback and suggestions are most appreciated.
 
 P.S. You can get a good overview of the tool by playing with the [`errors`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/errors) example, whose purpose is to illustrate compiler errors and warning messages.

@@ -16,14 +16,14 @@ every_other([_, X| L], [X | R]) :-
         every_other(L, R). 
 ```
 
-The predicate is supposed to construct a list by taking every other element of an input list. E.g. 
+The predicate is supposed to construct a list by taking every other element of an input list. Cursory testing may fail to notice the bug: 
 
 ```text
 ?- every_other([1,2,3,4,5,6], List). 
 List = [2, 4, 6]. 
 ```
 
-How do we QuickCheck the predicate? Assuming Logtalk is already installed, we start by loading the `lgtunit` tool: 
+How do we QuickCheck the predicate for stronger testing? Assuming Logtalk is already installed, we start by loading the `lgtunit` tool: 
 
 ```text
 ?- {lgtunit(loader)}. 
@@ -39,16 +39,16 @@ The `lgtunit::quick_check/1` predicate takes a predicate property (or [signature
 false.
 ```
 
-QuickCheck reports that the predicate fails for a list with a single element. Effectively, the predicate definition is assuming an input list with an even number of elements. After finding a counter-example, the QuickCheck implementation tries to shrink it in order to report the most simple counter-example possible to facilitate debugging (not performed as not required, however, in this simple example). The `lgtunit::quick_check/2` predicate that allows us to specify the number of tests (100 by default) and the maximum number of shrink operations (64 by default).
+QuickCheck reports that the predicate fails for a list with a single element. Effectively, the predicate definition is assuming an input list with an even number of elements. After finding a counter-example, the QuickCheck implementation tries to shrink it in order to report the most simple counter-example possible to facilitate debugging (not performed as not required, however, in this simple example).
 
-The next example is a predicate, `foo/1`, that succeeds when all elements on (a possibly empty) list are even:
+There's also a `lgtunit::quick_check/2` predicate that allows us to specify the number of tests (100 by default) and the maximum number of shrink operations (64 by default). To illustrate these options, consider the simple example of a predicate, `foo/1`, that succeeds when all elements on (a possibly empty) list are even:
 
 ```logtalk
 foo([]). 
 foo([N| _]) :- N mod 2 =:= 0.
 ```
 
-In this case, we use QuickCheck to find a list of integers for which the predicate fails. We also specify a maximum of 42 generated tests and a maximum of 10 shrink operations when a counter-example is found: 
+It's quite obvious that this predicate will fail for any list containing an odd integer but the interesting point is what happens when a counter-example is found. To illustrate, we specify a maximum of 42 generated tests and a maximum of 10 shrink operations when a counter-example is found: 
 
 ```text
 ?- lgtunit::quick_check(foo(+list(integer)), [n(42), s(10)]).
@@ -56,6 +56,17 @@ In this case, we use QuickCheck to find a list of integers for which the predica
 *       foo([1])
 false.
 ```
+
+Note that, after finding a counter-example on the 5th generated random test, the QuickCheck implementation was able to shrink it 7 times. Without shrinking, the counter-example would be needlessly more complex:
+
+```text
+?- lgtunit::quick_check(foo(+list(integer)), [n(42), s(0)]).
+*     quick check test failure (at test 3 after 0 shrinks):
+*       foo([-651,-101,554,-551,41,836,443,695,917,932,-933,546,569,-740])
+false.
+```
+
+In practical cases, successful shrinking results in simpler counter-examples that would be used as debugging starting points.
 
 Let's now move from plain Prolog predicates to module predicates using a key-value pairs library found in some Prolog systems. 
 
@@ -118,4 +129,4 @@ If you type a few QuickCheck queries at the top-level interpreter to check your 
 :- end_object.
 ```
 
-QuickCheck tests don't replace traditional unit tests but offer significant and complementary advantages. Notably, they allow you to focus on the predicate properties, thus working at a semantically higher level, and make the computer work for you by automatically generating tests instead of requiring the manual and laborious task of hand-writing unit tests. Moreover, the automatic shrink of any found counter-example provides a debugging starting point, contributing to faster development cycles.
+QuickCheck tests don't replace traditional unit tests but can offer significant and complementary advantages. Notably, they allow you to focus on the properties of predicate and set of predicates, thus working at a semantically higher level, and make the computer work for you by automatically generating tests instead of requiring the manual and laborious task of hand-writing tests. Moreover, the automatic shrink of any found counter-example provides a debugging starting point, contributing to faster development cycles.
