@@ -24,8 +24,9 @@ All examples include a `loader.lgt` file that loads the example and any dependen
 
 [Learning and development tools](tools.html)
 
-To help new users understand and act on compiler and runtime warning and error messages, load the [`tutor`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/tutor/NOTES.md) at startup.
-This learning tool and developer tools (e.g. for debugging and testing) can be automatically loaded
+To help new users understand and act on compiler and runtime warning and error messages, load the [`tutor`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/tutor/NOTES.md) tool at startup.
+To help new users trace query execution, also load the [`debugger`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md) tool at startup.
+These and other developer tools (e.g. for testing and documentation) can be automatically loaded
 at startup by defining a default
 [settings file](https://github.com/LogtalkDotOrg/logtalk3/tree/master/settings-sample.lgt).
 
@@ -241,7 +242,7 @@ But don't just run the provided examples. Experiment also modifying them. Contin
 :- end_object.
 ```
 
-As we just modified a loaded file, we can use the make tool to reload it:
+As we just modified a loaded file, we can use the [`make`]((https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md)) tool to reload it:
 
 ```
 ?- {*}.

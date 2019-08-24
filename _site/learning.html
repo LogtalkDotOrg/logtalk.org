@@ -293,8 +293,9 @@ The examples included are fully documented with source code comments and sample 
 
 <p><a href="tools.html">Learning and development tools</a></p>
 
-<p>To help new users understand and act on compiler and runtime warning and error messages, load the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/tutor/NOTES.md"><code class="highlighter-rouge">tutor</code></a> at startup.
-This learning tool and developer tools (e.g. for debugging and testing) can be automatically loaded
+<p>To help new users understand and act on compiler and runtime warning and error messages, load the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/tutor/NOTES.md"><code class="highlighter-rouge">tutor</code></a> tool at startup.
+To help new users trace query execution, also load the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md"><code class="highlighter-rouge">debugger</code></a> tool at startup.
+These and other developer tools (e.g. for testing and documentation) can be automatically loaded
 at startup by defining a default
 <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/settings-sample.lgt">settings file</a>.</p>
 
@@ -525,7 +526,7 @@ true.
 :- end_object</span><span class="p">.</span>
 </code></pre></div></div>
 
-<p>As we just modified a loaded file, we can use the make tool to reload it:</p>
+<p>As we just modified a loaded file, we can use the <a href="(https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md)"><code class="highlighter-rouge">make</code></a> tool to reload it:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?- {*}.
 % Redefining protocol physical_properties
