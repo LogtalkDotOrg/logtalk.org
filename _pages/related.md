@@ -166,15 +166,3 @@ Logic programming
     Programming](http://www.comlab.ox.ac.uk/archive/logic-prog.html)
 -   [Free Online Logic Programming Books ::
     FreeTechBooks.com](http://www.freetechbooks.com/logic-programming-f13.html)
-
-Object-oriented logic programming
----------------------------------
-
--   [Cetus Links: Links on Objects and Components -
-    Prolog](http://www.sente.ch/cetus/oo_prolog.html)
-
-Object-oriented programming
----------------------------
-
--   [Links on Objects and
-    Components](http://www.sente.ch/cetus/software.html)

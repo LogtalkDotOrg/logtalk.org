@@ -24,7 +24,7 @@ The Logtalk Handbook includes a tutorial, the User Manual, the Reference Manual,
 
 <!-- -->
 
--   [HTML version](https://logtalk3.readthedocs.io/en/latest/) @ the Read the Docs website (latest)
+-   [HTML version](https://logtalk3.readthedocs.io/en/latest/) @ the Read the Docs website (latest; provides [improved search support](https://blog.readthedocs.com/search-improvements/))
 -   [Texinfo version](papers/TheLogtalkHandbook-3.28.0.info) (latest; experimental)
 
 
