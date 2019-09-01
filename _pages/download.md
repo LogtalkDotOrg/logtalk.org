@@ -106,21 +106,32 @@ portfile and the Homebrew formula are up-to-date.
 ### Linux
 
 Installs Logtalk on `/usr/local/share` with integration scripts for
-supported Prolog compilers on `/usr/local/bin`. Package installation from
-the command-line is recommended.
+supported Prolog compilers on `/usr/local/bin`.
 
 > [`logtalk-3.28.0-1.noarch.rpm`](files/logtalk-3.28.0-1.noarch.rpm)  
 > `d69fb3e6ca33dc13b2f6814a2587aa7c2501d648f177adbb8081cded6a821998` (SHA-256)
+
+Package installation from the command-line is recommended:
+
+```bash
+$ sudo rpm -i logtalk-3.28.0-1.noarch.rpm
+```
 
 
 ### Debian (e.g. Ubuntu)
 
 Requires dpkg 1.15.0 or a later version. Installs Logtalk on
 `/usr/share` with integration scripts for supported Prolog compilers on
-`/usr/bin`. Package installation from the command-line is recommended.
+`/usr/bin`.
 
 > [`logtalk_3.28.0-1_all.deb`](files/logtalk_3.28.0-1_all.deb)  
 > `2c8494514ddabf54b7a6cf277b6855789e7c1f817b14e857a64b0427661c4a6c` (SHA-256)
+
+Package installation from the command-line is recommended:
+
+```bash
+$ sudo dpkg -i logtalk_3.28.0-1_all.deb
+```
 
 
 ### Windows
@@ -138,8 +149,9 @@ Alternatively, on Windows 10 or Windows Server 2019, you can use the
 Windows Subsystem for Linux (WSL) and install Logtalk using one of the
 Linux installers listed above.
 
-Installers for the latest git version can be download from
+Automatically generated installers for the latest git version can be download from
 [AppVeyor](https://ci.appveyor.com/project/pmoura/logtalk3/build/artifacts).
+
 
 ### SWI-Prolog pack
 
