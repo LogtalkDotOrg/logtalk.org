@@ -19,13 +19,13 @@ aside:
 The Logtalk Handbook includes a tutorial, the User Manual, the Reference Manual, and the FAQ.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](papers/TheLogtalkHandbook-3.28.0.pdf) (stable)
--   [ePub version](papers/TheLogtalkHandbook-3.28.0.epub) (stable)
+-   [PDF version](manuals/TheLogtalkHandbook-3.29.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.29.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.29.0.info) (stable; experimental)
 
 <!-- -->
 
 -   [HTML version](https://logtalk3.readthedocs.io/en/latest/) @ the Read the Docs website (latest; provides [improved search support](https://blog.readthedocs.com/search-improvements/))
--   [Texinfo version](papers/TheLogtalkHandbook-3.28.0.info) (latest; experimental)
 
 
 ## APIs
@@ -42,7 +42,7 @@ Core, Library, Tools, and Contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.28.0.info) (latest; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.29.0.info) (latest; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.

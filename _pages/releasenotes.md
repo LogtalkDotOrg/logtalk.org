@@ -4,6 +4,119 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.29.0 - September 3, 2019
+==========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: New compiler lint warning for lambda expression parameter variables
+that are used elsewhere in a clause.
+
+* ADDED: New compiler lint warning for `bagof/3` and `setof/3` where the goal
+argument contains singleton variables.
+
+* ADDED: New compiler lint warning for redundant uses of the `call/N` control
+construct.
+
+* ADDED: New compiler lint warning for Logtalk or Prolog top-level shortcuts
+used as directives.
+
+* ADDED: New compiler lint warning for calls to the deprecated `name/2` and
+`current_predicate/2` Prolog built-in predicates.
+
+* ADDED: New compiler lint warning for duplicated entity clauses and grammar
+rules.
+
+* ADDED: New compiler flag, `duplicated_clauses`, with possible values
+`warning` and `silent` (the default value).
+
+* FIXED: When a source file contains an `encoding/1` directive, open any
+included files using the same text encoding.
+
+* FIXED: Bug in the processing of multiple `initialization/1` directives in
+`create_object/4` goals where the first directive could be ignored.
+
+* FIXED: Reporting of non-portable built-in predicate calls when the
+predicates are being redefined.
+
+* FIXED: Instantiation error when compiling a Prolog module as an object that
+contains a meta-call in `user` where the goal is only know at runtime.
+
+* FIXED: Typo in the `settings-sample.lgt` sample code for loading the new
+`tutor` tool. Thanks to Michael T. Richter for the bug report.
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: The SWI-Prolog adapter file to support `dynamic/1` directives with
+`as/2` arguments for incremental tabling.
+
+* IMPROVED: The SICStus Prolog adapter file now uses the `stream_position/2`
+predicate to retrieve the stream position in case of error instead of the
+standard `stream_property/2` predicate property `position/1` that is not
+always available.
+
+* FIXED: Harmless dynamic predicate warning in the SICStus Prolog adapter file.
+
+* FIXED: Missing meta-predicate directive for the definition of the de facto
+standard `forall/2` predicate in the ECLiPSe and SICStus Prolog adapter files.
+
+* FIXED: Begin line in compiler warning and error messages for ECLiPSe.
+
+* FIXED: Workaround Qu-Prolog bug where the `read_term/3` predicate returns
+`singletons/1` and `variable_names/1` option lists with variable-name pairs
+instead of standard name-variable pairs.
+
+Documentation
+-------------
+
+* ADDED: Cross-links between Handbook and APIs documentation.
+
+* ADDED: Handbook section on the Logtalk multi-pass compiler and its
+implications when writing source files.
+
+* IMPROVED: Handbook description of the `code_prefix` and `clean` flags.
+
+* IMPROVED: Glossary entry on "entity" and added "static entity" and
+"dynamic entity" aliases.
+
+* UPDATED: Handbook description of lambda expression lint checks.
+
+Library
+-------
+
+* FIXED: Avoid reporting the `coroutining` and `timeout` libraries as broken
+when testing while running on backend Prolog systems that don't support them.
+
+Tools
+-----
+
+* UPDATED: The `tutor` tool to explain the new duplicated clauses and lambda
+expression lint checks plus the domain error generated when trying to use the
+`set_prolog_flag/2` directive as an entity directive.
+
+* FIXED: Deleted two duplicated clauses in the `help` tool.
+
+Tests
+-----
+
+* ADDED: Unit test for multiple `initialization/1` directives in dynamically
+created objects.
+
+Examples
+--------
+
+* UPDATED: The `errors` and `lambdas` examples to illustrate the new lint
+warnings.
+
+* FIXED: Workaround Qu-Prolog lack of support for static multifile predicates
+and discontiguous predicates when loading the `errors` example.
+
+* FIXED: Lambda expression examples and tests in the `lambdas` example to use
+fresh variables for all lambda expression parameters.
+
+
 3.28.0 - August 14, 2019
 ========================
 

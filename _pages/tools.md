@@ -26,17 +26,19 @@ warning of source code issues, helping the user in writing working code. Lint
 checks include:
 
 -   Missing directives (including scope, meta-predicate, dynamic, discontiguous, and multifile directives)
--   Duplicated directives
+-   Duplicated directives, clauses, and grammar rules
 -   Missing predicates (calls to non-declared and non-defined predicates)
 -   Calls to declared but not defined static predicates
 -   Non-portable predicate calls, arithmetic function calls, directives, flags, and flag values
 -   Suspicious calls (syntactically valid calls that are likely semantic errors)
--   Deprecated directives, control constructs, and flags
+-   Deprecated directives, predicates, control constructs, and flags
 -   References to unknown entities (objects, protocols, categories, or modules)
+-   Top-level shortcuts used as directives
 -   Goals that are always true or always false
 -   Trivial goal fails (due to no matching predicate clause)
 -   Redefined built-in predicates
 -   Lambda expression unclassified variables and mixed up variables
+-   Lambda expression with parameter variables used elsewhere in a clause
 -   Singleton variables
 -   If-then-else and soft cut control constructs without an else part
 -   Cuts in clauses for multifile predicates
@@ -45,6 +47,7 @@ checks include:
 -   Redundant calls to control constructs and built-in predicates
 -   Calls to all-solutions predicates with existentially qualified variables not occurring in the qualified goal
 -   Calls to all-solutions predicates with no shared variables between template and goal
+-   Calls to `bagof/3` and `setof/3` where the goal argument contains singleton variables
 -   Entity, predicate, and variable names not following official coding guidelines
 -   Variable names that differ only on case
 

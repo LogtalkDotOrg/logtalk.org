@@ -8,6 +8,18 @@ aside:
 
 ### 2019
 
+##### September 3
+
+> Logtalk 3.29.0 is now available for [downloading](download.html). This
+> release adds new and improved lint checks, adds a `duplicated_clauses`
+> compiler flag, fixes a text encoding issue when using the `include/1`
+> directive, adds a new Handbook section on the compiler multi-pass
+> implementation, adds cross-links between Handbook and APIs documentation,
+> includes an updated `tutor` tool, and provides portability updates for
+> ECLiPSe, Qu-Prolog, SICStus Prolog, SWI-Prolog. For details and a complete
+> list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### August 14
 
 > Logtalk 3.28.0 is now available for [downloading](download.html). This
