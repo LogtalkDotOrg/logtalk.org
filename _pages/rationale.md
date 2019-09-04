@@ -68,6 +68,9 @@ In contrast, some Prolog flags have local scope while others have global scope. 
 
 Most Prolog module systems allow any predicate to be called using explicit qualification. This is usually not an issue when  coding guidelines are enforced by strong team discipline. Logtalk, instead of relying solely in good practices, enforces encapsulation and generates an error on any attempt to call a predicate that is out of scope. Logtalk also prevents using specially crafted meta-predicates to break encapsulation and using code loading order to hack an object or category predicate to become multifile.
 
+Some Prolog module systems also allow a module to change the properties (e.g. dynamic or multifile) of another module predicate (this is partially a consequence of modules being first and foremost a *predicate-prefixing mechanism*, not an encapsulation solution). Allowing these hacks not only breaks encapsulation but also means that a client of a module cannot be sure that the module predicate properties (and thus the module interface) are not being changed elsewhere. Logtalk detects and prevents these hacks, which result in a compilation error.
+
+
 ### Strict compiler
 
 Most Prolog compilers are permissive, silently accepting problematic code. The Logtalk compiler is strict and either rejects or warns the user of a [large number of code issues](tools.html#lint-checker), contributing to earlier detection and warning of source code issues.
