@@ -8,6 +8,16 @@ aside:
 
 ### 2019
 
+##### September 17
+
+> Logtalk 3.30.0 is now available for [downloading](download.html). This
+> release adds new and improved lint checks, improves compilation of
+> modules as objects, fixes documentation link issues, includes updated
+> `debugger` and `tutor` tools, updates Textadept editor support, and
+> provides portability updates for SICStus Prolog and SWI-Prolog.
+> For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### September 3
 
 > Logtalk 3.29.0 is now available for [downloading](download.html). This

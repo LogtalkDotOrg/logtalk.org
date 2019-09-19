@@ -4,6 +4,115 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.30.0 - September 17, 2019
+===========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Lint warning for missing scope directives for dynamic predicates
+declared in standalone categories.
+
+* ADDED: Lint warning for a common case of misusing the `atom_concat/3`
+built-in predicate where using the `sub_atom/5` built-in predicates would be
+more efficient.
+
+* ADDED: Lint warning for non-ground `=/2` and `unify_with_occurs_check/2`
+goals that will succeed without binding any variables.
+
+* ADDED: Lint warnings for two other cases of misusing the `=../2` built-in
+predicate where using the `arg/3` or `functor/3` built-in predicates would be
+more efficient.
+
+* ADDED: Lint warnings for use of non-standard options in calls to the
+`open/4`, `read_term/2-3`, and `write_term/2-3` predicates.
+
+* ADDED: Support for compiling Prolog module `meta_predicate/1` directives
+(when compiling a module as an object) where the templates are explicitly
+qualified.
+
+* IMPROVED: Duplicated directive, clause, and grammar rule lint warnings now
+also print the location of the first occurrence.
+
+* IMPROVED: Compiler linter to distinguish between missing `meta_predicate/1`
+directives and missing `meta_non_terminal/1` directives.
+
+* IMPROVED: Simplify lint warnings on conditionals missing the else part.
+
+* IMPROVED: Compiler lint reports of missing directives to print the directives
+ready to copy to the source code.
+
+* IMPROVED: Take into account foreign and auto-loaded predicates when compiling
+a module as an object.
+
+* IMPROVED: Accept Prolog `encoding/1` directives when compiling a Prolog
+source file as a Logtalk source file.
+
+* FIXED: Compilation of `reexport/2` directives regression when compiling a
+Prolog module as an object.
+
+* FIXED: Source file start and end lines reported by the reflection API when
+compiling a module as an object.
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: The SICStus Prolog adapter file to suppress `is/2` predicate
+directives when compiling a module as an object.
+
+* UPDATED: The SWI-Prolog adapter file to term-expand `thread_local/1`
+directives to both `thread_local/1` and `dynamic/1` directives to prevent
+spurious lint warnings about missing `dynamic/1` directives when compiling
+a module as an object.
+
+* UPDATED: All adapter files with auxiliary predicate to locate auto-loaded
+module predicates when supported.
+
+Documentation
+-------------
+
+* IMPROVED: Handbook section on inheritance.
+
+* FIXED: Links from the `make` tool documentation to the make built-in
+predicates. Thanks to Michael T. Richter for the bug report.
+
+* FIXED: Link anchors in API documentation links in the documentation of the
+`debug_messages` and `ports_profiler` tools.
+
+* FIXED: Crosslinks between Handbook and APIs documentation cannot be relative
+due to nesting of the Handbook pages.
+
+* FIXED: URLs in the HTML versions of the man pages.
+
+Library
+-------
+
+* FIXED: Syntax error running the `assignvars` library tests with some backend
+Prolog compilers.
+
+Tools
+-----
+
+* CHANGED: The `debugger` tool semantics of context spy points to trigger the
+debugger when the spy point subsumes (instead of unifying with) the current
+goal and its execution context.
+
+* IMPROVED: The `tutor` tool explanations for several compiler lint warnings.
+
+* IMPROVED: The `tutor` tool coverage of compiler error messages.
+
+Examples
+--------
+
+* UPDATED: The `errors` example to illustrate new and improved lint warnings.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* IMPROVED: Support for the Textadept editor (version 10.0 or later required).
+Thanks to Michael T. Richter.
+
+
 3.29.0 - September 3, 2019
 ==========================
 
