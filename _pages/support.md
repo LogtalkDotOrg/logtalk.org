@@ -22,8 +22,8 @@ For Logtalk and Prolog professional services, please visit the
 
 You may subscribe the Logtalk News (announcements-only) mailing list
 using this [form](mlform.html). This is a low volume mailing list, used
-for Logtalk announcements such as new releases, bug fixes, and
-Logtalk-related events.
+for Logtalk announcements such as new releases, important bug fixes, and
+other Logtalk-related events.
 
 ## Bug reports
 

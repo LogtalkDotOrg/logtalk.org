@@ -44,7 +44,8 @@ Logtalk is an open source programming language, distributed under the
 [Apache License 2.0](https://github.com/LogtalkDotOrg/logtalk3/blob/master/LICENSE.txt).
 The copyright notice and license applies to all files in this release
 (including sources, documentation, and examples) unless otherwise
-explicitly stated.
+explicitly stated (see the [`NOTICE.txt`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/NOTICE.txt)
+file for details on bundled third-party resources).
 
 
 ## Git repo

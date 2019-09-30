@@ -7,9 +7,9 @@ show_edit_on_github: false
 aside: false
 ---
 
-**Prolog modules are objects.** This statement may surprise you. From past experience, it will also annoy some Prolog practitioners. It is not the case that the creators of Prolog module systems *intended* to create an object-oriented extension to Prolog. But what modules *are* is a function of their *characteristics*, not a function of its *design intentions* <sup id="a1">[1](#f1)</sup>.
+**Prolog modules are objects.** This statement may surprise you. From past experience, it will also annoy some Prolog practitioners. It is not the case that the creators of Prolog module systems *intended* to create an object-oriented extension to Prolog. But what modules *are* is a function of their *characteristics*, not a function of their *design intentions* <sup id="a1">[1](#f1)</sup>.
 
-There is a partial but widespread view of not only OOP being a synonymous of imperative OOP but also OOP languages being a synonymous of *class-based* languages. This often leads to the idea that Prolog modules are fundamentally distinct from objects. But OOP can also be declarative (as exemplified by Logtalk) and OOP languages can also be *prototype-based* (e.g. Self and JavaScript) instead of *class-based*. It turns out that **modules systems define a simple, limited, *prototype-based* OOP language**.
+There is a partial but widespread view of not only OOP being a synonymous of imperative OOP but also OOP languages being a synonymous of *class-based* languages. This often leads to the idea that Prolog modules are fundamentally distinct from objects. But OOP can also be declarative (as exemplified by Logtalk) and OOP languages can also be *prototype-based* (e.g. Self and JavaScript) instead of class-based. It turns out that **modules systems define a simple, limited, prototype-based OOP language**.
 
 How is the OOP notion of a *prototype* materialized by a Prolog module? Let's consider the defining characteristics of a prototype one-by-one:
 

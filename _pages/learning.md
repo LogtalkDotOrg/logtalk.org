@@ -35,8 +35,8 @@ at startup by defining a default
 * [`hello_world`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/hello_world) - mandatory example; cannot be avoided
 * [`roles`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/roles) - learn about the different roles that an object can play
 * [`scopes`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/scopes) - learn about predicate scopes
-* [`self_messages`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/self_messages) - learn how to use messages to self to call redefined predicates
-* [`super_calls`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/super_calls) - learn how to use super calls to specialize inherited predicates
+* [`self_messages`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/self_messages) - learn how to use messages to *self* to call redefined predicates
+* [`super_calls`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/super_calls) - learn how to use *super* calls to specialize inherited predicates
 * [`elephants`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/elephants) - learn about the concept of prototypes
 * [`prototypes`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/prototypes) - another example on prototypes
 * [`planets`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/planets) - learn how to define and use protocols and categories
