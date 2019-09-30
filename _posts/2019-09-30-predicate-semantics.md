@@ -182,6 +182,13 @@ yes
 ERROR: error(existence_error(procedure,apply:foo/2), ...)
 ```
 
+The exact details of how an error is reported depends on the Prolog system. But the existence error arguments make it clear that, by explicitly-qualifying the call to the `maplist/3` meta-predicate, the lookup module for the goal constructed from the closure argument is the meta-predicate definition context, `apply`, not the meta-predicate calling context, `test`. The ugly workaround is to explicitly-qualify all the meta-arguments using the calling context:
+
+```logtalk
+explicit(Words) :-
+    apply:maplist(test:foo, [1,2,3], Words).
+```
+
 In Logtalk, implicit message sending, using `uses/2` directive to resolve the messages, and explicit message sending, using the `::/2` control construct, have the same semantics for both meta-predicates and non meta-predicates. I.e. using using implicit or explicit messages is simply a matter of coding style. For meta-predicates, this results in clear and clean meta-predicate call semantics: meta-arguments are always called in the meta-predicate calling context. The Logtalk version of the example above is:
 
 ```logtalk
@@ -256,7 +263,7 @@ X = other ;
 no
 ```
 
-This example, rewritten using Logtalk objects, gives the same results. But the compiler requires a primary declaration before accepting objects (or categories) contributing clauses for the multifile predicate. In the Logtalk version of the above example, the object `main` must be compiled prior to the compilation of the objects `more` and `other`. You may ask: why does it matter? Why worry with loading order? Consider the following modules:
+This example, rewritten using Logtalk objects, gives the same results. But the compiler requires a primary declaration before accepting objects (or categories) contributing clauses for the multifile predicate. In the Logtalk version of the above example, the object `main` must be compiled prior to the compilation of the objects `more` and `other`. You may ask: Why does it matter? Why worry with loading order? Consider the following modules:
 
 ```logtalk
 :- module(hack, []).
