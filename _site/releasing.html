@@ -306,8 +306,16 @@ up-to-date using the scripts:</p>
 <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh</a></p>
 
 <p>The HTML version requires <a href="http://sphinx-doc.org/">Sphinx</a> with the
-<a href="https://github.com/rtfd/sphinx_rtd_theme">Read the Docs theme</a> installed.
-Before running the scripts, the version data in the <code class="highlighter-rouge">conf.py</code> files must be updated.</p>
+<a href="https://github.com/rtfd/sphinx_rtd_theme">Read the Docs theme</a> installed:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>pip install <span class="nt">--upgrade</span> pygments
+<span class="nv">$ </span><span class="nb">sudo </span>pip install <span class="nt">--upgrade</span> sphinx
+<span class="nv">$ </span><span class="nb">sudo </span>pip install <span class="nt">--upgrade</span> sphinx_rtd_theme
+</code></pre></div></div>
+
+<p>It’s also necessary to patch the Pygments installation with the latest version of syntax highlighting support files from the <code class="highlighter-rouge">coding/pygments</code> directory.</p>
+
+<p>Before running the scripts, the version data in the <code class="highlighter-rouge">conf.py</code> files must be updated.</p>
 
 <p>After tagging the stable release (and pushing the tag to GitHub), the stable release Docker images are generated using the script at:</p>
 

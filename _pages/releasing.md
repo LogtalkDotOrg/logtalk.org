@@ -37,7 +37,16 @@ up-to-date using the scripts:
 [https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh)
 
 The HTML version requires [Sphinx](http://sphinx-doc.org/) with the
-[Read the Docs theme](https://github.com/rtfd/sphinx_rtd_theme) installed.
+[Read the Docs theme](https://github.com/rtfd/sphinx_rtd_theme) installed:
+
+```bash
+$ sudo pip install --upgrade pygments
+$ sudo pip install --upgrade sphinx
+$ sudo pip install --upgrade sphinx_rtd_theme
+```
+
+It's also necessary to patch the Pygments installation with the latest version of syntax highlighting support files from the `coding/pygments` directory.
+
 Before running the scripts, the version data in the `conf.py` files must be updated.
 
 After tagging the stable release (and pushing the tag to GitHub), the stable release Docker images are generated using the script at:

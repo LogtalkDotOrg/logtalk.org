@@ -406,8 +406,7 @@ Publications on research and applications using Logtalk:
 
 ## Contributors
 
--   Abramo Bagnara (efficient expansion of once/1 goals and bug reports
-    in corner cases when compiling disjunctions)
+-   Abramo Bagnara (efficient expansion of once/1 goals and bug reports in corner cases when compiling disjunctions)
 -   Andreas Becker (PDT support for Logtalk; bug reports)
 -   Anne Ogborn (bug reports, usability suggestions)
 -   Artur Miguel Dias (testing, lambda expression examples)
@@ -419,8 +418,7 @@ Publications on research and applications using Logtalk:
 -   Daniel L. Dudley (made the ISO 8601 library object available)
 -   Davide Ancona (coinduction examples)
 -   Douglas R. Miles (suggestions, bug reports, Logtalk on SWISH experiments)
--   Ebrahim Azarisooreh (code metrics tool, Arch Linux package; made
-    [lgtinit](https://github.com/eazar001/lgtinit) available)
+-   Ebrahim Azarisooreh (code metrics tool, Arch Linux package; made [lgtinit](https://github.com/eazar001/lgtinit) available)
 -   Eva Stöwe (PDT support for Logtalk)
 -   Feliks Kluzniak (coinduction examples and bug reports)
 -   François Fages (meta-predicate safety bug reports)
@@ -431,8 +429,7 @@ Publications on research and applications using Logtalk:
 -   Jan Wielemaker (feedback on Prolog compliance testing)
 -   Joachim Schimpf (feedback on Prolog compliance testing)
 -   Joerg Schuster (bug reports)
--   John Fletcher (made [XML
-    parser](http://www.binding-time.co.uk/xmlpl.html) available)
+-   John Fletcher (made [XML parser](http://www.binding-time.co.uk/xmlpl.html) available)
 -   John Stewart (Java interface suggestions and solutions)
 -   Joost Geurts (bug reports)
 -   Markus Triska (help in porting CLP(FD) examples)
@@ -446,13 +443,13 @@ Publications on research and applications using Logtalk:
 -   Neng-Fa Zhou (bug reports)
 -   Nicolas Pelletier (bug reports, text editor support)
 -   Parker Jones (testing, unit tests, bug reports)
+-   Paul Brown (bug reports and suggestions)
 -   Paul Crocker (testing, multi-threading and meta-predicates examples, bug reports)
 -   Paul Fodor (library enhancements)
 -   Paul Tarau (feedback on threaded engines API and examples)
 -   Paula Marisa Sampaio (state-space searching examples)
 -   Paulo Nunes (multi-threading testing)
--   Per Mildner (code for helping decompose file paths and feedback on
-    Prolog compliance testing)
+-   Per Mildner (code for helping decompose file paths and feedback on Prolog compliance testing)
 -   Peter Van Roy (EDCGs implementation)
 -   rbt (bug reports)
 -   Rémy Haemmerlé (meta-predicate safety bug reports)
@@ -460,15 +457,11 @@ Publications on research and applications using Logtalk:
 -   Robert Sasak (PDDL 3.0 parser contribution)
 -   Robert Shiplett (bug reports)
 -   Rui Marques (bug reports)
--   Sergio Castro (Docker support, IntelliJ IDEA support, testing,
-    suggestions, and bug reports)
+-   Sergio Castro (Docker support, IntelliJ IDEA support, testing, suggestions, and bug reports)
 -   Timon Van Overveldt (multi-threading optimization and bug reports)
--   Theofrastos Mantadelis (\"flags\" contribution, ProbLog integration
-    support, benchmark tests)
--   Ulrich Neumerkel (lambda expression examples, bug reports, and
-    feedback on Prolog compliance testing)
--   Victor Lagerkvist (testing, library enhancements, made [Verdi
-    Neruda](http://joelbyte.github.com/verdi-neruda/) available)
+-   Theofrastos Mantadelis (\"flags\" contribution, ProbLog integration support, benchmark tests)
+-   Ulrich Neumerkel (lambda expression examples, bug reports, and feedback on Prolog compliance testing)
+-   Victor Lagerkvist (testing, library enhancements, made [VerdiNeruda](http://joelbyte.github.com/verdi-neruda/) available)
 -   Victor Noel (bug reports)
 -   Vítor Santos Costa (red-black tree library)
 -   Xin Wang (bug reports)
