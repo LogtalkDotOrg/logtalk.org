@@ -23,6 +23,7 @@ aside:
 -   [Running developer versions](running_developer_versions.html)
 -   [Embedding](embedding.html)
 -   [Using Logtalk with JPL](using_jpl.html)
+-   [Using Logtalk tools with Prolog codebases](using_tools_with_prolog.html)
 
 
 ## Maintenance

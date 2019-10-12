@@ -195,6 +195,14 @@ do not match the release dates due to all the moving of these files
 between servers along the years).
 
 
+## Sponsorship
+
+If you want to express you appreciation for Logtalk and help keep it a
+sustainable project, your sponsorship is much appreciated. Sponsorship
+monthly tiers can be browsed and selected by clicking in the `Sponsor`
+button at the top of the page of the Logtalk [GitHub repo](http://github.com/LogtalkDotOrg/logtalk3).
+
+
 ## Registration
 
 Consider [registering](regform.html) if you become a Logtalk user.
