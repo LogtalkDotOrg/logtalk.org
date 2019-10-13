@@ -76,18 +76,23 @@ and `member/2` predicates:
 	...
 	
 	| ?- os::directory_files('.', Files, [type(regular),extensions(['.pl']),paths(relative)]),
-	     forall(member(File,Files), (logtalk_load(File) -> true; true)).
+	     forall(member(File,Files), (logtalk_compile(File) -> true; true)).
 	...
 
 The Logtalk compiler linter will run automatically (but note that some checks
 may be turned off by default; if so, use the `set_logtalk_flag/2` predicate to
 turn them on). Other tools will need to be loaded and applied to the loaded
-files (see the tools documentation for details).
+files (see the tools documentation for details). In that case, use instead:
 
-**Note:** As the `logtalk_load/1` predicate fails on the first compilation error,
-we use the if-then-else control construct in the query above to advance to the
-next file in case of error. Those errors are usually caused by Prolog proprietary
-extensions. How to workaround some of those errors is discussed next.
+	| ?- os::directory_files('.', Files, [type(regular),extensions(['.pl']),paths(relative)]),
+	     forall(member(File,Files), (logtalk_load(File) -> true; true)).
+	...
+
+**Note:** As the `logtalk_compile/1` and `logtalk_load/1` predicates fail on
+the first compilation error, we use the if-then-else control construct in the
+queries above to advance to the next file in case of error. Those errors are
+usually caused by Prolog proprietary extensions. How to workaround some of
+those errors is discussed next.
 
 ### Prolog code using a term-expansion mechanism
 
@@ -130,3 +135,17 @@ the `dead_code_scanner` tool.
 The `set_prolog_flag/2` directive cannot be used inside objects but is
 sometimes used inside modules. The workaround is to move those directives
 to outside the modules before attempting to compile the modules as objects.
+
+Meta-predicate templates (in `meta_predicate/1` directives) using `:` for
+a meta-argument will result in a compilation error. The error results from
+Logtalk not being based on a predicate-prefixing mechanism as found in
+module systems and also in lack of standardization making `:` ambiguous as
+it can signal a goal, a closure, or an argument that will not be called as
+a goal (or used to construct a goal) but still requires module-prefixing.
+When the meta-argument is a goal or a closure, the workaround is to update
+the `meta_predicate/1` directive, replacing `:` by `0`, in case of a goal,
+or `N`, in case of a closure with the integer `N` being the number of
+additional arguments that will be added to the closure to construct a goal.
+
+
+
