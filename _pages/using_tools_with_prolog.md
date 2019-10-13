@@ -84,7 +84,7 @@ may be turned off by default; if so, use the `set_logtalk_flag/2` predicate to
 turn them on). Other tools will need to be loaded and applied to the loaded
 files (see the tools documentation for details).
 
-**Note:** As the `logtalk_load/1` predicate fails in case of compilation errors,
+**Note:** As the `logtalk_load/1` predicate fails on the first compilation error,
 we use the if-then-else control construct in the query above to advance to the
 next file in case of error. Those errors are usually caused by Prolog proprietary
 extensions. How to workaround some of those errors is discussed next.
@@ -120,8 +120,13 @@ instead of using the `forall/2` loop illustrated above.
 
 When finding a `use_module/1` or `use_module/2` directive in a Prolog module,
 Logtalk either successfully expands it to a Logtalk supported `use_module/2`
-directive (which takes as first argument a module name and not a file spec)
-or prints an error and aborts the compilation of the source file. If you get
-an error, load the module file first and try again. Note that the expansion
-from a Prolog `use_module/1` directive to a Logtalk `use_module/2` directive
-will likely result in false positives when using the `dead_code_scanner` tool.
+directive (which takes as first argument a module name instead of a file
+specification) or prints an error and aborts the compilation of the source
+file. If you get an error, load the module file first and try again. Note
+that the expansion from a Prolog `use_module/1` directive to a Logtalk
+`use_module/2` directive will likely result in false positives when using
+the `dead_code_scanner` tool.
+
+The `set_prolog_flag/2` directive cannot be used inside objects but is
+sometimes used inside modules. The workaround is to move those directives
+to outside the modules before attempting to compile the modules as objects.
