@@ -6,8 +6,8 @@ aside:
   toc: true
 ---
 
-**Latest stable version:** 3.30.0  
-**Release date:** September 17, 2019
+**Latest stable version:** 3.31.0  
+**Release date:** October 15, 2019
 
 ## Requirements
 
@@ -63,8 +63,8 @@ feed](https://github.com/LogtalkDotOrg/logtalk3/commits/master.atom).
 
 ## Sources
 
-> [`logtalk-3.30.0.tar.bz2`](files/logtalk-3.30.0.tar.bz2)  
-> `32ed6bf347ab96c7e15864275c2a931599a0864b0a0f63c3f837619085a16c62` (SHA-256)
+> [`logtalk-3.31.0.tar.bz2`](files/logtalk-3.31.0.tar.bz2)  
+> `e01ebb69fa8606c84f78d9cabcbaf88d2607d7a7dcece4198619befca7955e33` (SHA-256)
 
 Includes the HTML versions of the Handbook and the APIs documentation. The bundled 
 [`INSTALL.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/INSTALL.md)
@@ -92,8 +92,8 @@ Logtalk on `/opt/local/share/` with integration scripts for supported
 Prolog compilers on `/opt/local/bin`. Creates an `/Applications/Logtalk`
 folder with links to the installed files.
 
-> [`logtalk-3.30.0.pkg.zip`](files/logtalk-3.30.0.pkg.zip)  
-> `65e42f8f48863d6f786ff4a6f7ab33e1f19bfbecb01163b7a089d51167187be1` (SHA-256)
+> [`logtalk-3.31.0.pkg.zip`](files/logtalk-3.31.0.pkg.zip)  
+> `c69558a66742dcaa0ce7c216e753fbe304b93c3baa6a2d9672d46e4621a3193f` (SHA-256)
 
 A [MacPorts](http://www.macports.org/) portfile is also available. Users
 may simply type the command `sudo port install logtalk` (or
@@ -109,13 +109,13 @@ portfile and the Homebrew formula are up-to-date.
 Installs Logtalk on `/usr/local/share` with integration scripts for
 supported Prolog compilers on `/usr/local/bin`.
 
-> [`logtalk-3.30.0-1.noarch.rpm`](files/logtalk-3.30.0-1.noarch.rpm)  
-> `58ae9eb00cbe4e0d3c3b28ef51b5d6ee024ef5d6bdec9405cb9e87cfb89eadd4` (SHA-256)
+> [`logtalk-3.31.0-1.noarch.rpm`](files/logtalk-3.31.0-1.noarch.rpm)  
+> `2be5a7512d4595836824998119c26b81014f095376cf047f2a7364c658b2b0db` (SHA-256)
 
 Package installation from the command-line is recommended:
 
 ```bash
-$ sudo rpm -i logtalk-3.30.0-1.noarch.rpm
+$ sudo rpm -i logtalk-3.31.0-1.noarch.rpm
 ```
 
 
@@ -125,13 +125,13 @@ Requires dpkg 1.15.0 or a later version. Installs Logtalk on
 `/usr/share` with integration scripts for supported Prolog compilers on
 `/usr/bin`.
 
-> [`logtalk_3.30.0-1_all.deb`](files/logtalk_3.30.0-1_all.deb)  
-> `6e7ad768f7af2466b9aec1c7529215cf4d80a0cbac3df9a7e47541e2e14cd67b` (SHA-256)
+> [`logtalk_3.31.0-1_all.deb`](files/logtalk_3.31.0-1_all.deb)  
+> `e4e17cb84241327b1d27b34c90d6f75055c4ba93541a72171deb62c03d926063` (SHA-256)
 
 Package installation from the command-line is recommended:
 
 ```bash
-$ sudo dpkg -i logtalk_3.30.0-1_all.deb
+$ sudo dpkg -i logtalk_3.31.0-1_all.deb
 ```
 
 
@@ -143,28 +143,38 @@ group in the `Start Menu` with integration shortcuts for supported
 Prolog compilers and shortcuts for the accessing the Logtalk
 documentation. Can be used by both admin and non-admin users.
 
-> [`logtalk-3.30.0.exe`](files/logtalk-3.30.0.exe)  
-> `b8dc9c3f331c211ed2372d01ab4efd791110b637242235f9c7fe091db987e6cc` (SHA-256)
+> [`logtalk-3.31.0.exe`](files/logtalk-3.31.0.exe)  
+> `5fcdee64dd33690813e43e75ee9968fcdf9093b6f4869726ba1c3a73b2dd83cf` (SHA-256)
 
+Logtalk is also available as a [Chocolatey package](https://chocolatey.org/packages/logtalk/3.31.0)
+and can be installed using the `choco install logtalk` command.
 Alternatively, on Windows 10 or Windows Server 2019, you can use the
 Windows Subsystem for Linux (WSL) and install Logtalk using one of the
 Linux installers listed above.
 
-Automatically generated installers for the latest git version can be download from
+Automatically generated installers for the latest git versions can be download from
 [AppVeyor](https://ci.appveyor.com/project/pmoura/logtalk3/build/artifacts).
 
 
-### SWI-Prolog pack
+### SWI-Prolog packs
 
 Logtalk is also available as a SWI-Prolog pack. The
 [pack](http://www.swi-prolog.org/pack/list?p=logtalk) is handy for
 *deployment* but not ideal for *development*, however, as all the
 files in the distribution are buried in a relatively deep sub-directory.
 The pack can be easily installed typing the query `pack_install(logtalk)`
-at the top-level. Also available as a manual download.
+at the top-level (use the `pack_info(logtalk)` query after installation
+to find the installation directory). Also available as a manual download:
 
-> [`logtalk-3.30.0.tgz`](files/swi-prolog/packs/logtalk-3.30.0.tgz)  
-> `c2cedf90149af366cac539a6763d7b32d9fe840bc26c3186fbb4bb51700c474e` (SHA-256)
+> [`logtalk-3.31.0.tgz`](files/swi-prolog/packs/logtalk-3.31.0.tgz)  
+> `c83e49877495454ee567ec363327c0504d5269c2109a318d7a93a9a9fe64e521` (SHA-256)
+
+There's also an **experimental** pack that encapsulates de Logtalk
+compiler and runtime in a `logtalk` module. This pack is only available
+as a manual download:
+
+> [`logtalk-experimental-3.31.0.tgz`](files/swi-prolog/packs/logtalk-experimental-3.31.0.tgz)  
+> `ac700b1f3ed94ce0f20935f9c302cf0bcbe65325da74e87c78f9e1ca610e757b` (SHA-256)
 
 
 ### Arch Linux package
@@ -179,8 +189,8 @@ Ebrahim Azarisooreh.
 HTML, ePub, PDF, and Texinfo versions of the Handbook (includes a tutorial, the User Manual, the Reference Manual, and the FAQ).
 Note that the HTML version is **included** in the source and binary packages.
 
-> [`logtalk-manuals-3.30.0.tgz`](files/logtalk-manuals-3.30.0.tgz)  
-> `e727e31f795ce5469c7ba17e75288c1365ddfa296fa2417e0ef783980166400a` (SHA-256)
+> [`logtalk-manuals-3.31.0.tgz`](files/logtalk-manuals-3.31.0.tgz)  
+> `36951c5d4b2acef37fa25d2ad148d39cea3757ea14472765689976dba35f42b1` (SHA-256)
 
 
 ## Docker images
@@ -198,9 +208,9 @@ between servers along the years).
 ## Sponsorship
 
 If you want to express you appreciation for Logtalk and help keep it a
-sustainable project, your sponsorship is much appreciated. Sponsorship
-monthly tiers can be browsed and selected by clicking in the `Sponsor`
-button at the top of the page of the Logtalk [GitHub repo](http://github.com/LogtalkDotOrg/logtalk3).
+sustainable project, your [sponsorship](https://github.com/sponsors/pmoura)
+is much appreciated. Sponsorship monthly tiers start at a symbolic $2 per
+month to hopefully allow everyone to show their love and support for Logtalk.
 
 
 ## Registration

@@ -8,6 +8,20 @@ aside:
 
 ### 2019
 
+##### October 15
+
+> Logtalk 3.31.0 is now available for [downloading](download.html). This
+> release adds new and improved lint checks for control constructs and
+> built-in predicates, adds support for using `encoding/1` directives in
+> included files, improves support for compiling modules as objects,
+> includes documentation updates and improvements, includes fixes and updates
+> for the `code_metrics` and `lgtunit` tools, includes a port of ToyCHR,
+> updates Textadept editor support, updates the Windows installer to
+> support Chocolatey packages, and provides portability updates for
+> ECLiPSe, GNU Prolog, SICStus Prolog, SWI-Prolog, and YAP. For details
+> and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### September 17
 
 > Logtalk 3.30.0 is now available for [downloading](download.html). This

@@ -274,6 +274,10 @@ This plugin provides an alternative that can be useful to manage Logtalk version
 languages and tools that can also be handled by `asdf`.
 
 
+## GitHub actions and workflows
+
+GitHub actions and workflows are [available](https://github.com/logtalk-actions) for CI/CD of Logtalk applications with source code repos hosted at GitHub.
+
 ## Third-party tools
 
 ### SWI-Prolog tools

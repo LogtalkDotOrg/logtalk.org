@@ -4,6 +4,133 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.31.0 - October 15, 2019
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Support for using the `predicate_property/2` method to query
+proprietary predicate properties that result from proprietary predicate
+directives that are supported by the adapter files.
+
+* ADDED: Support for using `encoding/1` directives in included files, which
+may specify encodings different from the encoding of the main file.
+
+* ADDED: Lint check for `findall(_, Goal, _)` goals which misuse `findall/3`
+to backtrack into all solutions of `Goal`.
+
+* ADDED: Lint check for redundant uses of the `\+/1` control construct.
+
+* ADDED: Support for compiling Prolog modules as objects when the modules
+export built-in predicates.
+
+* FIXED: Generate a compiler error when an entity parameter is not a variable.
+Thanks to Paul Brown for the bug report.
+
+* FIXED: The lint check on `call/1` wrappers to skip warnings when the wrapped
+goal is a cut-transparent control construct.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: Internal predicate to all adapter files to declare additional,
+proprietary predicate properties.
+
+* ADDED: Support to the SWI-Prolog and YAP adapter files to expand Prolog
+`use_module/2` directives with an `except/1` second argument.
+
+* ADDED: Support to the SWI-Prolog and YAP adapter files to expand Prolog
+`use_module/2` directives that specify predicate aliases.
+
+* ADDED: Support to the ECLiPSe adapter file to expand `module/1` directives
+to allow compiling modules as objects.
+
+* FIXED: Workaround lack of a `foreign` predicate property in SICStus Prolog.
+
+Documentation
+-------------
+
+* IMPROVED: Handbook section on parametric objects.
+
+* IMPROVED: Handbook section on Prolog integration and migration. Includes
+a discussion on how to use hook objects to deal with Prolog term-expansion
+mechanisms when compiling modules as objects.
+
+* IMPROVED: Documentation of the `lgtunit` tool on checking test goal results.
+
+* IMPROVED: Documentation of the `logtalk_compile/1-2` and `logtalk_load/1-2`
+built-in predicates.
+
+Library
+-------
+
+* FIXED: The `mode/2` directive for the `difflist` predicate `as_list/2`.
+
+Tools
+-----
+
+* CHANGED: The `code_metric::sub_library/2` protected predicate to return
+sub-library names instead of sub-library paths.
+
+* CHANGED: The `code_metric::process_rlibrary/1` protected predicate to take
+as argument a library name instead of a library path.
+
+* FIXED: Missing scope directive for the `code_metric::process_library/1`
+protected predicate.
+
+* FIXED: The `code_metrics` tool processing of predicates `rdirectory_score/2`
+and `rlibrary_score/2` for the `noc_metric`, `nor_metric`, `size_metric`, and
+`upn_metric` metrics.
+
+* FIXED: Missing additional `mode/2` directives for the `lgtunit` object
+`set_text_input/1-3`, `set_text_output/1-2`, and `create_text_file/2`
+predicates which also accept a list of atoms.
+
+* FIXED: Sample code in the `lgtunit` tool documentation on user-defined test
+dialects.
+
+* CLEANUP: Dead code in the `diagrams` tool.
+
+Tests
+-----
+
+* ADDED: Tests for `encoding/1` directives in included files.
+
+* IMPROVED: Rewritten the ISO Prolog standard `read_term/3` predicate tests
+to use assertions for easier debugging.
+
+Examples
+--------
+
+* FIXED: The `clustering` and `document_converter` Java examples when using
+YAP as the backend Prolog compiler.
+
+Ports
+-----
+
+* ADDED: Port of ToyCHR by Gregory J. Duck. Experimental.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: The Windows installer to allow passing the installation directory
+using the command-line option `/DIR=path`.
+
+* FIXED: The Windows installer to find a GNU Prolog 1.4.5 installation, which
+uses a registry key different from the one used in previous versions.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* UPDATED: Textadept editor syntax highlighting support. Contributed by
+Michael T. Richter. 
+
+* UPDATED: Syntax test files to allow detecting highlighting flaws where an
+atom would be mistaken for a built-in predicate or a built-in directive.
+After a suggestion by Michael T. Richter.
+
+
 3.30.0 - September 17, 2019
 ===========================
 
