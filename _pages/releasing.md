@@ -16,7 +16,9 @@ file in the directory for details. The main release script is:
 
 [https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/build_release.sh](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/build_release.sh)
 
-This script performs a git clone and builds the sources archive, the manuals archive, the SWI-Prolog pack, and all the installers with the exception of the Windows installer.
+This script performs a git clone and builds the sources archive, the manuals archive, the SWI-Prolog pack, and all the installers with the exception of the Windows installer. The macOS installer needs to be compressed from the Finder.
+
+## Windows installer
 
 To build the Windows `.exe` installer requires a PC or a virtual machine running Windows 7 or later and using the Inno Setup script that is also included with the distribution:
 
@@ -49,9 +51,13 @@ It's also necessary to patch the Pygments installation with the latest version o
 
 Before running the scripts, the version data in the `conf.py` files must be updated.
 
+## Docker stable image
+
 After tagging the stable release (and pushing the tag to GitHub), the stable release Docker images are generated using the script at:
 
 [https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/docker](https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/docker)
+
+## SWI-Prolog pack
 
 After uploading the generated archives, to update the SWI-Prolog pack, start `swipl` and use the following queries (replace `XY.Z` with the version numbers):
 
@@ -60,4 +66,20 @@ After uploading the generated archives, to update the SWI-Prolog pack, start `sw
 ...
 ?- pack_install('https://logtalk.org/files/swi-prolog/packs/logtalk-3.XY.Z.tgz').
 ...
+```
+
+## Chocolatey package
+
+The first step is to update the [LogtalkDotOrg/chocolatey-packages](https://github.com/LogtalkDotOrg/chocolatey-packages) repo `logtalk.nuspec` and `chocolateyInstall.ps1` files with the data for the new stable release, commit, and push the changes. Then, from a Windows system `cmd` shell, change directory to the repo clone and type the commands:
+
+```text
+git pull
+choco pack
+choco -s https://push.chocolatey.org/
+```
+
+The above commands assume the API key is set. If that's not the case, before pushing a new release, the following command is required (with `KEY` replace by the actual key):
+
+```
+choco apikey --key KEY --source https://push.chocolatey.org/
 ```

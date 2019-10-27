@@ -53,9 +53,13 @@ Logtalk on the web
 -   Learn X in Y minutes Where X=Logtalk
     [English](https://learnxinyminutes.com/docs/logtalk/)
     [Italian](https://learnxinyminutes.com/docs/it-it/logtalk-it/)
+
+<!-- -->
+
 -   [Music, metas-interpreters, and an adventure game using
     Logtalk](https://prologomenon.wordpress.com/category/logtalk/)
 -   [Foxes and Rabbits](https://github.com/Anniepoo/foxesandrabbits)
+-   [TicTakToeTalk](https://gitlab.com/PaulBrownMagic/tictaktoetalk)
 
 <!-- -->
 

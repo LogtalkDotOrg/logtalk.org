@@ -285,7 +285,9 @@ file in the directory for details. The main release script is:</p>
 
 <p><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/build_release.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/build_release.sh</a></p>
 
-<p>This script performs a git clone and builds the sources archive, the manuals archive, the SWI-Prolog pack, and all the installers with the exception of the Windows installer.</p>
+<p>This script performs a git clone and builds the sources archive, the manuals archive, the SWI-Prolog pack, and all the installers with the exception of the Windows installer. The macOS installer needs to be compressed from the Finder.</p>
+
+<h2 id="windows-installer">Windows installer</h2>
 
 <p>To build the Windows <code class="highlighter-rouge">.exe</code> installer requires a PC or a virtual machine running Windows 7 or later and using the Inno Setup script that is also included with the distribution:</p>
 
@@ -317,9 +319,13 @@ up-to-date using the scripts:</p>
 
 <p>Before running the scripts, the version data in the <code class="highlighter-rouge">conf.py</code> files must be updated.</p>
 
+<h2 id="docker-stable-image">Docker stable image</h2>
+
 <p>After tagging the stable release (and pushing the tag to GitHub), the stable release Docker images are generated using the script at:</p>
 
 <p><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/docker">https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/docker</a></p>
+
+<h2 id="swi-prolog-pack">SWI-Prolog pack</h2>
 
 <p>After uploading the generated archives, to update the SWI-Prolog pack, start <code class="highlighter-rouge">swipl</code> and use the following queries (replace <code class="highlighter-rouge">XY.Z</code> with the version numbers):</p>
 
@@ -327,6 +333,20 @@ up-to-date using the scripts:</p>
 </span><span class="p">...</span>
 <span class="o">?-</span> pack_install<span class="p">(</span><span class="s">'https://logtalk.org/files/swi-prolog/packs/logtalk-3.XY.Z.tgz'</span><span class="p">).</span>
 <span class="p">...</span>
+</code></pre></div></div>
+
+<h2 id="chocolatey-package">Chocolatey package</h2>
+
+<p>The first step is to update the <a href="https://github.com/LogtalkDotOrg/chocolatey-packages">LogtalkDotOrg/chocolatey-packages</a> repo <code class="highlighter-rouge">logtalk.nuspec</code> and <code class="highlighter-rouge">chocolateyInstall.ps1</code> files with the data for the new stable release, commit, and push the changes. Then, from a Windows system <code class="highlighter-rouge">cmd</code> shell, change directory to the repo clone and type the commands:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull
+choco pack
+choco -s https://push.chocolatey.org/
+</code></pre></div></div>
+
+<p>The above commands assume the API key is set. If that’s not the case, before pushing a new release, the following command is required (with <code class="highlighter-rouge">KEY</code> replace by the actual key):</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>choco apikey --key KEY --source https://push.chocolatey.org/
 </code></pre></div></div>
 </div><footer class="article__footer"><!-- this will show at every article content's bottom --></footer>
 

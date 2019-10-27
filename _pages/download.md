@@ -9,6 +9,9 @@ aside:
 **Latest stable version:** 3.31.0  
 **Release date:** October 15, 2019
 
+<a class="github-button" href="https://github.com/sponsors/pmoura" data-icon="octicon-heart" aria-label="Sponsor @pmoura on GitHub">Sponsor</a>
+<a class="github-button" href="https://github.com/LogtalkDotOrg/logtalk3" data-icon="octicon-star" aria-label="Star LogtalkDotOrg/logtalk3 on GitHub">Star</a>
+
 ## Requirements
 
 Logtalk runs on any operating-system with a standards compliant modern
@@ -152,6 +155,11 @@ Alternatively, on Windows 10 or Windows Server 2019, you can use the
 Windows Subsystem for Linux (WSL) and install Logtalk using one of the
 Linux installers listed above.
 
+Installing on Windows 10 requires temporarily turning off `Ransomware
+protection` (in the `Windows Defender Security Center` preferences) if
+enabled as the Logtalk installer creates the the Logtalk user directory
+inside the `Documents` directory by default.
+
 Automatically generated installers for the latest git versions can be download from
 [AppVeyor](https://ci.appveyor.com/project/pmoura/logtalk3/build/artifacts).
 
@@ -216,3 +224,5 @@ month to hopefully allow everyone to show their love and support for Logtalk.
 ## Registration
 
 Consider [registering](regform.html) if you become a Logtalk user.
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
