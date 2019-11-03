@@ -15,6 +15,8 @@ Logtalk on the web
     [official](https://hub.docker.com/u/logtalk/) and
     [third-party](https://hub.docker.com/r/koryonik/logtalk-swi/)
     containers
+-   [SitCalc - A generic framework for passing round "state" in Logtalk applications based on Situation Calculus](https://github.com/PaulBrownMagic/SitCalc)
+-   [STRIPState - STRIPS/Situation Calculus handler for handling state in Logtalk applications without mutation](https://github.com/PaulBrownMagic/STRIPState)
 -   [webtalk - Boilerplate code for web applications written using
     Logtalk and SWI-Prolog](https://github.com/sandogeorge/webtalk)
 -   [lgtinit - Initializes project scaffolding for logtalk

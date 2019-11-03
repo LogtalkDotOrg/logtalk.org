@@ -149,11 +149,11 @@ documentation. Can be used by both admin and non-admin users.
 > [`logtalk-3.31.0.exe`](files/logtalk-3.31.0.exe)  
 > `5fcdee64dd33690813e43e75ee9968fcdf9093b6f4869726ba1c3a73b2dd83cf` (SHA-256)
 
-Logtalk is also available as a [Chocolatey package](https://chocolatey.org/packages/logtalk/3.31.0)
-and can be installed using the `choco install logtalk` command.
-Alternatively, on Windows 10 or Windows Server 2019, you can use the
-Windows Subsystem for Linux (WSL) and install Logtalk using one of the
-Linux installers listed above.
+Logtalk is also available as a [Chocolatey package](https://chocolatey.org/packages/logtalk/)
+and can be installed or updated using the `choco install logtalk` and
+`choco upgrade logtalk` commands. Alternatively, on Windows 10 or Windows
+Server 2019, you can use the Windows Subsystem for Linux (WSL) and install
+Logtalk using one of the Linux installers listed in this page.
 
 Installing on Windows 10 requires temporarily turning off `Ransomware
 protection` (in the `Windows Defender Security Center` preferences) if
