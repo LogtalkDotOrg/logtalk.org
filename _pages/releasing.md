@@ -75,7 +75,7 @@ The first step is to update the [LogtalkDotOrg/chocolatey-packages](https://gith
 ```text
 git pull
 choco pack
-choco -s https://push.chocolatey.org/
+choco push -s https://push.chocolatey.org/
 ```
 
 The above commands assume the API key is set. If that's not the case, before pushing a new release, the following command is required (with `KEY` replace by the actual key):

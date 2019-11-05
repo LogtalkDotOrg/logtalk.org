@@ -4,6 +4,114 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.32.0 - November 5, 2019
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* IMPROVED: Refined the compiler warning on unknown objects to detect when a
+loaded module may be being referenced as an object (which is also a potential
+portability issue).
+
+* IMPROVED: Don't print portability warnings on Prolog dialect term-expansion
+when the term is expanded to itself.
+
+* IMPROVED: Simplify lint warning for using the `sub_atom/5` predicate instead
+of the `atom_concat/3` predicate. Thanks to Peter Ludemann for the suggestion.
+
+* UPDATED: The search for a settings file at startup now also looks into the
+`$HOME/.config` directory as a last resort.
+
+* FIXED: Running embedded applications on systems other than the one used to
+create the embedding files. Notably, running embedded applications created on
+a POSIX system in a Windows system.
+
+* FIXED: Meta-call context when a predicate is declared as both a multifile
+predicate and a meta-predicate.
+
+* FIXED: Don't print a warning for a missing `meta_predicate/1` directive for
+multifile predicate definitions in entities other than the one providing the
+primary declaration.
+
+Documentation
+-------------
+
+* IMPROVED: Handbook sections on event-driven programming, multi-threading
+programming, and question asking.
+
+* UPDATED: The `lgtunit` tool documentation to include links to xUnit report
+converters that generate HTML files.
+
+* FIXED: Installation instructions on setting Logtalk environment variables.
+
+Tools
+-----
+
+* CHANGED: The `lgtunit` tool xUnit reports to list the test results using the
+test order.
+
+* IMPROVED: The `lgtunit` tool compatibility of the generated TAP reports with
+TAP output processors.
+
+* IMPROVED: The `lgt2rst.sh` POSIX script now supports passing additional
+options to the `sphinx-quickstart` script when using the `-s` option.
+
+* UPDATED: The `lgtdoc` tool POSIX scripts for converting XML documentation
+files now accept a `-v` option for returning the script version.
+
+* UPDATED: The `tutor` tool for the refined unknown object warning.
+
+* UPDATED: The `logtalk_tester` shell script to accept common aliases for
+the backend name in order to simplify use in GitHub actions and workflows.
+
+* FIXED: Bug in the `diagrams` tool where a spurious entity node would be
+generated for a related parametric entity with a bound parameter.
+
+* FIXED: Bug in the `diagrams` tool when generating edges between entities
+for cross-referencing predicate calls where the called entity is only know
+at runtime.
+
+* FIXED: Bug in the `lgtunit` tool XSLT script that converts XML code coverage
+reports to HTML where the `prefix` parameter would not be used to shorten the
+test suite file path.
+
+Tests
+-----
+
+* ADDED: Tests for multifile meta-predicates.
+
+* ADDED: Tests for the de facto standard Prolog arithmetic functions `gcd/2`
+and `sign/1`.
+
+Examples
+--------
+
+* ADDED: Sample implementations of the "many worlds" design pattern using the
+inheritance and parametric solutions.
+
+* ADDED: New `questions` example illustrating the question asking mechanism.
+
+* UPDATED: The `lazy` example of threaded engines to use the `coroutining`
+library.
+
+Installers and installation scripts
+-----------------------------------
+
+* IMPROVED: The GNU Prolog embedding script now supports setting the name of
+the generated executable and passing additional options to `gplc`.
+
+* IMPROVED: The SICStus Prolog, SWI-Prolog, and YAP embedding scripts now also
+support generating standalone saved states with a given name and startup goal.
+
+* FIXED: SWI-Prolog packs `download/1` predicate to use an URL pattern instead
+of a version specific URL to allow upgrading. Thanks to Peter Ludemann for the
+bug report.
+
+* FIXED: The Dockerfile to include the path to the `diagrams` tool scripts in
+the system path.
+
+
 3.31.0 - October 15, 2019
 =========================
 

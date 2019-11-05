@@ -8,6 +8,24 @@ aside:
 
 ### 2019
 
+##### November 5
+
+> Logtalk 3.32.0 is now available for [downloading](download.html). This
+> release adds support for multifile meta-predicates, improves some lint
+> checks, includes fixes and improvements for embedding applications,
+> includes documentation updates and improvements, adds support for
+> storing settings files in the `$HOME/.config` directory, improves
+> the `lgtunit` tool support for TAP and xUnit outputs, simplifies
+> generation of API documentation in Sphinx format, fixes some bugs
+> in the `diagrams` tool, adds tests for multifile meta-predicates and
+> for the de facto standard arithmetic functions `gcd/2` and `sign/1`,
+> adds sample implementations of the "many worlds" design pattern using
+> inheritance and parametric solutions, adds a new example illustrating
+> the question asking mechanism, and provides updated support for
+> GNU Prolog, SICStus Prolog, SWI-Prolog, and YAP. For details and a
+> complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### October 15
 
 > Logtalk 3.31.0 is now available for [downloading](download.html). This
