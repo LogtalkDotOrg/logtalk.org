@@ -13,7 +13,7 @@ tests should be as accessible as possible. Although automatic test generation
 is an established practice (using e.g. a [Quickcheck](../../08/20/easily-quickcheck-your-predicates.html)
 implementation such as the one provided by Logtalk), tests are often manually
 written. Thus, anything that gets in the way of expressing what we want to
-åtest hurts productivity.
+test hurts productivity.
 
 Testing tools such as [`lgtunit`](https://logtalk.org/manuals/devtools/lgtunit.html)
 aim to simplify writing tests by providing support for [multiple test dialects](https://logtalk.org/manuals/devtools/lgtunit.html#test-dialects)
@@ -129,7 +129,7 @@ we will get:
 % tests started at 2019/11/5, 14:45:22
 % 
 % running tests from object tests
-% file: /Users/pmoura/Desktop/lgtemp/test_dsl/tests.data
+% file: /Users/pmoura/test_dsl/tests.data
 % 
 % t1: success
 !     t2: failure 
