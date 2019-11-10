@@ -99,6 +99,14 @@ Most CI servers have HTML publishing plug-ins that should allow linking to the c
 $ xsltproc -o coverage_report.html coverage_report.xml
 ```
 
+## GitHub actions and workflows
+
+GitHub actions and workflows for Logtalk and Prolog repos are available at:
+
+[https://github.com/logtalk-actions](https://github.com/logtalk-actions)
+
+These actions can be used for easily defining CI/CD workflows that use Logtalk and/or selected Prolog compilers.
+
 ## Caveats
 
 Logtalk can act as a shared resource when doing concurrent builds. When two or more builds use the same Logtalk resources (e.g. library or tool files), a race condition may happen if the builds try to compile and load the same file. CI servers usually support, natively or using a plug-in, a way to throttle concurrent builds and/or the definition of locks for shared resources. A better solution, supported in Logtalk 3.11.0 and later versions, is to ensure that each Logtalk instance uses a unique scratch directory for temporary files. This requires a backend Prolog system supporting an initialization goal that is called, or an initialization file that is loaded, before Logtalk itself is loaded. Using SWI-Prolog as an example and assuming a POSIX system, add to its `.swiplrc` initialization file the following code:

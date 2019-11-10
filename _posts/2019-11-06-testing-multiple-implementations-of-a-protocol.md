@@ -55,7 +55,7 @@ test(dictionary_next_4_01) :-
 
 But this is verbose, specially when writing a large number of tests. We can
 take further advantage of the parameter variable to simplify the tests by
-using implicit message sending:
+using implicit message sending for all the predicates being tested:
 
 ```logtalk
 :- uses(_DictionaryObject_, [
@@ -115,7 +115,7 @@ using the commands:
 ```bash
 $ cd $HOME/logtalk/library/dictionaries
 $ xsltproc \
-  --stringparam prefix $HOME/logtalk/library/dictionaries \
+  --stringparam prefix logtalk/ \
   --stringparam url https://github.com/LogtalkDotOrg/logtalk3/tree/aa18ac872371165fbce99bb1efa8e026e1ad79d2 \
   -o coverage_report.html coverage_report.xml
 ```
@@ -125,9 +125,9 @@ the third-party converter [xunit-to-html](https://github.com/Zir0-93/xunit-to-ht
 with the following commands:
 
 ```bash
-$ cd $HOME/logtalk/library/dictionaries
+$ cd xunit-to-html-master
 $ java -jar saxon9he.jar \
-  -o:xunit_report.html \
+  -o:$HOME/logtalk/library/dictionaries/xunit_report.html \
   -s:$HOME/logtalk/library/dictionaries/xunit_report.xml \
   -xsl:xunit_to_html.xsl
 ```

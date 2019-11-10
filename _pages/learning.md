@@ -73,13 +73,14 @@ Another distinctive Logtalk feature is the support for _event-driven programing_
 
 Looking for how to express traditional OOP class concepts from other languages in Logtalk? See:
 
-* [`roots`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/roots)
+* [`people`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/people)
 * [`metaclasses`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/metaclasses)
+* [`reflection`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/reflection)
+* [`roots`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/roots)
 * [`classmethods`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/classmethods)
 * [`classvars`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/classvars)
 * [`instmethods`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/instmethods)
 * [`instvars`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/instvars)
-* [`people`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/people)
 
 Now that you got the basics of OOP in Logtalk, time to take it to the next level:
 

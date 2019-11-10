@@ -147,7 +147,9 @@ Prolog compilers and shortcuts for the accessing the Logtalk
 documentation. Can be used by both admin and non-admin users.
 
 > [`logtalk-3.32.0.exe`](files/logtalk-3.32.0.exe)  
-> `88b83c67caca2c84641ac01319144a985fa4c0046fe096b0a7ad4d3121d9fb2a` (SHA-256)
+> `88b83c67caca2c84641ac01319144a985fa4c0046fe096b0a7ad4d3121d9fb2a` (SHA-256)  
+> [VirusTotal](https://www.virustotal.com/gui/url/555bbdfdf03663a472912ec749883adeb7e61c7cb5681e7051515bfc078f5097/detection)
+scan
 
 Logtalk is also available as a [Chocolatey package](https://chocolatey.org/packages/logtalk/)
 and can be installed or updated using the `choco install logtalk` and

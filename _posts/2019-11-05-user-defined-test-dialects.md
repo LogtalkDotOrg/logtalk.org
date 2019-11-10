@@ -134,7 +134,7 @@ we will get:
 % t1: success
 !     t2: failure 
 !       test assertion failed: open_valve==close_valve
-!       in file tests.data between lines 2-2
+!       in file tests.data at or above line 2
 % t3: success
 % 
 % 3 tests: 0 skipped, 2 passed, 1 failed
