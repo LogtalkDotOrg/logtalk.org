@@ -102,7 +102,8 @@ library directory for the actual [`tester.lgt`](https://github.com/LogtalkDotOrg
 driver file that is used for running the tests.
 
 The XML files for the code coverage and the xUnit reports were generated
-using the commands:
+using the [`logtalk_tester`](https://logtalk.org/man/logtalk_tester.html)
+automation script:
 
 ```bash
 $ cd $HOME/logtalk/library/dictionaries
