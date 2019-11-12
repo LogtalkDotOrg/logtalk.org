@@ -79,9 +79,10 @@ predicate being tested is named `app::compute/4`:
 :- end_object.
 ```
 
-Using the `test_dsl` object as an hook object to expand a data file
-with `=>/2` facts results in the generation of a tests object named
-after the data file. But how do we run the tests? As test objects
+Using the `test_dsl` object as an
+[hook object](https://logtalk.org/manuals/glossary.html#term-hook-object)
+to expand a data file with `=>/2` facts results in the generation of a tests
+object named after the data file. But how do we run the tests? As test objects
 must be compiled using `lgtunit` as the hook object, we simply chain
 the two hook objects. Assuming the `=>/2` facts are defined in a
 `tests.data` file, a suitable `tester.lgt` driver file for the tests
@@ -107,6 +108,11 @@ would be:
     tests::run
 )).
 ```
+
+The [`hook_pipeline/1`](https://logtalk.org/library/hook_pipeline_1.html)
+parametric object takes as argument a list of hook objects, implementing
+a *pipeline* of term-expansions. In this case, the terms expanded by the
+`test_dsl` object are passed to `lgtunit` object for further expansion.
 
 As an usage example, assuming the contents of the `tests.data` file
 are the `=>/2` facts above and that we only have a placeholder for
