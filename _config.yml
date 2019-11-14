@@ -166,6 +166,7 @@ include:
   - /_pages
   - /_posts
   - /man
+  - /blog_images
 exclude:
   - about.md
   - CHANGELOG.md
