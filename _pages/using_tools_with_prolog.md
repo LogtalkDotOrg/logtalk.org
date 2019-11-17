@@ -147,5 +147,12 @@ the `meta_predicate/1` directive, replacing `:` by `0`, in case of a goal,
 or `N`, in case of a closure with the integer `N` being the number of
 additional arguments that will be added to the closure to construct a goal.
 
+Arbitrary goals used as directives are usually flagged as errors. In most
+cases, these can be wrapped using an `initialization/1` directive to allow
+compilation to procede.
 
-
+Clauses for `term_expansion/2` and `goal_expansion/2` predicates are never
+used to expand clauses that follow in the same file. If that's the case of
+any module that you're trying to compile as a Logtalk object, the only
+solution is to move the expansion clauses to a separate file and compile
+it before that file with the clauses to be expanded.

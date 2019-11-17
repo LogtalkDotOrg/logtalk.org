@@ -152,6 +152,7 @@ See also the [testing guide](testing.html) for more information.
 
 -   [Code coverage report](diagrams/coverage_report.html) for the [`diagrams`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md) tool
 -   [Prolog standards conformance suite](https://github.com/LogtalkDotOrg/logtalk3/tree/master/tests/prolog)
+-   Prolog standards conformance suite [results for GNU Prolog 1.4.5](https://logtalk.org/files/allure-report/)
 
 
 ## Dead code scanner

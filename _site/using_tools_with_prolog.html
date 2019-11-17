@@ -1,11 +1,11 @@
 <!DOCTYPE html><html lang="en">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Tools - Logtalk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Using Logtalk tools with Prolog codebases - Logtalk</title>
 
 <meta name="description" content="Logtalk - Declarative object-oriented logic programming language
 ">
-<link rel="canonical" href="http://localhost:4000/tools.html"><link rel="alternate" type="application/rss+xml" title="Logtalk" href="/feed.xml">
+<link rel="canonical" href="http://localhost:4000/using_tools_with_prolog.html"><link rel="alternate" type="application/rss+xml" title="Logtalk" href="/feed.xml">
 <!-- begin favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -263,7 +263,7 @@
         <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
 -->
       </div><nav class="navigation">
-        <ul><li class="navigation__link"><a href="/rationale.html">Rationale</a></li><li class="navigation__link"><a href="/features.html">Features</a></li><li class="navigation__link"><a href="/documentation.html">Documentation</a></li><li class="navigation__link"><a href="/download.html">Download</a></li><li class="navigation__link navigation__link--active"><a href="/tools.html">Tools</a></li><li class="navigation__link"><a href="/guides.html">Guides</a></li><li class="navigation__link"><a href="/support.html">Support</a></li><li class="navigation__link"><a href="/related.html">Related</a></li><li class="navigation__link"><a href="/news.html">News</a></li><li class="navigation__link"><a href="/blog.html">Blog</a></li><li class="navigation__link"><a href="/search.html"><i class="fa fa-search" aria-hidden="true"></i></a></li><!--
+        <ul><li class="navigation__link"><a href="/rationale.html">Rationale</a></li><li class="navigation__link"><a href="/features.html">Features</a></li><li class="navigation__link"><a href="/documentation.html">Documentation</a></li><li class="navigation__link"><a href="/download.html">Download</a></li><li class="navigation__link"><a href="/tools.html">Tools</a></li><li class="navigation__link"><a href="/guides.html">Guides</a></li><li class="navigation__link"><a href="/support.html">Support</a></li><li class="navigation__link"><a href="/related.html">Related</a></li><li class="navigation__link"><a href="/news.html">News</a></li><li class="navigation__link"><a href="/blog.html">Blog</a></li><li class="navigation__link"><a href="/search.html"><i class="fa fa-search" aria-hidden="true"></i></a></li><!--
           <li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
 -->
         </ul>
@@ -273,400 +273,162 @@
 
               <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
 
-              <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Tools</h1></header></div><meta itemprop="headline" content="Tools"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
-
-  <div class="article__content" itemprop="articleBody"><p>Logtalk includes a comprehensive set of developer tools allows you to write,
-debug, profile, document, diagram, and test your code. Most of the tools are
-implemented as Logtalk applications using the reflection API. This API can be
-used to implement alternative tools or new tools. Follows an overview of each
-tool and some usage examples.</p>
-
-<h2 id="learning">Learning</h2>
-
-<p>The <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/tutor/NOTES.md"><code class="highlighter-rouge">tutor</code></a>
-helps new users understand the compiler and runtime warning and error messages
-by adding explanations and suggestions to selected messages. Usage simply requires
-loading the tool at startup.</p>
-
-<h2 id="lint-checker">Lint checker</h2>
-
-<p>Although not technically a developer tool, it is worth mentioning the Logtalk
-extensive compiler lint checks as they contribute to earlier detection and
-warning of source code issues, helping the user in writing working code. Lint
-checks include:</p>
-
-<ul>
-  <li>Missing directives (including scope, meta-predicate, dynamic, discontiguous, and multifile directives)</li>
-  <li>Duplicated directives, clauses, and grammar rules</li>
-  <li>Missing predicates (calls to non-declared and non-defined predicates)</li>
-  <li>Calls to declared but not defined static predicates</li>
-  <li>Non-portable predicate calls, predicate options, arithmetic function calls, directives, flags, and flag values</li>
-  <li>Suspicious calls (syntactically valid calls that are likely semantic errors)</li>
-  <li>Deprecated directives, predicates, control constructs, and flags</li>
-  <li>References to unknown entities (objects, protocols, categories, or modules)</li>
-  <li>Top-level shortcuts used as directives</li>
-  <li>Unification goals that will succeed without binding any variables</li>
-  <li>Goals that are always true or always false</li>
-  <li>Trivial goal fails (due to no matching predicate clause)</li>
-  <li>Redefined built-in predicates</li>
-  <li>Lambda expression unclassified variables and mixed up variables</li>
-  <li>Lambda expression with parameter variables used elsewhere in a clause</li>
-  <li>Singleton variables</li>
-  <li>If-then-else and soft cut control constructs without an else part</li>
-  <li>Cuts in clauses for multifile predicates</li>
-  <li>Missing cut in repeat loops</li>
-  <li>Possible non-steadfast predicate definitions</li>
-  <li>Redundant calls to control constructs and built-in predicates</li>
-  <li>Calls to all-solutions predicates with existentially qualified variables not occurring in the qualified goal</li>
-  <li>Calls to all-solutions predicates with no shared variables between template and goal</li>
-  <li>Calls to <code class="highlighter-rouge">bagof/3</code> and <code class="highlighter-rouge">setof/3</code> where the goal argument contains singleton variables</li>
-  <li>Calls to standard predicates that have more efficient alternatives</li>
-  <li>Entity, predicate, and variable names not following official coding guidelines</li>
-  <li>Variable names that differ only on case</li>
-</ul>
-
-<p>Additional checks are provided by the <a href="#make"><code class="highlighter-rouge">make</code></a> and <a href="#dead-code-scanner"><code class="highlighter-rouge">dead_code_scanner</code></a> tools. For large projects, the data generated by the <a href="#code-metrics"><code class="highlighter-rouge">code_metrics</code></a> tool may also be relevant in accessing the quality of your code.</p>
-
-<h2 id="documenting">Documenting</h2>
-
-<p>Logtalk includes two documenting tools, <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtdoc/NOTES.md"><code class="highlighter-rouge">lgtdoc</code></a>
-and <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md"><code class="highlighter-rouge">doclet</code></a>, and an
-automation script, <a href="man/logtalk_doclet.html"><code class="highlighter-rouge">logtalk_doclet</code></a>. The <code class="highlighter-rouge">lgtdoc</code> tool exports API
-documentation files in XML format and includes scripts to convert
-these files into a final format such as HTML, PDF, or Markdown.
-The <code class="highlighter-rouge">doclet</code> tool can be used to automate the steps to generate API
-documentation and diagrams for a Logtalk application.</p>
-
-<p>Logtalk documenting directives allows the programmer to represent
-extensive API information on entities and their predicates including:</p>
-
-<ul>
-  <li>Entity authors, change date, version, description, and general remarks</li>
-  <li>Parametric entity parameter names and descriptions</li>
-  <li>Entity compilation flags</li>
-  <li>Entity user-defined keys</li>
-  <li>Predicate description</li>
-  <li>Predicate argument types, instantiation modes, and number of proofs</li>
-  <li>Predicate exceptions and usage examples</li>
-  <li>Predicate user-defined keys</li>
-</ul>
-
-<p>This information is made available for tools such as <code class="highlighter-rouge">lgtdoc</code> using the reflection API.</p>
-
-<h5 id="examples">Examples</h5>
-
-<ul>
-  <li>API documentation in HTML format of the <a href="library/iso8601_0.html"><code class="highlighter-rouge">iso8601</code></a> library</li>
-  <li><a href="library/index.html">Core, library, and tools</a> API documentation in HTML format illustrating the generated indexes</li>
-</ul>
-
-<h2 id="diagrams">Diagrams</h2>
-
-<p>The <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md"><code class="highlighter-rouge">diagrams</code></a> tool supports:</p>
-
-<ul>
-  <li>Library loading diagrams</li>
-  <li>Library dependency diagrams</li>
-  <li>Directory loading diagrams</li>
-  <li>Directory dependency diagrams</li>
-  <li>File loading diagrams</li>
-  <li>File dependency diagrams</li>
-  <li>Inheritance diagrams</li>
-  <li>Entity cross-referencing diagrams</li>
-  <li>Predicate cross-referencing diagrams</li>
-  <li>Diagrams with links to source code repositories and API documentation</li>
-  <li>Linked diagrams for source code navigation from libraries to entities to predicates</li>
-  <li>Linked diagrams for source code navigation from directories to files</li>
-  <li>Automatic generation of linked sub-diagrams</li>
-  <li>Diagrams represented in Graphviz dot language</li>
-  <li>Exporting of diagrams to SVG, PDF, and other formats</li>
-  <li>Diagram exporting automation scripts (for use with e.g. the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md"><code class="highlighter-rouge">doclet</code></a> tool)</li>
-  <li>User customization of diagram details</li>
-  <li>Support for generating diagrams for module applications when using selected Prolog systems</li>
-</ul>
-
-<h5 id="examples-1">Examples</h5>
-
-<p>Linked diagrams with live URLs to code and documentation (click on the nodes, labels, zoom icons, and directory and file names to navigate):</p>
-
-<ul>
-  <li><a href="docs/ports_profiler_object_xref_diagram.svg">Logtalk <code class="highlighter-rouge">ports_profiler</code> object cross-referencing diagram</a></li>
-  <li><a href="library/tools_inheritance_diagram.svg">Logtalk developer <code class="highlighter-rouge">tools</code> library diagram</a></li>
-  <li><a href="diagrams/talespin/talespin_entity_diagram.svg">SWI-Prolog Talespin application entity diagram</a></li>
-  <li><a href="diagrams/cliopatria/cliopatria_directory_load_diagram.svg">SWI-Prolog ClioPatria application directory diagram</a></li>
-</ul>
-
-<h2 id="testing">Testing</h2>
-
-<p>The <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtunit/NOTES.md"><code class="highlighter-rouge">lgtunit</code></a> testing tool
-can be used to test both Logtalk and Prolog code and provides an extensive set of features including:</p>
-
-<ul>
-  <li>Multiple test dialects</li>
-  <li>User-defined test dialects</li>
-  <li>QuickCheck support</li>
-  <li>Code coverage reports (at the predicate clause level; supports links to selected source code hosting providers)</li>
-  <li>Test assertions (for easier debugging of failed tests)</li>
-  <li>Support for testing input/output predicates</li>
-  <li>Support for suppressing irrelevant text/binary output by the code under testing</li>
-  <li>Predicate determinism testing</li>
-  <li>Benchmarking support</li>
-  <li>Approximate float comparison support</li>
-  <li>Test set and per test annotations</li>
-  <li>Parametrized unit tests</li>
-  <li>Testing automation script (supports CI servers)</li>
-  <li>TAP and xUnit test reports</li>
-  <li>Test set condition, setup, and cleanup goals</li>
-  <li>Per test condition, setup, and cleanup goals</li>
-  <li>Support for test subsets (with generation of a single code coverage report)</li>
-  <li>Make tool integration</li>
-</ul>
-
-<p>QuickCheck support includes both test idioms and predicates that can be used e.g. at the top-level for quick testing of plain Prolog predicates and Prolog modules predicates besides Logtalk object predicates.</p>
-
-<p>Test automation is provided by the <a href="man/logtalk_tester.html"><code class="highlighter-rouge">logtalk_tester</code></a> script.
-See also the <a href="testing.html">testing guide</a> for more information.</p>
-
-<h5 id="examples-2">Examples</h5>
-
-<ul>
-  <li><a href="diagrams/coverage_report.html">Code coverage report</a> for the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md"><code class="highlighter-rouge">diagrams</code></a> tool</li>
-  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/tests/prolog">Prolog standards conformance suite</a></li>
-  <li>Prolog standards conformance suite <a href="https://logtalk.org/files/allure-report/">results for GNU Prolog 1.4.5</a></li>
-</ul>
-
-<h2 id="dead-code-scanner">Dead code scanner</h2>
-
-<p>The <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/dead_code_scanner/NOTES.md"><code class="highlighter-rouge">dead_code_scanner</code></a>
-tool detects likely dead code in Logtalk entities and in Prolog modules (when compiled as objects). It can also
-detect code typos that often result in false positives. It can be run automatically was one of the actions of
-the <a href="#make"><code class="highlighter-rouge">make</code></a> tool.</p>
-
-<h2 id="code-metrics">Code metrics</h2>
-
-<p>The <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/code_metrics/NOTES.md"><code class="highlighter-rouge">code_metrics</code></a>
-tool allows applying code metrics to source code. Several basic metrics are provided:</p>
-
-<ul>
-  <li>Halstead complexity</li>
-  <li>Cyclomatic complexity</li>
-  <li>Efferent coupling</li>
-  <li>Afferent coupling</li>
-  <li>Instability</li>
-  <li>Abstractness</li>
-  <li>Documentation</li>
-  <li>Source code size</li>
-  <li>Depth of Inheritance</li>
-  <li>Number of Clauses</li>
-  <li>Number of Rules</li>
-</ul>
-
-<p>The tool is extensible allowing users to define their own metrics.</p>
-
-<h2 id="ports-profiler">Ports profiler</h2>
-
-<p>The <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/ports_profiler/NOTES.md"><code class="highlighter-rouge">ports_profiler</code></a>
-tool is a code profiling tool based on the extended procedure
-box model (using the same reflection API as the <a href="#debugging"><code class="highlighter-rouge">debugger</code></a> tool) to count and
-report the number of times each port is traversed during the execution of
-queries. It provides valuable insight on predicate usage allowing e.g. the
-detection of problems that can cause poor performance.</p>
-
-<h5 id="examples-3">Examples</h5>
-
-<ul>
-  <li>Profiling <a href="https://forums.logtalk.org/viewtopic.php?f=21&amp;t=240">session</a> of the <code class="highlighter-rouge">searching</code> example sample queries.</li>
-</ul>
-
-<h2 id="debugging">Debugging</h2>
-
-<p>Logtalk provides an extended procedure box model that supports:</p>
-
-<ul>
-  <li>Classic call, exit, redo, and fail ports</li>
-  <li>Exception port</li>
-  <li>Fact and rule unification ports</li>
-</ul>
-
-<p>This procedure box model is leveraged by the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md"><code class="highlighter-rouge">debugger</code></a>
-tool to provide:</p>
-
-<ul>
-  <li>Predicate spy points</li>
-  <li>Context spy points</li>
-  <li>Breakpoints (aka line number spy points)</li>
-  <li>Extended set of debugging commands at leashed ports</li>
-</ul>
-
-<p>Another debugging tool, <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debug_messages/NOTES.md"><code class="highlighter-rouge">debug_messages</code></a>.
-allows selectively enabling of debug messages. Related, the Logtalk message printing mechanism supports a set of predefined
-<a href="library/logtalk_0.html#remarks">meta messages</a> that are handy for debugging.</p>
-
-<p>Logtalk also provides a <a href="manuals/refman/control/context_switch_2.html">debugging control construct</a> for calling and testing local object predicates.</p>
-
-<p>See the Handbook section on <a href="manuals/userman/programming.html#programming_debugging">debugging</a> for more details.</p>
-
-<h2 id="make">Make</h2>
-
-<p>Logtalk supports extended <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md"><code class="highlighter-rouge">make</code></a> functionality:</p>
-
-<ul>
-  <li>Reloading of modified files</li>
-  <li>Cleaning of the intermediate Prolog files generated by the compiler</li>
-  <li>Generating documentation</li>
-  <li>Listing of missing entities</li>
-  <li>Listing of missing predicates</li>
-  <li>Listing of circular entity dependencies</li>
-  <li>Recompilation of loaded files in a different mode (e.g. debug mode)</li>
-  <li>User-defined make actions (e.g. running unit tests automatically when reloading modified files)</li>
-  <li>Cleaning of the dynamic binding caches</li>
-</ul>
-
-<p>The top-level interpreter supports handy <a href="manuals/refman/predicates/logtalk_make_1.html">shortcuts</a>
-for all the <code class="highlighter-rouge">make</code> features.</p>
-
-<h2 id="prolog-porting">Prolog porting</h2>
-
-<p>The <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/wrapper/NOTES.md"><code class="highlighter-rouge">wrapper</code></a>
-tool can be used to help port a plain Prolog application to Logtalk by analyzing its source
-files and suggesting object wrappers and their public interfaces. It can also be used to enable
-applying other Logtalk developer tools, such as the documenting and diagramming tools, to plain
-Prolog code.</p>
-
-<h2 id="coding">Coding</h2>
-
-<p>The Logtalk distribution includes <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding">extensive</a>
-support for text editors, syntax highlighters (for publishing code), and several IDEs.</p>
-
-<h2 id="embedding">Embedding</h2>
-
-<p>Logtalk includes a set of <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding">helper scripts</a>
-for embedding the Logtalk runtime and Logtalk applications using selected backend Prolog compilers. These scripts greatly
-simplify packaging and delivering of applications and can be used as basis for e.g. automatically generating executables and JAR files.</p>
-
-<h5 id="examples-4">Examples</h5>
-
-<ul>
-  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding/SCRIPT.txt">Embedding examples</a></li>
-</ul>
-
-<h2 id="version-management">Version management</h2>
-
-<p>The Logtalk distribution includes a <a href="man/logtalk_version_select.html"><code class="highlighter-rouge">logtalk_version_select</code></a>
-script that allows listing and switching between installed versions.</p>
-
-<p>A <a href="https://github.com/LogtalkDotOrg/asdf-logtalk">Logtalk plugin</a> for the <code class="highlighter-rouge">asdf</code> extendable version manager is also available.
-This plugin provides an alternative that can be useful to manage Logtalk versions when developing solutions that use other
-languages and tools that can also be handled by <code class="highlighter-rouge">asdf</code>.</p>
-
-<h2 id="github-actions-and-workflows">GitHub actions and workflows</h2>
-
-<p>GitHub actions and workflows are <a href="https://github.com/logtalk-actions">available</a> for CI/CD of Logtalk applications with source code repos hosted at GitHub.</p>
-
-<h2 id="third-party-tools">Third-party tools</h2>
-
-<h3 id="swi-prolog-tools">SWI-Prolog tools</h3>
-
-<p>Logtalk supports <a href="http://www.swi-prolog.org/">SWI-Prolog</a> <code class="highlighter-rouge">edit/1</code>, <code class="highlighter-rouge">make/0</code>, <code class="highlighter-rouge">consult/1</code>, and <code class="highlighter-rouge">load_files/2</code> (to load Logtalk source files) predicates, the graphical profiler, and the graphical tracer. Recent versions of both Logtalk and SWI-Prolog are required. See the <code class="highlighter-rouge">settings-sample.lgt</code> file for the <strong>required</strong> settings to use the graphical tracer and the graphical profiler.</p>
-
-<h3 id="yap-profilers">YAP profilers</h3>
-
-<p>Logtalk supports the <a href="http://www.cos.ufrj.br/~vitor/Yap/">YAP</a> tick and count profilers. See the <code class="highlighter-rouge">profiler</code> tool in the current Logtalk distribution for details.</p>
-
-<h3 id="sicstus-prolog-profilers">SICStus Prolog profilers</h3>
-
-<p>Logtalk supports the <a href="http://www.sics.se/isl/sicstus.html">SICStus Prolog 4</a> profiler. See the <code class="highlighter-rouge">profiler</code> tool in the current Logtalk distribution for details.</p>
-
-<h3 id="pdt">PDT</h3>
-
-<p><a href="https://sewiki.iai.uni-bonn.de/research/pdt/docs/start">PDT</a> is an open source Prolog IDE provided as a plug-in for the Eclipse IDE. PDT is being extended with Logtalk support.</p>
-
-<p>PDT currently requires a recent version of SWI-Prolog. It’s possible to start up Logtalk automatically by configuring PDT runtime preferences. The configuration depends on the operating-system. After installing Logtalk and setting the <code class="highlighter-rouge">LOGTALKHOME</code> and <code class="highlighter-rouge">LOGTALKUSER</code> environment variables, open Eclipse preferences, select PDT runtime preferences, and enter the following configuration data for the SWI-Prolog executable and for the extra environment variables (change the paths to match your SWI-Prolog and Logtalk installations and your home directory):</p>
-
-<h5 id="macos-example-configuration">macOS example configuration</h5>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/Users/pmoura/bin/swipl -s /opt/local/share/logtalk/integration/logtalk_swi.pl
-DISPLAY=:0.0, HOME=/Users/pmoura, LOGTALKHOME=/opt/local/share/logtalk, LOGTALKUSER=/Users/pmoura/logtalk
+              <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Using Logtalk tools with Prolog codebases</h1></header></div><meta itemprop="headline" content="Using Logtalk tools with Prolog codebases"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
+
+  <div class="article__content" itemprop="articleBody"><p>With some limitations, it’s possible to use several of the Logtalk developer
+tools with Prolog codebases. In doing so, keep in mind that Logtalk (1) uses
+Prolog as a backend compiler and (2) is designed to be Prolog agnostic. The
+lack of sensible standardization, particularly of modules and term-expansion
+mechanisms, means that each Prolog system provides its own proprietary
+implementation of these and other concepts and mechanisms, precluding portable
+solutions. The Prolog adapter files used by Logtalk contain code to workaround
+some of these portability issues.</p>
+
+<p>For best results, always use the latest Logtalk version to benefit of any
+recent improvements to the Logtalk compiler and Prolog backend adapter files
+that facilitate compiling Prolog code as Logtalk code.</p>
+
+<p>This guide is most relevant for using Logtalk’s <a href="tools.html#lint-checker"><code class="highlighter-rouge">linter</code></a>,
+<a href="tools.html#dead-code-scanner"><code class="highlighter-rouge">dead_code_scanner</code></a>, <a href="tools.html#code-metrics"><code class="highlighter-rouge">code_metrics</code></a>,
+and <a href="tools.html#ports-profiler"><code class="highlighter-rouge">ports_profiler</code></a> tools to analyze and debug
+issues in Prolog code. Other tools, such as <a href="tools.html#testing"><code class="highlighter-rouge">lgtunit</code></a>,
+directly support Prolog code.</p>
+
+<p><strong>Note:</strong> If you’re instead considering porting a Prolog application to Logtalk,
+there’s a tool, <a href="tools.html#prolog-porting"><code class="highlighter-rouge">wrapper</code></a> that can help. In that
+case, this is not the guide you’re looking for.</p>
+
+<h3 id="plain-prolog-code">Plain Prolog code</h3>
+
+<p>Applying the Logtalk developer tools to plain Prolog code (i.e. Prolog code
+not encapsulated in modules) requires wrapping the code using Logtalk objects.
+A simply way of doing it is creating a Logtalk source file per Prolog source
+file, defining an object that uses an <code class="highlighter-rouge">include/1</code> directive to load the
+Prolog code. For example, assuming a <code class="highlighter-rouge">foo.pl</code> file, we can create a <code class="highlighter-rouge">foo.lgt</code>
+file defining the object:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">:- object</span><span class="p">(</span>foo<span class="p">).</span>
+<span class="k">
+    :- include</span><span class="p">(</span><span class="s">'foo.pl'</span><span class="p">).</span>
+<span class="k">
+:- end_object</span><span class="p">.</span>
 </code></pre></div></div>
 
-<p>Notes: full paths should be used; no quotes should be used.</p>
+<p>Keep in mind that some Prolog directives are not valid inside objects and
+can cause compilation errors. If that’s the case, is best to make a copy
+of the Prolog files and edit them to add the object wrapper and either
+move the directives to outside the object or comment them.</p>
 
-<h5 id="windows-example-configuration">Windows example configuration</h5>
+<h3 id="prolog-modules">Prolog modules</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmd.exe /c start "cmdwindow" /min "C:\Program Files\pl\bin\swipl-win.exe" -f "%LOGTALKHOME%\integration\logtalk_swi.pl"
+<p>The Logtalk compiler supports compiling modules (that only make use of a
+common subset of directives) as objects. As, in general, a Prolog source
+file defines a single module, we can simply compile the Prolog files
+as Logtalk files. This doesn’t require any file extension changes but just
+passing the names of the files to the Logtalk compilation and loading
+built-in predicates.</p>
+
+<p>Start by loading the Prolog modules as usual (modules and objects live
+in different namespaces, which avoids most conflicts). This first step
+allows Logtalk to query the runtime about module exported predicates.
+For example, if you use a <code class="highlighter-rouge">loader.pl</code> file to load your application:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| ?- [loader].
+...
 </code></pre></div></div>
 
-<p>Notes: if you’re using a recent SWI-Prolog development version you may use the <code class="highlighter-rouge">-s</code> option instead of <code class="highlighter-rouge">-f</code>.</p>
+<p>Next, try to compile the Prolog source files as Logtalk source files. For
+example, assuming a directory with Prolog files using the common <code class="highlighter-rouge">.pl</code>
+extension and a Prolog system providing the de facto standard <code class="highlighter-rouge">forall/2</code>
+and <code class="highlighter-rouge">member/2</code> predicates:</p>
 
-<h5 id="linux-example-configuration">Linux example configuration</h5>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| ?- {os(loader)}.
+...
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/usr/bin/swipl -L4m -G4m -T4m -s /usr/share/logtalk/integration/logtalk_swi.pl
-LOGTALKHOME=/usr/share/logtalk, LOGTALKUSER=/home/pmoura/logtalk
+| ?- os::directory_files('.', Files, [type(regular),extensions(['.pl']),paths(relative)]),
+     forall(member(File,Files), (logtalk_compile(File) -&gt; true; true)).
+...
 </code></pre></div></div>
 
-<p>Notes: full paths should be used; no quotes should be used.</p>
+<p>The Logtalk compiler linter will run automatically (but note that some checks
+may be turned off by default; if so, use the <code class="highlighter-rouge">set_logtalk_flag/2</code> predicate to
+turn them on). Other tools will need to be loaded and applied to the loaded
+files (see the tools documentation for details). In that case, use instead:</p>
 
-<p>Using PDT also <strong>requires</strong> specific Logtalk settings. The <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/settings-sample.lgt"><code class="highlighter-rouge">settings-sample.lgt</code></a> file includes two sets of settings for PDT: a basic one and an extended one for allowing use of the SWI-Prolog graphical debugger for tracing Logtalk code. See the comments in the file on how to use settings files.</p>
-
-<p>Currently supported PDT features include consulting Logtalk source files, the source file outline (which requires the source code to be consulted first), and selecting a goal and searching for all declarations and definitions (you must select the whole goal and control-click on the selection).</p>
-
-<h3 id="source-code-version-control-systems">Source code version control systems</h3>
-
-<p>The <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding">coding</a>
-directory includes sample <em>ignore files</em> for common source code version
-control systems such as Git and Mercurial.</p>
-
-<h3 id="source-code-stats">Source code stats</h3>
-
-<p><a href="https://github.com/AlDanial/cloc"><code class="highlighter-rouge">cloc</code></a>,
-<a href="https://github.com/blackducksoftware/ohcount"><code class="highlighter-rouge">ohcount</code></a>, and
-<a href="https://github.com/Aaronepower/tokei"><code class="highlighter-rouge">tokei</code></a> are open-source command-line
-tools that count blank lines, comment lines, and lines of source code in
-many programming languages including Logtalk.</p>
-
-<h3 id="macos-quicklook">macOS QuickLook</h3>
-
-<p>macOS supports previewing files without opening them using a feature named QuickLook. By default, quick looking a file is just a question of selecting it in the Finder and pressing the keyboard’s space bar. To make this feature also work for previewing Logtalk source files, you can add the necessary registry information to a text editor such as TextMate 2 by editing the application <code class="highlighter-rouge">Info.plist</code> file and adding the following lines to the <code class="highlighter-rouge">UTImportedTypeDeclarations</code> section:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-	UTTypeIdentifier   = "org.logtalk";
-	UTTypeTagSpecification = {
-		public.filename-extension = ( lgt, logtalk );
-	};
-	UTTypeConformsTo   = ( "public.source-code" );
-	UTTypeIconFile     = "Logtalk";
-	UTTypeDescription  = "Logtalk source";
-	UTTypeReferenceURL = "https://logtalk.org";
-},
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| ?- os::directory_files('.', Files, [type(regular),extensions(['.pl']),paths(relative)]),
+     forall(member(File,Files), (logtalk_load(File) -&gt; true; true)).
+...
 </code></pre></div></div>
 
-<p>If the <code class="highlighter-rouge">Info.plist</code> is using XML syntax, then use instead:</p>
+<p><strong>Note:</strong> As the <code class="highlighter-rouge">logtalk_compile/1</code> and <code class="highlighter-rouge">logtalk_load/1</code> predicates fail on
+the first compilation error, we use the if-then-else control construct in the
+queries above to advance to the next file in case of error. Those errors are
+usually caused by Prolog proprietary extensions. How to workaround some of
+those errors is discussed next.</p>
 
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dict&gt;</span>
-	<span class="nt">&lt;key&gt;</span>UTTypeConformsTo<span class="nt">&lt;/key&gt;</span>
-	<span class="nt">&lt;array&gt;</span>
-		<span class="nt">&lt;string&gt;</span>public.source-code<span class="nt">&lt;/string&gt;</span>
-	<span class="nt">&lt;/array&gt;</span>
-	<span class="nt">&lt;key&gt;</span>UTTypeDescription<span class="nt">&lt;/key&gt;</span>
-	<span class="nt">&lt;string&gt;</span>Logtalk source<span class="nt">&lt;/string&gt;</span>
-	<span class="nt">&lt;key&gt;</span>UTTypeIconFile<span class="nt">&lt;/key&gt;</span>
-	<span class="nt">&lt;string&gt;</span>Logtalk<span class="nt">&lt;/string&gt;</span>
-	<span class="nt">&lt;key&gt;</span>UTTypeIdentifier<span class="nt">&lt;/key&gt;</span>
-	<span class="nt">&lt;string&gt;</span>org.logtalk<span class="nt">&lt;/string&gt;</span>
-	<span class="nt">&lt;key&gt;</span>UTTypeReferenceURL<span class="nt">&lt;/key&gt;</span>
-	<span class="nt">&lt;string&gt;</span>https://logtalk.org<span class="nt">&lt;/string&gt;</span>
-	<span class="nt">&lt;key&gt;</span>UTTypeTagSpecification<span class="nt">&lt;/key&gt;</span>
-	<span class="nt">&lt;dict&gt;</span>
-		<span class="nt">&lt;key&gt;</span>public.filename-extension<span class="nt">&lt;/key&gt;</span>
-		<span class="nt">&lt;array&gt;</span>
-			<span class="nt">&lt;string&gt;</span>lgt<span class="nt">&lt;/string&gt;</span>
-			<span class="nt">&lt;string&gt;</span>logtalk<span class="nt">&lt;/string&gt;</span>
-		<span class="nt">&lt;/array&gt;</span>
-	<span class="nt">&lt;/dict&gt;</span>
-<span class="nt">&lt;/dict&gt;</span>
+<h3 id="prolog-code-using-a-term-expansion-mechanism">Prolog code using a term-expansion mechanism</h3>
+
+<p>Some Prolog systems and their typical applications may make use of a
+term-expansion mechanism. When the Prolog system implements these mechanism
+using <code class="highlighter-rouge">term_expansion/2</code> and <code class="highlighter-rouge">goal_expansion</code> predicates with clauses for
+them collected in a selected number of modules, it’s possible to instruct
+Logtalk own term-expansion mechanism to call the Prolog defined expansions.
+For example, assume that the used Prolog libraries and user modules
+defining expansions store them in the <code class="highlighter-rouge">user</code> and <code class="highlighter-rouge">system</code> modules. In this
+case, before attempting to compile the Prolog code as Logtalk objects, try
+the following queries:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| ?- {hook_flows(loader)}.
+...
+
+| ?- set_logtalk_flag(hook, hook_set([user,system])).
+...
 </code></pre></div></div>
 
-<p>After saving the <code class="highlighter-rouge">Info.plist</code> file, close TextMate if open and re-open it. Then try to a QuickLook a Logtalk source file. You should get a preview window with nice syntax highlighting for your code. If not, move the TextMate application to a different folder (e.g. you Desktop) and then back to its original location. This is usually enough to get the Finder to notice and register the Quick Look changes in the application bundle.</p>
+<h3 id="file-loading-order">File loading order</h3>
+
+<p>Most Prolog applications load their files in a specific order. For example,
+when user-defined operators are used, the file defining those operators is
+loaded first. Some Prolog applications use an explicit loader file. For
+best results when trying to use the Logtalk developer tools, take into
+account the loading order. If necessary, write a simple <code class="highlighter-rouge">loader.lgt</code> file
+instead of using the <code class="highlighter-rouge">forall/2</code> loop illustrated above.</p>
+
+<h3 id="know-issues">Know issues</h3>
+
+<p>When finding a <code class="highlighter-rouge">use_module/1</code> or <code class="highlighter-rouge">use_module/2</code> directive in a Prolog module,
+Logtalk either successfully expands it to a Logtalk supported <code class="highlighter-rouge">use_module/2</code>
+directive (which takes as first argument a module name instead of a file
+specification) or prints an error and aborts the compilation of the source
+file. If you get an error, load the module file first and try again. Note
+that the expansion from a Prolog <code class="highlighter-rouge">use_module/1</code> directive to a Logtalk
+<code class="highlighter-rouge">use_module/2</code> directive will likely result in false positives when using
+the <code class="highlighter-rouge">dead_code_scanner</code> tool.</p>
+
+<p>The <code class="highlighter-rouge">set_prolog_flag/2</code> directive cannot be used inside objects but is
+sometimes used inside modules. The workaround is to move those directives
+to outside the modules before attempting to compile the modules as objects.</p>
+
+<p>Meta-predicate templates (in <code class="highlighter-rouge">meta_predicate/1</code> directives) using <code class="highlighter-rouge">:</code> for
+a meta-argument will result in a compilation error. The error results from
+Logtalk not being based on a predicate-prefixing mechanism as found in
+module systems and also in lack of standardization making <code class="highlighter-rouge">:</code> ambiguous as
+it can signal a goal, a closure, or an argument that will not be called as
+a goal (or used to construct a goal) but still requires module-prefixing.
+When the meta-argument is a goal or a closure, the workaround is to update
+the <code class="highlighter-rouge">meta_predicate/1</code> directive, replacing <code class="highlighter-rouge">:</code> by <code class="highlighter-rouge">0</code>, in case of a goal,
+or <code class="highlighter-rouge">N</code>, in case of a closure with the integer <code class="highlighter-rouge">N</code> being the number of
+additional arguments that will be added to the closure to construct a goal.</p>
+
+<p>Arbitrary goals used as directives are usually flagged as errors. In most
+cases, these can be wrapped using an <code class="highlighter-rouge">initialization/1</code> directive to allow
+compilation to procede.</p>
+
+<p>Clauses for <code class="highlighter-rouge">term_expansion/2</code> and <code class="highlighter-rouge">goal_expansion/2</code> predicates are never
+used to expand clauses that follow in the same file. If that’s the case of
+any module that you’re trying to compile as a Logtalk object, the only
+solution is to move the expansion clauses to a separate file and compile
+it before that file with the clauses to be expanded.</p>
 </div><footer class="article__footer"><!-- this will show at every article content's bottom --></footer>
 
   <div class="d-print-none"></div>
