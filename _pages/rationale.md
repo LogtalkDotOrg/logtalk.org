@@ -168,7 +168,7 @@ Logtalk applications making heavy use of dynamic binding may require a backend P
 
 Logtalk favors resilience to changes over convenience and thus does not support implicit predicate imports as in the Prolog `use_module/1` directive. In objects (and categories), only `use_module/2` directives (or its Logtalk equivalent, the `uses/2` directive) can be used. The practical consequence is that you need to use a `use_module/2` directive for implicitly calling module predicates and a `uses/2` directive for implicitly sending messages to objects. I.e. you need to either explicitly list the predicates or use explicit message sending. This can make the code a bit more verbose but it also prevents applications from breaking when new library predicates are implemented.
 
-Note: the adapter files for some Prolog systems are able to convert in the fly `use_module/1` directives into `use_module/2` directives in some cases. This, however, is not recommended for the reasons stated above.
+Note: the adapter files for some Prolog systems are able to convert in the fly Prolog `use_module/1` directives into Logtalk `use_module/2` directives in some cases. This, however, is not recommended for the reasons stated above and thus is not officially supported.
 
 ### Temporary files
 

@@ -18,6 +18,8 @@ aside:
 
 ## Development
 
+-	[Design patterns sample implementations](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/design_patterns)
+-	[Blog posts on best practices](blog.html?tag=best+practices)
 -   [Coding style guidelines](coding_style_guidelines.html)
 -   [Licensing](licensing.html)
 -   [Running developer versions](running_developer_versions.html)

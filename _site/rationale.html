@@ -439,7 +439,7 @@ Complex applications may require using both Logtalk and Prolog tools, demanding 
 
 <p>Logtalk favors resilience to changes over convenience and thus does not support implicit predicate imports as in the Prolog <code class="highlighter-rouge">use_module/1</code> directive. In objects (and categories), only <code class="highlighter-rouge">use_module/2</code> directives (or its Logtalk equivalent, the <code class="highlighter-rouge">uses/2</code> directive) can be used. The practical consequence is that you need to use a <code class="highlighter-rouge">use_module/2</code> directive for implicitly calling module predicates and a <code class="highlighter-rouge">uses/2</code> directive for implicitly sending messages to objects. I.e. you need to either explicitly list the predicates or use explicit message sending. This can make the code a bit more verbose but it also prevents applications from breaking when new library predicates are implemented.</p>
 
-<p>Note: the adapter files for some Prolog systems are able to convert in the fly <code class="highlighter-rouge">use_module/1</code> directives into <code class="highlighter-rouge">use_module/2</code> directives in some cases. This, however, is not recommended for the reasons stated above.</p>
+<p>Note: the adapter files for some Prolog systems are able to convert in the fly Prolog <code class="highlighter-rouge">use_module/1</code> directives into Logtalk <code class="highlighter-rouge">use_module/2</code> directives in some cases. This, however, is not recommended for the reasons stated above and thus is not officially supported.</p>
 
 <h3 id="temporary-files">Temporary files</h3>
 
