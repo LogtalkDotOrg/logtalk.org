@@ -42,7 +42,7 @@ Core, Library, Tools, and Contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.32.0.info) (latest; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.32.0.info) (stable; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
