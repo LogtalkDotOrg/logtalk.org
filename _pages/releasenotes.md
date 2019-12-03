@@ -4,6 +4,168 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.33.0 - December 3, 2019
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Support for overriding (or providing if absent) the meta-predicate
+template of a Prolog built-in predicate.
+
+* IMPROVED: Wording of the lint warning for all-solution predicates that may
+share no variables between the template and the goal arguments.
+
+* FIXED: Actually load settings files silently (although errors will be still
+reported but otherwise ignored).
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: The SWI-Prolog definition of the internal compiler predicate that
+checks for auto-loaded module predicates when compiling a module as an object
+to use the predicate property `imported_from/1` instead of the buggy property
+`implementation_module/1`.
+
+* ADDED: Support to the SWI-Prolog and YAP adapter files to expand Prolog
+`reexport/2` directives with an `except/1` second argument.
+
+* ADDED: Some more proprietary built-in predicates that can be used to check
+for tautology and falsehood goals to the adapter files.
+
+* ADDED: Declaration for the `timed_call/2` built-in meta-predicate to the
+XSB adapter file.
+
+Documentation
+-------------
+
+* ADDED: Usage example to the `debug_messages` tool documentation.
+
+* ADDED: Prolog backend specific portability notes to the `os` library API
+documentation.
+
+* IMPROVED: Documentation of the `code_metrics`, `dead_code_scanner`,
+`lgtdoc`, and `ports_profiler` tools.
+
+* IMPROVED: The `diagrams` tool documentation section on generating diagrams
+with links sub-diagrams, source code, and API documentation.
+
+* IMPROVED: The `lgtunit` tool documentation section on testing input/output
+predicates.
+
+* IMPROVED: Documentation of the `expecteds` and `optionals` libraries.
+
+* UPDATED: The `settings-sample.lgt` file with sample code for easy loading
+of personal projects and third-party libraries without having to first define
+a library alias for each project or library.
+
+Library
+-------
+
+* CHANGED: The `timeout::call_with_timeout/2` predicate to throw a
+`timeout(Goal)` exception instead of `error(timeout(Goal),Context)`.
+
+* ADDED: Predicate `timeout::call_with_timeout/3`.
+
+* ADDED: Support for XSB to the `timeout` library.
+
+* ADDED: Predicates `ensure_directory/1` and `ensure_file/1` to the `os`
+library.
+
+* ADDED: Predicate `from_goal/2` to the `expecteds` and `optionals` libraries.
+
+* ADDED: Predicates `if_present_or_else/2`, `or/2`, and `or_else_throw/2` to
+the `optionals` library.
+
+* ADDED: Convenience predicate `random::enumerate/2`.
+
+* FIXED: Predicates `map/2` and `flat_map/2` of the `optionals` library to also
+return an empty optional when calling the closure argument throws an error.
+
+* FIXED: The predicate `expected::from_goal/4` which would not use the given
+error argument when calling the goal generates an exception.
+
+* FIXED: Predicate `backend_random::random/1` when using XSB as the backend
+compiler.
+
+* FIXED: The `coroutining` library `freeze/2` and `when/2` predicates when
+using ECLiPSe as the backend compiler.
+
+* FIXED: The `timeout::call_with_timeout/2` library predicate when using
+ECLiPSe as the backend compiler.
+
+* FIXED: The predicate `atom::split/3` when given an empty atom as delimiter.
+Thanks to Paul Brown for the bug report.
+
+Tools
+_____
+
+* ADDED: Support for detecting duplicated library aliases when calling the
+`logtalk_make/1` predicate with the `check` target.
+
+* ADDED: A boolean option, `sort_predicates/1`, to `lgtdoc` tool for writing
+predicate index lists sorted by predicate name (default value is `false`).
+
+* IMPROVED: The `lgtdoc` tool to list inherited public predicates in entity
+documentation.
+
+* IMPROVED: The `lgtunit` tool compatibility of the generated xUnit reports
+with xUnit output processors.
+
+* IMPROVED: The `lgtunit` tool generated xUnit reports now include the
+contents of the `note/1` test option for skipped tests.
+
+* FIXED: Invalid code coverage XML report when the source code defines clauses
+for multifile predicates.
+
+* FIXED: Generating a code coverage report when using a parametric test object
+to test multiple implementations of the same protocol.
+
+* FIXED: The `lgtunit` tool to report a predicate clause coverage percentage
+of 100% when no predicate clauses exist instead of 0%.
+
+* FIXED: The `lgtunit` tool would write single line number information on
+failed tests or steps as "between lines" instead of as "at or above line".
+
+* FIXED: Loading of the `logtalk_index.dtd` file when running the `lgt2txt.sh`
+script.
+
+Tests
+-----
+
+* ADDED: Unit tests for the `atom` library object `replace_sub_atom/4` and
+`split/3` predicates.
+
+* IMPROVED: Convert unit tests for the ISO Prolog standard `is/2` built-in
+predicate to use assertions to simplify debugging.
+
+* FIXED: Unit tests for the `lgtunit` tool support for testing predicates
+that perform input/output operations to close the temporary files they use.
+
+Examples
+--------
+
+* ADDED: Simple multi-threaded implementation of a ping-pong game,
+`threads/ping_pong`.
+
+* ADDED: Threaded engine implementation of a priority message queue,
+`engines/pmq`.
+
+* ADDED: Simple Java-based GUI interface to the `questions` example.
+
+* IMPROVED: The `books` example of using the `optionals` library.
+
+* FIXED: The loader file of the `persistency` example to load the required
+`os` library and create the saved state file if it doesn't exist.
+
+* FIXED: Missing unit tests cleanup in the `serialization` example.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* FIXED: Pygments Logtalk lexer syntax error in the `analyse_text` function.
+
+
 3.32.0 - November 5, 2019
 =========================
 

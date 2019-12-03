@@ -29,8 +29,8 @@ code repository files and lines for easy navigation, simplifying e.g. checking
 those clauses that are not being used.
 
 How do we generate these code coverage reports? In our test objects, we must
-declare the entities that should be covered using the `cover/1` predicate. For
-example, the [`tests`](https://github.com/LogtalkDotOrg/logtalk3/blob/05322cdd799c0dd3c507c91617aaa10eaa0a1f77/tools/diagrams/tests.lgt#L31)
+declare the objects and categories that should be covered using the `cover/1`
+predicate. For example, the [`tests`](https://github.com/LogtalkDotOrg/logtalk3/blob/05322cdd799c0dd3c507c91617aaa10eaa0a1f77/tools/diagrams/tests.lgt#L31)
 object for the `diagrams` tool contains:
 
 ```logtalk
@@ -89,7 +89,8 @@ results:
 
 But how do we generate a nice HTML report as linked above? First, we use
 the [`logtalk_tester`](https://logtalk.org/man/logtalk_tester.html)
-automation script to generate a code coverage report in XML format:
+automation script to run the tests and generate a code coverage report in
+XML format:
 
 ```bash
 $ cd logtalk/tools/diagrams
@@ -105,11 +106,15 @@ $ xsltproc \
     -o coverage_report.html coverage_report.xml
 ```
 
-These steps can be easily automated. Note that we use a permanent link to
-a commit using its SHA1 checksum. This ensures that the URLs in the HTML
-report to source files and lines remain valid when new commits are pushed.
-The final step is to upload the HTML report to an HTTP server (the report
-is self-contained using inline CSS). 
+The `prefix` and `url` parameters are used to cut the files prefix and
+replace it with the base URL, thus constructing the final URLs to the
+source code repo.
+
+The conversion steps can be easily automated. Note that we use a permanent
+link to a commit using its SHA1 checksum. This ensures that the URLs in the
+HTML report to source files and lines remain valid when new commits are
+pushed. The final step is to upload the HTML report to an HTTP server (the
+report is self-contained using inline CSS). 
 
 ### Resources
 

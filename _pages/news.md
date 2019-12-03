@@ -8,6 +8,20 @@ aside:
 
 ### 2019
 
+##### December 3
+
+> Logtalk 3.33.0 is now available for [downloading](download.html). This
+> release adds make tool support for detecting duplicated library aliases,
+> fixes silent loading of settings files when used to load libraries and
+> tools, updates the documenting tool to list inherited public predicates
+> in entity API documentation, improves tool documentation, adds new library
+> predicates, includes fixes and improvements for libraries and tools, adds
+> new library tests, adds new multi-threading programming examples, adds an
+> example of using the question-asking mechanism, fixes example issues, and
+> provides updated support for ECLiPSe, SICStus Prolog, SWI-Prolog, XSB, and
+> YAP. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### November 5
 
 > Logtalk 3.32.0 is now available for [downloading](download.html). This
