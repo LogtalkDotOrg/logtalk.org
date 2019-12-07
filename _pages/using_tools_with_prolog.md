@@ -97,7 +97,7 @@ those errors is discussed next.
 ### Prolog code using a term-expansion mechanism
 
 Some Prolog systems and their typical applications may make use of a
-term-expansion mechanism. When the Prolog system implements these mechanism
+term-expansion mechanism. When the Prolog system implements this mechanism
 using `term_expansion/2` and `goal_expansion` predicates with clauses for
 them collected in a selected number of modules, it's possible to instruct
 Logtalk own term-expansion mechanism to call the Prolog defined expansions.
