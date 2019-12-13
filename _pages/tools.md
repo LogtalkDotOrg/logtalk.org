@@ -17,7 +17,37 @@ tool and some usage examples.
 The [`tutor`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/tutor/NOTES.md)
 helps new users understand the compiler and runtime warning and error messages
 by adding explanations and suggestions to selected messages. Usage simply requires
-loading the tool at startup.
+loading the tool at startup. As an example, with this tool loaded, instead of
+terse compiler warnings such as:
+
+```text
+*     No matching clause for goal: baz(a)
+*       while compiling object main_include_compiler_warning
+*       in file /Users/pmoura/logtalk/examples/errors/include_compiler_warning.lgt between lines 37-38
+*     
+*     Duplicated clause: b(one)
+*       first found at or above line 45
+*       while compiling object main_include_compiler_warning
+*       in file /Users/pmoura/logtalk/examples/errors/include_compiler_warning.lgt at or above line 48
+```
+
+the user will get:
+
+```text
+*     No matching clause for goal: baz(a)
+*       while compiling object main_include_compiler_warning
+*       in file /Users/pmoura/logtalk/examples/errors/include_compiler_warning.lgt between lines 37-38
+*     Calls to locally defined predicates without a clause with a matching head
+*     fail. Typo in a predicate argument? Predicate definition incomplete?
+*     
+*     Duplicated clause: b(one)
+*       first found at or above line 45
+*       while compiling object main_include_compiler_warning
+*       in file /Users/pmoura/logtalk/examples/errors/include_compiler_warning.lgt at or above line 48
+*     Duplicated clauses are usually a source code editing error and can
+*     result in spurious choice-points, degrading performance. Delete or
+*     correct the duplicated clause to fix this warning.
+```
 
 ## Lint checker
 
