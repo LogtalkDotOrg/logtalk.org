@@ -8,9 +8,10 @@ aside:
 
 Logtalk includes a comprehensive set of developer tools allows you to write,
 debug, profile, document, diagram, and test your code. Most of the tools are
-implemented as Logtalk applications using the reflection API. This API can be
-used to implement alternative tools or new tools. Follows an overview of each
-tool and some usage examples.
+implemented as Logtalk applications using the
+[reflection API](manuals/userman/reflection.html). This API can be used to
+implement alternative tools or new tools. Follows an overview of each tool
+and some usage examples.
 
 ## Learning
 

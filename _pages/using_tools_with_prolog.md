@@ -112,6 +112,11 @@ the following queries:
 	| ?- set_logtalk_flag(hook, hook_set([user,system])).
 	...
 
+This workaround will not work, however, when the module defined expansion
+predicates make calls to loading context predicates (such as the
+`prolog_load_context/2` provided by some backend Prolog compilers) that
+expect the compilation context to be a module.
+
 ### File loading order
 
 Most Prolog applications load their files in a specific order. For example,

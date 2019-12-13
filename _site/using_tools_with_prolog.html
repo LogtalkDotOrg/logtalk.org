@@ -385,6 +385,11 @@ the following queries:</p>
 ...
 </code></pre></div></div>
 
+<p>This workaround will not work, however, when the module defined expansion
+predicates make calls to loading context predicates (such as the
+<code class="highlighter-rouge">prolog_load_context/2</code> provided by some backend Prolog compilers) that
+expect the compilation context to be a module.</p>
+
 <h3 id="file-loading-order">File loading order</h3>
 
 <p>Most Prolog applications load their files in a specific order. For example,
