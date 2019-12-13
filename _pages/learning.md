@@ -258,6 +258,9 @@ As we just modified a loaded file, we can use the [`make`]((https://github.com/L
 % Reloaded all Logtalk source files modified or that required
 % recompilation due to a change to the compilation mode
 true.
+
+?- jupiter::weight(m2, W2).
+W2 = 14.88304.
 ```
 
 The `{*}` goal is a top-level shortcut to the `logtalk_make` goal (and the `logtalk_make(all)` goal).
