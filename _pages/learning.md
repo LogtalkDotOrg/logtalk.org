@@ -238,7 +238,7 @@ But don't just run the provided examples. Experiment also modifying them. Contin
 :- object(jupiter,
     imports(planet)).
 
-    gravitational_acceleration(3.72076).
+    gravitational_acceleration(25.885).
 
 :- end_object.
 ```
@@ -260,14 +260,20 @@ As we just modified a loaded file, we can use the [`make`]((https://github.com/L
 true.
 
 ?- jupiter::weight(m2, W2).
-W2 = 14.88304.
+W2 = 103.54.
 ```
 
 The `{*}` goal is a top-level shortcut to the `logtalk_make` goal (and the `logtalk_make(all)` goal).
 
 ## Running example tests
 
-Next we could also modify the example unit tests to account for the newly added `jupiter` object by editing the `tests.lgt` file. The tests can be run by simply loading the `tester.lgt` file:
+Next we could also modify the example unit tests to account for the newly added `jupiter` object by editing the `tests.lgt` file. As we added a new object, `jupiter`, we want to add a `cover/1` clause for it to that we can collect cove coverage data:
+
+```logtalk
+cover(jupiter).
+```
+
+After saving the changes to the `tests.lgt` file, we can run the tests by simply loading the `tester.lgt` file:
 
 ```
 ?- {planets(tester)}.
@@ -285,8 +291,48 @@ Next we could also modify the example unit tests to account for the newly added 
 % 4 tests: 0 skipped, 4 passed, 0 failed
 % completed tests from object tests
 %
-...
+% 
+% clause coverage ratio and covered clauses per entity predicate
+% 
+% earth: gravitational_acceleration/1 - 1/1 - (all)
+% earth: 1 out of 1 clause covered, 100.000000% coverage
+% 
+% jupiter: gravitational_acceleration/1 - 0/1 - []
+% jupiter: 0 out of 1 clause covered, 0.000000% coverage
+% 
+% m1: mass/1 - 1/1 - (all)
+% m1: volume/1 - 0/1 - []
+% m1: 1 out of 2 clauses covered, 50.000000% coverage
+% 
+% m2: mass/1 - 1/1 - (all)
+% m2: volume/1 - 0/1 - []
+% m2: 1 out of 2 clauses covered, 50.000000% coverage
+% 
+% mars: gravitational_acceleration/1 - 1/1 - (all)
+% mars: 1 out of 1 clause covered, 100.000000% coverage
+% 
+% planet: weight/2 - 1/1 - (all)
+% planet: gravitational_acceleration/1 - 0/0 - (all)
+% planet: 1 out of 1 clause covered, 100.000000% coverage
+% 
+% 6 entities declared as covered containing 8 clauses
+% 5 out of 6 entities covered, 83.333333% entity coverage
+% 5 out of 8 clauses covered, 62.500000% clause coverage
+% 
+% tests ended at 2019/12/13, 14:29:25
+% 
+true.
 ```
+
+As expected, there is no code coverage for the new `jupiter` object. To fix it, we can take the query we used above and add it as a test:
+
+```logtalk
+test(planets_05) :-
+    jupiter::weight(m2, W2),
+    W2 =~= 103.54.
+```
+
+Consult the documentation of the [`lgtunit`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtunit/NOTES.md) testing tool to learn more about testing, including more expressive test dialects. 
 
 At this point, you should have a good understanding of the basics of Logtalk programming. But there are more features to explore and many more examples for you to play with. We suggest that you look into the [examples summary](https://github.com/LogtalkDotOrg/logtalk3/blob/master/examples/NOTES.md) and choose the next ones according to your interests.
 
