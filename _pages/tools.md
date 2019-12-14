@@ -177,7 +177,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 QuickCheck support includes both test idioms and predicates that can be used e.g. at the top-level for quick testing of plain Prolog predicates and Prolog modules predicates besides Logtalk object predicates.
 
 Test automation is provided by the [`logtalk_tester`](man/logtalk_tester.html) script.
-See also the [testing guide](testing.html) for more information.
+See also the [testing guide](testing.html) and the [blog posts](blog.html?tag=testing) on testing best practices for more information.
 
 ##### Examples
 
@@ -276,7 +276,9 @@ The [`wrapper`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/wrap
 tool can be used to help port a plain Prolog application to Logtalk by analyzing its source
 files and suggesting object wrappers and their public interfaces. It can also be used to enable
 applying other Logtalk developer tools, such as the documenting and diagramming tools, to plain
-Prolog code.
+Prolog code. See also the guide on
+[applying Logtalk tools to Prolog codebases](using_tools_with_prolog.html), which can be used
+to gain additional insight on the changes required when porting applications.
 
 
 ## Coding

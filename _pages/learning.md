@@ -10,17 +10,21 @@ Logtalk is a programming language that extends and subsumes Prolog. Thus, a good
 
 [Learn X in Y minutes Where X=Logtalk](https://learnxinyminutes.com/docs/logtalk/)
 
-Note that the Logtalk distribution includes both HTML versions of the user manual, the reference manual, and the APIs documentation. It can also be browsed at:
+Note that the Logtalk distribution includes both HTML versions of the user
+manual, the reference manual, and the APIs documentation. It can also be
+browsed at:
 
 [Logtalk documentation resources](documentation.html)
 
-The Logtalk distribution also includes a large number of well documented programming examples that introduce most of the language features.
-The examples included are fully documented with source code comments and sample goals:
+The Logtalk distribution also includes a large number of well documented
+programming examples that introduce most of the language features. The
+examples included are fully documented with source code comments and sample
+goals:
 
 [Programming examples](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples)
 (described [here](https://github.com/LogtalkDotOrg/logtalk3/blob/master/examples/NOTES.md)).
 
-All examples include a `loader.lgt` file that loads the example and any dependencies, a `NOTES.md` file with a description of the example, and a `SCRIPT.txt` file with sample queries for you to try. Most examples also include a `tests.lgt` file with unit tests and a `tester.lgt` loader file to run them. Being programming examples, it is expected that you run them side-by-side with the source code open in your [favorite editor](https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding). Follows a suggested order for playing with the examples:
+All examples include a `loader.lgt` file that loads the example and any dependencies, a `NOTES.md` file with a description of the example, and a `SCRIPT.txt` file with sample queries (including how to load the example) for you to try. Most examples also include a `tests.lgt` file with unit tests and a `tester.lgt` loader file to run them. Being programming examples, it is expected that you run them side-by-side with the source code open in your [favorite editor](https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding).
 
 [Learning and development tools](tools.html)
 
