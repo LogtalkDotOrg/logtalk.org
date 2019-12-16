@@ -18,7 +18,7 @@ test hurts productivity.
 Testing tools such as [`lgtunit`](https://logtalk.org/manuals/devtools/lgtunit.html)
 aim to simplify writing tests by providing support for [multiple test dialects](https://logtalk.org/manuals/devtools/lgtunit.html#test-dialects)
 where the programmer can choose from a minimal dialect, where we have only
-a test name and a test goal, to a dialect offering fine control on test setup.
+a test name and a test goal, to a dialect providing fine control on test setup.
 But that's not enough. People writing tests are not necessarily programmers.
 Notably, they can be domain experts that want a straight-forward solution
 to express that "for these inputs, we should get this output" or "if this
