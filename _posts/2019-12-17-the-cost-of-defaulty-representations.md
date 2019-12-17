@@ -29,7 +29,7 @@ a simple protocol to declare it:
 A possible implementation of this protocol can be:
 
 ```logtalk
-:- object(bad,
+:- object(defaulty,
     implements(processing)).
 
     count_atomics(List, Atoms, Numbers) :-
@@ -81,7 +81,7 @@ wrapper for atoms, a `n/1` wrapper for numbers, and a `o/1` wrapper for any
 other type:
 
 ```logtalk
-:- object(better,
+:- object(tagged,
     implements(processing)).
 
     count_atomics(List, Atoms, Numbers) :-
@@ -124,32 +124,32 @@ true.
 ...
 true.
 
-?- bad::atomics_count([a,1,_,b,2,_,c,3,_], As, Ns).
+?- defaulty::atomics_count([a,1,_,b,2,_,c,3,_], As, Ns).
 As = Ns, Ns = 3.
 
 ?- ports_profiler::data.
--------------------------------------------------------------------------
-Entity  Predicate          Fact  Rule  Call  Exit *Exit  Fail  Redo Error
--------------------------------------------------------------------------
-bad     count_atomic/5        3    15     9     9     0     0     0     0
-bad     count_atomics/3       0     1     1     1     0     0     0     0
-bad     count_atomics/5       1     9    10    10     0     0     0     0
--------------------------------------------------------------------------
+---------------------------------------------------------------------------
+Entity    Predicate          Fact  Rule  Call  Exit *Exit  Fail  Redo Error
+---------------------------------------------------------------------------
+defaulty  count_atomic/5        3    15     9     9     0     0     0     0
+defaulty  count_atomics/3       0     1     1     1     0     0     0     0
+defaulty  count_atomics/5       1     9    10    10     0     0     0     0
+---------------------------------------------------------------------------
 true.
 
 ?- ports_profiler::reset.
 true.
 
-?- better::count_atomics([a(a),n(1),o(_),a(b),n(2),o(_),a(c),n(3),o(_)], As, Ns).
+?- tagged::count_atomics([a(a),n(1),o(_),a(b),n(2),o(_),a(c),n(3),o(_)], As, Ns).
 As = Ns, Ns = 3.
 
 ?- ports_profiler::data.
 -------------------------------------------------------------------------
 Entity  Predicate          Fact  Rule  Call  Exit *Exit  Fail  Redo Error
 -------------------------------------------------------------------------
-better  count_atomic/5        3     6     9     9     0     0     0     0
-better  count_atomics/3       0     1     1     1     0     0     0     0
-better  count_atomics/5       1     9    10    10     0     0     0     0
+tagged  count_atomic/5        3     6     9     9     0     0     0     0
+tagged  count_atomics/3       0     1     1     1     0     0     0     0
+tagged  count_atomics/5       1     9    10    10     0     0     0     0
 -------------------------------------------------------------------------
 true.
 ```
@@ -169,8 +169,8 @@ What can we conclude from the profiling data above? First, in neither case
 are there any leftover choice-points as we can check in the **exit* column.
 The data only differs, as expected, for the alternative definitions of the
 `count_atomic/5` predicate. Our list have 9 elements. The definition in the
-`better` object shows the minimun number of unifications required for proving
-the query: 9. The definition in the `bad` object shows 3 + 15 unifications
+`tagged` object shows the minimun number of unifications required for proving
+the query: 9. The definition in the `defaulty` object shows 3 + 15 unifications
 between a goal and the clause heads. The 3 fact unifications are for the
 catchall clause as we have three `o(_)` elements in the list. The 15
 unifications are for the 9 elements, which means that we backtrack close to
@@ -194,8 +194,12 @@ representations in the first place when developing new applications.
 
 ### Resources
 
-I first learned about *defaulty* representations in Richard O'Keefe book
-"The Craft of Prolog", which I highly recommend.
+Richard O'Keefe ["The Craft of Prolog"](https://mitpress.mit.edu/books/craft-prolog)
+book is the earliest reference that I know about defaulty representations.
+Highly recommend reading.
+
+[Source code](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/defaulty)
+for the example used in this post.
 
 The [`ports_profiler`](https://logtalk.org/manuals/devtools/ports_profiler.html)
 can provide other significant insights on query execution besides the particular
