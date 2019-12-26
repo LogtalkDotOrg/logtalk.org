@@ -16,7 +16,7 @@ aside:
 
 ## Handbook
 
-The Logtalk Handbook includes a tutorial, the User Manual, the Reference Manual, and the FAQ.
+The Logtalk Handbook includes the User Manual, Reference Manual, Glossary, and FAQ.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
 -   [PDF version](manuals/TheLogtalkHandbook-3.33.0.pdf) (stable)
@@ -25,7 +25,7 @@ The Logtalk Handbook includes a tutorial, the User Manual, the Reference Manual,
 
 <!-- -->
 
--   [HTML version](https://logtalk3.readthedocs.io/en/latest/) @ the Read the Docs website (latest; provides [improved search support](https://blog.readthedocs.com/search-improvements/))
+-   [HTML version](https://logtalk3.readthedocs.io/en/latest/) @ the Read the Docs website (latest git version; provides [improved search support](https://blog.readthedocs.com/search-improvements/))
 
 
 ## APIs
