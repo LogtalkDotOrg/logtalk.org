@@ -115,7 +115,7 @@ supported Prolog compilers on `/usr/local/bin`.
 > [`logtalk-3.33.0-1.noarch.rpm`](files/logtalk-3.33.0-1.noarch.rpm)  
 > `defb45936c962bb1cd4c62ff6ef4ffb27ef11c564f175f54735f53218bd8bc23` (SHA-256)
 
-Package installation from the command-line is recommended:
+Package installation from the command-line is highly recommended:
 
 ```bash
 $ sudo rpm -i logtalk-3.33.0-1.noarch.rpm
@@ -131,7 +131,7 @@ Requires dpkg 1.15.0 or a later version. Installs Logtalk on
 > [`logtalk_3.33.0-1_all.deb`](files/logtalk_3.33.0-1_all.deb)  
 > `08d49d632483b7e03432818b5f04de904623bd436605df0c3a875581550afa15` (SHA-256)
 
-Package installation from the command-line is recommended:
+Package installation from the command-line is highly recommended:
 
 ```bash
 $ sudo dpkg -i logtalk_3.33.0-1_all.deb

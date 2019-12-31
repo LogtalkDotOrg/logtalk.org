@@ -69,22 +69,22 @@ parents(Person, ExpectedFather, ExpectedMother) :-
     (   male(Person)
     ;   female(Person)
     ),
-    % construct expected references that either hold the parent name or error information
+    % construct expected terms that either hold the parent name or error information
     expected::from_goal((parent(Father,Person), male(Father)), Father, missing_father, ExpectedFather),
     expected::from_goal((parent(Mother,Person), female(Mother)), Mother, missing_mother, ExpectedMother).
 ```
 
-The [`expected::from_goal(Goal, Expected, Failure, Reference)`](https://logtalk.org/library/expected_0.html#from-goal-4)
-predicate constructs an *expected reference* by calling `Goal` that binds
-`Expected` on success. Otherwise, it returns a reference with the
-unexpected goal error or failure represented by the `Failure` argument.
-I.e. an expected reference can be seen as an opaque term that either
-holds a value or the information that the value is missing. Effectively,
-**expected references allows us to defer any error handling during the data
+The [`expected::from_goal(Goal, Value, Error, Expected)`](https://logtalk.org/library/expected_0.html#from-goal-4)
+predicate constructs an *expected term* by calling `Goal` that binds
+`Value` on success. Otherwise, it returns an expected term with the
+unexpected goal error or failure represented by the `Error` argument.
+I.e. **an expected term can be seen as an opaque compound term that either
+holds a value or the information that the value is missing**. Effectively,
+**expected terms allows us to defer any error handling during the data
 acquisition step to the data processing steps** where the data is actually
 used.
 
-How are expected references used during *data processing*? Let's consider
+How are expected terms used during *data processing*? Let's consider
 two scenarios. In the first one, we want to print the names of all persons
 and their parents with the names of missing parents replaced by either
 `john doe` or `jane doe`:
@@ -101,9 +101,9 @@ print :-
     ).
 ```
 
-The [`expected(Reference)::or_else(Expected, Default)`](https://logtalk.org/library/expected_1.html#or-else-2)
-predicate binds `Expected` to the expected value when present.
-Otherwise, it binds `Expected` to the provided `Default`. Calling
+The [`expected(Expected)::or_else(Value, Default)`](https://logtalk.org/library/expected_1.html#or-else-2)
+predicate binds `Value` to the expected value when present.
+Otherwise, it binds `Value` to the provided `Default`. Calling
 the `print/0` predicate will output:
 
 ```text
@@ -144,8 +144,8 @@ print_complete :-
     ).
 ```
 
-The [`expected(Reference)::or_else_fail(Expected)`](https://logtalk.org/library/expected_1.html#or-else-fail-1)
-binds `Expected` to the to the expected value when present and fails
+The [`expected(Expected)::or_else_fail(Value)`](https://logtalk.org/library/expected_1.html#or-else-fail-1)
+binds `Value` to the to the expected value when present and fails
 otherwise. The output of this predicate will be:
 
 ```text
@@ -190,13 +190,13 @@ step exceptions:
 
 Testing for exceptions at each step would result in ugly code full of
 conditionals masking what is essentially a simple sequence of steps.
-But **expected references can also be used to represent something that is
+But **expected terms can also be used to represent something that is
 missing from a previous step, not just from the initial data acquisition
 step**:
 
 ```logtalk
 process_image(Image, Final) :-
-    % encapsulate the "image" in an expected term reference
+    % encapsulate the "image" in an expected term
     expected::of_expected(Image, Final0),
     % apply a sequence of image filters
     crop_to_cat(Final0, Final1),
@@ -209,13 +209,13 @@ process_image(Image, Final) :-
     expected(Final5)::or_else_throw(Final).
 ```
 
-The idea is that **each processing step takes as input an expected reference
-and outputs an expected reference**. At this point, of course, you're screaming
+The idea is that **each processing step takes as input an expected term
+and outputs an expected term**. At this point, of course, you're screaming
 "DCGs!":
 
 ```logtalk
 process_image(Image, Final) :-
-    % encapsulate the "image" in an expected term reference
+    % encapsulate the "image" in an expected term
     expected::of_expected(Image, Final0),
     % apply a sequence of image filters
     phrase(process, Final0, Final1),
@@ -232,11 +232,11 @@ process -->
 ```
 
 Either way, each processing step, i.e. each filter looks into the input
-expected reference and, if a value is present, does its task. If the value
-is missing, that it simply passes the reference to the next step. But if
+expected term and, if a value is present, does its task. If the value
+is missing, that it simply passes the expected term to the next step. But if
 for some reason a value is present but the task cannot be completed, it
-outputs an expected reference with that reason as the cause of the failure:
-Using as example the first filter:
+outputs an expected term with that reason as the cause of the failure:
+Using as example the first two filters:
 
 ```logtalk
 crop_to_cat -->
@@ -251,22 +251,22 @@ add_bow_tie -->
 As this is just an example, we simplify our code by assuming that the same
 `apply_filter/4` predicate could be used by all the filters. Moreover, just
 for the sake of a demo output, we use the
-[`random::maybe/1`](https://logtalk.org/library/randomp_0.html#maybe-1)
+[`random::maybe(Probability)`](https://logtalk.org/library/randomp_0.html#maybe-1)
 predicate to decide between filter success or failure:
 
 ```logtalk
 apply_filter(Filter, Error, In, Out) :-
     Filtered =.. [Filter, Value],
     expected(In)::flat_map(
-        {Filtered}/[Value,Ref]>>(expected::from_goal(maybe(0.9), Filtered, Error, Ref)),
+        {Filtered,Error}/[Value,Expected]>>(expected::from_goal(maybe(0.9), Filtered, Error, Expected)),
         Out
     ).
 ```
 
-The [`expected(Reference)::flat_map/2`](https://logtalk.org/library/expected_1.html#flat-map-2)
-predicate either simply returns the reference if it contains an unexpected
-term (thus passing it along the sequence of calls) or applies a closure to
-the expected term and the resulting expected term reference. Here we use a
+The [`expected(Expected)::flat_map(Closure, NewExpected)`](https://logtalk.org/library/expected_1.html#flat-map-2)
+predicate either simply returns the expected term if it contains an unexpected
+error (thus passing it along the sequence of calls) or applies a closure to
+the expected value and the resulting expected term. Here we use a
 lambda expression to call the `from_goal/4` constructor, which takes as
 arguments a goal whose success or failure/error dictates if we wrap an expected
 value, `Filtered`, or an unexpected error, `Error`. Given the use of a
@@ -299,10 +299,10 @@ uncaught exception: sunny_day
 
 The [`expecteds`](https://logtalk.org/library/library_index.html#expecteds)
 library provides other useful predicates for constructing and handling
-expected references. The use of the
+expected terms. The use of the
 [`expected/1`](https://logtalk.org/library/expected_1.html) parametric
 object enables static binding to be used for all calls to the predicates
-that operate on expected references for best performance.
+that operate on expected terms for the best performance.
 
 ### Resources
 
