@@ -78,8 +78,8 @@ The [`expected::from_goal(Goal, Value, Error, Expected)`](https://logtalk.org/li
 predicate constructs an *expected term* by calling `Goal` that binds
 `Value` on success. Otherwise, it returns an expected term with the
 unexpected goal error or failure represented by the `Error` argument.
-I.e. **an expected term can be seen as an opaque compound term that either
-holds a value or the information that the value is missing**. Effectively,
+I.e. **an expected term can be seen as an *opaque compound term* that either
+holds a value or an error explaining why the value is missing**. Effectively,
 **expected terms allows us to defer any error handling during the data
 acquisition step to the data processing steps** where the data is actually
 used.
@@ -135,7 +135,7 @@ mother and/or the father are unknown:
 ```logtalk
 print_complete :-
     forall(
-        (    data_acquisition::parents(Person, ExpectedFather, ExpectedMother),
+        (   data_acquisition::parents(Person, ExpectedFather, ExpectedMother),
             % fail if the father or the mother are unknown
             expected(ExpectedFather)::or_else_fail(Father),
             expected(ExpectedMother)::or_else_fail(Mother)
@@ -179,8 +179,8 @@ application that applies the following sequence of filters:
 
 The missing data in this could be no cat in the original raw image. But
 there might be also a cat in the image with no visible head or with eyes
-closed. For the sake of argument, assume the following possible processing
-step exceptions:
+closed. For the sake of argument, assume the following possible filter
+failures and their representation:
 
 - No cat in the image; who let the cat out: `missing_cat`
 - Cat trashed the bow tie; no funny business: `bow_tie_failure`
@@ -297,6 +297,62 @@ Final = with_rainbow(smaller(sparkling_eyes(with_bow_tie(cropped(image))))).
 uncaught exception: sunny_day
 ```
 
+But is there any advantage in this case to use expected terms instead of
+simply calling the sequence of filters from a `catch/3` or `setup_call_cleanup/3`
+goal and having all filters throw exceptions? Using exceptions for control
+flow is not good practice, specially for declarative languages. Exceptions are
+also relatively costly. Is easy, of course, to convert an exception into a
+failure if necessary but at that point we are already paying the declarative
+and computational price of using exceptions.
+
+Assume we are processing a large set of images, triggering a significant number
+of filter failures. Using expected terms, until the last goal in the body of
+our `process_image/2` predicate, there are no exceptions being throw. We could
+simply change the last goal to:
+
+```logtalk
+process_image(Image, Final) :-
+    ...,
+    expected(Final1)::or_else_fail(Final).
+```
+
+I.e. simply fail if one of the filters failed and move to the next image in
+our processing pipeline. In this alternative, the exception handling mechanism
+is never used.
+
+Another possible advantage of using expected terms instead of a `catch/3`
+or similar wrapper is that each step have the chance to fix a failure in
+a previous step. But using exceptions results in aborting the sequence
+of steps and jumping out to the exception handler with no chance of
+locally recovering from a step failure and continuing to the next step.
+
+Using expected terms also allows us to handle both step errors and failures
+uniformly and simplify attaching explanations to failures as an unexpected
+result is just a wrapped term. Using a `catch/3` or `setup_call_cleanup/3`
+solution, a step that fails gives no explanation to the cause of the failure.
+We could workaround this issue by forcing the use of exceptions to represent
+any failures but this is far from ideal if the individual steps can be used
+in other contexts where a failure is a preferred outcome.
+
+Yet another possible advantage of expected terms is easier composition of
+processing steps. A failure or error can be simply passed from a group of
+steps to another group of steps. We can choose, for exemple, to handle
+exceptional events at a sigle place at the end of the processing pipeline.
+If in alternative each group of steps is wrapped by a `catch/3` or
+`setup_call_cleanup/3` goal, we end up with multiple exception handlers,
+often nested, and worrying if we forgot to handle an exception or if we
+captured an exception that should have been passed to an outer handler.
+
+### Final notes
+
+The use of expected terms give clear advantages in some cases, such as in
+the family example, and possible advantages in other cases, such as in the
+cats example. In the later case, consider carefully the inherent cost of
+using expected terms (specially if wrapping built-in and library predicates
+to convert variable bindings) and the desired semantics for handling exceptional
+events (notably, the need for failure explanations and aborting as soon as
+possible versus passing the exceptional event along the processing pipeline).
+
 The [`expecteds`](https://logtalk.org/library/library_index.html#expecteds)
 library provides other useful predicates for constructing and handling
 expected terms. The use of the
@@ -309,3 +365,5 @@ that operate on expected terms for the best performance.
 The Logtalk distribution includes the full source code of the examples
 used in this blog post: [`missing_data`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/missing_data)
 and [`cascade`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/cascade).
+
+Scott Wlaschin blog post and presentation on [Railway Oriented Programming](https://fsharpforfunandprofit.com/rop/).

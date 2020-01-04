@@ -8,7 +8,7 @@ aside:
 
 ## Community
 
-Community supported [discussion forums](http://forums.logtalk.org/)
+Public and community supported [discussion forums](http://forums.logtalk.org/)
 and [chat room](https://gitter.im/LogtalkDotOrg/logtalk3) are available.
 Contributors to these forums are expected to comply with the
 [code of conduct](https://github.com/LogtalkDotOrg/logtalk3/blob/master/CODE_OF_CONDUCT.md).
