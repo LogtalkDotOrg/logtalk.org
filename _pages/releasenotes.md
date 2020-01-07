@@ -4,6 +4,175 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.34.0 - January 7, 2020
+========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: Allow a local operator to also be declared in a scope directive to
+simplify compilation of included files and compilation of modules as objects.
+
+* CHANGED: Throw a representation error instead of failing if it is not
+possible to convert an entity prefix to an entity template. The error is
+highly unlikely to occur in practice, however, and only affects the runtime
+error handler code that attempts to convert exception terms for readability.
+
+* ADDED: Support for defining predicate shorthands to the `uses/2` and
+`use_module/2` directives where some or all arguments may be instantiated.
+
+* ADDED: Support for the legacy Prolog database built-in predicates that take
+a clause reference argument when supported by the backend Prolog compiler.
+
+* ADDED: Report calls to deprecated character input/output built-in Prolog
+predicates `get0/1-2`, `get/1-2`, `skip/1-2`, `put/1-2`, and `tab/1-2`.
+
+* ADDED: Report calls to deprecated TTY input/output built-in Prolog
+predicates `ttynl/0`, `ttyflush/0`, `ttyget0/1`, `ttyget/1`, `ttyskip/1`,
+`ttyput/1`, and `ttytab/1`.
+
+* ADDED: Detect and report legacy `on_exception/3`, `raise_exception/1`,
+`abolish/2`, `otherwise/0`, and `prolog_flag/2-3` Prolog predicates.
+
+* IMPROVED: Only report legacy Prolog predicates as deprecated when they are
+built-in and not defined by the user in the entity where they are called.
+
+* IMPROVED: Refactoring of the compiler code that reports calls to deprecated
+Prolog built-in predicates.
+
+* IMPROVED: Take into account foreign and auto-loaded predicates when compiling
+a module as an object also when compiling arbitrary goals used as directives.
+
+* IMPROVED: Avoid spurious choice-points during source file compilation when
+using some backend Prolog compilers.
+
+* FIXED: Possible instantiation error when running `logtalk_make(check)` while
+checking for missing predicates when there are dynamic or multifile predicates
+with no local clauses.
+
+* FIXED: Duplicated warnings on missing `multifile/1` directive.
+
+* FIXED: Typo in permission error when compiling scope directives and checking
+for duplicated operator declarations.
+
+* FIXED: Duplicated arithmetic function portability warnings for the Prolog
+legacy use of a list with a single character to represent the code of the
+character.
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: The SWI-Prolog adapter file to support finding predicates that are
+visible in a module via an imported module.
+
+* FIXED: ECLiPSe, SWI-Prolog, and YAP adapter file expansion of `reexport/1`
+directives.
+
+* FIXED: YAP adapter file internal predicate for module qualification of calls
+to Prolog meta-predicates to not depend on the term-expansion mechanism.
+
+Documentation
+-------------
+
+* ADDED: Handbook section on asserting and retracting clauses for Prolog
+dynamic predicates from objects and categories.
+
+* ADDED: Missing Handbook reference to the `core_messages` built-in category.
+
+* ADDED: Handbook section on the debugging API.
+
+* ADDED: Handbook glossary definition of *closure*.
+
+* IMPROVED: The `settings-sample.lgt` file now advises on placement of sample
+initialization code that changes the `code_prefix` default value.
+
+* IMPROVED: The `lgtunit` tool documentation.
+
+* IMPROVED: Handbook section on performance regarding inlining and compiler
+automatic expansion of selected built-in methods.
+
+* IMPROVED: Documentation of the `built_in/0`, `encoding/1`, `use_module/2`,
+`uses/2`, `public/1`, `protected/1`, and `meta_predicate/1` directives.
+
+* IMPROVED: Documentation of the built-in `logtalk_make_target_action/1` and
+`logtalk_library_path/2` predicates.
+
+* UPDATED: Handbook Prolog migration section on handling and converting
+`reexport/1` module directives.
+
+* UPDATED: Handbook reference pages on the database methods to mention the
+support for module qualified arguments.
+
+* FIXED: Missing reference to the `synchronized/1` directive in the Handbook
+section on predicate declarations.
+
+Library
+-------
+
+* CHANGED: The exception terms throw by the `expecteds` library predicates
+`expected/1`, `unexpected/1`, and `or_else_get/2` for clarity.
+
+* ADDED: Non-deterministic constructors to the `expecteds` and `optionals`
+libraries.
+
+* ADDED: Predicates `if_expected_or_else/2` and `either/3` to the `expecteds/1`
+library object.
+
+* FIXED: The `expected::from_goal/3` predicate to match its description when
+computing the expected value throws an exception.
+
+Tools
+_____
+
+* CHANGED: The `lgtunit` tool now also prints code coverage information for
+entities declared as covered but with no calls to locally defined predicates.
+
+* IMPROVED: The `lgtunit` tool now prints a warning when code coverage is
+requested for a protocol.
+
+Tests
+-----
+
+* ADDED: Tests for the de facto Prolog standard `succ/2` and `plus/3` built-in
+predicates.
+
+* ADDED: Tests for the legacy Prolog database built-in predicates that take a
+clause reference argument.
+
+* ADDED: Tests for the legacy Prolog blackboard built-in predicates.
+
+* UPDATED: Tests for the `goal_expansion/2` predicate to check the case where
+a goal to be expanded resulted from a previous expansion of the same goal.
+
+* UPDATED: Tests for Prolog `term_variables/2` and  `numbervars/3` built-in
+predicates to use assertions to simplify debugging.
+
+Examples
+--------
+
+* CHANGED: Full rewrite of the `testing` example to illustrate all the test
+dialects supported by default by the `lgtunit` tool.
+
+* ADDED: New example, `defaulty`, comparing defaulty and tagged data
+representations.
+
+* IMPROVED: The `recipes` hot patching example to better illustrate adding
+clauses to patched objects.
+
+* IMPROVED: Documentation of the `cascade` example.
+
+* IMPROVED: Unit tests of the `hailstone` example.
+
+* UPDATED: The `complements/allow` example to also illustrate abolishing a
+dynamic complementing category.
+
+Installers and installation scripts
+-----------------------------------
+
+* IMPROVED: The Debian installer to define default values for the Logtalk
+environment variables.
+
+
 3.33.0 - December 3, 2019
 =========================
 

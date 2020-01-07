@@ -6,6 +6,25 @@ aside:
   toc: true
 ---
 
+### 2020
+
+##### January 7
+
+> Logtalk 3.34.0 is now available for [downloading](download.html). This
+> release adds support for defining predicate shorthands in `uses/2` and
+> `use_module/2` directives, allows local operators to also be declared in
+> scope directives to simplify compilation of included files, adds support
+> for the legacy Prolog database built-in predicates that take a clause reference
+> argument, improves detection of deprecated Prolog built-in predicates,
+> improves compilation of modules as objects, includes a new and improved
+> Handbook sections, improves `lgtunit` tool documentation and code coverage
+> support, provides an updated `expecteds` library, includes new and updated
+> tests for Prolog built-in predicates, includes new and updated programming
+> examples, updates the Debian installer to define default values for the
+> Logtalk environment variables, and provides updated support for ECLiPSe,
+> SWI-Prolog, and YAP. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ### 2019
 
 ##### December 3

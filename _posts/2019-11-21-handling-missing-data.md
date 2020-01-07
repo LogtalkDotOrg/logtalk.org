@@ -316,9 +316,9 @@ process_image(Image, Final) :-
     expected(Final1)::or_else_fail(Final).
 ```
 
-I.e. simply fail if one of the filters failed and move to the next image in
-our processing pipeline. In this alternative, the exception handling mechanism
-is never used.
+I.e. simply fail if one of the filters failed and move to the next image
+in our processing pipeline. In this alternative, no exceptions are ever
+generated.
 
 Another possible advantage of using expected terms instead of a `catch/3`
 or similar wrapper is that each step have the chance to fix a failure in
@@ -327,21 +327,21 @@ of steps and jumping out to the exception handler with no chance of
 locally recovering from a step failure and continuing to the next step.
 
 Using expected terms also allows us to handle both step errors and failures
-uniformly and simplify attaching explanations to failures as an unexpected
+uniformly and simplify attaching *explanations* to failures as an unexpected
 result is just a wrapped term. Using a `catch/3` or `setup_call_cleanup/3`
 solution, a step that fails gives no explanation to the cause of the failure.
 We could workaround this issue by forcing the use of exceptions to represent
 any failures but this is far from ideal if the individual steps can be used
 in other contexts where a failure is a preferred outcome.
 
-Yet another possible advantage of expected terms is easier composition of
-processing steps. A failure or error can be simply passed from a group of
-steps to another group of steps. We can choose, for exemple, to handle
+Yet another possible advantage of expected terms is easier *composition* of
+groups of processing steps. A failure or error can be simply passed from a
+group of steps to another group of steps. We can choose, for exemple, to handle
 exceptional events at a sigle place at the end of the processing pipeline.
-If in alternative each group of steps is wrapped by a `catch/3` or
-`setup_call_cleanup/3` goal, we end up with multiple exception handlers,
-often nested, and worrying if we forgot to handle an exception or if we
-captured an exception that should have been passed to an outer handler.
+If, in alternative, each group of steps is wrapped by a `catch/3` or
+`setup_call_cleanup/3` goal, we easily end up with multiple exception handlers,
+often nested, and worrying if we forgot to handle a particular exception or if
+we captured an exception that should have been passed to an outer handler.
 
 ### Final notes
 
@@ -350,8 +350,8 @@ the family example, and possible advantages in other cases, such as in the
 cats example. In the later case, consider carefully the inherent cost of
 using expected terms (specially if wrapping built-in and library predicates
 to convert variable bindings) and the desired semantics for handling exceptional
-events (notably, the need for failure explanations and aborting as soon as
-possible versus passing the exceptional event along the processing pipeline).
+events (notably, the need for failure explanations and *fail fast* versus passing
+the exceptional event along the processing pipeline).
 
 The [`expecteds`](https://logtalk.org/library/library_index.html#expecteds)
 library provides other useful predicates for constructing and handling
