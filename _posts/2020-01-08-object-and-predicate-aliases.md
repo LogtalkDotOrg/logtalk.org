@@ -111,7 +111,7 @@ For example:
     ...
 ```
 
-Name clashes also occur when using multiple inheritance. For example, assume
+Name clashes can also occur when using multiple inheritance. For example, assume
 two objects, `rpg_player` and `engineer`, both declaring a `rank/1` public
 predicate, and a third object, `moms_basement_ghost`, inheriting from the first
 two objects. In this case, we can use the [`alias/2`](https://logtalk.org/manuals/refman/directives/alias_2.html)
