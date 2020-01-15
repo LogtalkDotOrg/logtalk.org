@@ -121,6 +121,9 @@ Package installation from the command-line is highly recommended:
 $ sudo rpm -i logtalk-3.34.0-1.noarch.rpm
 ```
 
+Logout and login after running the installer to activate the default values
+for the Logtalk environment variables.
+
 
 ### Debian (e.g. Ubuntu)
 
@@ -136,6 +139,9 @@ Package installation from the command-line is highly recommended:
 ```bash
 $ sudo dpkg -i logtalk_3.34.0-1_all.deb
 ```
+
+Logout and login after running the installer to activate the default values
+for the Logtalk environment variables.
 
 
 ### Windows
