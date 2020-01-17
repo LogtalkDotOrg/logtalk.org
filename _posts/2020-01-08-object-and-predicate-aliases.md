@@ -44,7 +44,7 @@ experimenting with the different implementations:
 To experiment with a different implementation of the `randomp` protocol,
 we just need to change the `rnd` object alias definition and recompile.
 
-Object aliases are specially useful using parametric objects. For example,
+Object aliases are specially useful when using parametric objects. For example,
 assume a library `time/1` parametric object where the parameter is the time
 zone:
 
@@ -94,7 +94,7 @@ module (e.g. `lists`) with other modules forced to use different names
 (e.g. `random_member/2`), library object predicates always use the best names.
 
 The [`uses/2`](https://logtalk.org/manuals/refman/directives/uses_2.html)
-directive can be used to declare object aliases for implicit message sending
+directive can be used to declare predicate aliases for implicit message sending
 while also solving name conflicts.
 For example:
 
