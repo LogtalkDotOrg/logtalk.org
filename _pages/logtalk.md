@@ -12,6 +12,10 @@ permalink: index.html
 </div>
 
 <p align="right" style="font-size:12px; padding:0px; margin:0px">@ v3.34.0 - January 7, 2020</p>
+<p align="right" style="font-size:12px; padding:0px; margin:0px">
+<a class="github-button" href="https://github.com/sponsors/pmoura" data-icon="octicon-heart" aria-label="Sponsor @pmoura on GitHub">Sponsor</a>
+<a class="github-button" href="https://github.com/LogtalkDotOrg/logtalk3" data-icon="octicon-star" aria-label="Star LogtalkDotOrg/logtalk3 on GitHub">Star</a>
+</p>
 
 Logtalk is a *declarative object-oriented logic programming language*
 that extends and leverages the Prolog language with modern code
@@ -29,3 +33,5 @@ programming. Distributed under a commercial friendly license, it
 includes full documentation, portable libraries, portable developer
 tools, and a large number of programming examples to help get you
 started.
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
