@@ -179,14 +179,17 @@ Logtalk is also available as a SWI-Prolog pack. The
 files in the distribution are buried in a relatively deep sub-directory.
 The pack can be easily installed typing the query `pack_install(logtalk)`
 at the top-level (use the `pack_info(logtalk)` query after installation
-to find the installation directory). Also available as a manual download:
+to find the installation directory). See the pack specific
+[`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack/logtalk/README.md)
+file for details. Also available as a manual download:
 
 > [`logtalk-3.34.0.tgz`](files/swi-prolog/packs/logtalk-3.34.0.tgz)  
 > `cf9e06430f1f1eab88a45ab4b07c10a1410e9a413e14a3bcd746650b45703b25` (SHA-256)
 
 There's also an **experimental** pack that encapsulates de Logtalk
-compiler and runtime in a `logtalk` module. This pack is only available
-as a manual download:
+compiler and runtime in a `logtalk` module. See the pack specific
+[`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack-experimental/logtalk/README.md)
+file for details. This pack is only available as a manual download:
 
 > [`logtalk-experimental-3.34.0.tgz`](files/swi-prolog/packs/logtalk-experimental-3.34.0.tgz)  
 > `a906d272991c1cb9a837d858c9b66eaa80f90c07ef8f66ee4c47d1fca2b8945e` (SHA-256)

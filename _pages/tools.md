@@ -70,6 +70,7 @@ checks include:
 -   Goals that are always true or always false
 -   Trivial goal fails (due to no matching predicate clause)
 -   Redefined built-in predicates
+-   Redefined standard operators
 -   Lambda expression unclassified variables and mixed up variables
 -   Lambda expression with parameter variables used elsewhere in a clause
 -   Singleton variables
