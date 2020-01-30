@@ -8,6 +8,24 @@ aside:
 
 ### 2020
 
+##### January 30
+
+> Logtalk 3.35.0 is now available for [downloading](download.html). This release
+> adds a lint check for redefined standard operators, simplifies and improves
+> the compilation and execution performance of meta-calls and lambda expressions,
+> improves compilation of modules as objects for applying the developer tools,
+> improves support for parameter variables in directives, fixes two optimization
+> bugs in atypical code, adds library overviews to the handbook, adds new and
+> improves existing handbook sections, improves library documentation, improves
+> integration with SWI-Prolog graphical tracer and profiler tools (after
+> feedback and support from Daniel Gross), updates the tutor tool for the
+> latest lint warnings, improves test coverage of control constructs and
+> directives, adds new didactic example definitions of meta-predicates,
+> improves ctags support (contributed by Paul Brown), and provides updated
+> support for ECLiPSe, SWI-Prolog, and YAP. For details and a complete list
+> of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### January 7
 
 > Logtalk 3.34.0 is now available for [downloading](download.html). This

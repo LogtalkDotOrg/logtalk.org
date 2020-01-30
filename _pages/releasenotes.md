@@ -4,6 +4,152 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.35.0 - January 30, 2020
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: New compiler lint warning for redefined Logtalk operators and
+standard Prolog operators. These redefinitions can break term parsing
+causing syntax errors or change how terms are parsed introducing bugs.
+
+* ADDED: New compiler lint flag `redefined_operators` (with its default
+value set to `warning`).
+
+* ADDED: Support for using parameter variables in the second argument of
+`uses/2` and `use_module/2` directives.
+
+* ADDED: Support for declaring predicate and non-terminal aliases in
+`reexport/2` directives.
+
+* IMPROVED: Refactoring of compilation and runtime execution of meta-calls
+and lambda expressions, simplifying the implementation and also providing
+a small performance improvement.
+
+* IMPROVED: Simplified check for valid meta-predicate definitions.
+
+* IMPROVED: Inlining of calls to the `this/1` execution context method.
+
+* FIXED: Don't cache message sending dynamic binding lookups that are only
+valid when the sender unifies with the predicate scope container as the cache
+entry would be too general while only valid in that specific condition.
+
+* FIXED: Don't inline predicate definitions with variable aliasing in the
+clause head as this can result in optimization bugs when compiling predicate
+calls due to compile time variable bindings propagating to previous goals in
+the same clause body.
+
+* FIXED: The default value of the `deprecated` flag was not displayed at
+startup.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: Support for using SWI-Prolog `gspy/1` predicate to spy object and
+category predicates specified as `Entity::Functor/Arity` using the graphical
+tracer.
+
+* IMPROVED: Support for the SWI-Prolog graphical profiler by hiding all the
+compiler and runtime internal predicates (their computation time is added
+to the user level predicates).
+
+* IMPROVED: Support for the SWI-Prolog graphical profiler by hiding entity
+internal tables predicates when the `logtalk_source_location_data` flag is
+true (their computation time is added to the user level predicates).
+
+* UPDATED: The SWI-Prolog and YAP adapter files to support predicate aliases
+in `module/2` directives when compiling modules as objects.
+
+* FIXED: Integration bug with the SWI-Prolog graphical tracer where variable
+bindings for user defined predicates would not be displayed in some cases.
+
+* FIXED: Integration bug with the SWI-Prolog graphical tracer where execution
+context variable bindings and grammar rules implicit difference lists would
+not be displayed in some cases.
+
+Documentation
+-------------
+
+* ADDED: Documentation on the new compiler lint flag `redefined_operators`.
+
+* ADDED: Overview of the developer tools and libraries to the Handbook.
+
+* ADDED: Handbook section on the compiler linter.
+
+* ADDED: Library notes to the Handbook.
+
+* ADDED: First version of a Handbook section on Python nomenclature.
+
+* IMPROVED: Handbook section on Java nomenclature.
+
+* IMPROVED: Documentation of the `logtalk_make/1` built-in predicate.
+
+* IMPROVED: Handbook section on defining meta-predicates.
+
+* UPDATED: Handbook developer tools documentation links to API documentation
+to not require an Internet connection when browsed locally.
+
+* UPDATED: Handbook and API documentation cross-links to not require an
+Internet connection when browsed locally.
+
+* UPDATED: The `settings-sample.lgt` file initialization code for using the
+SWI-Prolog graphical profiler.
+
+* UPDATED: Compatibility notes on SWI-Prolog support.
+
+* FIXED: Missing Handbook documentation on the `deprecated` flag.
+
+Libraries
+---------
+
+* ADDED: Notes on testing to all libraries that include unit tests.
+
+* IMPROVED: The documentation of the `arbitrary`, `coroutining`, `queues`,
+`dictionaries`, and `sets` libraries.
+
+* FIXED: Harmless warning when running the `redis` library tests using XSB as
+the backend compiler.
+
+Tools
+-----
+
+* UPDATED: The `tutor` tool to provide explanations and suggestions for
+recently introduced linter warnings and improve explanations for reference
+to unknown entity warnings.
+
+* UPDATED: Documentation of the `profiler` tool.
+
+* FIXED: The `logtalk_tester` shell script to not count twice failed tests
+with assertion failed messages.
+
+Tests
+-----
+
+* ADDED: Tests for the `::/1-2` control constructs for runtime bound messages
+using the `call/N` control constructs.
+
+* ADDED: Tests for predicate shortcuts defined in `uses/2` and `use_module/2`
+directives that make use of parameter variables in the second argument.
+
+* UPDATED: Tests for the Logtalk `current_op/3` method to avoid warnings with
+the new lint warning for redefined standard operators.
+
+Examples
+--------
+
+* UPDATED: The `metapredicates` example with additional didactic definitions
+of meta-predicates.
+
+* FIXED: The `encodings` example tests to collect code coverage results.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* UPDATED: Logtalk setup instructions for ctags 5.8. Thanks to Paul Brown for
+the pull request.
+
+
 3.34.0 - January 7, 2020
 ========================
 
