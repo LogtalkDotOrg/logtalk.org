@@ -25,7 +25,7 @@ The Logtalk Handbook includes the User Manual, Reference Manual, Glossary, FAQ, 
 
 <!-- -->
 
--   [HTML version](https://logtalk3.readthedocs.io/en/latest/) @ the Read the Docs website (latest git version; provides [improved search support](https://blog.readthedocs.com/search-improvements/))
+-   [HTML version](https://logtalk3.readthedocs.io/en/latest/) @ the Read the Docs website (latest git version; provides [improved search support](https://blog.readthedocs.com/search-improvements/) but its links to API documentation are non-functional; use it mainly to preview upcoming Handbook updates)
 
 
 ## APIs
@@ -210,11 +210,9 @@ Diagrams scripts:
     International Symposium on Practical Aspects of Declarative
     Languages (PADL), January 2008. LNCS 4902. Springer-Verlag Berlin
     Heidelberg.
--   [Logtalk Processing of STEP Part 21
-    Files](http://dx.doi.org/10.1007/11799573_45). Paulo Moura and
-    Vincent Marchetti. Proceedings of the 22nd International Conference
-    on Logic Programming (ICLP), August 2006. LNCS 4079. Springer-Verlag
-    Berlin Heidelberg.
+-   [Logtalk Processing of STEP Part 21 Files](http://dx.doi.org/10.1007/11799573_45).
+	Paulo Moura and Vincent Marchetti.
+	Proceedings of the 22nd International Conference on Logic Programming (ICLP), August 2006. LNCS 4079. Springer-Verlag Berlin Heidelberg.
 
 <!-- -->
 
@@ -263,6 +261,10 @@ Diagrams scripts:
 
 Publications on research and applications using Logtalk:
 
+-	[Representation of MDA Transformation with Logical Objects](http://dx.doi.org/10.1109/SIBIRCON48586.2019.8958008).
+	E.Cherkashin, A.Shigarov, V.Paramonov.
+	International Multi-Conference on Engineering, Computer and Information Sciences (SIBIRCON).
+	October 2019
 -	[A Computational Independent Model for a Medical Quality Management Information System](http://ceur-ws.org/Vol-2221/).
 	Evgeny A. Cherkashin, Ljubica Kazi, Alexey O. Shigarov, Viacheslav V. Paramonov.
 	Proceedings for First Scientific-practical Workshop Information Technologies: Algorithms, Models, Systems
