@@ -16,7 +16,7 @@ aside:
 
 ## Handbook
 
-The Logtalk Handbook includes the User Manual, Reference Manual, Glossary, FAQ, and Developer tools documentation.
+The Logtalk Handbook includes the User Manual, Reference Manual, Glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
 -   [PDF version](manuals/TheLogtalkHandbook-3.35.0.pdf) (stable)

@@ -76,7 +76,7 @@ checks include:
 -   Singleton variables
 -   If-then-else and soft cut control constructs without an else part
 -   Cuts in clauses for multifile predicates
--   Missing cut in repeat loops
+-   Missing cuts in repeat loops
 -   Possible non-steadfast predicate definitions
 -   Redundant calls to control constructs and built-in predicates
 -   Calls to all-solutions predicates with existentially qualified variables not occurring in the qualified goal

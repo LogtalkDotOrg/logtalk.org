@@ -174,9 +174,9 @@ Automatically generated installers for the latest git versions can be download f
 ### SWI-Prolog packs
 
 Logtalk is also available as a SWI-Prolog pack. The
-[pack](http://www.swi-prolog.org/pack/list?p=logtalk) is handy for
-*deployment* but not ideal for *development*, however, as all the
-files in the distribution are buried in a relatively deep sub-directory.
+[pack](http://www.swi-prolog.org/pack/list?p=logtalk) is handy for *deployment*
+but not ideal for *development*, however, as all the files in the distribution
+(manuals, examples, ...) are buried in a relatively deep sub-directory.
 The pack can be easily installed typing the query `pack_install(logtalk)`
 at the top-level (use the `pack_info(logtalk)` query after installation
 to find the installation directory). See the pack specific
