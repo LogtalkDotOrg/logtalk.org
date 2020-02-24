@@ -54,7 +54,7 @@ p.roffit {
 <p class="level0"><a name="NAME"></a><h2 class="nroffsh">NAME</h2>
 <p class="level0">logtalk_tester - Logtalk script for automating running unit tests 
 <p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">SYNOPSIS</h2>
-<p class="level0"><span Class="bold">logtalk_tester -v</span> <br><span Class="bold">logtalk_tester [-p </span> <span Class="emphasis">prolog</span> <span Class="bold">] [-m</span> <span Class="emphasis">mode</span> <span Class="bold">] [-f</span> <span Class="emphasis">format</span> <span Class="bold">] [-d</span> <span Class="emphasis">results</span> <span Class="bold">] [-t</span> <span Class="emphasis">timeout</span> <span Class="bold">] [-s</span> <span Class="emphasis">prefix</span> <span Class="bold">] [-c</span> <span Class="emphasis">report</span> <span Class="bold">] [-l</span> <span Class="emphasis">level</span> <span Class="bold">] [-i</span> <span Class="emphasis">options</span> <span Class="bold">] [-g</span> <span Class="emphasis">goal</span> <span Class="bold">] [--</span> <span Class="emphasis">arguments</span> <span Class="bold">]</span> <br><span Class="bold">logtalk_tester -h</span> 
+<p class="level0"><span Class="bold">logtalk_tester -v</span> <br><span Class="bold">logtalk_tester [-p </span> <span Class="emphasis">prolog</span> <span Class="bold">] [-m</span> <span Class="emphasis">mode</span> <span Class="bold">] [-f</span> <span Class="emphasis">format</span> <span Class="bold">] [-d</span> <span Class="emphasis">results</span> <span Class="bold">] [-t</span> <span Class="emphasis">timeout</span> <span Class="bold">] [-s</span> <span Class="emphasis">prefix</span> <span Class="bold">] [-c</span> <span Class="emphasis">report</span> <span Class="bold">] [-l</span> <span Class="emphasis">level</span> <span Class="bold">] [-g</span> <span Class="emphasis">goal</span> <span Class="bold">] [--</span> <span Class="emphasis">arguments</span> <span Class="bold">]</span> <br><span Class="bold">logtalk_tester -h</span> 
 <p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">DESCRIPTION</h2>
 <p class="level0"><span Class="bold">logtalk_tester</span> is a script for automating running Logtalk unit tests. This script runs unit tests found on the current directory and recursively in its sub-directories by scanning for <span Class="emphasis">tester.lgt</span> and <span Class="emphasis">tester.logtalk</span> source files. The script returns a non-zero exit status in case of failed tests or test set errors. When a <span Class="emphasis">tester.sh</span> file exists in the current directory, the file is sourced before running the tests. The <span Class="emphasis">tester.sh</span> file is sourced with all the parameters passed to the <span Class="emphasis">logtalk_tester</span> script. 
 <p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">OPTIONS</h2>
@@ -68,9 +68,8 @@ p.roffit {
 <p class="level0"><span Class="bold">-s</span> Path prefix to suppress when printing test suite and test result paths. Default is the user home directory. 
 <p class="level0"><span Class="bold">-c</span> Code coverage report. Default is <span Class="emphasis">none</span>. Valid values are <span Class="emphasis">xml</span> and <span Class="emphasis">none</span>. 
 <p class="level0"><span Class="bold">-l</span> Directory depth level to look for test sets. Level 1 means current directory only. Default is to recurse into all sub-directories. 
-<p class="level0"><span Class="bold">-i</span> Integration script command-line options (no default). 
 <p class="level0"><span Class="bold">-g</span> Initialization goal. Default is true. 
-<p class="level0"><span Class="bold">--</span> Arguments to be passed to the tests (no default). 
+<p class="level0"><span Class="bold">--</span> Arguments to be passed to the integration script used to run the tests (no default). 
 <p class="level0"><span Class="bold">-h</span> Provide help on script usage. 
 <p class="level0"><a name="EXIT"></a><h2 class="nroffsh">EXIT STATUS</h2>
 <p class="level0">
@@ -87,12 +86,11 @@ p.roffit {
 <p class="level0"><a name="FILES"></a><h2 class="nroffsh">FILES</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">$LOGTALKUSER/library/tester_versions.lgt</span> Logtalk source file used for printing the Logtalk and backend Prolog compiler versions. 
-<p class="level0"><span Class="bold">$LOGTALKUSER/library/parallel_logtalk_processes_setup.pl</span> Logtalk source file used for parallel Logtalk processes with selected backend Prolog compilers. 
 <p class="level0"><a name="SEE"></a><h2 class="nroffsh">SEE ALSO</h2>
 <p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> 
 <p class="level0">The Logtalk User and Reference Manuals at <span Class="bold">$LOGTALKHOME/manuals/index.html</span> 
 <p class="level0"><a name="AUTHOR"></a><h2 class="nroffsh">AUTHOR</h2>
-<p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt; 
+<p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt;
 <p class="level0"><a name="COPYRIGHT"></a><h2 class="nroffsh">COPYRIGHT</h2>
 <p class="level0">Copyright (c) 1998-2020 Paulo Moura. <p class="roffit">
  This HTML page was made with <a href="http://daniel.haxx.se/projects/roffit/">roffit</a>.
