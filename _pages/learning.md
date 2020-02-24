@@ -43,6 +43,7 @@ at startup by defining a default
 * [`super_calls`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/super_calls) - learn how to use *super* calls to specialize inherited predicates
 * [`elephants`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/elephants) - learn about the concept of prototypes ([videocast](https://asciinema.org/a/297030))
 * [`prototypes`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/prototypes) - another example on prototypes
+* [`self_vs_this`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/self_vs_this) - learn the difference between *self* and *this*
 * [`planets`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/planets) - learn how to define and use protocols and categories
 * [`carengines`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/carengines) - learn more about categories
 * [`shapes`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/shapes) - learn about the differences between class and prototype hierarchies
