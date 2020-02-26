@@ -97,15 +97,15 @@ we could define:
 :- category(elephant_commons).
 
     :- public(color/1).
-	% default color
+    % default color
     color(grey).
 
     :- public(number_of_legs/1).
-	% default number of legs
+    % default number of legs
     number_of_legs(4).
 
-	:- public(birth_date/1).
-	% no default
+    :- public(birth_date/1).
+    % no default
 
 :- end_category.
 ```
@@ -137,7 +137,7 @@ And then, redefine `clyde`, `fred`, and `rose` as follows:
 :- end_object.
 ```
 
-We cannot send messages to categories. Thus, we don't need to be careful to avoid
+Given that we cannot send messages to categories, we don't need to be careful to avoid
 a prototypical but abstract elephant when e.g. enumerating elephants and sending them
 messages. Thus, by taking advantage of categories, we get some of the organizational
 features of classes in a more lightweight and flexible solution that is more amenable
