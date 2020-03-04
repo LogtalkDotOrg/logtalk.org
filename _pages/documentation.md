@@ -19,9 +19,9 @@ aside:
 The Logtalk Handbook includes the User Manual, Reference Manual, Glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.35.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.35.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.35.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.36.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.36.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.36.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -42,7 +42,7 @@ Core, Library, Tools, and Contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.35.0.info) (stable; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.36.0.info) (stable; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -421,7 +421,7 @@ Publications on research and applications using Logtalk:
 -   Daniel L. Dudley (made the ISO 8601 library object available)
 -   Davide Ancona (coinduction examples)
 -   Douglas R. Miles (suggestions, bug reports, Logtalk on SWISH experiments)
--   Ebrahim Azarisooreh (code metrics tool, Arch Linux package; made [lgtinit](https://github.com/eazar001/lgtinit) available)
+-   Ebrahim Azarisooreh (code metrics tool, Arch Linux package, made [lgtinit](https://github.com/eazar001/lgtinit) available)
 -   Eva Stöwe (PDT support for Logtalk)
 -   Feliks Kluzniak (coinduction examples and bug reports)
 -   François Fages (meta-predicate safety bug reports)
@@ -441,7 +441,7 @@ Publications on research and applications using Logtalk:
 -   Michael Hendricks (EDCGs examples and tests)
 -   Michael Igler (testing, bug reports)
 -   Michael Sheets (text editor support)
--   Michael T. Richter (Textadept text editor support)
+-   Michael T. Richter (Textadept text editor support, pengines example)
 -   Neda Saeedloei (coinduction examples)
 -   Neng-Fa Zhou (bug reports)
 -   Nicolas Pelletier (bug reports, text editor support)

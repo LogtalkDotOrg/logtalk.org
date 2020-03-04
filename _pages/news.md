@@ -8,6 +8,29 @@ aside:
 
 ### 2020
 
+##### March 3
+
+> Logtalk 3.36.0 is now available for [downloading](download.html). This release
+> adds lint checks for cyclic terms and float comparisons, improves the lint
+> checks for unification goals that are always true or always false, changes the
+> preferred format of dates and versions in `info/1` directives for ISO 8601
+> standard compliance and support for upcoming version management tools, updates
+> the list of directories searched for settings files, includes fixes and
+> improvements for compiler and runtime error handling, includes Handbook and
+> tools documentation improvements, adds a new `hook_objects` library providing
+> convenient hook objects for defining custom expansion workflows, improves
+> portability of several libraries for backends supporting rational numbers,
+> improves the reliability of the `logtalk_tester` automation script and adds
+> command-line options to pass additional options to the backend compiler and
+> to set output verbosity, improves `tutor` tool warning explanations, adds
+> tests for the definitions of the standard ISO Prolog operators, adds new
+> introductory examples for key Logtalk semantics, adds a SWI-Prolog Pengines
+> integration example (contributed by Michael T. Richter), updates code
+> snippets for the supported text editors, and provides updated support for
+> ECLiPSe, Qu-Prolog, and SWI-Prolog. For details and a complete list of changes,
+> please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### January 30
 
 > Logtalk 3.35.0 is now available for [downloading](download.html). This release

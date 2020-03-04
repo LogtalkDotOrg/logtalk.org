@@ -4,6 +4,241 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.36.0 - March 3, 2020
+======================
+
+Distribution
+------------
+
+* CHANGED: Version data in `info/1` directives in all source files to use
+the compound term `Major:Minor:Day` format.
+
+* CHANGED: Date data in `info/1` directives in all source files to the ISO
+8601 standard format, `Year-Month-Day`.
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: Accept versions in `info/1` directives using the compound term
+format `Major:Minor:Day`.
+
+* CHANGED: Accept dates in `info/1` directives in ISO 8601 standard format
+(`Year-Month-Day`).
+
+* ADDED: Deprecated warning for `info/1` directives with a `version` value
+not in the `Major:Minor:Day` format.
+
+* ADDED: Deprecated warning for `info/1` directives with a `date` value in
+the old `Year/Month/Day` format.
+
+* ADDED: Lint check for unification goals that will succeed creating a cyclic
+term.
+
+* ADDED: Lint check for float comparison in `==/2`, `\==/2`, `=:=/2`, and
+`=\=/2` goals.
+
+* ADDED: Also search for settings files on the `%APPDATA%\Logtalk` directory
+when running on Windows operating-systems.
+
+* ADDED: Experimental `@/1` goal annotation to allow calling from a
+complementing category a predicate definition in the patched object
+that is being replaced by a new definition in the category.
+
+* ADDED: Support the `|` infix operator as an alternative for disjunction in
+grammar rules.
+
+* IMPROVED: Mention the `tutor` tool in the startup help message output.
+
+* IMPROVED: Detect more cases of unification goals that are always true or
+always false.
+
+* IMPROVED: Decompilation of exception terms for top-level interpreter `::/2`
+and `<</2` goals.
+
+* FIXED: Overriding a hook object specified using a compiler option when
+a hook object is already specified using a file local `set_logtalk_flag/2`
+directive.
+
+* FIXED: Generate a compiler error when trying to redefine a built-in method
+or a built-in control construct using a `uses/2` or `use_module/2` directive.
+
+* FIXED: Bug where a compilation error in a compiler generated auxiliary
+clause (usually caused by a call in the body to a module predicate with
+an ambiguous meta-predicate template) would result in a failure instead
+of an error message.
+
+* FIXED: Search for settings files in the `$XDG_CONFIG_HOME/logtalk` and
+`$HOME/.config/logtalk` directories, not in a `$HOME/.config` directory
+for compliance with the XDG Base Directory Specification.
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: The Qu-Prolog adapter file to redefine the `:/2` operator per its
+ISO Prolog standard definition.
+
+* IMPROVED: The SWI-Prolog adapter file now deletes `use_module(library(yall))`
+directives when compiling modules as objects as this library implements
+Logtalk lambda expressions and is thus redundant.
+
+* UPDATED: The SWI-Prolog adapter file to expand its new `autoload/1-2`
+directives into the corresponding `use_module/1-2` directives when compiling
+modules as objects.
+
+* FIXED: The SWI-Prolog integration file to load the `lock_predicate/1` library
+predicate explicitly.
+
+Documentation
+-------------
+
+* ADDED: A glossary definition for *expansion workflow*.
+
+* IMPROVED: The Handbook objects, categories, nomenclature, and term-expansion
+sections.
+
+* IMPROVED: The `linter` tool documentation.
+
+* UPDATED: Handbook for the changes to version and date formats in `info/1`
+directives.
+
+* UPDATED: Handbook user and reference manual links to API documentation to
+not require an Internet connection when browsed locally.
+
+Library
+-------
+
+* ADDED: New `hook_objects` library providing convenient hook objects for
+defining custom expansion workflows.
+
+* IMPROVED: Portability of the `random`, `statistics`, and `types` libraries
+by safe guarding against backend Prolog compilers where the `(/)/2` operator
+may return an integer or a rational number depending on proprietary flags.
+
+* FIXED: The `numberlist::average/2` predicate to fail for empty lists as
+specified in the `numberlistp` protocol.
+
+* FIXED: The `difflist::append/3` predicate for the case where the difference
+lists are unbound.
+
+* FIXED: Added missing definition for predicate `difflist::append/2`.
+
+Tools
+-----
+
+* CHANGED: The `code_metrics`, `dead_code_scanner`, `diagrams`, and `lgtunit`
+tools to print dates using the ISO 8601 standard format.
+
+* CHANGED: The `lgtunit` tool no longer prints a `running_tests_from_object/1`
+message as test objects are always compiled with the `source_data` flag turned
+on.
+
+* ADDED: Support to the `logtalk_tester` shell script to pass additional
+command-line options to the integration script used to run the tests.
+
+* ADDED: Object `minimal_output` to the `lgtunit` tool that can be loaded
+before running a test suite to minimize the test results output.
+
+* ADDED: Object `automation_report` to the `lgtunit` tool that is loaded
+automatically by the `logtalk_tester` automation shell script.
+
+* ADDED: Output verbosity option to the `logtalk_tester` shell script.
+
+* IMPROVED: The `logtalk_tester` shell script now uses the report generated
+by the `automation_report` object provided by the `lgtunit` tool for reliable
+reporting independent of the default tests results output format.
+
+* IMPROVED: The `lgtunit` tool now prints a warning when unknown entities are
+declared as covered.
+
+* IMPROVED: The `code_metrics`, `dead_code_scanner`, `lgtdoc`, and `lgtunit`
+tools to pad month, day, hours, minutes, and seconds when single digit when
+writing timestamps.
+
+* IMPROVED: The `tutor` explanations of unknown entity, variables shared by
+both arguments of `is/2` goals, float comparisons, plus date and version
+format warnings.
+
+* UPDATED: The `tutor` tool for the new lint warning on cyclic terms.
+
+* FIXED: The `logtalk_tester` shell script to not display text from comment
+messages when listing compilation errors, warnings, and failed unit tests.
+
+* FIXED: The `lgtunit` tool code coverage reports to print the parameters
+passed to a parametric test object instead of printing an object template.
+
+* FIXED: The `lgtunit` tool API documentation for the `quick_check/2`
+predicate failed to mention the `s/1` option for specifying the maximum
+number of shrink operations.
+
+* FIXED: The `lgtunit` tool to ensure that test objects are compiled with the
+`source_data` flag turned on.
+
+* FIXED: Unknown entity declared as covered in the `code_metrics` tool.
+
+Tests
+-----
+
+* ADDED: Tests for the `term_expansion/2` built-in method.
+
+* ADDED: Tests for the presence of the standard ISO Prolog operators.
+
+* ADDED: Tests for the `write_term/3` ISO Prolog standard predicate for writing
+atoms that contain a `%` character.
+
+Examples
+--------
+
+* CHANGED: Internal representation used by the `eight_puzzle` object in the
+`searching` example to avoid a clash with SWI-Prolog when configured to
+represent rational numbers as `N/D` terms.
+
+* ADDED: New example, `closed_world_assumption`, illustrating the difference
+between *declaring* a predicate and *defining* a predicate and the Closed
+World Assumption (CWA) semantics when calling predicates and sending messages.
+
+* ADDED: New example, `predicate_lookups`, illustrating the lookup algorithms
+used when sending messages to objects to locate predicate declarations and
+predicate definitions.
+
+* ADDED: New example, `self_vs_this`, illustrating the difference between
+`self` and `this` and the corresponding execution-context built-in methods.
+
+* ADDED: New example, `pengines`, of using SWI-Prolog pengines from objects.
+Joint work with Michael T. Richter.
+
+* ADDED: New example, `around_methods`, of defining a complementing category
+that uses the experimental `@/1` goal annotation to define an "around method".
+
+* IMPROVED: Tests for the `sicstus` example.
+
+* UPDATED: The `errors` example to illustrate float comparisons and cyclic
+terms lint warnings.
+
+* FIXED: Library name typo preventing loading of the `edcgs` example.
+
+* FIXED: Missing library path definition for the `object_aliases` example.
+
+* FIXED: No need to use floats in the `threads/primes` example.
+
+* FIXED: Lint warnings when compiling the `mtbatch` example in optimized mode.
+
+Ports
+-----
+
+* CHANGED: Internal representation used by the `robots` example in the
+`metagol` port to avoid a clash with SWI-Prolog when configured to represent
+rational numbers as `N/D` terms.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* CHANGED: Code snippets for entities to use the ISO 8601 standard format for
+dates, `Year-Month-Day`, in `info/1` directives.
+
+* ADDED: Instructions on how to configure `bat` to use the Logtalk syntax
+highlighting support with Prolog files.
+
+
 3.35.0 - January 30, 2020
 =========================
 

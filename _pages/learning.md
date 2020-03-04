@@ -43,10 +43,12 @@ at startup by defining a default
 * [`super_calls`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/super_calls) - learn how to use *super* calls to specialize inherited predicates
 * [`elephants`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/elephants) - learn about the concept of prototypes ([videocast](https://asciinema.org/a/297030))
 * [`prototypes`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/prototypes) - another example on prototypes
+* [`closed_world_assumption`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/closed_world_assumption) - learn about the Closed World Assumption (CWA) semantics
 * [`self_vs_this`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/self_vs_this) - learn the difference between *self* and *this*
 * [`planets`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/planets) - learn how to define and use protocols and categories
 * [`carengines`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/carengines) - learn more about categories
 * [`shapes`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/shapes) - learn about the differences between class and prototype hierarchies
+* [`predicate_lookups`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/predicate_lookups) - learn about the predicate lookups used when sending a message to an object
 * [`inheritance`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/inheritance) - learn about public, protected, and private inheritance
 * [`family`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/family) - no self respecting logic programming language can do without a family relations example
 

@@ -61,7 +61,7 @@ Logtalk on the web
 -   [Music, metas-interpreters, and an adventure game using
     Logtalk](https://prologomenon.wordpress.com/category/logtalk/)
 -   [Foxes and Rabbits](https://github.com/Anniepoo/foxesandrabbits)
--   [TicTakToeTalk](https://gitlab.com/PaulBrownMagic/tictaktoetalk)
+-   [TicTakToeTalk](https://github.com/PaulBrownMagic/TicTacToeTalk)
 
 <!-- -->
 
@@ -91,9 +91,6 @@ Logtalk on the web
 <!-- -->
 
 -   [DuckDuckGo Logtalk search](http://duckduckgo.com/?q=logtalk)
--   [Altavista Logtalk
-    search](http://www.altavista.com/web/results?itag=ody&pg=aq&aqa=logtalk+prolog&aqp=&aqo=&aqn=&aqmode=b&aqb=logtalk+AND+prolog+AND+NOT+host%3Awww.ci.uc.pt+AND+NOT+host%3Alogtalk.org+AND+NOT+host%3Awww.uc.pt&kgs=0&kls=0&dt=tmperiod&d2=0&dfr%5Bd%5D=1&dfr%5Bm%5D=1&dfr%5By%5D=1980&dto%5Bd%5D=9&dto%5Bm%5D=11&dto%5By%5D=2006&filetype=&rc=dmn&swd=&lh=&nbq=10)
-    (excluding the `logtalk.org` domain)
 -   [Google Logtalk
     search](http://www.google.com/search?hl=en&lr=&as_qdr=all&q=logtalk+prolog+-site%3Alogtalk.org+-site%3Auc.pt&btnG=Search)
     (excluding the `logtalk.org` domain)
