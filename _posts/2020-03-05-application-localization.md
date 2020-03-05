@@ -27,11 +27,13 @@ show how these mechanisms can be used for application localization.
 As a simple example, assume that we are developing a game that prints a banner
 at startup that should be localized. The game core logic prints the banner
 using a `banner` message term and that is the extent of its responsibilities.
-The Logtalk structured message printing API predicates include a *component*
-argument that can be any bound term. This argument allows easy partition of
-messages for applications made of multiple components, helping avoiding
-conflicts and allowing all messages for a given component to be handled as
-a set. We can use this argument to parameterize the messages
+The use of message terms allows us to abstract not only how and where a message
+is printed but also the actual text that will be used. But how do we specify
+the language for the text? The Logtalk structured message printing API predicates
+include a *component* argument that can be any bound term. This argument allows
+easy partition of messages for applications made of multiple components, helping
+avoiding conflicts and allowing all messages for a given component to be
+handled as a set. We can use this argument to parameterize the messages
 using the selected language. Assuming our game uses the compound term
 `my_game(Language)` as the component identifier, the core logic could
 print the banner using the following code:
@@ -50,6 +52,9 @@ print the banner using the following code:
 
 :- end_object.
 ```
+
+The [`logtalk::print_message/3`](https://logtalk.org/manuals/refman/methods/print_message_3.html)
+predicate takes as arguments the message kind, the component, and the message.
 
 We now need to be able to define the different message translations. The
 translations should be independent, allowing any number of them to be
@@ -86,6 +91,10 @@ per translation. For example:
 ```logtalk
 ...
 ```
+
+The [`logtalk::message_tokens//2`](https://logtalk.org/manuals/refman/methods/message_tokens_2.html)
+multifile non-terminal translate message terms, `banner` in this case,
+into a list of tokens that define the actual message output.
 
 At startup, the core logic can peek the language setting and call the
 `banner/0` predicate as illustrated by the following queries:
