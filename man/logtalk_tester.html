@@ -52,43 +52,47 @@ p.roffit {
 
 <p class="level0">
 <p class="level0"><a name="NAME"></a><h2 class="nroffsh">NAME</h2>
-<p class="level0">logtalk_tester - Logtalk script for automating running unit tests 
+<p class="level0">logtalk_tester - Logtalk script for automating running unit tests
 <p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">SYNOPSIS</h2>
-<p class="level0"><span Class="bold">logtalk_tester -v</span> <br><span Class="bold">logtalk_tester [-p </span> <span Class="emphasis">prolog</span> <span Class="bold">] [-m</span> <span Class="emphasis">mode</span> <span Class="bold">] [-f</span> <span Class="emphasis">format</span> <span Class="bold">] [-d</span> <span Class="emphasis">results</span> <span Class="bold">] [-t</span> <span Class="emphasis">timeout</span> <span Class="bold">] [-s</span> <span Class="emphasis">prefix</span> <span Class="bold">] [-c</span> <span Class="emphasis">report</span> <span Class="bold">] [-l</span> <span Class="emphasis">level</span> <span Class="bold">] [-g</span> <span Class="emphasis">goal</span> <span Class="bold">] [--</span> <span Class="emphasis">arguments</span> <span Class="bold">]</span> <br><span Class="bold">logtalk_tester -h</span> 
+<p class="level0"><span Class="bold">logtalk_tester -v</span> <br><span Class="bold">logtalk_tester [-o</span> <span Class="emphasis">output</span> <span Class="bold">] [-p </span> <span Class="emphasis">prolog</span> <span Class="bold">] [-m</span> <span Class="emphasis">mode</span> <span Class="bold">] [-f</span> <span Class="emphasis">format</span> <span Class="bold">] [-d</span> <span Class="emphasis">results</span> <span Class="bold">] [-t</span> <span Class="emphasis">timeout</span> <span Class="bold">] [-s</span> <span Class="emphasis">prefix</span> <span Class="bold">] [-c</span> <span Class="emphasis">report</span> <span Class="bold">] [-l</span> <span Class="emphasis">level</span> <span Class="bold">] [-i</span> <span Class="emphasis">options</span> <span Class="bold">] [-g</span> <span Class="emphasis">goal</span> <span Class="bold">] [--</span> <span Class="emphasis">arguments</span> <span Class="bold">]</span> <br><span Class="bold">logtalk_tester -h</span>
 <p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">DESCRIPTION</h2>
-<p class="level0"><span Class="bold">logtalk_tester</span> is a script for automating running Logtalk unit tests. This script runs unit tests found on the current directory and recursively in its sub-directories by scanning for <span Class="emphasis">tester.lgt</span> and <span Class="emphasis">tester.logtalk</span> source files. The script returns a non-zero exit status in case of failed tests or test set errors. When a <span Class="emphasis">tester.sh</span> file exists in the current directory, the file is sourced before running the tests. The <span Class="emphasis">tester.sh</span> file is sourced with all the parameters passed to the <span Class="emphasis">logtalk_tester</span> script. 
+<p class="level0"><span Class="bold">logtalk_tester</span> is a script for automating running Logtalk unit tests. This script runs unit tests found on the current directory and recursively in its sub-directories by scanning for <span Class="emphasis">tester.lgt</span> and <span Class="emphasis">tester.logtalk</span> source files. The script returns a non-zero exit status in case of failed tests or test set errors. When a <span Class="emphasis">tester.sh</span> file exists in the current directory, the file is sourced before running the tests. The <span Class="emphasis">tester.sh</span> file is sourced with all the parameters passed to the <span Class="emphasis">logtalk_tester</span> script.
 <p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">OPTIONS</h2>
 <p class="level0">
-<p class="level0"><span Class="bold">-v</span> Print script version. 
-<p class="level0"><span Class="bold">-p</span> Backend Prolog compiler. Default is SWI-Prolog. The following identifiers are used: B-Prolog - <span Class="emphasis">b</span>, CxProlog - <span Class="emphasis">cx</span>, ECLiPSe - <span Class="emphasis">eclipse</span>, GNU Prolog - <span Class="emphasis">gnu</span>, JIProlog - <span Class="emphasis">ji</span>, Lean Prolog - <span Class="emphasis">lean</span>, Qu-Prolog - <span Class="emphasis">qp</span>, SICStus Prolog - <span Class="emphasis">sicstus</span>, SWI-Prolog - <span Class="emphasis">swi</span>, SWI-Prolog with Logtalk pack - <span Class="emphasis">swipack</span>, XSB - <span Class="emphasis">xsb</span>, XSB-MT - <span Class="emphasis">xsbmt</span>, YAP - <span Class="emphasis">yap</span>. 
-<p class="level0"><span Class="bold">-m</span> Compilation mode. Default is <span Class="emphasis">normal</span>. Valid values are <span Class="emphasis">optimal</span>, <span Class="emphasis">normal</span>, <span Class="emphasis">debug</span>, and <span Class="emphasis">all</span>. 
-<p class="level0"><span Class="bold">-f</span> Format for writing the test results. Default is <span Class="emphasis">default</span>. Valid values are <span Class="emphasis">default</span>, <span Class="emphasis">tap</span>, and <span Class="emphasis">xunit</span>. 
-<p class="level0"><span Class="bold">-d</span> Directory to store the test results. Default is the local <span Class="emphasis">./logtalk_tester_logs</span> directory. 
-<p class="level0"><span Class="bold">-t</span> Timeout in seconds for running each test set. Default is <span Class="emphasis">0</span>; i.e. disabled. 
-<p class="level0"><span Class="bold">-s</span> Path prefix to suppress when printing test suite and test result paths. Default is the user home directory. 
-<p class="level0"><span Class="bold">-c</span> Code coverage report. Default is <span Class="emphasis">none</span>. Valid values are <span Class="emphasis">xml</span> and <span Class="emphasis">none</span>. 
-<p class="level0"><span Class="bold">-l</span> Directory depth level to look for test sets. Level 1 means current directory only. Default is to recurse into all sub-directories. 
-<p class="level0"><span Class="bold">-g</span> Initialization goal. Default is true. 
-<p class="level0"><span Class="bold">--</span> Arguments to be passed to the integration script used to run the tests (no default). 
-<p class="level0"><span Class="bold">-h</span> Provide help on script usage. 
+<p class="level0"><span Class="bold">-v</span> Print script version.
+<p class="level0"><span Class="bold">-o</span> Output verbosity. Default is <span Class="emphasis">verbose</span>. Valid values are <span Class="emphasis">verbose</span> and <span Class="emphasis">minimal</span>.
+<p class="level0"><span Class="bold">-p</span> Backend Prolog compiler. Default is SWI-Prolog. The following identifiers are used: B-Prolog - <span Class="emphasis">b</span>, CxProlog - <span Class="emphasis">cx</span>, ECLiPSe - <span Class="emphasis">eclipse</span>, GNU Prolog - <span Class="emphasis">gnu</span>, JIProlog - <span Class="emphasis">ji</span>, Lean Prolog - <span Class="emphasis">lean</span>, Qu-Prolog - <span Class="emphasis">qp</span>, SICStus Prolog - <span Class="emphasis">sicstus</span>, SWI-Prolog - <span Class="emphasis">swi</span>, SWI-Prolog with Logtalk pack - <span Class="emphasis">swipack</span>, XSB - <span Class="emphasis">xsb</span>, XSB-MT - <span Class="emphasis">xsbmt</span>, YAP - <span Class="emphasis">yap</span>.
+<p class="level0"><span Class="bold">-m</span> Compilation mode. Default is <span Class="emphasis">normal</span>. Valid values are <span Class="emphasis">optimal</span>, <span Class="emphasis">normal</span>, <span Class="emphasis">debug</span>, and <span Class="emphasis">all</span>.
+<p class="level0"><span Class="bold">-f</span> Format for writing the test results. Default is <span Class="emphasis">default</span>. Valid values are <span Class="emphasis">default</span>, <span Class="emphasis">tap</span>, and <span Class="emphasis">xunit</span>.
+<p class="level0"><span Class="bold">-d</span> Directory to store the test results. Default is the local <span Class="emphasis">./logtalk_tester_logs</span> directory.
+<p class="level0"><span Class="bold">-t</span> Timeout in seconds for running each test set. Default is <span Class="emphasis">0</span>; i.e. disabled.
+<p class="level0"><span Class="bold">-s</span> Path prefix to suppress when printing test suite and test result paths. Default is the user home directory.
+<p class="level0"><span Class="bold">-c</span> Code coverage report. Default is <span Class="emphasis">none</span>. Valid values are <span Class="emphasis">xml</span> and <span Class="emphasis">none</span>.
+<p class="level0"><span Class="bold">-l</span> Directory depth level to look for test sets. Level 1 means current directory only. Default is to recurse into all sub-directories.
+<p class="level0"><span Class="bold">-i</span> Integration script command-line options (no default).
+<p class="level0"><span Class="bold">-g</span> Initialization goal. Default is true. Called after loading the Logtalk compiler and runtime.
+<p class="level0"><span Class="bold">--</span> Arguments to be passed to the tests (no default).
+<p class="level0"><span Class="bold">-h</span> Provide help on script usage.
 <p class="level0"><a name="EXIT"></a><h2 class="nroffsh">EXIT STATUS</h2>
 <p class="level0">
-<p class="level0"><span Class="bold">0</span> All non-skipped tests pass and there are no broken, timed out, or crashed test sets. 
-<p class="level0"><span Class="bold">1</span> Some tests fail but there are no broken, timed out, or crashed test sets. 
-<p class="level0"><span Class="bold">3</span> One or more test sets timed out while executing but there are no broken or crashed test sets. 
-<p class="level0"><span Class="bold">5</span> One or more test sets are broken and thus could not be executed but there are no crashed test sets. 
-<p class="level0"><span Class="bold">7</span> One or more test sets crashed the process running them. 
-<p class="level0"><span Class="bold">9</span> The sourced <span Class="emphasis">tester.sh</span> file returned a non-zero code. 
+<p class="level0"><span Class="bold">0</span> All non-skipped tests pass and there are no broken, timed out, or crashed test sets.
+<p class="level0"><span Class="bold">1</span> Some tests fail but there are no broken, timed out, or crashed test sets.
+<p class="level0"><span Class="bold">3</span> One or more test sets timed out while executing but there are no broken or crashed test sets.
+<p class="level0"><span Class="bold">5</span> One or more test sets are broken and thus could not be executed but there are no crashed test sets.
+<p class="level0"><span Class="bold">7</span> One or more test sets crashed the process running them.
+<p class="level0"><span Class="bold">9</span> The sourced <span Class="emphasis">tester.sh</span> file returned a non-zero code.
 <p class="level0"><a name="ENVIRONMENT"></a><h2 class="nroffsh">ENVIRONMENT</h2>
 <p class="level0">
-<p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. 
-<p class="level0"><span Class="bold">LOGTALKUSER</span> Specifies the location of the Logtalk user directory. 
+<p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation.
+<p class="level0"><span Class="bold">LOGTALKUSER</span> Specifies the location of the Logtalk user directory.
 <p class="level0"><a name="FILES"></a><h2 class="nroffsh">FILES</h2>
 <p class="level0">
-<p class="level0"><span Class="bold">$LOGTALKUSER/library/tester_versions.lgt</span> Logtalk source file used for printing the Logtalk and backend Prolog compiler versions. 
+<p class="level0"><span Class="bold">$LOGTALKUSER/library/tester_versions.lgt</span> Logtalk source file used for printing the Logtalk and backend Prolog compiler versions.
+<p class="level0"><span Class="bold">$LOGTALKUSER/library/parallel_logtalk_processes_setup.pl</span> Logtalk source file used for parallel Logtalk processes with selected backend Prolog compilers.
+<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtunit/automation_report.lgt</span> Logtalk source file that intercepts unit test execution messages and generates report files that are parsed by this script.
 <p class="level0"><a name="SEE"></a><h2 class="nroffsh">SEE ALSO</h2>
-<p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> 
-<p class="level0">The Logtalk User and Reference Manuals at <span Class="bold">$LOGTALKHOME/manuals/index.html</span> 
+<p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a>
+<p class="level0">The Logtalk User and Reference Manuals at <span Class="bold">$LOGTALKHOME/manuals/index.html</span>
 <p class="level0"><a name="AUTHOR"></a><h2 class="nroffsh">AUTHOR</h2>
 <p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt;
 <p class="level0"><a name="COPYRIGHT"></a><h2 class="nroffsh">COPYRIGHT</h2>

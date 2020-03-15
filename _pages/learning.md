@@ -57,7 +57,7 @@ Need a break after playing with the above examples? Have fun with the following 
 * [`adventure`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/adventure) - text-based adventure games; beware of the monsters!
 * [`puzzles`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/puzzles) - logical puzzles
 
-The Logtalk compiler does extended lint checks. Trouble understanding compiler output? Want to learn more about compilation errors and warnings? There's an example for that:
+The Logtalk compiler does extended lint checks. Trouble understanding compiler output? Want to learn more about compilation errors and warnings? Load the [`tutor`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/tutor/NOTES.md) tool and then run the following example:
 
 * [`errors`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/errors) - learn about compiler errors and warnings
 
@@ -92,6 +92,7 @@ Looking for how to express traditional OOP class concepts from other languages i
 Now that you got the basics of OOP in Logtalk, time to take it to the next level:
 
 * [`design_patterns`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/design_patterns)
+* [`aspects`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/aspects)
 
 But Logtalk is a _declarative_ language supporting all those features that drive people to logic programming. Some good examples are:
 
