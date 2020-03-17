@@ -94,6 +94,31 @@ queries above to advance to the next file in case of error. Those errors are
 usually caused by Prolog proprietary extensions. How to workaround some of
 those errors is discussed next.
 
+If your Prolog application source files are found in multiple sub-directories,
+you can use instead the following `loader.lgt` file:
+
+	:- initialization((
+	    set_logtalk_flag(report, warnings),
+	    logtalk_load([os(loader), types(loader)]),
+	    logtalk_load_context(directory, Directory),
+	    findall(
+	        File,
+	        (   current_module(Module),
+	            module_property(Module, file(File)),
+	            sub_atom(File, 0, _, _, Directory)
+	        ),
+	        Files
+	    ),
+	    forall(
+	        list::member(File, Files),
+	        (logtalk_compile(File, [unknown_entities(silent)]) -> true; true)
+	    )
+	)).
+
+Change the `logtalk_compile/2` to `logtalk_load/2` if necessary and also play
+with the available compiler options to fine tune for your case.
+
+
 ### Prolog code using a term-expansion mechanism
 
 Some Prolog systems and their typical applications may make use of a
