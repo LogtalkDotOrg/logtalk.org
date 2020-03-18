@@ -1,11 +1,11 @@
 <!DOCTYPE html><html lang="en">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Guides - Logtalk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Your first project - Logtalk</title>
 
 <meta name="description" content="Logtalk - Declarative object-oriented logic programming language
 ">
-<link rel="canonical" href="http://localhost:4000/guides.html"><link rel="alternate" type="application/rss+xml" title="Logtalk" href="/feed.xml">
+<link rel="canonical" href="http://localhost:4000/first_project.html"><link rel="alternate" type="application/rss+xml" title="Logtalk" href="/feed.xml">
 <!-- begin favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -263,7 +263,7 @@
         <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
 -->
       </div><nav class="navigation">
-        <ul><li class="navigation__link"><a href="/rationale.html">Rationale</a></li><li class="navigation__link"><a href="/features.html">Features</a></li><li class="navigation__link"><a href="/documentation.html">Documentation</a></li><li class="navigation__link"><a href="/download.html">Download</a></li><li class="navigation__link"><a href="/tools.html">Tools</a></li><li class="navigation__link navigation__link--active"><a href="/guides.html">Guides</a></li><li class="navigation__link"><a href="/support.html">Support</a></li><li class="navigation__link"><a href="/related.html">Related</a></li><li class="navigation__link"><a href="/news.html">News</a></li><li class="navigation__link"><a href="/blog.html">Blog</a></li><li class="navigation__link"><a href="/search.html"><i class="fa fa-search" aria-hidden="true"></i></a></li><!--
+        <ul><li class="navigation__link"><a href="/rationale.html">Rationale</a></li><li class="navigation__link"><a href="/features.html">Features</a></li><li class="navigation__link"><a href="/documentation.html">Documentation</a></li><li class="navigation__link"><a href="/download.html">Download</a></li><li class="navigation__link"><a href="/tools.html">Tools</a></li><li class="navigation__link"><a href="/guides.html">Guides</a></li><li class="navigation__link"><a href="/support.html">Support</a></li><li class="navigation__link"><a href="/related.html">Related</a></li><li class="navigation__link"><a href="/news.html">News</a></li><li class="navigation__link"><a href="/blog.html">Blog</a></li><li class="navigation__link"><a href="/search.html"><i class="fa fa-search" aria-hidden="true"></i></a></li><!--
           <li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
 -->
         </ul>
@@ -273,42 +273,23 @@
 
               <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div></aside></div>
 
-              <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Guides</h1></header></div><meta itemprop="headline" content="Guides"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
+              <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Your first project</h1></header></div><meta itemprop="headline" content="Your first project"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
 
-  <div class="article__content" itemprop="articleBody"><h2 id="learning">Learning</h2>
+  <div class="article__content" itemprop="articleBody"><p>Ready to start your first Logtalk project? Follows some simple steps and advice for smooth sailing. Additional, detailed advice can be found in the Logtalk <a href="https://logtalk.org/manuals/userman/programming.html">Handbook</a>.</p>
 
-<ul>
-  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/QUICK_START.md">Quick start</a></li>
-  <li><a href="documentation.html#tutorials">Tutorials</a></li>
-  <li><a href="https://logtalk.org/manuals/glossary.html">Glossary</a></li>
-  <li><a href="learning.html">Learning by examples</a></li>
-  <li><a href="first_project.html">Your first project</a></li>
-  <li><a href="symbolic_ai_examples.html">Classical symbolic AI examples</a></li>
-  <li><a href="https://logtalk.org/manuals/userman/nomenclature.html">Comparison with other OOP languages</a></li>
-</ul>
+<h2 id="basic-setup">Basic setup</h2>
 
-<h2 id="development">Development</h2>
+<p>If you don’t have done so already when following the <a href="learning.html">learning guide</a>, start by copying the <code class="highlighter-rouge">settings-sample.lgt</code> found at the root of the Logtalk distribution to your home directory (or any other of the searched locations; see the comments in the file itself for details), renaming it to <code class="highlighter-rouge">settings.lgt</code>. Then, open the file on your favorite text editor and uncomment all the code snippets that you find relevant (e.g. for loading essential tools at startup like <code class="highlighter-rouge">tutor</code>, <code class="highlighter-rouge">debugger</code>, <code class="highlighter-rouge">lgtdoc</code>, and <code class="highlighter-rouge">lgtunit</code>).</p>
 
-<ul>
-  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/design_patterns">Design patterns sample implementations</a></li>
-  <li><a href="blog.html?tag=best+practices">Blog posts on best practices</a></li>
-  <li><a href="coding_style_guidelines.html">Coding style guidelines</a></li>
-  <li><a href="licensing.html">Licensing</a></li>
-  <li><a href="running_developer_versions.html">Running developer versions</a></li>
-  <li><a href="embedding.html">Embedding</a></li>
-  <li><a href="using_jpl.html">Using Logtalk with JPL</a></li>
-  <li><a href="using_tools_with_prolog.html">Using Logtalk tools with Prolog codebases</a></li>
-</ul>
+<p>Speaking of favorite text editor, Logtalk provides support for several text editors and some IDEs. See the <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding/"><code class="highlighter-rouge">coding</code></a> directory for setup details.</p>
 
-<h2 id="maintenance">Maintenance</h2>
+<p>Further advice on Logtalk setup can be found in the <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/CUSTOMIZE.md"><code class="highlighter-rouge">CUSTOMIZE.md</code></a> file.</p>
 
-<ul>
-  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/CODE_OF_CONDUCT.md">Code of conduct</a></li>
-  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/CONTRIBUTING.md">Contributing</a></li>
-  <li><a href="backend_requirements.html">Backend Prolog compiler requirements</a></li>
-  <li><a href="testing.html">Testing</a></li>
-  <li><a href="releasing.html">Releasing new stable versions</a></li>
-</ul>
+<h2 id="application-directory">Application directory</h2>
+
+<p>Create a directory for your application (preferably outside of the Logtalk user directory as this is updated when you update Logtalk) and copy the <code class="highlighter-rouge">loader-sample.lgt</code> (found at the root of the Logtalk distribution) to it renamed as <code class="highlighter-rouge">loader.lgt</code>. This source file will be the entry point for loading your application. See the comments in the file itself for guidance.</p>
+
+<p>As testing is an essential part of developing an application, copy also the files <code class="highlighter-rouge">tester-sample.lgt</code> and <code class="highlighter-rouge">tests-sample.lgt</code> to the application directory and rename them, respectively, to <code class="highlighter-rouge">tester.lgt</code> and <code class="highlighter-rouge">tests.lgt</code>. The <code class="highlighter-rouge">tester.lgt</code> will be the entry point for running your application tests, defined themselves in the <code class="highlighter-rouge">tests.lgt</code> file. See the comments in the files themselves for guidance.</p>
 </div><footer class="article__footer"><!-- this will show at every article content's bottom --></footer>
 
   <div class="d-print-none"></div>
