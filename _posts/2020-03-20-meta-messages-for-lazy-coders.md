@@ -56,11 +56,11 @@ shorten the goals a bit:
 
 But we still need to write the message *kind* and *component* arguments. Not
 conceding defeat, [*predicate aliases*](https://logtalk.org/2020/01/08/object-and-predicate-aliases.html)
-to the rescue:
+to the rescue. For example:
 
 ```logtalk
 :- uses(logtalk, [
-    print_message(comment, core, Message) as msg(Message)
+    print_message(comment, core, @Message) as log(Message)
 ]).
 ```
 
@@ -68,9 +68,9 @@ We can now write for example:
 
 ```logtalk
 enterprise :-
-    msg(@'Entering the Neutral Zone...'),
+    log('Entering the Neutral Zone...'),
     ...,
-    msg(@'Looking for Romulans...),
+    log('Looking for Romulans...),
     ....
 ```
 
