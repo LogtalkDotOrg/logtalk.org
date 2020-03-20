@@ -331,7 +331,7 @@ Logtalk supports the [SICStus Prolog 4](http://www.sics.se/isl/sicstus.html) pro
 
 [PDT](https://sewiki.iai.uni-bonn.de/research/pdt/docs/start) is an open source Prolog IDE provided as a plug-in for the Eclipse IDE. PDT is being extended with Logtalk support.
 
-PDT currently requires a recent version of SWI-Prolog. It's possible to start up Logtalk automatically by configuring PDT runtime preferences. The configuration depends on the operating-system. After installing Logtalk and setting the `LOGTALKHOME` and `LOGTALKUSER` environment variables, open Eclipse preferences, select PDT runtime preferences, and enter the following configuration data for the SWI-Prolog executable and for the extra environment variables (change the paths to match your SWI-Prolog and Logtalk installations and your home directory):
+PDT currently requires a recent version of SWI-Prolog. It's possible to start up Logtalk automatically by configuring PDT runtime preferences. The configuration depends on the operating-system. After installing Logtalk and setting the `LOGTALKHOME` and `LOGTALKUSER` environment variables, open Eclipse preferences, select PDT runtime preferences, and enter the following configuration data for the SWI-Prolog executable and for the extra environment variables (change the paths to match your SWI-Prolog and Logtalk installations and your home directory; also, restart Eclipse after entering and saving the configuration data):
 
 ##### macOS example configuration
 

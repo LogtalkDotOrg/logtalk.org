@@ -23,7 +23,7 @@ The ISO Prolog Core standard specifies three predicate directives that are inter
 :- multifile(baz/1).
 ```
 
-Loading this file on e.g. SICStus Prolog, SWI-Prolog, and YAP and calling the declared predicates, results in failures instead of predicate existence errors. In ECLiPSe (running in ISO mode), a call to `foo/1` throws a predicate existence error but calls to `bar/1` and `baz/1` fail as expected. Oddly, the specification that failure is the correct behavior when calling these predicates is found on the notes on section 7.5 (Database) of the ISO Prolog Core standard:
+Loading this file on e.g. SICStus Prolog, SWI-Prolog, and YAP and calling the declared predicates, results in failures instead of predicate existence errors. In ECLiPSe (running in ISO mode), a call to `foo/1` throws a predicate existence error but calls to `bar/1` and `baz/1` fail as expected. Oddly, the specification that failure is the correct behavior when calling these predicates is found only on the notes on section 7.5 (Database) of the ISO Prolog Core standard:
 
 > NOTES
 >
