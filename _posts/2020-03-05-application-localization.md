@@ -3,6 +3,7 @@ layout: article
 title: Localizing an application for multiple languages
 tags:
   - best practices
+  - message printing
 show_edit_on_github: false
 aside: false
 ---
@@ -120,7 +121,7 @@ yes
 We could of course use instead a `banner(Language)` message term. But
 assuming that all messages are localized, it is simpler and uniform to parameterize
 the component term itself. Not a command-line text game? No problem.
-We can always [abstract user interaction](https://logtalk.org/2019/11/14/abstracting-user-interaction.html)
+We can always [abstract user interaction](../../../2019/11/14/abstracting-user-interaction.html)
 using the same structured message printing and question asking mechanisms.
 
 

@@ -2,8 +2,8 @@
 layout: article
 title: Meta-messages for lazy coders
 tags:
-  - message priting
   - best practices
+  - message printing
 show_edit_on_github: false
 aside: false
 ---
@@ -46,36 +46,57 @@ yes
 
 A second complain is that the goals are verbose. Sure, we can use implicit
 message sending to the built-in `logtalk` object using the directive to
-shorten the goals a bit:
+shorten the goals a bit. For example:
 
 ```logtalk
 :- uses(logtalk, [
     print_message/3
 ]).
+
+enterprise :-
+    print_message(comment, core, @('Entering the Neutral Zone...')),
+    ...,
+    print_message(comment, core, @('Looking for Romulans...')),
+    ....
 ```
 
 But we still need to write the message *kind* and *component* arguments. Not
-conceding defeat, [*predicate aliases*](https://logtalk.org/2020/01/08/object-and-predicate-aliases.html)
-to the rescue. For example:
+conceding defeat, [*predicate aliases*](../../01/08/object-and-predicate-aliases.html)
+to the rescue:
 
 ```logtalk
 :- uses(logtalk, [
     print_message(comment, core, @Message) as log(Message)
 ]).
-```
 
-We can now write for example:
-
-```logtalk
 enterprise :-
     log('Entering the Neutral Zone...'),
     ...,
-    log('Looking for Romulans...),
+    log('Looking for Romulans...'),
     ....
 ```
 
 while still benefiting from all the advantages of using the
-[message printing mechanism](https://logtalk.org/manuals/userman/printing.html) (see e.g. [Abstracting user interaction](https://logtalk.org/2019/11/14/abstracting-user-interaction.html)).
+[message printing mechanism](https://logtalk.org/manuals/userman/printing.html) (see e.g. [Abstracting user interaction](../../../2019/11/14/abstracting-user-interaction.html)).
+
+Do you happen to have some existing code using e.g. `format/2` for writing messages
+that you want to port to the message printing mechanism? Note that you can write:
+
+```logtalk
+:- uses(logtalk, [
+    print_message(comment, core, Format+Arguments) as format(Format, Arguments)
+]).
+
+enterprise(Zone, Enemy) :-
+    format('Entering the ~w...', [Zone]),
+    ...,
+    format('Looking for ~w...', [Enemy]),
+    ....
+```
+
+In this case, all `format/2` goals will be compiled as `logtalk::print_message/3`
+goals. You could use similar aliases for other output predicates, simplifying the
+port by minimizing the changes required.
 
 P.S. The `Format+Arguments` meta-message exemplified above is implemented in
-Logtalk 3.37.0, currently in development.
+Logtalk 3.37.0, currently in development and expected to be released in April.

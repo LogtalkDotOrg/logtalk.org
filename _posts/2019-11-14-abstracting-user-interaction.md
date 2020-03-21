@@ -3,6 +3,7 @@ layout: article
 title: Abstracting user interaction
 tags:
   - best practices
+  - message printing
 show_edit_on_github: false
 aside: false
 ---

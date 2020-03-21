@@ -74,7 +74,7 @@ conditionals would also have to be used in multiple places (e.g. when computing
 a postage fee that depends on the optional extra and on the optional declared
 weight of the extra).
 
-When we discussed [handling of missing data](https://logtalk.org/2019/11/21/handling-missing-data.html),
+When we discussed [handling of missing data](../../11/21/handling-missing-data.html),
 we highlighted the importance of minimizing the coupling between *data acquisition* and *data
 processing*. Here, we also want to represent optional data in a way that
 postpones to data processing deciding how to deal with it. Logtalk
