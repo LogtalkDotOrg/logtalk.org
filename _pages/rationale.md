@@ -60,7 +60,7 @@ The same predicate name can be a public predicate of any number of objects. This
 
 ### Simple scope rules for flags
 
-The `set_logtalk_flag` **directive** is always local to their scope, which can be an entity or a source file. Only calls to the `set_logtalk_flag` **predicate** set the global default value for a flag.
+The `set_logtalk_flag` **directive** is always local to the entity or source file that contains it. Only calls to the `set_logtalk_flag` **predicate** set the global default value for a flag.
 
 In contrast, some Prolog flags have local scope while others have global scope. Worse, there are differences between Prolog systems that support modules with some flags being local to a module in a system and global in another. A notable case are `op/3` directives, which are local to modules in some systems and global in others.
 

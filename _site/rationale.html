@@ -331,7 +331,7 @@
 
 <h3 id="simple-scope-rules-for-flags">Simple scope rules for flags</h3>
 
-<p>The <code class="highlighter-rouge">set_logtalk_flag</code> <strong>directive</strong> is always local to their scope, which can be an entity or a source file. Only calls to the <code class="highlighter-rouge">set_logtalk_flag</code> <strong>predicate</strong> set the global default value for a flag.</p>
+<p>The <code class="highlighter-rouge">set_logtalk_flag</code> <strong>directive</strong> is always local to the entity or source file that contains it. Only calls to the <code class="highlighter-rouge">set_logtalk_flag</code> <strong>predicate</strong> set the global default value for a flag.</p>
 
 <p>In contrast, some Prolog flags have local scope while others have global scope. Worse, there are differences between Prolog systems that support modules with some flags being local to a module in a system and global in another. A notable case are <code class="highlighter-rouge">op/3</code> directives, which are local to modules in some systems and global in others.</p>
 
