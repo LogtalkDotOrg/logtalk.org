@@ -15,10 +15,10 @@ and by allowing expansion rules to be defined and applied without relying
 on multifile predicates.
 
 A *hook object* is simply an object implementing the
-[`expanding`](https://logtalk.org/docs/expanding_0.html#expanding-0)
+[`expanding`](https://logtalk.org/docs/expanding_0.html)
 built-in protocol that declares `term_expansion/2` and `goal_expansion/2`
 predicates. This allows sets of expansion rules to be independently loaded,
-used, and combined. As the expansion predicate are not declared as
+used, and combined. As the expansion predicates are not declared as
 multifile predicates, loading a hook object have no consequence by itself
 on the subsequent loading of source files. So... how do we expand a source
 file? The first option is to declare in the source file itself the hook
@@ -50,8 +50,8 @@ predicate (which, unlike the directive, sets global and thus default flag values
 By default, at startup, the `hook` flag is not defined. This means that, by
 default, no source file is expanded independently of any loaded hook objects.
 
-Notice that only a single hook object can be set at any given time to
-expand a source file? What if we want to apply multiple expansions to a
+Did you notice that only a single hook object can be set at any given time
+to expand a source file? What if we want to apply multiple expansions to a
 source file? In this case, you need to explicitly define how multiple hook
 objects are combined to define an *expansion workflow*. Different expansion
 workflow semantics are possible and required depending on the problem. For
@@ -59,12 +59,12 @@ example, the expansions may be independent (that doesn't necessarily mean,
 however, that the order the expansion rules are applied can be arbitrary or
 that their concurrent use is free of trouble...).
 The expansions may also be intended to be used as a well defined *pipeline*
-with e.g. the terms resulting from an expansion being passed to the next
+with the terms resulting from an expansion being passed to the next
 expansion. Or we may have a more complex workflow combining independent and
 linked expansions. To simplify defining expansion workflows, Logtalk provides
 [`hook_flows`](https://logtalk.org/manuals/libraries/hook_flows.html) and
 [`hook_objects`](https://logtalk.org/manuals/libraries/hook_objects.html)
-libraries with ready to use workflows and hook objects.
+libraries with ready to use parametrizable workflows and hook objects.
 
 Logtalk's term-expansion mechanism may sound overly complex, specially for
 users of Prolog systems such as SWI-Prolog or YAP where the `term_expansion/2`
@@ -241,8 +241,8 @@ Thus, solving conflicts often requires the definition of an explicit
 expansion workflow instead of relying on the default system workflow.
 
 Does the conflicts only occur with term-expansion? What about goal-expansion?
-Assume that we want to replace goals such as `X is X0 + 1` with calls
-to the de facto standard `succ/2` predicate:
+As an example, assume that we want to replace goals such as `X is X0 + 1` with
+calls to the de facto standard `succ/2` predicate:
 
 ```logtalk
 :- module(succ_expansion, []).
@@ -255,7 +255,7 @@ user:goal_expansion(X is X0 + 1, succ(X0,X)).
 
 We may have a second expansion rule in another module that recognizes
 ground `X is X0 + 1` goals and replaces them with either `true` or
-`fail`:
+`fail` goals:
 
 ```logtalk
 :- module(is_optimization, []).
