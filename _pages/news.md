@@ -8,6 +8,21 @@ aside:
 
 ### 2020
 
+##### April 2
+
+> Logtalk 3.37.0 is now available for [downloading](download.html). This release
+> adds a new meta-message to the message printing mechanism, allows the `user`
+> pseudo-object to be used as an event monitor, fixes a reflection API bug that
+> could result in duplicated or redundant entity operator properties, improves
+> support for compiling modules as objects, includes significant updates to the
+> Handbook with new and improved sections, includes new and improved glossary
+> entries, provides new library hook objects, adds and improves notes on applying
+> the developer tools to Prolog codebases, improves the `lgtunit` tool automation
+> support, adds a simple example of Aspect-Oriented Programming using hot patching
+> and event-driven programming support, and provides updated support for SWI-Prolog
+> and YAP. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### March 3
 
 > Logtalk 3.36.0 is now available for [downloading](download.html). This release

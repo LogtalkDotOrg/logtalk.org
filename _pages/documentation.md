@@ -19,9 +19,9 @@ aside:
 The Logtalk Handbook includes the User Manual, Reference Manual, Glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.36.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.36.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.36.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.37.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.37.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.37.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -42,7 +42,7 @@ Core, Library, Tools, and Contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.36.0.info) (stable; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.37.0.info) (stable; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.

@@ -257,3 +257,8 @@ sum_list([Value| Values], Sum0, Sum) :-
     Sum1 is Sum0 + Value,
     sum_list(Values, Sum1, Sum).
 ```
+
+Top-level interpreter shortcuts
+-------------------------------
+
+Logtalk (and Prolog) define top-level interpreter shortcuts for loading source files and for `make` tasks. These shortcuts are **not** part of the language and should only be used at the top-level interpreter and never in source files.

@@ -4,6 +4,117 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.37.0 - April 2, 2020
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: New meta message `Format+Arguments` for use with the message printing
+mechanism. See the `logtalk` built-in object API documentation for details.
+
+* ADDED: Compiler optimization for the special case where an object sends a
+message to itself. The practical case is a parametric object where one of more
+parameters are updated by the object predicates.
+
+* ADDED: Support for using the `user` pseudo-object as an event monitor by
+defining `before/3` and `after/3` plain Prolog predicates.
+
+* FIXED: Avoid duplicated or redundant entity operator properties, which may
+result from e.g. included files or when compiling modules (as objects) that
+reexport other modules.
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: The SWI-Prolog adapter file to only load generated intermediate
+Prolog files with the `derived_from/1` property when the Prolog flag
+`logtalk_source_location_data` is true.
+
+* CHANGED: The SWI-Prolog hooks file to call `logtalk_make/0` from `make/0`
+when the Prolog flag `logtalk_source_location_data` is false.
+
+* ADDED: SWI-Prolog adapter support for all the syntax variants of the
+`dynamic(Predicates as Properties)` proprietary directive. Requested by
+James Cash.
+
+* IMPROVED: The SWI-Prolog adapter file now deletes tests when compiling a
+module as an object to avoid compilation errors.
+
+* IMPROVED: YAP adapter file expansion of `use_module/1-2` and `reexport/1-2`
+directives.
+
+* UPDATED: The SWI-Prolog and YAP files to support expanding `reexport/1`
+directives when the argument is a list of files.
+
+* FIXED: SWI-Prolog adapter file expansion of `use_module/1-2` and
+`reexport/1-2` directives to include exported operators.
+
+Documentation
+-------------
+
+* CHANGED: Consolidated Handbook listing of flags in the programming section.
+
+* ADDED: Handbook section on redefining built-in predicates.
+
+* ADDED: Handbook section on sending messages from Prolog modules.
+
+* ADDED: Handbook section on debugging expansions.
+
+* ADDED: Handbook glossary entry for *predicate shorthand*.
+
+* IMPROVED: Handbook sections on messages, reflection, error handling,
+documenting, inheritance, term-expansion, performance, and writing and
+running applications.
+
+* IMPROVED: Handbook glossary definition of steadfastness.
+
+* IMPROVED: Handbook documentation of the `include/1` directive.
+
+* IMPROVED: Handbook documentation of the `logtalk_make/1`, `logtalk_load/1-2`,
+and `logtalk_compile/1-2` built-in predicates.
+
+* IMPROVED: Handbook documentation of the error handling built-in methods.
+
+* UPDATED: Handbook section on debugging using the term-expansion mechanism.
+
+* FIXED: Typo in Handbook section on the parametric objects in the description
+of the built-in method `this/1`. Thanks to David Tonhofer for the bug report.
+
+Library
+-------
+
+* ADDED: Predicates `update/3` and `lookup/2` to the `dictionaries` library.
+
+* ADDED: New hook object `print_goal_hook` to the `hook_objects` library to
+print entity predicate goals before, after, or before and after calling them.
+
+* ADDED: New hook object `object_wrapper_hook` to the `hook_objects` library
+to wrap the contents of a plain Prolog file as an object named after the file.
+Can be used to apply Logtalk developer tools to plain Prolog code.
+
+* FIXED: The `edcg` library to avoid defining the `-->>` infix operator as a
+global when expanding files defining EDCGs.
+
+Tools
+-----
+
+* ADDED: Notes on applying the `code_metrics`, `dead_code_scanner`, `diagrams`,
+`lgtunit`, and `ports_profiler` tools to Prolog code.
+
+* IMPROVED: The `lgtunit` tool automation support now prints the test object
+identifier when listing failed and skipped tests after the test name.
+
+* FIXED: The `diagrams` tool generation of module diagrams when using
+SWI-Prolog as the backend compiler to include exported operators.
+
+Examples
+--------
+
+* ADDED: Simple example, `aspects`, of Aspect-Oriented Programming using hot
+patching and event-driven programming support.
+
+
 3.36.0 - March 3, 2020
 ======================
 
