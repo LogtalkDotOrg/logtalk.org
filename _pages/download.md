@@ -154,7 +154,7 @@ documentation. Can be used by both admin and non-admin users.
 
 > [`logtalk-3.37.0.exe`](files/logtalk-3.37.0.exe)  
 > `81f63bf5a31671029d17d0396cc6c962ea228a0a2ac4e32b48f535540b28f088` (SHA-256)  
-> [VirusTotal scan results](https://www.virustotal.com/gui/url/3f2093ffb61369231608dee87731e10bcf04bbb7f7cdc86104963a49f51f27f3/detection)
+> [VirusTotal scan results](https://www.virustotal.com/gui/url/dbf39b0125fffcd10faffa1da86917cbac0f5dbe692dfd878edf3af274cb1d63/detection)
 
 Logtalk is also available as a [Chocolatey package](https://chocolatey.org/packages/logtalk/)
 and can be installed or updated using the `choco install logtalk` and
