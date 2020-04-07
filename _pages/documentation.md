@@ -25,7 +25,7 @@ The Logtalk Handbook includes the User Manual, Reference Manual, Glossary, FAQ, 
 
 <!-- -->
 
--   [HTML version](https://logtalk3.readthedocs.io/en/latest/) @ the Read the Docs website (latest git version; provides [improved search support](https://blog.readthedocs.com/search-improvements/) but its links to API documentation are non-functional; use it mainly to preview upcoming Handbook updates)
+-   [HTML version](https://logtalk3.readthedocs.io/en/latest/) @ the Read the Docs website (latest git version; provides [improved search support](https://blog.readthedocs.com/search-improvements/) but its links to API documentation are for the stable version; use it mainly to **preview** upcoming Handbook updates)
 
 
 ## APIs
@@ -42,7 +42,7 @@ Core, Library, Tools, and Contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.37.0.info) (stable; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.37.0.info) (stable; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
