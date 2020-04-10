@@ -13,7 +13,7 @@ Logtalk [`lgtunit`](https://logtalk.org/manuals/devtools/lgtunit.html) testing t
 ```logtalk
 every_other([], []). 
 every_other([_, X| L], [X | R]) :- 
-        every_other(L, R). 
+    every_other(L, R). 
 ```
 
 The predicate is supposed to construct a list by taking every other element of an input list. Cursory testing may fail to notice the bug: 
