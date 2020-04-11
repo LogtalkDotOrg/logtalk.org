@@ -293,7 +293,7 @@
 
 <h3 id="protocols-interfaces">Protocols (interfaces)</h3>
 
-<p>Protocols are first-class entities in Logtalk. Being able to define a protocol (or interface) and provide multiple implementations is key for most design patterns in software engineering and one of the most basic features for an encapsulation mechanisms. Its absence in module systems twists practice and leads to non scalable, brittle solutions.</p>
+<p>Protocols are first-class entities in Logtalk. Being able to define a protocol (or interface) and provide multiple implementations is key for most design patterns in software engineering and one of the most basic features for an encapsulation mechanism. Its absence in module systems twists practice and leads to non scalable, brittle solutions.</p>
 
 <p>The current and recommended practice with Prolog modules is that <em>exported</em> predicates should not clash and to prefer <code class="highlighter-rouge">use_module/1</code> directives over <code class="highlighter-rouge">use_module/2</code> directives or explicit module qualification. These recommendations are as convenient (specially for new users) as they are problematic. The first consequence, is that modules, as encapsulation units, are in practice only there to prevent clashes between <em>private</em> predicates. But there isn’t any central authority for modules. Nor is reasonable to expect or demand that programmers all over the world sync before deciding the names of exported predicates when releasing a public module library. Users may also find that newly released libraries clash with their own modules. The preference for <code class="highlighter-rouge">use_module/1</code> directives also means that adding a new exported predicate to a module library can cause a module conflict and thus break existing applications that, necessarily, don’t use the new predicate. A common symptom (and workaround) for these issues is prefixing exported module predicates with an abbreviation of the module name to prevent clashes (see e.g. the <code class="highlighter-rouge">ordsets</code>, <code class="highlighter-rouge">random</code>, or <code class="highlighter-rouge">rbtrees</code> modules).</p>
 
@@ -416,7 +416,7 @@
 
 <h2 id="why-not-logtalk">Why not Logtalk?</h2>
 
-<p>Logtalk materializes a number of design choices that may not be ideal for some Prolog programming scenarios.</p>
+<p>Logtalk materializes a number of design choices that may not be ideal for some Prolog programming scenarios. Some of them, however, are a consequence of the current compiler/runtime implementation, not the language itself.</p>
 
 <h3 id="increased-startup-times">Increased startup times</h3>
 
