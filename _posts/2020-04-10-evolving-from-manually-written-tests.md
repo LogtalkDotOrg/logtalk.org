@@ -182,20 +182,20 @@ property(List, Filtered) :-
     filter(List, Filtered),
     % all elements of the output list must be in input list
     forall(
-        member(X, Filtered),
-        member(X, List)
+        list::member(X, Filtered),
+        list::member(X, List)
     ),
     % no two elements in the output list should share the first argument
     \+ (
-        select(obj(X,_), Filtered, Rest),
-        member(obj(X,_), Rest)
+        list::select(obj(X,_), Filtered, Rest),
+        list::member(obj(X,_), Rest)
     ),
     % all elements in the input list whose first argument is
     % not repeated must be in the output list
     \+ (
-        select(obj(X,Y), List, Rest),
-        \+ member(obj(X,_), Rest),
-        \+ member(obj(X,Y), Filtered)
+        list::select(obj(X,Y), List, Rest),
+        \+ list::member(obj(X,_), Rest),
+        \+ list::member(obj(X,Y), Filtered)
     ).
 ```
 
@@ -242,20 +242,20 @@ property(List, Filtered) :-
     filter(List, Filtered),
     % all elements of the output list must be in input list
     forall(
-        member(X, Filtered),
-        member(X, List)
+        list::member(X, Filtered),
+        list::member(X, List)
     ),
     % no two elements in the output list should share the first argument
     \+ (
-        select(X-_, Filtered, Rest),
-        member(X-_, Rest)
+        list::select(X-_, Filtered, Rest),
+        list::member(X-_, Rest)
     ),
     % all elements in the input list whose first argument is
     % not repeated must be in the output list
     \+ (
-        select(X-Y, List, Rest),
-        \+ member(X-_, Rest),
-        \+ member(X-Y, Filtered)
+        list::select(X-Y, List, Rest),
+        \+ list::member(X-_, Rest),
+        \+ list::member(X-Y, Filtered)
     ).
 ```
 
@@ -270,6 +270,44 @@ implementation:
 % 100 random tests passed
 % starting seed: seed(25256,26643,1563)
 yes
+```
+
+But we can do better. If one of the generated calls to the `property/2`
+predicate fails, we get a QuickCheck failure, as intended, but no actual
+indication of which of the three properties that we're checking failed.
+For more informative failures, we can use
+[assertions](https://logtalk.org/manuals/devtools/lgtunit.html#utility-predicates)
+for each property. For example:
+
+```logtalk
+property(List, Filtered) :-
+    filter(List, Filtered),
+    % all elements of the output list must be in input list
+    lgtunit::assertion(
+        output_list_element_is_input_list_element,
+        forall(
+            list::member(X, Filtered),
+            list::member(X, List)
+        )
+    ),
+    % no two elements in the output list should share the first argument
+    lgtunit::assertion(
+        no_two_output_list_elements_with_same_first_argument,
+        \+ (
+            list::select(X-_, Filtered, Rest),
+            list::member(X-_, Rest)
+        )
+    ),
+    % all elements in the input list whose first argument is
+    % not repeated must be in the output list
+    lgtunit::assertion(
+        no_missing_element_in_output_list,
+        \+ (
+            list::select(X-Y, List, Rest),
+            \+ list::member(X-_, Rest),
+            \+ list::member(X-Y, Filtered)
+        )
+    ).
 ```
 
 Are we done? Not really. The top-level interpreter is handy for quick
@@ -287,6 +325,9 @@ we can easily move the tests to a source file:
         filter_2_test,
         property(+list(pair(char,char)), -list(pair(char,char)))
     ).
+
+    property(List, Filtered) :-
+        ...
 
     ...
 
