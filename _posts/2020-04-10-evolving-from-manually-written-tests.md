@@ -338,42 +338,16 @@ random test that found the bug will be generated and run again:
 yes
 ```
 
-When automating the tests, we need to keep the ability to pass the random seed
-that uncovers a bug to the tests object so that we can re-test. Test automation
-typically uses the `logtalk_tester` automation script. This script accepts
-passing arbitrary arguments to the Logtalk process. For example:
+When automating the tests, we need to keep the ability to pass the random
+seed that uncovers a bug to the tests object so that we can re-test. Test
+automation typically uses the
+[`logtalk_tester`](https://logtalk.org/man/logtalk_tester.html)
+automation script. This script accepts an option, `-r`, to specify the
+starting seed. For example:
 
 ```bash
-$ logtalk_tester -- "seed-seed(3172,9814,20125)"
+$ logtalk_tester -r "seed(3172,9814,20125)"
 ```
-
-We can anticipate in the tests object the user passing an optional starting
-random seed by defining the optional `setup/0` predicate to look into the
-command-line arguments if any:
-
-```logtalk
-:- object(tests).
-
-    ...
-
-    setup :-
-        (   os::command_line_arguments(Arguments),
-            list::member(Argument, Arguments),
-            read_term_from_atom(Argument, seed-Seed, []) ->
-            type::set_seed(_RandomSeed_)
-        ;   true
-        ).
-
-    ...
-
-:- end_object.
-```
-
-There isn't unfortunately a standard predicate that can read a term from an
-atom. Above we used the SWI-Prolog proprietary `read_term_from_atom/3`
-built-in argument. Some other Prolog systems provide similar predicates. You
-will need to consult the documentation of the backend Prolog system that you
-use to run Logtalk.
 
 Which testing approach should be used
 -------------------------------------
