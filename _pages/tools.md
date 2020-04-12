@@ -313,7 +313,7 @@ languages and tools that can also be handled by `asdf`.
 
 ## GitHub actions and workflows
 
-GitHub actions and workflows are [available](https://github.com/logtalk-actions) for CI/CD of Logtalk applications with source code repos hosted at GitHub.
+GitHub actions and workflows are [available](https://github.com/logtalk-actions) for CI/CD of Logtalk applications with source code repos hosted at GitHub. See the [demo](https://github.com/logtalk-actions/demo) repo for an example of automating testing with xUnit and code coverage reports, (re)generating API documentation, and (re)generating application diagrams every time a commit is made.
 
 ## Third-party tools
 
