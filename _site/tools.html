@@ -330,11 +330,12 @@ checks include:</p>
   <li>Missing predicates (calls to non-declared and non-defined predicates)</li>
   <li>Calls to declared but not defined static predicates</li>
   <li>Non-portable predicate calls, predicate options, arithmetic function calls, directives, flags, and flag values</li>
-  <li>Suspicious calls (syntactically valid calls that are likely semantic errors)</li>
+  <li>Suspicious calls (syntactically valid calls that are likely semantic errors; e.g. float comparisons using the standard arithmetic comparison operators)</li>
   <li>Deprecated directives, predicates, control constructs, and flags</li>
   <li>References to unknown entities (objects, protocols, categories, or modules)</li>
   <li>Top-level shortcuts used as directives</li>
   <li>Unification goals that will succeed without binding any variables</li>
+  <li>Unification goals that will succeed creating a cyclic term</li>
   <li>Goals that are always true or always false</li>
   <li>Trivial goal fails (due to no matching predicate clause)</li>
   <li>Redefined built-in predicates</li>
@@ -350,6 +351,7 @@ checks include:</p>
   <li>Calls to all-solutions predicates with existentially qualified variables not occurring in the qualified goal</li>
   <li>Calls to all-solutions predicates with no shared variables between template and goal</li>
   <li>Calls to <code class="highlighter-rouge">bagof/3</code> and <code class="highlighter-rouge">setof/3</code> where the goal argument contains singleton variables</li>
+  <li>Calls to <code class="highlighter-rouge">findall/3</code> used to backtrack over all solutions of a goal</li>
   <li>Calls to standard predicates that have more efficient alternatives</li>
   <li>Entity, predicate, and variable names not following official coding guidelines</li>
   <li>Variable names that differ only on case</li>
