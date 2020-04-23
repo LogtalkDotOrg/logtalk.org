@@ -347,6 +347,7 @@ checks include:</p>
   <li>Cuts in clauses for multifile predicates</li>
   <li>Missing cuts in repeat loops</li>
   <li>Possible non-steadfast predicate definitions</li>
+  <li>Non-tail recursive predicate definitions</li>
   <li>Redundant calls to control constructs and built-in predicates</li>
   <li>Calls to all-solutions predicates with existentially qualified variables not occurring in the qualified goal</li>
   <li>Calls to all-solutions predicates with no shared variables between template and goal</li>
@@ -436,7 +437,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 <ul>
   <li>Multiple test dialects</li>
   <li>User-defined test dialects</li>
-  <li>QuickCheck support</li>
+  <li>QuickCheck support (for property-based testing)</li>
   <li>Code coverage reports (at the predicate clause level; supports links to selected source code hosting providers)</li>
   <li>Test assertions (for easier debugging of failed tests)</li>
   <li>Support for testing input/output predicates</li>
