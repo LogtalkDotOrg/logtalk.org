@@ -53,10 +53,11 @@ Value = []
 yes
 ```
 
-Edge cases are tested before the QuickCheck implementation switches to
+Edge cases are tested before the [QuickCheck](https://logtalk3.readthedocs.io/en/latest/devtools/lgtunit.html#quickcheck)
+implementation switches to
 generating random tests. Their use is controlled by the `ec(Boolean)`
-option for the `quick_check/2-3` predicates and test dialects, Its
-default value is `true`. It can be set to `false` in those rares cases
+option for the `quick_check/2-3` predicates and [test dialects](https://logtalk3.readthedocs.io/en/latest/devtools/lgtunit.html#test-dialects).
+Its default value is `true`. It can be set to `false` in those rares cases
 where for some reason we want to disable the use of edge cases.
 
 When the default edge cases don't provide the necessary coverage, e.g.
@@ -107,11 +108,12 @@ label(List, _, Label) :-
     ).
 ```
 
-In the [previous]((../../../2020/04/10/evolving-from-manually-written-tests.html))
+In the [previous](../../../2020/04/10/evolving-from-manually-written-tests.html)
 blog post, we used as example an `every_other/2` predicate that returns
-every other element in the list. The original buggy version wrongly assumed
-an input list with an even number of elements and was diagnosed and fixed
-using QuickCheck. The fixed version is:
+every other element in the list. The
+[original](../../../2019/08/20/easily-quickcheck-your-predicates.html)
+buggy version wrongly assumed an input list with an even number of elements
+and was diagnosed and fixed using QuickCheck. The fixed version is:
 
 ```logtalk
 every_other([], []).
@@ -124,9 +126,10 @@ every_other([_| T], X, [X| L]) :-
 ```
 
 To ensure that QuickCheck is indeed generating tests using lists with
-both an even and an odd number of elements, we can use the `l(label)`
-option. The `label` closure will be called, for each generated test, by
-appending the two predicate arguments used by the test plus the label
+both an even and an odd number of elements, we can use the `label/3`
+predicate by passing the option `l(label)`. The `label` closure will be
+called, for each generated test, by appending the two predicate arguments
+used by test call to the `every_other/2` predicate plus the label
 argument:
 
 ```text
@@ -145,8 +148,9 @@ As the printed stats show, there's a reassuring balanced split between
 lists with even and odd lengths. But is this enough? Note that we didn't
 check e.g. that all elements in the output list are present in the input
 list or that the size of the output list if half the size of the input
-list. See our previous post for a full example on defining properties for
-the predicates being tested.
+list. See our [previous](../../../2020/04/10/evolving-from-manually-written-tests.html)
+post for a full example on defining properties for the predicates being
+tested.
 
 
 Restricting generated tests
@@ -154,7 +158,9 @@ Restricting generated tests
 
 Assume that we want to restrict the randomly generated tests to those
 where the input list have an odd number of elements, which triggered
-the bug in the original definition of the `every_other/2` predicate.
+the bug in the
+[original](../../../2019/08/20/easily-quickcheck-your-predicates.html)
+definition of the `every_other/2` predicate.
 We can use the `pc(Closure)` option for this purpose. The clousure will
 work as a pre-condition and will be called, for each generated test, by
 appending the two predicate arguments that would be used by the test.
@@ -164,7 +170,7 @@ generated. Thus, with the following predicate definition:
 ```logtalk
 condition(List, _) :-
     length(List, Length),
-	Length mod 2 =:= 1.
+    Length mod 2 =:= 1.
 ```
 
 we can call:
@@ -215,9 +221,10 @@ alternative to define custom types. See the `lgtunit` tool
 [documentation](https://logtalk3.readthedocs.io/en/latest/devtools/lgtunit.html#quickcheck)
 for further details and examples.
 
-In actual cases, we can use QuickCheck itself and the solutions illustrated
-in this blog post to verify that the properties that we write to test
-predicates and the pre-conditions that we use to filter tests are correct.
+In actual cases, we can and often use QuickCheck itself and the solutions
+illustrated in this blog post to verify that the properties that we write
+to test predicates, plus the pre-conditions and labels that we use to filter
+and classify tests, are correct.
 
 
 **Note:** The `ec/1`, `l/1`, and `pc/1` options require the current Logtalk
