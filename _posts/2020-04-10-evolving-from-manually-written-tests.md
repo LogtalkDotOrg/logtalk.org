@@ -107,13 +107,13 @@ with all the elements that share the same first value removed. For example:
 
 ```text
 | ?- filter([obj(x,y),obj(x,z),obj(a,b),obj(b,c)], Filtered).
-Filtered = [obj(a,b),obj(b,c)
+Filtered = [obj(a,b),obj(b,c)]
 yes
 ```
 
 Can we solve this problem efficiently? Assuming that the elements of the
 list are ground, we can start by noticing that sorting the list will
-cluster together all elements that shared the first argument in the
+cluster together all elements that share the first argument in the
 `obj/2` compound term. For example:
 
 ```text

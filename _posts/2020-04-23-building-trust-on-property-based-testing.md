@@ -74,7 +74,7 @@ arbitrary::edge_case(age, 121).
 ```
 
 Although this is a simple example, the construction of edge cases may be
-more non-trivial computations. In any case, we can always QuickCheck the
+non-trivial computations. In any case, we can always QuickCheck the
 `edge_case/2` definitions:
 
 ```text
@@ -147,7 +147,7 @@ yes
 As the printed stats show, there's a reassuring balanced split between
 lists with even and odd lengths. But is this enough? Note that we didn't
 check e.g. that all elements in the output list are present in the input
-list or that the size of the output list if half the size of the input
+list or that the size of the output list is half the size of the input
 list. See our [previous](../../../2020/04/10/evolving-from-manually-written-tests.html)
 post for a full example on defining properties for the predicates being
 tested.

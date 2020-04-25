@@ -245,8 +245,8 @@ Yes (0.00s cpu)
 
 X = m1
 Yes (0.00s cpu)
-[eclipse 10]: assertz(m2:d(m2)).
-trying to redefine an existing imported procedure in assertz(m2 : d(m2))
+[eclipse 10]: assertz(d(m2))@m2.
+trying to redefine an existing imported procedure in assertz(d(m2))
 Abort
 ```
 

@@ -8,7 +8,7 @@ show_edit_on_github: false
 aside: false
 ---
 
-Logtalk [`lgtunit`](https://logtalk.org/manuals/devtools/lgtunit.html) testing tool includes a **QuickCheck implementation** supporting property-based testing of plain Prolog, Prolog module, and Logtalk code. The tool is **portable and can be used with all Logtalk supported Prolog compilers**. The QuickCheck implementation provides specific unit test dialects and a set of predicates that can be used from anywhere, including at the top-level interpreter. Usage is simple and can be illustrated with some examples. Assume the following broken predicate definition: 
+Logtalk [`lgtunit`](https://logtalk.org/manuals/devtools/lgtunit.html) testing tool includes a **[QuickCheck](https://en.wikipedia.org/wiki/QuickCheck) implementation** supporting property-based testing of plain Prolog, Prolog module, and Logtalk code. The tool is **portable and can be used with all Logtalk supported Prolog compilers**. The QuickCheck implementation provides specific unit test dialects and a set of predicates that can be used from anywhere, including at the top-level interpreter. Usage is simple and can be illustrated with some examples. Assume the following broken predicate definition: 
 
 ```logtalk
 every_other([], []). 
