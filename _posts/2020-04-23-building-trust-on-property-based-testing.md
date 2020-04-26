@@ -129,8 +129,9 @@ To ensure that QuickCheck is indeed generating tests using lists with
 both an even and an odd number of elements, we can use the `label/3`
 predicate by passing the option `l(label)`. The `label` closure will be
 called, for each generated test, by appending the two predicate arguments
-used by test call to the `every_other/2` predicate plus the label
-argument:
+used by test call to the `every_other/2` predicate plus the labels
+argument (the labelling predicate can return a single test label or a
+list of test labels):
 
 ```text
 | ?- lgtunit::quick_check(
