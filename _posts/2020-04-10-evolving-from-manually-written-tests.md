@@ -400,7 +400,5 @@ property-based testing. Tests are also inevitably an operational documentation
 of the code expected behavior and semantics. The definition of code properties
 is particularly valuable in clarifying and documenting the expected semantics.
 
-**Note:** The starting seed information and options require the current
-Logtalk [git version](https://github.com/LogtalkDotOrg/logtalk3) or the
-forthcoming 3.38.0 release, expected to be available by end of April,
-beginning of May.
+**Note:** The starting seed information and option require Logtalk 3.38.0 or
+later.

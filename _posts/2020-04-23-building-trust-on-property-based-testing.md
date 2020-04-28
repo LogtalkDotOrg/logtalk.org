@@ -228,7 +228,5 @@ to test predicates, plus the pre-conditions and labels that we use to filter
 and classify tests, are correct.
 
 
-**Note:** The `ec/1`, `l/1`, and `pc/1` options require the current Logtalk
-[git version](https://github.com/LogtalkDotOrg/logtalk3) or the
-forthcoming 3.38.0 release, expected to be available by end of April,
-beginning of May.
+**Note:** The `ec/1`, `l/1`, and `pc/1` options require Logtalk 3.38.0 or
+later.

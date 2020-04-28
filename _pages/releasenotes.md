@@ -4,6 +4,152 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.38.0 - April 28, 2020
+=======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Compiler lint check for non-tail recursive predicate definitions.
+
+* ADDED: New compiler flag, `tail_recursive`, with possible values `warning`
+and `silent` (the default value).
+
+* ADDED: Compiler deprecated warning for DEC-10 Prolog I/O, `fail_if/1` and
+`prolog_flag/2` built-in predicate calls.
+
+* IMPROVED: Compile calls to deprecated `prolog_flag/2-3` as calls to one of
+the `current_prolog_flag/2` or `set_prolog_flag/2` predicates when safe and
+the flags are standard ISO Prolog flags.
+
+* IMPROVED: Compile calls to deprecated `name/2` predicate when the first
+argument is bound as calls to one of the `atom_codes/2`, `number_codes/2`, or
+`char_code/2` predicates.
+
+* IMPROVED: Compile calls to deprecated `current_predicate/2` predicate when
+the second argument is bound and references a local predicate as calls to the
+`current_predicate/1` predicate.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: Default definition for the new `tail_recursive` flag to all adapter
+files.
+
+Documentation
+-------------
+
+* UPDATED: The Handbook compiler flags section to include a description of the
+new `tail_recursive` flag.
+
+Library
+-------
+
+* CHANGED: Switch the `arbitrary` category to use the `fast_random` generator.
+
+* ADDED: Predicates `get_seed/1` and `set_seed/1` to the `arbitrary` category.
+
+* ADDED: Support for generating arbitrary values and edge cases for the
+`partial_list` and `list_or_partial_list` types  to the `arbitrary` category.
+
+* ADDED: Support to generate edge cases for `pair`, `pair(KeyType,ValueType)`,
+`non_empty_list`, `non_empty_atom`, and `non_empty_atom(CharSet)` types to the
+`arbitrary` category.
+
+* UPDATED: Documentation of the `arbitrary` library.
+
+* UPDATED: The `arbitrary` category to also generate surrogate code points as
+edge cases for the `character_code(unicode_full)` type.
+
+* FIXED: Deleted wrong `edge_case/2` clauses for the type `list(Type,Length)`
+from the `arbitrary` category.
+
+* FIXED: The documentation of the `arbitrary` category omitted the support for
+the `atom(CharSet,Length)` type.
+
+* FIXED: The `arbitrary` category edge cases for the `atom(CharSet,Length)`
+and `list(Type,Length,Min,Max)` types.
+
+* FIXED: The `edcg` library to write warning message arguments using `~q`.
+
+* FIXED: The library `parallel_logtalk_processes_setup.pl` file when using
+SWI-Prolog as the backend compiler to use the `tmp_dir` flag instead of a
+fixed `/tmp` path.
+
+Tools
+-----
+
+* CHANGED: Switch the `lgtunit` tool to use the `fast_random` generator in
+its QuickCheck implementation.
+
+* CHANGED: The `lgtunit` tool `quick_check/3` predicate reified results to
+include the random generator starting seed used to generate the tests.
+
+* CHANGED: The `lgtunit` tool QuickCheck test dialects printed messages in
+case of errors and failures to include the starting seed used to generate
+the random tests. 
+
+* ADDED: Support to the `logtalk_tester` shell script to set the random
+generator starting seed used to run QuickCheck tests.
+
+* ADDED: QuickCheck `rs(Seed)` option to the `lgtunit` tool to allow passing
+the random generator starting seed to be used to generate the random tests.
+
+* ADDED: QuickCheck `ec(Boolean)` option to the `lgtunit` tool to control
+use of edge cases when generating random arguments. Default is `true`.
+
+* ADDED: QuickCheck `pc(Closure)` option to the `lgtunit` tool to allow
+defining a pre-condition closure for filtering generated tests (no default).
+
+* ADDED: QuickCheck `l(Closure)` option to the `lgtunit` tool to allow
+defining a label closure for classifying the generated tests (no default).
+
+* ADDED: QuickCheck `v(Boolean)` option to the `lgtunit` tool to allow
+verbose reporting of generated random tests. Default is `false`.
+
+* UPDATED: Documentation of the `lgtunit` tool for the improved QuickCheck
+implementation.
+
+* UPDATED: The `tutor` tool to explain the new non-tail recursive predicate
+definition warnings.
+
+* IMPROVED: Documentation of the `assertions` and `dead_code_scanner` tools.
+
+* IMPROVED: The `lgtdoc` tool generated reStructuredText layout for predicate
+remarks.
+
+* IMPROVED: The `diagrams` tool now uses a `diagrams.css` file to style
+generated diagrams in SVG format. This file is automatically copied to the
+diagrams output directory when using the `lgt2svg` scripts.
+
+* IMPROVED: The `diagrams` tool generated SVG diagrams now highlight links on
+mouse over events.
+
+* IMPROVED: The solution used by the `code_metrics` tool tests to suppress the
+metrics normal output when run.
+
+* IMPROVED: Simplified the errors reported by the `lgtunit` tool QuickCheck
+predicates and QuickCheck test dialects.
+
+* FIXED: Bug in the `lgtunit` tool expansion of `discontiguous/1` directives
+when the argument is a singleton list.
+
+Examples
+--------
+
+* UPDATED: The `errors` example to illustrate the new tail recursive lint
+warnings.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Instructions for installing or updating Logtalk support for the Kate
+text editor when running on macOS or Windows.
+
+* FIXED: Bump version of Kate syntax highlighter support to allow overriding
+old versions bundled with Kate binaries.
+
+
 3.37.0 - April 2, 2020
 ======================
 
