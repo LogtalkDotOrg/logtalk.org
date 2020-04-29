@@ -302,10 +302,22 @@ case, this is not the guide you’re looking for.</p>
 
 <p>Applying the Logtalk developer tools to plain Prolog code (i.e. Prolog code
 not encapsulated in modules) requires wrapping the code using Logtalk objects.
-A simply way of doing it is creating a Logtalk source file per Prolog source
+A simply way of doing it is loading the
+<a href="https://logtalk.org/library/library_index.html#hook-objects"><code class="highlighter-rouge">hook_objects</code></a>
+library and then use the
+<a href="https://logtalk.org/library/object_wrapper_hook_0.html"><code class="highlighter-rouge">object_wrapper_hook</code></a>
+object. For example, assuming a <code class="highlighter-rouge">foo.pl</code> file:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| ?- {hook_objects(loader)}.
+...
+
+| ?- logtalk_compile('foo.pl', [hook(object_wrapper_hook)]).
+...
+</code></pre></div></div>
+
+<p>In alternative, we can create a Logtalk source file per Prolog source
 file, defining an object that uses an <code class="highlighter-rouge">include/1</code> directive to load the
-Prolog code. For example, assuming a <code class="highlighter-rouge">foo.pl</code> file, we can create a <code class="highlighter-rouge">foo.lgt</code>
-file defining the object:</p>
+Prolog code. For example:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">:- object</span><span class="p">(</span>foo<span class="p">).</span>
 <span class="k">
