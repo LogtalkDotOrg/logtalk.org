@@ -108,7 +108,10 @@ An interesting variation of this implementation is to use a root category
 instead of a root object. In this alternative, the concrete family objects
 import the category instead of extending a root object. The advantage is
 that it's no longer possible to send messages to the root entity itself
-that could never be answered as it represents an abstraction.
+that could never be answered as it represents an abstraction. A more
+classical solution is to define `family` as a class instead of a prototype
+(or category) and to define concrete families like `addams` as class
+instances. 
 
 ### Parametric object based solution
 
