@@ -417,4 +417,4 @@ If the `Info.plist` is using XML syntax, then use instead:
 </dict>
 ```
 
-After saving the `Info.plist` file, close TextMate if open and re-open it. Then try to a QuickLook a Logtalk source file. You should get a preview window with nice syntax highlighting for your code. If not, move the TextMate application to a different folder (e.g. you Desktop) and then back to its original location. This is usually enough to get the Finder to notice and register the Quick Look changes in the application bundle.
+After saving the `Info.plist` file, close TextMate if open and re-open it. Then try to QuickLook a Logtalk source file. You should get a preview window with nice syntax highlighting for your code. If not, move the TextMate application to a different folder (e.g. you Desktop) and then back to its original location. This is usually enough to get the Finder to notice and register the Quick Look changes in the application bundle.
