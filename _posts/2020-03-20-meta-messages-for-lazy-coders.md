@@ -119,5 +119,5 @@ In this case, all `format/2` goals will be compiled as `logtalk::print_message/3
 goals. You could use similar aliases for other output predicates, simplifying the
 port by minimizing the changes required.
 
-P.S. The `Format+Arguments` meta-message exemplified above is implemented in
-Logtalk 3.37.0, currently in development and expected to be released in April.
+P.S. The `Format+Arguments` meta-message exemplified above requires Logtalk
+3.37.0 or a later version.
