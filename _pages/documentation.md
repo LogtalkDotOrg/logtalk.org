@@ -16,7 +16,7 @@ aside:
 
 ## Handbook
 
-The Logtalk Handbook includes the User Manual, Reference Manual, Glossary, FAQ, plus libraries and developer tools documentation.
+The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
 -   [PDF version](manuals/TheLogtalkHandbook-3.38.0.pdf) (stable)
@@ -30,15 +30,15 @@ The Logtalk Handbook includes the User Manual, Reference Manual, Glossary, FAQ, 
 
 ## APIs
 
-Core, Library, Tools, and Contributions API documentation
+Core, library, tools, ports, and contributions API documentation
 
 -   [HTML API documentation](library/index.html) (stable; automatically generated)
 -   SVG diagrams (stable; automatically generated)
     -   [Core](library/core_inheritance_diagram.svg)
     -   [Library](library/library_inheritance_diagram.svg)
     -   [Tools](library/tools_inheritance_diagram.svg)
-    -   [Contributions](library/contributions_inheritance_diagram.svg)
     -   [Ports](library/ports_inheritance_diagram.svg)
+    -   [Contributions](library/contributions_inheritance_diagram.svg)
 
 <!-- -->
 
