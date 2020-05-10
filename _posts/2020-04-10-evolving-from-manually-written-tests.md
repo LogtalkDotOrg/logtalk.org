@@ -334,8 +334,8 @@ we can easily move the tests to a source file:
 :- end_object.
 ```
 
-Are we there yet? Well... no. QuickCheck tests can fail like any other kind of
-tests. When that happens, guided by the counter-example produced by QuickCheck,
+Are we there yet? Well... no. A QuickCheck test can fail like any other test.
+When that happens, guided by the counter-example produced by QuickCheck,
 we debug the code and eventually fix it. To illustrate, let us go back to the
 initial example with the `every_other/2` predicate. A simple test will expose
 the bug:
@@ -354,7 +354,7 @@ for the pseudo-random generator that are used by the `arbitrary` category
 predicates, called by the `quick_check/1` predicate (the use of a
 pseudo-random generator is key for test reproducibility, as we explain next).
 
-We can fix this particular bug by rewriting the predicate:
+We can fix this particular bug by rewriting the predicate as follows:
 
 ```logtalk
 every_other([], []).
