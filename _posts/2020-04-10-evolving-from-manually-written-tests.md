@@ -348,7 +348,7 @@ the bug:
 no
 ```
 
-Basides the counter-example, `every_other([0],A)`, the warning message
+Besides the counter-example, `every_other([0],A)`, the warning message
 includes the starting seed (which should be regarded as an opaque term)
 for the pseudo-random generator that are used by the `arbitrary` category
 predicates, called by the `quick_check/1` predicate (the use of a
