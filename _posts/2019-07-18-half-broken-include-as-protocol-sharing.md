@@ -98,7 +98,7 @@ Let's update the included file, `common.pl`, with a second `export/1` directive:
 :- export(fly/0).
 ```
 
-Without also updating the `dog` and `cat` modules, the predicate `fly/0` is now declared (that's the essence of an interface of protocol) but not defined. But if we try again to load the modules we now get:
+Without also updating the `dog` and `cat` modules, the predicate `fly/0` is now declared (that's the essence of an interface or protocol) but not defined. But if we try again to load the modules we now get:
 
 ```text
 ?- use_module(dog, []), use_module(cat, []).
