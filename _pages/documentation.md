@@ -435,6 +435,7 @@ Publications on research and applications using Logtalk:
 -   John Fletcher (made [XML parser](http://www.binding-time.co.uk/xmlpl.html) available)
 -   John Stewart (Java interface suggestions and solutions)
 -   Joost Geurts (bug reports)
+-	José Morales (Ciao Prolog support)
 -   Markus Triska (help in porting CLP(FD) examples)
 -   Mats Carlsson (bug reports)
 -   Michael Covington (DCGs tokenizer example)

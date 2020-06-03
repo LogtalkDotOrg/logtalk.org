@@ -113,7 +113,7 @@ In contrast, the ISO Prolog standard for modules is ignored (for sound reasons) 
 
 * ECLiPSe - no `module/2` directive
 * SICStus Prolog and XSB - no `reexport/1-2` directives
-* ISO standard - no `use_module/1-2` directives
+* ISO standard - no `use_module/1-2` directives; `metapredicate/1` instead of `meta_predicate/1` directive
 * SWI-Prolog - operators are local to modules
 * SICStus Prolog - operators are global
 * XSB - atom-based module system
