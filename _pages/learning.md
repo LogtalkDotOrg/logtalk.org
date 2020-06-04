@@ -67,6 +67,8 @@ Want to learn about parametric objects (and categories)? See the following examp
 * [`parvars`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/parvars)
 * [`proxies`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/proxies)
 * [`symdiff`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/symdiff)
+* [`figures`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/figures)
+* [`process_modeling`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/process_modeling)
 
 Logtalk support for _composition_ using categories provides an alternative to _inheritance_. Two good examples are:
 
