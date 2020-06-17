@@ -8,6 +8,25 @@ aside:
 
 ### 2020
 
+##### June 17
+
+> Logtalk 3.39.0 is now available for [downloading](download.html). This release
+> improves the linter checks for `is/2` goals, provides an experimental hook
+> predicate enabling user-defined linter warnings, improves the `make` tool
+> check of library aliases, adds experimental support for Ciao Prolog and Tau
+> Prolog, drops Lean Prolog support due to unfixed bugs that prevent Logtalk
+> startup, fixes broken Handbook links do API documentation, adds new predicates
+> to the `coroutining` and `os` libraries, adds new type edge cases to the
+> `arbitrary` category for use with property-based testing, adds a new hook
+> object to the `hook_objects` library for suppressing goals in clauses,
+> includes fixes and improvements for property-based testing, adds support for
+> a `subsumes/2` outcome to the `test/2-3` test dialects, includes fixes and
+> improvements for the test automation script, adds new unit tests, includes
+> new examples of parametric objects programming idioms, and updates the Windows
+> installer to also detect SICStus Prolog 4.6.x versions. For details and a
+> complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### April 28
 
 > Logtalk 3.38.0 is now available for [downloading](download.html). This release

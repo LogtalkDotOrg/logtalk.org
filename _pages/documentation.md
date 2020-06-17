@@ -19,9 +19,9 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.38.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.38.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.38.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.39.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.39.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.39.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -42,7 +42,7 @@ Core, library, tools, ports, and contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.38.0.info) (stable; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.39.0.info) (stable; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -435,7 +435,7 @@ Publications on research and applications using Logtalk:
 -   John Fletcher (made [XML parser](http://www.binding-time.co.uk/xmlpl.html) available)
 -   John Stewart (Java interface suggestions and solutions)
 -   Joost Geurts (bug reports)
--	José Morales (Ciao Prolog support)
+-   José Morales (Ciao Prolog support)
 -   Markus Triska (help in porting CLP(FD) examples)
 -   Mats Carlsson (bug reports)
 -   Michael Covington (DCGs tokenizer example)
@@ -483,9 +483,7 @@ list.
 
 ## Research support
 
--   [Center for Research in Advanced Computing Systems
-    (CRACS)](http://cracs.fc.up.pt), [INESC
-    TEC](https://www.inesctec.pt/en), Portugal
+-   [Center for Research in Advanced Computing Systems (CRACS)](http://cracs.fc.up.pt), [INESC TEC](https://www.inesctec.pt/en), Portugal
 
 ## Sponsors
 

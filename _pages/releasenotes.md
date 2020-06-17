@@ -4,6 +4,154 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.39.0 - June 17, 2020
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: The `logtalk` built-in object to call the portability abstraction
+for the `format/2-3` predicates.
+
+* ADDED: Linter hook predicate, `logtalk_linter_hook/8`, enabling libraries
+to define linter warnings. Experimental.
+
+* IMPROVED: Linter checks for tautologies and falsehoods in `is/2` goals.
+
+* UPDATED: The `logtalk_make/1` predicate `check` target to also scan for
+library paths not ending with a slash.
+
+* UPDATED: The compiler internal table of standard predicates to include the
+`call/2-8` predicates.
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: Lean Prolog is no longer supported due to unfixed bugs and lack of
+standards compliance.
+
+* CHANGED: Abstract the calls to the `format/2-3` predicates to workaround
+portability issues with Tau Prolog and Scryer Prolog.
+
+* UPDATED: Support for Ciao Prolog. Experimental. Contributed by José Morales.
+
+* UPDATED: Support for Tau Prolog. Experimental. With contributions from José
+Antonio Riaza Valverde.
+
+Documentation
+-------------
+
+* IMPROVED: Documentation of the `scratch_directory` compiler flag.
+
+* UPDATED: The `QUICK_START.md` file to mention the `tutor` tool.
+
+* FIXED: Broken Handbook links do API documentation. Thanks to Paul Brown for
+the bug report.
+
+Library
+-------
+
+* CHANGED: The behavior of the library `nth0/4` and `nth1/4` list predicates
+to match the same behavior found in Prolog libraries where the last argument
+returns all other elements instead of just those after the selected element.
+
+* ADDED: New `path_concat/3`, `temporary_directory/1`, and `null_device_path/1`
+predicates to the `os` library. The `path_concat/3` predicate specification is
+taken from Ciao Prolog.
+
+* ADDED: New `dif/1` predicate to the `coroutining` library to set `dif/2`
+constraints between all terms in a list.
+
+* ADDED: More type edge cases to the `arbitrary` category for atomic and
+list terms.
+
+* ADDED: New hook object `suppress_goal_hook` to the `hook_objects` library
+to support suppressing a goal in a clause body by prefixing it with the `--`
+operator.
+
+* ADDED: Support for Ciao Prolog and Tau Prolog to the portable `os` and
+`random` libraries.
+
+* ADDED: Support for Tau Prolog to the `types` library.
+
+* UPDATED: The `list` library object to illustrate the new experimental linter
+hook predicate.
+
+Tools
+-----
+
+* ADDED: Support for Ciao Prolog to the `debugger`, `lgtunit`, and
+`ports_profiler` tools.
+
+* ADDED: Support for Tau Prolog to the `lgtunit` tool.
+
+* ADDED: Support for the `subsumes/2` outcome for `test/2-3` test dialects to
+the `lgtunit` tool.
+
+* ADDED: Option to the `logtalk_tester` shell script to specify an alternative
+name for the tests driver and sourced files (minus the file name extensions).
+
+* UPDATED: The `help` tool for the new `logtalk_linter_hook/8` predicate.
+
+* UPDATED: The QuickCheck implementation to also print counter-example
+shrink steps when using the `v(true)` option. 
+
+* FIXED: The QuickCheck implementation to also use the `pc/1` option when
+shrinking counter-examples.
+
+* FIXED: Interference between QuickCheck `ec/1` and `v/1` options.
+
+* FIXED: Bug in the `logtalk_tester` shell script where running the same test
+with two different backends in a row would result in the wrong results being
+reported for the second run if it resulted in the tests being skipped.
+
+* FIXED: Warnings when the `logtalk_tester` shell script finds no test sets.
+
+* FIXED: The `diagrams` tool `tester.lgt` file to avoid reloading the
+`types(pairs)` library dependency in non-optimized mode.
+
+Tests
+-----
+
+* ADDED: Preliminary version of tests for the compiler translation of DCGs.
+
+* ADDED: Tests for the `get_seed/1` and `set_seed/1` predicates and for most
+of the parametric types defined by the `arbitrary` library category.
+
+* IMPROVED: Goal-expansion tests for the `hook_set/1` library object.
+
+* FIXED: Generate code coverage data for the `arbitrary` library category.
+
+Examples
+--------
+
+* ADDED: New example, `figures`, with an implementation using parametric
+objects of the network modeling example for recognizing polyhedra represented
+as graphs described in the paper "A framework for network modeling in Prolog"
+by Zdravko I. Markov.
+
+* ADDED: New example, `process_modeling`, of using parametric objects to
+represent and restore shared variables between sets of constraints that are
+stored in different objects.
+
+* UPDATED: The `dcgs` example to illustrate how to use the `call//1` built-in
+non-terminal and a lambda expression to access the input list of a grammar
+rule without breaking DCGs abstraction.
+
+* UPDATED: The `errors` example for the updated linter checks for falsehoods
+and tautologies in `is/2` goals and for the new experimental linter hook
+predicate.
+
+Installers and installation scripts
+-----------------------------------
+
+* CHANGED: Make Ciao Prolog and Tau Prolog support available by default in
+POSIX systems.
+
+* UPDATED: The Windows installation script to also detect SICStus Prolog 4.6.x
+versions.
+
+
 3.38.0 - April 28, 2020
 =======================
 
