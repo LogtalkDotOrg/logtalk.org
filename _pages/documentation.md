@@ -261,6 +261,10 @@ Diagrams scripts:
 
 Publications on research and applications using Logtalk:
 
+-	[Contingent Scaffolding for System Safety Analysis](https://doi.org/10.1007/978-3-030-52240-7_71)
+	Paul S. Brown, Anthony G. Cohn, Glen Hart, Vania Dimitrova.
+	Artificial Intelligence in Education. AIED 2020. Lecture Notes in Computer Science, vol 12164. Springer, Cham.
+	June 2020
 -	[Representation of MDA Transformation with Logical Objects](http://dx.doi.org/10.1109/SIBIRCON48586.2019.8958008).
 	E.Cherkashin, A.Shigarov, V.Paramonov.
 	International Multi-Conference on Engineering, Computer and Information Sciences (SIBIRCON).
