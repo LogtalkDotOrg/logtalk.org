@@ -271,6 +271,7 @@ Logtalk supports extended [`make`](https://github.com/LogtalkDotOrg/logtalk3/blo
 -   Listing of missing entities
 -   Listing of missing predicates
 -   Listing of circular entity dependencies
+-	Listing of duplicated library aliases
 -   Recompilation of loaded files in a different mode (e.g. debug mode)
 -   User-defined make actions (e.g. running unit tests automatically when reloading modified files)
 -   Cleaning of the dynamic binding caches
