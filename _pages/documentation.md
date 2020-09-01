@@ -19,9 +19,9 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.39.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.39.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.39.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.41.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.41.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.41.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -42,7 +42,7 @@ Core, library, tools, ports, and contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.39.0.info) (stable; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.41.0.info) (stable; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -109,6 +109,7 @@ for the latest goodies.
 Prolog integration scripts:
 
 -   B-Prolog: [`bplgt`](man/bplgt.html)
+-   Ciao Prolog: [`ciaolgt`](man/ciaolgt.html)
 -   CxProlog: [`cxlgt`](man/cxlgt.html)
 -   ECLiPSe: [`eclipselgt`](man/eclipselgt.html)
 -   GNU Prolog: [`gplgt`](man/gplgt.html)
@@ -118,6 +119,7 @@ Prolog integration scripts:
 -   Quintus Prolog: [`quintuslgt`](man/quintuslgt.html)
 -   SICStus Prolog: [`sicstuslgt`](man/sicstuslgt.html)
 -   SWI-Prolog: [`swilgt`](man/swilgt.html)
+-   Tau Prolog: [`taulgt`](man/taulgt.html)
 -   XSB: [`xsblgt`](man/xsblgt.html)
 -   XSB (mt): [`xsbmtlgt`](man/xsbmtlgt.html)
 -   YAP: [`yaplgt`](man/yaplgt.html)
@@ -439,6 +441,7 @@ Publications on research and applications using Logtalk:
 -   John Fletcher (made [XML parser](http://www.binding-time.co.uk/xmlpl.html) available)
 -   John Stewart (Java interface suggestions and solutions)
 -   Joost Geurts (bug reports)
+-   José Antonio Riaza Valverde (Tau Prolog integration)
 -   José Morales (Ciao Prolog support)
 -   Markus Triska (help in porting CLP(FD) examples)
 -   Mats Carlsson (bug reports)

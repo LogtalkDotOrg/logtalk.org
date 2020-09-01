@@ -8,6 +8,27 @@ aside:
 
 ### 2020
 
+##### September 1
+
+> Logtalk 3.41.0 is now available for [downloading](download.html). This release
+> adds new linter checks for tautologies and falsehoods, adds a new convenience
+> error throwing built-in method for uninstantiation errors, provides updated
+> support for Tau Prolog, provides library fixes for Quintus Prolog and SICStus
+> Prolog, fixes Handbook ePub file validation errors with some readers, and
+> includes new and improved Prolog standards compliance tests.
+> For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
+##### July 29
+
+> Logtalk 3.40.0 is now available for [downloading](download.html). This release
+> adds support for module aliases, includes improvements for the documentation
+> and the `doclet` and `lgtdoc` developer tools, adds new Prolog standards
+> conformance tests, adds a new programming example illustrating the use of
+> modules aliases, and provides updated support for Qu-Prolog and Tau Prolog.
+> For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### June 17
 
 > Logtalk 3.39.0 is now available for [downloading](download.html). This release

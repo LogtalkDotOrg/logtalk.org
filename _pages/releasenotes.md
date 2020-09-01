@@ -4,6 +4,202 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.41.0 - September 1, 2020
+==========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: Deleted the no longer used read-only `prolog_conformance` flag.
+
+* ADDED: Convenience error throwing built-in method `uninstantiation_error/1`.
+
+* ADDED: Linter checks for tautologies and falsehoods in non-ground `var/1`,
+`nonvar/1`, and `ground/1` goals.
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: The Tau Prolog adapter file to use the new `stream_position_data/3`
+built-in predicate.
+
+* UPDATED: The `taulgt` shell script to accept `-g` and `--goal` command-line
+options. Changes contributed by José Antonio Riaza Valverde.
+
+* FIXED: The Fix Tau Prolog and template adapters for the internal predicate
+`'$lgt_logtalk_prolog_encoding'/3`.
+
+Documentation
+-------------
+
+* ADDED: Documentation for the new `uninstantiation_error/1` built-in method.
+
+* UPDATED: The man page of the Tau Prolog integration script, `taulgt` for
+the new command-line options to specify an initialization goal.
+
+* UPDATED: The man page of the `logtalk_doclet` and `logtalk_tester` shell
+scripts for the added support for using Tau Prolog as the backend compiler.
+
+* FIXED: Generate Handbook and API documentation using Sphinx 3.2.0 as it
+includes a fix for a bug where invalid ePub files would be generated.
+
+Library
+-------
+
+* ADDED: Definition for the `os` library predicates `pid/1`, `date_time/7`,
+`directory_files/2`, and `file_permission/2` for Tau Prolog.
+
+* FIXED: Definition of the `os::sleep/1` predicate for Tau Prolog.
+
+* FIXED: Definition of the `os::file_permission/2` predicate for Quintus
+Prolog and SICStus Prolog.
+
+Tools
+-----
+
+* UPDATED: The `debugger`, `diagrams`, `lgtunit`, and `ports_profiler` tools
+for Tau Prolog support.
+
+* UPDATED: The `logtalk_doclet` and `logtalk_tester` shell scripts to support
+using Tau Prolog as the backend compiler.
+
+* UPDATED: The `help` tool for the new `use_module/1` directive and the new
+`uninstantiation_error/1` method.
+
+Tests
+-----
+
+* ADDED: Tests for the new `uninstantiation_error/1` built-in method.
+
+* ADDED: Additional tests for the `(=..)/2` Prolog standard predicate.
+
+* ADDED: Additional tests for the `current_input/1` and `current_output/1`
+Prolog standard predicates.
+
+* ADDED: Additional tests for Prolog standard list syntax.
+
+* ADDED: Additional tests for Prolog standard character input/output predicates
+for checking calls with a bound argument.
+
+* ADDED: Additional tests for the `close/1` Prolog standard predicate for
+checking that the standard input/output streams are restored after closing
+redirections.
+
+* ADDED: Additional tests for the `write_term/3` Prolog standard predicate for
+checking output of lists with elements that are conjunctions.
+
+* IMPROVED: Tests for the `catch/3` and cut control constructs.
+
+* IMPROVED: Tests for the `bagof/3`, `setof/3`, and `read_term/3` Prolog
+standard predicates.
+
+* FIXED: Test for the `keysort/2` Prolog standard predicate.
+
+* FIXED: Some tests for the `atomic/1` Prolog standard predicate.
+
+* FIXED: Duplicated test for the `atom_concat/3` Prolog standard predicate.
+
+* FIXED: Test for the Prolog standard `get_byte/2` built-in predicate.
+
+* FIXED: Tests for the Prolog standard `number_codes/2` built-in predicate
+to set the `double_quotes` flag to `codes` as required. Thanks to José
+Antonio Riaza Valverde for the bug report.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Syntax highlighter support to the new `uninstantiation_error/1`
+built-in method.
+
+
+3.40.0 - July 29, 2020
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Entity `use_module/1` directive to support the declaration of module
+aliases. The aliased modules can be parameter variables when using the
+directive in a parametric object or a parametric category.
+
+* FIXED: The compilation of file level `ensure_loaded/1` and `use_module/1-2`
+directives when using backend Prolog compilers such as Tau Prolog that don't
+support calling them as predicates.
+
+Prolog adapter and integration files
+------------------------------------
+
+* FIXED: The Qu-Prolog adapter file definition of the `'$lgt_format'/2`
+internal predicate.
+
+Documentation
+-------------
+
+* IMPROVED: The documentation of the `create_object/4` and `create_category/4`
+built-in predicates.
+
+* FIXED: Include the developer tool and library overviews on the PDF version
+of the Handbook.
+
+Library
+-------
+
+* FIXED: The definition of the `os::operating_system_type/1` predicate for
+Tau Prolog.
+
+* FIXED: Workaround the lack of support for static multifile predicates in
+Qu-Prolog in the `list` library object.
+
+Tools
+-----
+
+* CHANGED: The `doclet` tool integration with the `make` tool to run all the
+loaded doclets instead of requiring that a single doclet is loaded.
+
+* IMPROVED: Simplify the `zoom_doclet` doclet example by using the `lgt2svg`
+script.
+
+* IMPROVED: The `lgtdoc` tool no longer changes the current working directory
+when generating documenting XML files.
+
+Tests
+-----
+
+* CHANGED: Moved tests for arithmetic functions `abs/1`, `ceiling/1`, `div/2`,
+`float/1`, `float_fractional_part/1`, `float_integer_part/1`, `floor/1`,
+`mod/2`, `rem/2`, `round/1`, and `truncate/1` from the `is/2` predicate test
+set to their own test sets.
+
+* ADDED: Additional tests for Prolog control constructs for better coverage of
+expected exceptions when testing Prolog systems under development.
+
+* ADDED: Missing test for an error condition of the Prolog standard predicate
+`current_op/3`.
+
+* ADDED: Missing tests for an error condition of the Prolog standard predicate
+`stream_property/2`.
+
+* ADDED: Missing tests for the properties of standard Prolog streams.
+
+* ADDED: Tests for the Prolog standard predicate `is/2` when the first argument
+is bound.
+
+* ADDED: Tests for the de facto standard `log/2` and `log10/1` arithmetic
+functions.
+
+Examples
+--------
+
+* ADDED: Simple example, `module_aliases`, illustrating the use of module
+aliases.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: The Windows installer notes on how to change the default system
+installation directory.
+
+
 3.39.0 - June 17, 2020
 ======================
 
