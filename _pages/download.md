@@ -154,6 +154,9 @@ group in the `Start Menu` with integration shortcuts for supported
 Prolog compilers and shortcuts for the accessing the Logtalk
 documentation. Can be used by both admin and non-admin users.
 
+[Installation video](https://www.youtube.com/watch?v=YE7ahXZibN4),
+courtesy of [Paul Brown](https://pbrown.me/).
+
 > [`logtalk-3.41.0.exe`](files/logtalk-3.41.0.exe)  
 > `4f6ee5f4220c9eb634f6f43e9cce61c4f15fe8b4861103ec4fd0ecdae1aa0079` (SHA-256)  
 > [VirusTotal scan results](https://www.virustotal.com/gui/url/735aa690b276ba75755ca338def858d995c7e103b7388e340177ec062a7c3282/detection)
