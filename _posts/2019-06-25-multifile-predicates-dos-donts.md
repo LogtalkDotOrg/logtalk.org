@@ -84,9 +84,9 @@ should **never rely on the order of the multifile predicate clauses** as it
 may depend on several factors including loading order and compiler implementation
 details.
 
-In more realistic scenarios, the hook predicates have some arguments that
-simplify filtering which multifile predicate clauses apply. Rewriting our
-greetings predicate:
+In more realistic scenarios, the hook predicates often have some arguments
+that simplify filtering which multifile predicate clauses apply. Rewriting
+our greetings predicate:
 
 ```logtalk
 :- multifile(greetings_hook/1).
