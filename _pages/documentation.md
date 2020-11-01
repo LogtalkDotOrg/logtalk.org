@@ -19,9 +19,9 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.41.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.41.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.41.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.42.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.42.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.42.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -42,7 +42,7 @@ Core, library, tools, ports, and contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.41.0.info) (stable; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.42.0.info) (stable; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -114,7 +114,7 @@ Prolog integration scripts:
 -   ECLiPSe: [`eclipselgt`](man/eclipselgt.html)
 -   GNU Prolog: [`gplgt`](man/gplgt.html)
 -   JIProlog: [`jiplgt`](man/jiplgt.html)
--   Lean Prolog: [`lplgt`](man/lplgt.html)
+-   LVM: [`lvmlgt`](man/lvmlgt.html)
 -   Qu-Prolog: [`qplgt`](man/qplgt.html)
 -   Quintus Prolog: [`quintuslgt`](man/quintuslgt.html)
 -   SICStus Prolog: [`sicstuslgt`](man/sicstuslgt.html)

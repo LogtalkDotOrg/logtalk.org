@@ -6,7 +6,7 @@ aside:
   toc: true
 ---
 
-Several sets of unit tests are distributed with Logtalk. These include the tests in the `tests`, `tools`, `examples`, and `contributions` subdirectories. You can automate running these unit tests or your own unit tests by using the provided `scripts/logtalk_tester.sh` shell script.
+Several sets of unit tests are distributed with Logtalk. These include the tests in the `tests`, `library`, `tools`, `examples`, and `contributions` subdirectories. You can automate running these unit tests or your own unit tests by using the provided [`scripts/logtalk_tester.sh`](man/logtalk_tester.html) shell script.
 
 Note that some tests require specific backend Prolog compiler features such as constraints, tabling, and threads. These tests are skipped when using backend Prolog compilers without native support for those features.
 
@@ -15,24 +15,21 @@ tool documentation.
 
 ## Running unit tests on POSIX systems
 
-In a POSIX system, you can run the provided unit tests by typing:
+In a POSIX system, you can run a subset of the unit tests by changing to their library and running the testing automation script. For example:
 
 ```shell
 $ cd $LOGTALKUSER/tests/logtalk
 $ logtalk_tester -p <back-end Prolog compiler>
 ...
-$ cd ../../tools
+$ cd $LOGTALKUSER/tools
 $ logtalk_tester -p <back-end Prolog compiler>
 ...
-$ cd ../examples
-$ logtalk_tester -p <back-end Prolog compiler>
-...
-$ cd ../contributions
+$ cd $LOGTALKUSER/library
 $ logtalk_tester -p <back-end Prolog compiler>
 ...
 ```
 
-To run **all** tests distributed with Logtalk, type:
+To run **all** the tests distributed with Logtalk, type:
 
 ```shell
 $ cd $LOGTALKUSER

@@ -83,3 +83,13 @@ The above commands assume the API key is set. If that's not the case, before pus
 ```
 choco apikey --key KEY --source https://push.chocolatey.org/
 ```
+
+## Updating HTML versions of the man pages
+
+The HTML versions of the man pages are generated using [`roffit`](https://github.com/bagder/roffit).
+For example:
+
+```bash
+$ cd man/man1
+$ roffit < logtalk_tester.1 > logtalk_tester.html
+```

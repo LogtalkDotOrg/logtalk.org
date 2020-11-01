@@ -348,6 +348,15 @@ choco push -s https://push.chocolatey.org/
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>choco apikey --key KEY --source https://push.chocolatey.org/
 </code></pre></div></div>
+
+<h2 id="updating-html-versions-of-the-man-pages">Updating HTML versions of the man pages</h2>
+
+<p>The HTML versions of the man pages are generated using <a href="https://github.com/bagder/roffit"><code class="highlighter-rouge">roffit</code></a>.
+For example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>man/man1
+<span class="nv">$ </span>roffit &lt; logtalk_tester.1 <span class="o">&gt;</span> logtalk_tester.html
+</code></pre></div></div>
 </div><footer class="article__footer"><!-- this will show at every article content's bottom --></footer>
 
   <div class="d-print-none"></div>

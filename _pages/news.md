@@ -8,6 +8,20 @@ aside:
 
 ### 2020
 
+##### October 26
+
+> Logtalk 3.42.0 is now available for [downloading](download.html). This release
+> focus on improved testing support and improved test suites for both Logtalk
+> features and Prolog standards compliance of supported backends. It also
+> adds new `logtalk_load_context/2` predicate keys, generalizes the linter checks
+> for tautologies and falsehoods, fixes a `make` tool bug when using the `include/1`
+> directive, adds experimental support for LVM as a backend compiler, fixes
+> embedding errors when using GNU Prolog, improves support for Tau Prolog,
+> provides an improved `os` library with fixes for several backends, and includes
+> other portability updates for most of the supported backends. For details and
+> a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### September 1
 
 > Logtalk 3.41.0 is now available for [downloading](download.html). This release

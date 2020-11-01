@@ -4,6 +4,230 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.42.0 - October 26, 2020
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: New `logtalk_load_context/2` predicate `variables` and `singletons`
+keys for accessing the variables and the singleton variables of the term
+being compiled.
+
+* IMPROVED: Generalize linter checks for tautologies and falsehoods in
+non-ground `var/1`, `nonvar/1`, and `ground/1` goals to check for singleton
+variables.
+
+* FIXED: Increment the warnings counter when reporting term-expansion and
+goal-expansion errors.
+
+* FIXED: Bug in the `logtalk_make/0-1` predicates when reloading a failed file
+or a main file due to an updated included file that could result in multiple
+entries for the runtime table of loaded files.
+
+* FIXED: The `user.lgt` file to workaround embedding errors with GNU Prolog.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: Experimental support for LVM as a backend compiler.
+
+* ADDED: Double-clickable `*.command` Terminal.app files for starting Logtalk
+with LVM or Tau Prolog backend compilers on macOS.
+
+* UPDATED: The list of candidate goals for tautologies and falsehoods linter
+checks for GNU Prolog, SWI-Prolog, and YAP.
+
+* FIXED: Set the `encoding_directive` flag to `unsupported` for Tau Prolog as
+its implementation of the standard `open/4` predicate doesn't support setting
+the stream encoding.
+
+* FIXED: The GNU Prolog adapter file to provide dummy definitions for the
+Prolog database predicates that take a reference argument to avoid embedding
+errors.
+
+Documentation
+-------------
+
+* IMPROVED: Handbook description of entity and predicate properties that
+include line numbers information.
+
+* IMPROVED: Man pages formatting of script options.
+
+* IMPROVED: The man page for the `logtalk_tester` shell script.
+
+* UPDATED: Handbook documentation of the `logtalk_library_path/2` predicate.
+
+Library
+-------
+
+* ADDED: Support for LVM to the `os`, `random`, and `redis` libraries.
+
+* ADDED: New tests for the `os` library to check that its predicates that
+require a file or a directory to exist throw an error when that is not the
+case.
+
+* ADDED: Tests for the `os` library predicates `file_modification_time/2` and
+`file_permission/2`.
+
+* FIXED: Description of `osp` library protocol predicates that are expected to
+throw an error when a fie or directory does not exist.
+
+* FIXED: Workaround an issue with some backend Prolog systems such as ECLiPSe
+and Tau Prolog where reloading a file defining clauses for a multifile predicate
+results in the duplication of the clauses when testing the `arbitrary` and `os`
+libraries.
+
+* FIXED: The `arbitrary` library tests for backend Prolog systems that don't
+support Unicode.
+
+* FIXED: Support for the `os` and `random` libraries for Tau Prolog.
+
+* FIXED: Workaround GNU Prolog embedding errors with the `hook_objects`
+library.
+
+* FIXED: The `os::directory_files/2-3` predicates for SICStus Prolog to throw
+an exception when the directory does not exist.
+
+* FIXED: The `os` library predicates for B-Prolog, CxProlog, ECLiPSe and XSB
+to throw an error when a file or a directory does not exists as per the `osp`
+protocol.
+
+Tools
+-----
+
+* CHANGED: The `logtalk_tester` shell script to use a `SIGKILL` signal for the
+timeout option.
+
+* CHANGED: The `lgtunit` tool `stream_position/1` utility predicate to not
+require the backend Prolog system to support repositioning of streams.
+
+* ADDED: Support for a `variant/2` outcome for `test/2-3` test dialects to the
+`lgtunit` tool.
+
+* ADDED: Option `-w` to the `logtalk_tester` shell script to wipe default
+scratch directories (`./.lgt_tmp` and `./lgt_tmp`) before running a test set.
+
+* ADDED: LVM support to the `logtalk_doclet` and `logtalk_tester` scripts.
+
+* ADDED: LVM support to the `debugger`, `diagrams`, and `lgtunit` tools.
+
+* IMPROVED: The `lgtunit` tool handling of shared variables between a test and
+its options.
+
+* FIXED: Tool files to workaround embedding errors with GNU Prolog.
+
+* FIXED: The `ports_profiler` tool to avoid a spurious warning for a missing
+`meta_predicate/1` directive for the `call_goal/2` predicate with some backend
+compilers.
+
+* FIXED: The `lgtunit` tool messages for test outcome format errors.
+
+* FIXED: The testing automation report to also list tests failures caused by
+non-deterministic success.
+
+* FIXED: The `logtalk_tester` shell script spurious "clause coverage" text in
+case of a skipped or broken test set.
+
+* FIXED: Cleanup step for the `lgtdoc` tool tests.
+
+Examples
+--------
+
+* FIXED: Compatibility of the `benchmarks`, `dcgs`, `module_aliases`, and
+`symbiosis` examples with Tau Prolog.
+
+* FIXED: Compatibility of the `poem` example with LVM.
+
+* FIXED: Modify the `books` example to avoid a test failure when using
+GNU Prolog as the backend compiler due to an issue with a float computation.
+
+* FIXED: Replaced use of legacy `tell/1` Prolog predicate in the `constraints`
+example.
+
+* FIXED: Set the `double_quotes` flag to `codes` unconditionally in the `dcgs`
+example loader files.
+
+Contributions
+-------------
+
+* FIXED: Set the `double_quotes` flag to `codes` unconditionally in the
+`xml_parser` loader file.
+
+* FIXED: Skip condition for the `pddl_parser` test `sokoban`, which requires
+a backend Prolog compiler with either unbound term arity or a maximum arity
+of at least 2048.
+
+Ports
+-----
+
+* FIXED: Added missing `|` operator declaration to the `toychr` port.
+
+Tests
+-----
+
+* ADDED: Tests for the new `logtalk_load_context/2` predicate keys.
+
+* ADDED: Tests for the standard Prolog predicate `write_term/3` option
+`variable_names/1`.
+
+* ADDED: Tests for the standard Prolog predicate `op/3` to check for a
+permission error when trying to declare the empty list as an operator.
+
+* ADDED: Tests for the standard Prolog predicate `write_term/3` to check using
+the `quoted(true)` option for writing atoms that start with `%` or `/*`.
+
+* ADDED: Tests for the standard Prolog predicate `write_term/3` to check using
+the `quoted(true)` option for writing the `[]` and `{}` atoms.
+
+* ADDED: Tests for the standard Prolog predicate `write_term/3` to check using
+the `quoted(true)` option for writing escape sequences.
+
+* ADDED: Additional tests for the `at_end_of_stream/1`, `arg/3`, `number/1`,
+`compound/1`, `current_predicate/1`, `predicate_property/2`, `atom_chars/2`,
+`atom_codes/2`, `get_byte/2`, `get_char/2`, and `get_code/2`, `peek_byte/2`,
+`peek_char/2`, `peek_code/2`, `put_byte/2`, `put_char/2`, `put_code/2`,
+`sub_atom/5`, `number_chars/2`, `number_codes/2`, `read_term/3`, `close/1-2`,
+`write_term/3`, and arithmetic comparison standard Prolog predicates.
+
+* ADDED: Additional tests for the `catch/3` Prolog standard control construct.
+
+* ADDED: Tests for single quote representation in quoted atoms.
+
+* ADDED: Additional tests for curly terms syntax.
+
+* ADDED: Additional tests for the `set_logtalk_flag/2` predicate.
+
+* IMPROVED: Tests for the `predicate_property/2`, `put_byte/2`, `put_char/2`,
+and `put_code/2` Prolog predicates.
+
+* IMPROVED: Tests for the `call/N`, `findall/3-4`, `ignore/1`, `once/1`, and
+`setof/3` Logtalk built-in methods.
+
+* IMPROVED: Tests for the `threaded_engine_create/3`, `threaded_engine_next/2`,
+`threaded_engine_next_reified/2`, and `threaded_engine_destroy/1` Logtalk
+built-in predicates.
+
+* FIXED: Deleted two repeated tests for the `abolish/1` standard Prolog
+predicate.
+
+* FIXED: Test for the `|` operator for the ISO/IEC 13211-1:1995/Cor.2:2012(en)
+standard.
+
+* FIXED: Test for the `char_code/2` standard Prolog predicate with backend
+compilers that only support the US-ASCII character set.
+
+* FIXED: Test for the `char_code/2` standard Prolog predicate that is expected
+to either succeed or throw an error depending on the backend Prolog compiler
+character set representation.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: The `logtalk_backend_select` script for Ciao Prolog, LVM and
+Tau Prolog.
+
+
 3.41.0 - September 1, 2020
 ==========================
 

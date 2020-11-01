@@ -49,7 +49,7 @@ the form below to the email address `registration at logtalk.org`.
 			<!--<dd><input name="plc" type="checkbox" /> K-Prolog</dd>-->
 			<dd><input name="gprolog" type="checkbox" /> GNU Prolog</dd>
 			<dd><input name="ji" type="checkbox" /> JIProlog</dd>
-			<dd><input name="lean" type="checkbox" /> Lean Prolog</dd>
+			<dd><input name="lvm" type="checkbox" /> LVM</dd>
 			<!--<dd><input name="open" type="checkbox" /> Open Prolog</dd>-->
 			<!--<dd><input name="plII" type="checkbox" /> PrologII</dd>-->
 			<dd><input name="qp" type="checkbox" /> Qu-Prolog</dd>

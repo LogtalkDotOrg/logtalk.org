@@ -275,7 +275,7 @@
 
               <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Testing</h1></header></div><meta itemprop="headline" content="Testing"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
 
-  <div class="article__content" itemprop="articleBody"><p>Several sets of unit tests are distributed with Logtalk. These include the tests in the <code class="highlighter-rouge">tests</code>, <code class="highlighter-rouge">tools</code>, <code class="highlighter-rouge">examples</code>, and <code class="highlighter-rouge">contributions</code> subdirectories. You can automate running these unit tests or your own unit tests by using the provided <code class="highlighter-rouge">scripts/logtalk_tester.sh</code> shell script.</p>
+  <div class="article__content" itemprop="articleBody"><p>Several sets of unit tests are distributed with Logtalk. These include the tests in the <code class="highlighter-rouge">tests</code>, <code class="highlighter-rouge">library</code>, <code class="highlighter-rouge">tools</code>, <code class="highlighter-rouge">examples</code>, and <code class="highlighter-rouge">contributions</code> subdirectories. You can automate running these unit tests or your own unit tests by using the provided <a href="man/logtalk_tester.html"><code class="highlighter-rouge">scripts/logtalk_tester.sh</code></a> shell script.</p>
 
 <p>Note that some tests require specific backend Prolog compiler features such as constraints, tabling, and threads. These tests are skipped when using backend Prolog compilers without native support for those features.</p>
 
@@ -284,23 +284,20 @@ tool documentation.</p>
 
 <h2 id="running-unit-tests-on-posix-systems">Running unit tests on POSIX systems</h2>
 
-<p>In a POSIX system, you can run the provided unit tests by typing:</p>
+<p>In a POSIX system, you can run a subset of the unit tests by changing to their library and running the testing automation script. For example:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="nv">$LOGTALKUSER</span>/tests/logtalk
 <span class="nv">$ </span>logtalk_tester <span class="nt">-p</span> &lt;back-end Prolog compiler&gt;
 ...
-<span class="nv">$ </span><span class="nb">cd</span> ../../tools
+<span class="nv">$ </span><span class="nb">cd</span> <span class="nv">$LOGTALKUSER</span>/tools
 <span class="nv">$ </span>logtalk_tester <span class="nt">-p</span> &lt;back-end Prolog compiler&gt;
 ...
-<span class="nv">$ </span><span class="nb">cd</span> ../examples
-<span class="nv">$ </span>logtalk_tester <span class="nt">-p</span> &lt;back-end Prolog compiler&gt;
-...
-<span class="nv">$ </span><span class="nb">cd</span> ../contributions
+<span class="nv">$ </span><span class="nb">cd</span> <span class="nv">$LOGTALKUSER</span>/library
 <span class="nv">$ </span>logtalk_tester <span class="nt">-p</span> &lt;back-end Prolog compiler&gt;
 ...
 </code></pre></div></div>
 
-<p>To run <strong>all</strong> tests distributed with Logtalk, type:</p>
+<p>To run <strong>all</strong> the tests distributed with Logtalk, type:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="nv">$LOGTALKUSER</span>
 <span class="nv">$ </span>logtalk_tester <span class="nt">-p</span> &lt;back-end Prolog compiler&gt;
