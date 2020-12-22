@@ -19,9 +19,9 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.42.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.42.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.42.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.43.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.43.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.43.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -42,7 +42,7 @@ Core, library, tools, ports, and contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.42.0.info) (stable; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.43.0.info) (stable; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -120,6 +120,7 @@ Prolog integration scripts:
 -   SICStus Prolog: [`sicstuslgt`](man/sicstuslgt.html)
 -   SWI-Prolog: [`swilgt`](man/swilgt.html)
 -   Tau Prolog: [`taulgt`](man/taulgt.html)
+-   Trealla ProLog: [`tplgt`](man/tplgt.html)
 -   XSB: [`xsblgt`](man/xsblgt.html)
 -   XSB (mt): [`xsbmtlgt`](man/xsbmtlgt.html)
 -   YAP: [`yaplgt`](man/yaplgt.html)
@@ -496,6 +497,7 @@ list.
 
 -   [Kyndi Inc.](http://kyndi.com) --- 2015--2017
 -   VivoMind Research, LLC --- 2012--2013
+-   [GitHub sponsors](https://github.com/sponsors/pmoura)
 
 ## Open-source credits
 
@@ -512,7 +514,6 @@ Open-source software used by Logtalk development and distribution.
 -   [Read the Docs Sphinx Theme](https://github.com/rtfd/sphinx_rtd_theme) (HTML, PDF, and ePub documentation)
 -   [Graphviz](http://graphviz.org) (diagrams)
 -   [phpBB](http://www.phpbb.com/) (discussion forums)
--   [WordPress](http://wordpress.org/) (blog)
 -   [Jekyll](https://jekyllrb.com) (website)
 -   [TeXt Jekyll theme](https://github.com/kitian616/jekyll-TeXt-theme) (website)
 -   [roffit](https://github.com/bagder/roffit) (man pages to HTML converter)

@@ -40,7 +40,7 @@ Use preferably US-ASCII or a Unicode encoding such as UTF-8. Avoid ISO-Latin-X t
 Source code layout and indentation
 ----------------------------------
 
-Indent your source file using tabs, not spaces. Never mix tabs and spaces for indentation. But do use spaces for alignment that is not related to indenting. One tab is one level of indentation and is **independent** of each team member preferred setting, contributing to accessibility. A common setting is a tab width equivalent to four spaces. **Check that when changing the tab width that your code and comments remain perfectly indented**. Use one tab for indenting the code encapsulated inside an entity. Indent the body of predicate clauses using one tab.
+Indent your source file using tabs, not spaces. Never mix tabs and spaces for indentation. But do use spaces for alignment that is not related to indenting. One tab is one level of indentation and is **independent** of each team member preferred setting, contributing to **accessibility**. A common setting is a tab width equivalent to four spaces. **Check that when changing the tab width that your code and comments remain perfectly indented**. Use one tab for indenting the code encapsulated inside an entity. Indent the body of predicate clauses using one tab.
 
 Clauses for the same predicate should be separated by at most one blank line. Closely related predicates (e.g. a predicate followed by its auxiliary predicates) should be separated by one or two blank lines. Clauses of other predicates can be separated by two or three blank lines, depending on code complexity.
 

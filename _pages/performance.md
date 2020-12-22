@@ -226,8 +226,3 @@ Apple MacBook Pro 15.4\" 2.9 GHz Intel Core i7, 16GB RAM, macOS 10.13.4.
     being proved by default 100000 times, repeating the tests always
     show some variation on the final results. Increasing or decreasing
     the number of repetions may help in getting more stable results.
--   In real-life applications, only testing can give you a balanced view
-    on the trade-offs between plain Prolog performance and Logtalk
-    programming features. Nevertheless, and as a general and rough
-    estimate, you can expect a performance penalty between 0% and 10%
-    when using static binding.

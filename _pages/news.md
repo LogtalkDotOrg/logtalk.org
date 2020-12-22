@@ -8,6 +8,22 @@ aside:
 
 ### 2020
 
+##### December 22
+
+> Logtalk 3.43.0 is now available for [downloading](download.html). This release
+> focus once again on improved testing support and improved test suites for both Logtalk
+> features and Prolog standards compliance of supported backends. It also provides
+> compiler improvements and bug fixes, provides experimental support for Trealla ProLog;
+> updates support for LVM and Tau Prolog; improves the top-level shortcut for loading files;
+> includes a new `git` library; adds new predicates to the `queues` library; provides portability
+> fixes for the `os` library; provides new predicates, improvements, and fixes for the
+> `lgtunit` tool; provides fixes for the `debugger` and `lgtdoc` tools; improves the
+> portability of the `bench` and `metainterpreters` examples; provides UltiSnips support
+> for the Vim text editor, kindly contributed by Paul Brown; and includes other
+> portability updates for most of the supported backends. For details and a
+> complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### October 26
 
 > Logtalk 3.42.0 is now available for [downloading](download.html). This release

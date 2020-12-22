@@ -86,15 +86,16 @@ p.roffit {
 <p class="level0"><span Class="bold">9</span> The sourced <span Class="emphasis">tester.sh</span> file returned a non-zero code. 
 <p class="level0"><a name="EXAMPLES"></a><h2 class="nroffsh">EXAMPLES</h2>
 <p class="level0">
-<p class="level0">Run all tests on the current directory and sub-directories using the GNU Prolog backend, with results in TAP format, code coverage reports in XML format, and passing arguments <span Class="emphasis">foo</span>, <span Class="emphasis">bar</span>, and <span Class="emphasis">baz</span> to the tests: logtalk_tester -p gnu -tap -c xml -- foo bar baz 
+<p class="level0">Run all tests on the current directory and sub-directories using the GNU Prolog backend, with results in TAP format, code coverage reports in XML format, and passing arguments <span Class="emphasis">foo</span>, <span Class="emphasis">bar</span>, and <span Class="emphasis">baz</span> to the tests: <span Class="bold">logtalk_tester -p gnu -tap -c xml -- foo bar baz</span> 
 <p class="level0">
-<p class="level0">Run all tests on the current directory only using the ECLiPSe backend, with a timeout of 4 minutes per test set: logtalk_tester -p eclipse -l 1 -t 240 
+<p class="level0">Run all tests on the current directory only using the ECLiPSe backend, with a timeout of 4 minutes per test set: <span Class="bold">logtalk_tester -p eclipse -l 1 -t 240</span> 
 <p class="level0">
-<p class="level0">Run all tests on the current directory and sub-directories using the SICStus Prolog backend and a random generator starting seed: logtalk_tester -p sicstus -r &quot;seed(3172,9814,20125)&quot; 
+<p class="level0">Run all tests on the current directory and sub-directories using the SICStus Prolog backend and a random generator starting seed: <span Class="bold">logtalk_tester -p sicstus -r &quot;seed(3172,9814,20125)&quot;</span> 
 <p class="level0">
-<p class="level0">Run all tests on the current directory and sub-directories using the Tau Prolog backend, caching the compilation of the testing tool for better performance, but wiping the test set default scratch directories before running it: logtalk_tester -p tau -g &quot;set_logtalk_flag(clean,off)&quot; -w 
+<p class="level0">Run all tests on the current directory and sub-directories using the Tau Prolog backend, caching the compilation of the testing tool for better performance, but wiping the test set default scratch directories before running it: <span Class="bold">logtalk_tester -p tau -g &quot;set_logtalk_flag(clean,off)&quot; -w</span> 
 <p class="level0"><a name="IMPLEMENTATION"></a><h2 class="nroffsh">IMPLEMENTATION NOTES</h2>
-<p class="level0">When the script detects either a <span Class="emphasis">timeout</span> or a <span Class="emphasis">gtimeout</span> command (provided by the GNU <span Class="emphasis">coreutils</span> package), it will use it to run each test set if the timeout option is set to a value greater than zero. On Windows operating-systems, the native timeout command is not usable for this purpose. Installation of the GNU <span Class="emphasis">sed</span> command, when not available by default, is strongly recommended. 
+<p class="level0">When the script detects either a <span Class="emphasis">timeout</span> or a <span Class="emphasis">gtimeout</span> command (provided by the GNU <span Class="emphasis">coreutils</span> package), it will use it to run each test set if the timeout option is set to a value greater than zero. On Windows operating-systems, the native timeout command is not usable for this purpose. 
+<p class="level0">Installation of the GNU <span Class="emphasis">sed</span> command, when not available by default, is strongly recommended. 
 <p class="level0"><a name="ENVIRONMENT"></a><h2 class="nroffsh">ENVIRONMENT</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. 
