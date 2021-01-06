@@ -227,10 +227,15 @@ Clause rules and directives
 
 Use a single space before the `:-` operator in clause rules. Use a single space after the `:-` operator in directives.
 
+Entity names
+------------
+
+For object, protocol, and category names, observe the same guidelines as for predicate names.
+
 Predicate names
 ---------------
 
-Use descriptive predicate names using underscores if necessary to link words. Do not use CamelCase notation for predicate names (e.g. write `number_of_sides`, not `numberOfSides`). Avoid word abbreviations. But if you abbreviate a word, do so consistently.
+Use descriptive predicate names using underscores if necessary to link words. Do not use CamelCase notation for predicate names (e.g. write `number_of_sides`, not `numberOfSides`). Avoid word abbreviations. But if you abbreviate a word, do so consistently. Also avoid names with digits in the middle as this may hurt readability.
 
 For dynamic predicates, Logtalk uses a convention of ending its names with an underscore (e.g. `random_seed_`) although this style is sometimes also used for auxiliary predicate names.
 
@@ -239,7 +244,7 @@ For public predicates, when defining an interface, always consider reusing names
 Variable names
 --------------
 
-Use descriptive variable names in CamelCase notation (e.g. write `SourceFile`, not `Source_file`). Again, avoid word abbreviations. But if you do abbreviate words, be consistent.
+Use descriptive variable names in CamelCase notation (e.g. write `SourceFile`, not `Source_file`). Again, avoid word abbreviations. But if you do abbreviate words, be consistent. Also avoid names with digits in the middle as this may hurt readability.
 
 In the case of singleton variables, use either the anonymous variable, `_`, or a variable name starting with an underscore followed with an uppercase letter (e.g. `_Width`). Note that the interpretation of variables that start with an underscore as either singleton variables or anonymous variables depends on the used back-end compiler (see the Logtalk compiler flag `underscore_variables` for more information).
 

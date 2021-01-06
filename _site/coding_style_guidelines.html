@@ -477,9 +477,13 @@ write_person_database<span class="p">.</span>
 
 <p>Use a single space before the <code class="highlighter-rouge">:-</code> operator in clause rules. Use a single space after the <code class="highlighter-rouge">:-</code> operator in directives.</p>
 
+<h2 id="entity-names">Entity names</h2>
+
+<p>For object, protocol, and category names, observe the same guidelines as for predicate names.</p>
+
 <h2 id="predicate-names">Predicate names</h2>
 
-<p>Use descriptive predicate names using underscores if necessary to link words. Do not use CamelCase notation for predicate names (e.g. write <code class="highlighter-rouge">number_of_sides</code>, not <code class="highlighter-rouge">numberOfSides</code>). Avoid word abbreviations. But if you abbreviate a word, do so consistently.</p>
+<p>Use descriptive predicate names using underscores if necessary to link words. Do not use CamelCase notation for predicate names (e.g. write <code class="highlighter-rouge">number_of_sides</code>, not <code class="highlighter-rouge">numberOfSides</code>). Avoid word abbreviations. But if you abbreviate a word, do so consistently. Also avoid names with digits in the middle as this may hurt readability.</p>
 
 <p>For dynamic predicates, Logtalk uses a convention of ending its names with an underscore (e.g. <code class="highlighter-rouge">random_seed_</code>) although this style is sometimes also used for auxiliary predicate names.</p>
 
@@ -487,7 +491,7 @@ write_person_database<span class="p">.</span>
 
 <h2 id="variable-names">Variable names</h2>
 
-<p>Use descriptive variable names in CamelCase notation (e.g. write <code class="highlighter-rouge">SourceFile</code>, not <code class="highlighter-rouge">Source_file</code>). Again, avoid word abbreviations. But if you do abbreviate words, be consistent.</p>
+<p>Use descriptive variable names in CamelCase notation (e.g. write <code class="highlighter-rouge">SourceFile</code>, not <code class="highlighter-rouge">Source_file</code>). Again, avoid word abbreviations. But if you do abbreviate words, be consistent. Also avoid names with digits in the middle as this may hurt readability.</p>
 
 <p>In the case of singleton variables, use either the anonymous variable, <code class="highlighter-rouge">_</code>, or a variable name starting with an underscore followed with an uppercase letter (e.g. <code class="highlighter-rouge">_Width</code>). Note that the interpretation of variables that start with an underscore as either singleton variables or anonymous variables depends on the used back-end compiler (see the Logtalk compiler flag <code class="highlighter-rouge">underscore_variables</code> for more information).</p>
 
@@ -578,7 +582,7 @@ License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL
 </div>
     </aside>
     <footer class="site-info"><p class="menu menu--center">
-        <span>© Paulo Moura 2018-2020</span>
+        <span>© Paulo Moura 2018-2021</span>
 <!--
         <a type="application/rss+xml" href="/feed.xml">RSS</a>
 -->

@@ -285,11 +285,11 @@ file in the directory for details. The main release script is:</p>
 
 <p><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/build_release.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/build_release.sh</a></p>
 
-<p>This script performs a git clone and builds the sources archive, the manuals archive, the SWI-Prolog pack, and all the installers with the exception of the Windows installer. The macOS installer needs to be compressed from the Finder.</p>
+<p>This script performs a git clone and builds the sources archive, the manuals archive, the SWI-Prolog pack, and all the installers with the exception of the Windows installer. The macOS installer must be compressed from the Finder.</p>
 
 <h2 id="windows-installer">Windows installer</h2>
 
-<p>To build the Windows <code class="highlighter-rouge">.exe</code> installer requires a PC or a virtual machine running Windows 7 or later and using the Inno Setup script that is also included with the distribution:</p>
+<p>The build of the Windows <code class="highlighter-rouge">.exe</code> installer requires a PC or a virtual machine running Windows 7 or later and the Inno Setup script that is also included with the distribution:</p>
 
 <p><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/windows">https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/windows</a></p>
 
@@ -303,9 +303,11 @@ release in case some installer issue is found.</p>
 <p>The HTML and SVG versions of the Handbook and the API documentation are usually kept
 up-to-date using the scripts:</p>
 
-<p><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/manuals/sources/build_manuals.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/manuals/sources/build_manuals.sh</a>
-<a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_html_docs.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_html_docs.sh</a>
-<a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh</a></p>
+<ul>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/manuals/sources/build_manuals.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/manuals/sources/build_manuals.sh</a></li>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_html_docs.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_html_docs.sh</a></li>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh</a></li>
+</ul>
 
 <p>The HTML version requires <a href="http://sphinx-doc.org/">Sphinx</a> with the
 <a href="https://github.com/rtfd/sphinx_rtd_theme">Read the Docs theme</a> installed:</p>
@@ -315,9 +317,9 @@ up-to-date using the scripts:</p>
 <span class="nv">$ </span><span class="nb">sudo </span>pip install <span class="nt">--upgrade</span> sphinx_rtd_theme
 </code></pre></div></div>
 
-<p>It’s also necessary to patch the Pygments installation with the latest version of syntax highlighting support files from the <code class="highlighter-rouge">coding/pygments</code> directory.</p>
+<p>It may also be necessary to patch the Pygments installation with the latest version of syntax highlighting support files from the <code class="highlighter-rouge">coding/pygments</code> directory.</p>
 
-<p>Before running the scripts, the version data in the <code class="highlighter-rouge">conf.py</code> files must be updated.</p>
+<p>Before running the documentation scripts, the version data in the <code class="highlighter-rouge">manuals/sources/conf.py</code> and <code class="highlighter-rouge">docs/sources/_conf.py</code> files must be updated.</p>
 
 <h2 id="docker-stable-image">Docker stable image</h2>
 
@@ -351,12 +353,8 @@ choco push -s https://push.chocolatey.org/
 
 <h2 id="updating-html-versions-of-the-man-pages">Updating HTML versions of the man pages</h2>
 
-<p>The HTML versions of the man pages are generated using <a href="https://github.com/bagder/roffit"><code class="highlighter-rouge">roffit</code></a>.
-For example:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>man/man1
-<span class="nv">$ </span>roffit &lt; logtalk_tester.1 <span class="o">&gt;</span> logtalk_tester.html
-</code></pre></div></div>
+<p>The HTML versions of the man pages are generated using <a href="https://github.com/bagder/roffit"><code class="highlighter-rouge">roffit</code></a> from the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_man_html_versions.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_man_html_versions.sh</a>
+shell script. After running the script, the HTML files are saved in the same directory as the man pages.</p>
 </div><footer class="article__footer"><!-- this will show at every article content's bottom --></footer>
 
   <div class="d-print-none"></div>
@@ -428,7 +426,7 @@ License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL
 </div>
     </aside>
     <footer class="site-info"><p class="menu menu--center">
-        <span>© Paulo Moura 2018-2020</span>
+        <span>© Paulo Moura 2018-2021</span>
 <!--
         <a type="application/rss+xml" href="/feed.xml">RSS</a>
 -->
