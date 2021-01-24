@@ -129,7 +129,7 @@ To ensure that QuickCheck is indeed generating tests using lists with
 both an even and an odd number of elements, we can use the `label/3`
 predicate by passing the option `l(label)`. The `label` closure will be
 called, for each generated test, by appending the two predicate arguments
-used by test call to the `every_other/2` predicate plus the labels
+used by the test call to the `every_other/2` predicate plus the labels
 argument (the labelling predicate can return a single test label or a
 list of test labels):
 
@@ -197,11 +197,11 @@ is correctly labelling tests:
 ```logtalk
 odd_list(List, _, _) :-
     length(List, Length),
-	Length mod 2 =:= 1.
+    Length mod 2 =:= 1.
 
 even_list(List, _, _) :-
     length(List, Length),
-	Length mod 2 =:= 0.
+    Length mod 2 =:= 0.
 ```
 
 ```text
