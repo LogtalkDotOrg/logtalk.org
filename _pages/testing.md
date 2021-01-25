@@ -51,7 +51,7 @@ Note that, when running the unit tests using stable Logtalk releases, failed tes
 
 ## Running unit tests on Windows systems
 
-The `logtalk_tester.sh` script can also be used on Windows operating-systems by installing [Git for Windows](http://msysgit.github.io), which includes a bash shell implementation. After installation, you can start the bash shell by selecting `Git Bash` from the context menu. You will also need to add the `$LOGTALKHOME/scripts` and `$LOGTALKHOME/integration` directories plus the backend Prolog compiler executable directories to the system path environment variable. For example, assuming that you will be using YAP as backend Prolog compiler, the contents of your `~/.profile` file would contain something like:
+The `logtalk_tester.sh` script can also be used on Windows operating-systems by installing either the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/) or [Git for Windows](https://gitforwindows.org), which includes a bash shell implementation. After installation, you can start the bash shell by selecting `Git Bash` from the context menu. You will also need to add the `$LOGTALKHOME/scripts` and `$LOGTALKHOME/integration` directories plus the backend Prolog compiler executable directories to the system path environment variable. For example, assuming that you will be using YAP as backend Prolog compiler, the contents of your `~/.profile` file would contain something like:
 
 ```shell
 # YAP

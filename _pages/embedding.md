@@ -113,3 +113,5 @@ Most of the embedding steps described above can easily be automated. For example
 For embedding details for specific backend Prolog compilers see those compilers documentation and the following notes:
 
 [https://github.com/LogtalkDotOrg/logtalk3/blob/master/adapters/NOTES.md](https://github.com/LogtalkDotOrg/logtalk3/blob/master/adapters/NOTES.md)
+
+If you're using Windows, a possible solution to run these scripts is to either install the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/) or install [Git for Windows](https://gitforwindows.org), which includes a Bash shell implementation (see also the [testing](testing.html#running-unit-tests-on-windows-systems) guide for Bash configuration details).
