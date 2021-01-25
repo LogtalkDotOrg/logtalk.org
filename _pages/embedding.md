@@ -72,6 +72,8 @@ Your application may use libraries with their own loader files. If so, these fil
 $ rm -f "$HOME"/collect_app_files/*loader*
 ```
 
+In alternative, the embedding scripts (see below) provide an option to compile (i.e. expand) library alias paths in paths and settings files. This option allows, in general, the safe inclusion of the application loader files.
+
 Now that we have all necessary application files in the `$HOME/collect_app_files/` directory, we can concatenate them in a single Prolog file (on POSIX system we can use the `cat` utility in an automation script), say, `app_resources.pl `:
 
 ```shell

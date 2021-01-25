@@ -336,6 +336,8 @@
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rm <span class="nt">-f</span> <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">"</span>/collect_app_files/<span class="k">*</span>loader<span class="k">*</span>
 </code></pre></div></div>
 
+<p>In alternative, the embedding scripts (see below) provide an option to compile (i.e. expand) library alias paths in paths and settings files. This option allows, in general, the safe inclusion of the application loader files.</p>
+
 <p>Now that we have all necessary application files in the <code class="highlighter-rouge">$HOME/collect_app_files/</code> directory, we can concatenate them in a single Prolog file (on POSIX system we can use the <code class="highlighter-rouge">cat</code> utility in an automation script), say, <code class="highlighter-rouge">app_resources.pl </code>:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> <span class="k">$(</span><span class="nb">ls</span> <span class="nt">-t</span> <span class="nv">$HOME</span>/collect_app_files/<span class="k">*</span>.pl<span class="k">)</span> <span class="o">&gt;</span> app_resources.pl
