@@ -19,9 +19,9 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.43.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.43.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.43.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.44.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.44.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.44.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -42,7 +42,7 @@ Core, library, tools, ports, and contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.43.0.info) (stable; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.44.0.info) (stable; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -115,14 +115,12 @@ Prolog integration scripts:
 -   GNU Prolog: [`gplgt`](man/gplgt.html)
 -   JIProlog: [`jiplgt`](man/jiplgt.html)
 -   LVM: [`lvmlgt`](man/lvmlgt.html)
--   Qu-Prolog: [`qplgt`](man/qplgt.html)
 -   Quintus Prolog: [`quintuslgt`](man/quintuslgt.html)
 -   SICStus Prolog: [`sicstuslgt`](man/sicstuslgt.html)
 -   SWI-Prolog: [`swilgt`](man/swilgt.html)
 -   Tau Prolog: [`taulgt`](man/taulgt.html)
 -   Trealla ProLog: [`tplgt`](man/tplgt.html)
 -   XSB: [`xsblgt`](man/xsblgt.html)
--   XSB (mt): [`xsbmtlgt`](man/xsbmtlgt.html)
 -   YAP: [`yaplgt`](man/yaplgt.html)
 
 Configuration scripts:
@@ -134,6 +132,7 @@ Configuration scripts:
 Testing scripts:
 
 -   [`logtalk_tester`](man/logtalk_tester.html)
+-   [`logtalk_allure_report`](man/logtalk_allure_report.html)
 
 Documentation scripts:
 
@@ -435,6 +434,7 @@ Publications on research and applications using Logtalk:
 -   Günter Kniesel (PDT support for Logtalk; feedback on Logtalk OOP features)
 -   Gopal Gupta (coinduction examples)
 -   Ivan Bratko (search methods in the state-space searching example)
+-   Jacinto Dávila (CSV library, bug reports)
 -   Jan Burse (unit tests patches and feedback)
 -   Jan Wielemaker (feedback on Prolog compliance testing)
 -   Joachim Schimpf (feedback on Prolog compliance testing)

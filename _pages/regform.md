@@ -52,10 +52,12 @@ the form below to the email address `registration at logtalk.org`.
 			<dd><input name="lvm" type="checkbox" /> LVM</dd>
 			<!--<dd><input name="open" type="checkbox" /> Open Prolog</dd>-->
 			<!--<dd><input name="plII" type="checkbox" /> PrologII</dd>-->
-			<dd><input name="qp" type="checkbox" /> Qu-Prolog</dd>
+			<!--<dd><input name="qp" type="checkbox" /> Qu-Prolog</dd>-->
 			<dd><input name="quintus" type="checkbox" /> Quintus Prolog</dd>
 			<dd><input name="sicstus" type="checkbox" /> SICStus Prolog</dd>
 			<dd><input name="swipl" type="checkbox" /> SWI-Prolog</dd>
+			<dd><input name="tau" type="checkbox" /> Tau Prolog</dd>
+			<dd><input name="tpl" type="checkbox" /> Trealla ProLog</dd>
 			<dd><input name="yap" type="checkbox" /> YAP</dd>
 			<dd><input name="xsb" type="checkbox" /> XSB</dd>
 			<dd><input name="otherpl" type="checkbox" /> Others</dd>

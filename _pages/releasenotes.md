@@ -4,6 +4,230 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.44.0 - February 3, 2021
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Lint check for clauses whose body is a disjunction as per coding
+guidelines. Controlled by a new flag, `disjunctions`, with a default value
+of `warning`.
+
+* IMPROVED: Startup message when the backend version is older than the
+recommended version.
+
+* UPDATED: Lint check for entity, predicate, and variable names to also check
+for digits in the middle of a name as per coding guidelines.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: Default value for the new `disjunctions` flag to all adapter files.
+
+* REMOVED: Integration files for Qu-Prolog as this backend memory model limits
+prevent loading the current version of the Logtalk compiler/runtime.
+
+* REMOVED: Integration files for XSB-MT as this backend support for threads is
+too buggy to be usable.
+
+* UPDATED: LVM support and minimum required version to 1.2.0.
+
+* UPDATED: Trealla ProLog support and minimum required version to 1.6.8.
+
+* FIXED: The SWI-Prolog and YAP adapter files to not optimize top-level
+interpreter message-sending goals when the object receiving the message
+is compiled in debug mode.
+
+Documentation
+-------------
+
+* ADDED: Handbook nomenclature section highlighting the differences between
+Logtalk and Prolog.
+
+* ADDED: Handbook documentation for the new `disjunctions` flag.
+
+* ADDED: Handbook glossary entries for predicate calling context, predicate
+definition context, predicate execution context, and top-level interpreter
+shorthand.
+
+* ADDED: Man page for the new `logtalk_allure_report` script.
+
+* IMPROVED: Documentation of the `logtalk::loaded_file_property/2` predicate.
+
+* IMPROVED: Handbook glossary definition of "parameter variable".
+
+* IMPROVED: Documentation on using the embedding scripts.
+
+* FIXED: Overflow line the Event-driven programming chapter in the PDF version
+of the Handbook. Thanks to Jacinto Dávila for the bug report.
+
+* FIXED: Handbook documentation on entity properties and the entity property
+predicates for the `public/1`, `protected/1`, and `private/1` properties.
+
+Library
+-------
+
+* ADDED: Library `csv` for reading and writing CSV files. Contributed by
+Jacinto Dávila.
+
+* ADDED: Library `term_io` for term input/output from/to atom, chars, and
+codes.
+
+* ADDED: Library `options` providing predicates for managing developer tool
+and application options.
+
+* ADDED: New `non_quoted_atom` type to the `arbitrary` and `types` libraries.
+
+* ADDED: Implementation for the `os::directory_files/2` predicate for Trealla
+ProLog.
+
+* FIXED: Implementation for the `os::delete_directory/1` predicate for Trealla
+ProLog.
+
+* FIXED: Warnings with the new `disjunctions` flag for the `arbitrary` library.
+
+* IMPROVED: The `gensym` and `random` library to only declare predicates as
+synchronized when compiled with a backend that supports threads.
+
+* FIXED: The `types` library check for a public object predicate to explicitly
+check that the object exists.
+
+Tools
+-----
+
+* CHANGED: Remove the `lgtdoc` tool `option/2` and `set_option/2` predicates
+and refactored option handling to use the new `options` library, including for
+type-checking user options.
+
+* CHANGED: The specification and implementation of the `lgtunit::assertion/1-2`
+predicates to prevent further instantiation of the assertion goal argument.
+
+* ADDED: Support to the `debugger` tool for specifying non-terminal spy points
+directly.
+
+* ADDED: Shell script for generating Allure reports (`logtalk_allure_report`).
+
+* ADDED: New `lgtunit` documentation section on generating Allure reports.
+
+* ADDED: Support for exporting test results using the xUnit.net v2 XML format.
+
+* IMPROVED: The `logtalk_tester` script now generates a minimal report file
+when using the `-f` option so that tools that process and display test results
+may also be able to display broken, timed out, and crashed test sets.
+
+* IMPROVED: More informative `lgtunit` tool report of failed `variant/2` and
+`subsumes/2` test outcomes.
+
+* UPDATED: The `logtalk_tester` script to support the `-f xunit_net_v2` option.
+
+* UPDATED: The `diagrams` tool to use the new `options` library, including for
+type-checking user options.
+
+* UPDATED: The `tutor` tool to provide advice for the new clause disjunctions
+lint check and for the updated entity, predicate, and variable names lint
+checks.
+
+* UPDATED: The `diagrams` tool to use the new `term_io` library for escaping
+text when generating DOT files.
+
+* FIXED: Workaround limitations of the xUnit XML formats for reporting skipped
+test sets.
+
+* FIXED: Warnings with the new `disjunctions` flag for the `code_metrics` tool.
+
+* FIXED: The `debugger` tool handling of the leap option to restore the current
+trace or debug mode if necessary for the next top-level query.
+
+* FIXED: The `assertions` tool to prevent calls to the `assertion/1-2`
+predicates from further instantiating the assertion argument as per
+documentation.
+
+* FIXED: Implementation of the `lgtunit::stream_position/1` predicate for
+SICStus Prolog.
+
+* FIXED: Two `debugger` tool tests to not fail when run in batch with other
+test sets that compile entities in debug mode.
+
+Examples
+--------
+
+* ADDED: Port of the Amzi! Inc "Nani search" adventure game to the `adventure`
+example.
+
+* UPDATED: The `errors` example to illustrate the new disjunctions lint check
+and the update entity, predicate, and variable names checks.
+
+* FIXED: Warnings with the new `disjunctions` flag for the `assumptions` and
+`searching` examples.
+
+* FIXED: Library alias for the `figures` example. Thanks to Jacinto Dávila
+for the bug report.
+
+* FIXED: Deleted library aliases for non existing examples (due to renaming).
+
+* FIXED: Library alias for the `logs` example.
+
+* FIXED: Non-ASCII character in comment in the `dcgs/morse.lgt` source file.
+
+Contributions
+-------------
+
+* FIXED: Warnings with the new `disjunctions` flag for the `verdi_neruda` and
+`xml_parser` contributions.
+
+Ports
+-----
+
+* ADDED: Fibonacci sequence, prime numbers, and finite domain constraint solver
+examples to the ToyCHR port.
+
+* IMPROVED: Tests for the ToyCHR port.
+
+* FIXED: Copyright information on the ToyCHR documentation.
+
+* FIXED: Bug in the ToyCHR port `test_guard/2` predicate.
+
+Tests
+-----
+
+* ADDED: Additional test for the de Prolog standard function `exp/1`.
+
+* ADDED: Additional tests for the de facto standard functions `log/2` and
+`log10/1`.
+
+* ADDED: Tests for the de facto standard hyperbolic functions.
+
+* ADDED: Additional test for the `logtalk_library_path/2` built-in predicate.
+
+* UPDATED: Tests for most of the arithmetic functions to use assertions.
+
+* FIXED: Warnings with the new `disjunctions` flag for the `set_logtalk_flag/2`
+directive and the `goal_expansion/2` method tests.
+
+Installers and installation scripts
+-----------------------------------
+
+* CHANGED: Renamed the `scripts/macosx` directory to `scripts/macos`.
+
+* ADDED: Windows installer experimental support for creating a shortcut for
+Tau Prolog. Tested with the help of José Antonio Riaza Valverde.
+
+* ADDED: A macOS command-file for Trealla ProLog.
+
+* ADDED: A `update_man_html_versions.sh` shell script for updating the HTML
+versions of the man pages.
+
+* UPDATED: The macOS installer to also set system-wide default values for the
+`LOGTALKHOME` and `LOGTALKUSER` environment variables for the `zsh` shell.
+
+* REMOVED: Install actions for Qu-Prolog as this backend memory model limits
+prevent loading the Logtalk compiler/runtime.
+
+* REMOVED: Install actions for XSB-MT as this backend support for threads is
+too buggy to be usable.
+
+
 3.43.0 - December 22, 2020
 ==========================
 

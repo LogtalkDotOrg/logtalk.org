@@ -6,6 +6,29 @@ aside:
   toc: true
 ---
 
+### 2021
+
+##### February 3
+
+> Logtalk 3.44.0 is now available for [downloading](download.html). This release
+> features new and improved linter checks; adds a new Handbook nomenclature section
+> on the differences between Logtalk and Prolog; adds new Handbook glossary entries;
+> adds libraries for CSV files reading/writing, option handling, and term input/output
+> from/to atoms, chars, and codes; improves existing libraries; provides fixes
+> and improvements for several developer tools; adds a shell script for generating
+> Allure reports from test results; adds support for exporting test result in the
+> xUnit.net v2 XML format; improves exporting of results in the JUnit/xUnit format;
+> includes new and improved programming examples; adds new examples to the ToyCHR port;
+> adds tests sets for the de facto standard hyperbolic arithmetic functions; adds
+> additional tests for several arithmetic functions; adds Windows installer
+> experimental support for creating an integration shortcut for Tau Prolog;
+> updates the macOS installer
+> support for users of the `zsh` shell; removes support for Qu-Prolog and for the
+> multi-threaded version of XSB; and includes portability updates for LVM,
+> SICStus Prolog, SWI-Prolog, Tau Prolog, Trella ProLog, YAP. For details and a
+> complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ### 2020
 
 ##### December 22

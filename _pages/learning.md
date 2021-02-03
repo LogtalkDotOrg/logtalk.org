@@ -182,36 +182,37 @@ We can now trace the query:
    Debugger switched on: tracing everything for all objects compiled in debug mode.
 true.
 
-?-  mars::weight(m2, W2).
-   Call: (1) weight(m2,_1228) ? 
-   Rule: (1) weight(m2,_1228) ? x
+?- mars::weight(m2, W2).
+   Call: (1) mars::weight(m2,_32108) ? 
+   Call: (2) weight(m2,_32108) ? 
+   Rule: (2) weight(m2,_32108) ? x
      Entity:            planet
      Sender:            user
      This:              mars
      Self:              mars
      Meta-call context: []
      Coinduction stack: []
-   Rule: (1) weight(m2,_1228) ? 
-   Call: (2) m2::mass(_2348) ? 
-   Call: (3) mass(_2348) ? 
-   Fact: (3) mass(4) ? 
-   Exit: (3) mass(4) ? 
-   Exit: (2) m2::mass(4) ? 
-   Call: (4) ::gravitational_acceleration(_4622) ? 
-   Call: (5) gravitational_acceleration(_4622) ? 
-   Fact: (5) gravitational_acceleration(3.72076) ? x
-     Entity:            mars
-     Sender:            mars
-     This:              mars
-     Self:              mars
-     Meta-call context: []
-     Coinduction stack: []
-   Fact: (5) gravitational_acceleration(3.72076) ? 
-   Exit: (5) gravitational_acceleration(3.72076) ? 
-   Exit: (4) ::gravitational_acceleration(3.72076) ? 
-   Call: (6) _22 is 4*3.72076 ? 
-   Exit: (6) 14.88304 is 4*3.72076 ? 
-   Exit: (1) weight(m2,14.88304) ? 
+   Rule: (2) weight(m2,_32108) ? 
+   Call: (3) m2::mass(_34428) ? 
+   Call: (4) mass(_34428) ? 
+   Fact: (4) mass(4) ? 
+   Exit: (4) mass(4) ? 
+   Exit: (3) m2::mass(4) ? 
+   Call: (5) ::gravitational_acceleration(_37184) ? 
+   Call: (6) gravitational_acceleration(_37184) ? 
+   Fact: (6) gravitational_acceleration(3.72076) ? .
+     File:          /Users/pmoura/logtalk/examples/planets/planets.lgt
+     Line number:   97
+     Entity:        mars
+     Predicate:     gravitational_acceleration/1
+     Clause number: 1
+   Fact: (6) gravitational_acceleration(3.72076) ? 
+   Exit: (6) gravitational_acceleration(3.72076) ? 
+   Exit: (5) ::gravitational_acceleration(3.72076) ? 
+   Call: (7) _32108 is 4*3.72076 ? 
+   Exit: (7) 14.88304 is 4*3.72076 ? 
+   Exit: (2) weight(m2,14.88304) ? 
+   Exit: (1) mars::weight(m2,14.88304) ? 
 W2 = 14.88304.
 ```
 
