@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<title>logtalk_allure_report man page</title>
+<meta name="generator" content="roffit">
+<STYLE type="text/css">
+pre {
+  overflow: auto;
+  margin: 0;
+}
+
+P.level0, pre.level0 {
+ padding-left: 2em;
+}
+
+P.level1, pre.level1 {
+ padding-left: 4em;
+}
+
+P.level2, pre.level2 {
+ padding-left: 6em;
+}
+
+span.emphasis {
+ font-style: italic;
+}
+
+span.bold {
+ font-weight: bold;
+}
+
+span.manpage {
+ font-weight: bold;
+}
+
+h2.nroffsh {
+ background-color: #e0e0e0;
+}
+
+span.nroffip {
+ font-weight: bold;
+ font-size: 120%;
+ font-family: monospace;
+}
+
+p.roffit {
+ text-align: center;
+ font-size: 80%;
+}
+</STYLE>
+</head><body>
+
+<p class="level0">
+<p class="level0"><a name="NAME"></a><h2 class="nroffsh">NAME</h2>
+<p class="level0">logtalk_allure_report - Logtalk script for generating Allure reports 
+<p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">SYNOPSIS</h2>
+<p class="level0"><span Class="bold">logtalk_allure_report -v</span> <br><span Class="bold">logtalk_allure_report</span> [<span class="bold">-d <span Class="emphasis">tests</span>] [<span class="bold">-i <span Class="emphasis">results</span>] [<span class="bold">-o <span Class="emphasis">report</span>] [<span class="bold">-t <span Class="emphasis">title</span>] [<span Class="bold">-p</span>] [<span class="bold">-- <span Class="emphasis">environment pairs</span>] <br><span Class="bold">logtalk_tester -h</span> 
+<p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">DESCRIPTION</h2>
+<p class="level0"><span Class="bold">logtalk_allure_report</span> is a script for generating Allure reports. Requires running first the <span Class="emphasis">logtalk_tester</span> script using the <span Class="emphasis">-f xunit</span> (or <span Class="emphasis">-f xunit_net_v2</span>) command-line option. 
+<p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">OPTIONS</h2>
+<p class="level0">
+<p class="level0"><span Class="bold">-v</span> Print script version. 
+<p class="level0"><span Class="bold">-d</span> The directory containing the tests (i.e. the directory where the <span Class="emphasis">logtalk_tester</span> script was run; default is the current directory). 
+<p class="level0"><span Class="bold">-i</span> Directory where to collect the test results (i.e. the xUnit reports) for generating the report (default is <span Class="emphasis">./allure-results</span>). 
+<p class="level0"><span Class="bold">-o</span> Directory where the report is to be saved (default is <span Class="emphasis">./allure-report</span>). 
+<p class="level0"><span Class="bold">-t</span> Report title (default is &quot;Allure Report&quot;; this option is ignored when using the <span Class="emphasis">-p</span> option). 
+<p class="level0"><span Class="bold">-p</span> Preprocess results but do not generate report. Useful when the actual generatation of the report is delegated to e.g. a Docker service or a Jenkins plug-in. 
+<p class="level0"><span Class="bold">--</span> Environment pairs (key1=value1 key2=value2 ...). Used to generate an <span Class="emphasis">environment.properties</span> for adding additional information to the generated report. 
+<p class="level0"><span Class="bold">-h</span> Provide help on script usage. 
+<p class="level0"><a name="EXIT"></a><h2 class="nroffsh">EXIT STATUS</h2>
+<p class="level0">
+<p class="level0"><span Class="bold">0</span> Allure report successfully created. 
+<p class="level0"><a name="EXAMPLES"></a><h2 class="nroffsh">EXAMPLES</h2>
+<p class="level0">
+<p class="level0">Run all tests on the current directory and sub-directories using the GNU Prolog backend (saving the test results in the required xUnit format), generate the Allure report, and open the report for browsing: <span Class="bold">logtalk_tester -p gnu -f xunit</span> <br><span Class="bold">logtalk_allure_report</span> <br><span Class="bold">allure open</span> 
+<p class="level0"><a name="IMPLEMENTATION"></a><h2 class="nroffsh">IMPLEMENTATION NOTES</h2>
+<p class="level0">Tested using Allure 2.13.8. 
+<p class="level0"><a name="SEE"></a><h2 class="nroffsh">SEE ALSO</h2>
+<p class="level0">The Allure website at <a href="http://allure.qatools.ru">http://allure.qatools.ru</a> 
+<p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> 
+<p class="level0">The Logtalk User and Reference Manuals at <span Class="bold">$LOGTALKHOME/manuals/index.html</span> 
+<p class="level0"><a name="AUTHOR"></a><h2 class="nroffsh">AUTHOR</h2>
+<p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt; 
+<p class="level0"><a name="COPYRIGHT"></a><h2 class="nroffsh">COPYRIGHT</h2>
+<p class="level0">Copyright (c) 1998-2021 Paulo Moura. <p class="roffit">
+ This HTML page was made with <a href="http://daniel.haxx.se/projects/roffit/">roffit</a>.
+</body></html>

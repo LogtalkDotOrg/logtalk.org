@@ -347,4 +347,4 @@ Consult the documentation of the [`lgtunit`](https://github.com/LogtalkDotOrg/lo
 
 At this point, you should have a good understanding of the basics of Logtalk programming. But there are more features to explore and many more examples for you to play with. We suggest that you look into the [examples summary](https://github.com/LogtalkDotOrg/logtalk3/blob/master/examples/NOTES.md) and choose the next ones according to your interests.
 
-Enjoy and remember: the [discussion forums](http://forums.logtalk.org/) and the [chat room](https://gitter.im/LogtalkDotOrg/logtalk3) welcome your participation. Don't be a stranger. 
+Enjoy and remember: the [discussion forums](https://github.com/LogtalkDotOrg/logtalk3/discussions) and the [chat room](https://gitter.im/LogtalkDotOrg/logtalk3) welcome your participation. Don't be a stranger.
