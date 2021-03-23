@@ -8,6 +8,19 @@ aside:
 
 ### 2021
 
+##### March 23
+
+> Logtalk 3.45.0 is now available for [downloading](download.html). This release
+> adds Base64, CBOR, JSON, and UUID libraries; adds new predicates to the `reader`
+> and `term_io` libraries; adds new types to the `arbitrary`, `types`, and `os`
+> libraries; fixes portability issues in the `os` library; removes deprecated
+> library loader files; adds SPDX short-form identifiers to most files; updates
+> the `lgtunit` tool to report individual tests execution time; improves test
+> results reporting; adds a new test set for unbounded integer arithmetic; and
+> includes portability updates for ECLiPSe, GNU Prolog, LVM, SICStus Prolog,
+> SWI-Prolog, Trella ProLog, YAP. For details and a complete list of changes,
+> please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### February 3
 
 > Logtalk 3.44.0 is now available for [downloading](download.html). This release

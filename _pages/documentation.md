@@ -19,9 +19,9 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.44.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.44.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.44.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.45.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.45.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.45.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -42,7 +42,7 @@ Core, library, tools, ports, and contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.44.0.info) (stable; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.45.0.info) (stable; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -437,6 +437,7 @@ Publications on research and applications using Logtalk:
 -   Jacinto Dávila (CSV library, bug reports)
 -   Jan Burse (unit tests patches and feedback)
 -   Jan Wielemaker (feedback on Prolog compliance testing)
+-   Jeremy Vickery (bug reports)
 -   Joachim Schimpf (feedback on Prolog compliance testing)
 -   Joerg Schuster (bug reports)
 -   John Fletcher (made [XML parser](http://www.binding-time.co.uk/xmlpl.html) available)

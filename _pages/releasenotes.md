@@ -4,6 +4,138 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.45.0 - March 23, 2021
+=======================
+
+Distribution
+------------
+
+* REMOVED: Deprecated library loader files (predating library restructuring).
+
+* ADDED: SPDX short-form identifiers to most of the files in the distribution.
+
+Prolog adapter and integration files
+------------------------------------
+
+* IMPROVED: Simplified the SWI-Prolog integration files.
+
+* UPDATED: Require LVM 1.5.0 or later version (due to new `os` library
+requirements).
+
+* UPDATED: Require Trealla Prolog 1.7.64 or later version (due to critical bug
+fixes).
+
+* FIXED: Syntax typo in the Trealla Prolog adapter file. Thanks to Andrew
+Davison for the bug report.
+
+Documentation
+-------------
+
+* IMPROVED: Documentation of the `term_io` library.
+
+* FIXED: Typo in the Handbook nomenclature section. Thanks to David Tonhofer
+for reporting.
+
+Library
+-------
+
+* CHANGED: Move the `random` library seed predicates to a separate protocol.
+This change doesn't require changes to applications using this library.
+
+* ADDED: A `base64` library for encoding and decoding binary data in the
+Base64 and Base64URL formats.
+
+* ADDED: A `uuid` library for generating Universally Unique Identifiers
+(UUIDs). Currently supports version 1 and version 4 UUIDs.
+
+* ADDED: A `json` library for encoding and decoding JSON data. Joint work
+with Jacinto Dávila.
+
+* ADDED: A `cbor` library for encoding and decoding data in the Concise Binary
+Object Representation (CBOR) format. Currently requires a backend supporting
+unbounded integer arithmetic.
+
+* ADDED: Predicates `file_to_bytes/2-3` and `stream_to_bytes/2-3` to the
+`reader` library.
+
+* ADDED: Library predicate `term_io::with_output_to/2` predicate.
+
+* ADDED: Library predicate `list::append/2` linter check for redundant calls.
+
+* ADDED: Support for new `hex_char` and `hex_code` types to the `arbitrary`
+and `types` libraries.
+
+* ADDED: Library predicate `os::is_absolute_file_name/1`.
+
+* ADDED: New types `file(Extensions,Permissions)` and `directory(Permissions)`
+to the `os` library.
+
+* FIXED: Library `os::file_permission/2` predicate for SICStus Prolog when the
+first argument is a directory.
+
+* FIXED: Library `os` predicates `file_permission/2` and `rename_file/2` for
+YAP.
+
+* FIXED: Exceptions for the `os` library predicates for ECLiPSe.
+
+* FIXED: Test for the `os::path_concat/3` predicate to work on both POSIX and
+Windows systems.
+
+* FIXED: Workaround issue with directories like `c:` not being recognized when
+running with the SICStus Prolog backend on Windows operating-systems.
+
+* FIXED: Library `csv` round-trip tests to only run when the `diff` command is
+available.
+
+* FIXED: Syntax error while loading the `csv` library with GNU Prolog.
+
+Tools
+-----
+
+* CHANGED: The `lgtunit` tool to report individual tests execution time. Code
+that intercepts the tool messages may need to be updated as several messages
+now have an additional argument to carry execution time data (in seconds).
+
+* CHANGED: The `lgtunit` tool to report tests that succeeded or failed instead
+of throwing an error to also include the expected error. Code that intercepts
+the tool messages may need to be updated as the corresponding messages now have
+an additional argument to carry the expected error.
+
+* CHANGED: The test automation support to also list, when possible, all the
+skipped tests for skipped test sets.
+
+* ADDED: New `lgtunit` public predicates `test/1` and `number_of_tests/1`.
+
+* IMPROVED: Better reporting of tests results from running a set of test suites
+as a single unified suite when using the xUnit formats.
+
+* UPDATED: Tools documentation on testing.
+
+* FIXED: Bug where the `lgtunit` tool would print duplicated code coverage
+stats for parametric entities when using multiple test sets. Thanks to Jacinto
+Dávila for the bug report.
+
+* FIXED: The cleanup step for the `lgtdoc` tool unit tests.
+
+Examples
+--------
+
+* UPDATED: Most examples that use parametric entities to use parameter
+variables.
+
+Tests
+-----
+
+* ADDED: Tests for unbounded integer arithmetic using standard functions and
+predicates.
+
+Installers and installation scripts
+-----------------------------------
+
+* FIXED: The manual `install.sh` script to use `mkdir -p` when creating the
+Logtalk installation directory. Thanks to Jeremy Vickery for the bug report.
+
+
 3.44.0 - February 3, 2021
 =========================
 
