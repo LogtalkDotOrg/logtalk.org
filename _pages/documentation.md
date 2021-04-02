@@ -12,6 +12,7 @@ aside:
     [English](https://learnxinyminutes.com/docs/logtalk/)
     [Italian](https://learnxinyminutes.com/docs/it-it/logtalk-it/) (recommended starting point for new users)
 -   [Handbook tutorial](manuals/tutorial/index.html)
+-	[Logtalking YouTube channel](https://www.youtube.com/channel/UCh0BiDU6xZUCGq66HylvXNg)
 
 
 ## Handbook
