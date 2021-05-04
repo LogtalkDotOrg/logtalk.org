@@ -8,6 +8,23 @@ aside:
 
 ### 2021
 
+##### May 4
+
+> Logtalk 3.46.0 is now available for [downloading](download.html). This release
+> adds experimental support for Scryer Prolog; updates version requirements for
+> Ciao Prolog, LVM, and Trealla Prolog; adds nested dictionaries and HTML libraries
+> (joint work with Paul Brown); adds new predicates to the `dictionaries` and
+> `types` libraries; fixes portability issues in the `csv` and `os` libraries;
+> fixes issues in the `arbitrary`, `dictionaries`, and `os` libraries; adds support
+> for reporting tests as flaky tests to the `lgtunit` tool; adds new `lgtunit` tool
+> predicates for checking text output; improves testing automation support; fixes
+> escaping of special XML characters in the xUnit formats; improves manual
+> installation instructions for POSIX systems; adds a new test set for Unicode
+> features; adds tests for UTF-16 surrogates to the `encodings` example; adds new
+> tests for the `open/4` Prolog standard predicate; and includes portability
+> updates for Ciao Prolog, LVM, Trella ProLog, and XSB. For details and a complete
+> list of changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### March 23
 
 > Logtalk 3.45.0 is now available for [downloading](download.html). This release

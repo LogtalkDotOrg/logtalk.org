@@ -181,6 +181,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 -   TAP and xUnit test reports
 -   Test set condition, setup, and cleanup goals
 -   Per test condition, setup, and cleanup goals
+-   Flaky tests marking and reporting
 -   Support for test subsets (with generation of a single code coverage report)
 -   Make tool integration
 

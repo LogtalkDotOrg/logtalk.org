@@ -17,6 +17,7 @@ distribution includes adapter files for all supported Prolog compilers:
 -   [JIProlog 4.1.6.1 or later versions](http://www.jiprolog.com/)
 -   LVM 1.0.0 or later versions
 -   [Quintus Prolog 3.3\~3.5](https://quintus.sics.se) *(experimental)*
+-	[Scryer Prolog 0.8.128 or later versions](https://github.com/mthom/scryer-prolog) *(experimental)*
 -   [SICStus Prolog 4.1.0 or later versions](https://sicstus.sics.se)
 -   [SWI Prolog 6.6.0 or later versions](http://www.swi-prolog.org/)
 -   [Tau Prolog (version 0.3.0 or later)](http://tau-prolog.org)

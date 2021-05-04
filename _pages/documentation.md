@@ -20,9 +20,9 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.45.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.45.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.45.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.46.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.46.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.46.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -43,7 +43,7 @@ Core, library, tools, ports, and contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.45.0.info) (stable; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.46.0.info) (stable; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -117,6 +117,7 @@ Prolog integration scripts:
 -   JIProlog: [`jiplgt`](man/jiplgt.html)
 -   LVM: [`lvmlgt`](man/lvmlgt.html)
 -   Quintus Prolog: [`quintuslgt`](man/quintuslgt.html)
+-   Scryer Prolog: [`scryerlgt`](man/scryerlgt.html)
 -   SICStus Prolog: [`sicstuslgt`](man/sicstuslgt.html)
 -   SWI-Prolog: [`swilgt`](man/swilgt.html)
 -   Tau Prolog: [`taulgt`](man/taulgt.html)
@@ -457,7 +458,7 @@ Publications on research and applications using Logtalk:
 -   Neng-Fa Zhou (bug reports)
 -   Nicolas Pelletier (bug reports, text editor support)
 -   Parker Jones (testing, unit tests, bug reports)
--   Paul Brown (bug reports and suggestions)
+-   Paul Brown (libraries, bug reports, suggestions, Wikipedia page maintenance)
 -   Paul Crocker (testing, multi-threading and meta-predicates examples, bug reports)
 -   Paul Fodor (library enhancements)
 -   Paul Tarau (feedback on threaded engines API and examples)
@@ -519,3 +520,4 @@ Open-source software used by Logtalk development and distribution.
 -   [Jekyll](https://jekyllrb.com) (website)
 -   [TeXt Jekyll theme](https://github.com/kitian616/jekyll-TeXt-theme) (website)
 -   [roffit](https://github.com/bagder/roffit) (man pages to HTML converter)
+-   [Pandoc](https://pandoc.org) (Markdown to reStructuredText converter)

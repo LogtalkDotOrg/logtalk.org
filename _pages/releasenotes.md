@@ -4,6 +4,136 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.46.0 - May 4, 2021
+====================
+
+Logtalk compiler and runtime
+----------------------------
+
+* IMPROVED: The compiler handling of errors when reading the first term of a
+source file to ensure that the errors are reported even if the input stream
+cannot be retrieved.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: Experimental support for Scryer Prolog (0.8.128 or later version).
+
+* UPDATED: Require Ciao Prolog 1.20.0 or later version (due to backward
+incompatible changes in its libraries).
+
+* UPDATED: Require LVM 1.6.0 or later version.
+
+* UPDATED: Require Trealla Prolog 1.8.41 or later version.
+
+* FIXED: The value of the `unicode` read-only flag for Trealla Prolog.
+
+Documentation
+-------------
+
+* IMPROVED: Manual installation instructions for POSIX systems.
+
+* IMPROVED: Man page for the `logtalk_tester` script.
+
+* FIXED: Expired link in the documentation of the `assignvars` library. Thanks
+to kaiser185 for the bug report and alternative link.
+
+Library
+-------
+
+* CHANGED: The `dictionaries` library objects now extend `term` instead of
+`compound` as empty dictionaries are not always compound terms.
+
+* CHANGED: Mark the `termp` protocol `ground/1` and `subsumes/2` predicates
+as deprecated as both `ground/1` and `subsumes_term/2` are nowadays standard
+Prolog predicates.
+
+* ADDED: Preliminary version of a `nested_dictionaries` library. Joint work
+with Paul Brown.
+
+* ADDED: Preliminary version of a `html` library to generate HTML content from
+a term representation. Joint work with Paul Brown.
+
+* ADDED: Predicates `as_curly_bracketed/2` and `intersection/2-3` to the
+`dictionaries` library.
+
+* ADDED: Predicates `numbervars/3`, `numbervars/1`, and `varnumbers/2-3 to the
+library `term` object.
+
+* FIXED: Definition of the `os::is_absolute_file_name/1` predicate for XSB.
+
+* FIXED: Portability issue in the `csv` library.
+
+* FIXED: Definitions of the `check/1` predicate for the `dictionaries` library
+objects. Thanks to Paul Brown for the bug report.
+
+* FIXED: The `rbtree::insert/4` predicate to fail when the key is a variable
+as in the other dictionary implementations. Thanks to Paul Brown for the bug
+report.
+
+* FIXED: Tests for the `dictionaries` library to allow alternative user-defined
+implementations where the order pairs are returned from lookup predicates is
+not necessarily ascending order by key. Thanks to Paul Brown for the report.
+
+* FIXED: Test for the `os::temporary_directory/1` predicate to use the
+`os::path_concat/3` predicate.
+
+* FIXED: The `arbitrary` library generation of Unicode code points to exclude
+high and low surrogate, non-character, and private use code points.
+
+Tools
+-----
+
+* CHANGED: The `logtalk_tester.sh` and `logtalk_doclet.sh` scripts to require
+specifying the backend instead of using a default backend.
+
+* ADDED: Support for reporting tests as flaky tests to the `lgtunit` tool.
+
+* ADDED: Predicates `check_text_output/3` and `text_output_assertion/4` to the
+`lgtunit` tool.
+
+* IMPROVED: The `logtalk_tester.sh` script and the `lgtunit` tool TAP, xUnit,
+and code coverage reports to allow overriding the directory where tests reports
+are created (e.g. when running tests defined in a directory different from the
+directory that contains the tests driver file). Thanks to Paul Brown for the
+use case.
+
+* FIXED: The `logtalk_tester.sh` and `logtalk_doclet.sh` scripts to exit with
+an error when passed an unknown option.
+
+* FIXED: The `lgtunit` tool xUnit and xUnit.net v2 XML format exporters to
+escape special XML characters in common cases such as the `heaps` library.
+
+* FIXED: The `lgtunit` tool `set_text_input/3` and `set_binary_input/3`
+predicates to also use the options argument when creating the input contents.
+
+Contributions
+-------------
+
+* IMPROVED: Documentation of the `xml_parser` contribution public predicates.
+
+* FIXED: Two conversion bugs between numbers and atom as their corresponding
+list of codes in the `xml_parser` contribution.
+
+Examples
+--------
+
+* ADDED: Additional tests for the `encodings` example, including for full
+UTF-16 support.
+
+* FIXED: The tests driver file for the `encodings` example to show all test
+results with automated testing.
+
+Tests
+-----
+
+* ADDED: A `unicode` test suite for checking backends support for Unicode.
+
+* ADDED: Tests for the `open/4` Prolog standard predicate to check for the
+expected permission error when the file doesn't have the necessary read or
+write permissions.
+
+
 3.45.0 - March 23, 2021
 =======================
 
