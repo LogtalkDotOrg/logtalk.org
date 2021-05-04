@@ -98,6 +98,5 @@ You may register as a Logtalk user by using this [form](regform.html).
 ## Suggestions
 
 Please visit the official [git repo](https://github.com/LogtalkDotOrg/logtalk3) at GitHub
-and open a [ticket](https://github.com/LogtalkDotOrg/logtalk3/issues) with your suggestion.
-You may also send your suggestions for the next Logtalk release using this
-[form](supportform.html) or by [mail](mailto:support@logtalk.org).
+and create a [discussion topic](https://github.com/LogtalkDotOrg/logtalk3/discussions)
+with your suggestion.
