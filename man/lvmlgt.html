@@ -56,12 +56,12 @@ p.roffit {
 <p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">SYNOPSIS</h2>
 <p class="level0"><span Class="bold">lvmlgt</span> [<span class="bold">-g <span Class="emphasis">goal</span>] 
 <p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">DESCRIPTION</h2>
-<p class="level0"><span Class="bold">lvmlgt</span> is a Logtalk integration script for LVM. It automatically loads the LVM adapter file, the Logtalk compiler and runtime, the Logtalk default table of library names and paths, and any existing settings file found on the lookup directories. By default, this script starts LVM using the standard top-level interpreter. 
+<p class="level0"><span Class="bold">lvmlgt</span> is a Logtalk integration script for LVM. It automatically loads the LVM adapter file, the Logtalk compiler and runtime, the Logtalk default table of library names and paths, and any existing settings file found on the lookup directories. By default, this script runs LVM using <span Class="bold">rlwrap</span> if available. 
 <p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">OPTIONS</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">-g</span> <span Class="emphasis">goal</span> Initialization goal, written between double quotes, to be executed after Logtalk startup. 
 <p class="level0"><a name="REQUIREMENTS"></a><h2 class="nroffsh">REQUIREMENTS</h2>
-<p class="level0">LVM 1.5.0 or a later version is required. This integration script looks for a &quot;lvmpl&quot; executable in the system path. 
+<p class="level0">LVM 1.7.0 or a later version is required. This integration script looks for a &quot;lvmpl&quot; executable in the system path. 
 <p class="level0"><a name="ENVIRONMENT"></a><h2 class="nroffsh">ENVIRONMENT</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. 

@@ -41,6 +41,7 @@ the form below to the email address `registration at logtalk.org`.
 			<!--<dd><input name="plII" type="checkbox" /> PrologII</dd>-->
 			<!--<dd><input name="qp" type="checkbox" /> Qu-Prolog</dd>-->
 			<dd><input name="quintus" type="checkbox" /> Quintus Prolog</dd>
+			<dd><input name="scryer" type="checkbox" /> Scryer Prolog</dd>
 			<dd><input name="sicstus" type="checkbox" /> SICStus Prolog</dd>
 			<dd><input name="swipl" type="checkbox" /> SWI-Prolog</dd>
 			<dd><input name="tau" type="checkbox" /> Tau Prolog</dd>

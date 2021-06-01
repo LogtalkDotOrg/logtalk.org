@@ -78,8 +78,8 @@ p.roffit {
 <p class="level0"><span Class="bold">-h</span> Provide help on script usage. 
 <p class="level0"><a name="EXIT"></a><h2 class="nroffsh">EXIT STATUS</h2>
 <p class="level0">
-<p class="level0"><span Class="bold">0</span> All non-skipped tests pass and there are no broken, timed out, or crashed test sets. 
-<p class="level0"><span Class="bold">1</span> Some tests fail but there are no broken, timed out, or crashed test sets. 
+<p class="level0"><span Class="bold">0</span> All non-skipped tests pass (flaky test failures are ignored) and there are no broken, timed out, or crashed test sets. 
+<p class="level0"><span Class="bold">1</span> Some (non-flaky) tests fail but there are no broken, timed out, or crashed test sets. 
 <p class="level0"><span Class="bold">3</span> One or more test sets timed out while executing but there are no broken or crashed test sets. 
 <p class="level0"><span Class="bold">5</span> One or more test sets are broken and thus could not be executed but there are no crashed test sets. 
 <p class="level0"><span Class="bold">7</span> One or more test sets crashed the process running them. 

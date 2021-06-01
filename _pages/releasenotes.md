@@ -4,6 +4,126 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.47.0 - June 1, 2021
+=====================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: The compiler to use internally the de facto standard `between/3`
+predicate instead of its own version.
+
+Prolog adapter and integration files
+------------------------------------
+
+* IMPROVED: Scryer Prolog definition of the `scratch_directory` flag.
+
+* UPDATED: Scryer Prolog adapter file with support for reporting warning and
+error line numbers.
+
+* UPDATED: Require Trealla Prolog 1.8.71 or later version.
+
+* UPDATED: Trealla Prolog adapter file with experimental code for expanding
+`use_module/1` Prolog directives.
+
+* UPDATED: The LVM adapter file to use the built-in `decompose_file_name/4`
+and `atom_number/2` predicates.
+
+Library
+-------
+
+* ADDED: Definitions for the `os` library `delete_directory/2`, `date_time/7`,
+`pid/1`, and `rename_file/2` predicates for Scryer Prolog.
+
+* UPDATED: Definition of the `os::make_directory_path/1` predicate for Trealla
+Prolog to use the new native definition.
+
+* FIXED: Path expansion in the `os` library for Scryer Prolog.
+
+* FIXED: Bug in the `json` library parser of JSON files when a string contains
+an escaped double-quote. Thanks to Paul Brown for the bug report.
+
+* FIXED: Templates for the `term_io` library read predicates. Thanks to Paul
+Brown for the bug report.
+
+Tools
+-----
+
+* CHANGED: The `logtalk_tester` script to ignore failed flaky tests when
+setting the exit status.
+
+* CHANGED: The `lgtunit` tool `tests_results_summary/6` and `tests_skipped/2`
+messages to, respectively, `tests_results_summary/7` and `tests_skipped/3` to
+better support flaky tests and skipped test sets.
+
+* ADDED: Predicates `text_file_assertion/3` and `binary_file_assertion/3` to
+the `lgtunit` tool to generate assertions that a given file have the expected
+text or binary contents.
+
+* IMPROVED: The `lgtunit` tool support for reporting flaky tests.
+
+* UPDATED: The `lgtunit` tool to also use the de facto standard `epsilon/0`
+arithmetic constant with Scryer Prolog.
+
+* UPDATED: The `dead_code_scanner` and `code_metrics` tools tests to use
+assertions.
+
+* FIXED: The `logtalk_tester` script report of skipped and failed tests when
+using the `lgtunit::run_test_sets/1` predicate to list the correct file for
+each reported test.
+
+* FIXED: A `logtalk_tester` script regression (introduced with the support
+for flaky tests) in the test results stats when there are skipped test sets.
+
+Examples
+--------
+
+* CHANGED: The `benchmarks` example to use the de facto standard `between/3`
+predicate instead of its own version.
+
+* IMPROVED: Tests for the `complements` and `hailstone` examples.
+
+* IMPROVED: Simplified the `logs` example which illustrates how to define 
+category predicates that handle a dynamic predicate in the context of "this".
+
+* FIXED: Comment out non-standard (and non-required) operator definitions in
+the `bench` example that would prevent loading it with some backends.
+
+* FIXED: The `encodings` example to not try to load files or run tests that
+require up-to-date UTF-16 support when using CxProlog or SICStus Prolog.
+
+Tests
+-----
+
+* CHANGED: Skip test for the Prolog `catch/3` control construct from the ISO
+standard as as systems should be allowed to compile both goal arguments, which
+in this case would result in a callable type error instead of success as in
+the original test definition.
+
+* ADDED: Additional test for the Prolog `catch/3` control construct after a
+suggestion by Andrew Davison.
+
+* ADDED: Additional test for the Prolog `char_code/2` built-in predicate.
+
+* ADDED: Additional Unicode support tests to check that the `stream_property/2`
+predicate doesn't return `bom/1` or `encoding/1` properties for binary streams.
+
+* ADDED: Unit tests for the ISO Prolog standard `(+)/1-2`, `(-)/1-2`, `(*)/2`,
+`(/)/2`, and `(//)/2` built-in functions.
+
+* IMPROVED: Tests for the Logtalk `initialization/1`, `multifile/1`, and 
+`set_logtalk_flag/2` directives.
+
+* IMPROVED: Tests for the Logtalk `{}/1` control construct.
+
+* IMPROVED: Tests for the Prolog `asserta/1`, `assertz/1`, `atom_chars/2`,
+`atom_codes/2`, `bagof/3`, `between/3`, `findall/3-4`, `length/2`, `halt/1`,
+and `retractall/1` built-in predicates.
+
+* FIXED: The test set for the Logtalk `encoding/1` directive to only run on
+backends that support US-ASCII, ISO-8859-1, and UTF-8 text encodings.
+
+
 3.46.0 - May 4, 2021
 ====================
 

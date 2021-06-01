@@ -8,6 +8,16 @@ aside:
 
 ### 2021
 
+##### June 1
+
+> Logtalk 3.47.0 is now available for [downloading](download.html). This release
+> updates support for LVM, Scryer Prolog, and Trealla Prolog; fixes some bugs in
+> the `json` and `term_io` libraries; improves support for flaky tests; adds new
+> utility predicates for testing; fixes a testing automation script reporting bug;
+> updates several examples; and improves and adds new tests for Logtalk features,
+> tools, and standards compliance. For details and a complete list of changes,
+> please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### May 4
 
 > Logtalk 3.46.0 is now available for [downloading](download.html). This release
