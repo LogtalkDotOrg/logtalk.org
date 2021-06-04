@@ -91,7 +91,7 @@ calling an undefined procedure foo : bar(_65) in module eclipse
 Abort
 ```
 
-In the above example, the compiler knows that the module `foo` exports the predicate `bar/1` but cannot separate that predicate declaration from the (non-existing) predicate definition and provided us with closed world semantics. In the case of SWI-Prolog, a predicate definition is required at compile time. For the other systems, the `foo:bar/1` goal throws an error instead of failing. The requirement that an exported predicate be defined is also found on the ISO Prolog Modules standard. But this is an odd requirement: Prolog gives us closed world semantics for `multifile/1`, `dynamic/1`, and `discontiguous/1` directives but not for `export/1` or `module/2` directives!
+In the above example, the compiler knows that the module `foo` exports the predicate `bar/1` but cannot separate that predicate declaration from the (non-existing) predicate definition and provide us with closed world semantics. In the case of SWI-Prolog, a predicate definition is required at compile time. For the other systems, the `foo:bar/1` goal throws an error instead of failing. The requirement that an exported predicate be defined is also found on the ISO Prolog Modules standard. But this is an odd requirement: Prolog gives us closed world semantics for `multifile/1`, `dynamic/1`, and `discontiguous/1` directives but not for `export/1` or `module/2` directives!
 
 The Logtalk equivalent to the module `foo` above is the object `foo`:
 
