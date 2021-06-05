@@ -83,7 +83,7 @@ Meowww...
 true.
 ```
 
-As illustrated in this simple example, the `include/1` does work as we expected when calling the exported predicate. But a file is not an interface (or protocol). Module and files are not at the same abstraction level. Moreover, given the textual inclusion semantics, and from the perspective of a reflection API, instead of several modules implementing the same interface, we have modules that happen to export the same (subset of) predicates. There's no concept of interface (or protocol) as an entity at the same abstraction level as modules that we can query, document, or assign a version tag. We cannot make a simple query to find which modules implement a given interface. The textual inclusion also results in a small space overhead as the directives are effectively duplicated in each module that includes a file but that's a minor issue.
+As illustrated in this simple example, the `include/1` does work as we expected when calling the exported predicate. But a file is not an interface (or protocol). Modules and files are not at the same abstraction level. Moreover, given the textual inclusion semantics, and from the perspective of a reflection API, instead of several modules implementing the same interface, we have modules that happen to export the same (subset of) predicates. There's no concept of interface (or protocol) as an entity at the same abstraction level as modules that we can query, document, or assign a version tag. We cannot make a simple query to find which modules implement a given interface. The textual inclusion also results in a small space overhead as the directives are effectively duplicated in each module that includes a file but that's a minor issue.
 
 There is also a more general problem with the implementation of interfaces (or protocols) in a module system that is not related to the `include/1` directive per se but to the lack of a clear distinction between *declaring a predicate* and *defining a predicate* in Prolog. Recall the specification quoted above of the `export/1` directive:
 
@@ -107,7 +107,7 @@ ERROR: Exported procedure cat:fly/0 is not defined
 true.
 ```
 
-I.e. *closed-world assumption* (CWA) semantics doesn't work for predicates that are *declared* but not *defined*. More precisely, CWA doesn't work for declared *static* predicates that are not defined. What about *dynamic* predicates? Let's update the `common.pl` file to:
+I.e. *closed-world assumption* [(CWA)](https://logtalk.org/manuals/glossary.html#term-closed-world-assumption) semantics doesn't work for predicates that are *declared* but not *defined*. More precisely, CWA doesn't work for declared *static* predicates that are not defined. What about *dynamic* predicates? Let's update the `common.pl` file to:
 
 ```logtalk
 :- export(sound/0).
@@ -130,7 +130,7 @@ fly :-
     fail.
 ```
 
-In contrast, Logtalk provides a [clean design and implementation of protocols](https://logtalk.org/manuals/userman/protocols.html) (interfaces). Protocols are first-class entities (like objects and categories) and can thus be defined, documented, versioned, and queried (using Logtalk reflection API). Logtalk also provides a clear distinction between *declaring a predicate* and *defining a predicate* and [CWA semantics](https://logtalk.org/manuals/glossary.html#term-closed-world-assumption) for all declared predicates, including static predicates.
+In contrast, Logtalk provides a [clean design and implementation of protocols](https://logtalk.org/manuals/userman/protocols.html) (interfaces). Protocols are first-class entities (like objects and categories) and can thus be defined, documented, versioned, and queried (using Logtalk reflection API). Logtalk also provides a clear distinction between *declaring a predicate* and *defining a predicate* and CWA [semantics](https://logtalk.org/2019/09/30/predicate-semantics.html) for all declared predicates, including static predicates.
 
 P.S. For completeness, follows the Logtalk version of the example above. We start by defining the `common` protocol and the `doc` and `cat` objects implementing the protocol:
 
