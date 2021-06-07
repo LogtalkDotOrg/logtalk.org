@@ -265,6 +265,10 @@ Diagrams scripts:
 
 Publications on research and applications using Logtalk:
 
+-	[Construction techniques of Baikal microbiome research information-computational environment ](http://ceur-ws.org/Vol-2858/)
+	Evgeniy Cherkashin, Alexey Shigarov.
+	1st International Workshop on Advanced Information and Computation Technologies and Systems. AICTS 2020.
+	December 2020
 -	[Contingent Scaffolding for System Safety Analysis](https://doi.org/10.1007/978-3-030-52240-7_71)
 	Paul S. Brown, Anthony G. Cohn, Glen Hart, Vania Dimitrova.
 	Artificial Intelligence in Education. AIED 2020. Lecture Notes in Computer Science, vol 12164. Springer, Cham.
@@ -498,7 +502,8 @@ list.
 
 ## Sponsors
 
--   [Kyndi Inc.](http://kyndi.com) --- 2015--2017
+-   [GraphStax](http://graphstax.ai) --- 2020--present
+-   [Kyndi Inc.](https://kyndi.com) --- 2015--2017
 -   VivoMind Research, LLC --- 2012--2013
 -   [GitHub sponsors](https://github.com/sponsors/pmoura)
 

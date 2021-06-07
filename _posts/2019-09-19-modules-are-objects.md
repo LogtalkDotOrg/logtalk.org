@@ -34,7 +34,7 @@ Likewise, if a module doesn't reexport other modules (or reexport predicates fro
 
 **QED**
 
-Note: the main motivation for this blog post is the well intended advice of people in the community that Logtalk is handy *when you need some OOP* in your Prolog application. This advice completely misses the point. Logtalk objects (which are capable of playing the role of both classes and prototypes) subsume Prolog modules and can do everything Prolog modules do and much more with elegance and aplomb.
+Note: the main motivation for this blog post is the well intended advice of some people in the community that Logtalk is handy *when you need some OOP* in your Prolog application. This advice completely misses the point. Logtalk objects (which are capable of playing the role of both classes and prototypes) subsume Prolog modules and can do everything Prolog modules do and much more with elegance and aplomb.
 
 ---
 
