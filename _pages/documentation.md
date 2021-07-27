@@ -20,9 +20,9 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.47.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.47.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.47.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.49.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.49.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.49.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -43,7 +43,7 @@ Core, library, tools, ports, and contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.47.0.info) (stable; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.49.0.info) (stable; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -422,11 +422,13 @@ Publications on research and applications using Logtalk:
 
 -   Abramo Bagnara (efficient expansion of once/1 goals and bug reports in corner cases when compiling disjunctions)
 -   Andreas Becker (PDT support for Logtalk; bug reports)
+-   Andrew Davison (help with Trealla Prolog integration; bug reports)
 -   Anne Ogborn (bug reports, usability suggestions)
--   Artur Miguel Dias (testing, lambda expression examples)
+-   Artur Miguel Dias (testing, lambda expression examples, CxProlog integration)
 -   Artur Wang (Visual Studio Code support for Logtalk)
 -   Arun Majumdar (bug reports, usability suggestions)
 -   Barry Evans (dead code scanner tool, usability suggestions)
+-   Camilo Correa Restrepo (bug reports)
 -   Clara Dimene (GeSHi syntax highlighter)
 -   Damien Roch (Docker support)
 -   Daniel Gross (documentation feedback and suggestions)
@@ -450,7 +452,7 @@ Publications on research and applications using Logtalk:
 -   John Stewart (Java interface suggestions and solutions)
 -   Joost Geurts (bug reports)
 -   José Antonio Riaza Valverde (Tau Prolog integration)
--   José Morales (Ciao Prolog support)
+-   José Morales (Ciao Prolog integration)
 -   Markus Triska (help in porting CLP(FD) examples)
 -   Mats Carlsson (bug reports)
 -   Michael Covington (DCGs tokenizer example)
@@ -468,6 +470,7 @@ Publications on research and applications using Logtalk:
 -   Paul Tarau (feedback on threaded engines API and examples)
 -   Paula Marisa Sampaio (state-space searching examples)
 -   Paulo Nunes (multi-threading testing)
+-   Paulo Urbano (initial adapter file for Quintus Prolog)
 -   Per Mildner (code for helping decompose file paths and feedback on Prolog compliance testing)
 -   Peter Van Roy (EDCGs implementation)
 -   rbt (bug reports)
@@ -477,8 +480,10 @@ Publications on research and applications using Logtalk:
 -   Robert Shiplett (bug reports)
 -   Rui Marques (bug reports)
 -   Sergio Castro (Docker support, IntelliJ IDEA support, testing, suggestions, and bug reports)
+-   Taner Bilgic (initial adapter file for ECLiPSe)
 -   Timon Van Overveldt (multi-threading optimization and bug reports)
 -   Theofrastos Mantadelis (\"flags\" contribution, ProbLog integration support, benchmark tests)
+-   Ugo Chirico (help with JIProlog integration)
 -   Ulrich Neumerkel (lambda expression examples, bug reports, and feedback on Prolog compliance testing)
 -   Victor Lagerkvist (testing, library enhancements, made [VerdiNeruda](http://joelbyte.github.com/verdi-neruda/) available)
 -   Victor Noel (bug reports)

@@ -4,6 +4,285 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.49.0 - July 27, 2021
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* FIXED: When compiling with the `clean` flag turned on, also delete any
+intermediate Prolog files that may have been generated in previous runs
+for the same backend with the `clean` flag turned off.
+
+* FIXED: Generated intermediate Prolog file name conflicts when running with
+two backends that generate the same directory hashes and compiling with the
+`clean` flag turned off. Thanks to Andrew Davison for the bug report.
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: The Trealla Prolog adapter file to require 1.9.38 or later version.
+
+Documentation
+-------------
+
+* ADDED: Documentation to the `lgtunit` tool on automating testing on Windows
+operating-systems.
+
+* UPDATED: Handbook documentation of the `clean` flag.
+
+Library
+-------
+
+* CHANGED: The `git` library no longer wraps pretty print formats using double
+quotes to avoid portability issues when running on Windows operating-systems
+due to differences between the Prolog backends handling of shell commands.
+
+* CHANGED: Roundtrip tests for the `csv` and `json` libraries to not require
+the `diff` shell command.
+
+* CHANGED: The definition of the `os::temporary_directory/1` predicate
+to expand the directory to an absolute path for a more consistent path
+representation on Windows operating-systems.
+
+* ADDED: Predicate `internal_os_path/2` to the `os` library to convert between
+internal (backend dependent) paths and operating-system native paths Note that
+only a few backends provide this functionality.
+
+* ADDED: Definition for the `os::shell/1-2` predicates for ECLiPSe when run on
+Windows operating-systems.
+
+* ADDED: Additional test for the `os::file_permission/2` predicate.
+
+* ADDED: Experimental support for using the `git` library when running on
+Windows operating-systems.
+
+* IMPROVED: Handling of operating-system paths in the `os` library for ECLiPSe
+when run on Windows operating-systems.
+
+* UPDATED: The `redis` library tests to check for `REDIS_HOST` and `REDIS_PORT`
+environment variables as an alternative to the default `localhost` and `6379`
+values.
+
+* FIXED: Test for the `csv` library when run on Windows operating-systems.
+
+* FIXED: Workaround SICStus Prolog issue with the `csv` library when run on
+Windows operating-systems
+
+* FIXED: Tests for the `csv`, `hook_objects`, and `reader` libraries when run
+on Windows operating-systems using B-Prolog, GNU Prolog, or XSB.
+
+* FIXED: Tests for the `reader` library when run on Windows operating-systems.
+
+* FIXED: Tests for the `os::shell/1-2` predicates to use a command available
+in both POSIX and Windows operating-systems.
+
+* FIXED: Definition of the `os::operating_system_type/1` predicate for GNU
+Prolog would fail to detect Windows operating-systems.
+
+* FIXED: Definition of the `os::file_permission/2` predicate for CxProlog.
+
+* FIXED: Definitions of the `os::shell/1-2` predicates for SICStus Prolog and
+SWI-Prolog when running on Windows operating-systems.
+
+* FIXED: Definition of the `os::shell/1` predicate for XSB.
+
+* FIXED: Definition of `os` library predicates for XSB that may report file or
+directory existence errors where the wrong exception term would be thrown.
+
+Tools
+-----
+
+* IMPROVED: The `lgtunit` default message when a test set is skipped to include
+the test object identifier to provide more detailed information when tests are
+skipped only for some parameterizations of a test object.
+
+* FIXED: The `logtalk_tester` script when running on Windows operating-systems
+using the Bash shell bundled with the Git for Windows installer.
+
+* FIXED: Tests for the `help` tool when using ECLiPSe on Windows systems.
+
+Examples
+--------
+
+* UPDATED: The notes and source code on the `tcltk` example to illustrate how
+to run it on Windows.
+
+* FIXED: Workaround a XSB parser bug that prevented loading the `bench`
+example.
+
+* FIXED: Tests for the `around_methods`, `books`, `hailstone`, `hello_world`,
+`localizations`, and `patches` examples when run on Windows systems using
+B-Prolog, GNU Prolog, or XSB.
+
+* FIXED: Tests for the `slides` example when run on Windows systems.
+
+Tests
+-----
+
+* ADDED: Additional test for the standard `set_prolog_flag/2` predicate to
+check that it recognizes all flags, thus including read-only flags.
+
+* ADDED: Additional tests for the standard `current_prolog_flag/2` predicate
+to check that all flag names are atoms and all flag values are bound.
+
+* IMPROVED: The tests for the standard `read_term/3` predicate to avoid the
+tests hanging on Prolog backends that don't check options validity before
+attempting to read a term.
+
+* IMPROVED: Tests for the `logtalk_library_path/2` predicate.
+
+* FIXED: Tests for the `format/2-3` and `nl/0-1` predicates when run on Windows
+systems using B-Prolog, GNU Prolog, or XSB.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: Windows installer notes on using recent versions of Inno Setup.
+
+* FIXED: The Windows installer for the YAP 6.3.4 installer, which creates a
+`cwd` registry key instead of a `home` registry key as in previous installers.
+
+
+3.48.0 - July 6, 2021
+=====================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: The names generated by the compiler for the intermediate Prolog
+files now include the process identifier when the `clean` flag is turned on
+(its default value), helping preventing clashes when running multiple Logtalk
+processes in parallel (except when using the Quintus Prolog backend).
+
+* CHANGED: Revert compiler change to use internally the de facto standard
+`between/3` predicate to avoid breaking XSB support.
+
+* CHANGED: The compilation of coinductive predicates to check if either `if/3`
+or `(*->)/2` are built-in predicates instead of relying in the adapter file
+declaration of proprietary built-in meta-predicates.
+
+Prolog adapter and integration files
+------------------------------------
+
+* IMPROVED: GNU Prolog adapter file workaround for non-standard `format/3`
+predicate feature.
+
+* UPDATED: Require B-Prolog 8.1 or later version.
+
+* UPDATED: The LVM adapter file listing of proprietary built-in meta-predicates
+and candidate tautology and falsehood goals.
+
+* UPDATED: The Trealla Prolog adapter file to requite 1.8.75 or later version.
+Also updated the listings of proprietary built-in meta-predicates, proprietary
+predicate properties, and candidate tautology and falsehood goals.
+
+* FIXED: The Trealla Prolog adapter file definition of the internal predicate
+`'$lgt_copy_term_without_constraints'/2`.
+
+* FIXED: Change Ciao Prolog adapter file definition of the `modules` flag to
+`unsupported`.
+
+Documentation
+-------------
+
+* ADDED: Handbook section on running parallel Logtalk processes.
+
+* ADDED: Handbook overview of the different stages of the multi-pass compiler. 
+
+* IMPROVED: Handbook documentation on declaring and using public entity
+operators.
+
+* IMPROVED: Multiple Handbook glossary entries.
+
+* IMPROVED: Handbook documentation on the `initialization/1` directive.
+
+* IMPROVED: Handbook section on writing and running applications.
+
+* IMPROVED: Documentation of the `lgtunit` tool on defining test driver files
+and running tests.
+
+* FIXED: Typo in the template for the `catch/3` built-in method. Thanks to
+Camilo Correa Restrepo for the bug report.
+
+* FIXED: Typo in the Handbook section on calling Prolog module meta-predicates
+that require overriding the meta-predicate templates.
+
+Library
+-------
+
+* IMPROVED: Most `cbor` library tests for float encoding now use roundtrip
+testing instead of checking for the expected canonical encoding to avoid
+float precision representation issues making the tests fail.
+
+* IMPROVED: Tests of the `random` library.
+
+Tools
+-----
+
+* CHANGED: The `logtalk_tester` script test sets stats message to use the
+words `timedout` instead of `timeouts` and `crashed` instead of `crashes`
+for consistency plus singular and plural agreement.
+
+* IMPROVED: The `logtalk_tester` script test now prints the run time in
+seconds for each test set.
+
+* IMPROVED: Tests for the `ports_profiler` tool.
+
+* IMPROVED: Simplify cleanup step for the `diagrams` tool tests.
+
+Examples
+--------
+
+* ADDED: New `tcltk` example illustrating how to add a portable GUI to an
+application using Tcl and Tk. Contributed by Paul Brown.
+
+* IMPROVED: Tests for the `blocks`, `bricks`, `dynpred`, `futures`, `hooks`,
+`hailstone`, `includes`, `laptops`, `logs`, `metaclasses`, `multifile`,
+`patches`, `patching`, `polygons`, `reflection`, `self_messages`, `scopes`,
+and `threads/functions` examples.
+
+* FIXED: A `benchmarks` example portability issue with the Ciao Prolog and
+XSB backends.
+
+Tests
+-----
+
+* CHANGED: Tests for the `log/1`, `log/2`, and `log10/1` arithmetic functions
+to allow any argument to the expected `evaluation_error/1` exception when the
+argument or the base is zero as there's a lack of consensus between backends.
+
+* ADDED: Additional test for the `write_term/3` predicate `variable_names/1`
+option.
+
+* ADDED: Additional tests for the `set_prolog_flag/2` predicate.
+
+* ADDED: Tests for the Prolog `popcount/1` built-in function when available.
+
+* ADDED: Additional tests for unbounded integer arithmetic.
+
+* IMPROVED: Skip the tests for the ISO Prolog standard `open/3-4` built-in
+predicates permission error conditions when running on a POSIX system as root.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Sublime Text support for toggling comments when editing Logtalk source
+files.
+
+* FIXED: Sublime Text instructions for installing Logtalk support.
+
+Installers and installation scripts
+-----------------------------------
+
+* ADDED: LVM embedding script.
+
+* FIXED: CxProlog and SWI-Prolog embedding scripts to use the correct directory
+to load the precompiled Logtalk compiler and runtime.
+
+* FIXED: The `logtalk_backend_select` script for the new LVM executable name.
+
+
 3.47.0 - June 1, 2021
 =====================
 

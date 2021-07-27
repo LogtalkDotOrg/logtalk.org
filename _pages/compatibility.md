@@ -9,7 +9,7 @@ Prolog compiler. The interface between Logtalk and a specific backend
 Prolog compiler is accomplished using a small adapter file. The Logtalk
 distribution includes adapter files for all supported Prolog compilers:
 
--   [B-Prolog 7.8 or later versions](http://www.picat-lang.org/bprolog/)
+-   [B-Prolog 8.1 or later versions](http://www.picat-lang.org/bprolog/)
 -   [Ciao Prolog (version 1.20.0 or later)](http://ciao-lang.org) *(experimental)*
 -   [CxProlog 0.98.1 or later versions](http://ctp.di.fct.unl.pt/~amd/cxprolog/)
 -   [ECLiPSe 6.1\#143 or later versions](http://eclipseclp.org/)
@@ -21,10 +21,14 @@ distribution includes adapter files for all supported Prolog compilers:
 -   [SICStus Prolog 4.1.0 or later versions](https://sicstus.sics.se)
 -   [SWI Prolog 6.6.0 or later versions](http://www.swi-prolog.org/)
 -   [Tau Prolog (version 0.3.0 or later)](http://tau-prolog.org)
--   [Trealla ProLog (version 1.8.71 or later)](https://github.com/infradig/trealla) *(experimental)*
+-   [Trealla ProLog (version 1.9.38 or later)](https://github.com/infradig/trealla) *(experimental)*
 -   [XSB 3.8.0 or later versions](http://xsb.sourceforge.net/)
 -   [YAP 6.3.4 or later versions](https://github.com/vscosta)
 
-Legacy Logtalk versions (2.x) provide support for some other Prolog
-compilers, which are no longer supported due to lack of compliance with
-official and de facto standards.
+The *experimental* label means that some Logtalk features may not work as
+expected due to the backend Prolog compilers being under development and
+thus not stable and/or not (yet) providing required standard features.
+
+Previous Logtalk 3.x versions and legacy 2.x versions provide support for
+some other Prolog compilers, which are no longer supported due to lack of
+compliance with official and de facto standards.

@@ -8,6 +8,34 @@ aside:
 
 ### 2021
 
+##### July 27
+
+> Logtalk 3.49.0 is now available for [downloading](download.html). This release
+> focus on improved Windows support, providing several fixes and improvements for
+> libraries, tools, examples, and tests. Notably, it's again possible to use the
+> testing automation script on Windows. Related portability updates are provided
+> for B-Prolog, CxProlog, ECLiPSe, GNU Prolog, SICStus Prolog, SWI-Prolog, XSB,
+> and YAP. This release also includes improved support for running Logtalk concurrently
+> with multiple backends, improved testing support for reporting skipped test sets,
+> additional standards compliance tests, and documentation updates. For details
+> and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
+##### July 6
+
+> Logtalk 3.48.0 is now available for [downloading](download.html). This release
+> provides out of the box support for running parallel Logtalk processes; updates
+> support for Ciao Prolog, CxProlog, GNU Prolog, LVM, SWI-Prolog, and Trealla Prolog;
+> adds new Handbook sections on running parallel processes and on different stages of
+> the multi-pass compiler; improves several Handbook sections; improves documentation
+> of the `lgtunit` tool; improves tests for the `cbor` and `random` libraries; updates
+> the `logtalk_tester` script to print the run time in seconds for each test set;
+> adds a new example contributed by Paul Brown on adding portable application GUIs
+> using Tcl and Tk; improves tests for multiple examples; includes new and improve
+> standards compliance tests; and improves support for the Sublime Text editor. For
+> details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### June 1
 
 > Logtalk 3.47.0 is now available for [downloading](download.html). This release
