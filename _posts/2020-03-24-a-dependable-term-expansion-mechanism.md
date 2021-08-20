@@ -28,7 +28,7 @@ object that should be used to expand it:
 :- set_logtalk_flag(hook, my_hook_object).
 ```
 
-Note that [`set_logtalk_flag/1`](https://logtalk.org/manuals/refman/directives/set_logtalk_flag_2.html)
+Note that [`set_logtalk_flag/2`](https://logtalk.org/manuals/refman/directives/set_logtalk_flag_2.html)
 directives are local to the entity or source file containing them. The second
 option is to use the `hook/1` compiler option of the compilation and
 loading built-in predicates:
@@ -39,7 +39,7 @@ loading built-in predicates:
 ```
 
 The third option is to define a default hook object using the
-[`set_logtalk_flag/1`](https://logtalk.org/manuals/refman/predicates/set_logtalk_flag_2.html)
+[`set_logtalk_flag/2`](https://logtalk.org/manuals/refman/predicates/set_logtalk_flag_2.html)
 predicate (which, unlike the directive, sets global and thus default flag values):
 
 ```text
