@@ -99,21 +99,26 @@ The following installers are available for the latest stable version:
 
 ### macOS
 
-Based on the [MacPorts](http://www.macports.org/) portfile. Installs
-Logtalk on `/opt/local/share/` with integration scripts for supported
-Prolog compilers on `/opt/local/bin`. Creates an `/Applications/Logtalk`
-folder with links to the installed files.
+Installs Logtalk on `/opt/local/share/` with integration scripts for
+supported Prolog compilers on `/opt/local/bin`. Creates an
+`/Applications/Logtalk` folder with links to the installed files.
 
 > [`logtalk-3.49.0.pkg.zip`](files/logtalk-3.49.0.pkg.zip)  
 > `e6ec748f3e72f5a103cbc863bd43756c92cc983e0b21d4e3eba20bed4709afb5` (SHA-256)
 
-A [MacPorts](http://www.macports.org/) portfile is also available. Users
-may simply type the command `sudo port install logtalk` (or
-`sudo port upgrade logtalk`) in order to install (or upgrade) Logtalk.
-[Homebrew](http://mxcl.github.com/homebrew/) users may simply type the
-command `brew install logtalk` (or `brew upgrade logtalk`) in order to
-install (or upgrade) Logtalk. But do check first that the MacPorts
-portfile and the Homebrew formula are up-to-date.
+#### MacPorts
+
+[MacPorts](https://www.macports.org/) users may use the command `sudo
+port install logtalk` (or `sudo port upgrade logtalk`) in order to
+install (or upgrade) Logtalk. Check that the
+[port](https://ports.macports.org/port/logtalk/) is up-to-date.
+
+#### Homebrew
+
+[Homebrew](https://brew.sh/) users may use the command `brew install
+logtalk` (or `brew upgrade logtalk`) in order to install (or upgrade)
+Logtalk. Check first that the [formula](https://formulae.brew.sh/formula/logtalk)
+is up-to-date.
 
 
 ### Linux
