@@ -110,7 +110,7 @@ supported Prolog compilers on `/opt/local/bin`. Creates an
 
 [MacPorts](https://www.macports.org/) users may use the command `sudo
 port install logtalk` (or `sudo port upgrade logtalk`) in order to
-install (or upgrade) Logtalk. Check that the
+install (or upgrade) Logtalk. Check first that the
 [port](https://ports.macports.org/port/logtalk/) is up-to-date.
 
 #### Homebrew

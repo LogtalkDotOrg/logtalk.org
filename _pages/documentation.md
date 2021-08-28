@@ -153,6 +153,9 @@ Diagrams scripts:
 
 ## Publications
 
+-   [Refactoring the Whitby Intelligent Tutoring System for Clean Architecture](https://arxiv.org/abs/2108.04621).
+	Paul S. Brown, Vania Dimitrova, Glen Hart, Anthony G. Cohn, Paulo Moura.
+	37th International Conference on Logic Programming (ICLP 2021).
 -   [A Portable and Efficient Implementation of Coinductive Logic
     Programming](http://dx.doi.org/10.1007/978-3-642-45284-0_6). Paulo
     Moura. Proceedings of the Fifteenth International Symposium on
