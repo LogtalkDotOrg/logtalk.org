@@ -8,6 +8,20 @@ aside:
 
 ### 2021
 
+##### August 31
+
+> Logtalk 3.50.0 is now available for [downloading](download.html). This release
+> focus on improved documentation, developer tools, and test suites. The Handbook
+> includes improved sections on documenting and testing applications, directives,
+> and multi-threaded features. The testing automation script have been updated
+> with support for passing base URLs to generate reports that link to the tests
+> source code. The documenting and diagrams includes more versatile helper scripts
+> with new options. A significant number of new tests have been added to the Prolog
+> standards compliance suite for better coverage. This release also includes fixes
+> and updates to libraries and examples plus portability updates for JIProlog, LVM,
+> and SICStus Prolog. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### July 27
 
 > Logtalk 3.49.0 is now available for [downloading](download.html). This release

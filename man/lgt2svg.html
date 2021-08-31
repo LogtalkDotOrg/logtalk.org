@@ -54,11 +54,15 @@ p.roffit {
 <p class="level0"><a name="NAME"></a><h2 class="nroffsh">NAME</h2>
 <p class="level0">lgt2svg - Logtalk script for converting DOT diagram files into SVG files 
 <p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">SYNOPSIS</h2>
-<p class="level0"><span Class="bold">lgt2svg</span> <br><span Class="bold">lgt2svg</span> <span Class="bold">-v</span> <br><span Class="bold">lgt2svg</span> <span Class="bold">-h</span> 
+<p class="level0"><span Class="bold">lgt2html</span> [<span class="bold">-c <span Class="emphasis">command</span>] [<span class="bold">-- <span Class="emphasis">arguments</span>] <br><span Class="bold">lgt2svg</span> <span Class="bold">-v</span> <br><span Class="bold">lgt2svg</span> <span Class="bold">-h</span> 
 <p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">DESCRIPTION</h2>
 <p class="level0"><span Class="bold">lgt2svg</span> is a Logtalk script for converting DOT diagram files into SVG files. 
+<p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">OPTIONS</h2>
+<p class="level0">
+<p class="level0"><span Class="bold">-c </span> Graphviz command (valid values are <span Class="emphasis">dot</span>, <span Class="emphasis">circo</span>, <span Class="emphasis">fdp</span> and <span Class="emphasis">neato</span>; default is <span Class="emphasis">dot</span>). 
+<p class="level0"><span Class="bold">--</span> Arguments to be passed to Graphviz command (no default). 
 <p class="level0"><a name="REQUIREMENTS"></a><h2 class="nroffsh">REQUIREMENTS</h2>
-<p class="level0">Requires a recent version of Graphviz installed with the <span Class="bold">dot</span> executable available from the system <span Class="bold">PATH</span>. 
+<p class="level0">Requires a recent version of Graphviz installed with the command-line executables available from the system <span Class="bold">PATH</span>. 
 <p class="level0"><a name="ENVIRONMENT"></a><h2 class="nroffsh">ENVIRONMENT</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. 

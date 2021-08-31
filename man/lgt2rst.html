@@ -54,7 +54,7 @@ p.roffit {
 <p class="level0"><a name="NAME"></a><h2 class="nroffsh">NAME</h2>
 <p class="level0">lgt2rst - Logtalk script for converting XML documenting files into reStructuredText files, notably for use with Sphinx 
 <p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">SYNOPSIS</h2>
-<p class="level0"><span Class="bold">lgt2rst</span> [<span class="bold">-d <span Class="emphasis">directory</span>] [<span class="bold">-i <span Class="emphasis">index</span>] [<span class="bold">-t <span Class="emphasis">title</span>] [<span class="bold">-p <span Class="emphasis">processor</span>] [<span class="bold">-s<span Class="emphasis"></span>] <br><span Class="bold">lgt2rst</span> <span Class="bold">-h</span> 
+<p class="level0"><span Class="bold">lgt2rst</span> [<span class="bold">-d <span Class="emphasis">directory</span>] [<span class="bold">-i <span Class="emphasis">index</span>] [<span class="bold">-t <span Class="emphasis">title</span>] [<span class="bold">-p <span Class="emphasis">processor</span>] [<span class="bold">-s<span Class="emphasis"></span>] [<span class="bold">-m<span Class="emphasis"></span>] <br><span Class="bold">lgt2rst</span> <span Class="bold">-h</span> 
 <p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">DESCRIPTION</h2>
 <p class="level0"><span Class="bold">lgt2rst</span> is a Logtalk script for converting all Logtalk XML documenting files in the current directory into reStructuredText files, notably for use with Sphinx. Assumes UTF-8 encoding. 
 <p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">OPTIONS</h2>
@@ -64,6 +64,7 @@ p.roffit {
 <p class="level0"><span Class="bold">-t</span> <span Class="emphasis">title</span> Title to be used on the index file. 
 <p class="level0"><span Class="bold">-p</span> <span Class="emphasis">processor</span> XSLT processor. 
 <p class="level0"><span Class="bold">-s</span> Runs sphinx-quickstart script. 
+<p class="level0"><span Class="bold">-m</span> Runs make html (requires also using the <span class="bold">-s<span Class="emphasis"></span> option). 
 <p class="level0"><span Class="bold">-h</span> Prints a summary of the script options. 
 <p class="level0"><a name="REQUIREMENTS"></a><h2 class="nroffsh">REQUIREMENTS</h2>
 <p class="level0">Requires a compatible XSLT processor. See the script help screen for more information. The use of the -s option requires Sphinx, the Read the Docs Sphinx theme, and Pygments to be installed. 
@@ -81,6 +82,7 @@ p.roffit {
 <p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk_entity_to_rst.xsl</span> The Logtalk entity XSLT file. 
 <p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk_index_to_rst.xsl</span> The Logtalk index XSLT file. 
 <p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/conf.py_t</span> The conf.py template file. 
+<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/css/sphinx/custom.css</span> The CSS file used to customize the Sphinx Read the Docs theme. 
 <p class="level0"><a name="SEE"></a><h2 class="nroffsh">SEE ALSO</h2>
 <p class="level0">The Sphinx website at <a href="https://www.sphinx-doc.org/">https://www.sphinx-doc.org/</a> 
 <p class="level0">The Pygments website at <a href="https://pygments.org/">https://pygments.org/</a> 
