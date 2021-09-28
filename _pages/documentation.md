@@ -219,7 +219,8 @@ Diagrams scripts:
     Heidelberg.
 -   [Logtalk Processing of STEP Part 21 Files](http://dx.doi.org/10.1007/11799573_45).
 	Paulo Moura and Vincent Marchetti.
-	Proceedings of the 22nd International Conference on Logic Programming (ICLP), August 2006. LNCS 4079. Springer-Verlag Berlin Heidelberg.
+	Proceedings of the 22nd International Conference on Logic Programming (ICLP),
+	August 2006. LNCS 4079. Springer-Verlag Berlin Heidelberg.
 
 <!-- -->
 
@@ -415,6 +416,10 @@ Publications on research and applications using Logtalk:
     Presentations](http://www.cwi.nl/ftp/CWIreports/INS/INS-R0205.pdf).
     Oscar Rosell Martinez. Master Thesis, Technical University of
     Catalonia, June 30, 2002. CWI technical report INS-R0205.
+-	Implementing materialization in Logtalk. Esteban Zimányi.
+	Tech. Rep. YEROOS TR- 97/09, Laboratoire de Bases de Données,
+	Département d'Informatique, Ecole Polytechnique Fédérale de Lausanne,
+	Switzerland, Apr. 1997.
 -   (more to come)
 
 ## Authors
@@ -467,7 +472,7 @@ Publications on research and applications using Logtalk:
 -   Neng-Fa Zhou (bug reports)
 -   Nicolas Pelletier (bug reports, text editor support)
 -   Parker Jones (testing, unit tests, bug reports)
--   Paul Brown (libraries, bug reports, suggestions, Wikipedia page maintenance)
+-   Paul Brown (scaffolding tool, libraries, bug reports, suggestions, Wikipedia page maintenance)
 -   Paul Crocker (testing, multi-threading and meta-predicates examples, bug reports)
 -   Paul Fodor (library enhancements)
 -   Paul Tarau (feedback on threaded engines API and examples)

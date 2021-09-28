@@ -324,6 +324,20 @@ languages and tools that can also be handled by `asdf`.
 
 GitHub actions and workflows are [available](https://github.com/logtalk-actions) for CI/CD of Logtalk applications with source code repos hosted at GitHub. See the [demo](https://github.com/logtalk-actions/demo) repo for an example of automating testing with xUnit and code coverage reports, (re)generating API documentation, and (re)generating application diagrams every time a commit is made.
 
+
+## Project scaffolding
+
+The following tools are not part of the Logtalk distribution but kindly contributed by Logtalk users:
+
+### Cookiecutter Logtalk
+
+[Cookiecutter](https://cookiecutter.readthedocs.io/) is a Python tool that creates projects from project templates. It supports project templates that can be in any programming language or markup format, now including Logtalk, thanks to Paul Brown. To install Cookiecutter Logtalk, visit its [GitHub repo](https://github.com/PaulBrownMagic/cookiecutter-logtalk).
+
+### lgtinit
+
+[lgtinit](https://github.com/eazar001/lgtinit) is POSIX script for project scaffolding contributed by Ebrahim Azarisooreh.
+
+
 ## Third-party tools
 
 ### SWI-Prolog tools
