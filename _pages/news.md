@@ -8,6 +8,24 @@ aside:
 
 ### 2021
 
+##### October 26
+
+> Logtalk 3.51.0 is now available for [downloading](download.html). This release
+> includes a beta version of the new `packs` tool, a portable and decentralized
+> package manager; provides new `lgtunit` test outcomes and new input/output
+> testing predicates; improves the compilation of large test sets by generating
+> more compact code; improves the generation of Allure testing reports to include
+> crashed and broken test sets; includes improved man pages to the testing scripts;
+> includes `lgtdoc` tool bug fixes; improves the `make` tool; includes new `csv`
+> library predicates; updates the `os` library for some backends; improves some
+> of the programming examples; includes additional tests for Prolog compliance;
+> fixes a Windows installer bug with settings files; and includes portability
+> updates for all backends, notably by providing implementations of the
+> `atomic_concat/3` and `atomic_list_concat/2-3` predicates. Thanks to Paul Brown,
+> Michael T. Richter, and Doug Kearns for their contributions to this release.
+> For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### August 31
 
 > Logtalk 3.50.0 is now available for [downloading](download.html). This release
