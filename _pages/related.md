@@ -15,6 +15,7 @@ Logtalk on the web
     [official](https://hub.docker.com/u/logtalk/) and
     [third-party](https://hub.docker.com/r/koryonik/logtalk-swi/)
     containers
+-	[Public Logtalk and Prolog pack registries](https://github.com/LogtalkDotOrg/pack-registries)
 -	[bacon-logtalk - a system for scientific discovery](https://github.com/lindseyspratt/bacon-logtalk)
 -   [SitCalc - A generic framework for passing round "state" in Logtalk applications based on Situation Calculus](https://github.com/PaulBrownMagic/SitCalc)
 -   [STRIPState - STRIPS/Situation Calculus handler for handling state in Logtalk applications without mutation](https://github.com/PaulBrownMagic/STRIPState)

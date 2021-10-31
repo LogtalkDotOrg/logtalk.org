@@ -177,7 +177,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 -   Approximate float comparison support
 -   Test set and per test annotations
 -   Parametrized unit tests
--   Testing automation script (supports CI servers)
+-   Testing automation script (supports CI/CD pipelines with detailed test and code coverage reports)
 -   TAP and xUnit test reports
 -   Test set condition, setup, and cleanup goals
 -   Per test condition, setup, and cleanup goals
