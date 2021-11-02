@@ -296,6 +296,7 @@ registries (e.g. official, public, company private, ...) and allows user to:
 -	Define registries as git repos, archives, or local directories
 -	Specify multiple pack versions
 -	Work with minimal specifications for registries and packs
+-	Define, save, and restore virtual environments (registries/packs setups)
 
 There's also an [index](https://github.com/LogtalkDotOrg/pack-registries) of public pack registries.
 

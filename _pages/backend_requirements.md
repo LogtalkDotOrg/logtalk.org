@@ -23,13 +23,15 @@ Logtalk coinduction features requires that the backend Prolog compiler supports 
 In addition, Logtalk requires basic access to the operating-system (either as Prolog built-in predicates or as library predicates) including:
 
 * expanding a relative path into an absolute path (including paths with environment variables)
-* converting between Prolog paths and operating-systems paths (if necessary)
+* converting between Prolog internal paths and operating-systems paths (if necessary)
 * file and directory existence testing
 * file modification time
 * file deleting
+* file permissions (read, write, execute)
 * querying and changing the current working directory
-* directory creation
-* current date and time 
+* directory creating and deleting
+* current date and time
+* access to cpu and wall time
 * accessing environment variable values
 
 These operating-system access predicates are used in the Prolog compiler adapter file and in the portable operating-system library.
