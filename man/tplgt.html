@@ -56,12 +56,12 @@ p.roffit {
 <p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">SYNOPSIS</h2>
 <p class="level0"><span Class="bold">tplgt</span> [<span class="bold">-g <span Class="emphasis">goal</span>] 
 <p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">DESCRIPTION</h2>
-<p class="level0"><span Class="bold">tplgt</span> is a Logtalk integration script for Trealla Prolog. It automatically loads the Trealla Prolog adapter file, the Logtalk compiler and runtime, the Logtalk default table of library names and paths, and any existing settings file found on the lookup directories. 
+<p class="level0"><span Class="bold">tplgt</span> is a Logtalk integration script for Trealla Prolog. It automatically loads the Trealla Prolog adapter file, the Logtalk compiler and runtime, the Logtalk default table of library names and paths, and any existing settings file found on the lookup directories. It uses the <span Class="bold">tpl</span> executable <span Class="bold">-l</span> option to load the Logtalk files. It passes any options to the <span Class="bold">tpl</span> executable; see the Trealla Prolog documention for the available options. 
 <p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">OPTIONS</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">-g</span> <span Class="emphasis">goal</span> Initialization goal, written between double quotes, to be executed after Logtalk startup. 
 <p class="level0"><a name="REQUIREMENTS"></a><h2 class="nroffsh">REQUIREMENTS</h2>
-<p class="level0">Trealla Prolog 1.14.0 or a later version is required. This integration script looks for a &quot;tpl&quot; executable in the system path. 
+<p class="level0">Trealla Prolog 1.16.6 or a later version is required. This integration script looks for a &quot;tpl&quot; executable in the system path. 
 <p class="level0"><a name="ENVIRONMENT"></a><h2 class="nroffsh">ENVIRONMENT</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. 
@@ -74,6 +74,9 @@ p.roffit {
 <p class="level0"><span Class="bold">$LOGTALKHOME/paths/paths.pl</span> The default table of library names and paths. 
 <p class="level0"><span Class="bold">./settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). May not exist. 
 <p class="level0"><span Class="bold">$LOGTALKUSER/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). May not exist. 
+<p class="level0"><span Class="bold">$HOME/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). May not exist. 
+<p class="level0"><span Class="bold">$XDG_CONFIG_HOME/logtalk/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). May not exist. 
+<p class="level0"><span Class="bold">$HOME/.config/logtalk/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). May not exist. 
 <p class="level0"><a name="SEE"></a><h2 class="nroffsh">SEE ALSO</h2>
 <p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> 
 <p class="level0">The Logtalk User and Reference Manuals at <span Class="bold">$LOGTALKHOME/manuals/index.html</span> 

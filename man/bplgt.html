@@ -56,7 +56,7 @@ p.roffit {
 <p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">SYNOPSIS</h2>
 <p class="level0"><span Class="bold">bplgt</span> [<span class="bold">-g <span Class="emphasis">goal</span>] 
 <p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">DESCRIPTION</h2>
-<p class="level0"><span Class="bold">bplgt</span> is a Logtalk integration script for B-Prolog. It automatically loads the B-Prolog adapter file, the Logtalk compiler and runtime, the Logtalk default table of library names and paths, and any existing settings file found on the lookup directories. 
+<p class="level0"><span Class="bold">bplgt</span> is a Logtalk integration script for B-Prolog. It automatically loads the B-Prolog adapter file, the Logtalk compiler and runtime, the Logtalk default table of library names and paths, and any existing settings file found on the lookup directories. It uses the <span Class="bold">bp</span> executable <span Class="bold">-i</span> option to load the Logtalk files. It passes any options to the <span Class="bold">bp</span> executable; see the B-Prolog documention for the available options. 
 <p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">OPTIONS</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">-g</span> <span Class="emphasis">goal</span> Initialization goal, written between double quotes, to be executed after Logtalk startup. 
@@ -74,6 +74,9 @@ p.roffit {
 <p class="level0"><span Class="bold">$LOGTALKHOME/paths/paths.pl</span> The default table of library names and paths. 
 <p class="level0"><span Class="bold">./settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). May not exist. 
 <p class="level0"><span Class="bold">$LOGTALKUSER/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). May not exist. 
+<p class="level0"><span Class="bold">$HOME/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). May not exist. 
+<p class="level0"><span Class="bold">$XDG_CONFIG_HOME/logtalk/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). May not exist. 
+<p class="level0"><span Class="bold">$HOME/.config/logtalk/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). May not exist. 
 <p class="level0"><a name="SEE"></a><h2 class="nroffsh">SEE ALSO</h2>
 <p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> 
 <p class="level0">The Logtalk User and Reference Manuals at <span Class="bold">$LOGTALKHOME/manuals/index.html</span> 

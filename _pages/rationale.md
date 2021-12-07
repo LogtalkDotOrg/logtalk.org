@@ -107,7 +107,7 @@ The Logtalk code is as readable as the module code, provides the same performanc
 
 ### Portability
 
-Logtalk is written in highly portable code and currently supports [14 backend Prolog systems](download.html#requirements). It can support any Prolog system that complies with official and de facto core standards. Logtalk libraries and [developer tools](tools.html) are also portable.
+Logtalk is written in highly portable code and currently supports [15 backend Prolog systems](download.html#requirements). It can support any Prolog system that complies with official and de facto core standards. Logtalk libraries and [developer tools](tools.html) are also portable.
 
 In contrast, the ISO Prolog standard for modules is ignored (for sound reasons) by Prolog implementers. Worse, Prolog systems implementing a module system have significant differences that hinder portability. A few examples:
 

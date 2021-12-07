@@ -25,8 +25,8 @@ In addition, Logtalk requires basic access to the operating-system (either as Pr
 * expanding a relative path into an absolute path (including paths with environment variables)
 * converting between Prolog internal paths and operating-systems paths (if necessary)
 * file and directory existence testing
-* file modification time
-* file deleting
+* file size and modification time
+* file copying, renaming, and deleting
 * file permissions (read, write, execute)
 * querying and changing the current working directory
 * directory creating and deleting

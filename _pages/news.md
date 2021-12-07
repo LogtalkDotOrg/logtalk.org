@@ -8,6 +8,20 @@ aside:
 
 ### 2021
 
+##### December 7
+
+> Logtalk 3.52.0 is now available for [downloading](download.html). This release
+> fixes compiler and linter issues; includes an improved version of the new `packs`
+> tool, a portable and decentralized package manager; adds new `dif` and `format`
+> abstraction libraries; updates the `hook_objects`, `os`, and `types` libraries;
+> includes documentation updates to the Handbook, tools, man pages, and scripts;
+> includes fixes and improvements for the `debugger`, `diagrams`, `lgtunit`, and
+> `tutor` tools; updates several programming examples; provides additional Prolog
+> standards compliance tests; provides additional Logtalk tests; and includes
+> portability updates for GNU Prolog, LVM, Tau Prolog, Trealla Prolog, XSB, and YAP.
+> For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### October 26
 
 > Logtalk 3.51.0 is now available for [downloading](download.html). This release

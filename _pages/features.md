@@ -159,5 +159,5 @@ modern compiler.
 ### Comprehensive set of developer tools
 
 The Logtalk distribution includes make, debugging, documenting,
-diagraming, testing, assertion, profiling, and porting developer
-tools.
+diagraming, testing, assertion, profiling, porting, versioning,
+and packaging developer tools.
