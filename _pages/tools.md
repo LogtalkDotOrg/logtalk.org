@@ -190,6 +190,8 @@ QuickCheck support includes both test idioms and predicates that can be used e.g
 Test automation is provided by the [`logtalk_tester`](man/logtalk_tester.html) script.
 See also the [testing guide](testing.html) and the [blog posts](blog.html?tag=testing) on testing best practices for more information.
 
+Automatic bug report creation for failed tests in GitHub and GitLab issue trackers is supported using the [`issue_creator`](https://logtalk.org/manuals/devtools/issue_creator.html) tool.
+
 ##### Examples
 
 -   [Code coverage report](diagrams/coverage_report.html) for the [`diagrams`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md) tool

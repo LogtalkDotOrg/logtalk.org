@@ -6,6 +6,25 @@ aside:
   toc: true
 ---
 
+### 2022
+
+##### January 20
+
+> Logtalk 3.53.0 is now available for [downloading](download.html). This release
+> includes a new developer tool, `issue_creator`, for automatically creating bug
+> report issues for failed tests in GitHub or GitLab servers; adds support for
+> using object aliases in the message delegation control construct; adds a
+> Handbook section on calling Prolog foreign predicates; includes documentation
+> fixes and improvements; adds new predicates to the `options` library; fixes a
+> bug in the `intervals` library; updates the `logtalk_tester` automation script
+> to use the new `issue_creator` tool; includes improvements to the `packs` tool;
+> updates the `metagol` port; adds new test sets and tests for Prolog standards
+> compliance; updates support for a new version of the Visual Studio Code text
+> editor Logtalk plug-in; and includes portability updates for Ciao Prolog, GNU
+> Prolog, LVM, SICStus Prolog, SWI-Prolog, Trealla Prolog, and YAP. For details
+> and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ### 2021
 
 ##### December 7
