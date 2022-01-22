@@ -273,6 +273,10 @@ Diagrams scripts:
 
 Publications on research and applications using Logtalk:
 
+-	[Web-GIS viewer for active faults data represented as a knowledge graph](http://ceur-ws.org/Vol-2984/)
+	Evgeny A. Cherkashin, Oksana V. Lunina, Leonid O. Demyanov, Alexander V. Tsygankov.
+	Proceedings for 4th Scientific-practical Workshop Information Technologies: Algorithms, Models, Systems
+	Irkutsk, Russia, September 2021.
 -	[Construction techniques of Baikal microbiome research information-computational environment ](http://ceur-ws.org/Vol-2858/)
 	Evgeniy Cherkashin, Alexey Shigarov.
 	1st International Workshop on Advanced Information and Computation Technologies and Systems. AICTS 2020.
@@ -288,7 +292,7 @@ Publications on research and applications using Logtalk:
 -	[A Computational Independent Model for a Medical Quality Management Information System](http://ceur-ws.org/Vol-2221/).
 	Evgeny A. Cherkashin, Ljubica Kazi, Alexey O. Shigarov, Viacheslav V. Paramonov.
 	Proceedings for First Scientific-practical Workshop Information Technologies: Algorithms, Models, Systems
-	Irkutsk, Russia. September  2018.
+	Irkutsk, Russia. September 2018.
 -	[Model Driven Architecture Implementation Using Linked Data](https://link.springer.com/chapter/10.1007/978-3-319-99972-2_34).
 	Evgeny Cherkashin, Alexey Kopaygorodsky, Ljubica Kazi, Alexey Shigarov, Viacheslav Paramonov.
 	In: Damaševičius R., Vasiljevienė G. (eds) Information and Software Technologies. ICIST 2018.
