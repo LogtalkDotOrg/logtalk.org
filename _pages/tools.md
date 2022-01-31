@@ -188,9 +188,10 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 QuickCheck support includes both test idioms and predicates that can be used e.g. at the top-level for quick testing of plain Prolog predicates and Prolog modules predicates besides Logtalk object predicates.
 
 Test automation is provided by the [`logtalk_tester`](man/logtalk_tester.html) script.
-See also the [testing guide](testing.html) and the [blog posts](blog.html?tag=testing) on testing best practices for more information.
-
-Automatic bug report creation for failed tests in GitHub and GitLab issue trackers is supported using the [`issue_creator`](https://logtalk.org/manuals/devtools/issue_creator.html) tool.
+See also the [testing guide](testing.html) and the [blog posts](blog.html?tag=testing)
+on testing best practices for more information. Automatic bug report creation for failed
+tests in GitHub and GitLab issue trackers is supported using the
+[`issue_creator`](https://logtalk.org/manuals/devtools/issue_creator.html) tool.
 
 ##### Examples
 
@@ -301,6 +302,7 @@ registries (e.g. official, public, company private, ...) and allows user to:
 -	Define, save, and restore virtual environments (registries/packs setups)
 
 There's also an [index](https://github.com/LogtalkDotOrg/pack-registries) of public pack registries.
+This tool can be used not only for Logtalk packs but also for Prolog packs.
 
 
 ## Prolog porting

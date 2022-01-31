@@ -11,40 +11,23 @@ Logtalk and Prolog related resources.
 Logtalk on the web
 ------------------
 
--   Logtalk 3 with SWI Prolog Docker
-    [official](https://hub.docker.com/u/logtalk/) and
-    [third-party](https://hub.docker.com/r/koryonik/logtalk-swi/)
-    containers
+-   Logtalk 3 with SWI Prolog Docker [official](https://hub.docker.com/u/logtalk/) and [third-party](https://hub.docker.com/r/koryonik/logtalk-swi/) containers
 -	[Public Logtalk and Prolog pack registries](https://github.com/LogtalkDotOrg/pack-registries)
 -	[bacon-logtalk - a system for scientific discovery](https://github.com/lindseyspratt/bacon-logtalk)
 -   [SitCalc - A generic framework for passing round "state" in Logtalk applications based on Situation Calculus](https://github.com/PaulBrownMagic/SitCalc)
 -   [STRIPState - STRIPS/Situation Calculus handler for handling state in Logtalk applications without mutation](https://github.com/PaulBrownMagic/STRIPState)
--   [webtalk - Boilerplate code for web applications written using
-    Logtalk and SWI-Prolog](https://github.com/sandogeorge/webtalk)
--   [lgtinit - Initializes project scaffolding for logtalk
-    projects](https://github.com/eazar001/lgtinit)
--   [Weak Bases: An encoding of Post\'s lattice in
-    Logtalk](https://github.com/Joelbyte/weak-bases)
--   [BANpipe: A logic-based scripting language designed to model complex
-    compositions of time consuming
-    analyses](https://github.com/cth/banpipe)
--   [ESProNa: Constraint-Based Declarative Business Process
-    Modeling](https://github.com/igler/ESProNa)
--   [Logtalk-XML: An XML parser/objectifier for
-    Logtalk](https://bitbucket.org/StefanZimmermann/logtalk-xml/)
--   [Verdi Neruda: Meta-interpreter collection including top-down and
-    bottom-up search
-    strategies](http://joelbyte.github.com/verdi-neruda/)
--   [L-FLAT: Logtalk Toolkit for Formal Languages and Automata
-    Theory](https://github.com/l-flat/lflat)
--   [Logtalk processing of STEP Part 21 data exchange
-    files](https://github.com/pmoura/lgtstep)
--   [The Cuypers Multimedia Transformation
-    Engine](http://homepages.cwi.nl/~media/cuypers/)
--   [An abstraction class to Logtalk objects and
-    Prolog](https://dev.crazydwarves.org/trac/TER) with
-    [SWI-Prolog](http://www.swi-prolog.org/) for Java (outdated,
-    replaced by Scalogic)
+-   [webtalk - Boilerplate code for web applications written using Logtalk and SWI-Prolog](https://github.com/sandogeorge/webtalk)
+-   [lgtinit - Initializes project scaffolding for logtalk projects](https://github.com/eazar001/lgtinit)
+-   [Weak Bases: An encoding of Post\'s lattice in Logtalk](https://github.com/Joelbyte/weak-bases)
+-   [BANpipe: A logic-based scripting language designed to model complex compositions of time consuming analyses](https://github.com/cth/banpipe)
+-   [ESProNa: Constraint-Based Declarative Business Process Modeling](https://github.com/igler/ESProNa)
+-   [Logtalk-XML: An XML parser/objectifier for Logtalk](https://bitbucket.org/StefanZimmermann/logtalk-xml/)
+-   [Verdi Neruda: Meta-interpreter collection including top-down and bottom-up search strategies](http://joelbyte.github.com/verdi-neruda/)
+-   [L-FLAT: Logtalk Toolkit for Formal Languages and Automata Theory](https://github.com/l-flat/lflat)
+-   [Logtalk processing of STEP Part 21 data exchange files](https://github.com/pmoura/lgtstep)
+-   [The Cuypers Multimedia Transformation Engine](http://homepages.cwi.nl/~media/cuypers/)
+-	[dblint - a relational database linting tool](https://github.com/fusiongyro/dblint)
+-   [An abstraction class to Logtalk objects and Prolog](https://dev.crazydwarves.org/trac/TER) with [SWI-Prolog](http://www.swi-prolog.org/) for Java (outdated, replaced by Scalogic)
 -   [Gorgias](https://dev.crazydwarves.org/trac/Gorgias) --- an
     argumentation-based reasoning framework exploiting Logtalk to be
     extensible, modular and to provide debugging facilities
