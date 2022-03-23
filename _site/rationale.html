@@ -277,7 +277,7 @@
 
   <div class="article__content" itemprop="articleBody"><h2 id="why-logtalk">Why Logtalk?</h2>
 
-<p>Logtalk is designed to <em>extend</em> and <em>leverage</em> Prolog. It provides an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of <a href="tools.html">developer tools</a>. By Prolog modules we assume here the de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:</p>
+<p>Logtalk is designed to <em>extend</em> and <em>leverage</em> Prolog. It provides an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of <a href="tools.html">developer tools</a> (several of them state-of-the-art or absent from most Prolog systems). By Prolog modules we assume here the de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:</p>
 
 <ul>
   <li>Designed as a simple solution to to hide auxiliary predicates</li>
@@ -374,15 +374,16 @@
 
 <h3 id="portability">Portability</h3>
 
-<p>Logtalk is written in highly portable code and currently supports <a href="download.html#requirements">15 backend Prolog systems</a>. It can support any Prolog system that complies with official and de facto core standards. Logtalk libraries and <a href="tools.html">developer tools</a> are also portable.</p>
+<p>Logtalk is written in highly portable code and currently supports <a href="download.html#requirements">15 backend Prolog systems</a>. It can support any Prolog system that complies with official and de facto core standards. Logtalk libraries and <a href="tools.html">developer tools</a> are also portable. Portability implies robustness (by allowing testing with a larger number of Prolog systems) and risk mitigation (by facilitating switching between Prolog systems).</p>
 
 <p>In contrast, the ISO Prolog standard for modules is ignored (for sound reasons) by Prolog implementers. Worse, Prolog systems implementing a module system have significant differences that hinder portability. A few examples:</p>
 
 <ul>
+  <li>Ciao Prolog - <code class="highlighter-rouge">module/3</code> proprietary directive</li>
   <li>ECLiPSe - no <code class="highlighter-rouge">module/2</code> directive</li>
   <li>SICStus Prolog and XSB - no <code class="highlighter-rouge">reexport/1-2</code> directives</li>
   <li>ISO standard - no <code class="highlighter-rouge">use_module/1-2</code> directives; <code class="highlighter-rouge">metapredicate/1</code> instead of <code class="highlighter-rouge">meta_predicate/1</code> directive</li>
-  <li>SWI-Prolog - operators are local to modules</li>
+  <li>Ciao Prolog and SWI-Prolog - operators are local to modules</li>
   <li>SICStus Prolog - operators are global</li>
   <li>XSB - atom-based module system</li>
   <li>ECLiPSe, SICStus Prolog, SWI-Prolog, YAP - predicate-based module system</li>

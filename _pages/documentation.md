@@ -20,9 +20,9 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.53.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.53.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.53.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.54.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.54.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.54.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -43,7 +43,7 @@ Core, library, tools, ports, and contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.53.0.info) (stable; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.54.0.info) (stable; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -273,9 +273,13 @@ Diagrams scripts:
 
 Publications on research and applications using Logtalk:
 
+-	[Intelligent Decision Support for Cybersecurity Incident Response Teams: Autonomic Architecture and Mitigation Search](https://www.crisis-2021.com/agenda/)
+	Camilo Correa, Jacques Robin, Raul Mazo, and Salvador Abreu.
+	Proceedings of the 16th International Conference on Risks and Security of Internet and Systems (CRISIS 2021).
+	November 20121
 -	[Web-GIS viewer for active faults data represented as a knowledge graph](http://ceur-ws.org/Vol-2984/)
 	Evgeny A. Cherkashin, Oksana V. Lunina, Leonid O. Demyanov, Alexander V. Tsygankov.
-	Proceedings for 4th Scientific-practical Workshop Information Technologies: Algorithms, Models, Systems
+	Proceedings of the 4th Scientific-practical Workshop Information Technologies: Algorithms, Models, Systems
 	Irkutsk, Russia, September 2021.
 -	[Construction techniques of Baikal microbiome research information-computational environment ](http://ceur-ws.org/Vol-2858/)
 	Evgeniy Cherkashin, Alexey Shigarov.
@@ -291,7 +295,7 @@ Publications on research and applications using Logtalk:
 	October 2019
 -	[A Computational Independent Model for a Medical Quality Management Information System](http://ceur-ws.org/Vol-2221/).
 	Evgeny A. Cherkashin, Ljubica Kazi, Alexey O. Shigarov, Viacheslav V. Paramonov.
-	Proceedings for First Scientific-practical Workshop Information Technologies: Algorithms, Models, Systems
+	Proceedings of the First Scientific-practical Workshop Information Technologies: Algorithms, Models, Systems
 	Irkutsk, Russia. September 2018.
 -	[Model Driven Architecture Implementation Using Linked Data](https://link.springer.com/chapter/10.1007/978-3-319-99972-2_34).
 	Evgeny Cherkashin, Alexey Kopaygorodsky, Ljubica Kazi, Alexey Shigarov, Viacheslav Paramonov.

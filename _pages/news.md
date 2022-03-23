@@ -8,6 +8,26 @@ aside:
 
 ### 2022
 
+##### March 22
+
+> Logtalk 3.54.0 is now available for [downloading](download.html). This release
+> adds a new linter warning for `catch/3` goals; adds support to user-defined linter
+> warning messages for suspicious calls; adds a new Handbook section on the logic
+> and control built-in public methods; improves the Handbook documentation on the
+> term-expansion mechanism; improves documentation on applying the developer tools
+> to plain Prolog code; adds new `union_find` and `grammars` libraries; improves
+> the `sets` library thanks to a contribution by Adrián Arroyo Calle; adds linter
+> checks for `format/2-3` goals to the `format` library; adds new predicates to the
+> `pairs` library; adds new types to the `arbitrary` and `types` libraries; adds
+> a `lgtunit` tool linter check for the use of unification goals in test outcome
+> assertions; improves the performance of the `ports_profiler` tool; includes new
+> predicates and fixes for the `packs` tool; fixes `lgtdoc` tool issues with Sphinx
+> output; improves and updates examples; adds new standards compliance sets; and
+> includes portability updates for B-Prolog, Ciao Prolog, ECLiPSe, GNU Prolog, LVM,
+> Scryer Prolog, Tau Prolog, Trealla Prolog, and YAP. For details and a complete
+> list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### January 20
 
 > Logtalk 3.53.0 is now available for [downloading](download.html). This release
