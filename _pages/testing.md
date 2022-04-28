@@ -6,16 +6,16 @@ aside:
   toc: true
 ---
 
-Several sets of unit tests are distributed with Logtalk. These include the tests in the `tests`, `library`, `tools`, `examples`, and `contributions` subdirectories. You can automate running these unit tests or your own unit tests by using the provided [`scripts/logtalk_tester.sh`](man/logtalk_tester.html) shell script.
+Several sets of unit tests are distributed with Logtalk. These include the tests in the `tests`, `library`, `tools`, `examples`, and `contributions` subdirectories. You can automate running these unit tests or your own unit tests by using the provided [`scripts/logtalk_tester.sh`](man/logtalk_tester.html) Bash script or the `scripts/logtalk_tester.ps1` PowerShell script.
 
-Note that some tests require specific backend Prolog compiler features such as constraints, tabling, and threads. These tests are skipped when using backend Prolog compilers without native support for those features.
+Note that some tests require specific backend Prolog compiler features such as constraints, tabling, threads, and Unicode. These tests are skipped when using backend Prolog compilers without native support for those features.
 
 For information about the unit test framework and writing your own tests, see the [`lgtunit`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtunit/NOTES.md)
 tool documentation.
 
-## Running unit tests on POSIX systems
+## Running unit tests
 
-In a POSIX system, you can run a subset of the unit tests by changing to their library and running the testing automation script. For example:
+You can run a subset of the unit tests by changing to their library and running the testing automation script. For example, in a POSIX system:
 
 ```shell
 $ cd $LOGTALKUSER/tests/logtalk
@@ -36,7 +36,7 @@ $ cd $LOGTALKUSER
 $ logtalk_tester -p <back-end Prolog compiler>
 ```
 
-If you didn't use one of the provided Logtalk installers or the installation script, you may need to type `logtalk_tester.sh` instead of just `logtalk_tester`.
+Similar on Windows using the PowerShell script. If you didn't use one of the provided Logtalk installers or the installation script, you may need to type the script extension (e.g. `logtalk_tester.sh` instead of just `logtalk_tester`).
 
 The identifiers for the supported back-end Prolog compilers can be listed by typing:
 
@@ -51,7 +51,7 @@ Note that, when running the unit tests using stable Logtalk releases, failed tes
 
 ## Running unit tests on Windows systems
 
-The `logtalk_tester.sh` script can also be used on Windows operating-systems by installing either the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/) or [Git for Windows](https://gitforwindows.org), which includes a bash shell implementation. After installation, you can start the bash shell by selecting `Git Bash` from the context menu. You will also need to add the `$LOGTALKHOME/scripts` and `$LOGTALKHOME/integration` directories plus the backend Prolog compiler executable directories to the system path environment variable. For example, assuming that you will be using YAP as backend Prolog compiler, the contents of your `~/.profile` file would contain something like:
+In alternative to the `logtalk_tester.ps1` PowerShell script, it's also possible to use the `logtalk_tester.sh` Bash script on Windows operating-systems by installing either the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/) or [Git for Windows](https://gitforwindows.org), which includes a bash shell implementation. After installation, you can start the bash shell by selecting `Git Bash` from the context menu. You will also need to add the `$LOGTALKHOME/scripts` and `$LOGTALKHOME/integration` directories plus the backend Prolog compiler executable directories to the system path environment variable. For example, assuming that you will be using YAP as backend Prolog compiler, the contents of your `~/.profile` file would contain something like:
 
 ```shell
 # YAP
@@ -64,7 +64,7 @@ When calling the scripts, you will need to use the `.sh` extension (e.g. use `ya
 
 ## Testing backend Prolog compilers
 
-Starting with Logtalk 3.00.0-rc4, a set of unit tests for testing backend Prolog compilers for conformance with official and de facto standards is also provided. You can run them by typing:
+Starting with Logtalk 3.00.0-rc4 (released on 2014), a set of unit tests for testing backend Prolog compilers for conformance with official and de facto standards is also provided. You can run them by typing:
 
 ```shell
 $ cd $LOGTALKUSER/tests/prolog
@@ -106,7 +106,7 @@ These actions can be used for easily defining CI/CD workflows that use Logtalk a
 
 ## Caveats
 
-Logtalk can act as a shared resource when doing concurrent builds. When two or more builds use the same Logtalk resources (e.g. library or tool files), a race condition may happen if the builds try to compile and load the same file. CI servers usually support, natively or using a plug-in, a way to throttle concurrent builds and/or the definition of locks for shared resources. A better solution, supported in Logtalk 3.11.0 and later versions, is to ensure that each Logtalk instance uses a unique scratch directory for temporary files. This requires a backend Prolog system supporting an initialization goal that is called, or an initialization file that is loaded, before Logtalk itself is loaded. Using SWI-Prolog as an example and assuming a POSIX system, add to its `.swiplrc` initialization file the following code:
+Logtalk can act as a shared resource when doing concurrent builds and using an initialization goal that turns off the `clean` flag for improved performance when running large test sets. In this case, when two or more builds use the same Logtalk resources (e.g. library or tool files), a race condition may happen if the builds try to compile and load the same file. CI servers usually support, natively or using a plug-in, a way to throttle concurrent builds and/or the definition of locks for shared resources. A better solution, supported in Logtalk 3.11.0 and later versions, is to ensure that each Logtalk instance uses a unique scratch directory for temporary files. This requires a backend Prolog system supporting an initialization goal that is called, or an initialization file that is loaded, before Logtalk itself is loaded. Using SWI-Prolog as an example and assuming a POSIX system, add to its `.swiplrc` initialization file the following code:
 
 ```logtalk
 :- multifile(logtalk_library_path/2).

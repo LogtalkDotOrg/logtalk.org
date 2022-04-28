@@ -102,12 +102,12 @@ available using a multifile hook predicate.
 ## Documenting
 
 Logtalk includes two documenting tools, [`lgtdoc`](https://logtalk.org/manuals/devtools/lgtdoc.html)
-and [`doclet`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md), and an
-automation script, [`logtalk_doclet`](man/logtalk_doclet.html). The `lgtdoc` tool exports API
-documentation files in XML format and includes scripts to convert
-these files into a final format such as HTML, PDF, or Markdown.
-The `doclet` tool can be used to automate the steps to generate API
-documentation and diagrams for a Logtalk application.
+and [`doclet`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md), and
+[`logtalk_doclet`](man/logtalk_doclet.html) Bash and PowerShell scripts.
+The `lgtdoc` tool exports API documentation files in XML format and includes
+scripts to convert these files into a final format such as HTML, PDF, or
+Markdown. The `doclet` tool can be used to automate the steps to generate
+API documentation and diagrams for a Logtalk application.
 
 Logtalk documenting directives allows the programmer to represent
 extensive API information on entities and their predicates including:
@@ -180,7 +180,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 -   Approximate float comparison support
 -   Test set and per test annotations
 -   Parametrized unit tests
--   Testing automation script (supports CI/CD pipelines with detailed test and code coverage reports)
+-   Testing automation scripts (supports CI/CD pipelines with detailed test and code coverage reports)
 -   TAP and xUnit test reports
 -   Test set condition, setup, and cleanup goals
 -   Per test condition, setup, and cleanup goals
@@ -190,7 +190,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 
 QuickCheck support includes both test idioms and predicates that can be used e.g. at the top-level for quick testing of plain Prolog predicates and Prolog modules predicates besides Logtalk object predicates.
 
-Test automation is provided by the [`logtalk_tester`](man/logtalk_tester.html) script.
+Test automation is provided by the [`logtalk_tester`](man/logtalk_tester.html) Bash and PowerShell scripts.
 See also the [testing guide](testing.html) and the [blog posts](blog.html?tag=testing)
 on testing best practices for more information. Automatic bug report creation for failed
 tests in GitHub and GitLab issue trackers is supported using the
@@ -327,7 +327,7 @@ support for text editors, syntax highlighters (for publishing code), and several
 
 ## Embedding
 
-Logtalk includes a set of [helper scripts](https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding)
+Logtalk includes a set of sample [helper scripts](https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding)
 for embedding the Logtalk runtime and Logtalk applications using selected backend Prolog compilers. These scripts greatly
 simplify packaging and delivering of applications and can be used as basis for e.g. automatically generating executables and JAR files.
 
@@ -361,7 +361,7 @@ The following tools are not part of the Logtalk distribution but kindly contribu
 
 ### lgtinit
 
-[lgtinit](https://github.com/eazar001/lgtinit) is POSIX script for project scaffolding contributed by Ebrahim Azarisooreh.
+[lgtinit](https://github.com/eazar001/lgtinit) is a POSIX script for project scaffolding contributed by Ebrahim Azarisooreh.
 
 
 ## Third-party tools

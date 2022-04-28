@@ -275,7 +275,216 @@
 
               <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Release Notes</h1></header></div><meta itemprop="headline" content="Release Notes"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
 
-  <div class="article__content" itemprop="articleBody"><h1 id="3540---march-22-2022">3.54.0 - March 22, 2022</h1>
+  <div class="article__content" itemprop="articleBody"><h1 id="3550---april-28-2022">3.55.0 - April 28, 2022</h1>
+
+<h2 id="prolog-adapter-and-integration-files">Prolog adapter and integration files</h2>
+
+<ul>
+  <li>
+    <p>ADDED: Experimental Windows PowerShell integration scripts for selected
+backend Prolog systems. Collaborative work with Hans N. Beck.</p>
+  </li>
+  <li>
+    <p>UPDATED: The Scryer Prolog adapter file to enable modules support.</p>
+  </li>
+</ul>
+
+<h2 id="documentation">Documentation</h2>
+
+<ul>
+  <li>
+    <p>ADDED: Handbook section on customizing term writing when using the <code class="highlighter-rouge">debugger</code>
+tool.</p>
+  </li>
+  <li>
+    <p>IMPROVED: Handbook sections on objects, inheritance, defining grammar rules,
+and defining meta-predicates.</p>
+  </li>
+  <li>
+    <p>IMPROVED: Handbook section on the <code class="highlighter-rouge">{}/1</code> control construct.</p>
+  </li>
+  <li>
+    <p>IMPROVED: Handbook section on Prolog nomenclature.</p>
+  </li>
+  <li>
+    <p>IMPROVED: Documentation of the Windows installer.</p>
+  </li>
+</ul>
+
+<h2 id="library">Library</h2>
+
+<ul>
+  <li>
+    <p>ADDED: Library file <code class="highlighter-rouge">packs_loader.lgt</code> for loading all installed packs.</p>
+  </li>
+  <li>
+    <p>UPDATED: The <code class="highlighter-rouge">os::copy_file/2</code> library predicate for Tau Prolog to use its
+native definition when available.</p>
+  </li>
+</ul>
+
+<h2 id="examples">Examples</h2>
+
+<ul>
+  <li>
+    <p>ADDED: PowerShell scripts for setting the <code class="highlighter-rouge">CLASSPATH</code> environment variable
+to the <code class="highlighter-rouge">clustering</code> and <code class="highlighter-rouge">document_converter</code> examples.</p>
+  </li>
+  <li>
+    <p>UPDATED: The <code class="highlighter-rouge">dcgs</code> example to illustrate the definition and use of
+meta-non-terminals.</p>
+  </li>
+</ul>
+
+<h2 id="tools">Tools</h2>
+
+<ul>
+  <li>
+    <p>CHANGED: The <code class="highlighter-rouge">diagrams</code>, <code class="highlighter-rouge">lgtdoc</code>, and <code class="highlighter-rouge">wrapper</code> tools to convert paths to
+internal path syntax when normalizing directories passed as options.</p>
+  </li>
+  <li>
+    <p>ADDED: Experimental PowerShell versions of the <code class="highlighter-rouge">update_html_docs.sh</code>,
+<code class="highlighter-rouge">update_svg_diagrams.sh</code>, <code class="highlighter-rouge">logtalk_allure_report.sh</code>, <code class="highlighter-rouge">logtalk_doclet.sh</code>,
+and <code class="highlighter-rouge">logtalk_tester.sh</code> scripts.</p>
+  </li>
+  <li>
+    <p>IMPROVED: Documentation of the <code class="highlighter-rouge">issue_creator</code> and <code class="highlighter-rouge">packs</code> tools.</p>
+  </li>
+  <li>
+    <p>UPDATED: Documentation of the <code class="highlighter-rouge">lgtdoc</code> tool for the new PowerShell scripts.</p>
+  </li>
+  <li>
+    <p>UPDATED: The <code class="highlighter-rouge">lgtdoc</code> tool <code class="highlighter-rouge">lgt2pdf.sh</code> script to support using the FOP 2.x
+processor.</p>
+  </li>
+  <li>
+    <p>FIXED: The <code class="highlighter-rouge">lgtdoc</code> Bash shell scripts help text content failed to list the
+version option.</p>
+  </li>
+  <li>
+    <p>FIXED: Broken <code class="highlighter-rouge">lgtdoc</code> tool <code class="highlighter-rouge">logtalk_entity_to_txt.xsl</code> file.</p>
+  </li>
+  <li>
+    <p>FIXED: The <code class="highlighter-rouge">lgtdoc</code> tool <code class="highlighter-rouge">lgt2txt.sh</code> script to use the correct XSLT files.</p>
+  </li>
+  <li>
+    <p>FIXED: The <code class="highlighter-rouge">lgtdoc</code> tool <code class="highlighter-rouge">lgt2rst.sh</code> script to generate correct <code class="highlighter-rouge">index.rst</code>
+files when indexing a directory of XML documenting files without any index XML
+file.</p>
+  </li>
+  <li>
+    <p>FIXED: The <code class="highlighter-rouge">logtalk_doclet.sh</code> script usage help function omission of the
+path suppress option.</p>
+  </li>
+  <li>
+    <p>FIXED: The <code class="highlighter-rouge">logtalk_doclet.sh</code> script spurious but harmless warnings when no
+doclets are found.</p>
+  </li>
+  <li>
+    <p>FIXED: The <code class="highlighter-rouge">logtalk_tester.sh</code> script to also detect timeouts using signal
+124.</p>
+  </li>
+</ul>
+
+<h2 id="tests">Tests</h2>
+
+<ul>
+  <li>
+    <p>ADDED: Basic tests for the new <code class="highlighter-rouge">occurs_check</code> flag that is becoming de facto
+standard.</p>
+  </li>
+  <li>
+    <p>ADDED: Additional tests for the Prolog unbounded integer arithmetic support.</p>
+  </li>
+  <li>
+    <p>ADDED: Additional tests for the Prolog standard <code class="highlighter-rouge">(*)/2</code>, <code class="highlighter-rouge">(/)/2</code>, <code class="highlighter-rouge">(^)/2</code>,
+<code class="highlighter-rouge">(**)/2</code>, and <code class="highlighter-rouge">div/2</code> arithmetic functions.</p>
+  </li>
+  <li>
+    <p>ADDED: Sanity tests for Prolog standard <code class="highlighter-rouge">(+)/1-2</code>, <code class="highlighter-rouge">(-)/1-2</code>, and <code class="highlighter-rouge">(\)/1</code>
+arithmetic functions.</p>
+  </li>
+  <li>
+    <p>ADDED: Integer overflow tests for the <code class="highlighter-rouge">succ/2</code> and <code class="highlighter-rouge">plus/3</code> predicates.</p>
+  </li>
+  <li>
+    <p>ADDED: Additional tests for the Prolog standard <code class="highlighter-rouge">retract/1</code>, <code class="highlighter-rouge">retractall/1</code>,
+<code class="highlighter-rouge">subsumes_term/2</code>, and <code class="highlighter-rouge">write_term/3</code> predicates.</p>
+  </li>
+  <li>
+    <p>IMPROVED: Tests for the Prolog standard <code class="highlighter-rouge">(//)/2</code> arithmetic function.</p>
+  </li>
+  <li>
+    <p>FIXED: Portability of the Prolog de facto standard <code class="highlighter-rouge">(*-&gt;)/2</code> control
+construct tests.</p>
+  </li>
+</ul>
+
+<h2 id="installers-and-installation-scripts">Installers and installation scripts</h2>
+
+<ul>
+  <li>
+    <p>CHANGED: The embedding scripts default values for the paths and settings
+files to, respectively, <code class="highlighter-rouge">paths.pl</code> and <code class="highlighter-rouge">settings-embedding-sample.lgt</code>.</p>
+  </li>
+  <li>
+    <p>CHANGED: The Windows installer and the <code class="highlighter-rouge">logtalk_user_setup.ps1</code> script to
+no longer make available the deprecated <code class="highlighter-rouge">.js</code> JScript scripts and their
+corresponding <code class="highlighter-rouge">.bat</code> files in the system path (replaced by the PowerShell
+scripts).</p>
+  </li>
+  <li>
+    <p>ADDED: Experimental Windows PowerShell <code class="highlighter-rouge">logtalk_user_setup.ps1</code> script.
+Collaborative work with Hans N. Beck.</p>
+  </li>
+  <li>
+    <p>ADDED: Experimental Windows PowerShell embedding scripts for selected
+backends. Collaborative work with Hans N. Beck.</p>
+  </li>
+  <li>
+    <p>IMPROVED: Sample embedding script examples and documentation.</p>
+  </li>
+  <li>
+    <p>UPDATED: Sample embedding scripts to allow specifying the temporary directory
+to be used for intermediate files. This option is required for some backends
+when running the scripts on windows.</p>
+  </li>
+  <li>
+    <p>UPDATED: The <code class="highlighter-rouge">update_html_docs.sh</code> and <code class="highlighter-rouge">update_svg_diagrams.sh</code> scripts to
+optionally generate packs documentation and diagrams.</p>
+  </li>
+  <li>
+    <p>UPDATED: The Windows installer to copy the PowerShell integration and setup
+scripts to the system directory.</p>
+  </li>
+  <li>
+    <p>FIXED: The Windows installer to detect additional YAP installations.</p>
+  </li>
+  <li>
+    <p>FIXED: The <code class="highlighter-rouge">logtalk_user_setup.js</code> script to avoid an error when creating
+the symbolic link to the <code class="highlighter-rouge">lgt2svg.js</code> script.</p>
+  </li>
+  <li>
+    <p>FIXED: Outdated but harmless commands in the <code class="highlighter-rouge">logtalk_user_setup.sh</code> script.</p>
+  </li>
+  <li>
+    <p>FIXED: Broken but not required sanity test in the <code class="highlighter-rouge">update_html_docs.sh</code> and
+<code class="highlighter-rouge">update_svg_diagrams.sh</code> scripts.</p>
+  </li>
+  <li>
+    <p>FIXED: The <code class="highlighter-rouge">update_html_docs.sh</code> and <code class="highlighter-rouge">update_svg_diagrams.sh</code> scripts when
+using some of the non-default backends.</p>
+  </li>
+</ul>
+
+<h2 id="ides-text-editors-and-syntax-highlighters-support">IDEs, text editors, and syntax highlighters support</h2>
+
+<ul>
+  <li>UPDATED: Documentation of the Visual Studio Code text editor Logtalk plug-in.</li>
+</ul>
+
+<h1 id="3540---march-22-2022">3.54.0 - March 22, 2022</h1>
 
 <h2 id="logtalk-compiler-and-runtime">Logtalk compiler and runtime</h2>
 
@@ -299,7 +508,7 @@ when compiling with the <code class="highlighter-rouge">clean</code> flag turned
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-1">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -323,7 +532,7 @@ compilation log messages when compiling and loading Logtalk source files.</p>
   </li>
 </ul>
 
-<h2 id="documentation">Documentation</h2>
+<h2 id="documentation-1">Documentation</h2>
 
 <ul>
   <li>
@@ -360,7 +569,7 @@ for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="library">Library</h2>
+<h2 id="library-1">Library</h2>
 
 <ul>
   <li>
@@ -451,7 +660,7 @@ predicates for B-Prolog when running on Windows.</p>
   </li>
 </ul>
 
-<h2 id="tools">Tools</h2>
+<h2 id="tools-1">Tools</h2>
 
 <ul>
   <li>
@@ -509,7 +718,7 @@ directory paths.</p>
   </li>
 </ul>
 
-<h2 id="examples">Examples</h2>
+<h2 id="examples-1">Examples</h2>
 
 <ul>
   <li>
@@ -531,7 +740,7 @@ directive.</p>
   </li>
 </ul>
 
-<h2 id="tests">Tests</h2>
+<h2 id="tests-1">Tests</h2>
 
 <ul>
   <li>
@@ -580,13 +789,13 @@ variable unification.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-1">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">build_release.sh</code> script to use a HTTPS git clone URL.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-1">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Code completion support for the new <code class="highlighter-rouge">catchall_catch</code> flag to the
@@ -616,7 +825,7 @@ optimized mode.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-1">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-2">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -651,7 +860,7 @@ predicate in the SWI-Prolog adapter file.</p>
   </li>
 </ul>
 
-<h2 id="documentation-1">Documentation</h2>
+<h2 id="documentation-2">Documentation</h2>
 
 <ul>
   <li>
@@ -672,7 +881,7 @@ the root pages.</p>
   </li>
 </ul>
 
-<h2 id="library-1">Library</h2>
+<h2 id="library-2">Library</h2>
 
 <ul>
   <li>
@@ -705,7 +914,7 @@ version.</p>
   </li>
 </ul>
 
-<h2 id="tools-1">Tools</h2>
+<h2 id="tools-2">Tools</h2>
 
 <ul>
   <li>
@@ -754,7 +963,7 @@ avoid failures when run on backends that type-check the second argument of the
   </li>
 </ul>
 
-<h2 id="examples-1">Examples</h2>
+<h2 id="examples-2">Examples</h2>
 
 <ul>
   <li>
@@ -766,7 +975,7 @@ backends.</p>
   </li>
 </ul>
 
-<h2 id="tests-1">Tests</h2>
+<h2 id="tests-2">Tests</h2>
 
 <ul>
   <li>
@@ -820,7 +1029,7 @@ library definition of the predicate.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-1">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-2">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Experimental <code class="highlighter-rouge">vscode_message_streamer</code> category for supporting the
@@ -828,7 +1037,7 @@ new version of the Visual Studio Code text editor Logtalk plug-in. Contributed
 by Jacob Friedman.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-1">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-2">Installers and installation scripts</h2>
 
 <ul>
   <li>ADDED: Trealla Prolog embedding script.</li>
@@ -867,7 +1076,7 @@ being called is a meta-predicate.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-2">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-3">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -894,7 +1103,7 @@ overriding its meta-predicate template.</p>
   </li>
 </ul>
 
-<h2 id="documentation-2">Documentation</h2>
+<h2 id="documentation-3">Documentation</h2>
 
 <ul>
   <li>
@@ -925,7 +1134,7 @@ work with all supported backends.</p>
   </li>
 </ul>
 
-<h2 id="library-2">Library</h2>
+<h2 id="library-3">Library</h2>
 
 <ul>
   <li>
@@ -960,7 +1169,7 @@ library.</p>
   </li>
 </ul>
 
-<h2 id="tools-2">Tools</h2>
+<h2 id="tools-3">Tools</h2>
 
 <ul>
   <li>
@@ -1056,7 +1265,7 @@ always compiled in non-debug mode.</p>
   </li>
 </ul>
 
-<h2 id="examples-2">Examples</h2>
+<h2 id="examples-3">Examples</h2>
 
 <ul>
   <li>
@@ -1075,7 +1284,7 @@ printing issues.</p>
   </li>
 </ul>
 
-<h2 id="tests-2">Tests</h2>
+<h2 id="tests-3">Tests</h2>
 
 <ul>
   <li>
@@ -1137,7 +1346,7 @@ definition of the <code class="highlighter-rouge">tests</code> library alias to 
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-3">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-4">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -1183,7 +1392,7 @@ errors.</p>
   </li>
 </ul>
 
-<h2 id="documentation-3">Documentation</h2>
+<h2 id="documentation-4">Documentation</h2>
 
 <ul>
   <li>
@@ -1210,7 +1419,7 @@ built-in method.</p>
   </li>
 </ul>
 
-<h2 id="library-3">Library</h2>
+<h2 id="library-4">Library</h2>
 
 <ul>
   <li>
@@ -1251,7 +1460,7 @@ directories.</p>
   </li>
 </ul>
 
-<h2 id="tools-3">Tools</h2>
+<h2 id="tools-4">Tools</h2>
 
 <ul>
   <li>
@@ -1328,7 +1537,7 @@ when using the Scryer Prolog backend.</p>
   </li>
 </ul>
 
-<h2 id="examples-3">Examples</h2>
+<h2 id="examples-4">Examples</h2>
 
 <ul>
   <li>
@@ -1345,7 +1554,7 @@ fail.</p>
   </li>
 </ul>
 
-<h2 id="tests-3">Tests</h2>
+<h2 id="tests-4">Tests</h2>
 
 <ul>
   <li>
@@ -1382,14 +1591,14 @@ Prolog backend.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-2">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-3">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>FIXED: Vim Logtalk indent file failed to set <code class="highlighter-rouge">set b:undo_indent</code>. Thanks to
 Doug Kearns for the patch.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-2">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-3">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -1418,7 +1627,7 @@ features.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-4">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-5">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -1443,7 +1652,7 @@ directives argument is bound.</p>
   </li>
 </ul>
 
-<h2 id="documentation-4">Documentation</h2>
+<h2 id="documentation-5">Documentation</h2>
 
 <ul>
   <li>
@@ -1480,7 +1689,7 @@ method exception conditions.</p>
   </li>
 </ul>
 
-<h2 id="library-4">Library</h2>
+<h2 id="library-5">Library</h2>
 
 <ul>
   <li>
@@ -1508,7 +1717,7 @@ library predicate.</p>
   </li>
 </ul>
 
-<h2 id="tools-4">Tools</h2>
+<h2 id="tools-5">Tools</h2>
 
 <ul>
   <li>
@@ -1573,7 +1782,7 @@ file.</p>
   </li>
 </ul>
 
-<h2 id="examples-4">Examples</h2>
+<h2 id="examples-5">Examples</h2>
 
 <ul>
   <li>
@@ -1592,7 +1801,7 @@ tests to avoid names clashes when generating Allure reports from test results.</
   </li>
 </ul>
 
-<h2 id="tests-4">Tests</h2>
+<h2 id="tests-5">Tests</h2>
 
 <ul>
   <li>
@@ -1659,14 +1868,14 @@ report from test results using the xUnit.net v2 XML output format.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-3">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-4">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>FIXED: Parsing of compiler error and warning messages when building with
 the Sublime Text editor.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-3">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-4">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The Windows installation script to also detect SICStus Prolog 4.7.x
@@ -1690,13 +1899,13 @@ two backends that generate the same directory hashes and compiling with the
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-5">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-6">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: The Trealla Prolog adapter file to require 1.9.38 or later version.</li>
 </ul>
 
-<h2 id="documentation-5">Documentation</h2>
+<h2 id="documentation-6">Documentation</h2>
 
 <ul>
   <li>
@@ -1708,7 +1917,7 @@ operating-systems.</p>
   </li>
 </ul>
 
-<h2 id="library-5">Library</h2>
+<h2 id="library-6">Library</h2>
 
 <ul>
   <li>
@@ -1788,7 +1997,7 @@ directory existence errors where the wrong exception term would be thrown.</p>
   </li>
 </ul>
 
-<h2 id="tools-5">Tools</h2>
+<h2 id="tools-6">Tools</h2>
 
 <ul>
   <li>
@@ -1805,7 +2014,7 @@ using the Bash shell bundled with the Git for Windows installer.</p>
   </li>
 </ul>
 
-<h2 id="examples-5">Examples</h2>
+<h2 id="examples-6">Examples</h2>
 
 <ul>
   <li>
@@ -1826,7 +2035,7 @@ B-Prolog, GNU Prolog, or XSB.</p>
   </li>
 </ul>
 
-<h2 id="tests-5">Tests</h2>
+<h2 id="tests-6">Tests</h2>
 
 <ul>
   <li>
@@ -1851,7 +2060,7 @@ systems using B-Prolog, GNU Prolog, or XSB.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-4">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-5">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -1885,7 +2094,7 @@ declaration of proprietary built-in meta-predicates.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-6">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-7">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -1914,7 +2123,7 @@ predicate properties, and candidate tautology and falsehood goals.</p>
   </li>
 </ul>
 
-<h2 id="documentation-6">Documentation</h2>
+<h2 id="documentation-7">Documentation</h2>
 
 <ul>
   <li>
@@ -1950,7 +2159,7 @@ that require overriding the meta-predicate templates.</p>
   </li>
 </ul>
 
-<h2 id="library-6">Library</h2>
+<h2 id="library-7">Library</h2>
 
 <ul>
   <li>
@@ -1963,7 +2172,7 @@ float precision representation issues making the tests fail.</p>
   </li>
 </ul>
 
-<h2 id="tools-6">Tools</h2>
+<h2 id="tools-7">Tools</h2>
 
 <ul>
   <li>
@@ -1983,7 +2192,7 @@ seconds for each test set.</p>
   </li>
 </ul>
 
-<h2 id="examples-6">Examples</h2>
+<h2 id="examples-7">Examples</h2>
 
 <ul>
   <li>
@@ -2002,7 +2211,7 @@ XSB backends.</p>
   </li>
 </ul>
 
-<h2 id="tests-6">Tests</h2>
+<h2 id="tests-7">Tests</h2>
 
 <ul>
   <li>
@@ -2029,7 +2238,7 @@ predicates permission error conditions when running on a POSIX system as root.</
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-4">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-5">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -2041,7 +2250,7 @@ files.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-5">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-6">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -2065,7 +2274,7 @@ to load the precompiled Logtalk compiler and runtime.</p>
 predicate instead of its own version.</li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-7">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-8">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -2088,7 +2297,7 @@ and <code class="highlighter-rouge">atom_number/2</code> predicates.</p>
   </li>
 </ul>
 
-<h2 id="library-7">Library</h2>
+<h2 id="library-8">Library</h2>
 
 <ul>
   <li>
@@ -2112,7 +2321,7 @@ Brown for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="tools-7">Tools</h2>
+<h2 id="tools-8">Tools</h2>
 
 <ul>
   <li>
@@ -2151,7 +2360,7 @@ for flaky tests) in the test results stats when there are skipped test sets.</p>
   </li>
 </ul>
 
-<h2 id="examples-7">Examples</h2>
+<h2 id="examples-8">Examples</h2>
 
 <ul>
   <li>
@@ -2175,7 +2384,7 @@ require up-to-date UTF-16 support when using CxProlog or SICStus Prolog.</p>
   </li>
 </ul>
 
-<h2 id="tests-7">Tests</h2>
+<h2 id="tests-8">Tests</h2>
 
 <ul>
   <li>
@@ -2227,7 +2436,7 @@ source file to ensure that the errors are reported even if the input stream
 cannot be retrieved.</li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-8">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-9">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -2248,7 +2457,7 @@ incompatible changes in its libraries).</p>
   </li>
 </ul>
 
-<h2 id="documentation-7">Documentation</h2>
+<h2 id="documentation-8">Documentation</h2>
 
 <ul>
   <li>
@@ -2263,7 +2472,7 @@ to kaiser185 for the bug report and alternative link.</p>
   </li>
 </ul>
 
-<h2 id="library-8">Library</h2>
+<h2 id="library-9">Library</h2>
 
 <ul>
   <li>
@@ -2321,7 +2530,7 @@ high and low surrogate, non-character, and private use code points.</p>
   </li>
 </ul>
 
-<h2 id="tools-8">Tools</h2>
+<h2 id="tools-9">Tools</h2>
 
 <ul>
   <li>
@@ -2368,7 +2577,7 @@ list of codes in the <code class="highlighter-rouge">xml_parser</code> contribut
   </li>
 </ul>
 
-<h2 id="examples-8">Examples</h2>
+<h2 id="examples-9">Examples</h2>
 
 <ul>
   <li>
@@ -2381,7 +2590,7 @@ results with automated testing.</p>
   </li>
 </ul>
 
-<h2 id="tests-8">Tests</h2>
+<h2 id="tests-9">Tests</h2>
 
 <ul>
   <li>
@@ -2407,7 +2616,7 @@ write permissions.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-9">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-10">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -2427,7 +2636,7 @@ Davison for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="documentation-8">Documentation</h2>
+<h2 id="documentation-9">Documentation</h2>
 
 <ul>
   <li>
@@ -2439,7 +2648,7 @@ for reporting.</p>
   </li>
 </ul>
 
-<h2 id="library-9">Library</h2>
+<h2 id="library-10">Library</h2>
 
 <ul>
   <li>
@@ -2512,7 +2721,7 @@ available.</p>
   </li>
 </ul>
 
-<h2 id="tools-9">Tools</h2>
+<h2 id="tools-10">Tools</h2>
 
 <ul>
   <li>
@@ -2550,21 +2759,21 @@ Dávila for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="examples-9">Examples</h2>
+<h2 id="examples-10">Examples</h2>
 
 <ul>
   <li>UPDATED: Most examples that use parametric entities to use parameter
 variables.</li>
 </ul>
 
-<h2 id="tests-9">Tests</h2>
+<h2 id="tests-10">Tests</h2>
 
 <ul>
   <li>ADDED: Tests for unbounded integer arithmetic using standard functions and
 predicates.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-6">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-7">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: The manual <code class="highlighter-rouge">install.sh</code> script to use <code class="highlighter-rouge">mkdir -p</code> when creating the
@@ -2591,7 +2800,7 @@ for digits in the middle of a name as per coding guidelines.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-10">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-11">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -2618,7 +2827,7 @@ is compiled in debug mode.</p>
   </li>
 </ul>
 
-<h2 id="documentation-9">Documentation</h2>
+<h2 id="documentation-10">Documentation</h2>
 
 <ul>
   <li>
@@ -2655,7 +2864,7 @@ predicates for the <code class="highlighter-rouge">public/1</code>, <code class=
   </li>
 </ul>
 
-<h2 id="library-10">Library</h2>
+<h2 id="library-11">Library</h2>
 
 <ul>
   <li>
@@ -2694,7 +2903,7 @@ check that the object exists.</p>
   </li>
 </ul>
 
-<h2 id="tools-10">Tools</h2>
+<h2 id="tools-11">Tools</h2>
 
 <ul>
   <li>
@@ -2770,7 +2979,7 @@ test sets that compile entities in debug mode.</p>
   </li>
 </ul>
 
-<h2 id="examples-10">Examples</h2>
+<h2 id="examples-11">Examples</h2>
 
 <ul>
   <li>
@@ -2825,7 +3034,7 @@ examples to the ToyCHR port.</p>
   </li>
 </ul>
 
-<h2 id="tests-10">Tests</h2>
+<h2 id="tests-11">Tests</h2>
 
 <ul>
   <li>
@@ -2850,7 +3059,7 @@ directive and the <code class="highlighter-rouge">goal_expansion/2</code> method
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-7">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-8">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -2916,7 +3125,7 @@ at runtime.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-11">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-12">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -2940,7 +3149,7 @@ internal runtime tables and of the new <code class="highlighter-rouge">atom_hash
   </li>
 </ul>
 
-<h2 id="documentation-10">Documentation</h2>
+<h2 id="documentation-11">Documentation</h2>
 
 <ul>
   <li>
@@ -2952,7 +3161,7 @@ man pages.</p>
   </li>
 </ul>
 
-<h2 id="library-11">Library</h2>
+<h2 id="library-12">Library</h2>
 
 <ul>
   <li>
@@ -2997,7 +3206,7 @@ bug in its <code class="highlighter-rouge">system/1</code> built-in predicate).<
   </li>
 </ul>
 
-<h2 id="tools-11">Tools</h2>
+<h2 id="tools-12">Tools</h2>
 
 <ul>
   <li>
@@ -3044,7 +3253,7 @@ inherited predicates when documenting entities.</p>
   </li>
 </ul>
 
-<h2 id="examples-11">Examples</h2>
+<h2 id="examples-12">Examples</h2>
 
 <ul>
   <li>
@@ -3095,7 +3304,7 @@ GNU Prolog.</p>
 backends.</li>
 </ul>
 
-<h2 id="tests-11">Tests</h2>
+<h2 id="tests-12">Tests</h2>
 
 <ul>
   <li>
@@ -3182,7 +3391,7 @@ defining it as a built-in predicate or when the adapter file emulates it.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-5">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-6">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -3227,7 +3436,7 @@ entries for the runtime table of loaded files.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-12">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-13">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -3253,7 +3462,7 @@ errors.</p>
   </li>
 </ul>
 
-<h2 id="documentation-11">Documentation</h2>
+<h2 id="documentation-12">Documentation</h2>
 
 <ul>
   <li>
@@ -3271,7 +3480,7 @@ include line numbers information.</p>
   </li>
 </ul>
 
-<h2 id="library-12">Library</h2>
+<h2 id="library-13">Library</h2>
 
 <ul>
   <li>
@@ -3318,7 +3527,7 @@ protocol.</p>
   </li>
 </ul>
 
-<h2 id="tools-12">Tools</h2>
+<h2 id="tools-13">Tools</h2>
 
 <ul>
   <li>
@@ -3371,7 +3580,7 @@ case of a skipped or broken test set.</p>
   </li>
 </ul>
 
-<h2 id="examples-12">Examples</h2>
+<h2 id="examples-13">Examples</h2>
 
 <ul>
   <li>
@@ -3415,7 +3624,7 @@ of at least 2048.</p>
   <li>FIXED: Added missing <code class="highlighter-rouge">|</code> operator declaration to the <code class="highlighter-rouge">toychr</code> port.</li>
 </ul>
 
-<h2 id="tests-12">Tests</h2>
+<h2 id="tests-13">Tests</h2>
 
 <ul>
   <li>
@@ -3493,7 +3702,7 @@ character set representation.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-8">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-9">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">logtalk_backend_select</code> script for Ciao Prolog, LVM and
@@ -3517,7 +3726,7 @@ Tau Prolog.</li>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-13">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-14">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -3534,7 +3743,7 @@ options. Changes contributed by José Antonio Riaza Valverde.</p>
   </li>
 </ul>
 
-<h2 id="documentation-12">Documentation</h2>
+<h2 id="documentation-13">Documentation</h2>
 
 <ul>
   <li>
@@ -3554,7 +3763,7 @@ includes a fix for a bug where invalid ePub files would be generated.</p>
   </li>
 </ul>
 
-<h2 id="library-13">Library</h2>
+<h2 id="library-14">Library</h2>
 
 <ul>
   <li>
@@ -3570,7 +3779,7 @@ Prolog and SICStus Prolog.</p>
   </li>
 </ul>
 
-<h2 id="tools-13">Tools</h2>
+<h2 id="tools-14">Tools</h2>
 
 <ul>
   <li>
@@ -3587,7 +3796,7 @@ using Tau Prolog as the backend compiler.</p>
   </li>
 </ul>
 
-<h2 id="tests-13">Tests</h2>
+<h2 id="tests-14">Tests</h2>
 
 <ul>
   <li>
@@ -3642,7 +3851,7 @@ Antonio Riaza Valverde for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-6">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-7">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Syntax highlighter support to the new <code class="highlighter-rouge">uninstantiation_error/1</code>
@@ -3666,14 +3875,14 @@ support calling them as predicates.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-14">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-15">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: The Qu-Prolog adapter file definition of the <code class="highlighter-rouge">'$lgt_format'/2</code>
 internal predicate.</li>
 </ul>
 
-<h2 id="documentation-13">Documentation</h2>
+<h2 id="documentation-14">Documentation</h2>
 
 <ul>
   <li>
@@ -3686,7 +3895,7 @@ of the Handbook.</p>
   </li>
 </ul>
 
-<h2 id="library-14">Library</h2>
+<h2 id="library-15">Library</h2>
 
 <ul>
   <li>
@@ -3699,7 +3908,7 @@ Qu-Prolog in the <code class="highlighter-rouge">list</code> library object.</p>
   </li>
 </ul>
 
-<h2 id="tools-14">Tools</h2>
+<h2 id="tools-15">Tools</h2>
 
 <ul>
   <li>
@@ -3716,7 +3925,7 @@ when generating documenting XML files.</p>
   </li>
 </ul>
 
-<h2 id="tests-14">Tests</h2>
+<h2 id="tests-15">Tests</h2>
 
 <ul>
   <li>
@@ -3750,14 +3959,14 @@ functions.</p>
   </li>
 </ul>
 
-<h2 id="examples-13">Examples</h2>
+<h2 id="examples-14">Examples</h2>
 
 <ul>
   <li>ADDED: Simple example, <code class="highlighter-rouge">module_aliases</code>, illustrating the use of module
 aliases.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-9">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-10">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The Windows installer notes on how to change the default system
@@ -3790,7 +3999,7 @@ library paths not ending with a slash.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-15">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-16">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -3810,7 +4019,7 @@ Antonio Riaza Valverde.</p>
   </li>
 </ul>
 
-<h2 id="documentation-14">Documentation</h2>
+<h2 id="documentation-15">Documentation</h2>
 
 <ul>
   <li>
@@ -3825,7 +4034,7 @@ the bug report.</p>
   </li>
 </ul>
 
-<h2 id="library-15">Library</h2>
+<h2 id="library-16">Library</h2>
 
 <ul>
   <li>
@@ -3864,7 +4073,7 @@ hook predicate.</p>
   </li>
 </ul>
 
-<h2 id="tools-15">Tools</h2>
+<h2 id="tools-16">Tools</h2>
 
 <ul>
   <li>
@@ -3910,7 +4119,7 @@ reported for the second run if it resulted in the tests being skipped.</p>
   </li>
 </ul>
 
-<h2 id="tests-15">Tests</h2>
+<h2 id="tests-16">Tests</h2>
 
 <ul>
   <li>
@@ -3928,7 +4137,7 @@ of the parametric types defined by the <code class="highlighter-rouge">arbitrary
   </li>
 </ul>
 
-<h2 id="examples-14">Examples</h2>
+<h2 id="examples-15">Examples</h2>
 
 <ul>
   <li>
@@ -3954,7 +4163,7 @@ predicate.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-10">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-11">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -4000,21 +4209,21 @@ the second argument is bound and references a local predicate as calls to the
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-16">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-17">Prolog adapter and integration files</h2>
 
 <ul>
   <li>ADDED: Default definition for the new <code class="highlighter-rouge">tail_recursive</code> flag to all adapter
 files.</li>
 </ul>
 
-<h2 id="documentation-15">Documentation</h2>
+<h2 id="documentation-16">Documentation</h2>
 
 <ul>
   <li>UPDATED: The Handbook compiler flags section to include a description of the
 new <code class="highlighter-rouge">tail_recursive</code> flag.</li>
 </ul>
 
-<h2 id="library-16">Library</h2>
+<h2 id="library-17">Library</h2>
 
 <ul>
   <li>
@@ -4061,7 +4270,7 @@ fixed <code class="highlighter-rouge">/tmp</code> path.</p>
   </li>
 </ul>
 
-<h2 id="tools-16">Tools</h2>
+<h2 id="tools-17">Tools</h2>
 
 <ul>
   <li>
@@ -4139,14 +4348,14 @@ when the argument is a singleton list.</p>
   </li>
 </ul>
 
-<h2 id="examples-15">Examples</h2>
+<h2 id="examples-16">Examples</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">errors</code> example to illustrate the new tail recursive lint
 warnings.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-7">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-8">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -4184,7 +4393,7 @@ reexport other modules.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-17">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-18">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -4219,7 +4428,7 @@ directives when the argument is a list of files.</p>
   </li>
 </ul>
 
-<h2 id="documentation-16">Documentation</h2>
+<h2 id="documentation-17">Documentation</h2>
 
 <ul>
   <li>
@@ -4264,7 +4473,7 @@ of the built-in method <code class="highlighter-rouge">this/1</code>. Thanks to 
   </li>
 </ul>
 
-<h2 id="library-17">Library</h2>
+<h2 id="library-18">Library</h2>
 
 <ul>
   <li>
@@ -4285,7 +4494,7 @@ global when expanding files defining EDCGs.</p>
   </li>
 </ul>
 
-<h2 id="tools-17">Tools</h2>
+<h2 id="tools-18">Tools</h2>
 
 <ul>
   <li>
@@ -4302,7 +4511,7 @@ SWI-Prolog as the backend compiler to include exported operators.</p>
   </li>
 </ul>
 
-<h2 id="examples-16">Examples</h2>
+<h2 id="examples-17">Examples</h2>
 
 <ul>
   <li>ADDED: Simple example, <code class="highlighter-rouge">aspects</code>, of Aspect-Oriented Programming using hot
@@ -4397,7 +4606,7 @@ for compliance with the XDG Base Directory Specification.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-18">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-19">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -4420,7 +4629,7 @@ predicate explicitly.</p>
   </li>
 </ul>
 
-<h2 id="documentation-17">Documentation</h2>
+<h2 id="documentation-18">Documentation</h2>
 
 <ul>
   <li>
@@ -4443,7 +4652,7 @@ not require an Internet connection when browsed locally.</p>
   </li>
 </ul>
 
-<h2 id="library-18">Library</h2>
+<h2 id="library-19">Library</h2>
 
 <ul>
   <li>
@@ -4468,7 +4677,7 @@ lists are unbound.</p>
   </li>
 </ul>
 
-<h2 id="tools-18">Tools</h2>
+<h2 id="tools-19">Tools</h2>
 
 <ul>
   <li>
@@ -4539,7 +4748,7 @@ number of shrink operations.</p>
   </li>
 </ul>
 
-<h2 id="tests-16">Tests</h2>
+<h2 id="tests-17">Tests</h2>
 
 <ul>
   <li>
@@ -4554,7 +4763,7 @@ atoms that contain a <code class="highlighter-rouge">%</code> character.</p>
   </li>
 </ul>
 
-<h2 id="examples-17">Examples</h2>
+<h2 id="examples-18">Examples</h2>
 
 <ul>
   <li>
@@ -4613,7 +4822,7 @@ terms lint warnings.</p>
 rational numbers as <code class="highlighter-rouge">N/D</code> terms.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-8">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-9">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -4676,7 +4885,7 @@ startup.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-19">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-20">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -4709,7 +4918,7 @@ not be displayed in some cases.</p>
   </li>
 </ul>
 
-<h2 id="documentation-18">Documentation</h2>
+<h2 id="documentation-19">Documentation</h2>
 
 <ul>
   <li>
@@ -4772,7 +4981,7 @@ the backend compiler.</p>
   </li>
 </ul>
 
-<h2 id="tools-19">Tools</h2>
+<h2 id="tools-20">Tools</h2>
 
 <ul>
   <li>
@@ -4789,7 +4998,7 @@ with assertion failed messages.</p>
   </li>
 </ul>
 
-<h2 id="tests-17">Tests</h2>
+<h2 id="tests-18">Tests</h2>
 
 <ul>
   <li>
@@ -4806,7 +5015,7 @@ the new lint warning for redefined standard operators.</p>
   </li>
 </ul>
 
-<h2 id="examples-18">Examples</h2>
+<h2 id="examples-19">Examples</h2>
 
 <ul>
   <li>
@@ -4818,7 +5027,7 @@ of meta-predicates.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-9">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-10">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: Logtalk setup instructions for ctags 5.8. Thanks to Paul Brown for
@@ -4896,7 +5105,7 @@ character.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-20">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-21">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -4913,7 +5122,7 @@ to Prolog meta-predicates to not depend on the term-expansion mechanism.</p>
   </li>
 </ul>
 
-<h2 id="documentation-19">Documentation</h2>
+<h2 id="documentation-20">Documentation</h2>
 
 <ul>
   <li>
@@ -4962,7 +5171,7 @@ section on predicate declarations.</p>
   </li>
 </ul>
 
-<h2 id="library-19">Library</h2>
+<h2 id="library-20">Library</h2>
 
 <ul>
   <li>
@@ -4997,7 +5206,7 @@ requested for a protocol.</p>
   </li>
 </ul>
 
-<h2 id="tests-18">Tests</h2>
+<h2 id="tests-19">Tests</h2>
 
 <ul>
   <li>
@@ -5021,7 +5230,7 @@ predicates to use assertions to simplify debugging.</p>
   </li>
 </ul>
 
-<h2 id="examples-19">Examples</h2>
+<h2 id="examples-20">Examples</h2>
 
 <ul>
   <li>
@@ -5048,7 +5257,7 @@ dynamic complementing category.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-11">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-12">Installers and installation scripts</h2>
 
 <ul>
   <li>IMPROVED: The Debian installer to define default values for the Logtalk
@@ -5074,7 +5283,7 @@ reported but otherwise ignored).</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-21">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-22">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -5097,7 +5306,7 @@ XSB adapter file.</p>
   </li>
 </ul>
 
-<h2 id="documentation-20">Documentation</h2>
+<h2 id="documentation-21">Documentation</h2>
 
 <ul>
   <li>
@@ -5129,7 +5338,7 @@ a library alias for each project or library.</p>
   </li>
 </ul>
 
-<h2 id="library-20">Library</h2>
+<h2 id="library-21">Library</h2>
 
 <ul>
   <li>
@@ -5228,7 +5437,7 @@ script.</p>
   </li>
 </ul>
 
-<h2 id="tests-19">Tests</h2>
+<h2 id="tests-20">Tests</h2>
 
 <ul>
   <li>
@@ -5245,7 +5454,7 @@ that perform input/output operations to close the temporary files they use.</p>
   </li>
 </ul>
 
-<h2 id="examples-20">Examples</h2>
+<h2 id="examples-21">Examples</h2>
 
 <ul>
   <li>
@@ -5271,7 +5480,7 @@ that perform input/output operations to close the temporary files they use.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-10">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-11">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>FIXED: Pygments Logtalk lexer syntax error in the <code class="highlighter-rouge">analyse_text</code> function.</li>
@@ -5315,7 +5524,7 @@ primary declaration.</p>
   </li>
 </ul>
 
-<h2 id="documentation-21">Documentation</h2>
+<h2 id="documentation-22">Documentation</h2>
 
 <ul>
   <li>
@@ -5331,7 +5540,7 @@ converters that generate HTML files.</p>
   </li>
 </ul>
 
-<h2 id="tools-20">Tools</h2>
+<h2 id="tools-21">Tools</h2>
 
 <ul>
   <li>
@@ -5373,7 +5582,7 @@ test suite file path.</p>
   </li>
 </ul>
 
-<h2 id="tests-20">Tests</h2>
+<h2 id="tests-21">Tests</h2>
 
 <ul>
   <li>
@@ -5385,7 +5594,7 @@ and <code class="highlighter-rouge">sign/1</code>.</p>
   </li>
 </ul>
 
-<h2 id="examples-21">Examples</h2>
+<h2 id="examples-22">Examples</h2>
 
 <ul>
   <li>
@@ -5401,7 +5610,7 @@ library.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-12">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-13">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -5458,7 +5667,7 @@ goal is a cut-transparent control construct.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-22">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-23">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -5482,7 +5691,7 @@ to allow compiling modules as objects.</p>
   </li>
 </ul>
 
-<h2 id="documentation-22">Documentation</h2>
+<h2 id="documentation-23">Documentation</h2>
 
 <ul>
   <li>
@@ -5502,13 +5711,13 @@ built-in predicates.</p>
   </li>
 </ul>
 
-<h2 id="library-21">Library</h2>
+<h2 id="library-22">Library</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">mode/2</code> directive for the <code class="highlighter-rouge">difflist</code> predicate <code class="highlighter-rouge">as_list/2</code>.</li>
 </ul>
 
-<h2 id="tools-21">Tools</h2>
+<h2 id="tools-22">Tools</h2>
 
 <ul>
   <li>
@@ -5542,7 +5751,7 @@ dialects.</p>
   </li>
 </ul>
 
-<h2 id="tests-21">Tests</h2>
+<h2 id="tests-22">Tests</h2>
 
 <ul>
   <li>
@@ -5554,7 +5763,7 @@ to use assertions for easier debugging.</p>
   </li>
 </ul>
 
-<h2 id="examples-22">Examples</h2>
+<h2 id="examples-23">Examples</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">clustering</code> and <code class="highlighter-rouge">document_converter</code> Java examples when using
@@ -5567,7 +5776,7 @@ YAP as the backend Prolog compiler.</li>
   <li>ADDED: Port of ToyCHR by Gregory J. Duck. Experimental.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-13">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-14">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -5580,7 +5789,7 @@ uses a registry key different from the one used in previous versions.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-11">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-12">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -5659,7 +5868,7 @@ compiling a module as an object.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-23">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-24">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -5678,7 +5887,7 @@ module predicates when supported.</p>
   </li>
 </ul>
 
-<h2 id="documentation-23">Documentation</h2>
+<h2 id="documentation-24">Documentation</h2>
 
 <ul>
   <li>
@@ -5701,14 +5910,14 @@ due to nesting of the Handbook pages.</p>
   </li>
 </ul>
 
-<h2 id="library-22">Library</h2>
+<h2 id="library-23">Library</h2>
 
 <ul>
   <li>FIXED: Syntax error running the <code class="highlighter-rouge">assignvars</code> library tests with some backend
 Prolog compilers.</li>
 </ul>
 
-<h2 id="tools-22">Tools</h2>
+<h2 id="tools-23">Tools</h2>
 
 <ul>
   <li>
@@ -5724,13 +5933,13 @@ goal and its execution context.</p>
   </li>
 </ul>
 
-<h2 id="examples-23">Examples</h2>
+<h2 id="examples-24">Examples</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">errors</code> example to illustrate new and improved lint warnings.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-12">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-13">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>IMPROVED: Support for the Textadept editor (version 10.0 or later required).
@@ -5792,7 +6001,7 @@ contains a meta-call in <code class="highlighter-rouge">user</code> where the go
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-24">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-25">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -5822,7 +6031,7 @@ instead of standard name-variable pairs.</p>
   </li>
 </ul>
 
-<h2 id="documentation-24">Documentation</h2>
+<h2 id="documentation-25">Documentation</h2>
 
 <ul>
   <li>
@@ -5844,14 +6053,14 @@ implications when writing source files.</p>
   </li>
 </ul>
 
-<h2 id="library-23">Library</h2>
+<h2 id="library-24">Library</h2>
 
 <ul>
   <li>FIXED: Avoid reporting the <code class="highlighter-rouge">coroutining</code> and <code class="highlighter-rouge">timeout</code> libraries as broken
 when testing while running on backend Prolog systems that don’t support them.</li>
 </ul>
 
-<h2 id="tools-23">Tools</h2>
+<h2 id="tools-24">Tools</h2>
 
 <ul>
   <li>
@@ -5864,14 +6073,14 @@ expression lint checks plus the domain error generated when trying to use the
   </li>
 </ul>
 
-<h2 id="tests-22">Tests</h2>
+<h2 id="tests-23">Tests</h2>
 
 <ul>
   <li>ADDED: Unit test for multiple <code class="highlighter-rouge">initialization/1</code> directives in dynamically
 created objects.</li>
 </ul>
 
-<h2 id="examples-24">Examples</h2>
+<h2 id="examples-25">Examples</h2>
 
 <ul>
   <li>
@@ -5937,7 +6146,7 @@ the actual location.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-25">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-26">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -5954,7 +6163,7 @@ table property declarations.</p>
   </li>
 </ul>
 
-<h2 id="documentation-25">Documentation</h2>
+<h2 id="documentation-26">Documentation</h2>
 
 <ul>
   <li>
@@ -5975,7 +6184,7 @@ Anton Danilov for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="tools-24">Tools</h2>
+<h2 id="tools-25">Tools</h2>
 
 <ul>
   <li>
@@ -5989,7 +6198,7 @@ maximum arity of three instead of four.</p>
   </li>
 </ul>
 
-<h2 id="tests-23">Tests</h2>
+<h2 id="tests-24">Tests</h2>
 
 <ul>
   <li>
@@ -6007,7 +6216,7 @@ reading the <code class="highlighter-rouge">end_of_file</code> term.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-14">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-15">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -6032,7 +6241,7 @@ directory as the last resort.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-13">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-14">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -6082,14 +6291,14 @@ of auxiliary clauses (e.g. when using hook pipelines).</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-26">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-27">Prolog adapter and integration files</h2>
 
 <ul>
   <li>ADDED: SWI-Prolog adapter file declarations for the recently added <code class="highlighter-rouge">tnot/1</code>
 built-in meta-predicate plus <code class="highlighter-rouge">table/1</code> and <code class="highlighter-rouge">untable/1</code> built-in predicates.</li>
 </ul>
 
-<h2 id="documentation-26">Documentation</h2>
+<h2 id="documentation-27">Documentation</h2>
 
 <ul>
   <li>
@@ -6111,7 +6320,7 @@ characters for the sole case of the <code class="highlighter-rouge">&lt;</code> 
   </li>
 </ul>
 
-<h2 id="library-24">Library</h2>
+<h2 id="library-25">Library</h2>
 
 <ul>
   <li>
@@ -6221,7 +6430,7 @@ results when calling <code class="highlighter-rouge">char_code/2</code> with a c
   </li>
 </ul>
 
-<h2 id="tools-25">Tools</h2>
+<h2 id="tools-26">Tools</h2>
 
 <ul>
   <li>
@@ -6263,7 +6472,7 @@ with unbound arguments.</p>
   </li>
 </ul>
 
-<h2 id="tests-24">Tests</h2>
+<h2 id="tests-25">Tests</h2>
 
 <ul>
   <li>
@@ -6289,7 +6498,7 @@ library directories.</p>
   </li>
 </ul>
 
-<h2 id="examples-25">Examples</h2>
+<h2 id="examples-26">Examples</h2>
 
 <ul>
   <li>
@@ -6311,7 +6520,7 @@ declaring object aliases.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-14">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-15">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: Syntax highlighting test files for the new <code class="highlighter-rouge">uses/1</code> directive.</li>
@@ -6326,7 +6535,7 @@ declaring object aliases.</p>
 when in debug mode.</li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-27">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-28">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -6338,14 +6547,14 @@ when in debug mode.</li>
   </li>
 </ul>
 
-<h2 id="documentation-27">Documentation</h2>
+<h2 id="documentation-28">Documentation</h2>
 
 <ul>
   <li>ADDED: Predicate cross-referencing diagrams linked from the core, library,
 tools, ports, and contributions inheritance diagrams.</li>
 </ul>
 
-<h2 id="library-25">Library</h2>
+<h2 id="library-26">Library</h2>
 
 <ul>
   <li>ADDED: Timeout portability library supporting B-Prolog, ECLiPSe, SICStus
@@ -6353,7 +6562,7 @@ Prolog, SWI-Prolog, and YAP as backend Prolog systems. Provides a portable
 abstraction over how the to call a predicate with a time limit.</li>
 </ul>
 
-<h2 id="tools-26">Tools</h2>
+<h2 id="tools-27">Tools</h2>
 
 <ul>
   <li>
@@ -6498,13 +6707,13 @@ for local auxiliary predicates.</p>
   </li>
 </ul>
 
-<h2 id="tests-25">Tests</h2>
+<h2 id="tests-26">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the new <code class="highlighter-rouge">timeout</code> library.</li>
 </ul>
 
-<h2 id="examples-26">Examples</h2>
+<h2 id="examples-27">Examples</h2>
 
 <ul>
   <li>
@@ -6528,7 +6737,7 @@ Original Prolog examples source code files contributed by MystikNinja.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-15">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-16">Installers and installation scripts</h2>
 
 <ul>
   <li>IMPROVED: The <code class="highlighter-rouge">update_svg_diagrams.sh</code> script to use a git hash to keep node
@@ -6635,7 +6844,7 @@ would create a cyclic term.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-28">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-29">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -6661,7 +6870,7 @@ expanding a variable goal.</p>
   </li>
 </ul>
 
-<h2 id="documentation-28">Documentation</h2>
+<h2 id="documentation-29">Documentation</h2>
 
 <ul>
   <li>
@@ -6689,7 +6898,7 @@ modes and debug mode overhead.</p>
   </li>
 </ul>
 
-<h2 id="library-26">Library</h2>
+<h2 id="library-27">Library</h2>
 
 <ul>
   <li>
@@ -6783,7 +6992,7 @@ definitions.</p>
   </li>
 </ul>
 
-<h2 id="tools-27">Tools</h2>
+<h2 id="tools-28">Tools</h2>
 
 <ul>
   <li>
@@ -6819,7 +7028,7 @@ tool.</p>
   </li>
 </ul>
 
-<h2 id="tests-26">Tests</h2>
+<h2 id="tests-27">Tests</h2>
 
 <ul>
   <li>
@@ -6831,7 +7040,7 @@ to check the changes to the goal-expansion mechanism.</p>
   </li>
 </ul>
 
-<h2 id="examples-27">Examples</h2>
+<h2 id="examples-28">Examples</h2>
 
 <ul>
   <li>
@@ -6883,7 +7092,7 @@ parser.</p>
 example.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-15">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-16">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>FIXED: Kate and Pygments highlighting of directives with no arguments to not
@@ -6914,7 +7123,7 @@ an entity that would be both built-in and dynamic.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-29">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-30">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -6930,7 +7139,7 @@ only the culprit goal.</p>
   </li>
 </ul>
 
-<h2 id="documentation-29">Documentation</h2>
+<h2 id="documentation-30">Documentation</h2>
 
 <ul>
   <li>
@@ -6969,14 +7178,14 @@ size of the code generated by the compiler.</p>
   </li>
 </ul>
 
-<h2 id="library-27">Library</h2>
+<h2 id="library-28">Library</h2>
 
 <ul>
   <li>ADDED: Library <code class="highlighter-rouge">reader</code> object with predicates for reading text file and
 text stream contents to lists of terms, characters, or character codes.</li>
 </ul>
 
-<h2 id="tools-28">Tools</h2>
+<h2 id="tools-29">Tools</h2>
 
 <ul>
   <li>
@@ -6992,7 +7201,7 @@ entity column.</p>
   </li>
 </ul>
 
-<h2 id="tests-27">Tests</h2>
+<h2 id="tests-28">Tests</h2>
 
 <ul>
   <li>
@@ -7006,7 +7215,7 @@ entity column.</p>
   </li>
 </ul>
 
-<h2 id="examples-28">Examples</h2>
+<h2 id="examples-29">Examples</h2>
 
 <ul>
   <li>
@@ -7028,7 +7237,7 @@ programming idiom, using the high-level multi-threading predicates.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-16">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-17">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -7076,14 +7285,14 @@ compiler.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-30">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-31">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: O-Prolog adapter file definition of the <code class="highlighter-rouge">'$lgt_compile_prolog_code'/3</code>
 internal predicate.</li>
 </ul>
 
-<h2 id="documentation-30">Documentation</h2>
+<h2 id="documentation-31">Documentation</h2>
 
 <ul>
   <li>
@@ -7109,7 +7318,7 @@ Handbook.</p>
   </li>
 </ul>
 
-<h2 id="library-28">Library</h2>
+<h2 id="library-29">Library</h2>
 
 <ul>
   <li>
@@ -7153,7 +7362,7 @@ predicate.</p>
   </li>
 </ul>
 
-<h2 id="tools-29">Tools</h2>
+<h2 id="tools-30">Tools</h2>
 
 <ul>
   <li>
@@ -7184,7 +7393,7 @@ tool.</p>
 on meta-interpretive learning.</li>
 </ul>
 
-<h2 id="tests-28">Tests</h2>
+<h2 id="tests-29">Tests</h2>
 
 <ul>
   <li>
@@ -7210,7 +7419,7 @@ on meta-interpretive learning.</li>
   </li>
 </ul>
 
-<h2 id="examples-29">Examples</h2>
+<h2 id="examples-30">Examples</h2>
 
 <ul>
   <li>
@@ -7243,14 +7452,14 @@ any of them may cause an error condition.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-16">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-17">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The Windows installation script to also detect SICStus Prolog
 4.5.x versions.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-17">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-18">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -7283,7 +7492,7 @@ built-in methods, which cannot be overridden.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-31">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-32">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -7297,7 +7506,7 @@ using grammar rule non-terminal indicators in <code class="highlighter-rouge">ta
   </li>
 </ul>
 
-<h2 id="documentation-31">Documentation</h2>
+<h2 id="documentation-32">Documentation</h2>
 
 <ul>
   <li>
@@ -7335,21 +7544,21 @@ display of parametric entity names with two or more arguments in the index.</p>
   </li>
 </ul>
 
-<h2 id="library-29">Library</h2>
+<h2 id="library-30">Library</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">parallel_logtalk_processes_setup.pl</code> sample code to account for
 the operating-system reusing process identifiers.</li>
 </ul>
 
-<h2 id="tools-30">Tools</h2>
+<h2 id="tools-31">Tools</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">logtalk_tester</code> script to pass the default backend when sourcing
 a <code class="highlighter-rouge">tester.sh</code> script when called without any arguments.</li>
 </ul>
 
-<h2 id="examples-30">Examples</h2>
+<h2 id="examples-31">Examples</h2>
 
 <ul>
   <li>
@@ -7367,7 +7576,7 @@ in optimal mode due to SWI-Prolog different semantics for clauses that contain
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-17">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-18">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -7389,7 +7598,7 @@ version string.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-18">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-19">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: CodeMirror mode supporting syntax highlighting, code folding, and
@@ -7406,7 +7615,7 @@ but no predicate definition allowing any definitions in complemented objects
 (compiled with the <code class="highlighter-rouge">complements</code> flag set to <code class="highlighter-rouge">allow</code>) to be found and used.</li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-32">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-33">Prolog adapter and integration files</h2>
 
 <ul>
   <li>REMOVED: Unsupported/non-functional adapter file for Jekejeke Prolog as
@@ -7414,7 +7623,7 @@ requested by its developer who claims that Jekejeke Prolog license forbids
 using it to run Logtalk.</li>
 </ul>
 
-<h2 id="documentation-32">Documentation</h2>
+<h2 id="documentation-33">Documentation</h2>
 
 <ul>
   <li>
@@ -7443,7 +7652,7 @@ tutorial, and APIs documentation.</p>
   </li>
 </ul>
 
-<h2 id="library-30">Library</h2>
+<h2 id="library-31">Library</h2>
 
 <ul>
   <li>
@@ -7461,7 +7670,7 @@ code for ECLiPSe and SICStus Prolog and usage alternatives.</p>
   </li>
 </ul>
 
-<h2 id="tools-31">Tools</h2>
+<h2 id="tools-32">Tools</h2>
 
 <ul>
   <li>
@@ -7491,7 +7700,7 @@ blank lines, comment lines, and lines of source code) support for Logtalk.</p>
   </li>
 </ul>
 
-<h2 id="examples-31">Examples</h2>
+<h2 id="examples-32">Examples</h2>
 
 <ul>
   <li>
@@ -7514,14 +7723,14 @@ reading a term).</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-18">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-19">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: Issue in the Windows installer where the Start Menu shortcuts to
 the APIs documentation and the sample settings file could be invalid.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-19">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-20">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -7557,13 +7766,13 @@ the resulting goal is a call to a Prolog <code class="highlighter-rouge">:/2</co
   </li>
 </ul>
 
-<h2 id="documentation-33">Documentation</h2>
+<h2 id="documentation-34">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Reference manual description of the <code class="highlighter-rouge">^^/1</code> control construct.</li>
 </ul>
 
-<h2 id="library-31">Library</h2>
+<h2 id="library-32">Library</h2>
 
 <ul>
   <li>
@@ -7594,7 +7803,7 @@ of when expanding the ending entity directive.</p>
   </li>
 </ul>
 
-<h2 id="examples-32">Examples</h2>
+<h2 id="examples-33">Examples</h2>
 
 <ul>
   <li>
@@ -7644,7 +7853,7 @@ help visually illustrate the differences between left and right folds.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-20">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-21">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -7730,7 +7939,7 @@ predicate as a built-in predicate.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-33">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-34">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -7758,14 +7967,14 @@ arithmetic function.</p>
   </li>
 </ul>
 
-<h2 id="documentation-34">Documentation</h2>
+<h2 id="documentation-35">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Fixed several typos and improved several sections of the reference
 manual.</li>
 </ul>
 
-<h2 id="library-32">Library</h2>
+<h2 id="library-33">Library</h2>
 
 <ul>
   <li>
@@ -7788,7 +7997,7 @@ fractional part is zero.</p>
   </li>
 </ul>
 
-<h2 id="tools-32">Tools</h2>
+<h2 id="tools-33">Tools</h2>
 
 <ul>
   <li>
@@ -7852,7 +8061,7 @@ parameters.</p>
   </li>
 </ul>
 
-<h2 id="tests-29">Tests</h2>
+<h2 id="tests-30">Tests</h2>
 
 <ul>
   <li>
@@ -7884,7 +8093,7 @@ dynamic predicate with a dynamic declaration.</p>
   </li>
 </ul>
 
-<h2 id="examples-33">Examples</h2>
+<h2 id="examples-34">Examples</h2>
 
 <ul>
   <li>
@@ -7899,7 +8108,7 @@ with Jan Wielemaker.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-21">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-22">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -7964,7 +8173,7 @@ backend Prolog systems with the <code class="highlighter-rouge">underscore_varia
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-34">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-35">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -8009,7 +8218,7 @@ module other than <code class="highlighter-rouge">user</code>.</p>
   </li>
 </ul>
 
-<h2 id="documentation-35">Documentation</h2>
+<h2 id="documentation-36">Documentation</h2>
 
 <ul>
   <li>
@@ -8026,7 +8235,7 @@ object in the user manual.</p>
   </li>
 </ul>
 
-<h2 id="library-33">Library</h2>
+<h2 id="library-34">Library</h2>
 
 <ul>
   <li>
@@ -8047,7 +8256,7 @@ interface library (ensuring zero overhead compared with direct use of JPL).</p>
   </li>
 </ul>
 
-<h2 id="tools-33">Tools</h2>
+<h2 id="tools-34">Tools</h2>
 
 <ul>
   <li>
@@ -8069,7 +8278,7 @@ loaded parametric category or object.</p>
   </li>
 </ul>
 
-<h2 id="tests-30">Tests</h2>
+<h2 id="tests-31">Tests</h2>
 
 <ul>
   <li>
@@ -8082,7 +8291,7 @@ and <code class="highlighter-rouge">ignore_ops/1</code> options.</p>
   </li>
 </ul>
 
-<h2 id="examples-34">Examples</h2>
+<h2 id="examples-35">Examples</h2>
 
 <ul>
   <li>
@@ -8167,7 +8376,7 @@ and <code class="highlighter-rouge">category_property/2</code> for dynamically c
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-35">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-36">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -8182,20 +8391,20 @@ mode-directed tabling. After discussion in the SWI-Prolog mailing list.</p>
   </li>
 </ul>
 
-<h2 id="documentation-36">Documentation</h2>
+<h2 id="documentation-37">Documentation</h2>
 
 <ul>
   <li>UPDATED: Manual installation instructions.</li>
 </ul>
 
-<h2 id="library-34">Library</h2>
+<h2 id="library-35">Library</h2>
 
 <ul>
   <li>FIXED: Spurious choice-points for some of the predicates of the <code class="highlighter-rouge">character</code>
 library object.</li>
 </ul>
 
-<h2 id="tools-34">Tools</h2>
+<h2 id="tools-35">Tools</h2>
 
 <ul>
   <li>
@@ -8206,13 +8415,13 @@ library object.</li>
   </li>
 </ul>
 
-<h2 id="tests-31">Tests</h2>
+<h2 id="tests-32">Tests</h2>
 
 <ul>
   <li>ADDED: Additional unit tests for the <code class="highlighter-rouge">logtalk</code> and <code class="highlighter-rouge">user</code> built-in objects.</li>
 </ul>
 
-<h2 id="examples-35">Examples</h2>
+<h2 id="examples-36">Examples</h2>
 
 <ul>
   <li>
@@ -8243,7 +8452,7 @@ example. Thanks to Per Mildner for reporting.</p>
   <li>FIXED: Missing meta-predicate directive in the <code class="highlighter-rouge">verdi_neruda</code> contribution.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-19">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-20">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -8359,7 +8568,7 @@ targets <code class="highlighter-rouge">debug</code>, <code class="highlighter-r
 <p>FIXED: Avoid trying to redo the startup initialization when including Logtalk
 in a backend Prolog saved state.</p>
 
-<h2 id="prolog-adapter-and-integration-files-36">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-37">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -8382,7 +8591,7 @@ on XSB.</p>
   </li>
 </ul>
 
-<h2 id="documentation-37">Documentation</h2>
+<h2 id="documentation-38">Documentation</h2>
 
 <ul>
   <li>
@@ -8395,7 +8604,7 @@ Manual index.</p>
   </li>
 </ul>
 
-<h2 id="library-35">Library</h2>
+<h2 id="library-36">Library</h2>
 
 <ul>
   <li>
@@ -8418,7 +8627,7 @@ the <code class="highlighter-rouge">character</code> library object.</p>
   </li>
 </ul>
 
-<h2 id="tools-35">Tools</h2>
+<h2 id="tools-36">Tools</h2>
 
 <ul>
   <li>
@@ -8430,7 +8639,7 @@ error being generated.</p>
   </li>
 </ul>
 
-<h2 id="tests-32">Tests</h2>
+<h2 id="tests-33">Tests</h2>
 
 <ul>
   <li>
@@ -8454,7 +8663,7 @@ irrelevant output.</p>
   </li>
 </ul>
 
-<h2 id="examples-36">Examples</h2>
+<h2 id="examples-37">Examples</h2>
 
 <ul>
   <li>
@@ -8467,7 +8676,7 @@ irrelevant output.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-20">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-21">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -8538,7 +8747,7 @@ duplicated debug handlers would not increment the warnings counter.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-37">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-38">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -8600,7 +8809,7 @@ to the Quintus Prolog adapter file.</p>
   </li>
 </ul>
 
-<h2 id="documentation-38">Documentation</h2>
+<h2 id="documentation-39">Documentation</h2>
 
 <ul>
   <li>
@@ -8622,7 +8831,7 @@ documentation.</p>
   </li>
 </ul>
 
-<h2 id="library-36">Library</h2>
+<h2 id="library-37">Library</h2>
 
 <ul>
   <li>
@@ -8704,7 +8913,7 @@ list would be shrink to itself.</p>
   </li>
 </ul>
 
-<h2 id="tools-36">Tools</h2>
+<h2 id="tools-37">Tools</h2>
 
 <ul>
   <li>
@@ -8817,7 +9026,7 @@ are declared in multiple objects.</p>
   </li>
 </ul>
 
-<h2 id="tests-33">Tests</h2>
+<h2 id="tests-34">Tests</h2>
 
 <ul>
   <li>
@@ -8911,7 +9120,7 @@ errors to runtime.</p>
   </li>
 </ul>
 
-<h2 id="examples-37">Examples</h2>
+<h2 id="examples-38">Examples</h2>
 
 <ul>
   <li>
@@ -8954,7 +9163,7 @@ examples to suppress irrelevant output.</p>
 <code class="highlighter-rouge">print_flags/0</code>.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-21">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-22">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -9028,7 +9237,7 @@ predicates found in included files.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-38">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-39">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -9046,7 +9255,7 @@ option <code class="highlighter-rouge">variable_names/1</code>.</p>
   </li>
 </ul>
 
-<h2 id="documentation-39">Documentation</h2>
+<h2 id="documentation-40">Documentation</h2>
 
 <ul>
   <li>
@@ -9062,7 +9271,7 @@ dot command random crashes.</p>
   </li>
 </ul>
 
-<h2 id="library-37">Library</h2>
+<h2 id="library-38">Library</h2>
 
 <ul>
   <li>
@@ -9096,7 +9305,7 @@ that prevented its description to be displayed in the API HTML documentation.</p
   </li>
 </ul>
 
-<h2 id="tools-37">Tools</h2>
+<h2 id="tools-38">Tools</h2>
 
 <ul>
   <li>
@@ -9145,7 +9354,7 @@ where test set crashes would also be reported as broken test sets.</p>
   </li>
 </ul>
 
-<h2 id="tests-34">Tests</h2>
+<h2 id="tests-35">Tests</h2>
 
 <ul>
   <li>
@@ -9166,7 +9375,7 @@ and <code class="highlighter-rouge">or_else_fail/1</code>.</p>
   </li>
 </ul>
 
-<h2 id="examples-38">Examples</h2>
+<h2 id="examples-39">Examples</h2>
 
 <ul>
   <li>
@@ -9184,14 +9393,14 @@ when processing <code class="highlighter-rouge">include/1</code> directives.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-22">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-23">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: Synced the settings files used by the SWI-Prolog packs with the
 settings sample file.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-22">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-23">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -9226,7 +9435,7 @@ would result in duplicated entity predicate definition table entries.</p>
   </li>
 </ul>
 
-<h2 id="documentation-40">Documentation</h2>
+<h2 id="documentation-41">Documentation</h2>
 
 <ul>
   <li>
@@ -9237,7 +9446,7 @@ would result in duplicated entity predicate definition table entries.</p>
   </li>
 </ul>
 
-<h2 id="library-38">Library</h2>
+<h2 id="library-39">Library</h2>
 
 <ul>
   <li>
@@ -9266,7 +9475,7 @@ the standard <code class="highlighter-rouge">sub_atom/5</code> predicate).</p>
   </li>
 </ul>
 
-<h2 id="tools-38">Tools</h2>
+<h2 id="tools-39">Tools</h2>
 
 <ul>
   <li>
@@ -9294,14 +9503,14 @@ of the source files being documented.</p>
   </li>
 </ul>
 
-<h2 id="tests-35">Tests</h2>
+<h2 id="tests-36">Tests</h2>
 
 <ul>
   <li>ADDED: Missing <code class="highlighter-rouge">sub_atom/5</code> predicate Prolog compliance tests for the
 expected error when the first argument is bound to a number.</li>
 </ul>
 
-<h2 id="examples-39">Examples</h2>
+<h2 id="examples-40">Examples</h2>
 
 <ul>
   <li>
@@ -9316,7 +9525,7 @@ persisting an object dynamic state across sessions.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-23">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-24">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -9330,7 +9539,7 @@ repository.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-23">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-24">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -9361,7 +9570,7 @@ cope with runtime constructed calls.</p>
   </li>
 </ul>
 
-<h2 id="documentation-41">Documentation</h2>
+<h2 id="documentation-42">Documentation</h2>
 
 <ul>
   <li>
@@ -9373,7 +9582,7 @@ defaults for each kind of message to the <code class="highlighter-rouge">logtalk
   </li>
 </ul>
 
-<h2 id="library-39">Library</h2>
+<h2 id="library-40">Library</h2>
 
 <ul>
   <li>
@@ -9417,7 +9626,7 @@ backend compiler on Windows.</p>
   </li>
 </ul>
 
-<h2 id="tools-39">Tools</h2>
+<h2 id="tools-40">Tools</h2>
 
 <ul>
   <li>
@@ -9438,7 +9647,7 @@ Centos/RHEL.</p>
   </li>
 </ul>
 
-<h2 id="tests-36">Tests</h2>
+<h2 id="tests-37">Tests</h2>
 
 <ul>
   <li>
@@ -9480,7 +9689,7 @@ message was printed but the call still succeeded.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-39">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-40">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -9514,7 +9723,7 @@ directives.</p>
   </li>
 </ul>
 
-<h2 id="library-40">Library</h2>
+<h2 id="library-41">Library</h2>
 
 <ul>
   <li>
@@ -9548,7 +9757,7 @@ throw an <code class="highlighter-rouge">instantiation_error</code> when the che
   </li>
 </ul>
 
-<h2 id="tools-40">Tools</h2>
+<h2 id="tools-41">Tools</h2>
 
 <ul>
   <li>
@@ -9578,13 +9787,13 @@ API documentation into human-readable formats.</p>
   </li>
 </ul>
 
-<h2 id="examples-40">Examples</h2>
+<h2 id="examples-41">Examples</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">mtbatch</code> example to support ECLiPSe.</li>
 </ul>
 
-<h2 id="tests-37">Tests</h2>
+<h2 id="tests-38">Tests</h2>
 
 <ul>
   <li>
@@ -9640,7 +9849,7 @@ module is only bound at runtime.</p>
   </li>
 </ul>
 
-<h2 id="tools-41">Tools</h2>
+<h2 id="tools-42">Tools</h2>
 
 <ul>
   <li>
@@ -9655,7 +9864,7 @@ module is only bound at runtime.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-24">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-25">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Sample <code class="highlighter-rouge">tasks.json</code> file for the Visual Studio Code text editor. The
@@ -9713,7 +9922,7 @@ take into account Logtalk being loaded into a module other than <code class="hig
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-40">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-41">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -9728,7 +9937,7 @@ than <code class="highlighter-rouge">user</code>.</p>
   </li>
 </ul>
 
-<h2 id="documentation-42">Documentation</h2>
+<h2 id="documentation-43">Documentation</h2>
 
 <ul>
   <li>
@@ -9748,7 +9957,7 @@ messages.</p>
   </li>
 </ul>
 
-<h2 id="library-41">Library</h2>
+<h2 id="library-42">Library</h2>
 
 <ul>
   <li>
@@ -9762,14 +9971,14 @@ method.</p>
   </li>
 </ul>
 
-<h2 id="tools-42">Tools</h2>
+<h2 id="tools-43">Tools</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">diagrams</code> tool to also display included files in file loading
 diagrams.</li>
 </ul>
 
-<h2 id="tests-38">Tests</h2>
+<h2 id="tests-39">Tests</h2>
 
 <ul>
   <li>
@@ -9783,7 +9992,7 @@ diagrams.</li>
   </li>
 </ul>
 
-<h2 id="examples-41">Examples</h2>
+<h2 id="examples-42">Examples</h2>
 
 <ul>
   <li>
@@ -9803,14 +10012,14 @@ method.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-24">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-25">Installers and installation scripts</h2>
 
 <ul>
   <li>ADDED: An <em>experimental</em> version of the SWI-Prolog pack that loads Logtalk
 into a <code class="highlighter-rouge">logtalk</code> module instead of loading it into <code class="highlighter-rouge">user</code>.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-25">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-26">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -9844,14 +10053,14 @@ for calls to the library <code class="highlighter-rouge">type::valid/2</code> an
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-41">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-42">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Handle all possible <code class="highlighter-rouge">table/1</code> directive syntaxes when using SWI-Prolog
 or YAP as the backend compilers.</li>
 </ul>
 
-<h2 id="library-42">Library</h2>
+<h2 id="library-43">Library</h2>
 
 <ul>
   <li>CHANGED: Loader file for the <code class="highlighter-rouge">unicode_data</code> library to load all data files
@@ -9859,7 +10068,7 @@ using the <code class="highlighter-rouge">reload(skip)</code> compiler option to
 large resource due to e.g. changes to the default compilation mode.</li>
 </ul>
 
-<h2 id="tools-43">Tools</h2>
+<h2 id="tools-44">Tools</h2>
 
 <ul>
   <li>
@@ -9874,7 +10083,7 @@ by Ebrahim Azarisooreh.</p>
   </li>
 </ul>
 
-<h2 id="examples-42">Examples</h2>
+<h2 id="examples-43">Examples</h2>
 
 <ul>
   <li>
@@ -9896,13 +10105,13 @@ The bug occurred in some cases where the constructed goal was a call to a cut
 transparent control construct.</li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-42">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-43">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: SWI-Prolog hooks file to avoid a spurious meta-predicate lint warning.</li>
 </ul>
 
-<h2 id="documentation-43">Documentation</h2>
+<h2 id="documentation-44">Documentation</h2>
 
 <ul>
   <li>
@@ -9929,13 +10138,13 @@ longer apply.</p>
   </li>
 </ul>
 
-<h2 id="library-43">Library</h2>
+<h2 id="library-44">Library</h2>
 
 <ul>
   <li>ADDED: New <code class="highlighter-rouge">optional</code> library. Suggested by Sergio Castro.</li>
 </ul>
 
-<h2 id="tests-39">Tests</h2>
+<h2 id="tests-40">Tests</h2>
 
 <ul>
   <li>
@@ -9955,14 +10164,14 @@ when compiling source files.</p>
   </li>
 </ul>
 
-<h2 id="examples-43">Examples</h2>
+<h2 id="examples-44">Examples</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">errors</code> example to illustrate the error reported when trying
 to define a multifile predicate in the absence of its primary declaration.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-26">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-27">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Reference to the <code class="highlighter-rouge">highlighter</code> source code highlighting package
@@ -9988,7 +10197,7 @@ testing built-in predicates. Suggested by Barry Evans.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-43">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-44">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -10003,13 +10212,13 @@ the <code class="highlighter-rouge">all</code> target.</p>
   </li>
 </ul>
 
-<h2 id="library-44">Library</h2>
+<h2 id="library-45">Library</h2>
 
 <ul>
   <li>FIXED: Bug in the <code class="highlighter-rouge">pairs::group_by_key/2</code> predicate.</li>
 </ul>
 
-<h2 id="tools-44">Tools</h2>
+<h2 id="tools-45">Tools</h2>
 
 <ul>
   <li>
@@ -10027,13 +10236,13 @@ entity properties.</p>
   </li>
 </ul>
 
-<h2 id="tests-40">Tests</h2>
+<h2 id="tests-41">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the <code class="highlighter-rouge">lgtunit</code> tool support for parametric tests.</li>
 </ul>
 
-<h2 id="examples-44">Examples</h2>
+<h2 id="examples-45">Examples</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">errors</code> example to illustrate reporting of goals that are
@@ -10071,14 +10280,14 @@ first fixing its errors.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-44">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-45">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: All adapter files with definitions for <code class="highlighter-rouge">{+d}</code>, <code class="highlighter-rouge">{+n}</code>, and <code class="highlighter-rouge">{+o}</code>
 shortcuts for the new <code class="highlighter-rouge">logtalk_make/1</code> targets.</li>
 </ul>
 
-<h2 id="library-45">Library</h2>
+<h2 id="library-46">Library</h2>
 
 <ul>
   <li>ADDED: Redis client library. Available when using GNU Prolog, Qu-Prolog,
@@ -10087,7 +10296,7 @@ GNU Prolog library written by Sean Charles. Thanks to Ebrahim Azarisooreh
 for porting and testing help.</li>
 </ul>
 
-<h2 id="tools-45">Tools</h2>
+<h2 id="tools-46">Tools</h2>
 
 <ul>
   <li>
@@ -10107,13 +10316,13 @@ tools to take advantage of the new <code class="highlighter-rouge">logtalk::file
   </li>
 </ul>
 
-<h2 id="examples-45">Examples</h2>
+<h2 id="examples-46">Examples</h2>
 
 <ul>
   <li>ADDED: New <code class="highlighter-rouge">redis</code> example with unit tests for the Redis client library.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-27">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-28">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: IntelliJ IDEA plug-in. Contributed by Sergio Castro.</li>
@@ -10135,7 +10344,7 @@ generated by the term-expanding mechanism).</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-45">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-46">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Adapter files for Quintus Prolog, SICStus Prolog, and YAP to ensure
@@ -10143,7 +10352,7 @@ that changes to the <code class="highlighter-rouge">syntax_errors</code> Prolog 
 which expects exceptions to be generated for syntax errors.</li>
 </ul>
 
-<h2 id="tools-46">Tools</h2>
+<h2 id="tools-47">Tools</h2>
 
 <ul>
   <li>
@@ -10168,14 +10377,14 @@ information is collected.</p>
   </li>
 </ul>
 
-<h2 id="tests-41">Tests</h2>
+<h2 id="tests-42">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for metas-calls to the <code class="highlighter-rouge">this/1</code> and <code class="highlighter-rouge">self/1</code> execution
 context built-in methods.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-28">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-29">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: Syntax highlighting test files for recently added instantiation
@@ -10198,7 +10407,7 @@ predicates that resulted in a generic error instead of the specific error.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-46">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-47">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Declare the compiler internal <code class="highlighter-rouge">'$lgt_current_engine_'/4</code> predicate as
@@ -10206,7 +10415,7 @@ predicates that resulted in a generic error instead of the specific error.</p>
 Douglas Miles for the bug report.</li>
 </ul>
 
-<h2 id="documentation-44">Documentation</h2>
+<h2 id="documentation-45">Documentation</h2>
 
 <ul>
   <li>
@@ -10218,7 +10427,7 @@ that it checks for regular files. Thanks to Xin Wang for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="library-46">Library</h2>
+<h2 id="library-47">Library</h2>
 
 <ul>
   <li>
@@ -10230,7 +10439,7 @@ Quintus Prolog to ensure that the specified file is a regular file.</p>
   </li>
 </ul>
 
-<h2 id="tools-47">Tools</h2>
+<h2 id="tools-48">Tools</h2>
 
 <ul>
   <li>
@@ -10261,7 +10470,7 @@ reporting coverage for predicates derived from non-terminals.</p>
   </li>
 </ul>
 
-<h2 id="tests-42">Tests</h2>
+<h2 id="tests-43">Tests</h2>
 
 <ul>
   <li>
@@ -10272,13 +10481,13 @@ reporting coverage for predicates derived from non-terminals.</p>
   </li>
 </ul>
 
-<h2 id="examples-46">Examples</h2>
+<h2 id="examples-47">Examples</h2>
 
 <ul>
   <li>CHANGED: The <code class="highlighter-rouge">localizations</code> example to generate a code coverage report.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-29">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-30">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -10306,13 +10515,13 @@ predicate clauses that make calls to the <code class="highlighter-rouge">::/1-2<
   </li>
 </ul>
 
-<h2 id="documentation-45">Documentation</h2>
+<h2 id="documentation-46">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of the <code class="highlighter-rouge">type</code> library object.</li>
 </ul>
 
-<h2 id="library-47">Library</h2>
+<h2 id="library-48">Library</h2>
 
 <ul>
   <li>
@@ -10332,7 +10541,7 @@ and <code class="highlighter-rouge">type::check/2</code> predicates.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-30">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-31">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -10379,7 +10588,7 @@ printed as quoted terms.</p>
   </li>
 </ul>
 
-<h2 id="documentation-46">Documentation</h2>
+<h2 id="documentation-47">Documentation</h2>
 
 <ul>
   <li>
@@ -10390,7 +10599,7 @@ printed as quoted terms.</p>
   </li>
 </ul>
 
-<h2 id="library-48">Library</h2>
+<h2 id="library-49">Library</h2>
 
 <ul>
   <li>
@@ -10405,7 +10614,7 @@ Barry Evans.</p>
   </li>
 </ul>
 
-<h2 id="tools-48">Tools</h2>
+<h2 id="tools-49">Tools</h2>
 
 <ul>
   <li>
@@ -10417,14 +10626,14 @@ message when an item to be analyzed is not loaded or does not exist.</p>
   </li>
 </ul>
 
-<h2 id="tests-43">Tests</h2>
+<h2 id="tests-44">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the <code class="highlighter-rouge">sender/1</code> and <code class="highlighter-rouge">self/1</code> built-in methods to check
 results when called from within multifile predicate clauses.</li>
 </ul>
 
-<h2 id="examples-47">Examples</h2>
+<h2 id="examples-48">Examples</h2>
 
 <ul>
   <li>
@@ -10449,7 +10658,7 @@ support turned on was not loading all required source files.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-31">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-32">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: Support for the Visual Studio Code text editor to take advantage of
@@ -10473,13 +10682,13 @@ is specified using a relative path.</p>
   </li>
 </ul>
 
-<h2 id="library-49">Library</h2>
+<h2 id="library-50">Library</h2>
 
 <ul>
   <li>ADDED: Predicate <code class="highlighter-rouge">pairs::group_by_key/2</code>.</li>
 </ul>
 
-<h2 id="tools-49">Tools</h2>
+<h2 id="tools-50">Tools</h2>
 
 <ul>
   <li>
@@ -10492,20 +10701,20 @@ of generating entity existence errors when referenced entities are not loaded.</
   </li>
 </ul>
 
-<h2 id="tests-44">Tests</h2>
+<h2 id="tests-45">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the <code class="highlighter-rouge">include/1</code> directive to check additional cases of
 using relative paths.</li>
 </ul>
 
-<h2 id="examples-48">Examples</h2>
+<h2 id="examples-49">Examples</h2>
 
 <ul>
   <li>FIXED: Portability issue with one of the <code class="highlighter-rouge">errors</code> example loader files.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-32">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-33">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Atom text editor command for running a doclet found on the directory
@@ -10548,7 +10757,7 @@ the file being included when processing an <code class="highlighter-rouge">inclu
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-47">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-48">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -10570,11 +10779,11 @@ and integration scripts to allow running the current Logtalk version.</p>
   </li>
 </ul>
 
-<h2 id="documentation-47">Documentation</h2>
+<h2 id="documentation-48">Documentation</h2>
 
 <p>UPDATED: Documentation of the portable <code class="highlighter-rouge">os</code> library.</p>
 
-<h2 id="library-50">Library</h2>
+<h2 id="library-51">Library</h2>
 
 <ul>
   <li>
@@ -10591,7 +10800,7 @@ and integration scripts to allow running the current Logtalk version.</p>
   </li>
 </ul>
 
-<h2 id="tools-50">Tools</h2>
+<h2 id="tools-51">Tools</h2>
 
 <ul>
   <li>
@@ -10621,7 +10830,7 @@ predicate definition in the <code class="highlighter-rouge">code_metrics</code> 
   </li>
 </ul>
 
-<h2 id="tests-45">Tests</h2>
+<h2 id="tests-46">Tests</h2>
 
 <ul>
   <li>
@@ -10638,14 +10847,14 @@ of <code class="highlighter-rouge">initialization/1</code> directive goals.</p>
   </li>
 </ul>
 
-<h2 id="examples-49">Examples</h2>
+<h2 id="examples-50">Examples</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">errors</code> example to illustrate errors and warnings when using
 the <code class="highlighter-rouge">include/1</code> directive.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-25">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-26">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -10660,7 +10869,7 @@ deploy stable versions but not using the tagged stable commits.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-33">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-34">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -10714,7 +10923,7 @@ directives to document non-terminals.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-48">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-49">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -10727,7 +10936,7 @@ events posted by the ECLiPSe compiler.</p>
   </li>
 </ul>
 
-<h2 id="library-51">Library</h2>
+<h2 id="library-52">Library</h2>
 
 <ul>
   <li>
@@ -10753,7 +10962,7 @@ to Per Mildner for reporting.</p>
   </li>
 </ul>
 
-<h2 id="tools-51">Tools</h2>
+<h2 id="tools-52">Tools</h2>
 
 <ul>
   <li>
@@ -10773,7 +10982,7 @@ execution context.</p>
   </li>
 </ul>
 
-<h2 id="tests-46">Tests</h2>
+<h2 id="tests-47">Tests</h2>
 
 <ul>
   <li>
@@ -10787,20 +10996,20 @@ the declared entity relations are not valid.</p>
   </li>
 </ul>
 
-<h2 id="examples-50">Examples</h2>
+<h2 id="examples-51">Examples</h2>
 
 <ul>
   <li>FIXED: The options used for generating the API HTML documentation in the
 <code class="highlighter-rouge">zoom_doclet</code> example.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-26">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-27">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: Outdated and fragile constructs in most Bash shell scripts.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-34">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-35">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -10838,7 +11047,7 @@ calls. Thanks to Arun Majumdar for the report.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-49">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-50">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -10853,7 +11062,7 @@ flag to a value other than <code class="highlighter-rouge">./</code>.</p>
   </li>
 </ul>
 
-<h2 id="documentation-48">Documentation</h2>
+<h2 id="documentation-49">Documentation</h2>
 
 <ul>
   <li>
@@ -10865,14 +11074,14 @@ and calling of category predicates.</p>
   </li>
 </ul>
 
-<h2 id="library-52">Library</h2>
+<h2 id="library-53">Library</h2>
 
 <ul>
   <li>ADDED: Predicates <code class="highlighter-rouge">terms_to_array/2</code> and <code class="highlighter-rouge">array_to_terms/2-3</code> to the <code class="highlighter-rouge">java</code>
 library object. Currently only implemented for the SWI-Prolog/YAP JPL library.</li>
 </ul>
 
-<h2 id="tools-52">Tools</h2>
+<h2 id="tools-53">Tools</h2>
 
 <ul>
   <li>
@@ -10890,7 +11099,7 @@ failed to load.</p>
   </li>
 </ul>
 
-<h2 id="tests-47">Tests</h2>
+<h2 id="tests-48">Tests</h2>
 
 <ul>
   <li>
@@ -10906,7 +11115,7 @@ unit tests.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-27">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-28">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -10922,7 +11131,7 @@ used for generating the macOS installer.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-35">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-36">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -11017,7 +11226,7 @@ setting a non-standard flag with the <code class="highlighter-rouge">portability
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-50">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-51">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -11052,7 +11261,7 @@ generated code with source location data for using the SWI-Prolog own tools.</p>
   </li>
 </ul>
 
-<h2 id="documentation-49">Documentation</h2>
+<h2 id="documentation-50">Documentation</h2>
 
 <ul>
   <li>
@@ -11065,7 +11274,7 @@ directives regarding using declared non-terminals as arguments to the
   </li>
 </ul>
 
-<h2 id="library-53">Library</h2>
+<h2 id="library-54">Library</h2>
 
 <ul>
   <li>
@@ -11093,7 +11302,7 @@ compilation blocks.</p>
   </li>
 </ul>
 
-<h2 id="tools-53">Tools</h2>
+<h2 id="tools-54">Tools</h2>
 
 <ul>
   <li>
@@ -11178,7 +11387,7 @@ libraries without entity dependencies.</p>
   </li>
 </ul>
 
-<h2 id="examples-51">Examples</h2>
+<h2 id="examples-52">Examples</h2>
 
 <ul>
   <li>
@@ -11197,7 +11406,7 @@ Thanks to Eric Charikane for the updated links.</p>
   </li>
 </ul>
 
-<h2 id="tests-48">Tests</h2>
+<h2 id="tests-49">Tests</h2>
 
 <ul>
   <li>
@@ -11221,7 +11430,7 @@ message sending goals from <code class="highlighter-rouge">user</code> may be op
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-28">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-29">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -11240,7 +11449,7 @@ Michael Richter for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-36">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-37">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -11291,7 +11500,7 @@ the line prefix would not be omitted.</p>
   </li>
 </ul>
 
-<h2 id="documentation-50">Documentation</h2>
+<h2 id="documentation-51">Documentation</h2>
 
 <ul>
   <li>
@@ -11307,7 +11516,7 @@ entities.</p>
   </li>
 </ul>
 
-<h2 id="library-54">Library</h2>
+<h2 id="library-55">Library</h2>
 
 <ul>
   <li>
@@ -11334,7 +11543,7 @@ requires expansion when using SWI-Prolog or XSB as the backend compiler.</p>
   </li>
 </ul>
 
-<h2 id="tools-54">Tools</h2>
+<h2 id="tools-55">Tools</h2>
 
 <ul>
   <li>
@@ -11409,7 +11618,7 @@ it would fail to delete all matching spy points.</p>
   </li>
 </ul>
 
-<h2 id="tests-49">Tests</h2>
+<h2 id="tests-50">Tests</h2>
 
 <ul>
   <li>
@@ -11435,7 +11644,7 @@ built-in execution context methods.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-29">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-30">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -11455,7 +11664,7 @@ template files for versioning Logtalk projects using Git, Mercurial, and
 Perforce.</li>
 </ul>
 
-<h2 id="examples-52">Examples</h2>
+<h2 id="examples-53">Examples</h2>
 
 <ul>
   <li>
@@ -11474,7 +11683,7 @@ directives when using the new <code class="highlighter-rouge">dead_code_scanner<
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-37">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-38">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -11542,7 +11751,7 @@ information were not recorded. Thanks to Edward Schwartz for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-51">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-52">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -11554,7 +11763,7 @@ Lean Prolog as the backend compiler.</p>
   </li>
 </ul>
 
-<h2 id="documentation-51">Documentation</h2>
+<h2 id="documentation-52">Documentation</h2>
 
 <ul>
   <li>
@@ -11570,7 +11779,7 @@ User Manual.</p>
   </li>
 </ul>
 
-<h2 id="library-55">Library</h2>
+<h2 id="library-56">Library</h2>
 
 <ul>
   <li>
@@ -11589,7 +11798,7 @@ predicates.</p>
   </li>
 </ul>
 
-<h2 id="tools-55">Tools</h2>
+<h2 id="tools-56">Tools</h2>
 
 <ul>
   <li>
@@ -11620,7 +11829,7 @@ the <code class="highlighter-rouge">debugger</code> tool with some backend Prolo
   </li>
 </ul>
 
-<h2 id="examples-53">Examples</h2>
+<h2 id="examples-54">Examples</h2>
 
 <ul>
   <li>
@@ -11660,14 +11869,14 @@ supported.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-52">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-53">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Startup of Logtalk using the multi-threading version of XSB as the
 backend compiler.</li>
 </ul>
 
-<h2 id="documentation-52">Documentation</h2>
+<h2 id="documentation-53">Documentation</h2>
 
 <ul>
   <li>
@@ -11686,7 +11895,7 @@ built-in methods no longer refer to the Prolog ISO standard.</p>
   </li>
 </ul>
 
-<h2 id="tools-56">Tools</h2>
+<h2 id="tools-57">Tools</h2>
 
 <ul>
   <li>
@@ -11706,7 +11915,7 @@ private meta-predicates.</p>
   </li>
 </ul>
 
-<h2 id="tests-50">Tests</h2>
+<h2 id="tests-51">Tests</h2>
 
 <ul>
   <li>
@@ -11721,7 +11930,7 @@ and <code class="highlighter-rouge">logtalk_compile/1-2</code> built-in predicat
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-30">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-31">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: The installer and user setup scripts to copy the <code class="highlighter-rouge">tests-sample.lgt</code>
@@ -11749,13 +11958,13 @@ and <code class="highlighter-rouge">exception(Error)</code> terms as answers.</p
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-31">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-32">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">logtalk</code> SWI-Prolog pack to load Logtalk silently.</li>
 </ul>
 
-<h2 id="examples-54">Examples</h2>
+<h2 id="examples-55">Examples</h2>
 
 <ul>
   <li>ADDED: Three new engines examples, <code class="highlighter-rouge">sums</code>, <code class="highlighter-rouge">whisper</code>, and <code class="highlighter-rouge">yield</code>, originally
@@ -11802,14 +12011,14 @@ Thanks to Günter Kniesel for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-53">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-54">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: SWI-Prolog adapter file to enable tabling support when using version
 7.3.21 or later.</li>
 </ul>
 
-<h2 id="documentation-53">Documentation</h2>
+<h2 id="documentation-54">Documentation</h2>
 
 <ul>
   <li>
@@ -11820,7 +12029,7 @@ Thanks to Günter Kniesel for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="tools-57">Tools</h2>
+<h2 id="tools-58">Tools</h2>
 
 <ul>
   <li>
@@ -11869,13 +12078,13 @@ broke the <code class="highlighter-rouge">test/3</code> testing dialect.</p>
   </li>
 </ul>
 
-<h2 id="tests-51">Tests</h2>
+<h2 id="tests-52">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the new threaded engines built-in predicates.</li>
 </ul>
 
-<h2 id="examples-55">Examples</h2>
+<h2 id="examples-56">Examples</h2>
 
 <ul>
   <li>
@@ -11898,7 +12107,7 @@ compiler when using version 7.3.21 or later.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-38">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-39">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -11960,27 +12169,27 @@ into a call to <code class="highlighter-rouge">true/0</code>.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-54">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-55">Prolog adapter and integration files</h2>
 
 <ul>
   <li>ADDED: Tag the de facto standard <code class="highlighter-rouge">listing/1</code> Prolog predicate as a database
 predicate for all supported backend Prolog compilers.</li>
 </ul>
 
-<h2 id="documentation-54">Documentation</h2>
+<h2 id="documentation-55">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation for the developer tools.</li>
 </ul>
 
-<h2 id="library-56">Library</h2>
+<h2 id="library-57">Library</h2>
 
 <ul>
   <li>FIXED: Added missing <code class="highlighter-rouge">meta_predicate/1</code> directives for local predicates of
 some library entities.</li>
 </ul>
 
-<h2 id="tools-58">Tools</h2>
+<h2 id="tools-59">Tools</h2>
 
 <ul>
   <li>
@@ -12059,7 +12268,7 @@ the <code class="highlighter-rouge">debugger</code>, <code class="highlighter-ro
   </li>
 </ul>
 
-<h2 id="tests-52">Tests</h2>
+<h2 id="tests-53">Tests</h2>
 
 <ul>
   <li>
@@ -12090,20 +12299,20 @@ that are explicit-qualified module terms.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-55">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-56">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Definition of the <code class="highlighter-rouge">logtalk_make/1</code> shortcut <code class="highlighter-rouge">{?}</code> for Lean Prolog.</li>
 </ul>
 
-<h2 id="documentation-55">Documentation</h2>
+<h2 id="documentation-56">Documentation</h2>
 
 <ul>
   <li>FIXED: Description of the search order for predicate definitions for
 class hierarchies in the User Manual.</li>
 </ul>
 
-<h2 id="tools-59">Tools</h2>
+<h2 id="tools-60">Tools</h2>
 
 <ul>
   <li>
@@ -12140,7 +12349,7 @@ when the test is skipped.</p>
   </li>
 </ul>
 
-<h2 id="tests-53">Tests</h2>
+<h2 id="tests-54">Tests</h2>
 
 <ul>
   <li>ADDED: Determinism tests for the <code class="highlighter-rouge">object_property/2</code>, <code class="highlighter-rouge">protocol_property/2</code>,
@@ -12167,14 +12376,14 @@ arguments to be deterministic.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-56">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-57">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: The CxProlog adapter file to require version 0.98.1 or later as the
 new version fixes Prolog standard compliance issues.</li>
 </ul>
 
-<h2 id="tools-60">Tools</h2>
+<h2 id="tools-61">Tools</h2>
 
 <ul>
   <li>
@@ -12239,7 +12448,7 @@ non-terminals.</p>
   </li>
 </ul>
 
-<h2 id="tests-54">Tests</h2>
+<h2 id="tests-55">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the <code class="highlighter-rouge">iso8601</code> library contribution taken from its
@@ -12268,7 +12477,7 @@ were not checked.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-57">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-58">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -12284,14 +12493,14 @@ scripts). With the help of Jan Wielemaker.</p>
   </li>
 </ul>
 
-<h2 id="library-57">Library</h2>
+<h2 id="library-58">Library</h2>
 
 <ul>
   <li>ADDED: Predicates <code class="highlighter-rouge">prefix/3</code> and <code class="highlighter-rouge">suffix/3</code> to the <code class="highlighter-rouge">listp</code> protocol and to
 the <code class="highlighter-rouge">difflist</code> and <code class="highlighter-rouge">list</code> objects.</li>
 </ul>
 
-<h2 id="tools-61">Tools</h2>
+<h2 id="tools-62">Tools</h2>
 
 <ul>
   <li>
@@ -12364,7 +12573,7 @@ for proper sub-libraries.</p>
   </li>
 </ul>
 
-<h2 id="tests-55">Tests</h2>
+<h2 id="tests-56">Tests</h2>
 
 <ul>
   <li>
@@ -12380,7 +12589,7 @@ that occur when running a set of tests.</p>
   </li>
 </ul>
 
-<h2 id="examples-56">Examples</h2>
+<h2 id="examples-57">Examples</h2>
 
 <ul>
   <li>
@@ -12426,7 +12635,7 @@ identifiers in error and warning messages.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-58">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-59">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -12461,7 +12670,7 @@ execution context for Logtalk goals.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-32">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-33">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">logtalk</code> SWI-Prolog pack now loads Logtalk into a <code class="highlighter-rouge">logtalk</code>
@@ -12469,20 +12678,20 @@ module that exports all Logtalk built-in predicates and the shortcuts for
 loading and make features.</li>
 </ul>
 
-<h2 id="documentation-56">Documentation</h2>
+<h2 id="documentation-57">Documentation</h2>
 
 <ul>
   <li>FIXED: Several typos in the User and Reference manuals.</li>
 </ul>
 
-<h2 id="tests-56">Tests</h2>
+<h2 id="tests-57">Tests</h2>
 
 <ul>
   <li>FIXED: Workaround an issue with operator parsing when testing the Logtalk 
 <code class="highlighter-rouge">current_op/3</code> method using GNU Prolog as the backend compiler.</li>
 </ul>
 
-<h2 id="examples-57">Examples</h2>
+<h2 id="examples-58">Examples</h2>
 
 <ul>
   <li>
@@ -12511,14 +12720,14 @@ failing.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-59">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-60">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: B-Prolog adapter file to recognize the built-in <code class="highlighter-rouge">time/1</code>
 meta-predicate.</li>
 </ul>
 
-<h2 id="library-58">Library</h2>
+<h2 id="library-59">Library</h2>
 
 <ul>
   <li>
@@ -12536,14 +12745,14 @@ to the <code class="highlighter-rouge">map/2-8</code> meta-predicates.</p>
   </li>
 </ul>
 
-<h2 id="tools-62">Tools</h2>
+<h2 id="tools-63">Tools</h2>
 
 <ul>
   <li>IMPROVED: Startup message when loading the <code class="highlighter-rouge">help</code> tool now also includes
 basic information on compiling and loading source files and debugging code.</li>
 </ul>
 
-<h2 id="examples-58">Examples</h2>
+<h2 id="examples-59">Examples</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">lambdas</code> example to also support running the benchmarks when
@@ -12598,21 +12807,21 @@ for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="documentation-57">Documentation</h2>
+<h2 id="documentation-58">Documentation</h2>
 
 <p>ADDED: Small section on optimizing applications to the user manual section on
 Logtalk programming.</p>
 
 <p>UPDATED: Settings examples.</p>
 
-<h2 id="prolog-adapter-and-integration-files-60">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-61">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: Lean Prolog 4.5.7 or a later version is now required when using
 this backend compiler.</li>
 </ul>
 
-<h2 id="tests-57">Tests</h2>
+<h2 id="tests-58">Tests</h2>
 
 <ul>
   <li>
@@ -12698,7 +12907,7 @@ fail when running with the <code class="highlighter-rouge">optimize</code> flat 
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-61">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-62">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -12722,11 +12931,11 @@ read file terms to also accept an empty list of options.</p>
   </li>
 </ul>
 
-<h2 id="documentation-58">Documentation</h2>
+<h2 id="documentation-59">Documentation</h2>
 
 <p>ADDED: Documentation on multifile predicate definition caveats.</p>
 
-<h2 id="library-59">Library</h2>
+<h2 id="library-60">Library</h2>
 
 <ul>
   <li>
@@ -12744,14 +12953,14 @@ Prolog used in the portable operating-system library.</p>
   </li>
 </ul>
 
-<h2 id="tools-63">Tools</h2>
+<h2 id="tools-64">Tools</h2>
 
 <ul>
   <li>IMPROVED: Better coding style for the tools multifile message predicate and
 non-terminal definitions.</li>
 </ul>
 
-<h2 id="tests-58">Tests</h2>
+<h2 id="tests-59">Tests</h2>
 
 <ul>
   <li>
@@ -12778,7 +12987,7 @@ also test local calls from multifile predicate clauses.</p>
   </li>
 </ul>
 
-<h2 id="examples-59">Examples</h2>
+<h2 id="examples-60">Examples</h2>
 
 <ul>
   <li>
@@ -12825,7 +13034,7 @@ the call.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-62">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-63">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Some typos in the SWI-Prolog integration files in declarations for
@@ -12833,7 +13042,7 @@ internal Logtalk predicates that should be hidden when using the XPCE profiler
 and XPCE graphical debugger.</li>
 </ul>
 
-<h2 id="documentation-59">Documentation</h2>
+<h2 id="documentation-60">Documentation</h2>
 
 <ul>
   <li>
@@ -12857,7 +13066,7 @@ core entities, the library, and the development tools.</p>
   </li>
 </ul>
 
-<h2 id="library-60">Library</h2>
+<h2 id="library-61">Library</h2>
 
 <ul>
   <li>
@@ -12872,7 +13081,7 @@ exception of Qu-Prolog.</p>
   </li>
 </ul>
 
-<h2 id="tools-64">Tools</h2>
+<h2 id="tools-65">Tools</h2>
 
 <ul>
   <li>
@@ -12896,7 +13105,7 @@ argument of the <code class="highlighter-rouge">test/3</code> dialect and the te
   </li>
 </ul>
 
-<h2 id="examples-60">Examples</h2>
+<h2 id="examples-61">Examples</h2>
 
 <ul>
   <li>
@@ -12924,7 +13133,7 @@ complementing category to patch an object.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-39">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-40">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">ctags</code> support to also recognize module opening directives plus
@@ -12953,7 +13162,7 @@ replaced using a complementing category.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-63">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-64">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -12967,13 +13176,13 @@ CxProlog, Qu-Prolog, Quintus Prolog, and SICStus Prolog backend compilers.</p>
   </li>
 </ul>
 
-<h2 id="library-61">Library</h2>
+<h2 id="library-62">Library</h2>
 
 <ul>
   <li>ADDED: Predicate <code class="highlighter-rouge">decompose_file_name/4</code> to the <code class="highlighter-rouge">os</code> library.</li>
 </ul>
 
-<h2 id="tools-65">Tools</h2>
+<h2 id="tools-66">Tools</h2>
 
 <ul>
   <li>
@@ -12984,7 +13193,7 @@ CxProlog, Qu-Prolog, Quintus Prolog, and SICStus Prolog backend compilers.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-40">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-41">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -12997,7 +13206,7 @@ support.</p>
   </li>
 </ul>
 
-<h2 id="tests-59">Tests</h2>
+<h2 id="tests-60">Tests</h2>
 
 <ul>
   <li>
@@ -13008,7 +13217,7 @@ support.</p>
   </li>
 </ul>
 
-<h2 id="examples-61">Examples</h2>
+<h2 id="examples-62">Examples</h2>
 
 <ul>
   <li>ADDED: Version of the classical family relations example.</li>
@@ -13066,14 +13275,14 @@ compilation when dynamically creating an entity.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-64">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-65">Prolog adapter and integration files</h2>
 
 <ul>
   <li>ADDED: Updated the Lean Prolog adapter file with support for using <code class="highlighter-rouge">index/1</code>
 directives in objects and categories.</li>
 </ul>
 
-<h2 id="documentation-60">Documentation</h2>
+<h2 id="documentation-61">Documentation</h2>
 
 <ul>
   <li>
@@ -13085,7 +13294,7 @@ keys when performing goal-expansion.</p>
   </li>
 </ul>
 
-<h2 id="library-62">Library</h2>
+<h2 id="library-63">Library</h2>
 
 <ul>
   <li>FIXED: Added library files missing in the previous stable release:
@@ -13093,7 +13302,7 @@ keys when performing goal-expansion.</p>
 <code class="highlighter-rouge">assignvars_loader.lgt</code>.</li>
 </ul>
 
-<h2 id="tools-66">Tools</h2>
+<h2 id="tools-67">Tools</h2>
 
 <ul>
   <li>
@@ -13115,7 +13324,7 @@ question asking mechanisms predicates and for the coinduction hook predicates.</
   </li>
 </ul>
 
-<h2 id="tests-60">Tests</h2>
+<h2 id="tests-61">Tests</h2>
 
 <ul>
   <li>
@@ -13131,7 +13340,7 @@ testing the use of a negative integer for the start index.</p>
   </li>
 </ul>
 
-<h2 id="examples-62">Examples</h2>
+<h2 id="examples-63">Examples</h2>
 
 <ul>
   <li>
@@ -13144,7 +13353,7 @@ natural languages.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-41">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-42">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -13177,7 +13386,7 @@ using embedded <code class="highlighter-rouge">if/1</code> directives.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-65">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-66">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -13195,7 +13404,7 @@ creating an executable that embeds Logtalk.</p>
   </li>
 </ul>
 
-<h2 id="library-63">Library</h2>
+<h2 id="library-64">Library</h2>
 
 <ul>
   <li>CHANGED: Added an <code class="highlighter-rouge">assignvarsp</code> protocol. Converted the <code class="highlighter-rouge">assignvars</code> category
@@ -13205,7 +13414,7 @@ Added an <code class="highlighter-rouge">assignvars_loader</code> loader file th
 <code class="highlighter-rouge">assignvars</code> object to load depending on the backend Prolog compiler.</li>
 </ul>
 
-<h2 id="examples-63">Examples</h2>
+<h2 id="examples-64">Examples</h2>
 
 <ul>
   <li>
@@ -13217,7 +13426,7 @@ Added an <code class="highlighter-rouge">assignvars_loader</code> loader file th
   </li>
 </ul>
 
-<h2 id="tests-61">Tests</h2>
+<h2 id="tests-62">Tests</h2>
 
 <ul>
   <li>
@@ -13250,7 +13459,7 @@ when loading the Logtalk compiler/runtime.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-66">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-67">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -13263,7 +13472,7 @@ returned term begin line is offset by one.</p>
   </li>
 </ul>
 
-<h2 id="documentation-61">Documentation</h2>
+<h2 id="documentation-62">Documentation</h2>
 
 <ul>
   <li>
@@ -13299,14 +13508,14 @@ built-in predicate.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-33">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-34">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The Windows installer to also detect ECLiPSe 6.2 (the current
 development version).</li>
 </ul>
 
-<h2 id="tools-67">Tools</h2>
+<h2 id="tools-68">Tools</h2>
 
 <ul>
   <li>
@@ -13320,7 +13529,7 @@ from the console.</p>
   </li>
 </ul>
 
-<h2 id="examples-64">Examples</h2>
+<h2 id="examples-65">Examples</h2>
 
 <ul>
   <li>ADDED: Another hot patching example, <code class="highlighter-rouge">patches</code>, illustrating the changes
@@ -13355,14 +13564,14 @@ when compiling <code class="highlighter-rouge">initialization/1</code>, <code cl
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-67">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-68">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: JIProlog 4.0.18 or a later version is now required as this version
 introduces support for the standard <code class="highlighter-rouge">discontiguous/1</code> directive.</li>
 </ul>
 
-<h2 id="tools-68">Tools</h2>
+<h2 id="tools-69">Tools</h2>
 
 <ul>
   <li>
@@ -13386,7 +13595,7 @@ allow specification of per test notes and condition, setup, and cleanup goals.</
   </li>
 </ul>
 
-<h2 id="tests-62">Tests</h2>
+<h2 id="tests-63">Tests</h2>
 
 <ul>
   <li>
@@ -13414,7 +13623,7 @@ predicates cannot be inspected. Thanks to Jan Wielemaker for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="examples-65">Examples</h2>
+<h2 id="examples-66">Examples</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">jpl</code> example solution for detecting the presence of the JPL
@@ -13442,7 +13651,7 @@ instead of “above” when the culprit term begin and end lines are the same.</
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-68">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-69">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -13473,7 +13682,7 @@ compliant <code class="highlighter-rouge">setup_call_cleanup/3</code> implementa
   </li>
 </ul>
 
-<h2 id="tools-69">Tools</h2>
+<h2 id="tools-70">Tools</h2>
 
 <ul>
   <li>
@@ -13496,7 +13705,7 @@ versions of the tests to run.</p>
   </li>
 </ul>
 
-<h2 id="tests-63">Tests</h2>
+<h2 id="tests-64">Tests</h2>
 
 <ul>
   <li>
@@ -13591,7 +13800,7 @@ report.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-34">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-35">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: Missing <code class="highlighter-rouge">settings.lgt</code> file in the SWI-Prolog logtalk pack.</li>
@@ -13681,7 +13890,7 @@ would be type-checked twice.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-69">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-70">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -13708,7 +13917,7 @@ the adapter files for CxProlog and Qu-Prolog for conformance.</p>
   </li>
 </ul>
 
-<h2 id="library-64">Library</h2>
+<h2 id="library-65">Library</h2>
 
 <ul>
   <li>
@@ -13721,7 +13930,7 @@ for JIProlog.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-35">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-36">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -13739,7 +13948,7 @@ instead of simply writing it out to the current directory.</p>
   </li>
 </ul>
 
-<h2 id="documentation-62">Documentation</h2>
+<h2 id="documentation-63">Documentation</h2>
 
 <ul>
   <li>
@@ -13759,7 +13968,7 @@ the <code class="highlighter-rouge">hook/1</code> compiler flag.</p>
   </li>
 </ul>
 
-<h2 id="tools-70">Tools</h2>
+<h2 id="tools-71">Tools</h2>
 
 <ul>
   <li>
@@ -13770,14 +13979,14 @@ the <code class="highlighter-rouge">hook/1</code> compiler flag.</p>
   </li>
 </ul>
 
-<h2 id="tests-64">Tests</h2>
+<h2 id="tests-65">Tests</h2>
 
 <ul>
   <li>ADDED: More unit tests for the ISO Prolog standard term comparison
 built-in predicates, in particular to test standard term order.</li>
 </ul>
 
-<h2 id="examples-66">Examples</h2>
+<h2 id="examples-67">Examples</h2>
 
 <ul>
   <li>
@@ -13806,7 +14015,7 @@ tags to decide when to decorate compiled terms with source location data
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-70">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-71">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -13821,21 +14030,21 @@ was not yet loaded. Thanks to Andrew Becker for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="documentation-63">Documentation</h2>
+<h2 id="documentation-64">Documentation</h2>
 
 <ul>
   <li>UPDATED: The POSIX integration script man pages with details on the Prolog
 executable name requirements.</li>
 </ul>
 
-<h2 id="library-65">Library</h2>
+<h2 id="library-66">Library</h2>
 
 <ul>
   <li>REMOVED: The deprecated <code class="highlighter-rouge">event_handlersp</code> protocol, replaced by the built-in
 <code class="highlighter-rouge">monitoring</code> protocol.</li>
 </ul>
 
-<h2 id="tools-71">Tools</h2>
+<h2 id="tools-72">Tools</h2>
 
 <ul>
   <li>
@@ -13861,7 +14070,7 @@ directives and properties.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-42">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-43">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Snippet for extended categories to the TextMate 2 text editor.</li>
@@ -13919,7 +14128,7 @@ module predicates when the module is only known at runtime.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-71">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-72">Prolog adapter and integration files</h2>
 
 <ul>
   <li>CHANGED: When using SWI-Prolog as the backend compiler, a new Prolog flag,
@@ -13930,7 +14139,7 @@ generated by the compilation of Logtalk source files. Setting this flag to
 as the graphical tracer. See the <code class="highlighter-rouge">settings-sample.lgt</code> file for details.</li>
 </ul>
 
-<h2 id="documentation-64">Documentation</h2>
+<h2 id="documentation-65">Documentation</h2>
 
 <ul>
   <li>
@@ -13943,7 +14152,7 @@ User Manual.</p>
   </li>
 </ul>
 
-<h2 id="tools-72">Tools</h2>
+<h2 id="tools-73">Tools</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">dump_trace</code> utility object to also redirect debugger tracing
@@ -14002,7 +14211,7 @@ as argument to entity relations in entity opening directives.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-72">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-73">Prolog adapter and integration files</h2>
 
 <ul>
   <li>CHANGED: SWI-Prolog version 6.6.0 or later is now required when using this
@@ -14010,7 +14219,7 @@ backend compiler (notably, to cope with changes in operating-system access
 predicates that are used by the library).</li>
 </ul>
 
-<h2 id="library-66">Library</h2>
+<h2 id="library-67">Library</h2>
 
 <ul>
   <li>
@@ -14033,7 +14242,7 @@ B-Prolog, Quintus Prolog, and SWI-Prolog.</p>
   </li>
 </ul>
 
-<h2 id="tools-73">Tools</h2>
+<h2 id="tools-74">Tools</h2>
 
 <ul>
   <li>
@@ -14046,7 +14255,7 @@ results in files that are guessed as binary files.</p>
   </li>
 </ul>
 
-<h2 id="tests-65">Tests</h2>
+<h2 id="tests-66">Tests</h2>
 
 <ul>
   <li>
@@ -14060,7 +14269,7 @@ standard example.</p>
   </li>
 </ul>
 
-<h2 id="examples-67">Examples</h2>
+<h2 id="examples-68">Examples</h2>
 
 <ul>
   <li>
@@ -14122,7 +14331,7 @@ with some backend Prolog compilers.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-73">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-74">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -14141,14 +14350,14 @@ standard <code class="highlighter-rouge">findall/4</code> predicate.</p>
   </li>
 </ul>
 
-<h2 id="library-67">Library</h2>
+<h2 id="library-68">Library</h2>
 
 <ul>
   <li>FIXED: Bug in the implementation of the predicate <code class="highlighter-rouge">os::expand_path/2</code>
 for XSB.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-36">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-37">Installers and installation scripts</h2>
 
 <ul>
   <li>IMPROVED: The Windows installer will now warn the user and cancel the
@@ -14157,7 +14366,7 @@ created. Also converted the <code class="highlighter-rouge">logtalk.iss</code> i
 the Inno Setup Unicode version is now required to compile it).</li>
 </ul>
 
-<h2 id="tools-74">Tools</h2>
+<h2 id="tools-75">Tools</h2>
 
 <ul>
   <li>
@@ -14180,7 +14389,7 @@ the current locale and the logging of failed test results.</p>
   </li>
 </ul>
 
-<h2 id="tests-66">Tests</h2>
+<h2 id="tests-67">Tests</h2>
 
 <ul>
   <li>
@@ -14248,20 +14457,20 @@ errors.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-74">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-75">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: The (still unsupported) Jekejeke adapter file for changes in
 release 1.0.4.</li>
 </ul>
 
-<h2 id="documentation-65">Documentation</h2>
+<h2 id="documentation-66">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of the <code class="highlighter-rouge">lgtunit</code> tool.</li>
 </ul>
 
-<h2 id="tests-67">Tests</h2>
+<h2 id="tests-68">Tests</h2>
 
 <ul>
   <li>
@@ -14285,7 +14494,7 @@ to delay errors in expressions to runtime to properly test exception terms.</p>
   </li>
 </ul>
 
-<h2 id="examples-68">Examples</h2>
+<h2 id="examples-69">Examples</h2>
 
 <ul>
   <li>UPDATED: Outdated results for some of the sample queries for the
@@ -14314,7 +14523,7 @@ source file term, the remaining source file terms would still be read.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-75">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-76">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -14335,14 +14544,14 @@ predicates <code class="highlighter-rouge">assert_static/1</code>, <code class="
   </li>
 </ul>
 
-<h2 id="library-68">Library</h2>
+<h2 id="library-69">Library</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">os::date_time/7</code> predicate for Lean Prolog (previous definition
 used a built-in predicate that apparently is no longer available).</li>
 </ul>
 
-<h2 id="documentation-66">Documentation</h2>
+<h2 id="documentation-67">Documentation</h2>
 
 <ul>
   <li>
@@ -14357,7 +14566,7 @@ using the <code class="highlighter-rouge">diagrams</code> tool.</p>
   </li>
 </ul>
 
-<h2 id="tools-75">Tools</h2>
+<h2 id="tools-76">Tools</h2>
 
 <ul>
   <li>
@@ -14397,7 +14606,7 @@ an ending slash.</p>
   </li>
 </ul>
 
-<h2 id="tests-68">Tests</h2>
+<h2 id="tests-69">Tests</h2>
 
 <ul>
   <li>
@@ -14449,7 +14658,7 @@ when compiling a source file where the wrong scratch directory could be used.</p
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-76">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-77">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -14468,14 +14677,14 @@ predicates.</p>
   </li>
 </ul>
 
-<h2 id="library-69">Library</h2>
+<h2 id="library-70">Library</h2>
 
 <ul>
   <li>ADDED: Preliminary support for JIProlog to the operating-system access
 library.</li>
 </ul>
 
-<h2 id="documentation-67">Documentation</h2>
+<h2 id="documentation-68">Documentation</h2>
 
 <ul>
   <li>
@@ -14493,7 +14702,7 @@ solutions (as there can be multiple proofs for the same solution).</p>
   </li>
 </ul>
 
-<h2 id="tools-76">Tools</h2>
+<h2 id="tools-77">Tools</h2>
 
 <ul>
   <li>
@@ -14516,14 +14725,14 @@ directive second argument.</p>
   </li>
 </ul>
 
-<h2 id="examples-69">Examples</h2>
+<h2 id="examples-70">Examples</h2>
 
 <ul>
   <li>IMPROVED: The <code class="highlighter-rouge">recipes</code> example now also illustrates a solution for dealing
 with a mixed data representation using both data objects and Prolog facts.</li>
 </ul>
 
-<h2 id="tests-69">Tests</h2>
+<h2 id="tests-70">Tests</h2>
 
 <ul>
   <li>
@@ -14541,7 +14750,7 @@ in the initial test versions.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-43">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-44">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Support for arithmetic functions and operators introduced in the
@@ -14571,7 +14780,7 @@ protocol or category.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-77">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-78">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -14596,14 +14805,14 @@ predicates to distinguish between files and directories.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-37">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-38">Installers and installation scripts</h2>
 
 <ul>
   <li>CHANGED: The installers and installation scripts to delete the suffix
 <code class="highlighter-rouge">stable</code> from the version string.</li>
 </ul>
 
-<h2 id="library-70">Library</h2>
+<h2 id="library-71">Library</h2>
 
 <ul>
   <li>
@@ -14620,7 +14829,7 @@ predicate to ensure that it’s a regular file instead of e.g. a directory.</p>
   </li>
 </ul>
 
-<h2 id="tools-77">Tools</h2>
+<h2 id="tools-78">Tools</h2>
 
 <ul>
   <li>
@@ -14649,7 +14858,7 @@ entity defines clauses for Prolog module multifile predicates.</p>
 to use the operating-system access library to get the current date.</li>
 </ul>
 
-<h2 id="examples-70">Examples</h2>
+<h2 id="examples-71">Examples</h2>
 
 <ul>
   <li>
@@ -14668,7 +14877,7 @@ and the enhancements to the puzzle implementation.</p>
   </li>
 </ul>
 
-<h2 id="tests-70">Tests</h2>
+<h2 id="tests-71">Tests</h2>
 
 <ul>
   <li>FIXED: Tests of the <code class="highlighter-rouge">multifile/1</code> directive to avoid discontiguous predicate
@@ -14719,7 +14928,7 @@ the <code class="highlighter-rouge">error/2</code> wrapper with its context argu
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-78">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-79">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -14746,13 +14955,13 @@ files.</p>
   </li>
 </ul>
 
-<h2 id="documentation-68">Documentation</h2>
+<h2 id="documentation-69">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of the <code class="highlighter-rouge">phrase/2-3</code> built-in methods.</li>
 </ul>
 
-<h2 id="tools-78">Tools</h2>
+<h2 id="tools-79">Tools</h2>
 
 <ul>
   <li>
@@ -14769,14 +14978,14 @@ the <code class="highlighter-rouge">discontiguous/1</code> directive.</p>
   </li>
 </ul>
 
-<h2 id="tests-71">Tests</h2>
+<h2 id="tests-72">Tests</h2>
 
 <ul>
   <li>FIXED: Updated the unit tests for the conditional compilation directives to
 avoid a clash with a Lean Prolog built-in predicate.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-44">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-45">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -14884,7 +15093,7 @@ when calling a Prolog meta-predicate that takes a closure as argument.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-79">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-80">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -14907,7 +15116,7 @@ integration files.</p>
   </li>
 </ul>
 
-<h2 id="tools-79">Tools</h2>
+<h2 id="tools-80">Tools</h2>
 
 <ul>
   <li>
@@ -14978,7 +15187,7 @@ in the exclusion list when specified without an extension.</p>
   </li>
 </ul>
 
-<h2 id="tests-72">Tests</h2>
+<h2 id="tests-73">Tests</h2>
 
 <ul>
   <li>
@@ -15008,7 +15217,7 @@ due to some compilation or loading error.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-80">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-81">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -15022,7 +15231,7 @@ entity source file.</p>
   </li>
 </ul>
 
-<h2 id="documentation-69">Documentation</h2>
+<h2 id="documentation-70">Documentation</h2>
 
 <ul>
   <li>
@@ -15038,7 +15247,7 @@ directive and for the <code class="highlighter-rouge">info/2</code> predicate di
   </li>
 </ul>
 
-<h2 id="tools-80">Tools</h2>
+<h2 id="tools-81">Tools</h2>
 
 <ul>
   <li>
@@ -15188,7 +15397,7 @@ when the message kind is unknown.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-81">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-82">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -15208,7 +15417,7 @@ non-related terms using the same functor and arity.</p>
   </li>
 </ul>
 
-<h2 id="tools-81">Tools</h2>
+<h2 id="tools-82">Tools</h2>
 
 <ul>
   <li>
@@ -15242,7 +15451,7 @@ only valid at the <code class="highlighter-rouge">call</code>, <code class="high
   </li>
 </ul>
 
-<h2 id="examples-71">Examples</h2>
+<h2 id="examples-72">Examples</h2>
 
 <ul>
   <li>ADDED: Simple example of implementation of ground linear and intuitionistic
@@ -15276,7 +15485,7 @@ database methods would be missed by the compiler.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-82">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-83">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -15289,7 +15498,7 @@ built-in meta-predicate to the adapter files of CxProlog and XSB.</p>
   </li>
 </ul>
 
-<h2 id="tools-82">Tools</h2>
+<h2 id="tools-83">Tools</h2>
 
 <ul>
   <li>
@@ -15380,21 +15589,21 @@ turned on while using the <code class="highlighter-rouge">{}/1</code> syntax to 
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-83">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-84">Prolog adapter and integration files</h2>
 
 <ul>
   <li>FIXED: Added missing definition for the standard <code class="highlighter-rouge">acyclic_term/1</code> predicate
 to the Quintus Prolog adapter file.</li>
 </ul>
 
-<h2 id="documentation-70">Documentation</h2>
+<h2 id="documentation-71">Documentation</h2>
 
 <ul>
   <li>ADDED: Sample tester file, <code class="highlighter-rouge">tester-sample.lgt</code>, for helping automating
 running unit tests.</li>
 </ul>
 
-<h2 id="tools-83">Tools</h2>
+<h2 id="tools-84">Tools</h2>
 
 <ul>
   <li>
@@ -15416,7 +15625,7 @@ clauses.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-45">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-46">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Syntax coloring support for the <code class="highlighter-rouge">as/2</code> predicate alias operator to
@@ -15464,14 +15673,14 @@ syntax.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-84">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-85">Prolog adapter and integration files</h2>
 
 <ul>
   <li>CHANGED: The <code class="highlighter-rouge">adapters/xpcehooks.pl</code> file have been renamed and moved to the
 <code class="highlighter-rouge">xpce</code> example.</li>
 </ul>
 
-<h2 id="library-71">Library</h2>
+<h2 id="library-72">Library</h2>
 
 <ul>
   <li>FIXED: Bug in the <code class="highlighter-rouge">assignvars</code> object where getting the current value for
@@ -15479,7 +15688,7 @@ an empty assignable variable would succeed (bug in the original code adapted
 to Logtalk). Also, this object now uses standard <code class="highlighter-rouge">error/2</code> terms.</li>
 </ul>
 
-<h2 id="examples-72">Examples</h2>
+<h2 id="examples-73">Examples</h2>
 
 <ul>
   <li>
@@ -15539,7 +15748,7 @@ predicates) when the <em>sender</em> is not the same object as <em>this</em>.</p
   </li>
 </ul>
 
-<h2 id="tests-73">Tests</h2>
+<h2 id="tests-74">Tests</h2>
 
 <ul>
   <li>
@@ -15607,7 +15816,7 @@ predicate properties when querying for a predicate alias.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-85">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-86">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -15620,7 +15829,7 @@ startup. Complex applications, however, may still need to adjust memory areas.</
   </li>
 </ul>
 
-<h2 id="documentation-71">Documentation</h2>
+<h2 id="documentation-72">Documentation</h2>
 
 <ul>
   <li>IMPROVED: User Manual sections on calling user-defined Prolog predicates from
@@ -15629,7 +15838,7 @@ by the <code class="highlighter-rouge">::/1-2</code> and <code class="highlighte
 not defined.</li>
 </ul>
 
-<h2 id="library-72">Library</h2>
+<h2 id="library-73">Library</h2>
 
 <ul>
   <li>IMPROVED: More efficient interval representation for the implementation of
@@ -15637,7 +15846,7 @@ temporal interval relations in the <code class="highlighter-rouge">interval</cod
 predicate, <code class="highlighter-rouge">new/3</code>, to the <code class="highlighter-rouge">intervalp</code> protocol and the <code class="highlighter-rouge">interval</code> object.</li>
 </ul>
 
-<h2 id="tools-84">Tools</h2>
+<h2 id="tools-85">Tools</h2>
 
 <ul>
   <li>
@@ -15655,7 +15864,7 @@ and Qu-Prolog when running the <code class="highlighter-rouge">diagrams</code> t
   </li>
 </ul>
 
-<h2 id="tests-74">Tests</h2>
+<h2 id="tests-75">Tests</h2>
 
 <ul>
   <li>
@@ -15683,7 +15892,7 @@ contribution to workaround portability issues when using SICStus Prolog as the
 back-end compiler.</li>
 </ul>
 
-<h2 id="examples-73">Examples</h2>
+<h2 id="examples-74">Examples</h2>
 
 <ul>
   <li>IMPROVED: Extended the <code class="highlighter-rouge">complements</code> example to better illustrate the
@@ -15691,7 +15900,7 @@ functionality of complementing categories when using different settings
 for the <code class="highlighter-rouge">complements</code> flag.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-46">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-47">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -15748,7 +15957,7 @@ references to unknown objects during source file compilation.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-86">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-87">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -15763,7 +15972,7 @@ using GNU Prolog.</p>
   </li>
 </ul>
 
-<h2 id="tests-75">Tests</h2>
+<h2 id="tests-76">Tests</h2>
 
 <ul>
   <li>
@@ -15828,7 +16037,7 @@ all otherwise silent compiler messages.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-87">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-88">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -15846,7 +16055,7 @@ some Linux distributions.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-38">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-39">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -15859,14 +16068,14 @@ Prolog.</p>
   </li>
 </ul>
 
-<h2 id="documentation-72">Documentation</h2>
+<h2 id="documentation-73">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of the built-in predicates <code class="highlighter-rouge">logtalk_library_path/2</code>
 and <code class="highlighter-rouge">logtalk_load_context/2</code>.</li>
 </ul>
 
-<h2 id="tools-85">Tools</h2>
+<h2 id="tools-86">Tools</h2>
 
 <ul>
   <li>
@@ -15939,7 +16148,7 @@ to a file.</p>
   </li>
 </ul>
 
-<h2 id="tests-76">Tests</h2>
+<h2 id="tests-77">Tests</h2>
 
 <ul>
   <li>
@@ -15959,7 +16168,7 @@ testing runtime bound messages.</p>
 and a syntax error when using SICStus Prolog as the back-end compiler.</li>
 </ul>
 
-<h2 id="examples-74">Examples</h2>
+<h2 id="examples-75">Examples</h2>
 
 <ul>
   <li>
@@ -15972,7 +16181,7 @@ name conflicts when loading this example with the <code class="highlighter-rouge
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-47">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-48">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>FIXED: TextMate 2 bundle commands for generating (X)HTML, PDF, and text
@@ -16023,14 +16232,14 @@ defining the meta-predicate.</p>
   </li>
 </ul>
 
-<h2 id="library-73">Library</h2>
+<h2 id="library-74">Library</h2>
 
 <ul>
   <li>UPDATED: The library <code class="highlighter-rouge">os.lgt</code> file now uses the <code class="highlighter-rouge">getpid/1</code> built-in predicate
 provided by B-Prolog 8.1 when using this back-end compiler.</li>
 </ul>
 
-<h2 id="tests-77">Tests</h2>
+<h2 id="tests-78">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for error conditions of <code class="highlighter-rouge">bagof/3</code> and <code class="highlighter-rouge">setof/3</code> built-in
@@ -16069,7 +16278,7 @@ reporting issues in the <code class="highlighter-rouge">debugger</code> and <cod
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-88">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-89">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -16089,7 +16298,7 @@ application.</p>
   </li>
 </ul>
 
-<h2 id="documentation-73">Documentation</h2>
+<h2 id="documentation-74">Documentation</h2>
 
 <ul>
   <li>
@@ -16100,21 +16309,21 @@ application.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-39">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-40">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: The Windows installer failed to copy the <code class="highlighter-rouge">tests</code> directory to the
 Logtalk user folder.</li>
 </ul>
 
-<h2 id="library-74">Library</h2>
+<h2 id="library-75">Library</h2>
 
 <ul>
   <li>ADDED: New utility loader file, <code class="highlighter-rouge">basic_types_loader.lgt</code>, to load only basic
 types as a lighter alternative to the <code class="highlighter-rouge">types_loader.lgt</code> file.</li>
 </ul>
 
-<h2 id="tools-86">Tools</h2>
+<h2 id="tools-87">Tools</h2>
 
 <ul>
   <li>
@@ -16134,7 +16343,7 @@ of the current Logtalk release when printing its version string.</p>
   </li>
 </ul>
 
-<h2 id="tests-78">Tests</h2>
+<h2 id="tests-79">Tests</h2>
 
 <ul>
   <li>
@@ -16157,7 +16366,7 @@ and <code class="highlighter-rouge">retractall/1</code> messages when sent to a 
 flag turned on by using static binding whenever possible.</li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-89">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-90">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -16174,7 +16383,7 @@ when checking the version of an existing Logtalk user folder.</p>
   </li>
 </ul>
 
-<h2 id="tools-87">Tools</h2>
+<h2 id="tools-88">Tools</h2>
 
 <ul>
   <li>
@@ -16190,7 +16399,7 @@ Windows to the <code class="highlighter-rouge">scripts/NOTES.md</code> file.</p>
   </li>
 </ul>
 
-<h2 id="library-75">Library</h2>
+<h2 id="library-76">Library</h2>
 
 <ul>
   <li>ADDED: Portable operating-system interface, moved from the <code class="highlighter-rouge">cc</code> example.
@@ -16198,14 +16407,14 @@ It can be loaded using the <code class="highlighter-rouge">os_loader.lgt</code> 
 can be found in the <code class="highlighter-rouge">os.txt</code> file.</li>
 </ul>
 
-<h2 id="documentation-74">Documentation</h2>
+<h2 id="documentation-75">Documentation</h2>
 
 <ul>
   <li>CHANGED: Renamed most documentation <code class="highlighter-rouge">NOTES.txt</code> files that use Markdown
 syntax to <code class="highlighter-rouge">NOTES.md</code>.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-40">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-41">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">logtalk.iss</code> Inno Setup script now ensures that <code class="highlighter-rouge">.md</code> files
@@ -16214,7 +16423,7 @@ installer is run by administrator users or if no HKCU registry entry exists
 when the installer is run by non-administrator users.</li>
 </ul>
 
-<h2 id="examples-75">Examples</h2>
+<h2 id="examples-76">Examples</h2>
 
 <ul>
   <li>
@@ -16234,7 +16443,7 @@ compatibility with existing code.</p>
   <li>UPDATED: Port of John Fletcher’s Prolog XML parser to release 3.5.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-48">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-49">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: Instructions on using the LaTeX <code class="highlighter-rouge">lstlang0.sty</code> file.</li>
@@ -16265,7 +16474,7 @@ imported by an object due to the use of extended categories.</p>
   </li>
 </ul>
 
-<h2 id="tools-88">Tools</h2>
+<h2 id="tools-89">Tools</h2>
 
 <ul>
   <li>
@@ -16283,7 +16492,7 @@ and fixes all known bugs in its previous version.</p>
   </li>
 </ul>
 
-<h2 id="tests-79">Tests</h2>
+<h2 id="tests-80">Tests</h2>
 
 <ul>
   <li>ADDED: Unit tests for the <code class="highlighter-rouge">create_object/4</code> and <code class="highlighter-rouge">create_category/4</code> built-in
@@ -16291,7 +16500,7 @@ predicates to test creation of objects and categories with an initial set of
 predicate rules.</li>
 </ul>
 
-<h2 id="library-76">Library</h2>
+<h2 id="library-77">Library</h2>
 
 <ul>
   <li>
@@ -16307,7 +16516,7 @@ variables between the arguments.</p>
   </li>
 </ul>
 
-<h2 id="examples-76">Examples</h2>
+<h2 id="examples-77">Examples</h2>
 
 <ul>
   <li>IMPROVED: Documentation and sample queries of the <code class="highlighter-rouge">named_databases</code> example.</li>
@@ -16361,14 +16570,14 @@ when called with both arguments instantiated.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-90">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-91">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: YAP 6.3.4 or a later version is now required when using this
 backend compiler.</li>
 </ul>
 
-<h2 id="tools-89">Tools</h2>
+<h2 id="tools-90">Tools</h2>
 
 <ul>
   <li>
@@ -16418,14 +16627,14 @@ now public.</p>
   </li>
 </ul>
 
-<h2 id="tests-80">Tests</h2>
+<h2 id="tests-81">Tests</h2>
 
 <ul>
   <li>FIXED: Only runs tests for the <code class="highlighter-rouge">coinductive/1</code> directive with backend
 Prolog compilers that support coinduction.</li>
 </ul>
 
-<h2 id="examples-77">Examples</h2>
+<h2 id="examples-78">Examples</h2>
 
 <ul>
   <li>
@@ -16436,7 +16645,7 @@ Prolog compilers that support coinduction.</li>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-49">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-50">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: Add tab triggers to all predicate and entity templates used in
@@ -16484,7 +16693,7 @@ parametric object proxies.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-91">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-92">Prolog adapter and integration files</h2>
 
 <ul>
   <li>CHANGED: Removed from the SWI-Prolog adapter file the workaround for the
@@ -16493,14 +16702,14 @@ clashes seldom occur in practice and the source file compilation performance
 hit was significant.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-41">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-42">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: Bug in the <code class="highlighter-rouge">logtalk_version_select.sh</code> POSIX script that prevented
 switching the installed version.</li>
 </ul>
 
-<h2 id="tests-81">Tests</h2>
+<h2 id="tests-82">Tests</h2>
 
 <ul>
   <li>
@@ -16514,7 +16723,7 @@ predicate directives.</p>
   </li>
 </ul>
 
-<h2 id="examples-78">Examples</h2>
+<h2 id="examples-79">Examples</h2>
 
 <ul>
   <li>UPDATED: Examples <code class="highlighter-rouge">expansion</code> and <code class="highlighter-rouge">inheritance</code> to avoid a syntax clash
@@ -16546,7 +16755,7 @@ leading to misleading warnings when reloading files.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-92">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-93">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -16570,7 +16779,7 @@ querying predicate properties.</p>
   </li>
 </ul>
 
-<h2 id="documentation-75">Documentation</h2>
+<h2 id="documentation-76">Documentation</h2>
 
 <ul>
   <li>
@@ -16581,7 +16790,7 @@ querying predicate properties.</p>
   </li>
 </ul>
 
-<h2 id="examples-79">Examples</h2>
+<h2 id="examples-80">Examples</h2>
 
 <ul>
   <li>
@@ -16626,7 +16835,7 @@ templates of the database predicates).</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-93">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-94">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -16644,7 +16853,7 @@ of seconds as per the standardization proposal.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-42">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-43">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -16665,13 +16874,13 @@ all start with the <code class="highlighter-rouge">logtalk-</code> prefix.</p>
   </li>
 </ul>
 
-<h2 id="documentation-76">Documentation</h2>
+<h2 id="documentation-77">Documentation</h2>
 
 <ul>
   <li>ADDED: PDF versions of the User and Reference manuals.</li>
 </ul>
 
-<h2 id="examples-80">Examples</h2>
+<h2 id="examples-81">Examples</h2>
 
 <ul>
   <li>
@@ -16716,7 +16925,7 @@ after it in a group as a consequence of an ancestor <code class="highlighter-rou
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-94">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-95">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -16730,14 +16939,14 @@ indicator for ground terms as <code class="highlighter-rouge">*</code> (i.e. a n
   </li>
 </ul>
 
-<h2 id="documentation-77">Documentation</h2>
+<h2 id="documentation-78">Documentation</h2>
 
 <ul>
   <li>UPDATED: User Manual section on loader files, explaining how to set the
 <code class="highlighter-rouge">reload</code> flag locally to improve their usability during development.</li>
 </ul>
 
-<h2 id="tools-90">Tools</h2>
+<h2 id="tools-91">Tools</h2>
 
 <ul>
   <li>IMPROVED: Extended the <code class="highlighter-rouge">lgtdoc</code> and <code class="highlighter-rouge">diagrams</code> tools with support for the
@@ -16747,7 +16956,7 @@ using library notation. Fixed bugs that could prevent using the <code class="hig
 predicates.</li>
 </ul>
 
-<h2 id="examples-81">Examples</h2>
+<h2 id="examples-82">Examples</h2>
 
 <ul>
   <li>
@@ -16797,7 +17006,7 @@ pseudo-module.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-95">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-96">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -16816,7 +17025,7 @@ Documentation
   </li>
 </ul>
 
-<h2 id="examples-82">Examples</h2>
+<h2 id="examples-83">Examples</h2>
 
 <ul>
   <li>ADDED: Support for using ECLiPSe as the backend Prolog compiler for the
@@ -16867,7 +17076,7 @@ parametric object proxies.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-96">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-97">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -16882,14 +17091,14 @@ Logtalk.</p>
   </li>
 </ul>
 
-<h2 id="documentation-78">Documentation</h2>
+<h2 id="documentation-79">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Use a single directory, <code class="highlighter-rouge">docs</code>, for the XHTML documentation of all
 the core, library, tool, and contribution entities.</li>
 </ul>
 
-<h2 id="tools-91">Tools</h2>
+<h2 id="tools-92">Tools</h2>
 
 <ul>
   <li>
@@ -16901,7 +17110,7 @@ internal clauses for alias and super lookups.</p>
   </li>
 </ul>
 
-<h2 id="examples-83">Examples</h2>
+<h2 id="examples-84">Examples</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">constraints/swipl</code> example to avoid deprecated warnings for
@@ -16943,7 +17152,7 @@ by the built-in <code class="highlighter-rouge">predicate_property/2</code> meth
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-97">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-98">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -16963,14 +17172,14 @@ SICStus Prolog, SWI-Prolog, XSB, and YAP by taking advantage of the internal
   </li>
 </ul>
 
-<h2 id="documentation-79">Documentation</h2>
+<h2 id="documentation-80">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of meta-predicate argument mode indicators and their
 intended use.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-43">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-44">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">logtalk.iss</code> Inno Setup script, used for building binary
@@ -16978,7 +17187,7 @@ Windows installers, to detect B-Prolog 8.0 (assuming that the <code class="highl
 environment variable is defined).</li>
 </ul>
 
-<h2 id="library-77">Library</h2>
+<h2 id="library-78">Library</h2>
 
 <ul>
   <li>
@@ -16991,7 +17200,7 @@ files (<code class="highlighter-rouge">assignvars.lgt</code>, <code class="highl
   </li>
 </ul>
 
-<h2 id="tools-92">Tools</h2>
+<h2 id="tools-93">Tools</h2>
 
 <ul>
   <li>
@@ -17014,7 +17223,7 @@ compiler-generated auxiliary predicates (such as the ones resulting from
   </li>
 </ul>
 
-<h2 id="examples-84">Examples</h2>
+<h2 id="examples-85">Examples</h2>
 
 <ul>
   <li>
@@ -17085,7 +17294,7 @@ compiler flags are the same used before.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-98">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-99">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -17097,14 +17306,14 @@ compiler flags are the same used before.</p>
   </li>
 </ul>
 
-<h2 id="tests-82">Tests</h2>
+<h2 id="tests-83">Tests</h2>
 
 <ul>
   <li>ADDED: Two unit tests for the <code class="highlighter-rouge">setof/3</code> built-in method taken from a thread
 in the SWI-Prolog mailing list on existential variables.</li>
 </ul>
 
-<h2 id="examples-85">Examples</h2>
+<h2 id="examples-86">Examples</h2>
 
 <ul>
   <li>ADDED: Two unit tests to the <code class="highlighter-rouge">dcgs</code> examples illustrating a nasty but also
@@ -17112,14 +17321,14 @@ sometimes useful solution to get a grammar rule difference list arguments using
 lambda expressions.</li>
 </ul>
 
-<h2 id="documentation-80">Documentation</h2>
+<h2 id="documentation-81">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of available shorthands for the <code class="highlighter-rouge">logtalk_load/1</code> and
 <code class="highlighter-rouge">logtalk_make/1</code> built-in predicates.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-50">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-51">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>
@@ -17189,7 +17398,7 @@ running with, respectively, ECLiPSe or SWI-Prolog as the backend compilers.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-99">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-100">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -17213,13 +17422,13 @@ when using, respectively, ECLiPSe or SWI-Prolog as the backend compilers.</p>
   </li>
 </ul>
 
-<h2 id="documentation-81">Documentation</h2>
+<h2 id="documentation-82">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of the term expansion mechanism and its predicates.</li>
 </ul>
 
-<h2 id="examples-86">Examples</h2>
+<h2 id="examples-87">Examples</h2>
 
 <ul>
   <li>CHANGED: Comment out the individual examples on the <code class="highlighter-rouge">constraints/bp</code> example
@@ -17227,7 +17436,7 @@ that require support for B-Prolog action rules as these are currently not
 supported.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-51">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-52">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>IMPROVED: Text layout of <code class="highlighter-rouge">info/1-2</code> directives found in the entity and
@@ -17265,7 +17474,7 @@ using relative paths.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-100">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-101">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -17319,7 +17528,7 @@ internal runtime table of loaded files.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-101">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-102">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -17340,14 +17549,14 @@ B-Prolog adapter file would fail to expand relative file paths.</p>
   </li>
 </ul>
 
-<h2 id="documentation-82">Documentation</h2>
+<h2 id="documentation-83">Documentation</h2>
 
 <ul>
   <li>FIXED: Some unresolved internal links in the Reference Manual that affected
 generating the PDF version.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-44">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-45">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">logtalk.iss</code> Inno Setup script, used for building binary
@@ -17355,7 +17564,7 @@ Windows installers, would use an incompatible ECLiPSe 6.0 version if no
 ECLiPSe 6.1 version was detected.</li>
 </ul>
 
-<h2 id="tools-93">Tools</h2>
+<h2 id="tools-94">Tools</h2>
 
 <ul>
   <li>
@@ -17373,7 +17582,7 @@ predicates in these systems.</p>
   </li>
 </ul>
 
-<h2 id="tests-83">Tests</h2>
+<h2 id="tests-84">Tests</h2>
 
 <ul>
   <li>
@@ -17417,7 +17626,7 @@ source file global directives.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-102">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-103">Prolog adapter and integration files</h2>
 
 <ul>
   <li>ADDED: Description of a workaround for supporting settings files in the
@@ -17425,7 +17634,7 @@ current directory when using ECLiPSe as the back-end Prolog compiler on
 Windows.</li>
 </ul>
 
-<h2 id="examples-87">Examples</h2>
+<h2 id="examples-88">Examples</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">benchmarks</code> example <code class="highlighter-rouge">loader.lgt</code> file didn’t ensure compilation
@@ -17457,7 +17666,7 @@ holding the primary declaration defined no clauses for the predicate.</p>
   </li>
 </ul>
 
-<h2 id="tests-84">Tests</h2>
+<h2 id="tests-85">Tests</h2>
 
 <ul>
   <li>
@@ -17473,7 +17682,7 @@ files.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-45">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-46">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -17531,7 +17740,7 @@ term as final, the compiler would not check that the expanded term is callable.<
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-103">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-104">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -17548,7 +17757,7 @@ compiler internal predicate when using the <code class="highlighter-rouge">make/
   </li>
 </ul>
 
-<h2 id="tests-85">Tests</h2>
+<h2 id="tests-86">Tests</h2>
 
 <ul>
   <li>
@@ -17566,14 +17775,14 @@ methods and the <code class="highlighter-rouge">discontiguous/1</code>, <code cl
   </li>
 </ul>
 
-<h2 id="examples-88">Examples</h2>
+<h2 id="examples-89">Examples</h2>
 
 <ul>
   <li>REMOVED: Experimental examples <code class="highlighter-rouge">chr</code> and <code class="highlighter-rouge">problog</code>, which were implemented
 using the now removed support for annotation expansion predicates.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-52">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-53">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Support for the alternative <code class="highlighter-rouge">.logtalk</code> file name extension to most
@@ -17640,7 +17849,7 @@ part.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-104">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-105">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -17670,7 +17879,7 @@ developed or maintained.</p>
   </li>
 </ul>
 
-<h2 id="documentation-83">Documentation</h2>
+<h2 id="documentation-84">Documentation</h2>
 
 <ul>
   <li>
@@ -17707,7 +17916,7 @@ called non-terminals and meta-predicates defined elsewhere.</p>
   </li>
 </ul>
 
-<h2 id="tests-86">Tests</h2>
+<h2 id="tests-87">Tests</h2>
 
 <ul>
   <li>
@@ -17718,7 +17927,7 @@ called non-terminals and meta-predicates defined elsewhere.</p>
   </li>
 </ul>
 
-<h2 id="examples-89">Examples</h2>
+<h2 id="examples-90">Examples</h2>
 
 <ul>
   <li>
@@ -17735,7 +17944,7 @@ once when running a batch of benchmark tests.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-46">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-47">Installers and installation scripts</h2>
 
 <ul>
   <li>IMPROVED: The Windows installer now deletes any XSB <code class="highlighter-rouge">.xwam</code> files found
@@ -17772,7 +17981,7 @@ existing intermediate files, forcing source file recompilation.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-105">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-106">Prolog adapter and integration files</h2>
 
 <ul>
   <li>CHANGED: The default value of the <code class="highlighter-rouge">optimize</code> flag is now <code class="highlighter-rouge">off</code>. This is more
@@ -17781,7 +17990,7 @@ consistent with the default values of other flags such as <code class="highlight
 (not the deployment) of applications.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-53">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-54">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Syntax coloring support for the new <code class="highlighter-rouge">built_in/0</code> directive to all
@@ -17832,21 +18041,21 @@ they may contain <code class="highlighter-rouge">initialization/1</code> directi
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-106">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-107">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: Ensure that the de facto standard <code class="highlighter-rouge">between/3</code> predicate is available
 for all supported backend Prolog compilers.</li>
 </ul>
 
-<h2 id="tools-94">Tools</h2>
+<h2 id="tools-95">Tools</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">logtalk_tester.sh</code> shell script used in the automation of unit
 testing would not report compilation warnings.</li>
 </ul>
 
-<h2 id="examples-90">Examples</h2>
+<h2 id="examples-91">Examples</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">lambdas</code> example with a sample object illustrating detection
@@ -17905,14 +18114,14 @@ when using default settings.</p>
   </li>
 </ul>
 
-<h2 id="library-78">Library</h2>
+<h2 id="library-79">Library</h2>
 
 <ul>
   <li>FIXED: Definition of the <code class="highlighter-rouge">msort/2</code> predicate in the library object <code class="highlighter-rouge">list</code>
 for GNU Prolog.</li>
 </ul>
 
-<h2 id="tools-95">Tools</h2>
+<h2 id="tools-96">Tools</h2>
 
 <ul>
   <li>
@@ -17925,14 +18134,14 @@ context (using the trace option <code class="highlighter-rouge">x</code>) for th
   </li>
 </ul>
 
-<h2 id="examples-91">Examples</h2>
+<h2 id="examples-92">Examples</h2>
 
 <ul>
   <li>CHANGED: In the <code class="highlighter-rouge">cc</code> example, use the <code class="highlighter-rouge">statistics/2</code> key <code class="highlighter-rouge">cputime</code> in the
 implementation of the predicate <code class="highlighter-rouge">cpu_time/1</code> for SWI-Prolog.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-54">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-55">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Syntax coloring support for the <code class="highlighter-rouge">forward/1</code> method to all supported
@@ -17987,7 +18196,7 @@ directory exists for a generated intermediate file.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-107">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-108">Prolog adapter and integration files</h2>
 
 <ul>
   <li>UPDATED: The adapter files for SICStus Prolog, SWI-Prolog, and YAP now
@@ -17998,13 +18207,13 @@ likely result in missing discontiguous predicate warnings, however, when
 compiling Prolog code.</li>
 </ul>
 
-<h2 id="documentation-84">Documentation</h2>
+<h2 id="documentation-85">Documentation</h2>
 
 <ul>
   <li>UPDATED: User Manual with information on the <code class="highlighter-rouge">forwarding</code> built-in protocol.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-55">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-56">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>UPDATED: The TextMate 2 bundle now sets the <code class="highlighter-rouge">indentOnPaste</code> key to <code class="highlighter-rouge">simple</code>
@@ -18089,7 +18298,7 @@ directives, and clauses.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-108">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-109">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -18146,7 +18355,7 @@ could be missing.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-109">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-110">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -18220,7 +18429,7 @@ explicitly-qualified module predicates than it should.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-110">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-111">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -18234,7 +18443,7 @@ this back-end Prolog compiler.</p>
   </li>
 </ul>
 
-<h2 id="documentation-85">Documentation</h2>
+<h2 id="documentation-86">Documentation</h2>
 
 <ul>
   <li>IMPROVED: Documentation of the <code class="highlighter-rouge">multifile/1</code> predicate directive.</li>
@@ -18297,7 +18506,7 @@ to update the internal runtime table of complemented objects.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-111">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-112">Prolog adapter and integration files</h2>
 
 <ul>
   <li>CHANGED: ECLiPSe 6.1#143 and Qu-Prolog 9.0 (or later versions) are now
@@ -18306,7 +18515,7 @@ Schimpf for his feedback on the necessary updates to the ECLiPSe adapter
 file.</li>
 </ul>
 
-<h2 id="tools-96">Tools</h2>
+<h2 id="tools-97">Tools</h2>
 
 <ul>
   <li>
@@ -18322,20 +18531,20 @@ by default. Also improved the tool documentation.</p>
   </li>
 </ul>
 
-<h2 id="examples-92">Examples</h2>
+<h2 id="examples-93">Examples</h2>
 <ul>
   <li>CHANGED: The file and directory predicates defined in the <code class="highlighter-rouge">cc</code> example for
 SWI-Prolog now expand the path arguments before calling the native predicates.</li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-47">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-48">Installers and installation scripts</h2>
 
 <ul>
   <li>FIXED: The <code class="highlighter-rouge">uninstall.sh</code> POSIX shell script failed to delete some installed
 script symbolic links and man pages.</li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-56">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-57">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>ADDED: Syntax coloring support for the <code class="highlighter-rouge">false/0</code> ISO Prolog standard
@@ -18367,7 +18576,7 @@ as private instead of public.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-112">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-113">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -18390,14 +18599,14 @@ and user <code class="highlighter-rouge">VERSION.txt</code> files instead of har
   </li>
 </ul>
 
-<h2 id="documentation-86">Documentation</h2>
+<h2 id="documentation-87">Documentation</h2>
 
 <ul>
   <li>IMPROVED: POSIX man pages for integration, documentation, and helper shell
 scripts.</li>
 </ul>
 
-<h2 id="tools-97">Tools</h2>
+<h2 id="tools-98">Tools</h2>
 
 <ul>
   <li>
@@ -18412,14 +18621,14 @@ recent SICStus Prolog 4 versions (tested with version 4.2.3).</p>
   </li>
 </ul>
 
-<h2 id="tests-87">Tests</h2>
+<h2 id="tests-88">Tests</h2>
 
 <ul>
   <li>ADDED: Support for multi-threading and 64 bits versions of XSB to the
 <code class="highlighter-rouge">logtalk_tester.sh</code> script.</li>
 </ul>
 
-<h2 id="examples-93">Examples</h2>
+<h2 id="examples-94">Examples</h2>
 
 <ul>
   <li>
@@ -18431,7 +18640,7 @@ control construct as a message to self.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-48">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-49">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -18567,7 +18776,7 @@ within a dynamic entity. Thanks to Andreas Becker for the bug report.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-113">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-114">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -18587,14 +18796,14 @@ executable file.</p>
   </li>
 </ul>
 
-<h2 id="documentation-87">Documentation</h2>
+<h2 id="documentation-88">Documentation</h2>
 
 <ul>
   <li>REMOVED: All references to the no longer supported <code class="highlighter-rouge">annotation/1</code> experimental
 directive.</li>
 </ul>
 
-<h2 id="examples-94">Examples</h2>
+<h2 id="examples-95">Examples</h2>
 
 <ul>
   <li>
@@ -18606,7 +18815,7 @@ annotation support.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-49">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-50">Installers and installation scripts</h2>
 
 <ul>
   <li>CHANGED: The Windows installer now creates integration shortcuts that start
@@ -18698,7 +18907,7 @@ the exception term would not include a <code class="highlighter-rouge">logtalk/2
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-114">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-115">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -18722,7 +18931,7 @@ the Logtalk compiler/runtime).</p>
   </li>
 </ul>
 
-<h2 id="documentation-88">Documentation</h2>
+<h2 id="documentation-89">Documentation</h2>
 
 <ul>
   <li>FIXED: Several issues that prevented using the <code class="highlighter-rouge">scripts/build_release.sh</code>
@@ -18730,7 +18939,7 @@ shell script to generate installers and the PDF versions of the User and
 Reference Manuals.</li>
 </ul>
 
-<h2 id="tools-98">Tools</h2>
+<h2 id="tools-99">Tools</h2>
 
 <ul>
   <li>
@@ -18743,7 +18952,7 @@ and repeated test identifiers.</p>
   </li>
 </ul>
 
-<h2 id="examples-95">Examples</h2>
+<h2 id="examples-96">Examples</h2>
 
 <ul>
   <li>
@@ -18776,7 +18985,7 @@ file).</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-50">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-51">Installers and installation scripts</h2>
 
 <ul>
   <li>UPDATED: The <code class="highlighter-rouge">logtalk_user_setup.*</code> scripts to create a copy of the <code class="highlighter-rouge">tests</code>
@@ -18836,7 +19045,7 @@ predicates is only performed when the module name is know at compile time.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-115">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-116">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -18851,7 +19060,7 @@ is now independent of having <code class="highlighter-rouge">user</code> as a de
   </li>
 </ul>
 
-<h2 id="examples-96">Examples</h2>
+<h2 id="examples-97">Examples</h2>
 
 <ul>
   <li>FIXED: Added missing declaration for the predicate <code class="highlighter-rouge">print/0</code> in the <code class="highlighter-rouge">points</code>
@@ -18957,7 +19166,7 @@ loading a settings file.</p>
   </li>
 </ul>
 
-<h2 id="prolog-adapter-and-integration-files-116">Prolog adapter and integration files</h2>
+<h2 id="prolog-adapter-and-integration-files-117">Prolog adapter and integration files</h2>
 
 <ul>
   <li>
@@ -19013,7 +19222,7 @@ and runtime now use portable, standard-based definitions of these predicates).</
   </li>
 </ul>
 
-<h2 id="documentation-89">Documentation</h2>
+<h2 id="documentation-90">Documentation</h2>
 
 <ul>
   <li>
@@ -19026,13 +19235,13 @@ type, following the example of the SWI-Prolog release notes.</p>
   </li>
 </ul>
 
-<h2 id="library-79">Library</h2>
+<h2 id="library-80">Library</h2>
 
 <ul>
   <li>MOVED: The unit test framework have been moved into the <code class="highlighter-rouge">tools</code> directory.</li>
 </ul>
 
-<h2 id="tools-99">Tools</h2>
+<h2 id="tools-100">Tools</h2>
 
 <ul>
   <li>
@@ -19056,7 +19265,7 @@ defining alternative but compatible debugging and documentation tools.</p>
   </li>
 </ul>
 
-<h2 id="examples-97">Examples</h2>
+<h2 id="examples-98">Examples</h2>
 
 <ul>
   <li>
@@ -19074,7 +19283,7 @@ O’Keefe post on the SWI-Prolog mailing list.</p>
   </li>
 </ul>
 
-<h2 id="installers-and-installation-scripts-51">Installers and installation scripts</h2>
+<h2 id="installers-and-installation-scripts-52">Installers and installation scripts</h2>
 
 <ul>
   <li>
@@ -19091,7 +19300,7 @@ the Windows installer.</p>
   </li>
 </ul>
 
-<h2 id="ides-text-editors-and-syntax-highlighters-support-57">IDEs, text editors, and syntax highlighters support</h2>
+<h2 id="ides-text-editors-and-syntax-highlighters-support-58">IDEs, text editors, and syntax highlighters support</h2>
 
 <ul>
   <li>

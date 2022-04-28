@@ -8,6 +8,24 @@ aside:
 
 ### 2022
 
+##### April 28
+
+> Logtalk 3.55.0 is now available for [downloading](download.html). This release
+> adds Windows PowerShell versions of the setup, integration, embedding, and
+> tools Bash shell scripts (joint work with Hans N. Beck); includes new and
+> improved Handbook sections; adds a library file for loading all installed
+> packs; improves handling of file paths by the `diagrams`, `lgtdoc`, and
+> `wrapper` tools; improves the documentation of the `issue_creator`, `lgtunit`,
+> and `packs` tools; includes fixes and improvements for the `lgtdoc` scripts; 
+> updates the `update_html_docs.sh` and `update_svg_diagrams.sh` scripts to
+> optionally generate packs documentation and diagrams; updates the Windows
+> installer to copy the PowerShell integration and setup scripts to the system
+> directory; updates documentation of the Visual Studio Code text editor
+> Logtalk plug-in; adds new tests for official and de facto standard Prolog
+> features; and includes portability updates Scryer Prolog, Tau Prolog, and YAP.
+> For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### March 22
 
 > Logtalk 3.54.0 is now available for [downloading](download.html). This release

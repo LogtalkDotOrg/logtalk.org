@@ -369,12 +369,12 @@ available using a multifile hook predicate.</p>
 <h2 id="documenting">Documenting</h2>
 
 <p>Logtalk includes two documenting tools, <a href="https://logtalk.org/manuals/devtools/lgtdoc.html"><code class="highlighter-rouge">lgtdoc</code></a>
-and <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md"><code class="highlighter-rouge">doclet</code></a>, and an
-automation script, <a href="man/logtalk_doclet.html"><code class="highlighter-rouge">logtalk_doclet</code></a>. The <code class="highlighter-rouge">lgtdoc</code> tool exports API
-documentation files in XML format and includes scripts to convert
-these files into a final format such as HTML, PDF, or Markdown.
-The <code class="highlighter-rouge">doclet</code> tool can be used to automate the steps to generate API
-documentation and diagrams for a Logtalk application.</p>
+and <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md"><code class="highlighter-rouge">doclet</code></a>, and
+<a href="man/logtalk_doclet.html"><code class="highlighter-rouge">logtalk_doclet</code></a> Bash and PowerShell scripts.
+The <code class="highlighter-rouge">lgtdoc</code> tool exports API documentation files in XML format and includes
+scripts to convert these files into a final format such as HTML, PDF, or
+Markdown. The <code class="highlighter-rouge">doclet</code> tool can be used to automate the steps to generate
+API documentation and diagrams for a Logtalk application.</p>
 
 <p>Logtalk documenting directives allows the programmer to represent
 extensive API information on entities and their predicates including:</p>
@@ -454,7 +454,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
   <li>Approximate float comparison support</li>
   <li>Test set and per test annotations</li>
   <li>Parametrized unit tests</li>
-  <li>Testing automation script (supports CI/CD pipelines with detailed test and code coverage reports)</li>
+  <li>Testing automation scripts (supports CI/CD pipelines with detailed test and code coverage reports)</li>
   <li>TAP and xUnit test reports</li>
   <li>Test set condition, setup, and cleanup goals</li>
   <li>Per test condition, setup, and cleanup goals</li>
@@ -465,7 +465,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 
 <p>QuickCheck support includes both test idioms and predicates that can be used e.g. at the top-level for quick testing of plain Prolog predicates and Prolog modules predicates besides Logtalk object predicates.</p>
 
-<p>Test automation is provided by the <a href="man/logtalk_tester.html"><code class="highlighter-rouge">logtalk_tester</code></a> script.
+<p>Test automation is provided by the <a href="man/logtalk_tester.html"><code class="highlighter-rouge">logtalk_tester</code></a> Bash and PowerShell scripts.
 See also the <a href="testing.html">testing guide</a> and the <a href="blog.html?tag=testing">blog posts</a>
 on testing best practices for more information. Automatic bug report creation for failed
 tests in GitHub and GitLab issue trackers is supported using the
@@ -607,7 +607,7 @@ support for text editors, syntax highlighters (for publishing code), and several
 
 <h2 id="embedding">Embedding</h2>
 
-<p>Logtalk includes a set of <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding">helper scripts</a>
+<p>Logtalk includes a set of sample <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding">helper scripts</a>
 for embedding the Logtalk runtime and Logtalk applications using selected backend Prolog compilers. These scripts greatly
 simplify packaging and delivering of applications and can be used as basis for e.g. automatically generating executables and JAR files.</p>
 
@@ -640,7 +640,7 @@ languages and tools that can also be handled by <code class="highlighter-rouge">
 
 <h3 id="lgtinit">lgtinit</h3>
 
-<p><a href="https://github.com/eazar001/lgtinit">lgtinit</a> is POSIX script for project scaffolding contributed by Ebrahim Azarisooreh.</p>
+<p><a href="https://github.com/eazar001/lgtinit">lgtinit</a> is a POSIX script for project scaffolding contributed by Ebrahim Azarisooreh.</p>
 
 <h2 id="third-party-tools">Third-party tools</h2>
 
