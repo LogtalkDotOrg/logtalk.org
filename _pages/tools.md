@@ -201,6 +201,7 @@ tests in GitHub and GitLab issue trackers is supported using the
 -   [Code coverage report](diagrams/coverage_report.html) for the [`diagrams`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md) tool
 -   [Prolog standards conformance suite](https://github.com/LogtalkDotOrg/logtalk3/tree/master/tests/prolog)
 -   Prolog standards conformance suite [results for GNU Prolog 1.4.5](https://logtalk.org/files/allure-report/)
+-   Logtalk distribution tests [results for Trealla Prolog](https://trealla-prolog.github.io/trealla/)
 
 
 ## Dead code scanner
