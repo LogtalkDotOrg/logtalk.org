@@ -441,6 +441,7 @@ Publications on research and applications using Logtalk:
 ## Contributors
 
 -   Abramo Bagnara (efficient expansion of once/1 goals and bug reports in corner cases when compiling disjunctions)
+-   Adrián Arroyo Calle (library enhancements)
 -   Andreas Becker (PDT support for Logtalk; bug reports)
 -   Andrew Davison (help with Trealla Prolog integration; bug reports)
 -   Anne Ogborn (bug reports, usability suggestions)
@@ -461,6 +462,7 @@ Publications on research and applications using Logtalk:
 -   François Fages (meta-predicate safety bug reports)
 -   Günter Kniesel (PDT support for Logtalk; feedback on Logtalk OOP features)
 -   Gopal Gupta (coinduction examples)
+-   Hans N. Beck (integrations and embedding PowerShell scripts)
 -   Ivan Bratko (search methods in the state-space searching example)
 -   Jacinto Dávila (CSV library, bug reports)
 -   Jan Burse (unit tests patches and feedback)
