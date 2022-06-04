@@ -283,7 +283,7 @@
 
 <ul>
   <li>
-    <p>A loader file for your source files. Usually named <code class="highlighter-rouge">loader.lgt</code>, this file should load both your source files and any other files (e.g. library files) needed for compiling and running your code. Loader files may also be used to set appropriated flags for compiling and loading your source files.</p>
+    <p>A loader file for your source files. Usually named <code class="highlighter-rouge">loader.lgt</code>, this file should load both your source files and any other files (e.g. library files) needed for compiling and running your code. Loader files may also be used to set appropriated flags for compiling and loading your source files. You may also want to have e.g. a <code class="highlighter-rouge">loader_debug.lgt</code> file if there’s a non-trivial debugging setup for developing your code.</p>
   </li>
   <li>
     <p>An informative <code class="highlighter-rouge">NOTES.md</code> or <code class="highlighter-rouge">NOTES.txt</code> file with a description of your code, authorship, copyright, and licensing information.</p>
@@ -292,10 +292,10 @@
     <p>A <code class="highlighter-rouge">SCRIPT.txt</code> file containing instructions on how to load your source files and sample queries.</p>
   </li>
   <li>
-    <p>A file contain your unit tests, usually named <code class="highlighter-rouge">tests.lgt</code>.</p>
+    <p>A loader file for your tests (which also loads your source files), usually named <code class="highlighter-rouge">tester.lgt</code> (this is the name expected by the testing automation script), side-by-side with ​the <code class="highlighter-rouge">loader.lgt</code> file (so that the user can run your code tests simply by replacing <code class="highlighter-rouge">loader</code> by <code class="highlighter-rouge">tester</code> in the <code class="highlighter-rouge">logtalk_load/1</code> goal that loads your code).</p>
   </li>
   <li>
-    <p>A loader file for your tests (which also loads your source files), usually named <code class="highlighter-rouge">tester.lgt</code> (this is the name expected by the testing automation script).</p>
+    <p>A file contain your unit tests, usually named <code class="highlighter-rouge">tests.lgt</code>. If there’s a single tests file, keep it in the same directory as the ​<code class="highlighter-rouge">loader.lgt</code> and <code class="highlighter-rouge">tester.lgt</code>​ files. If there are multiple test files, use a <code class="highlighter-rouge">tests</code> or <code class="highlighter-rouge">test_files</code> sub-directory.</p>
   </li>
   <li>
     <p>A <em>doclet</em> file for generating documentation and diagrams for your source code, usually named <code class="highlighter-rouge">doclet.lgt</code> (this is the name expected by the doclet automation script).</p>

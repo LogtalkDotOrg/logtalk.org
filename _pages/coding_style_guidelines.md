@@ -13,15 +13,15 @@ Organizing your source files
 
 Store your files in a directory with a simple but descriptive name. Avoid using a name already in use in the current Logtalk distribution. Besides your source files, the directory often contains utility and documentation files such as:
 
-* A loader file for your source files. Usually named `loader.lgt`, this file should load both your source files and any other files (e.g. library files) needed for compiling and running your code. Loader files may also be used to set appropriated flags for compiling and loading your source files. 
+* A loader file for your source files. Usually named `loader.lgt`, this file should load both your source files and any other files (e.g. library files) needed for compiling and running your code. Loader files may also be used to set appropriated flags for compiling and loading your source files. You may also want to have e.g. a `loader_debug.lgt` file if there's a non-trivial debugging setup for developing your code.
 
 * An informative `NOTES.md` or `NOTES.txt` file with a description of your code, authorship, copyright, and licensing information.
 
 * A `SCRIPT.txt` file containing instructions on how to load your source files and sample queries.
 
-* A file contain your unit tests, usually named `tests.lgt`.
+* A loader file for your tests (which also loads your source files), usually named `tester.lgt` (this is the name expected by the testing automation script), side-by-side with ​the `loader.lgt` file (so that the user can run your code tests simply by replacing `loader` by `tester` in the `logtalk_load/1` goal that loads your code).
 
-* A loader file for your tests (which also loads your source files), usually named `tester.lgt` (this is the name expected by the testing automation script).
+* A file contain your unit tests, usually named `tests.lgt`. If there's a single tests file, keep it in the same directory as the ​`loader.lgt` and `tester.lgt`​ files. If there are multiple test files, use a `tests` or `test_files` sub-directory.
 
 * A _doclet_ file for generating documentation and diagrams for your source code, usually named `doclet.lgt` (this is the name expected by the doclet automation script).
 

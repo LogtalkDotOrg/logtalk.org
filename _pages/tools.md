@@ -77,6 +77,8 @@ working code. Lint checks include:
 -   Lambda expression with parameter variables used elsewhere in a clause
 -   Singleton variables
 -   If-then-else and soft cut control constructs without an else part
+-	If-then-else and soft cut control constructs where the test is a unification between a variable and a ground term
+-	Missing parenthesis around if-then-else and disjunction control constructs in the presence of cuts in the first argument
 -   Cuts in clauses for multifile predicates
 -   Missing cuts in repeat loops
 -   Possible non-steadfast predicate definitions
@@ -88,7 +90,7 @@ working code. Lint checks include:
 -	Calls to `findall/3` used to backtrack over all solutions of a goal
 -	Calls to `catch/3` that catch all exceptions
 -	Calls to standard predicates that have more efficient alternatives
--   Entity, predicate, and variable names not following official coding guidelines
+-	File, entity, predicate, and variable names not following official coding guidelines
 -   Variable names that differ only on case
 -   Clauses whose body is a disjunction
 

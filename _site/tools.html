@@ -344,6 +344,8 @@ working code. Lint checks include:</p>
   <li>Lambda expression with parameter variables used elsewhere in a clause</li>
   <li>Singleton variables</li>
   <li>If-then-else and soft cut control constructs without an else part</li>
+  <li>If-then-else and soft cut control constructs where the test is a unification between a variable and a ground term</li>
+  <li>Missing parenthesis around if-then-else and disjunction control constructs in the presence of cuts in the first argument</li>
   <li>Cuts in clauses for multifile predicates</li>
   <li>Missing cuts in repeat loops</li>
   <li>Possible non-steadfast predicate definitions</li>
@@ -355,7 +357,7 @@ working code. Lint checks include:</p>
   <li>Calls to <code class="highlighter-rouge">findall/3</code> used to backtrack over all solutions of a goal</li>
   <li>Calls to <code class="highlighter-rouge">catch/3</code> that catch all exceptions</li>
   <li>Calls to standard predicates that have more efficient alternatives</li>
-  <li>Entity, predicate, and variable names not following official coding guidelines</li>
+  <li>File, entity, predicate, and variable names not following official coding guidelines</li>
   <li>Variable names that differ only on case</li>
   <li>Clauses whose body is a disjunction</li>
 </ul>
