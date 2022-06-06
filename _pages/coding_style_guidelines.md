@@ -161,6 +161,8 @@ head :-
     alternative2.
 ```
 
+One exception to this guideline is when the head of the clause performs costly access to a sub-term in complex compound argument.
+
 If-then-else constructs
 -----------------------
 
