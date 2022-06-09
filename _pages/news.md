@@ -8,6 +8,26 @@ aside:
 
 ### 2022
 
+##### June 9
+
+> Logtalk 3.56.0 is now available for [downloading](download.html). This release
+> adds linter warnings for source file names and for if-then-else and soft-cut
+> control constructs; improves the linter warnings for `findall/3` goals; adds
+> support for calls to the database and reflection built-in methods where the
+> predicate argument is only bound at runtime and is listed in a `uses/2` or
+> `use_module/2` directive; fixes cases where predicate name conflicts in
+> directives would not be reported; improves `arbitrary` library performance
+> for several types; fixes issues with the `arbitrary` library generation of
+> Unicode code points; provides an improved QuickCheck implementation;
+> improves the `lgtunit` tool code coverage report format to enable reporting
+> all test object parameterizations and files; adds linter warnings for missing
+> documentation directives to the `lgtdoc` tool; improves performance of the
+> `diagrams` tool; improves the documentation of libraries and tools; adds
+> new tests and improves existing tests for Prolog standards compliance; and
+> includes portability updates Scryer Prolog, SICStus Prolog, and Tau Prolog.
+> For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### April 28
 
 > Logtalk 3.55.0 is now available for [downloading](download.html). This release
