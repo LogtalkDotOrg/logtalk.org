@@ -38,7 +38,7 @@ Note that modules are a _predicate prefixing_ solution and thus any call to a mo
 
 ### Consistent predicate call semantics
 
-In Logtalk, implicit message sending, using `uses/2` directive to resolve the messages, and explicit message sending, using the `::/2` control construct, have the same semantics for both meta-predicates and non meta-predicates. I.e. using using implicit or explicit messages is simply a matter of programming style and programmer preference. For meta-predicates, this results in clear and clean meta-predicate call semantics: meta-arguments are **always** called in the meta-predicate _calling context_.
+In Logtalk, implicit message sending, using `uses/2` directive to resolve the messages, and explicit message sending, using the `::/2` control construct, have the same semantics for both meta-predicates and non meta-predicates. I.e. using implicit or explicit messages is simply a matter of programming style and programmer preference. For meta-predicates, this results in clear and clean meta-predicate call semantics: meta-arguments are **always** called in the meta-predicate _calling context_.
 
 Prolog modules, however, provide different semantics for implicit and explicit qualified calls to meta-predicates. Calling a module meta-predicate with implicit qualification (by using `use_module/1-2` directives) results in the meta-arguments being called in the meta-predicate _calling context_. But calling the same module meta-predicate using explicit qualification results in the meta-arguments being called in the meta-predicate _definition context_, not in the _calling context_.
 

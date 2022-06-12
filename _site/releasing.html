@@ -287,6 +287,10 @@ file in the directory for details. The main release script is:</p>
 
 <p>This script performs a git clone and builds the sources archive, the manuals archive, the SWI-Prolog pack, and all the installers with the exception of the Windows installer. The macOS installer must be compressed from the Finder.</p>
 
+<h2 id="distribution-files">Distribution files</h2>
+
+<p>The <code class="highlighter-rouge">BIBLIOGRAPHY.bib</code>, <code class="highlighter-rouge">CITATION.cff</code>, <code class="highlighter-rouge">VERSION.txt</code> should be update just before the new release is tagged. Same for the <code class="highlighter-rouge">core/core.pl</code> file, where the <code class="highlighter-rouge">'$lgt_version_data'/1</code> predicate definiton should have the status changed to <code class="highlighter-rouge">stable</code>. Any status version, e.g. <code class="highlighter-rouge">b04</code>, should also be removed from the <code class="highlighter-rouge">docs/sources/_conf.py</code> and <code class="highlighter-rouge">manuals/sources/conf.py</code> files. The <code class="highlighter-rouge">scripts/debian/changelog</code> file should be changed to reflect the released date and release week day.</p>
+
 <h2 id="windows-installer">Windows installer</h2>
 
 <p>The build of the Windows <code class="highlighter-rouge">.exe</code> installer requires a PC or a virtual machine running Windows 7 or later and the Inno Setup script that is also included with the distribution:</p>
