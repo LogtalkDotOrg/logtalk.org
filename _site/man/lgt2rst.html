@@ -54,7 +54,7 @@ p.roffit {
 <p class="level0"><a name="NAME"></a><h2 class="nroffsh">NAME</h2>
 <p class="level0">lgt2rst - Logtalk script for converting XML documenting files into reStructuredText files, notably for use with Sphinx 
 <p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">SYNOPSIS</h2>
-<p class="level0"><span Class="bold">lgt2rst</span> [<span class="bold">-d <span Class="emphasis">directory</span>] [<span class="bold">-i <span Class="emphasis">index</span>] [<span class="bold">-t <span Class="emphasis">title</span>] [<span class="bold">-p <span Class="emphasis">processor</span>] [<span class="bold">-s<span Class="emphasis"></span>] [<span class="bold">-m<span Class="emphasis"></span>] <br><span Class="bold">lgt2rst</span> <span Class="bold">-h</span> 
+<p class="level0"><span Class="bold">lgt2rst</span> [<span class="bold">-d <span Class="emphasis">directory</span>] [<span class="bold">-i <span Class="emphasis">index</span>] [<span class="bold">-t <span Class="emphasis">title</span>] [<span class="bold">-p <span Class="emphasis">processor</span>] [<span class="bold">-s<span Class="emphasis"></span>] [<span class="bold">-m<span Class="emphasis"></span>] [<span class="bold">-l <span Class="emphasis">mapping</span>] <br><span Class="bold">lgt2rst</span> <span Class="bold">-h</span> 
 <p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">DESCRIPTION</h2>
 <p class="level0"><span Class="bold">lgt2rst</span> is a Logtalk script for converting all Logtalk XML documenting files in the current directory into reStructuredText files, notably for use with Sphinx. Assumes UTF-8 encoding. 
 <p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">OPTIONS</h2>
@@ -65,9 +65,12 @@ p.roffit {
 <p class="level0"><span Class="bold">-p</span> <span Class="emphasis">processor</span> XSLT processor. 
 <p class="level0"><span Class="bold">-s</span> Runs sphinx-quickstart script. 
 <p class="level0"><span Class="bold">-m</span> Runs make html (requires also using the <span class="bold">-s<span Class="emphasis"></span> option). 
+<p class="level0"><span Class="bold">-l</span> <span Class="emphasis">mapping</span> Name of the Intersphinx mapping for linking library APIs back to library descriptions. 
 <p class="level0"><span Class="bold">-h</span> Prints a summary of the script options. 
 <p class="level0"><a name="REQUIREMENTS"></a><h2 class="nroffsh">REQUIREMENTS</h2>
-<p class="level0">Requires a compatible XSLT processor. See the script help screen for more information. The use of the -s option requires Sphinx, the Read the Docs Sphinx theme, and Pygments to be installed. 
+<p class="level0">Requires a compatible XSLT processor. See the script help screen for more information. 
+<p class="level0">The use of the <span class="bold">-s<span Class="emphasis"></span>, <span class="bold">-m<span Class="emphasis"></span>, and <span class="bold">-l<span Class="emphasis"></span> options require Sphinx, Intersphinx extension, Read the Docs Sphinx theme, and Pygments to be installed. 
+<p class="level0">The use of the <span class="bold">-l<span Class="emphasis"></span> option requires that the used <span class="bold">conf.py<span Class="emphasis"></span> file defines the mapping. The library description files must have a reStructuredText target in the first line with the name of the library prefixed by <span class="bold">library_<span Class="emphasis"></span>. See the Intersphinx documentation for details. 
 <p class="level0"><a name="ENVIRONMENT"></a><h2 class="nroffsh">ENVIRONMENT</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. 

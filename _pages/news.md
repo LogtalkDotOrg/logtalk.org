@@ -8,6 +8,33 @@ aside:
 
 ### 2022
 
+##### July 26
+
+> Logtalk 3.57.0 is now available for [downloading](download.html). This release
+> improves the linter tool with new and refined warnings; improves the compilation
+> of Prolog modules as objects; refines compiler error reporting; improves support
+> for making predicates listed in `uses/2` and `use_module/2` directives available
+> as scoped predicates for the entities containing the directives; adds Handbook
+> sections on documenting predicate exceptions and on ports and contributions
+> distributed with Logtalk; improves Handbook sections on Prolog integration and
+> migration; adds links from library APIs documentation to the Handbook library
+> descriptions; adds a `genint` library supporting application global and object
+> local named generators for increasing positive integers; updsates the `gensym`
+> library with support for both global and object local symbol generators; adds
+> new predicatyes to the `types` and `statistics` libraries; includes fixes and
+> improvements to the `csv` library; adds new parametric objects to the
+> `hook_objects` library; fixes the `arbitrary` library implementation of
+> shrinkers when passed terms of unexpected types; includes an improved `packs`
+> tool with new predicates, refined semantics, and support for registries that
+> require personal token authorizations for access; fixes `lgtdoc` generated
+> Sphinx documentation cross-referencing between applications and Logtalk
+> distribution libraries; improves `tutor` tool feedback on sone common linter
+> reports; fixes `diagrams` tool cases where files listed as excluded would still
+> be included in generated diagrams; adds new tests for Logtalk and Prolog
+> features; and includes portability updates for CxProlog, LVM, SICStus Prolog,
+> SWI-Prolog, and XSB. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### June 9
 
 > Logtalk 3.56.0 is now available for [downloading](download.html). This release

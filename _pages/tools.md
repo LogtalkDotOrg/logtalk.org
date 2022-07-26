@@ -60,7 +60,7 @@ working code. Lint checks include:
 
 -   Missing directives (including scope, meta-predicate, dynamic, discontiguous, and multifile directives)
 -   Duplicated directives, clauses, and grammar rules
--   Missing predicates (calls to non-declared and non-defined predicates)
+-   Missing predicates (unknown messages plus calls to non-declared and non-defined predicates)
 -   Calls to declared but not defined static predicates
 -   Non-portable predicate calls, predicate options, arithmetic function calls, directives, flags, and flag values
 -   Suspicious calls (syntactically valid calls that are likely semantic errors; e.g. float comparisons using the standard arithmetic comparison operators)

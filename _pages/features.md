@@ -158,6 +158,8 @@ modern compiler.
 
 ### Comprehensive set of developer tools
 
-The Logtalk distribution includes make, debugging, documenting,
-diagraming, testing, assertion, profiling, porting, versioning,
-and packaging developer tools.
+The Logtalk distribution includes make, linting, debugging, documenting,
+diagraming, testing, assertion, profiling, porting, metrics, versioning,
+and packaging [developer tools](tools.html). Several of these tools can
+also be [applied](using_tools_with_prolog.html) to plain Prolog and Prolog
+module code bases.
