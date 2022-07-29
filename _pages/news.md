@@ -19,16 +19,16 @@ aside:
 > distributed with Logtalk; improves Handbook sections on Prolog integration and
 > migration; adds links from library APIs documentation to the Handbook library
 > descriptions; adds a `genint` library supporting application global and object
-> local named generators for increasing positive integers; updsates the `gensym`
+> local named generators for increasing positive integers; updates the `gensym`
 > library with support for both global and object local symbol generators; adds
-> new predicatyes to the `types` and `statistics` libraries; includes fixes and
+> new predicates to the `types` and `statistics` libraries; includes fixes and
 > improvements to the `csv` library; adds new parametric objects to the
 > `hook_objects` library; fixes the `arbitrary` library implementation of
 > shrinkers when passed terms of unexpected types; includes an improved `packs`
 > tool with new predicates, refined semantics, and support for registries that
 > require personal token authorizations for access; fixes `lgtdoc` generated
 > Sphinx documentation cross-referencing between applications and Logtalk
-> distribution libraries; improves `tutor` tool feedback on sone common linter
+> distribution libraries; improves `tutor` tool feedback on some common linter
 > reports; fixes `diagrams` tool cases where files listed as excluded would still
 > be included in generated diagrams; adds new tests for Logtalk and Prolog
 > features; and includes portability updates for CxProlog, LVM, SICStus Prolog,
