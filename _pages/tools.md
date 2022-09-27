@@ -56,19 +56,20 @@ the user will get:
 Although not technically a developer tool, it is worth mentioning the Logtalk
 extensive compiler lint checks as they contribute to earlier detection and
 warning of source code issues, helping the user in writing clean and efficient
-working code. Lint checks include:
+working code that also comply with coding guidelines. Lint checks include:
 
 -   Missing directives (including scope, meta-predicate, dynamic, discontiguous, and multifile directives)
 -   Duplicated directives, clauses, and grammar rules
 -   Missing predicates (unknown messages plus calls to non-declared and non-defined predicates)
 -   Calls to declared but not defined static predicates
+-   Non-terminals called as predicates (instead of via the `phrase/2-3` built-in methods)
 -   Non-portable predicate calls, predicate options, arithmetic function calls, directives, flags, and flag values
 -   Suspicious calls (syntactically valid calls that are likely semantic errors; e.g. float comparisons using the standard arithmetic comparison operators)
 -   Deprecated directives, predicates, control constructs, and flags
 -   References to unknown entities (objects, protocols, categories, or modules)
 -   Top-level shortcuts used as directives
--	Unification goals that will succeed without binding any variables
--	Unification goals that will succeed creating a cyclic term
+-   Unification goals that will succeed without binding any variables
+-   Unification goals that will succeed creating a cyclic term
 -   Goals that are always true or always false
 -   Trivial goal fails (due to no matching predicate clause)
 -   Redefined built-in predicates
@@ -77,20 +78,20 @@ working code. Lint checks include:
 -   Lambda expression with parameter variables used elsewhere in a clause
 -   Singleton variables
 -   If-then-else and soft cut control constructs without an else part
--	If-then-else and soft cut control constructs where the test is a unification between a variable and a ground term
--	Missing parenthesis around if-then-else and disjunction control constructs in the presence of cuts in the first argument
+-   If-then-else and soft cut control constructs where the test is a unification between a variable and a ground term
+-   Missing parenthesis around if-then-else and disjunction control constructs in the presence of cuts in the first argument
 -   Cuts in clauses for multifile predicates
 -   Missing cuts in repeat loops
 -   Possible non-steadfast predicate definitions
--	Non-tail recursive predicate definitions
+-   Non-tail recursive predicate definitions
 -   Redundant calls to control constructs and built-in predicates
 -   Calls to all-solutions predicates with existentially qualified variables not occurring in the qualified goal
 -   Calls to all-solutions predicates with no shared variables between template and goal
 -   Calls to `bagof/3` and `setof/3` where the goal argument contains singleton variables
--	Calls to `findall/3` used to backtrack over all solutions of a goal
--	Calls to `catch/3` that catch all exceptions
--	Calls to standard predicates that have more efficient alternatives
--	File, entity, predicate, and variable names not following official coding guidelines
+-   Calls to `findall/3` used to backtrack over all solutions of a goal without collecting them
+-   Calls to `catch/3` that catch all exceptions
+-   Calls to standard predicates that have more efficient alternatives
+-   File, entity, predicate, and variable names not following official coding guidelines
 -   Variable names that differ only on case
 -   Clauses whose body is a disjunction
 

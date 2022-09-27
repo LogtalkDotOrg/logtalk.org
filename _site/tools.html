@@ -322,13 +322,14 @@ terse compiler warnings such as:</p>
 <p>Although not technically a developer tool, it is worth mentioning the Logtalk
 extensive compiler lint checks as they contribute to earlier detection and
 warning of source code issues, helping the user in writing clean and efficient
-working code. Lint checks include:</p>
+working code that also comply with coding guidelines. Lint checks include:</p>
 
 <ul>
   <li>Missing directives (including scope, meta-predicate, dynamic, discontiguous, and multifile directives)</li>
   <li>Duplicated directives, clauses, and grammar rules</li>
   <li>Missing predicates (unknown messages plus calls to non-declared and non-defined predicates)</li>
   <li>Calls to declared but not defined static predicates</li>
+  <li>Non-terminals called as predicates (instead of via the <code class="highlighter-rouge">phrase/2-3</code> built-in methods)</li>
   <li>Non-portable predicate calls, predicate options, arithmetic function calls, directives, flags, and flag values</li>
   <li>Suspicious calls (syntactically valid calls that are likely semantic errors; e.g. float comparisons using the standard arithmetic comparison operators)</li>
   <li>Deprecated directives, predicates, control constructs, and flags</li>
@@ -354,7 +355,7 @@ working code. Lint checks include:</p>
   <li>Calls to all-solutions predicates with existentially qualified variables not occurring in the qualified goal</li>
   <li>Calls to all-solutions predicates with no shared variables between template and goal</li>
   <li>Calls to <code class="highlighter-rouge">bagof/3</code> and <code class="highlighter-rouge">setof/3</code> where the goal argument contains singleton variables</li>
-  <li>Calls to <code class="highlighter-rouge">findall/3</code> used to backtrack over all solutions of a goal</li>
+  <li>Calls to <code class="highlighter-rouge">findall/3</code> used to backtrack over all solutions of a goal without collecting them</li>
   <li>Calls to <code class="highlighter-rouge">catch/3</code> that catch all exceptions</li>
   <li>Calls to standard predicates that have more efficient alternatives</li>
   <li>File, entity, predicate, and variable names not following official coding guidelines</li>

@@ -8,6 +8,30 @@ aside:
 
 ### 2022
 
+##### September 27
+
+> Logtalk 3.58.0 is now available for [downloading](download.html). This release
+> adds a new linter warning for non-terminals called as predicates; adds a
+> compilation warning when compiling a `logtalk_load_context/2` goal with an
+> invalid key; fixes the compiler to not throw an instantiation error when the
+> body of a clause is a variable; improves documentation on third-party dependencies
+> to build documentation final formats and to use the developer tools; improves
+> Handbook, libraries, and tools documentation; provides fixes and improvements
+> for the `os`, `types`, and `arbitrary` libraries; includes a new `lgtunit`
+> version with improved QuickCheck support; adds experimental predicates to the
+> `help` tool to browse and search inline at the top-level the Texinfo versions
+> of the Handbook and APIs documentation; fixes a missing message tokenization 
+> in the `packs` tool; adds new Net-Clause Language (NCL) examples; adds new
+> compliance tests for standard Prolog predicates and operators; adds a port of
+> FCube, a prover for intuitionistic propositional logic; adds Emacs code snippets,
+> contributed by Paul Brown; provides an embedding script for Ciao Prolog and
+> improves the documentation of the embedding scripts; provides a PowerShell
+> script for building the Handbook; updates the release build script to include
+> all final formats for the Handbook and APIs documentation in the generated
+> archives and installers; and includes portability updates for LVM, Trealla
+> Prolog, and YAP. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### July 26
 
 > Logtalk 3.57.0 is now available for [downloading](download.html). This release

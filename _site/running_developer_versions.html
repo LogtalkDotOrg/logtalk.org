@@ -306,7 +306,8 @@
 <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$LOGTALKHOME</span>/scripts
 <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$LOGTALKHOME</span>/integration
 <span class="nv">MANPATH</span><span class="o">=</span><span class="nv">$MANPATH</span>:<span class="nv">$LOGTALKHOME</span>/man
-<span class="nb">export </span>LOGTALKHOME LOGTALKUSER PATH MANPATH
+<span class="nv">INFOPATH</span><span class="o">=</span><span class="nv">$INFOPATH</span>:<span class="nv">$LOGTALKHOME</span>/docs:<span class="nv">$LOGTALKHOME</span>/manuals
+<span class="nb">export </span>LOGTALKHOME LOGTALKUSER PATH MANPATH INFOPATH
 </code></pre></div></div>
 
 <p>If you use a csh shell, add the following line to your <code class="highlighter-rouge">~/.cshrc</code> file:</p>
@@ -318,6 +319,7 @@ setenv PATH <span class="s2">"</span><span class="k">${</span><span class="nv">P
 setenv PATH <span class="s2">"</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span><span class="s2">"</span>:<span class="s2">"</span><span class="k">${</span><span class="nv">LOGTALKHOME</span><span class="k">}</span><span class="s2">"</span>/scripts
 setenv PATH <span class="s2">"</span><span class="k">${</span><span class="nv">PATH</span><span class="k">}</span><span class="s2">"</span>:<span class="s2">"</span><span class="k">${</span><span class="nv">LOGTALKHOME</span><span class="k">}</span><span class="s2">"</span>/integration
 setenv MANPATH <span class="s2">"</span><span class="k">${</span><span class="nv">MANPATH</span><span class="k">}</span><span class="s2">"</span>:<span class="s2">"</span><span class="k">${</span><span class="nv">LOGTALKHOME</span><span class="k">}</span><span class="s2">"</span>/man
+setenv INFOPATH <span class="k">${</span><span class="nv">INFOPATH</span><span class="k">}</span>:<span class="s2">"</span><span class="k">${</span><span class="nv">LOGTALKHOME</span><span class="k">}</span><span class="s2">"</span>/docs:<span class="s2">"</span><span class="k">${</span><span class="nv">LOGTALKHOME</span><span class="k">}</span><span class="s2">"</span>/manuals
 </code></pre></div></div>
 
 <p>If your <code class="highlighter-rouge">lgt3git</code> directory is not in your home directory, adjust the paths above accordingly. Don’t use relative paths such as <code class="highlighter-rouge">../</code> or <code class="highlighter-rouge">./</code> in the definition of the environment variables. Some Prolog compilers have trouble expanding environment variables, resulting in <code class="highlighter-rouge">file not found</code> errors when attempting to use the Logtalk integration scripts.</p>

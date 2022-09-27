@@ -40,7 +40,8 @@ PATH=$PATH:$LOGTALKHOME/tools/lgtdoc/xml
 PATH=$PATH:$LOGTALKHOME/scripts
 PATH=$PATH:$LOGTALKHOME/integration
 MANPATH=$MANPATH:$LOGTALKHOME/man
-export LOGTALKHOME LOGTALKUSER PATH MANPATH
+INFOPATH=$INFOPATH:$LOGTALKHOME/docs:$LOGTALKHOME/manuals
+export LOGTALKHOME LOGTALKUSER PATH MANPATH INFOPATH
 ```
 
 If you use a csh shell, add the following line to your `~/.cshrc` file:
@@ -53,6 +54,7 @@ setenv PATH "${PATH}":"${LOGTALKHOME}"/tools/lgtdoc/xml
 setenv PATH "${PATH}":"${LOGTALKHOME}"/scripts
 setenv PATH "${PATH}":"${LOGTALKHOME}"/integration
 setenv MANPATH "${MANPATH}":"${LOGTALKHOME}"/man
+setenv INFOPATH ${INFOPATH}:"${LOGTALKHOME}"/docs:"${LOGTALKHOME}"/manuals
 ```
 
 If your `lgt3git` directory is not in your home directory, adjust the paths above accordingly. Don't use relative paths such as `../` or `./` in the definition of the environment variables. Some Prolog compilers have trouble expanding environment variables, resulting in `file not found` errors when attempting to use the Logtalk integration scripts.

@@ -52,14 +52,9 @@ Logtalk on the web
 
 <!-- -->
 
--   [Freecode Logtalk page](http://freecode.com/projects/logtalk/)
 -   [Wikipedia Logtalk page](http://en.wikipedia.org/wiki/Logtalk)
--   [Rosetta Code Logtalk
-    page](http://rosettacode.org/wiki/Category:Logtalk) (programming
-    examples)
--   [Black Duck Open Hub Logtalk
-    page](https://www.openhub.net/p/logtalk) (code analysis and other
-    metrics)
+-   [Rosetta Code Logtalk page](http://rosettacode.org/wiki/Category:Logtalk) (programming examples)
+-   [Black Duck Open Hub Logtalk page](https://www.openhub.net/p/logtalk) (code analysis and other metrics)
 
 <!-- -->
 

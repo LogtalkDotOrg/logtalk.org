@@ -1,12 +1,16 @@
 ---
 layout: article
 permalink: symbolic_ai_examples.html
-title: Classical symbolic AI examples
+title: Symbolic AI examples
 aside:
   toc: true
 ---
 
-The Logtalk [distribution](download.html) includes some classical symbolic AI examples, most of them adapted from literature and other logic programming systems (see the example/port notes for credits). These include:
+The Logtalk [distribution](download.html) includes some symbolic AI examples, most of them adapted from literature and other logic programming systems (see the example/port notes for credits). These include:
+
+## Neuro-symbolic
+
+* [`ncl`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/ncl) - Net-Clause Language examples
 
 ## Expert systems
 
