@@ -10,7 +10,7 @@ aside:
 
 Logtalk is designed to _extend_ and _leverage_ Prolog. It provides an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of [developer tools](tools.html) (several of them state-of-the-art or absent from most Prolog systems). By Prolog modules we assume here the de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:
 
-* Designed as a simple solution to to hide auxiliary predicates
+* Designed as a simple solution to hide auxiliary predicates
 * Based on a _predicate prefixing_ compilation mechanism
 * Reuse based on _import/export_ semantics
 * Default importing of module exported predicates when loading a module file
@@ -18,7 +18,7 @@ Logtalk is designed to _extend_ and _leverage_ Prolog. It provides an alternativ
 
 These fundamental characteristics make module systems relatively simple to implement but also effectively prevent extending them to provide several key features present in Logtalk, some of them described here, that support a wide range of code encapsulation and reuse scenarios typically found in applications. Notably, Logtalk enables simple implementations of common design patterns that are cumbersome at best using Prolog modules.
 
-Logtalk also fixes some murky predicate semantics found in Prolog, improves some it its key mechanisms, and provides unique libraries. Note that all advantages described next _coexist_ with Prolog. I.e. Logtalk acts strictly as an _add-on_. It does not patch or modify Prolog own built-in features.
+Logtalk also fixes some murky predicate semantics found in Prolog, improves some of its key mechanisms, and provides unique libraries. Note that all advantages described next _coexist_ with Prolog. I.e. Logtalk acts strictly as an _add-on_. It does not patch or modify Prolog's own built-in features.
 
 ### Protocols (interfaces)
 
@@ -79,7 +79,7 @@ Most Prolog compilers are permissive, silently accepting problematic code. The L
 
 Logtalk objects *subsume* Prolog modules but the reverse is not true in general. You can't go from an object solution to a module solution easily or without significant hacking when you're taking advantage of e.g. inheritance, _self_ and _super_ calls, protocols, or parametric objects. Using a more general solution is worthy by itself and orthogonal to the programming in the small/large perspective.
 
-As Prolog modules *are* objects, prototypes to be exact, most module-based solution can be easily translated into an object-based solution. So easy in fact that the Logtalk compiler does it for you (minus proprietary stuff that choke it, which varies from Prolog system to Prolog system; blame lack of standardization).
+As Prolog modules *are* objects, prototypes to be exact, most module-based solution can be easily translated into an object-based solution. So easy in fact that the Logtalk compiler does it for you (minus proprietary stuff that chokes it, which varies from Prolog system to Prolog system; blame lack of standardization).
 
 ```logtalk
 :- module(foo, [bar/1, baz/2]).
@@ -154,7 +154,7 @@ Starting a Logtalk application requires loading both the chosen backend Prolog s
 
 ### Increased application compilation times
 
-Currently, Logtalk is implemented as a trans-compiler to Prolog. This means that a Logtalk source file is compiled into an intermediate Prolog source file that in turn is compiled using the chosen backend Prolog compiler, thus potentially increasing application compilation times compared with a Prolog only solution. That said, a portable _make_ tool is provided to limit source file recompilation to only changed files helping minimizing compilation time during development. Note that a comparison of application compilation times is only meaningful, however, for applications that don't take advantage of Logtalk unique features.
+Currently, Logtalk is implemented as a trans-compiler to Prolog. This means that a Logtalk source file is compiled into an intermediate Prolog source file that in turn is compiled using the chosen backend Prolog compiler, thus potentially increasing application compilation times compared with a Prolog only solution. That said, a portable _make_ tool is provided to limit source file recompilation to only changed files helping minimize compilation time during development. Note that a comparison of application compilation times is only meaningful, however, for applications that don't take advantage of Logtalk unique features.
 
 ### Compatibility with Prolog native tools
 
@@ -169,7 +169,7 @@ Logtalk applications making heavy use of dynamic binding may require a backend P
 
 Logtalk favors resilience to changes over convenience and thus does not support implicit predicate imports as in the Prolog `use_module/1` directive. In objects (and categories), only `use_module/2` directives (or its Logtalk equivalent, the `uses/2` directive) can be used. The practical consequence is that you need to use a `use_module/2` directive for implicitly calling module predicates and a `uses/2` directive for implicitly sending messages to objects. I.e. you need to either explicitly list the predicates or use explicit message sending. This can make the code a bit more verbose but it also prevents applications from breaking when new library predicates are implemented.
 
-Note: the adapter files for some Prolog systems are able to convert in the fly Prolog `use_module/1` directives into Logtalk `use_module/2` directives in some cases. This, however, is not recommended for the reasons stated above and thus is not officially supported.
+Note: the adapter files for some Prolog systems are able to convert on the fly Prolog `use_module/1` directives into Logtalk `use_module/2` directives in some cases. This, however, is not recommended for the reasons stated above and thus is not officially supported.
 
 ### Temporary files
 
