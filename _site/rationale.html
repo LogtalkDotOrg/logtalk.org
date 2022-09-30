@@ -280,7 +280,7 @@
 <p>Logtalk is designed to <em>extend</em> and <em>leverage</em> Prolog. It provides an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of <a href="tools.html">developer tools</a> (several of them state-of-the-art or absent from most Prolog systems). By Prolog modules we assume here the de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:</p>
 
 <ul>
-  <li>Designed as a simple solution to to hide auxiliary predicates</li>
+  <li>Designed as a simple solution to hide auxiliary predicates</li>
   <li>Based on a <em>predicate prefixing</em> compilation mechanism</li>
   <li>Reuse based on <em>import/export</em> semantics</li>
   <li>Default importing of module exported predicates when loading a module file</li>
@@ -289,7 +289,7 @@
 
 <p>These fundamental characteristics make module systems relatively simple to implement but also effectively prevent extending them to provide several key features present in Logtalk, some of them described here, that support a wide range of code encapsulation and reuse scenarios typically found in applications. Notably, Logtalk enables simple implementations of common design patterns that are cumbersome at best using Prolog modules.</p>
 
-<p>Logtalk also fixes some murky predicate semantics found in Prolog, improves some it its key mechanisms, and provides unique libraries. Note that all advantages described next <em>coexist</em> with Prolog. I.e. Logtalk acts strictly as an <em>add-on</em>. It does not patch or modify Prolog own built-in features.</p>
+<p>Logtalk also fixes some murky predicate semantics found in Prolog, improves some of its key mechanisms, and provides unique libraries. Note that all advantages described next <em>coexist</em> with Prolog. I.e. Logtalk acts strictly as an <em>add-on</em>. It does not patch or modify Prolog’s own built-in features.</p>
 
 <h3 id="protocols-interfaces">Protocols (interfaces)</h3>
 
@@ -349,7 +349,7 @@
 
 <p>Logtalk objects <em>subsume</em> Prolog modules but the reverse is not true in general. You can’t go from an object solution to a module solution easily or without significant hacking when you’re taking advantage of e.g. inheritance, <em>self</em> and <em>super</em> calls, protocols, or parametric objects. Using a more general solution is worthy by itself and orthogonal to the programming in the small/large perspective.</p>
 
-<p>As Prolog modules <em>are</em> objects, prototypes to be exact, most module-based solution can be easily translated into an object-based solution. So easy in fact that the Logtalk compiler does it for you (minus proprietary stuff that choke it, which varies from Prolog system to Prolog system; blame lack of standardization).</p>
+<p>As Prolog modules <em>are</em> objects, prototypes to be exact, most module-based solution can be easily translated into an object-based solution. So easy in fact that the Logtalk compiler does it for you (minus proprietary stuff that chokes it, which varies from Prolog system to Prolog system; blame lack of standardization).</p>
 
 <div class="language-logtalk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">:- module</span><span class="p">(</span>foo<span class="p">,</span> <span class="p">[</span>bar<span class="o">/</span><span class="m">1</span><span class="p">,</span> baz<span class="o">/</span><span class="m">2</span><span class="p">]).</span>
 <span class="p">...</span>
@@ -425,7 +425,7 @@
 
 <h3 id="increased-application-compilation-times">Increased application compilation times</h3>
 
-<p>Currently, Logtalk is implemented as a trans-compiler to Prolog. This means that a Logtalk source file is compiled into an intermediate Prolog source file that in turn is compiled using the chosen backend Prolog compiler, thus potentially increasing application compilation times compared with a Prolog only solution. That said, a portable <em>make</em> tool is provided to limit source file recompilation to only changed files helping minimizing compilation time during development. Note that a comparison of application compilation times is only meaningful, however, for applications that don’t take advantage of Logtalk unique features.</p>
+<p>Currently, Logtalk is implemented as a trans-compiler to Prolog. This means that a Logtalk source file is compiled into an intermediate Prolog source file that in turn is compiled using the chosen backend Prolog compiler, thus potentially increasing application compilation times compared with a Prolog only solution. That said, a portable <em>make</em> tool is provided to limit source file recompilation to only changed files helping minimize compilation time during development. Note that a comparison of application compilation times is only meaningful, however, for applications that don’t take advantage of Logtalk unique features.</p>
 
 <h3 id="compatibility-with-prolog-native-tools">Compatibility with Prolog native tools</h3>
 
@@ -440,7 +440,7 @@ Complex applications may require using both Logtalk and Prolog tools, demanding 
 
 <p>Logtalk favors resilience to changes over convenience and thus does not support implicit predicate imports as in the Prolog <code class="highlighter-rouge">use_module/1</code> directive. In objects (and categories), only <code class="highlighter-rouge">use_module/2</code> directives (or its Logtalk equivalent, the <code class="highlighter-rouge">uses/2</code> directive) can be used. The practical consequence is that you need to use a <code class="highlighter-rouge">use_module/2</code> directive for implicitly calling module predicates and a <code class="highlighter-rouge">uses/2</code> directive for implicitly sending messages to objects. I.e. you need to either explicitly list the predicates or use explicit message sending. This can make the code a bit more verbose but it also prevents applications from breaking when new library predicates are implemented.</p>
 
-<p>Note: the adapter files for some Prolog systems are able to convert in the fly Prolog <code class="highlighter-rouge">use_module/1</code> directives into Logtalk <code class="highlighter-rouge">use_module/2</code> directives in some cases. This, however, is not recommended for the reasons stated above and thus is not officially supported.</p>
+<p>Note: the adapter files for some Prolog systems are able to convert on the fly Prolog <code class="highlighter-rouge">use_module/1</code> directives into Logtalk <code class="highlighter-rouge">use_module/2</code> directives in some cases. This, however, is not recommended for the reasons stated above and thus is not officially supported.</p>
 
 <h3 id="temporary-files">Temporary files</h3>
 
