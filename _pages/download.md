@@ -21,7 +21,7 @@ Prolog compiler is accomplished using a small
 includes adapter files for all supported Prolog compilers:
 
 -   [B-Prolog 8.1 or later versions](http://www.picat-lang.org/bprolog/)
--   [Ciao Prolog (version 1.21.0 or later)](http://ciao-lang.org) *(experimental)*
+-   [Ciao Prolog (version 1.22.0 or later)](http://ciao-lang.org) *(experimental)*
 -   [CxProlog 0.98.1 or later versions](http://ctp.di.fct.unl.pt/~amd/cxprolog/)
 -   [ECLiPSe 6.1\#143 or later versions](http://eclipseclp.org/)
 -   [GNU Prolog 1.4.5 or later versions](http://www.gprolog.org/)

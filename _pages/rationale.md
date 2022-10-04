@@ -16,9 +16,9 @@ Logtalk is designed to _extend_ and _leverage_ Prolog. It provides an alternativ
 * Default importing of module exported predicates when loading a module file
 * Strongly biased towards implicit predicate qualification
 
-These fundamental characteristics make module systems relatively simple to implement but also effectively prevent extending them to provide several key features present in Logtalk, some of them described here, that support a wide range of code encapsulation and reuse scenarios typically found in applications. Notably, Logtalk enables simple implementations of common design patterns that are cumbersome at best using Prolog modules.
+These fundamental characteristics make module systems relatively simple to implement but also effectively prevent extending them to provide several key features present in Logtalk, some of them described here, that support a wide range of code encapsulation and reuse scenarios typically found in applications. Notably, Logtalk enables simple implementations of [common design patterns](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/design_patterns) that are cumbersome at best using Prolog modules.
 
-Logtalk also fixes some murky predicate semantics found in Prolog, improves some of its key mechanisms, and provides unique libraries. Note that all advantages described next _coexist_ with Prolog. I.e. Logtalk acts strictly as an _add-on_. It does not patch or modify Prolog's own built-in features.
+Logtalk also fixes some murky predicate semantics found in Prolog, improves some of its key mechanisms, and provides unique [libraries](https://logtalk.org/manuals/libraries/index.html). Note that all advantages described next _coexist_ with Prolog. I.e. Logtalk acts strictly as an _add-on_. It does not patch or modify Prolog's own built-in features.
 
 ### Protocols (interfaces)
 
@@ -107,7 +107,7 @@ The Logtalk code is as readable as the module code, provides the same performanc
 
 ### Portability
 
-Logtalk is written in highly portable code and currently supports [15 backend Prolog systems](download.html#requirements). It can support any Prolog system that complies with official and de facto core standards. Logtalk libraries and [developer tools](tools.html) are also portable. Portability implies robustness (by allowing testing with a larger number of Prolog systems) and risk mitigation (by facilitating switching between Prolog systems).
+Logtalk is written in highly portable code and currently supports [15 backend Prolog systems](download.html#requirements). It can support any Prolog system that complies with official and de facto core standards. Logtalk [libraries](https://logtalk.org/manuals/libraries/index.html) and [developer tools](tools.html) are also portable. Portability contributes to robustness (by allowing testing with a larger number of Prolog systems) and risk mitigation (by facilitating switching between Prolog systems).
 
 In contrast, the ISO Prolog standard for modules is ignored (for sound reasons) by Prolog implementers. Worse, Prolog systems implementing a module system have significant differences that hinder portability. A few examples:
 
@@ -128,11 +128,11 @@ In addition, not all Prolog systems implement modules. Examples include B-Prolog
 
 Logtalk provides **fully portable** implementations of key mechanisms to all supported backend Prolog compilers. These include:
 
-* Conditional compilation
-* Term-expansion
-* Message printing
-* Question asking
-* Reflection
+* [Conditional compilation](https://logtalk.org/manuals/refman/directives/conditional_compilation_directives.html)
+* [Term-expansion](https://logtalk.org/manuals/userman/expansion.html)
+* [Message printing](https://logtalk.org/manuals/userman/printing.html)
+* [Question asking](https://logtalk.org/manuals/userman/printing.html#asking-questions)
+* [Reflection](https://logtalk.org/manuals/userman/reflection.html)
 
 Conditional compilation directives are found nowadays in most Prolog systems although some implementations are buggy, including in some high profile systems, if you need more than the very basic usage.
 
