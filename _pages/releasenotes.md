@@ -4,6 +4,306 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.59.0 - October 18, 2022
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: The `user` pseudo-object to declare the `before/3` and `after/3`
+predicates multifile to avoid predicate existence errors when using this
+object as monitor without definitions for these predicates in `user`.
+
+* ADDED: Linter warning for predicate rules where the body is a naked
+meta-variable or contains a control construct where a cut-transparent
+argument is a naked meta-variable.
+
+* FIXED: The `declared_in/2`, `defined_in/2`, and `redefined_from/2` predicate
+properties when the predicate is being declared or (re)defined in an included
+file.
+
+* FIXED: The compiler to avoid a trivial failure warning with some Prolog
+backends when checking the `encoding_directive` flag value.
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: The Ciao Prolog adapter file to require version 1.22.0 or later.
+
+* UPDATED: All Bash shell integration scripts to also look into the
+`/opt/homebrew/share` directory (used by Homebrew on Apple Silicon)
+when the `LOGTALKHOME` environment variable is not defined.
+
+* UPDATED: All PowerShell integration scripts to check for and require version
+7.2 or later.
+
+Documentation
+-------------
+
+* ADDED: Glossary definitions for "meta-variable" and "naked meta-variable".
+
+* IMPROVED: Handbook section on inline formatting in `info/1-2` directives
+comments text.
+
+* IMPROVED: Handbook section on documenting entities and predicates.
+
+* IMPROVED: Handbook section on event-driven programming.
+
+* FIXED: Added missing Handbook and APIs documentation `sphinx_highlight.js`
+files.
+
+Library
+-------
+
+* ADDED: Predicates `read_term_from_chars/4` and `read_term_from_codes/4` to
+the `term_io` library.
+
+* IMPROVED: The documentation of the `random` and `types` libraries.
+
+* FIXED: Definition of the `os::time_stamp/1` library predicate for Ciao
+Prolog.
+
+Tools
+-----
+
+* CHANGED: The `lgtdoc` tool to use its own linter flag to control warnings
+about missing documentation directives.
+
+* ADDED: Linter flags to the `lgtdoc` tool to warn on non-standard predicate
+exceptions and missing periods at the end of documentation text in `info/1-2`
+directives.
+
+* IMPROVED: The `packs` tool checking for pack version arguments by defining
+a custom type.
+
+* UPDATED: All PowerShell tool scripts to check for and require version 7.2
+or later.
+
+* UPDATED: The `lgtunit` tool to print a warning on invalid (non QuickCheck)
+test options instead of just ignoring them.
+
+* UPDATED: The `tutor` tool to explain the new linter warning on naked
+meta-variables in cut-transparent control constructs.
+
+* IMPROVED: Simplify the `lgtdoc` tool generated reStructuredText files.
+
+* FIXED: Missing new-line after index titles in the output of the `lgtdoc`
+tool `logtalk_index_to_txt.xsl` XSLT file.
+
+* FIXED: Cases in the `lgtdoc` tool where looking for properties of
+referenced but not loaded entities could result in `current_protocol/1`
+or `protocol_property/2` exceptions.
+
+* FIXED: The `logtalk_tester.ps1` script to report the Logtalk and backend
+Prolog versions as expected when using the default verbose option.
+
+* FIXED: Missing implementation of `logtalk_tester.ps1` script `-i` option.
+
+Examples
+--------
+
+* UPDATED: The `errors` tool to illustrate the new linter warning on naked
+meta-variables in cut-transparent control constructs.
+
+* FIXED: The `constraints/sicstus` example linter warnings on non-terminals
+called as predicates.
+
+* FIXED: The `named_databases` example to only load in supported backends.
+
+Tests
+-----
+
+* CHANGED: Skip `stream_property/2` tests that check `eof_action/1` for output
+streams as they are arguably non-sensical. Thanks to Per Mildner for feedback
+on these tests.
+
+* CHANGED: Test for the `meta_predicate/1` directive to accept normal argument
+indicators other than `*` (e.g. `?`) as common on some Prolog systems. Thanks
+to Per Mildner for feedback on these tests.
+
+* ADDED: Tests for the syntax and semantics of the `discontiguous/1` Prolog
+standard directive.
+
+* ADDED: Additional tests for the Prolog standard `current_predicate/1` and
+`callable/1` predicates.
+
+Ports
+-----
+
+* IMPROVED: Documentation of the `fcube` port public predicates.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: The manual installation script to call `install-info` after adding
+the Handbook and Logtalk APIs info files to the `info` directory.
+
+* UPDATED: The Windows installation script to also detect SICStus Prolog 4.8.x
+versions.
+
+* UPDATED: All PowerShell embedding scripts to check for and require version
+7.2 or later.
+
+
+3.58.0 - September 27, 2022
+===========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Compilation warning when compiling a `logtalk_load_context/2` goal
+with an invalid key.
+
+* ADDED: Linter warning for non-terminals called as predicates instead of
+via the `phrase/2-3` built-in methods.
+
+* FIXED: Detect conflicts between `dynamic/1` directives and `uses/2` and
+`use_module/2` directives.
+
+* FIXED: The compiler to not throw an instantiation error when the body of
+a clause is a variable; these clauses are conformant with the ISO Prolog
+Core standard and this fix also ensures consistency of the handling of
+naked variables in transparent control constructs.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: Support for calling LVM disk predicate built-in predicates from
+categories.
+
+* UPDATED: The Trealla Prolog adapter file to require version 2.2.5 or later.
+
+Documentation
+-------------
+
+* IMPROVED: Handbook documentation of the `initialization/1` directive and
+the `logtalk_load_context/2` built-in predicate.
+
+* UPDATED: List of required dependencies to build the Handbook final formats.
+
+Library
+-------
+
+* CHANGED: Use a portable `os::is_absolute_file_name/1` predicate definition
+for all backends for consistency and improve the predicate documentation.
+
+* REMOVED: Support for the type `clause_or_partial_clause` from the `types`
+and `arbitrary` libraries.
+
+* ADDED: New `[]` and `{}` edge cases for atoms to the `arbitrary` library.
+
+* FIXED: The `os` library `delete_directory/1`, `directory_files/2`,
+`environment_variable/1`, and `file_permission/2` predicates for YAP.
+
+* FIXED: The definition of the type `clause` in the `types` and `arbitrary`
+libraries to allow a naked variable body as per the ISO Prolog Core standard.
+
+Tools
+-----
+
+* CHANGED: The `help` tool to provide a dedicated `entity/1` predicate for
+help on entities (objects, protocols, or categories).
+
+* CHANGED: The `lgtunit::quick_check/3` predicate now uses reified `error/4`
+and `failed/3` results that include as last argument the test seed.
+
+* CHANGED: The `lgtunit` tool now reports an error on wrong QuickCheck options
+instead of silently using default option values.
+
+* ADDED: A convenient global list of most of the developer tool requirements
+per operating-system.
+
+* ADDED: Experimental support to the `help` tool to browse and search inline
+at the top-level interpreter the Texinfo versions of the Handbook and APIs
+documentation. Currently requires Ciao Prolog, ECLiPSe, LVM, SICStus Prolog,
+SWI-Prolog, Trealla Prolog, or XSB as the backend running on a POSIX system.
+
+* ADDED: The `lgtunit` QuickCheck test dialects and predicates now also accept
+a `pb/2` option to show an ASCII progress bar.
+
+* IMPROVED: The `lgtunit::quick_check/1-2` predicates now also print the
+test seed when a counter-example is found.
+
+* IMPROVED: The `lgtunit` tool documentation of the `test/2-3` test dialect
+valid outcomes.
+
+* IMPROVED: The `help` tool feedback when the queried library or entity is not
+found.
+
+* IMPROVED: The `tutor` tool explanation for the linter warning on `findall/3`
+goals used to backtrack over all solutions of a goal without collecting them.
+
+* UPDATED: The `tutor` tool for the new linter warning on non-terminals being
+called as predicates.
+
+* FIXED: Missing message tokenization in the `packs` tool when printing a
+pack/registry installation directory.
+
+Examples
+--------
+
+* UPDATED: Reorganize all Net-Clause Language (NCL) examples in the new
+`examples/ncl` directory, including the `figures` individual example.
+
+* UPDATED: The `errors` example to illustrate the new linter warning on
+non-terminals being called as predicates.
+
+* FIXED: Typo in the sample queries of the `document_converter` example.
+
+* FIXED: The `adventure` and `bench` examples linter warnings for
+non-terminals called as predicates.
+
+Tests
+-----
+
+* ADDED: Additional tests for the `atom_concat/3`, `number_chars/2`,
+`number_codes/2`, and  `setof/3` standard Prolog predicates.
+
+* ADDED: Additional test for the optional `'|'` infix operator for a compliant
+definition.
+
+* ADDED: Additional tests for double-quoted terms syntax (escaped
+double-quote).
+
+Ports
+-----
+
+* ADDED: Port of FCube: An Efficient Prover for Intuitionistic Propositional
+Logic by Mauro Ferrari, Camillo Fiorentini, and Guido Fiorino.
+
+Contributions
+-------------
+
+* FIXED: The `xml_parser` contribution linter warnings for non-terminals
+called as predicates.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Code snippets for Emacs. Contributed by Paul Brown.
+
+Installers and installation scripts
+-----------------------------------
+
+* ADDED: Experimental PowerShell version of the `built_manuals.sh` script.
+
+* ADDED: Experimental embedding script for Ciao Prolog.
+
+* IMPROVED: Documentation of the sample embedding scripts.
+
+* IMPROVED: Simplified embedding scripts for ECLiPSe.
+
+* UPDATED: The manual install script and the Linux RPM installer to create
+links to the `.info` versions of the Handbook and APIs documentation in the
+default `info` directory.
+
+* UPDATED: The release build script to include all final formats for the
+Handbook and APIs documentation in the generated archives and installers.
+
+* FIXED: The `update_man_html_versions.sh`, `update_html_docs.*`, and
+`update_svg_diagrams.*` scripts to allow running them from any directory.
+
+
 3.57.0 - July 26, 2022
 ======================
 

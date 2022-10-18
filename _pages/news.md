@@ -8,6 +8,21 @@ aside:
 
 ### 2022
 
+##### October 18
+
+> Logtalk 3.59.0 is now available for [downloading](download.html). This release
+> adds a new linter warning for naked meta-variables; adds linter warnings to
+> the `lgtdoc` tool; updates the Bash shell integration scripts to be aware of
+> the default Homebrew installation directory on macOS; updates all PowerShell
+> scripts to check for a compatible PowerShell version; improves several Handbook
+> sections; improves the documentation of the `random` and `types` libraries;
+> includes fixes for the `logtalk_tester.ps1` script; updates the `lgtunit` tool
+> to print a warning on invalid test options; fixes `lgtdoc` issues; updates and
+> adds new Prolog standards compliance tests; adds new library predicates; and
+> includes portability updates for Ciao Prolog and SICStus Prolog. For details
+> and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### September 27
 
 > Logtalk 3.58.0 is now available for [downloading](download.html). This release
