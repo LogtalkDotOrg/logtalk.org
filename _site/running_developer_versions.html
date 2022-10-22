@@ -297,7 +297,7 @@
 
 <h3 id="posix-installation">POSIX installation</h3>
 
-<p>If you use a bash shell, add the following lines to your <code class="highlighter-rouge">~/.profile</code> file:</p>
+<p>If you use a <strong>bash</strong> shell, add the following lines to your <code class="highlighter-rouge">~/.profile</code> file:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">LOGTALKHOME</span><span class="o">=</span><span class="nv">$HOME</span>/lgt3git
 <span class="nv">LOGTALKUSER</span><span class="o">=</span><span class="nv">$HOME</span>/lgt3git
@@ -310,7 +310,20 @@
 <span class="nb">export </span>LOGTALKHOME LOGTALKUSER PATH MANPATH INFOPATH
 </code></pre></div></div>
 
-<p>If you use a csh shell, add the following line to your <code class="highlighter-rouge">~/.cshrc</code> file:</p>
+<p>If you use a <strong>zsh</strong> shell, add the following lines to your <code class="highlighter-rouge">~/.zshenv</code> file:</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">LOGTALKHOME</span><span class="o">=</span><span class="nv">$HOME</span>/lgt3git
+<span class="nv">LOGTALKUSER</span><span class="o">=</span><span class="nv">$HOME</span>/lgt3git
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$LOGTALKHOME</span>/tools/diagrams
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$LOGTALKHOME</span>/tools/lgtdoc/xml
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$LOGTALKHOME</span>/scripts
+<span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$LOGTALKHOME</span>/integration
+<span class="nv">MANPATH</span><span class="o">=</span><span class="nv">$MANPATH</span>:<span class="nv">$LOGTALKHOME</span>/man
+<span class="nv">INFOPATH</span><span class="o">=</span><span class="nv">$INFOPATH</span>:<span class="nv">$LOGTALKHOME</span>/docs:<span class="nv">$LOGTALKHOME</span>/manuals
+<span class="nb">export </span>LOGTALKHOME LOGTALKUSER PATH MANPATH INFOPATH
+</code></pre></div></div>
+
+<p>If you use a <strong>csh</strong> shell, add the following line to your <code class="highlighter-rouge">~/.cshrc</code> file:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setenv LOGTALKHOME <span class="s2">"</span><span class="k">${</span><span class="nv">HOME</span><span class="k">}</span><span class="s2">"</span>/lgt3git
 setenv LOGTALKUSER <span class="s2">"</span><span class="k">${</span><span class="nv">HOME</span><span class="k">}</span><span class="s2">"</span>/lgt3git
@@ -322,7 +335,7 @@ setenv MANPATH <span class="s2">"</span><span class="k">${</span><span class="nv
 setenv INFOPATH <span class="k">${</span><span class="nv">INFOPATH</span><span class="k">}</span>:<span class="s2">"</span><span class="k">${</span><span class="nv">LOGTALKHOME</span><span class="k">}</span><span class="s2">"</span>/docs:<span class="s2">"</span><span class="k">${</span><span class="nv">LOGTALKHOME</span><span class="k">}</span><span class="s2">"</span>/manuals
 </code></pre></div></div>
 
-<p>If your <code class="highlighter-rouge">lgt3git</code> directory is not in your home directory, adjust the paths above accordingly. Don’t use relative paths such as <code class="highlighter-rouge">../</code> or <code class="highlighter-rouge">./</code> in the definition of the environment variables. Some Prolog compilers have trouble expanding environment variables, resulting in <code class="highlighter-rouge">file not found</code> errors when attempting to use the Logtalk integration scripts.</p>
+<p>If your <code class="highlighter-rouge">lgt3git</code> directory is not in your home directory or if you cloned to the default <code class="highlighter-rouge">logtalk3</code> directory, adjust the paths above accordingly. Don’t use relative paths such as <code class="highlighter-rouge">../</code> or <code class="highlighter-rouge">./</code> in the definition of the environment variables. Some Prolog compilers have trouble expanding environment variables, resulting in <code class="highlighter-rouge">file not found</code> errors when attempting to use the Logtalk integration scripts.</p>
 
 <h3 id="windows-installation">Windows installation</h3>
 

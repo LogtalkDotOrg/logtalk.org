@@ -30,7 +30,7 @@ In alternative, use one of several available GUI front-ends to `git`.
 
 ### POSIX installation
 
-If you use a bash shell, add the following lines to your `~/.profile` file:
+If you use a **bash** shell, add the following lines to your `~/.profile` file:
 
 ```shell
 LOGTALKHOME=$HOME/lgt3git
@@ -44,7 +44,21 @@ INFOPATH=$INFOPATH:$LOGTALKHOME/docs:$LOGTALKHOME/manuals
 export LOGTALKHOME LOGTALKUSER PATH MANPATH INFOPATH
 ```
 
-If you use a csh shell, add the following line to your `~/.cshrc` file:
+If you use a **zsh** shell, add the following lines to your `~/.zshenv` file:
+
+```shell
+LOGTALKHOME=$HOME/lgt3git
+LOGTALKUSER=$HOME/lgt3git
+PATH=$PATH:$LOGTALKHOME/tools/diagrams
+PATH=$PATH:$LOGTALKHOME/tools/lgtdoc/xml
+PATH=$PATH:$LOGTALKHOME/scripts
+PATH=$PATH:$LOGTALKHOME/integration
+MANPATH=$MANPATH:$LOGTALKHOME/man
+INFOPATH=$INFOPATH:$LOGTALKHOME/docs:$LOGTALKHOME/manuals
+export LOGTALKHOME LOGTALKUSER PATH MANPATH INFOPATH
+```
+
+If you use a **csh** shell, add the following line to your `~/.cshrc` file:
 
 ```shell
 setenv LOGTALKHOME "${HOME}"/lgt3git
@@ -57,7 +71,7 @@ setenv MANPATH "${MANPATH}":"${LOGTALKHOME}"/man
 setenv INFOPATH ${INFOPATH}:"${LOGTALKHOME}"/docs:"${LOGTALKHOME}"/manuals
 ```
 
-If your `lgt3git` directory is not in your home directory, adjust the paths above accordingly. Don't use relative paths such as `../` or `./` in the definition of the environment variables. Some Prolog compilers have trouble expanding environment variables, resulting in `file not found` errors when attempting to use the Logtalk integration scripts.
+If your `lgt3git` directory is not in your home directory or if you cloned to the default `logtalk3` directory, adjust the paths above accordingly. Don't use relative paths such as `../` or `./` in the definition of the environment variables. Some Prolog compilers have trouble expanding environment variables, resulting in `file not found` errors when attempting to use the Logtalk integration scripts.
 
 ### Windows installation
 
