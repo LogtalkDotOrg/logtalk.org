@@ -10,7 +10,7 @@ aside:
 
 -   Learn X in Y minutes Where X=Logtalk:
     [English](https://learnxinyminutes.com/docs/logtalk/)
-    [Italian](https://learnxinyminutes.com/docs/it-it/logtalk-it/) (recommended starting point for new users for a quick overview but be aware that some of the examples will not work as-is in Logtalk 3.x; a pull request have been submitted)
+    [Italian](https://learnxinyminutes.com/docs/it-it/logtalk-it/) (recommended starting point for new users for a quick overview but be aware that some of the examples will not work as-is in Logtalk 3.x; a [pull request](https://github.com/adambard/learnxinyminutes-docs/pull/4526) have been submitted)
 -   [Handbook tutorial](manuals/tutorial/index.html)
 -	[Logtalking YouTube channel](https://www.youtube.com/channel/UCh0BiDU6xZUCGq66HylvXNg)
 
