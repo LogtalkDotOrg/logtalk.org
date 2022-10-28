@@ -96,6 +96,8 @@ Most CI servers have HTML publishing plug-ins that should allow linking to the c
 $ xsltproc -o coverage_report.html coverage_report.xml
 ```
 
+Be aware that GitHub and GitLab CI/CD pipelines are often run from Docker images as root. This may result in tests that would pass when run by a normal user to fail when run as root. E.g. tests that check for expected permission errors when accessing files and directories.
+
 ## GitHub actions and workflows
 
 GitHub actions and workflows for Logtalk and Prolog repos are available at:

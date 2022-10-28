@@ -10,6 +10,8 @@ Logtalk is a programming language that extends and subsumes Prolog. Thus, a good
 
 [Learn X in Y minutes Where X=Logtalk](https://learnxinyminutes.com/docs/logtalk/)
 
+Although this short tutorial is a recommended starting point for new users for a quick overview, be aware that some of the examples will not work as-is in Logtalk 3.x (a pull request have been submitted).
+
 Note that the Logtalk distribution includes HTML versions of the user manual,
 the reference manual, and the APIs documentation. Documentation can also be
 browsed at:

@@ -358,6 +358,8 @@ logtalk_tester <span class="nt">-p</span> swipack <span class="nt">-tap</span> <
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>xsltproc <span class="nt">-o</span> coverage_report.html coverage_report.xml
 </code></pre></div></div>
 
+<p>Be aware that GitHub and GitLab CI/CD pipelines are often run from Docker images as root. This may result in tests that would pass when run by a normal user to fail when run as root. E.g. tests that check for expected permission errors when accessing files and directories.</p>
+
 <h2 id="github-actions-and-workflows">GitHub actions and workflows</h2>
 
 <p>GitHub actions and workflows for Logtalk and Prolog repos are available at:</p>
