@@ -10,7 +10,7 @@ Logtalk is a programming language that extends and subsumes Prolog. Thus, a good
 
 [Learn X in Y minutes Where X=Logtalk](https://learnxinyminutes.com/docs/logtalk/)
 
-Although this short tutorial is a recommended starting point for new users for a quick overview, be aware that some of the examples will not work as-is in Logtalk 3.x (a [pull request](https://github.com/adambard/learnxinyminutes-docs/pull/4526) have been submitted).
+Although this short tutorial is a recommended starting point for new users for a quick overview, be aware that some of the examples will not work as-is in Logtalk 3.x (a [pull request](https://github.com/adambard/learnxinyminutes-docs/pull/4526) have been submitted). There's also an up-to-date [Jupyter notebook](https://github.com/LogtalkDotOrg/logtalk-jupyter-kernel) version of this tutorial that you can run with a subset of the Logtalk supported Prolog backends.
 
 Note that the Logtalk distribution includes HTML versions of the user manual,
 the reference manual, and the APIs documentation. Documentation can also be
@@ -26,7 +26,7 @@ goals:
 [Programming examples](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples)
 (described [here](https://github.com/LogtalkDotOrg/logtalk3/blob/master/examples/NOTES.md)).
 
-All examples include a `loader.lgt` file that loads the example and any dependencies, a `NOTES.md` file with a description of the example, and a `SCRIPT.txt` file with sample queries (including how to load the example) for you to try. Most examples also include a `tests.lgt` file with unit tests and a `tester.lgt` loader file to run them. Being programming examples, it is expected that you run them side-by-side with the source code open in your [favorite editor](https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding).
+All examples include a `loader.lgt` file that loads the example and any dependencies, a `NOTES.md` file with a description of the example, and a `SCRIPT.txt` file with sample queries (including how to load the example) for you to try. Most examples also include a `tests.lgt` file with unit tests and a `tester.lgt` loader file to run them. Being programming examples, it is expected that you run them side-by-side with the source code open in your [favorite editor](https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding) after reading their documentation.
 
 [Learning and development tools](tools.html)
 
@@ -69,7 +69,7 @@ Want to learn about parametric objects (and categories)? See the following examp
 * [`parvars`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/parvars)
 * [`proxies`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/proxies)
 * [`symdiff`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/symdiff)
-* [`figures`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/figures)
+* [`figures`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/ncl/figures)
 * [`process_modeling`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/process_modeling)
 
 Logtalk support for _composition_ using categories provides an alternative to _inheritance_. Two good examples are:

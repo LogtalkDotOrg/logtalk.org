@@ -313,6 +313,12 @@ There's also an [index](https://github.com/LogtalkDotOrg/pack-registries) of pub
 This tool can be used not only for Logtalk packs but also for Prolog packs.
 
 
+## Literate programming
+
+A [Jupyter kernel for Logtalk](https://github.com/LogtalkDotOrg/logtalk-jupyter-kernel)
+is available that can be used with a subset of the Logtalk supported Prolog backends.
+
+
 ## Prolog porting
 
 The [`wrapper`](https://logtalk.org/manuals/devtools/wrapper.html)

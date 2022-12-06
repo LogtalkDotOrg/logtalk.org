@@ -4,6 +4,126 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.60.0 - November 15, 2022
+==========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Linter check for the availability of predicates (and non-terminals)
+listed in `uses/2` and `use_module/2` directives. Controlled by the flag
+`unknown_predicates`.
+
+* IMPROVED: Readability of default flag values printed at startup.
+
+* FIXED: When reporting calls to non-standard arithmetic functions don't
+describe them as built-in functions as most Prolog systems fail to provide
+reflection support to check or enumerate built-in functions.
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: All backend adapter files to recognize `.pro` as a valid Prolog
+file name extension.
+
+* UPDATED: The Scryer Prolog adapter file to require version 0.9.1 or later.
+
+Documentation
+-------------
+
+* ADDED: New `lgtunit` tool documentation section on working with test data
+files.
+
+* IMPROVED: The Handbook inheritance section on the predicate lookups order.
+
+* IMPROVED: The Handbook pages on some predicate directives by linking to the
+corresponding glossary definitions. 
+
+* UPDATED: The manual installation instructions in the `INSTALL.md` file for
+zsh users.
+
+Library
+-------
+
+* ADDED: New `json` library parsing source `line(Stream)` to parse a single
+line from the given stream into a JSON term.
+
+* ADDED: Support for alternative term representations of JSON objects and JSON
+pairs to the `json` library.
+
+* FIXED: Bug in the `json` library handling of JSON escape sequences.
+
+* ADDED: Library `reader::line_to_chars/2-3` predicates.
+
+* FIXED: Mode directives for the `reader::line_to_codes/2-3` predicates.
+
+* FIXED: Also declare as synchronized the `term_io` predicates
+`read_term_from_chars/4` and `read_term_from_codes/4`.
+
+Tools
+-----
+
+* CHANGED: Renamed the `lgtdoc` tool `lgtdoc_missing_periods` linter flag to
+`lgtdoc_missing_punctuation` and accept also exclamation and question marks.
+
+* ADDED: New linter warning to the `lgtdoc` tool for invalid dates in `info/1`
+directives.
+
+* ADDED: New `lgtunit` tool `file_path/2` protected predicate for computing
+absolute paths for file paths relative to test object paths.
+
+* IMPROVED: The `lgtdoc` tool linter warnings to include the file line number.
+
+* IMPROVED: More portable checking of the `packs` tool required command-line
+executables in POSIX systems.
+
+* FIXED: The `logtalk_doclet.sh` script when using a backend Prolog system
+that requires command-line passed queries to end with a period.
+
+* FIXED: The `logtalk_tester.sh` script to ensure that the searching for
+a `tester.sh` file to be sourced is restricted to the test set directory.
+
+* FIXED: The `logtalk_tester.ps1` script sourcing of `tester.ps1` files found
+in the test set directory.
+
+* FIXED: List of dependencies for the developer tools for Ubuntu.
+
+Examples
+--------
+
+* IMPROVED: Documentation of the `people` example.
+
+* FIXED: Test for the `jpl` example to correctly compare floats.
+
+Tests
+-----
+
+* ADDED: Additional tests for the Prolog standard `atom_chars/2`,
+`atom_codes/2`, `number_chars/2`, and `number_codes/2` predicates.
+
+* UPDATED: Several Prolog compliance tests to use the new `lgtunit` tool
+`file_path/2` predicate.
+
+Installers and installation scripts
+-----------------------------------
+
+* IMPROVED: The `logtalk_user_setup.sh` and `logtalk_user_setup.ps1` scripts
+to detect when the `LOGTALKHOME` and `LOGTALKUSER` environment variables point
+to the same directory and refuse to run.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Support for escape sequences inside double-quoted terms to most text
+editors and syntax highlighters.
+
+* UPDATED: Syntax highlighting test files to test escape sequences inside
+double-quoted terms.
+
+* FIXED: Deleted accidentally committed temporary files in the `coding/tests`
+directory.
+
+
 3.59.0 - October 18, 2022
 =========================
 

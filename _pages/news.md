@@ -8,6 +8,25 @@ aside:
 
 ### 2022
 
+##### November 15
+
+> Logtalk 3.60.0 is now available for [downloading](download.html). This release
+> adds a new linter check for the availability of predicates (and non-terminals)
+> listed in `uses/2` and `use_module/2` directives; improves the readability of
+> default flag values printed at startup; updates all backend adapter files to
+> recognize `.pro` as a valid Prolog file name extension; includes Handbook,
+> library, and tools documentation improvements; updates the manual installation
+> instructions for `zsh` users; adds `json` library support for customizing the
+> term representation of JSON objects and JSON pairs; adds new
+> `reader::line_to_chars/2-3` library predicates; adds new and improved linter
+> checks to the `lgtdoc` tool; adds a new `lgtunit` tool `file_path/2` predicate;
+> includes fixes for the `logtalk_doclet` and `logtalk_tester` scripts; includes
+> additional tests for several Prolog standard predicates; updated the
+> `logtalk_user_setup` scripts to prevent misuse; and adds support for escape
+> sequences inside double-quoted terms to most text editors and syntax highlighters.
+> For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### October 18
 
 > Logtalk 3.59.0 is now available for [downloading](download.html). This release

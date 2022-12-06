@@ -20,9 +20,9 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.59.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.59.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.59.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.60.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.60.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.60.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -43,7 +43,7 @@ Core, library, tools, ports, and contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.59.0.info) (stable; experimental; automatically generated)
+-   [Texinfo version](docs/LogtalkAPIs-3.60.0.info) (stable; experimental; automatically generated)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -273,6 +273,8 @@ Diagrams scripts:
 
 Publications on research and applications using Logtalk:
 
+-	[Ontology-Supported Scaffolding for System Safety Analysis](https://etheses.whiterose.ac.uk/31412/)
+	Paul Brown. PhD thesis. November 2022.
 -	[Intelligent Decision Support for Cybersecurity Incident Response Teams: Autonomic Architecture and Mitigation Search](https://www.crisis-2021.com/agenda/)
 	Camilo Correa, Jacques Robin, Raul Mazo, and Salvador Abreu.
 	Proceedings of the 16th International Conference on Risks and Security of Internet and Systems (CRISIS 2021).
@@ -481,6 +483,7 @@ Publications on research and applications using Logtalk:
 -   Michael Covington (DCGs tokenizer example)
 -   Michael Hendricks (EDCGs examples and tests)
 -   Michael Igler (testing, bug reports)
+-   Michael McNally (feedback on tutorials, examples, and documentation)
 -   Michael Sheets (text editor support)
 -   Michael T. Richter (Textadept text editor support, pengines example)
 -   Neda Saeedloei (coinduction examples)
