@@ -25,8 +25,7 @@ a given point in the code. The `@/1` meta-message allows you to write:
 yes
 ```
 
-Another common example is printing the a variable binding, which usually
-translates to print a *pair* identifying the variable and its binding:
+Another common example is printing a key-value pair:
 
 ```text
 | ?- logtalk::print_message(comment, core, answer-42).
