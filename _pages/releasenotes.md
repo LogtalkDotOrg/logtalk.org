@@ -4,6 +4,62 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.61.0 - December 20, 2022
+==========================
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: PowerShell integration script for Trealla Prolog. Experimental.
+
+* UPDATED: The Trealla Prolog adapter file to require version 2.6.3 or later.
+
+* UPDATED: The GNU Prolog adapter file to set the Logtalk `report` flag to
+`warnings` when the `--quiet` command-line option is used by checking the
+new `show_information` flag introduced in version 1.5.1.
+
+* FIXED: The YAP adapter file to set the Logtalk `report` flag to `warnings`
+when the `-q` command-line option is used.
+
+* FIXED: The CxProlog adapter file to set the Logtalk `report` flag to
+`warnings` when the `--quiet` command-line option is used.
+
+Library
+-------
+
+* ADDED: New `ids` library for generating identifiers (Base64 encoded) with
+parametrizable text representation and number of bytes of randomness.
+
+* ADDED: New `pairs` library object `key/2` and `value/3` predicates. Also
+add tests for all the `pairs` library object predicates.
+
+* ADDED: Additional tests for the `reader` library `line_to_chars/2` and
+`line_to_codes/2` predicates.
+
+Tools
+-----
+
+* ADDED: Support for using `git archive` for installing packs to the `packs`
+tool. This simplifies pack installation and thus improves user experience
+when the packs registry server uses Single Sign-On (SSO) for authentication.
+
+* UPDATED: The `packs::describe/1` predicate to also print the pack archive
+URL.
+
+Ports
+-----
+
+* FIXED: The `metagol` port examples loader to exclude loading the `sorter`
+example when using LVM as it doesn't provide the required `setarg/3` built-in
+predicate.
+
+Tests
+-----
+
+* ADDED: Additional tests for the standard `mod/2` and `rem/2` arithmetic
+functions.
+
+
 3.60.0 - November 15, 2022
 ==========================
 

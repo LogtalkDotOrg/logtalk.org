@@ -8,6 +8,20 @@ aside:
 
 ### 2022
 
+##### December 20
+
+> Logtalk 3.61.0 is now available for [downloading](download.html). This release
+> provides updated for several Prolog backend adapters and integration scripts
+> for use in the [Jupyter kernel for Logtalk](https://github.com/LogtalkDotOrg/logtalk-jupyter-kernel);
+> adds a new `ids` library for generating identifiers (Base64 encoded) with
+> parametrizable text representation and number of bytes of randomness; adds
+> new `pairs` library object predicates; adds `packs` tool support for using
+> `git archive` for installing packs, providing a better user experience when
+> the packs registry server uses Single Sign-On (SSO) for authentication; and
+> includes additional tests for library predicates and standard arithmetic
+> functions. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### November 15
 
 > Logtalk 3.60.0 is now available for [downloading](download.html). This release

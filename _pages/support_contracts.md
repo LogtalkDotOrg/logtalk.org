@@ -7,7 +7,7 @@ aside:
 ---
   
 **Version 1.5**  
-**Effective November 3, 2019**
+**Effective December 20, 2022**
 
 ## Logtalk support and maintenance agreement
 
@@ -19,7 +19,7 @@ Starting from the date of payment of a support package (“Effective Date”), w
 
 The support packages cover the installation, use, and maintenance of Logtalk in its officially supported features. Logtalk.pt offers separate consulting service agreements negotiable by mutual accord for expert code review and general application development if requested. The support packages don’t cover coding services for the Customer or defects in other software used in conjunction with Logtalk, notably defects in the used backend Prolog compilers. We will offer Services for the current version of the Software at the time of the purchase of a support package and for not less than twelve (12) months from the release date of the then-current version.
 
-#### Basic support package (2500 euros per year)
+#### Basic support package (3750 euros per year)
 
 - 25 hours of support
 - Up to 50 support requests
@@ -27,7 +27,7 @@ The support packages cover the installation, use, and maintenance of Logtalk in 
 - First reply to a support request within 2 business days
 - Optional auto-renewal
 
-#### Standard support package (5000 euros per year)
+#### Standard support package (7500 euros per year)
 
 - 50 hours of support
 - Up to 100 support requests
@@ -36,7 +36,7 @@ The support packages cover the installation, use, and maintenance of Logtalk in 
 - Priority bug fixing
 - Optional auto-renewal
 
-#### Plus support package (10000 euros per year)
+#### Plus support package (15000 euros per year)
 
 - 100 hours of support
 - Up to 200 support requests
@@ -45,7 +45,7 @@ The support packages cover the installation, use, and maintenance of Logtalk in 
 - Priority bug fixing
 - Optional auto-renewal
 
-#### Premium support package (15000 euros per year)
+#### Premium support package (22500 euros per year)
 
 - 120 hours of support
 - Up to 240 support requests
