@@ -12,7 +12,7 @@ aside:
     [English](https://learnxinyminutes.com/docs/logtalk/)
     [Italian](https://learnxinyminutes.com/docs/it-it/logtalk-it/) (recommended starting point for new users for a quick overview but be aware that some of the examples will not work as-is in Logtalk 3.x; a [pull request](https://github.com/adambard/learnxinyminutes-docs/pull/4526) have been submitted)
 -   [Handbook tutorial](manuals/tutorial/index.html)
--	[Logtalking YouTube channel](https://www.youtube.com/channel/UCh0BiDU6xZUCGq66HylvXNg)
+-   [Logtalking YouTube channel](https://www.youtube.com/channel/UCh0BiDU6xZUCGq66HylvXNg)
 
 
 ## Handbook
@@ -158,8 +158,8 @@ Diagrams scripts:
 ## Publications
 
 -   [Refactoring the Whitby Intelligent Tutoring System for Clean Architecture](https://arxiv.org/abs/2108.04621).
-	Paul S. Brown, Vania Dimitrova, Glen Hart, Anthony G. Cohn, Paulo Moura.
-	37th International Conference on Logic Programming (ICLP 2021).
+    Paul S. Brown, Vania Dimitrova, Glen Hart, Anthony G. Cohn, Paulo Moura.
+    37th International Conference on Logic Programming (ICLP 2021).
 -   [A Portable and Efficient Implementation of Coinductive Logic
     Programming](http://dx.doi.org/10.1007/978-3-642-45284-0_6). Paulo
     Moura. Proceedings of the Fifteenth International Symposium on
@@ -222,9 +222,9 @@ Diagrams scripts:
     Languages (PADL), January 2008. LNCS 4902. Springer-Verlag Berlin
     Heidelberg.
 -   [Logtalk Processing of STEP Part 21 Files](http://dx.doi.org/10.1007/11799573_45).
-	Paulo Moura and Vincent Marchetti.
-	Proceedings of the 22nd International Conference on Logic Programming (ICLP),
-	August 2006. LNCS 4079. Springer-Verlag Berlin Heidelberg.
+    Paulo Moura and Vincent Marchetti.
+    Proceedings of the 22nd International Conference on Logic Programming (ICLP),
+    August 2006. LNCS 4079. Springer-Verlag Berlin Heidelberg.
 
 <!-- -->
 
@@ -273,36 +273,36 @@ Diagrams scripts:
 
 Publications on research and applications using Logtalk:
 
--	[Ontology-Supported Scaffolding for System Safety Analysis](https://etheses.whiterose.ac.uk/31412/)
-	Paul Brown. PhD thesis. November 2022.
--	[Intelligent Decision Support for Cybersecurity Incident Response Teams: Autonomic Architecture and Mitigation Search](https://www.crisis-2021.com/agenda/)
-	Camilo Correa, Jacques Robin, Raul Mazo, and Salvador Abreu.
-	Proceedings of the 16th International Conference on Risks and Security of Internet and Systems (CRISIS 2021).
-	November 20121
--	[Web-GIS viewer for active faults data represented as a knowledge graph](http://ceur-ws.org/Vol-2984/)
-	Evgeny A. Cherkashin, Oksana V. Lunina, Leonid O. Demyanov, Alexander V. Tsygankov.
-	Proceedings of the 4th Scientific-practical Workshop Information Technologies: Algorithms, Models, Systems
-	Irkutsk, Russia, September 2021.
--	[Construction techniques of Baikal microbiome research information-computational environment ](http://ceur-ws.org/Vol-2858/)
-	Evgeniy Cherkashin, Alexey Shigarov.
-	1st International Workshop on Advanced Information and Computation Technologies and Systems. AICTS 2020.
-	December 2020
--	[Contingent Scaffolding for System Safety Analysis](https://doi.org/10.1007/978-3-030-52240-7_71)
-	Paul S. Brown, Anthony G. Cohn, Glen Hart, Vania Dimitrova.
-	Artificial Intelligence in Education. AIED 2020. Lecture Notes in Computer Science, vol 12164. Springer, Cham.
-	June 2020
--	[Representation of MDA Transformation with Logical Objects](http://dx.doi.org/10.1109/SIBIRCON48586.2019.8958008).
-	E.Cherkashin, A.Shigarov, V.Paramonov.
-	International Multi-Conference on Engineering, Computer and Information Sciences (SIBIRCON).
-	October 2019
--	[A Computational Independent Model for a Medical Quality Management Information System](http://ceur-ws.org/Vol-2221/).
-	Evgeny A. Cherkashin, Ljubica Kazi, Alexey O. Shigarov, Viacheslav V. Paramonov.
-	Proceedings of the First Scientific-practical Workshop Information Technologies: Algorithms, Models, Systems
-	Irkutsk, Russia. September 2018.
--	[Model Driven Architecture Implementation Using Linked Data](https://link.springer.com/chapter/10.1007/978-3-319-99972-2_34).
-	Evgeny Cherkashin, Alexey Kopaygorodsky, Ljubica Kazi, Alexey Shigarov, Viacheslav Paramonov.
-	In: Damaševičius R., Vasiljevienė G. (eds) Information and Software Technologies. ICIST 2018.
-	Communications in Computer and Information Science, vol 920. Springer, Cham. August 2018.
+-   [Ontology-Supported Scaffolding for System Safety Analysis](https://etheses.whiterose.ac.uk/31412/)
+    Paul Brown. PhD thesis. November 2022.
+-   [Intelligent Decision Support for Cybersecurity Incident Response Teams: Autonomic Architecture and Mitigation Search](https://www.crisis-2021.com/agenda/)
+    Camilo Correa, Jacques Robin, Raul Mazo, and Salvador Abreu.
+    Proceedings of the 16th International Conference on Risks and Security of Internet and Systems (CRISIS 2021).
+    November 20121
+-   [Web-GIS viewer for active faults data represented as a knowledge graph](http://ceur-ws.org/Vol-2984/)
+    Evgeny A. Cherkashin, Oksana V. Lunina, Leonid O. Demyanov, Alexander V. Tsygankov.
+    Proceedings of the 4th Scientific-practical Workshop Information Technologies: Algorithms, Models, Systems
+    Irkutsk, Russia, September 2021.
+-   [Construction techniques of Baikal microbiome research information-computational environment ](http://ceur-ws.org/Vol-2858/)
+    Evgeniy Cherkashin, Alexey Shigarov.
+    1st International Workshop on Advanced Information and Computation Technologies and Systems. AICTS 2020.
+    December 2020
+-   [Contingent Scaffolding for System Safety Analysis](https://doi.org/10.1007/978-3-030-52240-7_71)
+    Paul S. Brown, Anthony G. Cohn, Glen Hart, Vania Dimitrova.
+    Artificial Intelligence in Education. AIED 2020. Lecture Notes in Computer Science, vol 12164. Springer, Cham.
+    June 2020
+-   [Representation of MDA Transformation with Logical Objects](http://dx.doi.org/10.1109/SIBIRCON48586.2019.8958008).
+    E.Cherkashin, A.Shigarov, V.Paramonov.
+    International Multi-Conference on Engineering, Computer and Information Sciences (SIBIRCON).
+    October 2019
+-   [A Computational Independent Model for a Medical Quality Management Information System](http://ceur-ws.org/Vol-2221/).
+    Evgeny A. Cherkashin, Ljubica Kazi, Alexey O. Shigarov, Viacheslav V. Paramonov.
+    Proceedings of the First Scientific-practical Workshop Information Technologies: Algorithms, Models, Systems
+    Irkutsk, Russia. September 2018.
+-   [Model Driven Architecture Implementation Using Linked Data](https://link.springer.com/chapter/10.1007/978-3-319-99972-2_34).
+    Evgeny Cherkashin, Alexey Kopaygorodsky, Ljubica Kazi, Alexey Shigarov, Viacheslav Paramonov.
+    In: Damaševičius R., Vasiljevienė G. (eds) Information and Software Technologies. ICIST 2018.
+    Communications in Computer and Information Science, vol 920. Springer, Cham. August 2018.
 -   [Automatic Discovery of Software Attacks via Backward
     Reasoning](http://ieeexplore.ieee.org/document/7174811/). Cataldo
     Basile, Daniele Canavese, Jerome d\'Annoville, Bjorn De Sutter, and
@@ -430,10 +430,10 @@ Publications on research and applications using Logtalk:
     Presentations](http://www.cwi.nl/ftp/CWIreports/INS/INS-R0205.pdf).
     Oscar Rosell Martinez. Master Thesis, Technical University of
     Catalonia, June 30, 2002. CWI technical report INS-R0205.
--	Implementing materialization in Logtalk. Esteban Zimányi.
-	Tech. Rep. YEROOS TR- 97/09, Laboratoire de Bases de Données,
-	Département d'Informatique, Ecole Polytechnique Fédérale de Lausanne,
-	Switzerland, Apr. 1997.
+-   Implementing materialization in Logtalk. Esteban Zimányi.
+    Tech. Rep. YEROOS TR- 97/09, Laboratoire de Bases de Données,
+    Département d'Informatique, Ecole Polytechnique Fédérale de Lausanne,
+    Switzerland, Apr. 1997.
 -   (more to come)
 
 ## Authors
@@ -478,6 +478,7 @@ Publications on research and applications using Logtalk:
 -   Joost Geurts (bug reports)
 -   José Antonio Riaza Valverde (Tau Prolog integration)
 -   José Morales (Ciao Prolog integration)
+-   Lindsey Spratt (unit tests and feedback)
 -   Markus Triska (help in porting CLP(FD) examples)
 -   Mats Carlsson (bug reports)
 -   Michael Covington (DCGs tokenizer example)
