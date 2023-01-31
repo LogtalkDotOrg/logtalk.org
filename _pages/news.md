@@ -6,6 +6,25 @@ aside:
   toc: true
 ---
 
+### 2023
+
+##### January 31
+
+> Logtalk 3.62.0 is now available for [downloading](download.html). This release
+> adds a new `tab(Expression)` message token to use with the message printing
+> mechanism; simplifies the integration script for Trealla Prolog; updates the
+> man pages for the integration scripts; adds an option to the `logtalk_tester`
+> scripts for excluding directories; adds new `debugger` tool port commands;
+> fixes a `debugger` tool issue with an automatic creep when returning to the
+> port after user input; adds `lgtenv` scripts for creating packs virtual
+> environments; adds new `packs` tool predicates and predicate options; updates
+> the `diagrams` tool `lgt2svg` scripts to alert the user when one or more files
+> cannot be converted; and adds additional tests for the Prolog `sub_atom/5`,
+> `unify_with_occurs_check/2`, and `format/2-3` predicates (with contributions
+> by Lindsey Spratt and Andrew Davison). For details and a complete list of
+> changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ### 2022
 
 ##### December 20

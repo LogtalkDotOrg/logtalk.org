@@ -54,14 +54,15 @@ p.roffit {
 <p class="level0"><a name="NAME"></a><h2 class="nroffsh">NAME</h2>
 <p class="level0">sicstuslgt - Logtalk integration script for SICStus Prolog 
 <p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">SYNOPSIS</h2>
-<p class="level0"><span Class="bold">sicstuslgt</span> [<span class="bold">--goal <span Class="emphasis">goal</span>] 
+<p class="level0"><span Class="bold">sicstuslgt</span> [<span Class="bold">--noinfo</span>] [<span class="bold">--goal <span Class="emphasis">goal</span>] 
 <p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">DESCRIPTION</h2>
 <p class="level0"><span Class="bold">sicstuslgt</span> is a Logtalk integration script for SICStus Prolog. It automatically loads the SICStus Prolog adapter file, the Logtalk compiler and runtime, the Logtalk default table of library names and paths, and any existing settings file found on the lookup directories. It uses the <span Class="bold">sicstus</span> executable <span Class="bold">-l</span> option to load the Logtalk files. It passes any options to the <span Class="bold">sicstus</span> executable; see the SICStus Prolog documention for the available options. 
 <p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">OPTIONS</h2>
 <p class="level0">
+<p class="level0"><span Class="bold">--noinfo</span> Silence Logtalk default startup messages and compilation messages by setting the <span Class="bold">report</span> flag to <span Class="bold">warnings</span>. 
 <p class="level0"><span Class="bold">--goal</span> <span Class="emphasis">goal</span> Initialization goal, written between double quotes, to be executed after Logtalk startup. 
 <p class="level0"><a name="REQUIREMENTS"></a><h2 class="nroffsh">REQUIREMENTS</h2>
-<p class="level0">SICStus Prolog 4.1.0 (or later versions) is required. This integration script looks for a &quot;sicstus&quot; executable in the system path. 
+<p class="level0">SICStus Prolog 4.1.0 (or later versions) is required. This integration script looks for a <span Class="bold">sicstus</span> executable in the system path. 
 <p class="level0"><a name="ENVIRONMENT"></a><h2 class="nroffsh">ENVIRONMENT</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. 
