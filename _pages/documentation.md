@@ -154,6 +154,10 @@ Diagrams scripts:
 
 -   [`lgt2svg`](man/lgt2svg.html)
 
+Virtual environment scripts:
+
+-   [`lgtenv`](man/lgtenv.html)
+
 
 ## Publications
 

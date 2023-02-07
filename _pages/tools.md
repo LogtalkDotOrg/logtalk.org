@@ -15,7 +15,7 @@ and some usage examples.
 
 ## Learning
 
-The [`tutor`](https://logtalk.org/manuals/devtools/tutor.html)
+The [`tutor`](https://logtalk.org/manuals/devtools/tutor.html) tool
 helps new users understand the compiler and runtime warning and error messages
 by adding explanations and suggestions to selected messages. Usage simply requires
 loading the tool at startup. As an example, with this tool loaded, instead of
@@ -49,6 +49,11 @@ the user will get:
 *     result in spurious choice-points, degrading performance. Delete or
 *     correct the duplicated clause to fix this warning.
 ```
+
+There's also a [`help`](https://logtalk.org/manuals/devtools/help.html) tool
+that provides quick access to Logtalk documentation. In particular, with most
+backend Prolog systems, this tool supports browsing and searching the Texinfo
+versions of the Handbook and APIs documentation inline at the top-level.
 
 
 ## Lint checker
