@@ -538,7 +538,8 @@ list.
 
 ## Sponsors
 
--   [GraphStax](http://graphstax.ai) --- 2020--present
+-   [Permion](https://permion.ai) --- 2023--present
+-   GraphStax --- 2020--2022
 -   [Kyndi Inc.](https://kyndi.com) --- 2015--2017
 -   VivoMind Research, LLC --- 2012--2013
 -   [GitHub sponsors](https://github.com/sponsors/pmoura)
