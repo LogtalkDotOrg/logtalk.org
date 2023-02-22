@@ -534,7 +534,7 @@ list.
 
 ## Research support
 
--   [Center for Research in Advanced Computing Systems (CRACS)](http://cracs.fc.up.pt), [INESC TEC](https://www.inesctec.pt/en), Portugal
+-   [Center for Research in Advanced Computing Systems (CRACS)](https://www.inesctec.pt/en/centres/cracs), [INESC TEC](https://www.inesctec.pt/en), Portugal
 
 ## Sponsors
 
