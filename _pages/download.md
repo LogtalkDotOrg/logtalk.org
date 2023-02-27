@@ -26,7 +26,7 @@ includes adapter files for all supported Prolog compilers:
 -   [ECLiPSe 6.1\#143 or later versions](http://eclipseclp.org/)
 -   [GNU Prolog 1.4.5 or later versions](http://www.gprolog.org/)
 -   [JIProlog 4.1.7.1 or later versions](http://www.jiprolog.com/)
--   [LVM 4.1.0 or later versions](https://graphstax.ai/)
+-   [LVM 4.1.0 or later versions](https://permion.ai/)
 -   [Quintus Prolog 3.3\~3.5](https://quintus.sics.se) *(experimental)*
 -	[Scryer Prolog 0.9.1 or later versions](https://www.scryer.pl) *(experimental)*
 -   [SICStus Prolog 4.1.0 or later versions](https://sicstus.sics.se)
