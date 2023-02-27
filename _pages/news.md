@@ -8,6 +8,24 @@ aside:
 
 ### 2023
 
+##### February 27
+
+> Logtalk 3.63.0 is now available for [downloading](download.html). This release
+> fixes linter warnings for unknown calls and suspicious calls to avoid false
+> positives; fixes a compiler optimization bug for messages sent by an object
+> to itself; adds a Handbook section on compiler formatting of errors, warnings,
+> and comments; improves the documentation of the `random` library; adds GNU
+> Prolog (1.5.1 or later) support for the `help` tool experimental features;
+> improves the `diagrams` tool performance when generating library dependency
+> diagrams; fixes and improves the `logtalk_tester.sh` script handling of the
+> option to exclude directories; provides a new parametric objects example;
+> adds additional tests for the Prolog `format/2-3` and `setup_call_cleanup/3`
+> predicates; and updates syntax completion support for jEdit, Sublime Text,
+> TextMate, and Vim. Thanks to Didier Garcin, Paul Brown, Jonathon Doran, and
+> Lindsey Spratt for their contributions to this release. For details and a
+> complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### January 31
 
 > Logtalk 3.62.0 is now available for [downloading](download.html). This release

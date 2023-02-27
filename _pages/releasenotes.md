@@ -4,6 +4,83 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.63.0 - February 27, 2023
+==========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Allow `info/2` directive `examples` key examples to also use `{true}`
+and `{false}` for bindings.
+
+* FIXED: Spurious linter warnings of unknown calls to `user` predicates (and
+non-terminals) listed in `uses/2` and `use_module/2` directives when the
+predicates (and non-terminals) are also declared as dynamic or multifile in
+the same entity.
+
+* FIXED: Spurious suspicious call linter warnings when compiling calls to
+threaded meta-predicates. Thanks to Didier Garcin for the bug report.
+
+* FIXED: Linter warning for message-sending calls sent from an object to
+itself to check that it calls a locally defined predicate. Thanks to Paul
+Brown for the sample code.
+
+* FIXED: Compiler optimization for message-sending calls sent from an object
+to itself to only apply when calling a locally defined predicate.
+
+Documentation
+-------------
+
+* ADDED: Handbook section on compiler formatting of errors, warnings, and
+comments.
+
+Library
+-------
+
+* IMPROVED: Documentation of the `random` library `randomize/1` predicate.
+After feedback from Jonathon Doran.
+
+Tools
+-----
+
+* ADDED: GNU Prolog (1.5.1 or later version) support for the `help` tool
+experimental predicates for top-level inline browse and search of the
+Texinfo versions of the Handbook and APIs documentation.
+
+* IMPROVED: Performance of the `diagrams` tool when generating library
+dependency diagrams.
+
+* IMPROVED: The `logtalk_tester.sh` script to exit with an error code when
+the `find` command used to find test sets fails to recognize an option.
+
+* FIXED: The `logtalk_tester.sh` script `-e` option to work on Linux. Thanks
+to Lindsey Spratt for the bug report.
+
+Examples
+--------
+
+* ADDED: New `units` example, a Logtalk version of a GNU Prolog/CX parametric
+unit example.
+
+* FIXED: Unknown module predicate linter warnings in the `constraints/sicstus`
+example due to the `length/2` and `member/2` predicates being built-in.
+
+Tests
+-----
+
+* ADDED: Additional tests for the de facto Prolog standard `format/2-3`
+predicates.
+
+* ADDED: Additional tests for the `setup_call_cleanup/3` predicate adapted
+from the WG17 standardization proposal.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* UPDATED: Syntax completion keywords for the jEdit, Sublime Text, TextMate,
+and Vim text editors.
+
+
 3.62.0 - January 31, 2023
 =========================
 

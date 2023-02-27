@@ -72,7 +72,7 @@ p.roffit {
 <p class="level0"><span Class="bold">-u</span> Base URL for generating links to test files (no default). Must end with a slash and usually includes a git hash so that the link remanis valid if the test files are later updated. 
 <p class="level0"><span Class="bold">-c</span> Code coverage report. Default is <span Class="emphasis">none</span>. Valid values are <span Class="emphasis">xml</span> and <span Class="emphasis">none</span>. 
 <p class="level0"><span Class="bold">-l</span> Directory depth level to look for test sets. Level 1 means current directory only. Default is to recurse into all sub-directories. 
-<p class="level0"><span Class="bold">-e</span> Regular expression for excluding directories (using the <span Class="emphasis">find</span> command <span Class="emphasis">-E</span> and <span Class="emphasis">-regex</span> options). 
+<p class="level0"><span Class="bold">-e</span> Regular expression for excluding directories (using the <span Class="emphasis">find</span> command support for POSIX-extended regular expressions). 
 <p class="level0"><span Class="bold">-i</span> Integration script command-line options (no default). 
 <p class="level0"><span Class="bold">-g</span> Initialization goal. Default is <span Class="emphasis">true</span>. Called after loading the Logtalk compiler and runtime. 
 <p class="level0"><span Class="bold">-r</span> Random generator starting seed (no default). 
@@ -87,6 +87,7 @@ p.roffit {
 <p class="level0"><span Class="bold">5</span> One or more test sets are broken and thus could not be executed but there are no crashed test sets. 
 <p class="level0"><span Class="bold">7</span> One or more test sets crashed the process running them. 
 <p class="level0"><span Class="bold">9</span> The sourced <span Class="emphasis">tester.sh</span> file returned a non-zero code. 
+<p class="level0"><span Class="bold">11</span> The <span Class="emphasis">find</span> command used internally to enumerate test sets returned a non-zero code (most likely due to a non-supported option). 
 <p class="level0"><a name="EXAMPLES"></a><h2 class="nroffsh">EXAMPLES</h2>
 <p class="level0">
 <p class="level0">Run all tests on the current directory and sub-directories using the GNU Prolog backend, with results in TAP format, code coverage reports in XML format, and passing arguments <span Class="emphasis">foo</span>, <span Class="emphasis">bar</span>, and <span Class="emphasis">baz</span> to the tests: <span Class="bold">logtalk_tester -p gnu -tap -c xml -- foo bar baz</span> 
@@ -109,6 +110,7 @@ p.roffit {
 <p class="level0"><a name="IMPLEMENTATION"></a><h2 class="nroffsh">IMPLEMENTATION NOTES</h2>
 <p class="level0">When the script detects either a <span Class="emphasis">timeout</span> or a <span Class="emphasis">gtimeout</span> command (provided by the GNU <span Class="emphasis">coreutils</span> package), it will use it to run each test set if the timeout option is set to a value greater than zero. This package can be easily installed in POSIX operating-systems (including Linux and macOS) if not provided by default. On Windows operating-systems, the native timeout command is not usable for this purpose. But the Git for Windows installer includes the GNU <span Class="emphasis">coreutils</span> package, which can be used from the bundled Bash shell. 
 <p class="level0">Installation of the GNU <span Class="emphasis">sed</span> command, when not available by default, is strongly recommended. The Git for Windows installer includes this command, which can be used from the bundled Bash shell. 
+<p class="level0">The version of the <span Class="emphasis">find</span> command provided by some operating-systems doesn&#39;t support (extended) regular-expressions, thus preventing using the <span Class="emphasis">-e</span> option. 
 <p class="level0"><a name="ENVIRONMENT"></a><h2 class="nroffsh">ENVIRONMENT</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. 
@@ -124,6 +126,6 @@ p.roffit {
 <p class="level0"><a name="AUTHOR"></a><h2 class="nroffsh">AUTHOR</h2>
 <p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt; 
 <p class="level0"><a name="COPYRIGHT"></a><h2 class="nroffsh">COPYRIGHT</h2>
-<p class="level0">Copyright (c) 1998-2022 Paulo Moura. <p class="roffit">
+<p class="level0">Copyright (c) 1998-2023 Paulo Moura. <p class="roffit">
  This HTML page was made with <a href="http://daniel.haxx.se/projects/roffit/">roffit</a>.
 </body></html>
