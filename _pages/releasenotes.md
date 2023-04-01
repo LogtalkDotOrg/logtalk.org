@@ -4,6 +4,105 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.64.0 - March 28, 2023
+=======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* FIXED: Handling of `dynamic/1` directives for predicates with no clauses
+in included files when using an `include/1` argument in `create_object/4`
+goals.
+
+* FIXED: Do not print a linter warning for a missing `dynamic/1` directive
+when compiling a category if there isn't a scope directive for the predicate.
+
+* FIXED: Performance issue where the compiler would not inline predicate
+definitions when the clause body goal uses parameter variables.
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: The LVM adapter file to set the `coinduction` flag from the value
+of the `unify_applies_occurs_check` flag.
+
+* UPDATED: The LVM adapter file to expand calls to the `open_db/2` built-in
+predicate from within objects and categories to ensure that all database
+predicates are visible.
+
+* UPDATED: All integration PowerShell scripts to require version 7.3 or later.
+
+Library
+-------
+
+* CHANGED: The `csv` library to throw `error/2` exception terms and type-check
+the `write_file/3` and `write_stream/3` predicates.
+
+* ADDED: Experimental support for LVM to the `java` library.
+
+* ADDED: New `java` library `array_to_list/2` and `list_to_array/2` predicates.
+Unlike the now deprecated `array_list/2` predicate, calls to these predicates
+can be inlined.
+
+* UPDATED: The `java` library to also abstract JPL `jpl_map_element/2` and
+`jpl_set_element/2` predicates for the SWI-Prolog and YAP backends.
+
+* FIXED: Description of the `java` library `array_list/2` predicate.
+
+Tools
+-----
+
+* CHANGED: The `logtalk_tester.sh` script to only accept LVM long options for
+choosing between the standard and custom top-levels.
+
+* CHANGED: The `lgtunit` tool `clean_file/1` predicate to always interpret
+relative paths as relative to the tests object path. This simplifies usage
+and improves reliability by not depending on the current working directory.
+
+* ADDED: New `packs::installed/1` predicate to list all packs installed from
+a given registry.
+
+* IMPROVED: The `registries::update/0` predicate to inform the user when no
+registry is defined.
+
+* UPDATED: All tool PowerShell scripts to require version 7.3 or later.
+
+* FIXED: The `logtalk_tester.sh` and `logtalk_tester.ps1` scripts passing
+calling options to a sourced `tester.sh` and `tester.ps1` scripts in the
+test set directories.
+
+* FIXED: The `logtalk_tester.ps1` script handling of the `-w` option to avoid
+warnings when the scratch directories don't exist.
+
+Examples
+--------
+
+* MOVED: Tests from the `jpl` example to the `java` library.
+
+* ADDED: New `neo4j` example of using the `java` library to interface with
+Neo4j.
+
+* ADDED: Tests for the `document_converter` example.
+
+* ADDED: Experimental support for LVM to the Java examples.
+
+* IMPROVED: Test set condition for the `clustering` example.
+
+* IMPROVED: The documentation of the `bench` example.
+
+* FIXED: The `clustering` and `document_converter` examples `tester.sh`
+scripts.
+
+Tests
+-----
+
+* ADDED: Additional tests for the Prolog standard `bagof/3`, `findall/3`,
+`setof/3`, `(\+)/1`, `call/1-N`, and `once/1`, predicates.
+
+* ADDED: Additional tests for the de facto Prolog standard `findall/4`,
+`format/2-3`, and `setup_call_cleanup/3` predicates.
+
+
 3.63.0 - February 27, 2023
 ==========================
 

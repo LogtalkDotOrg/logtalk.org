@@ -8,6 +8,24 @@ aside:
 
 ### 2023
 
+##### March 28
+
+> Logtalk 3.64.0 is now available for [downloading](download.html). This release
+> fixes handling of `dynamic/1` directives for predicates with no clauses in 
+> included files from dynamically created objects; fixes a performance issue where
+> the compiler would not inline predicate definitions when the clause body goal
+> uses parameter variables; improves the `csv` library error-checking; adds new
+> predicates to the `java` library; includes changes for running all the Java-based
+> examples on Windows; adds a `neo4j` example of using the `java` library to
+> interface with Neo4j; adds new usability predicates to the `packs` tools; changes
+> semantics of the `lgtunit` tool `clean_file/1` utility predicate to simplify
+> usage; fixes the `logtalk_tester` scripts passing of calling options to sourced
+> `tester` scripts in the test set directories; updates all tool PowerShell scripts
+> to require version 7.3 or later; adds additional tests for Prolog standard
+> meta-predicates; and includes portability updates for LVM. For details and a
+> complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### February 27
 
 > Logtalk 3.63.0 is now available for [downloading](download.html). This release

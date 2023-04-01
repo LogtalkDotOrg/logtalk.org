@@ -6,8 +6,8 @@ aside:
   toc: true
 ---
 
-**Latest stable version:** 3.63.0  
-**Release date:** February 27, 2023
+**Latest stable version:** 3.64.0  
+**Release date:** March 28, 2023
 
 <a class="github-button" href="https://github.com/sponsors/pmoura" data-icon="octicon-heart" aria-label="Sponsor @pmoura on GitHub">Sponsor</a>
 <a class="github-button" href="https://github.com/LogtalkDotOrg/logtalk3" data-icon="octicon-star" aria-label="Star LogtalkDotOrg/logtalk3 on GitHub">Star</a>
@@ -75,8 +75,8 @@ feed](https://github.com/LogtalkDotOrg/logtalk3/commits/master.atom).
 
 ## Sources
 
-> [`logtalk-3.63.0.tar.bz2`](files/logtalk-3.63.0.tar.bz2)  
-> `e5547f92715b099775d5c7dd15fbc6f33b22d4057bbfda9452665e1d92e70f94` (SHA-256)
+> [`logtalk-3.64.0.tar.bz2`](files/logtalk-3.64.0.tar.bz2)  
+> `f5218aafb17a601acfe2812a360ab122880615a3bac20db20c957941f88f564b` (SHA-256)
 
 Includes the HTML and Texinfo versions of the Handbook and the APIs documentation.
 The bundled  [`INSTALL.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/INSTALL.md)
@@ -103,8 +103,8 @@ Installs Logtalk on `/opt/local/share/` with integration scripts for
 supported Prolog compilers on `/opt/local/bin`. Creates an
 `/Applications/Logtalk` folder with links to the installed files.
 
-> [`logtalk-3.63.0.pkg.zip`](files/logtalk-3.63.0.pkg.zip)  
-> `89e38e5448e7d76576bfd9b0549f6cd9bed9b0904957850bd7ab4b999178164f` (SHA-256)
+> [`logtalk-3.64.0.pkg.zip`](files/logtalk-3.64.0.pkg.zip)  
+> `d1dc21d9fb2aa723125789561aaf98e785ca9e291742dae9078ee04ecf83b8ab` (SHA-256)
 
 #### MacPorts
 
@@ -126,13 +126,13 @@ is up-to-date.
 Installs Logtalk on `/usr/local/share` with integration scripts for
 supported Prolog compilers on `/usr/local/bin`.
 
-> [`logtalk-3.63.0-1.noarch.rpm`](files/logtalk-3.63.0-1.noarch.rpm)  
-> `24f1c5db891d04d605e742d3d6894596690459037483d20417268b604ec479a7` (SHA-256)
+> [`logtalk-3.64.0-1.noarch.rpm`](files/logtalk-3.64.0-1.noarch.rpm)  
+> `b2ddfe805106ee535825aa9f2e3f03d97fbe08a3ac115fd45ec1fe59a3def74e` (SHA-256)
 
 Package installation from the command-line is highly recommended:
 
 ```bash
-$ sudo rpm -i logtalk-3.63.0-1.noarch.rpm
+$ sudo rpm -i logtalk-3.64.0-1.noarch.rpm
 ```
 
 Logout and login after running the installer to activate the default values
@@ -145,13 +145,13 @@ Requires dpkg 1.15.0 or a later version. Installs Logtalk on
 `/usr/share` with integration scripts for supported Prolog compilers on
 `/usr/bin`.
 
-> [`logtalk_3.63.0-1_all.deb`](files/logtalk_3.63.0-1_all.deb)  
-> `39610a1ee4fd22792ea8f5330c7ea3c1ab729368d289f5ad9c55d15de762b941` (SHA-256)
+> [`logtalk_3.64.0-1_all.deb`](files/logtalk_3.64.0-1_all.deb)  
+> `ff55b46cca43b1200122b81f5d61f76203e9644ecf103d7a240b532869ed0a09` (SHA-256)
 
 Package installation from the command-line is highly recommended:
 
 ```bash
-$ sudo dpkg -i logtalk_3.63.0-1_all.deb
+$ sudo dpkg -i logtalk_3.64.0-1_all.deb
 ```
 
 Logout and login after running the installer to activate the default values
@@ -169,9 +169,9 @@ documentation. Can be used by both admin and non-admin users.
 [Installation video](https://www.youtube.com/watch?v=YE7ahXZibN4),
 courtesy of [Paul Brown](https://pbrown.me/).
 
-> [`logtalk-3.63.0.exe`](files/logtalk-3.63.0.exe)  
-> `7506420d3071b0fba0e407bb1ce1d95adbaf9e9e6bcab5b2be928a57848ffd01` (SHA-256)  
-> [VirusTotal scan results](https://www.virustotal.com/gui/url/d220efc400190434475618a029372a74cfc17455d875f09195b6f4999424ea3a)
+> [`logtalk-3.64.0.exe`](files/logtalk-3.64.0.exe)  
+> `6f53f5b150c3867563529ff627c2a8ce6209d67037b06b2ff5ce1b8a8d642ed5` (SHA-256)  
+> [VirusTotal scan results](https://www.virustotal.com/gui/url/c9bf9991f74bc1a43206dd7b76d91346db61d4e2fc146e759baf391df78dca6b)
 
 Logtalk is also available as a [Chocolatey package](https://chocolatey.org/packages/logtalk/)
 and can be installed or updated using the `choco install logtalk` and
@@ -202,22 +202,22 @@ followed by `pack_install(logtalk)`. See the pack specific
 [`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack/logtalk/README.md)
 file for details. Also available as a manual download:
 
-> [`logtalk-3.63.0.tgz`](files/swi-prolog/packs/logtalk-3.63.0.tgz)  
-> `75994c8e40b0f57cd1383f66823f3856c70d3841865acfc5137f3665b1ae067d` (SHA-256)
+> [`logtalk-3.64.0.tgz`](files/swi-prolog/packs/logtalk-3.64.0.tgz)  
+> `883ee54b10b9397bf73465ceac7e0d65bc58a0ac44a0c360147d11eb226a2701` (SHA-256)
 
 In this case, change directory to the download directory, start SWI-Prolog,
-and run the query `pack_install('logtalk-3.63.0.tgz').`
+and run the query `pack_install('logtalk-3.64.0.tgz').`
 
 There's also an **experimental** pack that encapsulates de Logtalk
 compiler and runtime in a `logtalk` module. See the pack specific
 [`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack-experimental/logtalk/README.md)
 file for details. This pack is only available as a manual download:
 
-> [`logtalk-experimental-3.63.0.tgz`](files/swi-prolog/packs/logtalk-experimental-3.63.0.tgz)  
-> `62216dfe735243e2b9d8da284ac0ae562efb9692df3ef0ec540f22b40b5ff55d` (SHA-256)
+> [`logtalk-experimental-3.64.0.tgz`](files/swi-prolog/packs/logtalk-experimental-3.64.0.tgz)  
+> `3f98a3bb9ec1a4e57c9b01ed2828bbe11936b40084351faa107f30ef5f2e80c6` (SHA-256)
 
 In this case, change directory to the download directory, start SWI-Prolog,
-and run the query `pack_install('logtalk-experimental-3.63.0.tgz').`
+and run the query `pack_install('logtalk-experimental-3.64.0.tgz').`
 
 
 ### Arch Linux package
@@ -232,8 +232,8 @@ Ebrahim Azarisooreh.
 HTML, ePub, PDF, and Texinfo versions of the Handbook (includes a tutorial, the User Manual, the Reference Manual, and the FAQ).
 Note that the HTML and Texinfo versions are **included** in the source and binary packages.
 
-> [`logtalk-manuals-3.63.0.tgz`](files/logtalk-manuals-3.63.0.tgz)  
-> `288ac9a89365c1cfd16b72cc157ca3d77f79c16db5706e5d849303adb7d87e8c` (SHA-256)
+> [`logtalk-manuals-3.64.0.tgz`](files/logtalk-manuals-3.64.0.tgz)  
+> `b3825847662308622ecc29d183c4b43f0c9ca8060e0cc0c0d57fe8166d07bdaf` (SHA-256)
 
 
 ## Docker images
