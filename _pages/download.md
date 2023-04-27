@@ -6,8 +6,8 @@ aside:
   toc: true
 ---
 
-**Latest stable version:** 3.64.0  
-**Release date:** March 28, 2023
+**Latest stable version:** 3.65.0  
+**Release date:** April 27, 2023
 
 <a class="github-button" href="https://github.com/sponsors/pmoura" data-icon="octicon-heart" aria-label="Sponsor @pmoura on GitHub">Sponsor</a>
 <a class="github-button" href="https://github.com/LogtalkDotOrg/logtalk3" data-icon="octicon-star" aria-label="Star LogtalkDotOrg/logtalk3 on GitHub">Star</a>
@@ -32,7 +32,7 @@ includes adapter files for all supported Prolog compilers:
 -   [SICStus Prolog 4.1.0 or later versions](https://sicstus.sics.se)
 -   [SWI Prolog 6.6.0 or later versions](http://www.swi-prolog.org/)
 -   [Tau Prolog (version 0.3.2 or later)](http://tau-prolog.org)
--   [Trealla Prolog (version 2.2.5 or later)](https://github.com/trealla-prolog/trealla) *(experimental)*
+-   [Trealla Prolog (version 2.6.3 or later)](https://github.com/trealla-prolog/trealla) *(experimental)*
 -   [XSB 3.8.0 or later versions](http://xsb.sourceforge.net/)
 -   [YAP 6.3.4 or later versions](https://github.com/vscosta)
 
@@ -75,8 +75,8 @@ feed](https://github.com/LogtalkDotOrg/logtalk3/commits/master.atom).
 
 ## Sources
 
-> [`logtalk-3.64.0.tar.bz2`](files/logtalk-3.64.0.tar.bz2)  
-> `f5218aafb17a601acfe2812a360ab122880615a3bac20db20c957941f88f564b` (SHA-256)
+> [`logtalk-3.65.0.tar.bz2`](files/logtalk-3.65.0.tar.bz2)  
+> `d1dc95a3c3f8cc71b04c667cf78ffb91fd7f80e4ae2ffec609f16d1c940e0c90` (SHA-256)
 
 Includes the HTML and Texinfo versions of the Handbook and the APIs documentation.
 The bundled  [`INSTALL.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/INSTALL.md)
@@ -103,8 +103,8 @@ Installs Logtalk on `/opt/local/share/` with integration scripts for
 supported Prolog compilers on `/opt/local/bin`. Creates an
 `/Applications/Logtalk` folder with links to the installed files.
 
-> [`logtalk-3.64.0.pkg.zip`](files/logtalk-3.64.0.pkg.zip)  
-> `d1dc21d9fb2aa723125789561aaf98e785ca9e291742dae9078ee04ecf83b8ab` (SHA-256)
+> [`logtalk-3.65.0.pkg.zip`](files/logtalk-3.65.0.pkg.zip)  
+> `d24349add8d939e0ec394ab4de3ff4692951b720fb9acb689da9dabcb31fb13c` (SHA-256)
 
 #### MacPorts
 
@@ -126,13 +126,13 @@ is up-to-date.
 Installs Logtalk on `/usr/local/share` with integration scripts for
 supported Prolog compilers on `/usr/local/bin`.
 
-> [`logtalk-3.64.0-1.noarch.rpm`](files/logtalk-3.64.0-1.noarch.rpm)  
-> `b2ddfe805106ee535825aa9f2e3f03d97fbe08a3ac115fd45ec1fe59a3def74e` (SHA-256)
+> [`logtalk-3.65.0-1.noarch.rpm`](files/logtalk-3.65.0-1.noarch.rpm)  
+> `286e1343cd2ef4d039de8450d9937a58b177e70f65a812fdd30d28b21fe0ae46` (SHA-256)
 
 Package installation from the command-line is highly recommended:
 
 ```bash
-$ sudo rpm -i logtalk-3.64.0-1.noarch.rpm
+$ sudo rpm -i logtalk-3.65.0-1.noarch.rpm
 ```
 
 Logout and login after running the installer to activate the default values
@@ -145,13 +145,13 @@ Requires dpkg 1.15.0 or a later version. Installs Logtalk on
 `/usr/share` with integration scripts for supported Prolog compilers on
 `/usr/bin`.
 
-> [`logtalk_3.64.0-1_all.deb`](files/logtalk_3.64.0-1_all.deb)  
-> `ff55b46cca43b1200122b81f5d61f76203e9644ecf103d7a240b532869ed0a09` (SHA-256)
+> [`logtalk_3.65.0-1_all.deb`](files/logtalk_3.65.0-1_all.deb)  
+> `17fd36647d6b463024e577f91babd3f949a7d63d4683069f4763487c825654b9` (SHA-256)
 
 Package installation from the command-line is highly recommended:
 
 ```bash
-$ sudo dpkg -i logtalk_3.64.0-1_all.deb
+$ sudo dpkg -i logtalk_3.65.0-1_all.deb
 ```
 
 Logout and login after running the installer to activate the default values
@@ -169,8 +169,8 @@ documentation. Can be used by both admin and non-admin users.
 [Installation video](https://www.youtube.com/watch?v=YE7ahXZibN4),
 courtesy of [Paul Brown](https://pbrown.me/).
 
-> [`logtalk-3.64.0.exe`](files/logtalk-3.64.0.exe)  
-> `6f53f5b150c3867563529ff627c2a8ce6209d67037b06b2ff5ce1b8a8d642ed5` (SHA-256)  
+> [`logtalk-3.65.0.exe`](files/logtalk-3.65.0.exe)  
+> `37138086f9818487d330744cb6ab8e7f632f67b8a693d4b2f0551bebfd31581b` (SHA-256)  
 > [VirusTotal scan results](https://www.virustotal.com/gui/url/c9bf9991f74bc1a43206dd7b76d91346db61d4e2fc146e759baf391df78dca6b)
 
 Logtalk is also available as a [Chocolatey package](https://chocolatey.org/packages/logtalk/)
@@ -202,22 +202,22 @@ followed by `pack_install(logtalk)`. See the pack specific
 [`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack/logtalk/README.md)
 file for details. Also available as a manual download:
 
-> [`logtalk-3.64.0.tgz`](files/swi-prolog/packs/logtalk-3.64.0.tgz)  
-> `883ee54b10b9397bf73465ceac7e0d65bc58a0ac44a0c360147d11eb226a2701` (SHA-256)
+> [`logtalk-3.65.0.tgz`](files/swi-prolog/packs/logtalk-3.65.0.tgz)  
+> `b1db669af3715aee786157655302fe20bacedeb96b5fc0c390b555e1bfa7efd9` (SHA-256)
 
 In this case, change directory to the download directory, start SWI-Prolog,
-and run the query `pack_install('logtalk-3.64.0.tgz').`
+and run the query `pack_install('logtalk-3.65.0.tgz').`
 
 There's also an **experimental** pack that encapsulates de Logtalk
 compiler and runtime in a `logtalk` module. See the pack specific
 [`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack-experimental/logtalk/README.md)
 file for details. This pack is only available as a manual download:
 
-> [`logtalk-experimental-3.64.0.tgz`](files/swi-prolog/packs/logtalk-experimental-3.64.0.tgz)  
-> `3f98a3bb9ec1a4e57c9b01ed2828bbe11936b40084351faa107f30ef5f2e80c6` (SHA-256)
+> [`logtalk-experimental-3.65.0.tgz`](files/swi-prolog/packs/logtalk-experimental-3.65.0.tgz)  
+> `f0845b88e631199f77797265b6bc54501547502ef0f69e055500a429b281fc5e` (SHA-256)
 
 In this case, change directory to the download directory, start SWI-Prolog,
-and run the query `pack_install('logtalk-experimental-3.64.0.tgz').`
+and run the query `pack_install('logtalk-experimental-3.65.0.tgz').`
 
 
 ### Arch Linux package
@@ -232,8 +232,8 @@ Ebrahim Azarisooreh.
 HTML, ePub, PDF, and Texinfo versions of the Handbook (includes a tutorial, the User Manual, the Reference Manual, and the FAQ).
 Note that the HTML and Texinfo versions are **included** in the source and binary packages.
 
-> [`logtalk-manuals-3.64.0.tgz`](files/logtalk-manuals-3.64.0.tgz)  
-> `b3825847662308622ecc29d183c4b43f0c9ca8060e0cc0c0d57fe8166d07bdaf` (SHA-256)
+> [`logtalk-manuals-3.65.0.tgz`](files/logtalk-manuals-3.65.0.tgz)  
+> `2e104ec6fcd8b76f1f533fc0375518561eaef35baaa9b555a6902b8cf4c01194` (SHA-256)
 
 
 ## Docker images

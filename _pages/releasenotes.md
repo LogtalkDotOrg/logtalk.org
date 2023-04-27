@@ -4,6 +4,160 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.65.0 - April 27, 2023
+=======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: Calls to unknown dynamic predicates in *this* from a category to
+throw an existence error instead of failing.
+
+* ADDED: Support to the `(@)/1` control construct for calling a predicate
+in *this* from any category and from objects.
+
+* ADDED: Support for `mode/2` directive `zero_or_more_or_error` and
+`one_or_more_or_error` number of proofs.
+
+* ADDED: Support for a `info/2` directive `since` key to document the version
+that added a predicate.
+
+Prolog adapter and integration files
+------------------------------------
+
+* ADDED: LVM adapter file support for the new `add_csv/3` built-in predicate
+introduced in version 6.0.0.
+
+* FIXED: The Scryer Prolog adapter file internal predicate for retrieving
+environment variable values. Thanks to Joe Taber for the bug report.
+
+Documentation
+-------------
+
+* ADDED: Documentation for the `(@)/1` control construct, which allows calling
+predicates in *this* from within categories.
+
+* IMPROVED: Handbook documentation on documenting predicates using the `mode/2`
+directive.
+
+Library
+-------
+
+* IMPROVED: Reduced the number of atoms created when calling the
+`atom::replace_sub_atom/4` library predicate.
+
+* FIXED: The `git` library when working with paths containing spaces.
+
+* FIXED: The `os::date_time/7` library predicate for Scryer Prolog when the
+`double_quotes` flag is set to `atom`.
+
+Tools
+-----
+
+* CHANGED: The `debugger` tool `notrace/0` predicate to only turn off tracing,
+thus allowing the debugger to continue to stop at defined spy points.
+
+* CHANGED: The `lgtunit` tool input/output testing predicates to always
+interpret relative paths as relative to the tests object path and to always
+open temporary files in the same directory as the tests object. This
+simplifies usage and improves reliability by not depending on the current
+working directory.
+
+* CHANGED: The `lgtunit` tool `file_path/2` to also accept absolute file paths
+(further expanding them to resolve any remaining relative file path parts).
+
+* CHANGED: The `lgtunit` tool support for generating Allure reports now
+requires version 2.21.0 or later.
+
+* CHANGED: The `lgtunit` tool `xunit_output` and `xunit_report` formats to
+include as test case properties the test file, test lines, test URL, and
+test note (if any).
+
+* CHANGED: The `lgtunit` tool `xunit_net_v2_output` and `xunit_net_v2_report`
+formats now include the test note (if any) as a test trait for all outcomes.
+
+* CHANGED: The `lgtunit` tool `run/1` predicate to also save and restore the
+current output stream and working directory when running tests. Moreover, the
+predicate now only fails when given a partial list of tests or when one of the
+test identifiers is not valid.
+
+* ADDED: New `debugger` tool port command `N` to turn off tracing.
+
+* ADDED: Support to the `lgtdoc` tool to output `info/2` directive `since`
+keys.
+
+* ADDED: New `lgtunit` tool `clean_directory/1` protected predicate to delete
+an empty directory if it exists.
+
+* IMPROVED: Reduced the number of atoms created when using the `diagrams`,
+`lgtdoc`, and `lgtunit` tools.
+
+* IMPROVED: The `lgtunit` tool now saves and restores the current working
+directory when running tests.
+
+* IMPROVED: The `lgtunit` tool `file_path/2` and `clean_file/1` utility
+predicates to expand the constructed absolute file path to resolve any
+remaining relative file path parts.
+
+* IMPROVED: The `lgtunit` tool documentation of the input/output testing
+predicates.
+
+* IMPROVED: The `logtalk_allure_report` scripts to check if Allure is
+installed and the required minimal version.
+
+* IMPROVED: The `debugger` tool `debugging/0` predicate now also prints the
+maximum write depth for terms.
+
+* UPDATED: The `logtalk_allure_report` scripts to add a `categories.json` file
+to classify failed tests.
+
+* FIXED: The `lgtunit` tool xUnit format support to ensure that test URLs
+are correct when the suppressed path prefix ends with a slash.
+
+* FIXED: The `logtalk_tester.ps1` script reporting of test sets with multiple
+or parametric test objects.
+
+* FIXED: The `debugger` tool to reset skipping and zapping state when tracing
+a new top-level query. Thanks to Lindsey Spratt for the bug report.
+
+* FIXED: The `debugger` tool `notrace/0` and `nodebug/0` predicates when the
+*leap* command as used before calling the predicates. Thanks to Lindsey Spratt
+for the bug report.
+
+Examples
+--------
+
+* FIXED: The `tester.ps1` files for the `clustering`, `document_converter`,
+and `neo4j` Java examples to avoid PowerShell errors when running the
+`logtalk_tester.ps1` automation script with options other than `-p`.
+
+Tests
+-----
+
+* ADDED: Tests for the `(@)/1` control construct.
+
+* ADDED: Tests for the ISO Prolog standard line and block comment syntax.
+
+* IMPROVED: Add `note/1` option to tests that are skipped due to being STO.
+
+* IMPROVED: Add `note/1` option to tests that are skipped due the lack of a
+Prolog portable solution to specify text encoding.
+
+* UPDATED: The tests for the `uses/2` directive for Scryer Prolog.
+
+* FIXED: The tests for the `diagrams` tool to use the Logtalk default scratch
+directory as the temporary directory for generated diagram files.
+
+Installers and installation scripts
+-----------------------------------
+
+* ADDED: Preliminary support for Scryer Prolog to the Windows installer.
+Assumes a `C:\scryer-prolog\scryer-prolog.exe` executable.
+
+* ADDED: Preliminary support for Trealla Prolog to the Windows installer.
+Assumes a `C:\tpl-windows-x64\tpl.exe` executable.
+
+
 3.64.0 - March 28, 2023
 =======================
 

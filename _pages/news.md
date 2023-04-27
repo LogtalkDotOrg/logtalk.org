@@ -8,6 +8,21 @@ aside:
 
 ### 2023
 
+##### April 27
+
+> Logtalk 3.65.0 is now available for [downloading](download.html). This release
+> documents the no longer experimental `(@)/1` control construct; adds a new
+> `since` key to the `info/2` directive; adds two new values for the number of
+> proofs to the `mode/2` directive; improves the Handbook sections on debugging
+> and documenting predicates; reduces the number of atoms created by some tools
+> and libraries; fixes the `git` library when working with paths containing
+> spaces; includes significant fixes and improvements to the `debugger` and
+> `lgtunit` tools; improves tests reporting; includes fixes for the Java
+> examples and testing automation on Windows; adds notes for most of the
+> skipped tests; includes new and revised tests; and provides portability
+> updates for LVM, Scryer Prolog, and, Trealla Prolog. For details and a
+> complete list of changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### March 28
 
 > Logtalk 3.64.0 is now available for [downloading](download.html). This release
