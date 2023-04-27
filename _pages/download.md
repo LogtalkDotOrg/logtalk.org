@@ -171,7 +171,7 @@ courtesy of [Paul Brown](https://pbrown.me/).
 
 > [`logtalk-3.65.0.exe`](files/logtalk-3.65.0.exe)  
 > `37138086f9818487d330744cb6ab8e7f632f67b8a693d4b2f0551bebfd31581b` (SHA-256)  
-> [VirusTotal scan results](https://www.virustotal.com/gui/url/c9bf9991f74bc1a43206dd7b76d91346db61d4e2fc146e759baf391df78dca6b)
+> [VirusTotal scan results](https://www.virustotal.com/gui/url/1dca77c9d67b765cb82da2e954bb9b386f4bc1dd6deda304692af8fe3417224b)
 
 Logtalk is also available as a [Chocolatey package](https://chocolatey.org/packages/logtalk/)
 and can be installed or updated using the `choco install logtalk` and
