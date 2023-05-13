@@ -179,7 +179,12 @@ and can be installed or updated using the `choco install logtalk` and
 Server 2019, you can use the Windows Subsystem for Linux (WSL) and install
 Logtalk using one of the Linux installers listed in this page.
 
-Installing on Windows 10 requires temporarily turning off `Ransomware
+Logtalk is also available as a [winget package](https://github.com/microsoft/winget-pkgs/tree/master/manifests/l/Logtalk/Logtalk),
+thanks to the GitHub user [SpecterShell](https://github.com/SpecterShell),
+and can be installed or updated using the `winget install logtalk` and
+`winget upgrade logtalk` commands.
+
+Installing on Windows 10 may require temporarily turning off `Ransomware
 protection` (in the `Windows Defender Security Center` preferences) if
 enabled as the Logtalk installer creates the the Logtalk user directory
 inside the `Documents` directory by default.
