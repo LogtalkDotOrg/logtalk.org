@@ -490,7 +490,7 @@ Publications on research and applications using Logtalk:
 -   Michael Igler (testing, bug reports)
 -   Michael McNally (feedback on tutorials, examples, and documentation)
 -   Michael Sheets (text editor support)
--   Michael T. Richter (Textadept text editor support, pengines example)
+-   Michael T. Richter (Textadept text editor support, pengines example, [Rosetta Code](https://rosettacode.org/) tasks)
 -   Neda Saeedloei (coinduction examples)
 -   Neng-Fa Zhou (bug reports)
 -   Nicolas Pelletier (bug reports, text editor support)
