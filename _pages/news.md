@@ -8,6 +8,24 @@ aside:
 
 ### 2023
 
+##### May 30
+
+> Logtalk 3.66.0 is now available for [downloading](download.html). This
+> release adds new keys to the `logtalk_load_context/2` built-in predicate
+> for use with the term-expansion mechanism; adds two new meta-messages to
+> the message printing mechanism to support user-defined printing goals;
+> adds new linter warnings for DCGs, lambda expressions, predicate
+> directives and backends without a module system; improves reporting of
+> warnings when compiling auxiliary predicates; improves the Handbook and
+> the documentation of several libraries and tools; adds a new `ulid`
+> library for generating Universally Unique Lexicographically Sortable
+> Identifiers; provides improvements and fixes to several tools, libraries
+> examples, and contributions; adds additional compliance tests for Prolog
+> standard predicates; fixes a registry issue when running the Windows
+> installer; and provides portability updates for LVM, Quintus Prolog,
+> Scryer Prolog, and, Trealla Prolog. For details and a complete list of
+> changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### April 27
 
 > Logtalk 3.65.0 is now available for [downloading](download.html). This release
