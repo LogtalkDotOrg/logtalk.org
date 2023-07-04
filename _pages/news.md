@@ -8,6 +8,27 @@ aside:
 
 ### 2023
 
+##### July 4
+
+> Logtalk 3.67.0 is now available for [downloading](download.html). This
+> release adds two new linter flags; abstracts how the linter and make
+> tools check if a module defines a predicate; provides Handbook plus
+> libraries and tools documentation updates; includes fixes and improvements
+> for the `arbitrary` and `type` libraries handling of Unicode code
+> points; adds new predicates to the `lgtdoc` tool; adds a new option
+> to the `packs` tool `packs::update/2-3` predicates; adds `lgtunit` tool
+> support for detecting and reporting discrepancies between the number of
+> tests run and the total number of tests defined in a test set; adds
+> `logtalk_tester` scripts support for using a GNU Prolog executable that
+> includes Logtalk for better performance; adds `help` tool support for
+> additional operating-systems; fixes bugs in the `debugger`, `diagrams`,
+> `lgtdoc`, and `lgtunit` tools; updates several examples tests to use
+> explicit assertions; adds new tests for Prolog standards directives and
+> built-in predicates; improves tests for Prolog Unicode support; and
+> provides portability updates for GNU Prolog, JIProlog, LVM, Scryer Prolog,
+> and, Trealla Prolog. For details and a complete list of changes, please
+> consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### May 30
 
 > Logtalk 3.66.0 is now available for [downloading](download.html). This

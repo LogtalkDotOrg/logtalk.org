@@ -10,18 +10,18 @@ Prolog compiler is accomplished using a small adapter file. The Logtalk
 distribution includes adapter files for all supported Prolog compilers:
 
 -   [B-Prolog 8.1 or later versions](http://www.picat-lang.org/bprolog/)
--   [Ciao Prolog (version 1.21.0 or later)](http://ciao-lang.org) *(experimental)*
+-   [Ciao Prolog (version 1.22.0 or later)](http://ciao-lang.org) *(experimental)*
 -   [CxProlog 0.98.1 or later versions](http://ctp.di.fct.unl.pt/~amd/cxprolog/)
 -   [ECLiPSe 6.1\#143 or later versions](http://eclipseclp.org/)
 -   [GNU Prolog 1.4.5 or later versions](http://www.gprolog.org/)
 -   [JIProlog 4.1.7.1 or later versions](http://www.jiprolog.com/)
--   LVM 3.2.0 or later versions
+-   LVM 4.1.0 or later versions
 -   [Quintus Prolog 3.3\~3.5](https://quintus.sics.se) *(experimental)*
--	[Scryer Prolog 0.9.0 or later versions](https://github.com/mthom/scryer-prolog) *(experimental)*
+-	[Scryer Prolog 0.9.1 or later versions](https://github.com/mthom/scryer-prolog) *(experimental)*
 -   [SICStus Prolog 4.1.0 or later versions](https://sicstus.sics.se)
 -   [SWI Prolog 6.6.0 or later versions](http://www.swi-prolog.org/)
 -   [Tau Prolog (version 0.3.2 or later)](http://tau-prolog.org)
--   [Trealla Prolog (version 1.23.14 or later)](https://github.com/trealla-prolog/trealla) *(experimental)*
+-   [Trealla Prolog (version 2.18.7 or later)](https://github.com/trealla-prolog/trealla) *(experimental)*
 -   [XSB 3.8.0 or later versions](http://xsb.sourceforge.net/)
 -   [YAP 6.3.4 or later versions](https://github.com/vscosta)
 

@@ -4,6 +4,309 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.67.0 - July 4, 2023
+=====================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Two new linter flags, `grammar_rules` and `arithmetic_expressions`,
+to enable/disable the corresponding warnings.
+
+* IMPROVED: Abstract how the linter and make tools check if a module defines
+a predicate. While this fixes some issues with some backends (e.g. ECLiPSe),
+most systems don't provide a reliable and clean solution for performing these
+checks.
+
+* UPDATED: The compiler to also handle the `lsb/1` and `msb/1` integer
+functions when lint checking `(is)/2` goals.
+
+* FIXED: Linter check false positives for predicates called as non-terminals
+when the non-terminal is declared as dynamic.
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: The Trealla Prolog adapter file to require version 2.18.7 or later.
+
+* ADDED: macOS `.command` files for JIProlog and Scryer Prolog.
+
+Documentation
+-------------
+
+* CHANGED: Use `SPDX-FileCopyrightText` for most files copyright information.
+
+* ADDED: Section on writing debugging/logging messages from tests to the
+`lgtunit` tool documentation.
+
+* UPDATED: Documentation of the `dictionaries` library.
+
+* FIXED: Several typos in the Handbook section on Prolog integration and
+migration.
+
+Library
+-------
+
+* IMPROVED: Simplified some of the `dictionaries` library test assertions and
+changed most tests to check for expected determinism.
+
+* FIXED: The `type` library object type-checking of Unicode character codes to
+exclude non-character code points (i.e. reserved, surrogate, or non-assigned).
+Currently, this check is only accurate for LVM and SWI-Prolog as other backends
+don't provide support for querying a Unicode code point category. 
+
+* FIXED: The `arbitrary` library category generation of Unicode character codes
+to exclude non-character code points (i.e. reserved, surrogate, or non-assigned).
+Currently, this is only accurate for LVM and SWI-Prolog as other backends
+don't provide support for querying a Unicode code point category. 
+
+* FIXED: The `arbitrary` library category generation of Unicode atoms in the
+BMP to avoid atom normalization (as performed by some backends such as LVM)
+resulting in atoms with characters outside the BMP.
+
+* FIXED: The `arbitrary` library category generation of Unicode atoms of a
+given length to avoid atom normalization (as performed by some backends such
+as LVM) resulting in atoms with a different length.
+
+Tools
+-----
+
+* ADDED: Predicates `rlibraries/1-2`, `libraries/1-2`, `rdirectories/1-2`,
+`directories/1-2`, and `files/1-2` to the `lgtdoc` tool.
+
+* ADDED: The `packs::update/2-3` predicates now accept an `install/1` boolean
+option to install a pack latest version when trying to update a pack that's
+not installed.
+
+* ADDED: The `lgtunit` tool now detects and reports discrepancies between the
+number of tests run and the total number of tests defined in a test set. This
+usually implies bugs in the implementation of basic Prolog control constructs
+by the used backend system.
+
+* ADDED: Support to the `logtalk_tester.*` scripts for using a GNU Prolog
+executable that includes Logtalk for better performance. With the help of
+Daniel Diaz.
+
+* UPDATED: The `help` tool to support other operating-systems, notably BSD,
+that also provide the `xdg-open` command.
+
+* FIXED: A `lgtunit` tool bug when a test condition goal throws an error that
+would result in the test being reported twice (both as skipped and failed).
+
+* FIXED: Tests for the `directory_dependency_diagram::rdirectory/2` and
+`directory_load_diagram::rdirectory/2` library predicates.
+
+* FIXED: The `debugger` tool messages was still wrongly assuming that LVM
+didn't provide a way to check if a call is deterministic.
+
+* FIXED: Prevent the `lgtdoc` tool `rdirectory/1-2` predicates from failing
+when there are no sub-directories with loaded files.
+
+Examples
+--------
+
+* REMOVED: Now redundant `cc` example.
+
+* UPDATED: The `assign_parameters`, `assumptions`, `cascade`, `delegates`,
+`inlining`, `metainterpreters`, `prototypes`, and `recipes` example tests
+to use explicit assertions.
+
+Tests
+-----
+
+* CHANGED: Only run the `log/2` arithmetic function tests when the function
+is implemented by the backend.
+
+* CHANGED: Splited the Unicode syntax tests in two sets, one for letter case
+and variables and one for escape sequences.
+
+* MOVED: Tests for the Logtalk implementation of the de facto Prolog
+standard conditional compilation directives from the `cc` example to
+the `tests/logtalk/directives/conditional_compilation` directory.
+
+* ADDED: Tests for the de facto Prolog standard conditional compilation
+directives.
+
+* ADDED: Additional tests for the Prolog standard `call/1` and `catch/3`
+control constructs.
+
+* ADDED: Additional tests for the Prolog `call/2-N`, `open/3-4`,
+`setup_call_cleanup/3`, and `write_term/2` predicates.
+
+* ADDED: Tests for the `evaluable_property/2` built-in predicate under
+discussion with Prolog system implementers.
+
+
+3.66.0 - May 30, 2023
+=====================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: New `parameter_variables`, `variable_names(Term)`, and
+`singletons(Term)` keys to the `logtalk_load_context/2` built-in predicate.
+
+* ADDED: Two new meta-messages, `[Stream,Prefix]>>Goal` and `[Stream]>>Goal`,
+to the message printing mechanism. These new meta-messages allow calling a
+user-defined printing goal. The use of lambda expressions allow passing the
+message stream and prefix.
+
+* ADDED: Linter warning for predicates called as non-terminals from grammar
+rules.
+
+* ADDED: Linter warning for unclassified (but non-singleton and non-anonymous)
+variables in `Free/Goal` lambda expressions.
+
+* ADDED: Linter warning for object, predicate, and non-terminal aliases that
+are not distinct from the originals.
+
+* ADDED: Linter warning for `(:)/2` goals when using a backend Prolog system
+that doesn't support modules and when not compiling a module as an object.
+Thanks to Lindsey Spratt for the suggestion.
+
+* ADDED: Linter warning for `use_module/1-2` file directives when using a
+backend Prolog system that doesn't support modules.
+
+* ADDED: Linter warning for `use_module/1-2` entity directives when using a
+backend Prolog system that doesn't support modules and not compiling a module
+as an object.
+
+* IMPROVED: Reporting of calls to undefined predicates and unknown predicates
+from auxiliary clauses (e.g. generated while compiling lambda expressions).
+
+* FIXED: Ensure that the `startup` library alias is found before the runtime
+constructed pack library aliases.
+
+* FIXED: Linter warning for unknown entities to only report unknown Prolog
+modules when the backend system actually support modules.
+
+* FIXED: Linter warning for unknown messages to only report calls to unknown
+Prolog module predicates when the backend system actually support modules.
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: The Trealla Prolog adapter file to require version 2.17.10 or later.
+
+* FIXED: The Quintus Prolog adapter file definition for the `subsumes_term/2`
+standard predicate.
+
+* FIXED: The Scryer Prolog adapter filer to not declare module meta-predicates
+as built-in meta-predicates.
+
+Documentation
+-------------
+
+* ADDED: Handbook description and examples of the new meta-messages.
+
+* IMPROVED: Handbook documentation of the `dynamic/0`, `include/1`, and
+`mode/2` directives.
+
+* IMPROVED: Handbook documentation of the `logtalk_library_path/2` predicate.
+
+* IMPROVED: Handbook documentation on definite clause grammars.
+
+* IMPROVED: Handbook documentation on `disjunctions` and `conditionals` linter
+flags.
+
+* IMPROVED: Documentation of the `packs` tool on requirements plus saving and
+restoring (virtual) environments.
+
+* IMPROVED: Documentation of the `linter`, `lgtunit`, and `tutor` tools.
+
+Library
+-------
+
+* CHANGED: The `hook_objects` library loader file to only load the
+`prolog_module_hook/1` object when running on a backend Prolog system
+supporting modules.
+
+* ADDED: New `ulid` library for generating Universally Unique Lexicographically
+Sortable Identifiers.
+
+* REMOVED: The `term` library object definition for the deprecated and no
+longer declared `vars/2` predicate.
+
+* CHANGED: Declare the `termp` library protocol `variables/2` predicate
+deprecated.
+
+* IMPROVED: Simplify the `term` library object `variant/2` predicate.
+
+* UPDATED: The `os` library for LVM to use the new `date_time/7` built-in
+predicate when available.
+
+* FIXED: Delete dead code in the the `csv` and `statistics` libraries.
+
+Tools
+-----
+
+* IMPROVED: The `dead_code_scanner` tool no longer reports predicates listed
+in `uses/2` or `use_module/2` directives that are made available as scoped
+predicates by the object (or category) containing the directives.
+
+* IMPROVED: The `dead_code_scanner` tool no longer reports predicates defined
+in a complementing category when the complemented object contains or inherits
+a scope directive for the predicate.
+
+* IMPROVED: The `tutor` tool explanation for compiler errors when trying
+to redefine the meaning of predicates listed in `uses/2` or `use_module/2`
+directives.
+
+* UPDATED: The `tutor` tool to explain the new linter warnings.
+
+* UPDATED: The `tutor` tool to also explain the linter warning on missing else
+part in if-then-else and soft-cut control constructs.
+
+* FIXED: The `packs` tool `describe/1-2` and `directory/2` predicates when
+listing orphaned packs.
+
+* FIXED: Syntax error when loading the `lgtdoc` tool using the XSB backend.
+
+* FIXED: Bug in the validation code for the `lgtdoc` tool predicate
+`entity_xsl_file` and `index_xsl_file` options.
+
+* FIXED: Delete dead code in the the `diagrams` tool.
+
+Examples
+--------
+
+* IMPROVED: Documentation of the `clustering`, `document_converter`, and
+`neo4j` examples.
+
+* UPDATED: The `errors` example to illustrate lambda expression linter
+warnings and the new linter warnings.
+
+* UPDATED: The `symbiosis` example for Scryer Prolog.
+
+* FIXED: Example `bench` cases where predicates were called as non-terminals.
+
+Tests
+-----
+
+* ADDED: Additional tests for the Prolog standard `op/3`, `number_chars/2`
+and `number_codes/2` predicates.
+
+* ADDED: Additional tests for the de facto Prolog standard `numbervars/3`
+predicate.
+
+* FIXED: Test for the `current_op/3` predicate (compliance with the ISO/IEC
+13211-1:1995(E) standard, section 8.14.4.1 NOTES).
+
+Contributions
+-------------
+
+* UPDATED: Automate some of the `xml_parser` contribution original tests.
+
+* FIXED: Cases in the `xml_parser` contribution where predicates were called
+as non-terminals.
+
+Installers and installation scripts
+-----------------------------------
+
+* FIXED: The Windows installer to write the Logtalk version to the registry
+`DisplayVersion` property. Fix contributed by the GitHub user SpecterShell.
+
+
 3.65.0 - April 27, 2023
 =======================
 
