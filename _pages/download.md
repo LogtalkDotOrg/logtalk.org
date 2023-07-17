@@ -246,6 +246,11 @@ Note that the HTML and Texinfo versions are **included** in the source and binar
 Nightly and stable Docker images are [available](https://hub.docker.com/u/logtalk/) using selected backend Prolog compilers.
 
 
+## Jupyter kernel
+
+A Jupyter kernel is [available](https://pypi.org/project/logtalk-jupyter-kernel/) supporting Logtalk notebooks using selected backend Prolog compilers.
+
+
 ## Older versions
 
 Older releases are available [here](/files/) (but note that time stamps
