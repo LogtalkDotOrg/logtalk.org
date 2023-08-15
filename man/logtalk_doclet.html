@@ -60,7 +60,7 @@ p.roffit {
 <p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">-v</span> Print script version. 
-<p class="level0"><span Class="bold">-p</span> Backend Prolog compiler. Required. The following identifiers are used: B-Prolog - <span Class="emphasis">b</span>, CxProlog - <span Class="emphasis">cx</span>, ECLiPSe - <span Class="emphasis">eclipse</span>, GNU Prolog - <span Class="emphasis">gnu</span>, JIProlog - <span Class="emphasis">ji</span>, LVM - <span Class="emphasis">lvm</span>, Scryer Prolog - <span Class="emphasis">scryer</span>, SICStus Prolog - <span Class="emphasis">sicstus</span>, SWI-Prolog - <span Class="emphasis">swi</span>, SWI-Prolog with Logtalk pack - <span Class="emphasis">swipack</span>, Tau Prolog - <span Class="emphasis">tau</span>, XSB - <span Class="emphasis">xsb</span>, YAP - <span Class="emphasis">yap</span>. 
+<p class="level0"><span Class="bold">-p</span> Backend Prolog compiler. Required. The following identifiers are used: B-Prolog - <span Class="emphasis">b</span>, CxProlog - <span Class="emphasis">cx</span>, ECLiPSe - <span Class="emphasis">eclipse</span>, GNU Prolog - <span Class="emphasis">gnu</span>, GNU Prolog (native code) - <span Class="emphasis">gnunc</span>, JIProlog - <span Class="emphasis">ji</span>, LVM - <span Class="emphasis">lvm</span>, Scryer Prolog - <span Class="emphasis">scryer</span>, SICStus Prolog - <span Class="emphasis">sicstus</span>, SWI-Prolog - <span Class="emphasis">swi</span>, SWI-Prolog with Logtalk pack - <span Class="emphasis">swipack</span>, Tau Prolog - <span Class="emphasis">tau</span>, XSB - <span Class="emphasis">xsb</span>, YAP - <span Class="emphasis">yap</span>. 
 <p class="level0"><span Class="bold">-d</span> Directory to store the doclet running logs. Default is the local <span Class="emphasis">./logtalk_doclet_logs</span> directory. 
 <p class="level0"><span Class="bold">-t</span> Timeout in seconds for running each doclet. Default is <span Class="emphasis">0</span>; i.e. disabled. 
 <p class="level0"><span Class="bold">-s</span> Path prefix to suppress when printing doclet paths. Default is the empty string. 
@@ -72,6 +72,8 @@ p.roffit {
 <p class="level0"><span Class="bold">1</span> Some doclets failed but there are no timed out or crashed doclets. 
 <p class="level0"><span Class="bold">3</span> One or more doclets timed out while executing but there are no crashed doclets. 
 <p class="level0"><span Class="bold">7</span> One or more doclets crashed the process running them. 
+<p class="level0"><a name="IMPLEMENTATION"></a><h2 class="nroffsh">Implementation notes</h2>
+<p class="level0">The <span Class="emphasis">gnunc</span> backend requires creating a GNU Prolog executable that includes Logtalk named <span Class="emphasis">gplgtnc</span> and making it available in the system <span Class="emphasis">PATH</span>. This executable can be created using the embedding script provided in the Logtalk distribution. For example: <span Class="bold">gprolog_embed_logtalk.sh -c -d ~/collect -- --new-top-level &amp;&amp; mv ~/collect/logtalk ~/collect/gplgtnc</span> 
 <p class="level0"><a name="ENVIRONMENT"></a><h2 class="nroffsh">Environment</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. 

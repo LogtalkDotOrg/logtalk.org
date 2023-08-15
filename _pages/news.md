@@ -8,6 +8,19 @@ aside:
 
 ### 2023
 
+##### July 28
+
+> Logtalk 3.68.0 is now available for [downloading](download.html). This
+> release adds a new `logtalk_load_context/2` predicate key for easy
+> access to the entity (being compiled) relations (joint work with Yurii
+> Rashkovskii); includes improved embedding scripts; improves `lgtunit`
+> reporting of tests execution times; provides fixes and improvements to
+> the `packs` tool; simplifies the Java examples setup scripts; includes
+> new tests for Prolog standard syntax and built-in predicates; and
+> provides portability updates for GNU Prolog, LVM, and SWI-Prolog. For
+> details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### July 4
 
 > Logtalk 3.67.0 is now available for [downloading](download.html). This
