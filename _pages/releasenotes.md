@@ -4,6 +4,109 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.69.0 - August 21, 2023
+========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* FIXED: Compilation of `read_term/2-3` and `write_term/2-3` goals would fail
+to take into account local operator definitions when the `portability` flag
+was set to `silent` (its default value).
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: The LVM adapter file list of proprietary predicate properties for
+version 6.4.0.
+
+* FIXED: Workaround a LVM embedding application issue with plug-ins where the
+registry name differs from the shared library basename.
+
+Documentation
+-------------
+
+* IMPROVED: Documentation of the `op/3` directive.
+
+* IMPROVED: Documentation of the `asserta/1` and `assertz/1` built-in methods.
+
+* IMPROVED: Documentation of the `diagrams` tool `path_url_prefixes/3` and
+`omit_path_prefixes/1` options.
+
+* IMPROVED: Documentation of the `lgtunit` tool on writing and running tests.
+
+Library
+-------
+
+* ADDED: Experimental `os::full_device_path/1` library predicate. Currently
+limited to Linux and BSD systems.
+
+* ADDED: Experimental `os::read_only_device_path/1` library predicate.
+Currently limited to macOS systems.
+
+* ADDED: Predicate `approximately_equal/2` to the `number` library object.
+
+* IMPROVED: The `number` object documentation of the `approximately_equal/3`
+and `essentially_equal/3` predicates.
+
+Tools
+-----
+
+* CHANGED: The `lgtunit` tool to handle a non-deterministic success test result
+as any other test failure (thus suppressing `non_deterministic_success/6` print
+messages).
+
+* ADDED: Predicate `approximately_equal/2` to the `lgtunit` tool.
+
+* ADDED: The `lgtunit` tool now supports a `flaky/0` test option as the
+preferred solution for declaring flaky tests.
+
+* IMPROVED: The `lgtunit` tool documentation of the `approximately_equal/3`
+and `essentially_equal/3` predicates.
+
+* IMPROVED: The `diagrams` tool DOT language support no longer sets the graph
+`pack` attribute to `true` to avoid frequent Graphviz `dot` command crashes
+when converting graphs to SVG format.
+
+* IMPROVED: The `lgtdoc` tool support for documenting libraries where source
+files are organized in multiple sub-directories.
+
+* IMPROVED: The `tutor` tool explanations for some message sending warnings.
+
+* FIXED: The `lgtunit` tool xUnit reports escaping of XML special characters.
+
+* FIXED: Bug in the `packs` tool warning message when installing a pack
+requires updating the backend Prolog system. Thanks to Jacob Friedman for
+the bug report.
+
+Examples
+--------
+
+* IMPROVED: The `metapredicates` example.
+
+* UPDATED: The `document_converter` example to allow converting large files
+and to turn off OCR for faster testing. Also added samples in formats other
+than PDF. Tested with Apache Tika 2.8.0.
+
+Tests
+-----
+
+* ADDED: Additional tests for the Logtalk `op/3` directive for checking the
+semantics of the `read_term/2-3`, `read/1-2`, `write_term/2-3`, `writeq/1-2`,
+and `write/1-2` predicates in the presence of local operator definitions.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: The LVM embedding scripts to support encryption of the generated
+Prolog files. Requires LVM 6.4.0 or later version.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* UPDATED: Link to the new home for the VSCode Logtalk plug-in.
+
+
 3.68.0 - July 25, 2023
 ======================
 

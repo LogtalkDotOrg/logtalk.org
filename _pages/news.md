@@ -8,6 +8,24 @@ aside:
 
 ### 2023
 
+##### August 21
+
+> Logtalk 3.69.0 is now available for [downloading](download.html). This
+> release fixes the compilation of `read_term/2-3` and `write_term/2-3`
+> goals when defining local operators; improves the documentation of
+> directives, built-in methods, libraries, and tools; adds new experimental
+> predicates to the `os` library for accessing full and read-only devices;
+> improves the `lgtunit` tool support for flaky tests; fixes the `lgtunit`
+> tool xUnit reports escaping of XML special characters, fixes the `diagrams`
+> tool generation of SVG diagrams to avoid frequent Graphviz crashes; improves
+> the `lgtdoc` tool support for documenting libraries where source files are
+> organized in multiple sub-directories; improves the `tutor` tool explanations
+> for some message sending warnings; adds additional tests for the `op/3`
+> directive; updates the `document_converter` example to allow converting
+> large files; and provides portability updates for LVM. For details and a
+> complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### July 28
 
 > Logtalk 3.68.0 is now available for [downloading](download.html). This
