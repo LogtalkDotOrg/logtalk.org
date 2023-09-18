@@ -4,6 +4,81 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.70.0 - September 18, 2023
+===========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Linter check for missing arithmetic functions when using a backend
+implementing the `evaluable_property/2` predicate.
+
+* IMPROVED: The compiler to optimize the compilation of `catch/3` goals where
+the first argument is a `call/1` goal.
+
+Prolog adapter and integration files
+------------------------------------
+
+* FIXED: The GNU Prolog adapter file to rely on the new `show_banner` flag
+(when available) instead of the new `show_information` flag (in the upcoming
+1.6.0 release) to set the Logtalk `report` flag.
+
+Documentation
+-------------
+
+* IMPROVED: Documentation of the embedding scripts, notably on how to ensure
+relocatable applications.
+
+* UPDATED: The man pages of the `logtalk_doclet` and `logtalk_tester` scripts
+on generating a GNU Prolog executable that includes Logtalk.
+
+* FIXED: Override default Pygments CSS style for syntax highlighting errors
+in the Handbook to avoid displaying red boxes in non-Logtalk code blocks.
+
+Libraries
+---------
+
+* ADDED: Additional tests for the `java` library conversion between non-ASCII
+Java strings and Prolog atoms.
+
+Tools
+-----
+
+* IMPROVED: The `packs` tool handling of pack dependencies to try first
+to select dependency versions that verify any Logtalk and Prolog backend
+requirements before resorting to versions that just comply with the parent
+pack requirements.
+
+* UPDATED: The `logtalk_allure_report` scripts to support generating single
+file reports when running Allure 2.24.0 or a later version.
+
+* UPDATED: The `packs` tool to print an error message when updating a pack
+fails unexpectedly.
+
+* FIXED: The `packs::update/0` predicate to use default options for updating
+the outdated packs.
+
+Examples
+--------
+
+* IMPROVED: The `document_converter` example for faster conversion of large
+PDF files.
+
+Tests
+-----
+
+* ADDED: Additional Unicode tests for the standard `sub_atom/5` predicate.
+
+Installers and installation scripts
+-----------------------------------
+
+* ADDED: All the embedding scripts now support omitting a settings file by
+using the `-s none` option.
+
+* FIXED: All the embedding scripts to use the default value for the settings
+file if none is specified (using the `-s` option) as per documentation.
+
+
 3.69.0 - August 21, 2023
 ========================
 

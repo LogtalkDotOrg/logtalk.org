@@ -73,7 +73,7 @@ p.roffit {
 <p class="level0"><span Class="bold">3</span> One or more doclets timed out while executing but there are no crashed doclets. 
 <p class="level0"><span Class="bold">7</span> One or more doclets crashed the process running them. 
 <p class="level0"><a name="IMPLEMENTATION"></a><h2 class="nroffsh">Implementation notes</h2>
-<p class="level0">The <span Class="emphasis">gnunc</span> backend requires creating a GNU Prolog executable that includes Logtalk named <span Class="emphasis">gplgtnc</span> and making it available in the system <span Class="emphasis">PATH</span>. This executable can be created using the embedding script provided in the Logtalk distribution. For example: <span Class="bold">gprolog_embed_logtalk.sh -c -d ~/collect -- --new-top-level &amp;&amp; mv ~/collect/logtalk ~/collect/gplgtnc</span> 
+<p class="level0">The <span Class="emphasis">gnunc</span> backend requires creating a GNU Prolog executable that includes Logtalk named <span Class="emphasis">gplgtnc</span> and making it available in the system <span Class="emphasis">PATH</span>. This executable can be created using the embedding script provided in the Logtalk distribution. For example: <span Class="bold">gprolog_embed_logtalk.sh -c -d ~/collect -s none -- --new-top-level &amp;&amp; mv ~/collect/logtalk ~/collect/gplgtnc</span> 
 <p class="level0"><a name="ENVIRONMENT"></a><h2 class="nroffsh">Environment</h2>
 <p class="level0">
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. 

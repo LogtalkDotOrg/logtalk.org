@@ -8,6 +8,21 @@ aside:
 
 ### 2023
 
+##### September 18
+
+> Logtalk 3.70.0 is now available for [downloading](download.html). This
+> release adds a new linter warning for missing arithmetic functions; fixes
+> the GNU Prolog integration script when using the `--quiet` option; improves
+> the documentation of the embedding scripts; fixes a Handbook code rendering
+> issue; adds additional tests for the `java` library; provides improvements
+> and fixes for the `packs` tool; updates the `logtalk_allure_report` scripts
+> to support generating single file reports; improves and fixes the embedding
+> scripts handling of the settings option; updates the `document_converter`
+> example for faster conversion of large PDF files; and adds additional Unicode
+> tests for the standard `sub_atom/5` predicate. For details and a complete
+> list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### August 21
 
 > Logtalk 3.69.0 is now available for [downloading](download.html). This

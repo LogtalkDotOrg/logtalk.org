@@ -11,7 +11,7 @@ permalink: index.html
   </div>
 </div>
 
-<p align="right" style="font-size:12px; padding:0px; margin:0px">@ v3.69.0 - August 21, 2023</p>
+<p align="right" style="font-size:12px; padding:0px; margin:0px">@ v3.70.0 - September 18, 2023</p>
 <p align="right" style="font-size:12px; padding:0px; margin:0px">
 <a class="github-button" href="https://github.com/sponsors/pmoura" data-icon="octicon-heart" aria-label="Sponsor @pmoura on GitHub">Sponsor</a>
 <a class="github-button" href="https://github.com/LogtalkDotOrg/logtalk3" data-icon="octicon-star" aria-label="Star LogtalkDotOrg/logtalk3 on GitHub">Star</a>
