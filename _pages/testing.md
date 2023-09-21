@@ -11,7 +11,7 @@ Several sets of unit tests are distributed with Logtalk. These include the tests
 Note that some tests require specific backend Prolog compiler features such as constraints, tabling, threads, and Unicode. These tests are skipped when using backend Prolog compilers without native support for those features.
 
 For information about the unit test framework and writing your own tests, see the [`lgtunit`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtunit/NOTES.md)
-tool documentation.
+tool documentation. See also the [technical blog posts](blog.html?tag=testing) on testing.
 
 ## Running unit tests
 

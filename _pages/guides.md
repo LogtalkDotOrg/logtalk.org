@@ -8,6 +8,9 @@ aside:
 
 ## Learning
 
+-	Presentation slides
+	-	[Logtalk introduction](https://logtalk.org/learning/logtalk_introduction.pdf) (PDF)
+	-	[Logtalk parametric objects](https://logtalk.org/learning/logtalk_parametric_objects.pdf) (PDF)
 -   [Quick start](https://github.com/LogtalkDotOrg/logtalk3/blob/master/QUICK_START.md)
 -   [Tutorials](documentation.html#tutorials)
 -   [Glossary](https://logtalk.org/manuals/glossary.html)
