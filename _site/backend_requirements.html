@@ -287,9 +287,9 @@
 
 <p>The <code class="highlighter-rouge">setup_call_cleanup/3</code> predicate is only required for systems providing a compatible threads implementation and for support of some tools features that require checking query determinism. In the second case, it can be replaced by the <code class="highlighter-rouge">call_cleanup/2</code> predicate.</p>
 
-<p>It is possible to hack around missing <code class="highlighter-rouge">format/2-3</code> predicates but the workaround is partial and slow, although it would allow basic usage of Logtalk.</p>
-
 <p>Logtalk coinduction features requires that the backend Prolog compiler supports cyclic terms and either the <code class="highlighter-rouge">*-&gt;/2</code> soft-cut control construct or the <code class="highlighter-rouge">if/3</code> soft-cut built-in predicate.</p>
+
+<p>The de facto standard <code class="highlighter-rouge">dialect</code> and <code class="highlighter-rouge">version_data</code> flags are required.</p>
 
 <p>In addition, Logtalk requires basic access to the operating-system (either as Prolog built-in predicates or as library predicates) including:</p>
 
@@ -309,7 +309,7 @@
 
 <p>These operating-system access predicates are used in the Prolog compiler adapter file and in the portable operating-system library.</p>
 
-<p>Convenient features include the de facto standard <code class="highlighter-rouge">dialect</code> and <code class="highlighter-rouge">version_data</code> flags, the <code class="highlighter-rouge">findall/4</code> predicate, access via <code class="highlighter-rouge">read_term/3</code> or <code class="highlighter-rouge">stream_property/2</code> to a read term position (line numbers), and a term hash predicate.</p>
+<p>Convenient features include the de facto standard <code class="highlighter-rouge">findall/4</code> predicate, access via <code class="highlighter-rouge">read_term/3</code> or <code class="highlighter-rouge">stream_property/2</code> to a read term position (line numbers), and a term hash predicate.</p>
 </div><footer class="article__footer"><!-- this will show at every article content's bottom --></footer>
 
   <div class="d-print-none"></div>

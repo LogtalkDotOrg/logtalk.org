@@ -121,7 +121,6 @@ Prolog integration scripts:
 -   JIProlog: [`jiplgt`](man/jiplgt.html)
 -   LVM: [`lvmlgt`](man/lvmlgt.html)
 -   Quintus Prolog: [`quintuslgt`](man/quintuslgt.html)
--   Scryer Prolog: [`scryerlgt`](man/scryerlgt.html)
 -   SICStus Prolog: [`sicstuslgt`](man/sicstuslgt.html)
 -   SWI-Prolog: [`swilgt`](man/swilgt.html)
 -   Tau Prolog: [`taulgt`](man/taulgt.html)
