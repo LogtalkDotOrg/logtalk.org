@@ -8,6 +8,25 @@ aside:
 
 ### 2023
 
+##### October 12
+
+> Logtalk 3.71.0 is now available for [downloading](download.html). This
+> release removes support for Scryer Prolog; fixes compatibility with
+> GNU Prolog versions older than 1.6.0; simplifies finding the goal to
+> use to load an entity when browsing the APIs documentation; improves
+> the documentation of embedding scripts; fixes a Texinfo navigation
+> issue between Handbook and APIs documentation; updates automated
+> testing to include any additional information from the Prolog backend
+> `version_data` flag; updates the `debugger` tool to print a procedure
+> box port for spy points when the port is unleashed; includes fixes and
+> improvements to the `packs` tool linting of pack specifications;
+> updates the `tutor` tool for the new linter warning on missing arithmetic
+> functions; updates the `lgtdoc` tool to include the goal required for
+> loading an entity in the entity documentation; and updates the `errors`
+> and `document_converter` examples. For details and a complete list of
+> changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### September 18
 
 > Logtalk 3.70.0 is now available for [downloading](download.html). This
