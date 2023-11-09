@@ -8,6 +8,24 @@ aside:
 
 ### 2023
 
+##### November 9
+
+> Logtalk 3.72.0 is now available for [downloading](download.html). This
+> release improves compiler performance of source files defining objects
+> and categories with a large number of facts; improves compiler performance
+> when compiling ground terms; simplifies handling of plain Prolog terms
+> when compiling source files; adds linter warnings for unsound calls in
+> grammar rules; adds additional linter warnings for deprecated predicates;
+> fixes a compiler error reporting issue; improves the Handbook section on
+> performance; improves the Handbook documentation of some built-in methods;
+> adds `lgtunit` documentation on mocking, testing and suppressing tests
+> output, and measuring test execution times and memory usage; fixes the
+> Handbook and APIs documentation search support to work offline; updates
+> the `help`, `packs`, and `tutor` tools; improves the macOS installer;
+> and updates the Windows installer for upcoming SICStus Prolog 4.9.x
+> versions. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### October 12
 
 > Logtalk 3.71.0 is now available for [downloading](download.html). This

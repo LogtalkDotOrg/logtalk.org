@@ -4,6 +4,88 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.72.0 - November 9, 2023
+=========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Linter warnings for use of unsound calls in grammar rules (when the
+argument of a `(\+)/1` call or the condition in `(->)/2` or `(*->)/2` calls
+is not `{}/1`).
+
+* ADDED: Linter warning for calls to the deprecated predicates `not/1` and
+`fail_if/1`.
+
+* IMPROVED: Simplified handling of plain Prolog terms when compiling source
+files.
+
+* IMPROVED: Avoid computing directory hash twice when compiling a source file.
+
+* IMPROVED: Performance when compiling object and category facts.
+
+* IMPROVED: Performance when compiling entity ground terms.
+
+* IMPROVED: Performance when compiling entity terms that are not expanded.
+
+* FIXED: Catch any errors during the compilation of the `begin_of_file`
+virtual term.
+
+* FIXED: Minor performance bug when compiling clauses for multifile predicates
+of parametric entities.
+
+* FIXED: Reporting of compiler instantiation errors in clause and grammar rule
+heads where a `'$VAR'/1` or `'$VAR'//1` term would be displayed.
+
+Prolog adapter and integration files
+------------------------------------
+
+* UPDATED: Notes on the LVM adapter file for enabling coinduction support.
+
+Documentation
+-------------
+
+* ADDED: Documentation to the `lgtunit` tool on mocking solutions.
+
+* ADDED: Documentation to the `lgtunit` tool on test execution times and
+memory usage.
+
+* ADDED: Documentation to the `lgtunit` tool on testing or suppressing
+expected output written to `user_error` and other streams.
+
+* IMPROVED: Handbook section on performance.
+
+* IMPROVED: Handbook documentation of the `(\+)/1` and `forall/2` built-in
+methods.
+
+* FIXED: Allow Handbook and APIs documentation search support to work offline.
+
+Tools
+-----
+
+* ADDED: Predicate `help::man/1` for inline browsing of man files.
+
+* UPDATED: The `tutor` tool for the new linter warnings on unsound calls in
+grammar rules.
+
+* FIXED: Typo in the `packs` tool error message when uncompressing a pack
+archive fails.
+
+Examples
+--------
+
+* UPDATED: The documentation of the `metainterpreters` example.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: The macOS installer to also add the Logtalk default paths to the
+`PATH`, `MANPATH`, and `INFOPATH` environment variables.
+
+* UPDATED: The Windows installation script to also detect upcoming SICStus
+Prolog 4.9.x versions.
+
+
 3.71.0 - October 12, 2023
 =========================
 
