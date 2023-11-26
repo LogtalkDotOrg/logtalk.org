@@ -15,6 +15,11 @@ aside:
 -   [Logtalking YouTube channel](https://www.youtube.com/channel/UCh0BiDU6xZUCGq66HylvXNg)
 
 
+## Grammar
+
+-	[Railroad diagram](grammar_diagram.html)
+
+
 ## Handbook
 
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
