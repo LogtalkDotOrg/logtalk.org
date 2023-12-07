@@ -8,7 +8,7 @@ aside:
 
 ## Why Logtalk?
 
-Logtalk is designed to _extend_ and _leverage_ Prolog. It provides an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of [developer tools](tools.html) (several of them state-of-the-art or absent from most Prolog systems). By Prolog modules we assume here the de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:
+Logtalk is designed to _extend_ and _leverage_ Prolog. It provides an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of [developer tools](tools.html) (several of them state-of-the-art or absent from most Prolog systems). By Prolog modules we assume here what _superficially_ looks like a de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:
 
 * Designed as a simple solution to hide auxiliary predicates
 * Based on a _predicate prefixing_ compilation mechanism
@@ -107,22 +107,23 @@ The Logtalk code is as readable as the module code, provides the same performanc
 
 ### Portability
 
-Logtalk is written in highly portable code and currently supports [15 backend Prolog systems](download.html#requirements). It can support any Prolog system that complies with official and de facto core standards. Logtalk [libraries](https://logtalk.org/manuals/libraries/index.html) and [developer tools](tools.html) are also portable. Portability contributes to robustness (by allowing testing with a larger number of Prolog systems) and risk mitigation (by facilitating switching between Prolog systems).
+Logtalk is written in highly portable code and currently supports [14 backend Prolog systems](download.html#requirements). It can support any Prolog system that complies with both official and de facto core standards and is independent of the presence or absence of a module system. Logtalk [libraries](https://logtalk.org/manuals/libraries/index.html) and [developer tools](tools.html) are also portable. Portability contributes to robustness (by allowing testing with a larger number of Prolog systems) and risk mitigation (by facilitating switching between Prolog systems).
 
 In contrast, the ISO Prolog standard for modules is ignored (for sound reasons) by Prolog implementers. Worse, Prolog systems implementing a module system have significant differences that hinder portability. A few examples:
 
 * Ciao Prolog - `module/3` proprietary directive
-* ECLiPSe - no `module/2` directive
+* ECLiPSe - no `module/2` directive; colon sets lookup module but not calling context
 * SICStus Prolog and XSB - no `reexport/1-2` directives
 * ISO standard - no `use_module/1-2` directives; `metapredicate/1` instead of `meta_predicate/1` directive
 * Ciao Prolog and SWI-Prolog - operators are local to modules
 * SICStus Prolog - operators are global
 * XSB - atom-based module system
 * ECLiPSe, SICStus Prolog, SWI-Prolog, YAP - predicate-based module system
+* SICStus Prolog, SWI-Prolog, YAP - colon sets both lookup module and calling context
 
-But even when two Prolog systems provide the same syntax constructs, different semantics exist. For example, in ECLiPSe the `ensure_loaded/1` directive is equivalent to a `use_module/2` directive with an empty list of imported predicates while in SWI-Prolog the `ensure_loaded/1` directive is equivalent to a `use_module/1` directive.
+But even when two Prolog systems provide the same syntax constructs, different semantics exist. For example, in ECLiPSe the `ensure_loaded/1` directive is equivalent to a `use_module/2` directive with an empty list of imported predicates while in SWI-Prolog the `ensure_loaded/1` directive is equivalent to a `use_module/1` directive. There also differences between module systems on how a file is specified in `use_module/1-2`, `ensure_loaded/1`, and `include/1` directives and on the interpretation of relative paths. The ISO standard specifies a `colon_sets_calling_context` boolean flag that allows code for a compliant system to be incompatible with code from another compliant system with a different flag value (theoretically, of course, as the standard is ignored). Moreover, not all Prolog systems implement modules; examples include B-Prolog, CxProlog, GNU Prolog, and Qu-Prolog.
 
-In addition, not all Prolog systems implement modules. Examples include B-Prolog, CxProlog, GNU Prolog, and Qu-Prolog. Logtalk highly portable code works as-is and independently of the presence or absence of a module system.
+Note that a code encapsulation mechanism is just part of the requirements for effective _programming in the large_: developer tools that understand and leverage the encapsulation mechanism are also key. Portable developer tools can be written provided comprehensive reflection support. But there isn't any standard (official or de facto) or standardization proposal for a Prolog reflection API. In fact, reflection support is appalling in most Prolog systems, which goes a long way in explaining the lack of native (not to mention portable) developer tools.
 
 ### Key mechanisms
 
@@ -142,7 +143,7 @@ The message printing mechanism can also be traced back to Quintus Prolog. But it
 
 The question asking mechanism is original to Logtalk and the dual of the message printing mechanism. It allows abstracting asking questions to a user in the same way that the message printing mechanism abstracts printing messages to the user. It is an uncommon mechanism. But it facilitates abstracting applications input/output interfaces while also allowing common requested features such as logging to be plugged in.
 
-Logtalk provides extensive and portable reflection support that enables developer tools to display and use comprehensive information about applications and their libraries, files, and predicates with full cross-referencing information. All Logtalk developer tools are regular applications using only the public reflection API. In constrast, most Prolog systems support for reflection is either non-existant or limited with tools support often limited to a basic built-in debugger.
+Logtalk provides extensive and portable reflection support that enables developer tools to display and use comprehensive information about applications and their libraries, files, and predicates with full cross-referencing information. All Logtalk developer tools are regular applications using only the public reflection API. In constrast, most Prolog systems support for reflection is either non-existant or limited supporting only a basic built-in debugger.
 
 ## Why not Logtalk?
 

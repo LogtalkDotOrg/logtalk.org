@@ -338,7 +338,7 @@ working code that also comply with coding guidelines. Lint checks include:</p>
   <li>Predicates called as non-terminals (instead of via the <code class="highlighter-rouge">call//1</code> built-in method)</li>
   <li>Non-portable predicate calls, predicate options, arithmetic function calls, directives, flags, and flag values</li>
   <li>Missing arithmetic functions (with selected backends)</li>
-  <li>Suspicious calls (syntactically valid calls that are likely semantic errors; e.g. float comparisons using the standard arithmetic comparison operators)</li>
+  <li>Suspicious calls (syntactically valid calls that are likely semantic errors; e.g. float comparisons using the standard arithmetic comparison operators or comparing numbers using unification)</li>
   <li>Deprecated directives, predicates, control constructs, and flags</li>
   <li>References to unknown entities (objects, protocols, categories, or modules)</li>
   <li>Top-level shortcuts used as directives</li>

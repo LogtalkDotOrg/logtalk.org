@@ -45,8 +45,8 @@ thus not stable and/or not (yet) providing required standard features. It
 may also apply to legacy Prolog compilers.
 
 Previous Logtalk 3.x versions and legacy 2.x versions provide support for
-some other Prolog compilers, which are no longer supported due to lack of
-compliance with official and de facto standards.
+several other Prolog compilers, which are no longer supported due to lack
+of compliance with both official and de facto standards.
 
 
 ## License
