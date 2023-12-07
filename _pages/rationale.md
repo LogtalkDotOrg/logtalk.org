@@ -8,7 +8,7 @@ aside:
 
 ## Why Logtalk?
 
-Logtalk is designed to _extend_ and _leverage_ Prolog. It provides an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of [developer tools](tools.html) (several of them state-of-the-art or absent from most Prolog systems). By Prolog modules we assume here what _superficially_ looks like a de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:
+Logtalk is designed to _extend_ and _leverage_ Prolog. It provides an alternative for Prolog modules, subsuming their functionality, complemented with a comprehensive set of [developer tools](tools.html) (several of them state-of-the-art or absent from most or all Prolog systems). By Prolog modules we assume here what _superficially_ looks like a de facto standard module system introduced by Quintus Prolog and adapted by most of the Prolog systems that provide an implementation of modules. Although Prolog systems adapted the original module system introducing several proprietary variations (and consequent severe portability issues), the fundamental characteristics remain:
 
 * Designed as a simple solution to hide auxiliary predicates
 * Based on a _predicate prefixing_ compilation mechanism
@@ -34,13 +34,13 @@ Logtalk provides a clear distinction between _declaring_ and _defining_ a predic
 
 In contrast, in module systems it's either a compiler error to try to export a predicate that is not defined or a predicate existence error to try to call an exported predicate that is not defined. The absence of a protocol/interface concept in module systems is sometimes hacked using `include/1` directives. But that leads to versioning of files instead of versioning of interfaces and does not provide a clean solution that allows two or more modules to implement the same interface as discussed above.
 
-Note that modules are a _predicate prefixing_ solution and thus any call to a module predicate requires it to be defined in the module that is implicit or explicit in the call (otherwise a predicate existence error is generated). There is no predicate _lookup_ that would allow to verify that a predicate is _declared_ prior to calling it or that would allow _inheriting_ a predicate definition.
+Note that modules are a _predicate prefixing_ solution and thus any call to a module predicate requires it to be defined in the module that is implicit or explicit in the call (otherwise a predicate existence error is generated). There is no predicate _lookup_ that would allow to verify that a predicate is _declared_ prior to calling it or that would allow _inheriting_ a predicate definition reliably.
 
 ### Consistent predicate call semantics
 
 In Logtalk, implicit message sending, using `uses/2` directive to resolve the messages, and explicit message sending, using the `::/2` control construct, have the same semantics for both meta-predicates and non meta-predicates. I.e. using implicit or explicit messages is simply a matter of programming style and programmer preference. For meta-predicates, this results in clear and clean meta-predicate call semantics: meta-arguments are **always** called in the meta-predicate _calling context_.
 
-Prolog modules, however, provide different semantics for implicit and explicit qualified calls to meta-predicates. Calling a module meta-predicate with implicit qualification (by using `use_module/1-2` directives) results in the meta-arguments being called in the meta-predicate _calling context_. But calling the same module meta-predicate using explicit qualification results in the meta-arguments being called in the meta-predicate _definition context_, not in the _calling context_.
+Prolog modules, however, provide different semantics for implicit and explicit qualified calls to meta-predicates. Calling a module meta-predicate with implicit qualification (by using `use_module/1-2` directives) results in the meta-arguments being called in the meta-predicate _calling context_. But calling the same module meta-predicate using explicit qualification results in the meta-arguments being called in the meta-predicate _definition context_, not in the _calling context_ in most module systems (ECLiPSe is an exception here).
 
 Consistent predicate call semantics require an implicit and comprehensive execution context that is alien to module systems. In Logtalk, this implicit execution context allows the language runtime to be aware of the _calling context_ and thus fully support not only consist predicate call semantics but also key features such as messages to _self_ and _super_ calls (which must preserve _self_ for correct semantics).
 
@@ -79,7 +79,7 @@ Most Prolog compilers are permissive, silently accepting problematic code. The L
 
 Logtalk objects *subsume* Prolog modules but the reverse is not true in general. You can't go from an object solution to a module solution easily or without significant hacking when you're taking advantage of e.g. inheritance, _self_ and _super_ calls, protocols, or parametric objects. Using a more general solution is worthy by itself and orthogonal to the programming in the small/large perspective.
 
-As Prolog modules *are* objects, prototypes to be exact, most module-based solution can be easily translated into an object-based solution. So easy in fact that the Logtalk compiler does it for you (minus proprietary stuff that chokes it, which varies from Prolog system to Prolog system; blame lack of standardization).
+As [Prolog modules *are* objects](2019/09/19/modules-are-objects.html), prototypes to be exact, most module-based solution can be easily translated into an object-based solution. So easy in fact that the Logtalk compiler does it for you (minus proprietary stuff that chokes it, which varies from Prolog system to Prolog system; blame lack of standardization).
 
 ```logtalk
 :- module(foo, [bar/1, baz/2]).
@@ -113,13 +113,13 @@ In contrast, the ISO Prolog standard for modules is ignored (for sound reasons) 
 
 * Ciao Prolog - `module/3` proprietary directive
 * ECLiPSe - no `module/2` directive; colon sets lookup module but not calling context
+* SICStus Prolog, SWI-Prolog, YAP - colon sets both lookup module and calling context
 * SICStus Prolog and XSB - no `reexport/1-2` directives
 * ISO standard - no `use_module/1-2` directives; `metapredicate/1` instead of `meta_predicate/1` directive
 * Ciao Prolog and SWI-Prolog - operators are local to modules
 * SICStus Prolog - operators are global
 * XSB - atom-based module system
 * ECLiPSe, SICStus Prolog, SWI-Prolog, YAP - predicate-based module system
-* SICStus Prolog, SWI-Prolog, YAP - colon sets both lookup module and calling context
 
 But even when two Prolog systems provide the same syntax constructs, different semantics exist. For example, in ECLiPSe the `ensure_loaded/1` directive is equivalent to a `use_module/2` directive with an empty list of imported predicates while in SWI-Prolog the `ensure_loaded/1` directive is equivalent to a `use_module/1` directive. There also differences between module systems on how a file is specified in `use_module/1-2`, `ensure_loaded/1`, and `include/1` directives and on the interpretation of relative paths. The ISO standard specifies a `colon_sets_calling_context` boolean flag that allows code for a compliant system to be incompatible with code from another compliant system with a different flag value (theoretically, of course, as the standard is ignored). Moreover, not all Prolog systems implement modules; examples include B-Prolog, CxProlog, GNU Prolog, and Qu-Prolog.
 
@@ -155,7 +155,7 @@ Starting a Logtalk application requires loading both the chosen backend Prolog s
 
 ### Increased application compilation times
 
-Currently, Logtalk is implemented as a trans-compiler to Prolog. This means that a Logtalk source file is compiled into an intermediate Prolog source file that in turn is compiled using the chosen backend Prolog compiler, thus potentially increasing application compilation times compared with a Prolog only solution. That said, a portable _make_ tool is provided to limit source file recompilation to only changed files helping minimize compilation time during development. Note that a comparison of application compilation times is only meaningful, however, for applications that don't take advantage of Logtalk unique features.
+Currently, Logtalk is implemented as a trans-compiler to Prolog. This means that a Logtalk source file is compiled into an intermediate Prolog source file that in turn is compiled using the chosen backend Prolog compiler, thus potentially increasing application compilation times compared with a Prolog only solution. That said, a [portable _make_ tool](tools.html#make) is provided to limit source file recompilation to only changed files helping minimize compilation time during development. Note that a comparison of application compilation times is only meaningful, however, for applications that don't take advantage of Logtalk unique features.
 
 ### Compatibility with Prolog native tools
 
