@@ -8,6 +8,47 @@ aside:
 
 ### 2023
 
+##### December 12
+
+> Logtalk 3.73.0 is now available for [downloading](download.html). This
+> release adds linter warnings for deprecated arithmetic predicates and
+> functions; adds warnings for comparing numbers using unification; adds
+> support for using backend-declared deprecated built-in predicates in
+> linter warnings; improves checking the availability of predicates in
+> `user` for `uses/2` and `use_module/2` directives; avoids false positive
+> linter warnings about non-terminals called as predicates when the
+> caller is a phrase-like predicate declared in the backend adapter file;
+> improves compiler reporting of term-expansion errors; fixes unknown and
+> undefined predicate call warnings when the calls occur in an included
+> file to report the actual location instead of the main file; fixes
+> printing of grammar rules linter warnings to respect the `grammar_rules`
+> flag; adds adapter files support for deprecated built-in predicates and
+> for declaring phrase-like predicates that call non-terminals; improves
+> the Handbook grammar section now uses W3C-style EBNF syntax compatible
+> with the [Railroad Diagram Generator](https://www.bottlecaps.de/rr/ui),
+> also fixing typos and omissions; improves the Handbook section on
+> parametric objects; improves the documentation of the `wrapper` tool;
+> adds an experimental `mutations` library for generating random mutations
+> of terms of selected types (intended for eventual fuzz testing support);
+> adds a `tsv` library for reading and writing TSV files; adds new predicates
+> and non-terminals to the `types`, `grammars`, and `random` libraries;
+> improves the performance of the `term_io` library predicates; includes
+> updates and fixes to the `lgtunit`, `tutor`, and `wrapper` tools; fixes
+> the PowerShell documentation scripts to avoid an error when converting
+> XML files; improves the `logtalk_tester` scripts detection and reporting
+> of broken test sets due to backend bugs; adds new `haunted_wasteland`,
+> `scratchcards`, and `trebuchet` examples (solving Advent of Code 2023
+> problems); adds new tests, updates, and fixes issues with the `poem`,
+> `profiling`, `self_vs_this`, `errors`, `bench`, and `benchmarks` examples;
+> adds additional tests for the `phrase/2-3` built-in methods and fixes
+> an issue with a `setof/3` built-in method test; improves the macOS
+> installer; fixes the `logtalk_user_setup.ps1` PowerShell script to use
+> a valid path for the backup directory; and includes portability updates
+> for B-Prolog, CxProlog, ECLiPSe, LVM, and SWI-Prolog. Thanks to Domingo
+> Alvarez Duarte and Yurii Rashkovskii for their contributions to this
+> release. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### November 9
 
 > Logtalk 3.72.0 is now available for [downloading](download.html). This

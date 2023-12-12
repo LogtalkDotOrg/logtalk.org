@@ -49,45 +49,29 @@ p.roffit {
 }
 </STYLE>
 </head><body>
-
-<p class="level0">
-<p class="level0"><a name="NAME"></a><h2 class="nroffsh">Name</h2>
-<p class="level0">logtalk_allure_report - Logtalk script for generating Allure reports 
-<p class="level0"><a name="SYNOPSIS"></a><h2 class="nroffsh">Synopsis</h2>
-<p class="level0"><span Class="bold">logtalk_allure_report -v</span> <br><span Class="bold">logtalk_allure_report</span> [<span class="bold">-d <span Class="emphasis">tests</span>] [<span class="bold">-i <span Class="emphasis">results</span>] [<span class="bold">-o <span Class="emphasis">report</span>] [<span class="bold">-t <span Class="emphasis">title</span>] [<span Class="bold">-p</span>] [<span Class="bold">-s</span>] [<span class="bold">-- <span Class="emphasis">environment pairs</span>] <br><span Class="bold">logtalk_allure_report -h</span> 
-<p class="level0"><a name="DESCRIPTION"></a><h2 class="nroffsh">Description</h2>
-<p class="level0"><span Class="bold">logtalk_allure_report</span> is a script for generating Allure reports (version 2.24.0 or later). Requires running first the <span Class="emphasis">logtalk_tester</span> script using the <span Class="emphasis">-f xunit</span> (or <span Class="emphasis">-f xunit_net_v2</span>) command-line option. 
-<p class="level0"><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
-<p class="level0">
-<p class="level0"><span Class="bold">-v</span> Print script version. 
-<p class="level0"><span Class="bold">-d</span> The directory containing the tests (i.e. the directory where the <span Class="emphasis">logtalk_tester</span> script was run; default is the current directory). 
-<p class="level0"><span Class="bold">-i</span> Directory where to collect the test results (i.e. the xUnit reports) for generating the report (default is <span Class="emphasis">./allure-results</span>). 
-<p class="level0"><span Class="bold">-o</span> Directory where the report is to be saved (default is <span Class="emphasis">./allure-report</span>). If the directory already exists and contains a previous report, its contents are deleted before generating the new report. If the directory exists, is not empty, and does not appear to contain a previous report, the script execution is terminated to prevent data loss. 
-<p class="level0"><span Class="bold">-t</span> Report title (default is &quot;Allure Report&quot;; this option is ignored when using the <span Class="emphasis">-p</span> option). 
-<p class="level0"><span Class="bold">-p</span> Preprocess results but do not generate report. Useful when the actual generatation of the report is delegated to e.g. a Docker service or a Jenkins plug-in. 
-<p class="level0"><span Class="bold">-s</span> Generate a single file report. 
-<p class="level0"><span Class="bold">--</span> Environment pairs (key1=value1 key2=value2 ...). Used to generate an <span Class="emphasis">environment.properties</span> for adding additional information to the generated report. 
-<p class="level0"><span Class="bold">-h</span> Provide help on script usage. 
-<p class="level0"><a name="EXIT"></a><h2 class="nroffsh">Exit status</h2>
-<p class="level0">
-<p class="level0"><span Class="bold">0</span> Allure report successfully created. 
-<p class="level0"><span Class="bold">1</span> Either the results directory does not exist or the report directory exists but it is not empty and does not contain a previous report. 
-<p class="level0"><a name="EXAMPLES"></a><h2 class="nroffsh">Examples</h2>
-<p class="level0">
-<p class="level0">Run all tests on the current directory and sub-directories using the GNU Prolog backend (saving the test results in the required xUnit format), generate the Allure report, and open the report for browsing: <span Class="bold">logtalk_tester -p gnu -f xunit</span> <br><span Class="bold">logtalk_allure_report</span> <br><span Class="bold">allure open</span> 
-<p class="level0">
-<p class="level0">Set the title for the report and information on the backend used: <span Class="bold">logtalk_allure_report -t &quot;My application tests report&quot; -- Backend=&#39;GNU Prolog&#39; Commit=f7a106e</span> <br><span Class="bold">allure open</span> 
-<p class="level0">
-<p class="level0">Save the processed test results and the report data to permanent directories so that the report shows tests run trends: <span Class="bold">logtalk_allure_report -i &quot;$HOME/my_project/allure-results&quot; -o &quot;$HOME/my_project/allure_report&quot;</span> <br><span Class="bold">allure open &quot;$HOME/my_project/allure_report&quot;</span> 
-<p class="level0"><a name="IMPLEMENTATION"></a><h2 class="nroffsh">Implementation notes</h2>
-<p class="level0">Tested using Allure 2.24.0. 
-<p class="level0"><a name="SEE"></a><h2 class="nroffsh">See also</h2>
-<p class="level0">The Allure website at <a href="https://docs.qameta.io/allure-report/">https://docs.qameta.io/allure-report/</a> 
-<p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> 
-<p class="level0">The Logtalk User and Reference Manuals at <span Class="bold">$LOGTALKHOME/manuals/index.html</span> 
-<p class="level0"><a name="AUTHOR"></a><h2 class="nroffsh">Author</h2>
-<p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt; 
-<p class="level0"><a name="COPYRIGHT"></a><h2 class="nroffsh">Copyright</h2>
-<p class="level0">Copyright (c) 1998-2023 Paulo Moura. <p class="roffit">
- This HTML page was made with <a href="http://daniel.haxx.se/projects/roffit/">roffit</a>.
+<a name="NAME"></a><h2 class="nroffsh">Name</h2>
+<p class="level0">logtalk_allure_report - Logtalk script for generating Allure reports </p><a name="SYNOPSIS"></a><h2 class="nroffsh">Synopsis</h2>
+<p class="level0"><span Class="bold">logtalk_allure_report -v</span> <br><span Class="bold">logtalk_allure_report</span> [<span class="bold">-d <span Class="emphasis">tests</span>] [<span class="bold">-i <span Class="emphasis">results</span>] [<span class="bold">-o <span Class="emphasis">report</span>] [<span class="bold">-t <span Class="emphasis">title</span>] [<span Class="bold">-p</span>] [<span Class="bold">-s</span>] [<span class="bold">-- <span Class="emphasis">environment pairs</span>] <br><span Class="bold">logtalk_allure_report -h</span> </p><a name="DESCRIPTION"></a><h2 class="nroffsh">Description</h2>
+<p class="level0"><span Class="bold">logtalk_allure_report</span> is a script for generating Allure reports (version 2.24.0 or later). Requires running first the <span Class="emphasis">logtalk_tester</span> script using the <span Class="emphasis">-f xunit</span> (or <span Class="emphasis">-f xunit_net_v2</span>) command-line option. </p><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
+<p class="level0"><span Class="bold">-v</span> Print script version. </p>
+<p class="level0"><span Class="bold">-d</span> The directory containing the tests (i.e. the directory where the <span Class="emphasis">logtalk_tester</span> script was run; default is the current directory). </p>
+<p class="level0"><span Class="bold">-i</span> Directory where to collect the test results (i.e. the xUnit reports) for generating the report (default is <span Class="emphasis">./allure-results</span>). </p>
+<p class="level0"><span Class="bold">-o</span> Directory where the report is to be saved (default is <span Class="emphasis">./allure-report</span>). If the directory already exists and contains a previous report, its contents are deleted before generating the new report. If the directory exists, is not empty, and does not appear to contain a previous report, the script execution is terminated to prevent data loss. </p>
+<p class="level0"><span Class="bold">-t</span> Report title (default is &quot;Allure Report&quot;; this option is ignored when using the <span Class="emphasis">-p</span> option). </p>
+<p class="level0"><span Class="bold">-p</span> Preprocess results but do not generate report. Useful when the actual generation of the report is delegated to e.g. a Docker service or a Jenkins plug-in. </p>
+<p class="level0"><span Class="bold">-s</span> Generate a single file report. </p>
+<p class="level0"><span Class="bold">--</span> Environment pairs (key1=value1 key2=value2 ...). Used to generate an <span Class="emphasis">environment.properties</span> for adding additional information to the generated report. </p>
+<p class="level0"><span Class="bold">-h</span> Provide help on script usage. </p><a name="EXIT"></a><h2 class="nroffsh">Exit status</h2>
+<p class="level0"><span Class="bold">0</span> Allure report successfully created. </p>
+<p class="level0"><span Class="bold">1</span> Either the results directory does not exist or the report directory exists but it is not empty and does not contain a previous report. </p><a name="EXAMPLES"></a><h2 class="nroffsh">Examples</h2>
+<p class="level0">Run all tests on the current directory and sub-directories using the GNU Prolog backend (saving the test results in the required xUnit format), generate the Allure report, and open the report for browsing: <span Class="bold">logtalk_tester -p gnu -f xunit</span> <br><span Class="bold">logtalk_allure_report</span> <br><span Class="bold">allure open</span> </p>
+<p class="level0">Set the title for the report and information on the backend used: <span Class="bold">logtalk_allure_report -t &quot;My application tests report&quot; -- Backend=&#39;GNU Prolog&#39; Commit=f7a106e</span> <br><span Class="bold">allure open</span> </p>
+<p class="level0">Save the processed test results and the report data to permanent directories so that the report shows tests run trends: <span Class="bold">logtalk_allure_report -i &quot;$HOME/my_project/allure-results&quot; -o &quot;$HOME/my_project/allure_report&quot;</span> <br><span Class="bold">allure open &quot;$HOME/my_project/allure_report&quot;</span> </p><a name="IMPLEMENTATION"></a><h2 class="nroffsh">Implementation notes</h2>
+<p class="level0">Tested using Allure 2.24.0. </p><a name="SEE"></a><h2 class="nroffsh">See also</h2>
+<p class="level0">The Allure website at <a href="https://docs.qameta.io/allure-report/">https://docs.qameta.io/allure-report/</a> </p>
+<p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> </p>
+<p class="level0">The Logtalk User and Reference Manuals at <span Class="bold">$LOGTALKHOME/manuals/index.html</span> </p><a name="AUTHOR"></a><h2 class="nroffsh">Author</h2>
+<p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt; </p><a name="COPYRIGHT"></a><h2 class="nroffsh">Copyright</h2>
+<p class="level0">Copyright (c) 1998-2023 Paulo Moura. </p><p class="roffit">
+ This HTML page was made with <a href="https://daniel.haxx.se/projects/roffit/">roffit</a>.
 </body></html>
