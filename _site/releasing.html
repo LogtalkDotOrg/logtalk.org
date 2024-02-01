@@ -316,9 +316,9 @@ up-to-date using the scripts:</p>
 <p>The HTML version requires <a href="http://sphinx-doc.org/">Sphinx</a> with the
 <a href="https://github.com/rtfd/sphinx_rtd_theme">Read the Docs theme</a> installed:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>pip install <span class="nt">--upgrade</span> pygments
-<span class="nv">$ </span><span class="nb">sudo </span>pip install <span class="nt">--upgrade</span> sphinx
-<span class="nv">$ </span><span class="nb">sudo </span>pip install <span class="nt">--upgrade</span> sphinx_rtd_theme
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>pip <span class="nb">install</span> <span class="nt">--upgrade</span> pygments
+<span class="nv">$ </span><span class="nb">sudo </span>pip <span class="nb">install</span> <span class="nt">--upgrade</span> sphinx
+<span class="nv">$ </span><span class="nb">sudo </span>pip <span class="nb">install</span> <span class="nt">--upgrade</span> sphinx_rtd_theme
 </code></pre></div></div>
 
 <p>It may also be necessary to patch the Pygments installation with the latest version of syntax highlighting support files from the <code class="highlighter-rouge">coding/pygments</code> directory.</p>
@@ -337,7 +337,7 @@ up-to-date using the scripts:</p>
 
 <div class="language-logtalk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">?-</span> pack_remove<span class="p">(</span>logtalk<span class="p">).</span>    <span class="c1">% if installed
 </span><span class="p">...</span>
-<span class="o">?-</span> pack_install<span class="p">(</span><span class="s">'https://logtalk.org/files/swi-prolog/packs/logtalk-3.XY.Z.tgz'</span><span class="p">).</span>
+<span class="o">?-</span>  <span class="o">?-</span> pack_install<span class="p">(</span>logtalk<span class="p">,</span> <span class="p">[</span>url<span class="p">(</span><span class="s">'https://logtalk.org/files/swi-prolog/packs/logtalk-3.XY.Z.tgz'</span><span class="p">)]).</span>
 <span class="p">...</span>
 </code></pre></div></div>
 

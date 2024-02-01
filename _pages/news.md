@@ -6,6 +6,40 @@ aside:
   toc: true
 ---
 
+### 2024
+
+##### January 31
+
+> Logtalk 3.74.0 is now available for [downloading](download.html). This
+> release improves the linter warnings for unsound constructs in grammar
+> rules and for if-then-else and soft-cut control constructs; improves
+> the semantics and implementation of several multi-threading features;
+> fixes compilation of `phrase/2-3` goals where the first argument is a
+> `(::)/1-2` or `(^^)/2` control construct with a variable grammar rule
+> body argument; fixes a regression where a compiler error when a source
+> file term is not callable would be delegated to the backend; improves
+> the Handbook documentation of several directives and built-in predicates;
+> improves the Handbook documentation on dynamic predicates and grammar
+> rules; adds a `listing` library (replacing the old undocumented one);
+> adds a `recorded_database` library to help porting legacy Prolog code;
+> fixes `json` library bugs; updates the `help` tool support to browse
+> the Handbook and APIs documentation from the top-level; changes the
+> default output directory for the `diagrams` tool to `./dot_dias`;
+> updates the `tutor` tool for all recent linter updates; fixes a syntax
+> error in the `logtalk_tester.ps1` script; improves the portability of
+> the `fcube` port; updates the Advent of Code 2023 examples and several
+> of the multi-threading examples; adds additional tests for the de facto
+> standard `format/2-3` predicates and for the multi-threading built-in
+> predicates; updates support for several text editors and syntax
+> highlighters; updates the manual installation script to inform the user
+> about the `INFOPATH` environment variable; fixes the Bash shell
+> embedding scripts to actually use the default settings file when no
+> `-s` option is passed; and includes portability updates for CxProlog,
+> LVM, SICStus Prolog, SWI-Prolog, XSB, and YAP. Thanks to Yurii
+> Rashkovskii for his bug reports and suggestions. For details and a
+> complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ### 2023
 
 ##### December 12

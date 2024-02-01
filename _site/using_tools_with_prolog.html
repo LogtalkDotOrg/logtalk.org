@@ -319,11 +319,11 @@ object. For example, assuming a <code class="highlighter-rouge">foo.pl</code> fi
 file, defining an object that uses an <code class="highlighter-rouge">include/1</code> directive to load the
 Prolog code. For example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">:- object</span><span class="p">(</span>foo<span class="p">).</span>
-<span class="k">
-    :- include</span><span class="p">(</span><span class="s">'foo.pl'</span><span class="p">).</span>
-<span class="k">
-:- end_object</span><span class="p">.</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:- object(foo).
+
+    :- include('foo.pl').
+
+:- end_object.
 </code></pre></div></div>
 
 <p>Keep in mind that some Prolog directives are not valid inside objects and
@@ -381,23 +381,23 @@ those errors is discussed next.</p>
 <p>If your Prolog application source files are found in multiple sub-directories,
 you can use instead the following <code class="highlighter-rouge">loader.lgt</code> file:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">:- initialization</span><span class="p">((</span>
-    <span class="k">set_logtalk_flag</span><span class="p">(</span>report<span class="p">,</span> warnings<span class="p">),</span>
-    <span class="k">logtalk_load</span><span class="p">([</span>os<span class="p">(</span>loader<span class="p">),</span> types<span class="p">(</span>loader<span class="p">)]),</span>
-    <span class="k">logtalk_load_context</span><span class="p">(</span>directory<span class="p">,</span> <span class="nv">Directory</span><span class="p">),</span>
-    <span class="k">findall</span><span class="p">(</span>
-        <span class="nv">File</span><span class="p">,</span>
-        <span class="p">(</span>   current_module<span class="p">(</span><span class="nv">Module</span><span class="p">),</span>
-            module_property<span class="p">(</span><span class="nv">Module</span><span class="p">,</span> file<span class="p">(</span><span class="nv">File</span><span class="p">)),</span>
-            <span class="k">sub_atom</span><span class="p">(</span><span class="nv">File</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="nv">_</span><span class="p">,</span> <span class="nv">_</span><span class="p">,</span> <span class="nv">Directory</span><span class="p">)</span>
-        <span class="p">),</span>
-        <span class="nv">Files</span>
-    <span class="p">),</span>
-    <span class="k">forall</span><span class="p">(</span>
-        list<span class="o">::</span>member<span class="p">(</span><span class="nv">File</span><span class="p">,</span> <span class="nv">Files</span><span class="p">),</span>
-        <span class="p">(</span><span class="k">logtalk_compile</span><span class="p">(</span><span class="nv">File</span><span class="p">,</span> <span class="p">[</span>unknown_entities<span class="p">(</span>silent<span class="p">)])</span> <span class="o">-&gt;</span> <span class="k">true</span><span class="o">;</span> <span class="k">true</span><span class="p">)</span>
-    <span class="p">)</span>
-<span class="p">)).</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:- initialization((
+    set_logtalk_flag(report, warnings),
+    logtalk_load([os(loader), types(loader)]),
+    logtalk_load_context(directory, Directory),
+    findall(
+        File,
+        (   current_module(Module),
+            module_property(Module, file(File)),
+            sub_atom(File, 0, _, _, Directory)
+        ),
+        Files
+    ),
+    forall(
+        list::member(File, Files),
+        (logtalk_compile(File, [unknown_entities(silent)]) -&gt; true; true)
+    )
+)).
 </code></pre></div></div>
 
 <p>Change the <code class="highlighter-rouge">logtalk_compile/2</code> to <code class="highlighter-rouge">logtalk_load/2</code> if necessary and also play
