@@ -342,7 +342,9 @@ to gain additional insight on the changes required when porting applications.
 ## Coding
 
 The Logtalk distribution includes [extensive](https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding)
-support for text editors, syntax highlighters (for publishing code), and several IDEs.
+support for text editors, syntax highlighters (for publishing code), and several IDEs. A Visual
+Studio Code plug-in is also available from this editor
+[Marketplace](https://marketplace.visualstudio.com/items?itemName=LogtalkDotOrg.logtalk-for-vscode).
 
 
 ## Embedding

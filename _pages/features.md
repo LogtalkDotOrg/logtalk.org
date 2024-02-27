@@ -29,6 +29,8 @@ variables that can be used to parametrize object (or category) predicates.
 Notably, this allows the interpretation of predicate clauses as providing
 *instantiations* of a parametric object identifier. I.e. using a parametric
 object we can associate any number of predicates with a compound term.
+Parameters are logical variables shared with all object (and category)
+directives and clauses.
 
 
 ### Prototypes and classes

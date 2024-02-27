@@ -8,6 +8,24 @@ aside:
 
 ### 2024
 
+##### February 27
+
+> Logtalk 3.75.0 is now available for [downloading](download.html). This
+> release improves the implementation of multi-threading features; adds 
+> new random term generators to the `arbitrary` library and improves its
+> documentation (joint work with Yurii Rashkovskii); adds new `os` library
+> predicates for accessing operating-system data; updates the `lgtunit`
+> tool to print both CPU time and wall time for tests; changed the `lgtunit`
+> tool xUnit reports now use the tests wall time instead of CPU time; fixed
+> a bug in the `packs` tool when specifying pack dependencies; improves the
+> tests for the multi-threading examples; adds a test set for ISO Prolog
+> standard logical update semantics; adds additional tests for the for the
+> ISO Prolog standard `op/3` predicate; adds additional tests for the de
+> facto Prolog standard `format/2-3` predicates; and includes portability
+> updates for LVM, SWI-Prolog, and SWI-Prolog. For details and a complete
+> list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### January 31
 
 > Logtalk 3.74.0 is now available for [downloading](download.html). This
