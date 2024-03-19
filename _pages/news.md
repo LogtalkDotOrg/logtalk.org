@@ -8,6 +8,29 @@ aside:
 
 ### 2024
 
+##### March 19
+
+> Logtalk 3.76.0 is now available for [downloading](download.html). This
+> release improves the reflection API; improves support for user-defined
+> linter warnings; fixes some linter warnings for control constructs;
+> fixes detection and reporting of attempts to declare category predicates
+> or non-terminals as both multifile and dynamic; improves support for
+> property-based testing, providing new arbitrary term generators and
+> fixing issues with some shrinkers; includes a new and improved version of
+> the `dead_code_scanner` tool; adds `packs` tools support for declaring
+> operating-system dependencies in pack manifest files; updates the `packs`
+> tool to clean the pack installation directory when restoring or
+> (re)installing a pack from an archive; changes the `diagrams` and `lgtdoc`
+> tool interpretation of options that exclude directories to also exclude all
+> sub-directories; updates the `logtalk_tester.sh` script to allow it to be
+> interrupted using Ctrl-C when the timeout option is used and to kill all
+> created child processes on exit; fixes the `logtalk_tester.ps1` script
+> reporting of broken test sets; fixes `dead_code_scanner` tool reported
+> linter warnings in ports and contributions; improves and fixes several
+> tests, notably when running on Windows; and provides portability updates
+> for SICStus Prolog and XSB. For details and a complete list of changes,
+> please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### February 27
 
 > Logtalk 3.75.0 is now available for [downloading](download.html). This
@@ -22,7 +45,7 @@ aside:
 > standard logical update semantics; adds additional tests for the for the
 > ISO Prolog standard `op/3` predicate; adds additional tests for the de
 > facto Prolog standard `format/2-3` predicates; and includes portability
-> updates for LVM, SWI-Prolog, and SWI-Prolog. For details and a complete
+> updates for LVM, SICStus Prolog, and SWI-Prolog. For details and a complete
 > list of changes, please consult the
 > [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
 
