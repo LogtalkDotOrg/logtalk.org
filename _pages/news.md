@@ -8,6 +8,17 @@ aside:
 
 ### 2024
 
+##### April 2
+
+> Logtalk 3.77.0 is now available for [downloading](download.html).
+> This release updates the reflection API; adds linter warnings for
+> `logtalk::print_message/3` goals; includes new and improved versions
+> of the `code_metrics`, `diagrams`, and `packs` developer tools; adds
+> and improves library and standard compliance tests; includes ePub
+> and PDF versions of the APIs documentation; and provides portability
+> updates for XSB. For details and a complete list of changes, please
+> consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### March 19
 
 > Logtalk 3.76.0 is now available for [downloading](download.html). This

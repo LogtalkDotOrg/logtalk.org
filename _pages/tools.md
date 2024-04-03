@@ -173,6 +173,7 @@ Linked diagrams with live URLs to code and documentation (click on the nodes, la
 
 -	[Logtalk `ports_profiler` object cross-referencing diagram](docs/ports_profiler_object_xref_diagram.svg)
 -   [Logtalk developer `tools` library diagram](library/tools_inheritance_diagram.svg)
+-   [Logtalk developer `tools` directory diagram](diagrams/tools/tools_directory_load_diagram.svg)
 -   [SWI-Prolog Talespin application entity diagram](diagrams/talespin/talespin_entity_diagram.svg)
 -   [SWI-Prolog ClioPatria application directory diagram](diagrams/cliopatria/cliopatria_directory_load_diagram.svg)
 
@@ -326,6 +327,8 @@ This tool can be used not only for Logtalk packs but also for Prolog packs.
 
 A [Jupyter kernel for Logtalk](https://github.com/LogtalkDotOrg/logtalk-jupyter-kernel)
 is available that can be used with a subset of the Logtalk supported Prolog backends.
+The latest release can be installed from [PyPI](https://pypi.org/project/logtalk-jupyter-kernel/)
+or [Conda](https://anaconda.org/conda-forge/logtalk-jupyter-kernel).
 
 
 ## Prolog porting

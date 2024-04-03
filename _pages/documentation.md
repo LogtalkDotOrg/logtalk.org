@@ -25,9 +25,9 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.76.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.76.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.76.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.77.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.77.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.77.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -36,10 +36,10 @@ The Handbook includes the user manual, reference manual, glossary, FAQ, plus lib
 
 ## APIs
 
-Core, library, tools, ports, and contributions API documentation
+Core, library, tools, ports, and contributions API documentation (automatically generated from source code).
 
--   [HTML API documentation](library/index.html) (stable; automatically generated)
--   SVG diagrams (stable; automatically generated)
+-   [HTML API documentation](library/index.html) (stable)
+-   SVG diagrams (stable)
     -   [Core](library/core_inheritance_diagram.svg)
     -   [Library](library/library_inheritance_diagram.svg)
     -   [Tools](library/tools_inheritance_diagram.svg)
@@ -48,7 +48,9 @@ Core, library, tools, ports, and contributions API documentation
 
 <!-- -->
 
--   [Texinfo version](docs/LogtalkAPIs-3.76.0.info) (stable; experimental; automatically generated)
+-   [PDF version](docs/LogtalkAPIs-3.77.0.pdf) (stable; experimental)
+-   [ePub version](docs/LogtalkAPIs-3.77.0.epub) (stable; experimental)
+-   [Texinfo version](docs/LogtalkAPIs-3.77.0.info) (stable; experimental)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
