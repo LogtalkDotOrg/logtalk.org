@@ -250,7 +250,9 @@ Nightly and stable Docker images are [available](https://hub.docker.com/u/logtal
 
 ## Jupyter kernel
 
-A Jupyter kernel is [available](https://pypi.org/project/logtalk-jupyter-kernel/) supporting Logtalk notebooks using selected backend Prolog compilers.
+A Jupyter kernel is available from [PyPI](https://pypi.org/project/logtalk-jupyter-kernel/)
+and [Conda](https://anaconda.org/conda-forge/logtalk-jupyter-kernelsupporting) supporting
+Logtalk notebooks using selected backend Prolog compilers.
 See e.g. [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LogtalkDotOrg/notebooks/master) for an online example.
 
 ## Older versions
