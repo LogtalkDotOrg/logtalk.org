@@ -340,9 +340,8 @@ true.
 As expected, there is no code coverage for the new `jupiter` object. To fix it, we can take the query we used above and add it as a test:
 
 ```logtalk
-test(planets_05) :-
-    jupiter::weight(m2, W2),
-    W2 =~= 103.54.
+test(planets_05, true(W2 =~= 103.54)) :-
+    jupiter::weight(m2, W2).
 ```
 
 Consult the documentation of the [`lgtunit`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/lgtunit/NOTES.md) testing tool to learn more about testing, including more expressive test dialects. 

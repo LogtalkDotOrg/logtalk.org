@@ -18,7 +18,7 @@ The `setup_call_cleanup/3` predicate is only required for systems providing a co
 
 Logtalk coinduction features requires that the backend Prolog compiler supports cyclic terms and either the `*->/2` soft-cut control construct or the `if/3` soft-cut built-in predicate.
 
-The de facto standard `dialect` and `version_data` flags are required. Notably, the `version_data` flag is used at Logtalk startup to check that its running on a supported Prolog backend version and used by tools such as `lgtunit` to add version information to testing log files.
+The de facto standard `dialect` and `version_data` flags are required. Notably, the `version_data` flag is used at Logtalk startup to check that its running on a supported Prolog backend version and used by tools such as `diagrams` and `lgtunit` to add version information to diagrams and testing log files.
 
 In addition, Logtalk requires basic access to the operating-system (either as Prolog built-in predicates or as library predicates) including:
 
