@@ -8,6 +8,19 @@ aside:
 
 ### 2024
 
+##### May 6
+
+> Logtalk 3.78.0 is now available for [downloading](download.html).
+> This release improves the reflection API for better support code
+> navigation features in IDEs and text editors; adds a new linter
+> warning for left-recursion on clauses and grammar rules; includes
+> documentation updates; fixes a portability issue in the
+> `dead_code_scanner` tool; includes additional tests for Prolog
+> standard predicates; adds support for VSCode and VSCodium code
+> navigation features; and provides portability updates for SICStus
+> Prolog and SWI-Prolog. For details and a complete list of changes,
+> please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### April 2
 
 > Logtalk 3.77.0 is now available for [downloading](download.html).

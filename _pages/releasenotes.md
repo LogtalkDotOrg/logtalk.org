@@ -4,6 +4,86 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.78.0 - May 6, 2024
+====================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Linter warning for left-recursion in clauses and grammar rules.
+Controlled by the new `left_recursion` flag with default value `warning`.
+
+* ADDED: Object and category `alias/2` property for object and module aliases
+declared using the `uses/1` and `use_module/1` directives. Also added the alias
+properties `object`, `module`, and `predicate`.
+
+* ADDED: Object and category `declares/2`, `defines/2`, `alias/2,`, `calls/2`,
+`updates/2`, `includes/3`, and `provides/3` properties now include an entity
+and predicate `lines/2` property.
+
+* FIXED: Bug where the entity properties `includes/3` and `provides/3` could
+be missing after reloading modified source files containing predicate multifile
+directives.
+
+Documentation
+-------------
+
+* ADDED: A glossary definition for _homoiconic_ programming languages.
+
+* IMPROVED: Handbook section on declarative object-oriented programming.
+
+* UPDATED: Handbook documentation on developer tools requirements.
+
+* UPDATED: The `help` tool documentation on known issues.
+
+* UPDATED: Notes on the VSCode and VSCodium text editors support.
+
+Tools
+-----
+
+* UPDATED: The `tutor` tool to explain the new linter warning for
+left-recursion in clauses and grammar rules.
+
+* FIXED: Dependency on non-standard predicate in the `dead_code_scanner` tool.
+
+* FIXED: Harmless Texinfo warning when using the `help::man/1` predicate.
+
+Examples
+--------
+
+* IMPROVED: Documentation of the `shapes` example.
+
+* UPDATED: The `errors` example to illustrate the new linter warning for
+left-recursion in clauses and grammar rules.
+
+* UPDATED: The `multifile` example to also illustrate multifile non-terminals.
+
+* FIXED: Spurious choice-points in the `blocks` and `bricks` examples.
+
+* FIXED: The SICStus Prolog specific `constraints/sicstus` example to not
+depend on the default `double_quotes` flag value.
+
+* FIXED: The SWI-Prolog specific `constraints/swipl` example to not depend
+on the default `double_quotes` flag value.
+
+* FIXED: The SWI-Prolog specific `constraints/swipl` example to always load
+the `knight` object.
+
+* FIXED: The SWI-Prolog specific `pengines` example to not depend on the
+default `double_quotes` flag value.
+
+Tests
+-----
+
+* ADDED: Additional tests for the Prolog standard `(=..)/2` and `is/2`
+predicates.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: Support for VSCode and VSCodium code navigation features.
+
+
 3.77.0 - April 2, 2024
 ======================
 
