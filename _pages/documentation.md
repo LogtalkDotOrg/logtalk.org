@@ -25,9 +25,9 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.78.0.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.78.0.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.78.0.info) (stable; experimental)
+-   [PDF version](manuals/TheLogtalkHandbook-3.79.0.pdf) (stable)
+-   [ePub version](manuals/TheLogtalkHandbook-3.79.0.epub) (stable)
+-   [Texinfo version](manuals/TheLogtalkHandbook-3.79.0.info) (stable; experimental)
 
 <!-- -->
 
@@ -48,9 +48,9 @@ Core, library, tools, ports, and contributions API documentation (automatically 
 
 <!-- -->
 
--   [PDF version](docs/LogtalkAPIs-3.78.0.pdf) (stable; experimental)
--   [ePub version](docs/LogtalkAPIs-3.78.0.epub) (stable; experimental)
--   [Texinfo version](docs/LogtalkAPIs-3.78.0.info) (stable; experimental)
+-   [PDF version](docs/LogtalkAPIs-3.79.0.pdf) (stable; experimental)
+-   [ePub version](docs/LogtalkAPIs-3.79.0.epub) (stable; experimental)
+-   [Texinfo version](docs/LogtalkAPIs-3.79.0.info) (stable; experimental)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -454,6 +454,7 @@ Publications on research and applications using Logtalk:
 
 -   Abramo Bagnara (efficient expansion of once/1 goals and bug reports in corner cases when compiling disjunctions)
 -   Adrián Arroyo Calle (library enhancements)
+-   Alex Kouznetsov (bug reports and documentation feedback)
 -   Andreas Becker (PDT support for Logtalk; bug reports)
 -   Andrew Davison (help with Trealla Prolog integration; bug reports)
 -   Anne Ogborn (bug reports, usability suggestions)

@@ -10,7 +10,7 @@ Logtalk is a programming language that extends and subsumes Prolog. Thus, a good
 
 [Learn X in Y minutes Where X=Logtalk](https://learnxinyminutes.com/docs/logtalk/)
 
-Although this short tutorial is a recommended starting point for new users for a quick overview, be aware that some of the examples will not work as-is in Logtalk 3.x (a [pull request](https://github.com/adambard/learnxinyminutes-docs/pull/4526) have been submitted). There's also an up-to-date [Jupyter notebook](https://github.com/LogtalkDotOrg/logtalk-jupyter-kernel) version of this tutorial that you can run with a subset of the Logtalk supported Prolog backends. You can also run it online: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LogtalkDotOrg/notebooks/master)
+There's also a [Jupyter notebook](https://github.com/LogtalkDotOrg/logtalk-jupyter-kernel) version of this tutorial that you can run with a subset of the Logtalk supported Prolog backends. You can also run it online: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LogtalkDotOrg/notebooks/master)
 
 Note that the Logtalk distribution includes HTML versions of the user manual,
 the reference manual, and the APIs documentation. Documentation can also be

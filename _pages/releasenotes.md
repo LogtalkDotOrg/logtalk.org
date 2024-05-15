@@ -4,6 +4,79 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.79.0 - May 15, 2024
+=====================
+
+Logtalk compiler and runtime
+----------------------------
+
+* FIXED: Regression in the `logtalk_make/1` predicate `check` target where
+the file location for a missing predicate reference would not be reported
+correctly.
+
+* FIXED: Don't print left-recursion linter warnings for coinductive predicates.
+
+* FIXED: Allow term-expansion to generate multiple entity definitions. Thanks
+to Alex Kouznetsov for the bug report.
+
+Documentation
+-------------
+
+* IMPROVED: Handbook documentation of the term-expansion mechanism.
+
+Library
+-------
+
+* FIXED: Silence harmless left-recursion linter warning in the `timeout`
+library tests.
+
+Tools
+-----
+
+* CHANGED: The `dead_code_scanner` and `lgtdoc` tools to print warnings using
+the same format used by the compiler.
+
+* FIXED: The `code_metrics` tool computation of entity cyclomatic complexity
+to also consider multifile predicate definitions contributed by the entity to
+other entities when computing graph connected components.
+
+* FIXED: The `code_metrics` tool computation of entity Unique Predicate Nodes
+(UPN) to also count multifile predicate definitions contributed by the entity
+to other entities.
+
+* FIXED: Code coverage for tests of the Halstead complexity metric.
+
+* FIXED: Deleted dead code in the `code_metrics` and `lgtdoc` tools.
+
+* FIXED: The `wrapper` reporting of missing `meta_predicate/1` directives.
+Thanks to Alex Kouznetsov for the bug report.
+
+Examples
+--------
+
+* FIXED: Silence harmless left-recursion linter warning in the `tbbt` example.
+
+* FIXED: Missing predicates in the `relations` example.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: VSCode support predicates for using the `dead_code_scanner`, `make`,
+and `code_metrics` tools and for recursively generating documentation and
+diagrams.
+
+* UPDATED: VSCode support predicates for running tests and doclets to add
+compiler warnings and errors to the "Problems" pane.
+
+* UPDATED: VSCode support predicates for running tests the VSCode to make
+the tests results available for code lens.
+
+* UPDATED: VSCode support predicate that finds the parent file of a loaded
+file to also work for included files.
+
+* FIXED: Avoid missing entity warnings when loading the VSCode support.
+
+
 3.78.0 - May 6, 2024
 ====================
 

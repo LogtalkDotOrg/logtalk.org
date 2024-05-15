@@ -8,6 +8,23 @@ aside:
 
 ### 2024
 
+##### May 15
+
+> Logtalk 3.79.0 is now available for [downloading](download.html).
+> This release fixes a regression in the `make` tool for the `check`
+> target; fixes the term-expansion mechanism to allow generating
+> multiple entity definitions; fixes left-recursion linter warnings for
+> coinductive predicates; fixes the `code_metrics` tool implementation
+> of the cyclomatic complexity and unique predicate nodes metrics to
+> take into account multifile predicate definitions; fixes the `wrapper`
+> tool reporting of missing `meta_predicate/1` directives; changes the
+> `dead_code_scanner` and `lgtdoc` tools to print warnings using the
+> same format used by the compiler; provides Handbook improvements; and
+> includes new and improved VSCode/VSCodium support predicates. Thanks
+> to Alex Kouznetsov for his bug reports and documentation feedback. For
+> details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### May 6
 
 > Logtalk 3.78.0 is now available for [downloading](download.html).
