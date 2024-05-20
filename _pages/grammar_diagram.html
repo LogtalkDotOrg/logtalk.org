@@ -1046,6 +1046,7 @@
             <li><a href="#complemented_object_sequence" title="complemented_object_sequence">complemented_object_sequence</a></li>
             <li><a href="#complemented_objects" title="complemented_objects">complemented_objects</a></li>
             <li><a href="#context_switching_call" title="context_switching_call">context_switching_call</a></li>
+            <li><a href="#entity_alias_property" title="entity_alias_property">entity_alias_property</a></li>
             <li><a href="#entity_identifier" title="entity_identifier">entity_identifier</a></li>
             <li><a href="#extended_object" title="extended_object">extended_object</a></li>
             <li><a href="#instantiated_object" title="instantiated_object">instantiated_object</a></li>
@@ -1104,9 +1105,12 @@
          <polygon points="101 17 109 13 109 21"/>
          <polygon points="101 17 93 13 93 21"/></svg><p>referenced by:
          <ul>
+            <li><a href="#category_property" title="category_property">category_property</a></li>
             <li><a href="#clause" title="clause">clause</a></li>
+            <li><a href="#entity_alias_property" title="entity_alias_property">entity_alias_property</a></li>
             <li><a href="#meta_predicate_template" title="meta_predicate_template">meta_predicate_template</a></li>
             <li><a href="#module_alias" title="module_alias">module_alias</a></li>
+            <li><a href="#object_property" title="object_property">object_property</a></li>
             <li><a href="#predicate" title="predicate">predicate</a></li>
             <li><a href="#qualified_directive_resource" title="qualified_directive_resource">qualified_directive_resource</a></li>
             <li><a href="#use_module_directive" title="use_module_directive">use_module_directive</a></li>
@@ -3208,7 +3212,7 @@
          <ul>
             <li><a href="#lambda_expression" title="lambda_expression">lambda_expression</a></li>
          </ul>
-      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="category_property">category_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="1055" height="993">
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="category_property">category_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="1055" height="1081">
          <polygon points="9 17 1 13 1 21"/>
          <polygon points="17 17 9 13 9 21"/>
          <rect x="51" y="3" width="56" height="32" rx="10"/>
@@ -3299,44 +3303,55 @@
          <text class="terminal" x="669" y="625">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_definition_property_list" xlink:title="predicate_definition_property_list">
             <rect x="705" y="607" width="236" height="32"/>
             <rect x="703" y="605" width="236" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="713" y="625">predicate_definition_property_list</text></a><rect x="71" y="739" width="58" height="32" rx="10"/>
-         <rect x="69" y="737" width="58" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="79" y="757">alias(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_indicator" xlink:title="predicate_indicator">
-            <rect x="149" y="739" width="142" height="32"/>
-            <rect x="147" y="737" width="142" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="157" y="757">predicate_indicator</text></a><rect x="311" y="739" width="24" height="32" rx="10"/>
+            <text class="nonterminal" x="713" y="625">predicate_definition_property_list</text></a><rect x="91" y="739" width="56" height="32" rx="10"/>
+         <rect x="89" y="737" width="56" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="757">calls(</text>
+         <rect x="91" y="783" width="80" height="32" rx="10"/>
+         <rect x="89" y="781" width="80" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="801">updates(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate" xlink:title="predicate">
+            <rect x="211" y="739" width="80" height="32"/>
+            <rect x="209" y="737" width="80" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="219" y="757">predicate</text></a><rect x="311" y="739" width="24" height="32" rx="10"/>
          <rect x="309" y="737" width="24" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="319" y="757">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_alias_property_list" xlink:title="predicate_alias_property_list">
-            <rect x="355" y="739" width="206" height="32"/>
-            <rect x="353" y="737" width="206" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="363" y="757">predicate_alias_property_list</text></a><rect x="91" y="783" width="56" height="32" rx="10"/>
-         <rect x="89" y="781" width="56" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="99" y="801">calls(</text>
-         <rect x="91" y="827" width="80" height="32" rx="10"/>
-         <rect x="89" y="825" width="80" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="99" y="845">updates(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate" xlink:title="predicate">
-            <rect x="211" y="783" width="80" height="32"/>
-            <rect x="209" y="781" width="80" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="219" y="801">predicate</text></a><rect x="311" y="783" width="24" height="32" rx="10"/>
-         <rect x="309" y="781" width="24" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="319" y="801">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_call_update_property_list" xlink:title="predicate_call_update_property_list">
-            <rect x="355" y="783" width="250" height="32"/>
-            <rect x="353" y="781" width="250" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="363" y="801">predicate_call_update_property_list</text></a><rect x="981" y="135" width="26" height="32" rx="10"/>
+         <text class="terminal" x="319" y="757">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_call_update_property_list" xlink:title="predicate_call_update_property_list">
+            <rect x="355" y="739" width="250" height="32"/>
+            <rect x="353" y="737" width="250" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="363" y="757">predicate_call_update_property_list</text></a><rect x="71" y="827" width="58" height="32" rx="10"/>
+         <rect x="69" y="825" width="58" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="79" y="845">alias(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#object_identifier" xlink:title="object_identifier">
+            <rect x="189" y="827" width="124" height="32"/>
+            <rect x="187" y="825" width="124" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="197" y="845">object_identifier</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#module_identifier" xlink:title="module_identifier">
+            <rect x="189" y="871" width="130" height="32"/>
+            <rect x="187" y="869" width="130" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="197" y="889">module_identifier</text></a><rect x="359" y="827" width="24" height="32" rx="10"/>
+         <rect x="357" y="825" width="24" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="367" y="845">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#entity_alias_property_list" xlink:title="entity_alias_property_list">
+            <rect x="403" y="827" width="182" height="32"/>
+            <rect x="401" y="825" width="182" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="411" y="845">entity_alias_property_list</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_indicator" xlink:title="predicate_indicator">
+            <rect x="169" y="915" width="142" height="32"/>
+            <rect x="167" y="913" width="142" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="177" y="933">predicate_indicator</text></a><rect x="331" y="915" width="24" height="32" rx="10"/>
+         <rect x="329" y="913" width="24" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="339" y="933">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_alias_property_list" xlink:title="predicate_alias_property_list">
+            <rect x="375" y="915" width="206" height="32"/>
+            <rect x="373" y="913" width="206" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="383" y="933">predicate_alias_property_list</text></a><rect x="981" y="135" width="26" height="32" rx="10"/>
          <rect x="979" y="133" width="26" height="32" class="terminal" rx="10"/>
          <text class="terminal" x="989" y="153">)</text>
-         <rect x="51" y="871" width="64" height="32" rx="10"/>
-         <rect x="49" y="869" width="64" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="889">events</text>
-         <rect x="51" y="915" width="104" height="32" rx="10"/>
-         <rect x="49" y="913" width="104" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="933">source_data</text>
-         <rect x="51" y="959" width="90" height="32" rx="10"/>
-         <rect x="49" y="957" width="90" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="977">debugging</text>
-         <path class="line" d="m17 17 h2 m20 0 h10 m56 0 h10 m0 0 h900 m-996 0 h20 m976 0 h20 m-1016 0 q10 0 10 10 m996 0 q0 -10 10 -10 m-1006 10 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m76 0 h10 m0 0 h880 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m72 0 h10 m0 0 h884 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-966 10 h10 m48 0 h10 m0 0 h10 m52 0 h10 m20 0 h10 m0 0 h106 m-136 0 h20 m116 0 h20 m-156 0 q10 0 10 10 m136 0 q0 -10 10 -10 m-146 10 v12 m136 0 v-12 m-136 12 q0 10 10 10 m116 0 q10 0 10 -10 m-126 10 h10 m24 0 h10 m0 0 h10 m52 0 h10 m20 -32 h594 m-910 0 h20 m890 0 h20 m-930 0 q10 0 10 10 m910 0 q0 -10 10 -10 m-920 10 v56 m910 0 v-56 m-910 56 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m58 0 h10 m0 0 h10 m64 0 h10 m0 0 h10 m24 0 h10 m0 0 h12 m-238 0 h20 m218 0 h20 m-258 0 q10 0 10 10 m238 0 q0 -10 10 -10 m-248 10 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m160 0 h10 m0 0 h38 m-228 -10 v20 m238 0 v-20 m-238 20 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m144 0 h10 m0 0 h54 m-228 -10 v20 m238 0 v-20 m-238 20 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m198 0 h10 m-228 -10 v20 m238 0 v-20 m-238 20 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m182 0 h10 m0 0 h16 m20 -176 h10 m64 0 h10 m0 0 h548 m-900 -10 v20 m910 0 v-20 m-910 20 v200 m910 0 v-200 m-910 200 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m68 0 h10 m0 0 h24 m-132 0 h20 m112 0 h20 m-152 0 q10 0 10 10 m132 0 q0 -10 10 -10 m-142 10 v24 m132 0 v-24 m-132 24 q0 10 10 10 m112 0 q10 0 10 -10 m-122 10 h10 m92 0 h10 m-122 -10 v20 m132 0 v-20 m-132 20 v24 m132 0 v-24 m-132 24 q0 10 10 10 m112 0 q10 0 10 -10 m-122 10 h10 m74 0 h10 m0 0 h18 m20 -88 h10 m152 0 h10 m0 0 h566 m-900 -10 v20 m910 0 v-20 m-910 20 v112 m910 0 v-112 m-910 112 q0 10 10 10 m890 0 q10 0 10 -10 m-900 10 h10 m84 0 h10 m0 0 h10 m142 0 h10 m0 0 h10 m24 0 h10 m0 0 h10 m246 0 h10 m0 0 h314 m-900 -10 v20 m910 0 v-20 m-910 20 v24 m910 0 v-24 m-910 24 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m76 0 h10 m0 0 h10 m142 0 h10 m0 0 h292 m-570 0 h20 m550 0 h20 m-590 0 q10 0 10 10 m570 0 q0 -10 10 -10 m-580 10 v24 m570 0 v-24 m-570 24 q0 10 10 10 m550 0 q10 0 10 -10 m-540 10 h10 m82 0 h10 m0 0 h2 m-124 0 h20 m104 0 h20 m-144 0 q10 0 10 10 m124 0 q0 -10 10 -10 m-134 10 v24 m124 0 v-24 m-124 24 q0 10 10 10 m104 0 q10 0 10 -10 m-114 10 h10 m84 0 h10 m20 -44 h10 m142 0 h10 m0 0 h10 m24 0 h10 m20 0 h10 m124 0 h10 m0 0 h16 m-180 0 h20 m160 0 h20 m-200 0 q10 0 10 10 m180 0 q0 -10 10 -10 m-190 10 v24 m180 0 v-24 m-180 24 q0 10 10 10 m160 0 q10 0 10 -10 m-170 10 h10 m140 0 h10 m40 -88 h10 m24 0 h10 m0 0 h10 m236 0 h10 m-900 -10 v20 m910 0 v-20 m-910 20 v112 m910 0 v-112 m-910 112 q0 10 10 10 m890 0 q10 0 10 -10 m-900 10 h10 m58 0 h10 m0 0 h10 m142 0 h10 m0 0 h10 m24 0 h10 m0 0 h10 m206 0 h10 m0 0 h380 m-900 -10 v20 m910 0 v-20 m-910 20 v24 m910 0 v-24 m-910 24 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m56 0 h10 m0 0 h24 m-120 0 h20 m100 0 h20 m-140 0 q10 0 10 10 m120 0 q0 -10 10 -10 m-130 10 v24 m120 0 v-24 m-120 24 q0 10 10 10 m100 0 q10 0 10 -10 m-110 10 h10 m80 0 h10 m20 -44 h10 m80 0 h10 m0 0 h10 m24 0 h10 m0 0 h10 m250 0 h10 m0 0 h336 m20 -648 h10 m26 0 h10 m-986 -10 v20 m996 0 v-20 m-996 20 v716 m996 0 v-716 m-996 716 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m64 0 h10 m0 0 h892 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m104 0 h10 m0 0 h852 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m90 0 h10 m0 0 h866 m23 -956 h-3"/>
+         <rect x="51" y="959" width="64" height="32" rx="10"/>
+         <rect x="49" y="957" width="64" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="977">events</text>
+         <rect x="51" y="1003" width="104" height="32" rx="10"/>
+         <rect x="49" y="1001" width="104" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="1021">source_data</text>
+         <rect x="51" y="1047" width="90" height="32" rx="10"/>
+         <rect x="49" y="1045" width="90" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="1065">debugging</text>
+         <path class="line" d="m17 17 h2 m20 0 h10 m56 0 h10 m0 0 h900 m-996 0 h20 m976 0 h20 m-1016 0 q10 0 10 10 m996 0 q0 -10 10 -10 m-1006 10 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m76 0 h10 m0 0 h880 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m72 0 h10 m0 0 h884 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-966 10 h10 m48 0 h10 m0 0 h10 m52 0 h10 m20 0 h10 m0 0 h106 m-136 0 h20 m116 0 h20 m-156 0 q10 0 10 10 m136 0 q0 -10 10 -10 m-146 10 v12 m136 0 v-12 m-136 12 q0 10 10 10 m116 0 q10 0 10 -10 m-126 10 h10 m24 0 h10 m0 0 h10 m52 0 h10 m20 -32 h594 m-910 0 h20 m890 0 h20 m-930 0 q10 0 10 10 m910 0 q0 -10 10 -10 m-920 10 v56 m910 0 v-56 m-910 56 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m58 0 h10 m0 0 h10 m64 0 h10 m0 0 h10 m24 0 h10 m0 0 h12 m-238 0 h20 m218 0 h20 m-258 0 q10 0 10 10 m238 0 q0 -10 10 -10 m-248 10 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m160 0 h10 m0 0 h38 m-228 -10 v20 m238 0 v-20 m-238 20 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m144 0 h10 m0 0 h54 m-228 -10 v20 m238 0 v-20 m-238 20 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m198 0 h10 m-228 -10 v20 m238 0 v-20 m-238 20 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m182 0 h10 m0 0 h16 m20 -176 h10 m64 0 h10 m0 0 h548 m-900 -10 v20 m910 0 v-20 m-910 20 v200 m910 0 v-200 m-910 200 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m68 0 h10 m0 0 h24 m-132 0 h20 m112 0 h20 m-152 0 q10 0 10 10 m132 0 q0 -10 10 -10 m-142 10 v24 m132 0 v-24 m-132 24 q0 10 10 10 m112 0 q10 0 10 -10 m-122 10 h10 m92 0 h10 m-122 -10 v20 m132 0 v-20 m-132 20 v24 m132 0 v-24 m-132 24 q0 10 10 10 m112 0 q10 0 10 -10 m-122 10 h10 m74 0 h10 m0 0 h18 m20 -88 h10 m152 0 h10 m0 0 h566 m-900 -10 v20 m910 0 v-20 m-910 20 v112 m910 0 v-112 m-910 112 q0 10 10 10 m890 0 q10 0 10 -10 m-900 10 h10 m84 0 h10 m0 0 h10 m142 0 h10 m0 0 h10 m24 0 h10 m0 0 h10 m246 0 h10 m0 0 h314 m-900 -10 v20 m910 0 v-20 m-910 20 v24 m910 0 v-24 m-910 24 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m76 0 h10 m0 0 h10 m142 0 h10 m0 0 h292 m-570 0 h20 m550 0 h20 m-590 0 q10 0 10 10 m570 0 q0 -10 10 -10 m-580 10 v24 m570 0 v-24 m-570 24 q0 10 10 10 m550 0 q10 0 10 -10 m-540 10 h10 m82 0 h10 m0 0 h2 m-124 0 h20 m104 0 h20 m-144 0 q10 0 10 10 m124 0 q0 -10 10 -10 m-134 10 v24 m124 0 v-24 m-124 24 q0 10 10 10 m104 0 q10 0 10 -10 m-114 10 h10 m84 0 h10 m20 -44 h10 m142 0 h10 m0 0 h10 m24 0 h10 m20 0 h10 m124 0 h10 m0 0 h16 m-180 0 h20 m160 0 h20 m-200 0 q10 0 10 10 m180 0 q0 -10 10 -10 m-190 10 v24 m180 0 v-24 m-180 24 q0 10 10 10 m160 0 q10 0 10 -10 m-170 10 h10 m140 0 h10 m40 -88 h10 m24 0 h10 m0 0 h10 m236 0 h10 m-900 -10 v20 m910 0 v-20 m-910 20 v112 m910 0 v-112 m-910 112 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m56 0 h10 m0 0 h24 m-120 0 h20 m100 0 h20 m-140 0 q10 0 10 10 m120 0 q0 -10 10 -10 m-130 10 v24 m120 0 v-24 m-120 24 q0 10 10 10 m100 0 q10 0 10 -10 m-110 10 h10 m80 0 h10 m20 -44 h10 m80 0 h10 m0 0 h10 m24 0 h10 m0 0 h10 m250 0 h10 m0 0 h336 m-900 -10 v20 m910 0 v-20 m-910 20 v68 m910 0 v-68 m-910 68 q0 10 10 10 m890 0 q10 0 10 -10 m-900 10 h10 m58 0 h10 m40 0 h10 m124 0 h10 m0 0 h6 m-170 0 h20 m150 0 h20 m-190 0 q10 0 10 10 m170 0 q0 -10 10 -10 m-180 10 v24 m170 0 v-24 m-170 24 q0 10 10 10 m150 0 q10 0 10 -10 m-160 10 h10 m130 0 h10 m20 -44 h10 m24 0 h10 m0 0 h10 m182 0 h10 m-456 0 h20 m436 0 h20 m-476 0 q10 0 10 10 m456 0 q0 -10 10 -10 m-466 10 v68 m456 0 v-68 m-456 68 q0 10 10 10 m436 0 q10 0 10 -10 m-446 10 h10 m142 0 h10 m0 0 h10 m24 0 h10 m0 0 h10 m206 0 h10 m0 0 h4 m20 -88 h336 m20 -692 h10 m26 0 h10 m-986 -10 v20 m996 0 v-20 m-996 20 v804 m996 0 v-804 m-996 804 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m64 0 h10 m0 0 h892 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m104 0 h10 m0 0 h852 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m90 0 h10 m0 0 h866 m23 -1044 h-3"/>
          <polygon points="1045 17 1053 13 1053 21"/>
-         <polygon points="1045 17 1037 13 1037 21"/></svg><p>no references</p><br /><p style="font-size: 14px; font-weight:bold"><a name="object_property">object_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="1055" height="1301">
+         <polygon points="1045 17 1037 13 1037 21"/></svg><p>no references</p><br /><p style="font-size: 14px; font-weight:bold"><a name="object_property">object_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="1055" height="1389">
          <polygon points="9 17 1 13 1 21"/>
          <polygon points="17 17 9 13 9 21"/>
          <rect x="51" y="3" width="56" height="32" rx="10"/>
@@ -3439,54 +3454,65 @@
          <text class="terminal" x="669" y="757">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_definition_property_list" xlink:title="predicate_definition_property_list">
             <rect x="705" y="739" width="236" height="32"/>
             <rect x="703" y="737" width="236" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="713" y="757">predicate_definition_property_list</text></a><rect x="71" y="871" width="58" height="32" rx="10"/>
-         <rect x="69" y="869" width="58" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="79" y="889">alias(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_indicator" xlink:title="predicate_indicator">
-            <rect x="149" y="871" width="142" height="32"/>
-            <rect x="147" y="869" width="142" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="157" y="889">predicate_indicator</text></a><rect x="311" y="871" width="24" height="32" rx="10"/>
+            <text class="nonterminal" x="713" y="757">predicate_definition_property_list</text></a><rect x="91" y="871" width="56" height="32" rx="10"/>
+         <rect x="89" y="869" width="56" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="889">calls(</text>
+         <rect x="91" y="915" width="80" height="32" rx="10"/>
+         <rect x="89" y="913" width="80" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="933">updates(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate" xlink:title="predicate">
+            <rect x="211" y="871" width="80" height="32"/>
+            <rect x="209" y="869" width="80" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="219" y="889">predicate</text></a><rect x="311" y="871" width="24" height="32" rx="10"/>
          <rect x="309" y="869" width="24" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="319" y="889">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_alias_property_list" xlink:title="predicate_alias_property_list">
-            <rect x="355" y="871" width="206" height="32"/>
-            <rect x="353" y="869" width="206" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="363" y="889">predicate_alias_property_list</text></a><rect x="91" y="915" width="56" height="32" rx="10"/>
-         <rect x="89" y="913" width="56" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="99" y="933">calls(</text>
-         <rect x="91" y="959" width="80" height="32" rx="10"/>
-         <rect x="89" y="957" width="80" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="99" y="977">updates(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate" xlink:title="predicate">
-            <rect x="211" y="915" width="80" height="32"/>
-            <rect x="209" y="913" width="80" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="219" y="933">predicate</text></a><rect x="311" y="915" width="24" height="32" rx="10"/>
-         <rect x="309" y="913" width="24" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="319" y="933">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_call_update_property_list" xlink:title="predicate_call_update_property_list">
-            <rect x="355" y="915" width="250" height="32"/>
-            <rect x="353" y="913" width="250" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="363" y="933">predicate_call_update_property_list</text></a><rect x="981" y="179" width="26" height="32" rx="10"/>
+         <text class="terminal" x="319" y="889">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_call_update_property_list" xlink:title="predicate_call_update_property_list">
+            <rect x="355" y="871" width="250" height="32"/>
+            <rect x="353" y="869" width="250" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="363" y="889">predicate_call_update_property_list</text></a><rect x="71" y="959" width="58" height="32" rx="10"/>
+         <rect x="69" y="957" width="58" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="79" y="977">alias(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#object_identifier" xlink:title="object_identifier">
+            <rect x="189" y="959" width="124" height="32"/>
+            <rect x="187" y="957" width="124" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="197" y="977">object_identifier</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#module_identifier" xlink:title="module_identifier">
+            <rect x="189" y="1003" width="130" height="32"/>
+            <rect x="187" y="1001" width="130" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="197" y="1021">module_identifier</text></a><rect x="359" y="959" width="24" height="32" rx="10"/>
+         <rect x="357" y="957" width="24" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="367" y="977">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#entity_alias_property_list" xlink:title="entity_alias_property_list">
+            <rect x="403" y="959" width="182" height="32"/>
+            <rect x="401" y="957" width="182" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="411" y="977">entity_alias_property_list</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_indicator" xlink:title="predicate_indicator">
+            <rect x="169" y="1047" width="142" height="32"/>
+            <rect x="167" y="1045" width="142" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="177" y="1065">predicate_indicator</text></a><rect x="331" y="1047" width="24" height="32" rx="10"/>
+         <rect x="329" y="1045" width="24" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="339" y="1065">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_alias_property_list" xlink:title="predicate_alias_property_list">
+            <rect x="375" y="1047" width="206" height="32"/>
+            <rect x="373" y="1045" width="206" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="383" y="1065">predicate_alias_property_list</text></a><rect x="981" y="179" width="26" height="32" rx="10"/>
          <rect x="979" y="177" width="26" height="32" class="terminal" rx="10"/>
          <text class="terminal" x="989" y="197">)</text>
-         <rect x="51" y="1003" width="184" height="32" rx="10"/>
-         <rect x="49" y="1001" width="184" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="1021">context_switching_calls</text>
-         <rect x="51" y="1047" width="168" height="32" rx="10"/>
-         <rect x="49" y="1045" width="168" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="1065">dynamic_declarations</text>
-         <rect x="51" y="1091" width="64" height="32" rx="10"/>
-         <rect x="49" y="1089" width="64" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="1109">events</text>
-         <rect x="51" y="1135" width="104" height="32" rx="10"/>
-         <rect x="49" y="1133" width="104" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="1153">source_data</text>
-         <rect x="51" y="1179" width="110" height="32" rx="10"/>
-         <rect x="49" y="1177" width="110" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="1197">complements</text>
-         <rect x="51" y="1223" width="70" height="32" rx="10"/>
-         <rect x="49" y="1221" width="70" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="1241">module</text>
-         <rect x="51" y="1267" width="90" height="32" rx="10"/>
-         <rect x="49" y="1265" width="90" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="1285">debugging</text>
-         <path class="line" d="m17 17 h2 m20 0 h10 m56 0 h10 m0 0 h900 m-996 0 h20 m976 0 h20 m-1016 0 q10 0 10 10 m996 0 q0 -10 10 -10 m-1006 10 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m76 0 h10 m0 0 h880 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m72 0 h10 m0 0 h884 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m80 0 h10 m0 0 h876 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-966 10 h10 m48 0 h10 m0 0 h10 m52 0 h10 m20 0 h10 m0 0 h106 m-136 0 h20 m116 0 h20 m-156 0 q10 0 10 10 m136 0 q0 -10 10 -10 m-146 10 v12 m136 0 v-12 m-136 12 q0 10 10 10 m116 0 q10 0 10 -10 m-126 10 h10 m24 0 h10 m0 0 h10 m52 0 h10 m20 -32 h594 m-910 0 h20 m890 0 h20 m-930 0 q10 0 10 10 m910 0 q0 -10 10 -10 m-920 10 v56 m910 0 v-56 m-910 56 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m58 0 h10 m0 0 h10 m64 0 h10 m0 0 h10 m24 0 h10 m0 0 h12 m-238 0 h20 m218 0 h20 m-258 0 q10 0 10 10 m238 0 q0 -10 10 -10 m-248 10 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m160 0 h10 m0 0 h38 m-228 -10 v20 m238 0 v-20 m-238 20 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m144 0 h10 m0 0 h54 m-228 -10 v20 m238 0 v-20 m-238 20 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m198 0 h10 m-228 -10 v20 m238 0 v-20 m-238 20 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m182 0 h10 m0 0 h16 m20 -176 h10 m64 0 h10 m0 0 h548 m-900 -10 v20 m910 0 v-20 m-910 20 v200 m910 0 v-200 m-910 200 q0 10 10 10 m890 0 q10 0 10 -10 m-900 10 h10 m116 0 h10 m20 0 h10 m56 0 h10 m0 0 h12 m-108 0 h20 m88 0 h20 m-128 0 q10 0 10 10 m108 0 q0 -10 10 -10 m-118 10 v24 m108 0 v-24 m-108 24 q0 10 10 10 m88 0 q10 0 10 -10 m-98 10 h10 m68 0 h10 m20 -44 h626 m-900 -10 v20 m910 0 v-20 m-910 20 v68 m910 0 v-68 m-910 68 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m68 0 h10 m0 0 h24 m-132 0 h20 m112 0 h20 m-152 0 q10 0 10 10 m132 0 q0 -10 10 -10 m-142 10 v24 m132 0 v-24 m-132 24 q0 10 10 10 m112 0 q10 0 10 -10 m-122 10 h10 m92 0 h10 m-122 -10 v20 m132 0 v-20 m-132 20 v24 m132 0 v-24 m-132 24 q0 10 10 10 m112 0 q10 0 10 -10 m-122 10 h10 m74 0 h10 m0 0 h18 m20 -88 h10 m152 0 h10 m0 0 h566 m-900 -10 v20 m910 0 v-20 m-910 20 v112 m910 0 v-112 m-910 112 q0 10 10 10 m890 0 q10 0 10 -10 m-900 10 h10 m84 0 h10 m0 0 h10 m142 0 h10 m0 0 h10 m24 0 h10 m0 0 h10 m246 0 h10 m0 0 h314 m-900 -10 v20 m910 0 v-20 m-910 20 v24 m910 0 v-24 m-910 24 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m76 0 h10 m0 0 h10 m142 0 h10 m0 0 h292 m-570 0 h20 m550 0 h20 m-590 0 q10 0 10 10 m570 0 q0 -10 10 -10 m-580 10 v24 m570 0 v-24 m-570 24 q0 10 10 10 m550 0 q10 0 10 -10 m-540 10 h10 m82 0 h10 m0 0 h2 m-124 0 h20 m104 0 h20 m-144 0 q10 0 10 10 m124 0 q0 -10 10 -10 m-134 10 v24 m124 0 v-24 m-124 24 q0 10 10 10 m104 0 q10 0 10 -10 m-114 10 h10 m84 0 h10 m20 -44 h10 m142 0 h10 m0 0 h10 m24 0 h10 m20 0 h10 m124 0 h10 m0 0 h16 m-180 0 h20 m160 0 h20 m-200 0 q10 0 10 10 m180 0 q0 -10 10 -10 m-190 10 v24 m180 0 v-24 m-180 24 q0 10 10 10 m160 0 q10 0 10 -10 m-170 10 h10 m140 0 h10 m40 -88 h10 m24 0 h10 m0 0 h10 m236 0 h10 m-900 -10 v20 m910 0 v-20 m-910 20 v112 m910 0 v-112 m-910 112 q0 10 10 10 m890 0 q10 0 10 -10 m-900 10 h10 m58 0 h10 m0 0 h10 m142 0 h10 m0 0 h10 m24 0 h10 m0 0 h10 m206 0 h10 m0 0 h380 m-900 -10 v20 m910 0 v-20 m-910 20 v24 m910 0 v-24 m-910 24 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m56 0 h10 m0 0 h24 m-120 0 h20 m100 0 h20 m-140 0 q10 0 10 10 m120 0 q0 -10 10 -10 m-130 10 v24 m120 0 v-24 m-120 24 q0 10 10 10 m100 0 q10 0 10 -10 m-110 10 h10 m80 0 h10 m20 -44 h10 m80 0 h10 m0 0 h10 m24 0 h10 m0 0 h10 m250 0 h10 m0 0 h336 m20 -736 h10 m26 0 h10 m-986 -10 v20 m996 0 v-20 m-996 20 v804 m996 0 v-804 m-996 804 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m184 0 h10 m0 0 h772 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m168 0 h10 m0 0 h788 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m64 0 h10 m0 0 h892 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m104 0 h10 m0 0 h852 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m110 0 h10 m0 0 h846 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m70 0 h10 m0 0 h886 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m90 0 h10 m0 0 h866 m23 -1264 h-3"/>
+         <rect x="51" y="1091" width="184" height="32" rx="10"/>
+         <rect x="49" y="1089" width="184" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="1109">context_switching_calls</text>
+         <rect x="51" y="1135" width="168" height="32" rx="10"/>
+         <rect x="49" y="1133" width="168" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="1153">dynamic_declarations</text>
+         <rect x="51" y="1179" width="64" height="32" rx="10"/>
+         <rect x="49" y="1177" width="64" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="1197">events</text>
+         <rect x="51" y="1223" width="104" height="32" rx="10"/>
+         <rect x="49" y="1221" width="104" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="1241">source_data</text>
+         <rect x="51" y="1267" width="110" height="32" rx="10"/>
+         <rect x="49" y="1265" width="110" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="1285">complements</text>
+         <rect x="51" y="1311" width="70" height="32" rx="10"/>
+         <rect x="49" y="1309" width="70" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="1329">module</text>
+         <rect x="51" y="1355" width="90" height="32" rx="10"/>
+         <rect x="49" y="1353" width="90" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="1373">debugging</text>
+         <path class="line" d="m17 17 h2 m20 0 h10 m56 0 h10 m0 0 h900 m-996 0 h20 m976 0 h20 m-1016 0 q10 0 10 10 m996 0 q0 -10 10 -10 m-1006 10 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m76 0 h10 m0 0 h880 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m72 0 h10 m0 0 h884 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m80 0 h10 m0 0 h876 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-966 10 h10 m48 0 h10 m0 0 h10 m52 0 h10 m20 0 h10 m0 0 h106 m-136 0 h20 m116 0 h20 m-156 0 q10 0 10 10 m136 0 q0 -10 10 -10 m-146 10 v12 m136 0 v-12 m-136 12 q0 10 10 10 m116 0 q10 0 10 -10 m-126 10 h10 m24 0 h10 m0 0 h10 m52 0 h10 m20 -32 h594 m-910 0 h20 m890 0 h20 m-930 0 q10 0 10 10 m910 0 q0 -10 10 -10 m-920 10 v56 m910 0 v-56 m-910 56 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m58 0 h10 m0 0 h10 m64 0 h10 m0 0 h10 m24 0 h10 m0 0 h12 m-238 0 h20 m218 0 h20 m-258 0 q10 0 10 10 m238 0 q0 -10 10 -10 m-248 10 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m160 0 h10 m0 0 h38 m-228 -10 v20 m238 0 v-20 m-238 20 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m144 0 h10 m0 0 h54 m-228 -10 v20 m238 0 v-20 m-238 20 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m198 0 h10 m-228 -10 v20 m238 0 v-20 m-238 20 v24 m238 0 v-24 m-238 24 q0 10 10 10 m218 0 q10 0 10 -10 m-228 10 h10 m182 0 h10 m0 0 h16 m20 -176 h10 m64 0 h10 m0 0 h548 m-900 -10 v20 m910 0 v-20 m-910 20 v200 m910 0 v-200 m-910 200 q0 10 10 10 m890 0 q10 0 10 -10 m-900 10 h10 m116 0 h10 m20 0 h10 m56 0 h10 m0 0 h12 m-108 0 h20 m88 0 h20 m-128 0 q10 0 10 10 m108 0 q0 -10 10 -10 m-118 10 v24 m108 0 v-24 m-108 24 q0 10 10 10 m88 0 q10 0 10 -10 m-98 10 h10 m68 0 h10 m20 -44 h626 m-900 -10 v20 m910 0 v-20 m-910 20 v68 m910 0 v-68 m-910 68 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m68 0 h10 m0 0 h24 m-132 0 h20 m112 0 h20 m-152 0 q10 0 10 10 m132 0 q0 -10 10 -10 m-142 10 v24 m132 0 v-24 m-132 24 q0 10 10 10 m112 0 q10 0 10 -10 m-122 10 h10 m92 0 h10 m-122 -10 v20 m132 0 v-20 m-132 20 v24 m132 0 v-24 m-132 24 q0 10 10 10 m112 0 q10 0 10 -10 m-122 10 h10 m74 0 h10 m0 0 h18 m20 -88 h10 m152 0 h10 m0 0 h566 m-900 -10 v20 m910 0 v-20 m-910 20 v112 m910 0 v-112 m-910 112 q0 10 10 10 m890 0 q10 0 10 -10 m-900 10 h10 m84 0 h10 m0 0 h10 m142 0 h10 m0 0 h10 m24 0 h10 m0 0 h10 m246 0 h10 m0 0 h314 m-900 -10 v20 m910 0 v-20 m-910 20 v24 m910 0 v-24 m-910 24 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m76 0 h10 m0 0 h10 m142 0 h10 m0 0 h292 m-570 0 h20 m550 0 h20 m-590 0 q10 0 10 10 m570 0 q0 -10 10 -10 m-580 10 v24 m570 0 v-24 m-570 24 q0 10 10 10 m550 0 q10 0 10 -10 m-540 10 h10 m82 0 h10 m0 0 h2 m-124 0 h20 m104 0 h20 m-144 0 q10 0 10 10 m124 0 q0 -10 10 -10 m-134 10 v24 m124 0 v-24 m-124 24 q0 10 10 10 m104 0 q10 0 10 -10 m-114 10 h10 m84 0 h10 m20 -44 h10 m142 0 h10 m0 0 h10 m24 0 h10 m20 0 h10 m124 0 h10 m0 0 h16 m-180 0 h20 m160 0 h20 m-200 0 q10 0 10 10 m180 0 q0 -10 10 -10 m-190 10 v24 m180 0 v-24 m-180 24 q0 10 10 10 m160 0 q10 0 10 -10 m-170 10 h10 m140 0 h10 m40 -88 h10 m24 0 h10 m0 0 h10 m236 0 h10 m-900 -10 v20 m910 0 v-20 m-910 20 v112 m910 0 v-112 m-910 112 q0 10 10 10 m890 0 q10 0 10 -10 m-880 10 h10 m56 0 h10 m0 0 h24 m-120 0 h20 m100 0 h20 m-140 0 q10 0 10 10 m120 0 q0 -10 10 -10 m-130 10 v24 m120 0 v-24 m-120 24 q0 10 10 10 m100 0 q10 0 10 -10 m-110 10 h10 m80 0 h10 m20 -44 h10 m80 0 h10 m0 0 h10 m24 0 h10 m0 0 h10 m250 0 h10 m0 0 h336 m-900 -10 v20 m910 0 v-20 m-910 20 v68 m910 0 v-68 m-910 68 q0 10 10 10 m890 0 q10 0 10 -10 m-900 10 h10 m58 0 h10 m40 0 h10 m124 0 h10 m0 0 h6 m-170 0 h20 m150 0 h20 m-190 0 q10 0 10 10 m170 0 q0 -10 10 -10 m-180 10 v24 m170 0 v-24 m-170 24 q0 10 10 10 m150 0 q10 0 10 -10 m-160 10 h10 m130 0 h10 m20 -44 h10 m24 0 h10 m0 0 h10 m182 0 h10 m-456 0 h20 m436 0 h20 m-476 0 q10 0 10 10 m456 0 q0 -10 10 -10 m-466 10 v68 m456 0 v-68 m-456 68 q0 10 10 10 m436 0 q10 0 10 -10 m-446 10 h10 m142 0 h10 m0 0 h10 m24 0 h10 m0 0 h10 m206 0 h10 m0 0 h4 m20 -88 h336 m20 -780 h10 m26 0 h10 m-986 -10 v20 m996 0 v-20 m-996 20 v892 m996 0 v-892 m-996 892 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m184 0 h10 m0 0 h772 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m168 0 h10 m0 0 h788 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m64 0 h10 m0 0 h892 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m104 0 h10 m0 0 h852 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m110 0 h10 m0 0 h846 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m70 0 h10 m0 0 h886 m-986 -10 v20 m996 0 v-20 m-996 20 v24 m996 0 v-24 m-996 24 q0 10 10 10 m976 0 q10 0 10 -10 m-986 10 h10 m90 0 h10 m0 0 h866 m23 -1352 h-3"/>
          <polygon points="1045 17 1053 13 1053 21"/>
          <polygon points="1045 17 1037 13 1037 21"/></svg><p>no references</p><br /><p style="font-size: 14px; font-weight:bold"><a name="protocol_property">protocol_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="741" height="553">
          <polygon points="9 17 1 13 1 21"/>
@@ -3584,7 +3610,7 @@
             <li><a href="#object_property" title="object_property">object_property</a></li>
             <li><a href="#protocol_property" title="protocol_property">protocol_property</a></li>
          </ul>
-      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="predicate_declaration_property">predicate_declaration_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="695" height="741">
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="predicate_declaration_property">predicate_declaration_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="695" height="785">
          <polygon points="9 17 1 13 1 21"/>
          <polygon points="17 17 9 13 9 21"/>
          <rect x="51" y="3" width="56" height="32" rx="10"/>
@@ -3618,51 +3644,59 @@
          <text class="terminal" x="79" y="285">include(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#atom" xlink:title="atom">
             <rect x="167" y="267" width="52" height="32"/>
             <rect x="165" y="265" width="52" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="175" y="285">atom</text></a><rect x="71" y="311" width="98" height="32" rx="10"/>
-         <rect x="69" y="309" width="98" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="79" y="329">line_count(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
-            <rect x="189" y="311" width="64" height="32"/>
-            <rect x="187" y="309" width="64" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="197" y="329">integer</text></a><rect x="71" y="355" width="64" height="32" rx="10"/>
-         <rect x="69" y="353" width="64" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="79" y="373">mode(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_mode_term" xlink:title="predicate_mode_term">
-            <rect x="175" y="355" width="160" height="32"/>
-            <rect x="173" y="353" width="160" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="183" y="373">predicate_mode_term</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#non_terminal_mode_term" xlink:title="non_terminal_mode_term">
-            <rect x="175" y="399" width="186" height="32"/>
-            <rect x="173" y="397" width="186" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="183" y="417">non_terminal_mode_term</text></a><rect x="401" y="355" width="24" height="32" rx="10"/>
-         <rect x="399" y="353" width="24" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="409" y="373">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#number_of_proofs" xlink:title="number_of_proofs">
-            <rect x="445" y="355" width="136" height="32"/>
-            <rect x="443" y="353" width="136" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="453" y="373">number_of_proofs</text></a><rect x="71" y="443" width="52" height="32" rx="10"/>
-         <rect x="69" y="441" width="52" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="79" y="461">info(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#list" xlink:title="list">
-            <rect x="143" y="443" width="38" height="32"/>
-            <rect x="141" y="441" width="38" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="151" y="461">list</text></a><rect x="621" y="91" width="26" height="32" rx="10"/>
+            <text class="nonterminal" x="175" y="285">atom</text></a><rect x="91" y="311" width="58" height="32" rx="10"/>
+         <rect x="89" y="309" width="58" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="329">lines(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
+            <rect x="169" y="311" width="64" height="32"/>
+            <rect x="167" y="309" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="177" y="329">integer</text></a><rect x="253" y="311" width="24" height="32" rx="10"/>
+         <rect x="251" y="309" width="24" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="261" y="329">,</text>
+         <rect x="91" y="355" width="98" height="32" rx="10"/>
+         <rect x="89" y="353" width="98" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="373">line_count(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
+            <rect x="317" y="311" width="64" height="32"/>
+            <rect x="315" y="309" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="325" y="329">integer</text></a><rect x="71" y="399" width="64" height="32" rx="10"/>
+         <rect x="69" y="397" width="64" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="79" y="417">mode(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_mode_term" xlink:title="predicate_mode_term">
+            <rect x="175" y="399" width="160" height="32"/>
+            <rect x="173" y="397" width="160" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="183" y="417">predicate_mode_term</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#non_terminal_mode_term" xlink:title="non_terminal_mode_term">
+            <rect x="175" y="443" width="186" height="32"/>
+            <rect x="173" y="441" width="186" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="183" y="461">non_terminal_mode_term</text></a><rect x="401" y="399" width="24" height="32" rx="10"/>
+         <rect x="399" y="397" width="24" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="409" y="417">,</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#number_of_proofs" xlink:title="number_of_proofs">
+            <rect x="445" y="399" width="136" height="32"/>
+            <rect x="443" y="397" width="136" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="453" y="417">number_of_proofs</text></a><rect x="71" y="487" width="52" height="32" rx="10"/>
+         <rect x="69" y="485" width="52" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="79" y="505">info(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#list" xlink:title="list">
+            <rect x="143" y="487" width="38" height="32"/>
+            <rect x="141" y="485" width="38" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="151" y="505">list</text></a><rect x="621" y="91" width="26" height="32" rx="10"/>
          <rect x="619" y="89" width="26" height="32" class="terminal" rx="10"/>
          <text class="terminal" x="629" y="109">)</text>
-         <rect x="51" y="487" width="68" height="32" rx="10"/>
-         <rect x="49" y="485" width="68" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="505">private</text>
-         <rect x="51" y="531" width="84" height="32" rx="10"/>
-         <rect x="49" y="529" width="84" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="549">protected</text>
-         <rect x="51" y="575" width="60" height="32" rx="10"/>
-         <rect x="49" y="573" width="60" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="593">public</text>
-         <rect x="51" y="619" width="96" height="32" rx="10"/>
-         <rect x="49" y="617" width="96" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="637">coinductive</text>
-         <rect x="51" y="663" width="76" height="32" rx="10"/>
-         <rect x="49" y="661" width="76" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="681">multifile</text>
-         <rect x="51" y="707" width="108" height="32" rx="10"/>
-         <rect x="49" y="705" width="108" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="725">synchronized</text>
-         <path class="line" d="m17 17 h2 m20 0 h10 m56 0 h10 m0 0 h540 m-636 0 h20 m616 0 h20 m-656 0 q10 0 10 10 m636 0 q0 -10 10 -10 m-646 10 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m76 0 h10 m0 0 h520 m-626 -10 v20 m636 0 v-20 m-636 20 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-606 10 h10 m66 0 h10 m0 0 h10 m56 0 h10 m0 0 h368 m-550 0 h20 m530 0 h20 m-570 0 q10 0 10 10 m550 0 q0 -10 10 -10 m-560 10 v24 m550 0 v-24 m-550 24 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m132 0 h10 m0 0 h10 m184 0 h10 m0 0 h174 m-540 -10 v20 m550 0 v-20 m-550 20 v24 m550 0 v-24 m-550 24 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m104 0 h10 m0 0 h10 m224 0 h10 m0 0 h162 m-540 -10 v20 m550 0 v-20 m-550 20 v24 m550 0 v-24 m-550 24 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m118 0 h10 m0 0 h10 m166 0 h10 m0 0 h206 m-540 -10 v20 m550 0 v-20 m-550 20 v24 m550 0 v-24 m-550 24 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m76 0 h10 m0 0 h10 m52 0 h10 m0 0 h362 m-540 -10 v20 m550 0 v-20 m-550 20 v24 m550 0 v-24 m-550 24 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m98 0 h10 m0 0 h10 m64 0 h10 m0 0 h328 m-540 -10 v20 m550 0 v-20 m-550 20 v24 m550 0 v-24 m-550 24 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m64 0 h10 m20 0 h10 m160 0 h10 m0 0 h26 m-226 0 h20 m206 0 h20 m-246 0 q10 0 10 10 m226 0 q0 -10 10 -10 m-236 10 v24 m226 0 v-24 m-226 24 q0 10 10 10 m206 0 q10 0 10 -10 m-216 10 h10 m186 0 h10 m20 -44 h10 m24 0 h10 m0 0 h10 m136 0 h10 m-540 -10 v20 m550 0 v-20 m-550 20 v68 m550 0 v-68 m-550 68 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m52 0 h10 m0 0 h10 m38 0 h10 m0 0 h400 m20 -352 h10 m26 0 h10 m-626 -10 v20 m636 0 v-20 m-636 20 v376 m636 0 v-376 m-636 376 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m68 0 h10 m0 0 h528 m-626 -10 v20 m636 0 v-20 m-636 20 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m84 0 h10 m0 0 h512 m-626 -10 v20 m636 0 v-20 m-636 20 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m60 0 h10 m0 0 h536 m-626 -10 v20 m636 0 v-20 m-636 20 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m96 0 h10 m0 0 h500 m-626 -10 v20 m636 0 v-20 m-636 20 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m76 0 h10 m0 0 h520 m-626 -10 v20 m636 0 v-20 m-636 20 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m108 0 h10 m0 0 h488 m23 -704 h-3"/>
+         <rect x="51" y="531" width="68" height="32" rx="10"/>
+         <rect x="49" y="529" width="68" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="549">private</text>
+         <rect x="51" y="575" width="84" height="32" rx="10"/>
+         <rect x="49" y="573" width="84" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="593">protected</text>
+         <rect x="51" y="619" width="60" height="32" rx="10"/>
+         <rect x="49" y="617" width="60" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="637">public</text>
+         <rect x="51" y="663" width="96" height="32" rx="10"/>
+         <rect x="49" y="661" width="96" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="681">coinductive</text>
+         <rect x="51" y="707" width="76" height="32" rx="10"/>
+         <rect x="49" y="705" width="76" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="725">multifile</text>
+         <rect x="51" y="751" width="108" height="32" rx="10"/>
+         <rect x="49" y="749" width="108" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="769">synchronized</text>
+         <path class="line" d="m17 17 h2 m20 0 h10 m56 0 h10 m0 0 h540 m-636 0 h20 m616 0 h20 m-656 0 q10 0 10 10 m636 0 q0 -10 10 -10 m-646 10 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m76 0 h10 m0 0 h520 m-626 -10 v20 m636 0 v-20 m-636 20 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-606 10 h10 m66 0 h10 m0 0 h10 m56 0 h10 m0 0 h368 m-550 0 h20 m530 0 h20 m-570 0 q10 0 10 10 m550 0 q0 -10 10 -10 m-560 10 v24 m550 0 v-24 m-550 24 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m132 0 h10 m0 0 h10 m184 0 h10 m0 0 h174 m-540 -10 v20 m550 0 v-20 m-550 20 v24 m550 0 v-24 m-550 24 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m104 0 h10 m0 0 h10 m224 0 h10 m0 0 h162 m-540 -10 v20 m550 0 v-20 m-550 20 v24 m550 0 v-24 m-550 24 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m118 0 h10 m0 0 h10 m166 0 h10 m0 0 h206 m-540 -10 v20 m550 0 v-20 m-550 20 v24 m550 0 v-24 m-550 24 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m76 0 h10 m0 0 h10 m52 0 h10 m0 0 h362 m-540 -10 v20 m550 0 v-20 m-550 20 v24 m550 0 v-24 m-550 24 q0 10 10 10 m530 0 q10 0 10 -10 m-520 10 h10 m58 0 h10 m0 0 h10 m64 0 h10 m0 0 h10 m24 0 h10 m-226 0 h20 m206 0 h20 m-246 0 q10 0 10 10 m226 0 q0 -10 10 -10 m-236 10 v24 m226 0 v-24 m-226 24 q0 10 10 10 m206 0 q10 0 10 -10 m-216 10 h10 m98 0 h10 m0 0 h88 m20 -44 h10 m64 0 h10 m0 0 h200 m-540 -10 v20 m550 0 v-20 m-550 20 v68 m550 0 v-68 m-550 68 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m64 0 h10 m20 0 h10 m160 0 h10 m0 0 h26 m-226 0 h20 m206 0 h20 m-246 0 q10 0 10 10 m226 0 q0 -10 10 -10 m-236 10 v24 m226 0 v-24 m-226 24 q0 10 10 10 m206 0 q10 0 10 -10 m-216 10 h10 m186 0 h10 m20 -44 h10 m24 0 h10 m0 0 h10 m136 0 h10 m-540 -10 v20 m550 0 v-20 m-550 20 v68 m550 0 v-68 m-550 68 q0 10 10 10 m530 0 q10 0 10 -10 m-540 10 h10 m52 0 h10 m0 0 h10 m38 0 h10 m0 0 h400 m20 -396 h10 m26 0 h10 m-626 -10 v20 m636 0 v-20 m-636 20 v420 m636 0 v-420 m-636 420 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m68 0 h10 m0 0 h528 m-626 -10 v20 m636 0 v-20 m-636 20 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m84 0 h10 m0 0 h512 m-626 -10 v20 m636 0 v-20 m-636 20 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m60 0 h10 m0 0 h536 m-626 -10 v20 m636 0 v-20 m-636 20 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m96 0 h10 m0 0 h500 m-626 -10 v20 m636 0 v-20 m-636 20 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m76 0 h10 m0 0 h520 m-626 -10 v20 m636 0 v-20 m-636 20 v24 m636 0 v-24 m-636 24 q0 10 10 10 m616 0 q10 0 10 -10 m-626 10 h10 m108 0 h10 m0 0 h488 m23 -748 h-3"/>
          <polygon points="685 17 693 13 693 21"/>
          <polygon points="685 17 677 13 677 21"/></svg><p>referenced by:
          <ul>
@@ -3689,7 +3723,7 @@
             <li><a href="#category_property" title="category_property">category_property</a></li>
             <li><a href="#object_property" title="object_property">object_property</a></li>
          </ul>
-      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="predicate_definition_property">predicate_definition_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="489" height="301">
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="predicate_definition_property">predicate_definition_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="495" height="345">
          <polygon points="9 17 1 13 1 21"/>
          <polygon points="17 17 9 13 9 21"/>
          <rect x="51" y="3" width="56" height="32" rx="10"/>
@@ -3708,25 +3742,98 @@
          <text class="terminal" x="79" y="153">include(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#atom" xlink:title="atom">
             <rect x="167" y="135" width="52" height="32"/>
             <rect x="165" y="133" width="52" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="175" y="153">atom</text></a><rect x="91" y="179" width="98" height="32" rx="10"/>
-         <rect x="89" y="177" width="98" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="99" y="197">line_count(</text>
-         <rect x="91" y="223" width="160" height="32" rx="10"/>
-         <rect x="89" y="221" width="160" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="99" y="241">number_of_clauses(</text>
-         <rect x="91" y="267" width="144" height="32" rx="10"/>
-         <rect x="89" y="265" width="144" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="99" y="285">number_of_rules(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
-            <rect x="291" y="179" width="64" height="32"/>
-            <rect x="289" y="177" width="64" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="299" y="197">integer</text></a><rect x="415" y="91" width="26" height="32" rx="10"/>
-         <rect x="413" y="89" width="26" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="423" y="109">)</text>
-         <path class="line" d="m17 17 h2 m20 0 h10 m56 0 h10 m0 0 h334 m-430 0 h20 m410 0 h20 m-450 0 q10 0 10 10 m430 0 q0 -10 10 -10 m-440 10 v24 m430 0 v-24 m-430 24 q0 10 10 10 m410 0 q10 0 10 -10 m-420 10 h10 m78 0 h10 m0 0 h312 m-420 -10 v20 m430 0 v-20 m-430 20 v24 m430 0 v-24 m-430 24 q0 10 10 10 m410 0 q10 0 10 -10 m-400 10 h10 m118 0 h10 m0 0 h10 m166 0 h10 m-344 0 h20 m324 0 h20 m-364 0 q10 0 10 10 m344 0 q0 -10 10 -10 m-354 10 v24 m344 0 v-24 m-344 24 q0 10 10 10 m324 0 q10 0 10 -10 m-334 10 h10 m76 0 h10 m0 0 h10 m52 0 h10 m0 0 h156 m-334 -10 v20 m344 0 v-20 m-344 20 v24 m344 0 v-24 m-344 24 q0 10 10 10 m324 0 q10 0 10 -10 m-314 10 h10 m98 0 h10 m0 0 h62 m-200 0 h20 m180 0 h20 m-220 0 q10 0 10 10 m200 0 q0 -10 10 -10 m-210 10 v24 m200 0 v-24 m-200 24 q0 10 10 10 m180 0 q10 0 10 -10 m-190 10 h10 m160 0 h10 m-190 -10 v20 m200 0 v-20 m-200 20 v24 m200 0 v-24 m-200 24 q0 10 10 10 m180 0 q10 0 10 -10 m-190 10 h10 m144 0 h10 m0 0 h16 m20 -88 h10 m64 0 h10 m0 0 h20 m20 -88 h10 m26 0 h10 m23 -88 h-3"/>
-         <polygon points="479 17 487 13 487 21"/>
-         <polygon points="479 17 471 13 471 21"/></svg><p>referenced by:
+            <text class="nonterminal" x="175" y="153">atom</text></a><rect x="91" y="179" width="58" height="32" rx="10"/>
+         <rect x="89" y="177" width="58" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="197">lines(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
+            <rect x="169" y="179" width="64" height="32"/>
+            <rect x="167" y="177" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="177" y="197">integer</text></a><rect x="253" y="179" width="24" height="32" rx="10"/>
+         <rect x="251" y="177" width="24" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="261" y="197">,</text>
+         <rect x="91" y="223" width="98" height="32" rx="10"/>
+         <rect x="89" y="221" width="98" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="241">line_count(</text>
+         <rect x="91" y="267" width="160" height="32" rx="10"/>
+         <rect x="89" y="265" width="160" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="285">number_of_clauses(</text>
+         <rect x="91" y="311" width="144" height="32" rx="10"/>
+         <rect x="89" y="309" width="144" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="329">number_of_rules(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
+            <rect x="317" y="179" width="64" height="32"/>
+            <rect x="315" y="177" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="325" y="197">integer</text></a><rect x="421" y="91" width="26" height="32" rx="10"/>
+         <rect x="419" y="89" width="26" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="429" y="109">)</text>
+         <path class="line" d="m17 17 h2 m20 0 h10 m56 0 h10 m0 0 h340 m-436 0 h20 m416 0 h20 m-456 0 q10 0 10 10 m436 0 q0 -10 10 -10 m-446 10 v24 m436 0 v-24 m-436 24 q0 10 10 10 m416 0 q10 0 10 -10 m-426 10 h10 m78 0 h10 m0 0 h318 m-426 -10 v20 m436 0 v-20 m-436 20 v24 m436 0 v-24 m-436 24 q0 10 10 10 m416 0 q10 0 10 -10 m-406 10 h10 m118 0 h10 m0 0 h10 m166 0 h10 m0 0 h6 m-350 0 h20 m330 0 h20 m-370 0 q10 0 10 10 m350 0 q0 -10 10 -10 m-360 10 v24 m350 0 v-24 m-350 24 q0 10 10 10 m330 0 q10 0 10 -10 m-340 10 h10 m76 0 h10 m0 0 h10 m52 0 h10 m0 0 h162 m-340 -10 v20 m350 0 v-20 m-350 20 v24 m350 0 v-24 m-350 24 q0 10 10 10 m330 0 q10 0 10 -10 m-320 10 h10 m58 0 h10 m0 0 h10 m64 0 h10 m0 0 h10 m24 0 h10 m-226 0 h20 m206 0 h20 m-246 0 q10 0 10 10 m226 0 q0 -10 10 -10 m-236 10 v24 m226 0 v-24 m-226 24 q0 10 10 10 m206 0 q10 0 10 -10 m-216 10 h10 m98 0 h10 m0 0 h88 m-216 -10 v20 m226 0 v-20 m-226 20 v24 m226 0 v-24 m-226 24 q0 10 10 10 m206 0 q10 0 10 -10 m-216 10 h10 m160 0 h10 m0 0 h26 m-216 -10 v20 m226 0 v-20 m-226 20 v24 m226 0 v-24 m-226 24 q0 10 10 10 m206 0 q10 0 10 -10 m-216 10 h10 m144 0 h10 m0 0 h42 m20 -132 h10 m64 0 h10 m20 -88 h10 m26 0 h10 m23 -88 h-3"/>
+         <polygon points="485 17 493 13 493 21"/>
+         <polygon points="485 17 477 13 477 21"/></svg><p>referenced by:
          <ul>
             <li><a href="#predicate_definition_property_list" title="predicate_definition_property_list">predicate_definition_property_list</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="entity_alias_property_list">entity_alias_property_list:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="347" height="81">
+         <polygon points="9 61 1 57 1 65"/>
+         <polygon points="17 61 9 57 9 65"/>
+         <rect x="31" y="47" width="26" height="32" rx="10"/>
+         <rect x="29" y="45" width="26" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="39" y="65">[</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#entity_alias_property" xlink:title="entity_alias_property">
+            <rect x="97" y="47" width="156" height="32"/>
+            <rect x="95" y="45" width="156" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="105" y="65">entity_alias_property</text></a><rect x="97" y="3" width="24" height="32" rx="10"/>
+         <rect x="95" y="1" width="24" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="105" y="21">,</text>
+         <rect x="293" y="47" width="26" height="32" rx="10"/>
+         <rect x="291" y="45" width="26" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="301" y="65">]</text>
+         <path class="line" d="m17 61 h2 m0 0 h10 m26 0 h10 m20 0 h10 m156 0 h10 m-196 0 l20 0 m-1 0 q-9 0 -9 -10 l0 -24 q0 -10 10 -10 m176 44 l20 0 m-20 0 q10 0 10 -10 l0 -24 q0 -10 -10 -10 m-176 0 h10 m24 0 h10 m0 0 h132 m20 44 h10 m26 0 h10 m3 0 h-3"/>
+         <polygon points="337 61 345 57 345 65"/>
+         <polygon points="337 61 329 57 329 65"/></svg><p>referenced by:
+         <ul>
+            <li><a href="#category_property" title="category_property">category_property</a></li>
+            <li><a href="#object_property" title="object_property">object_property</a></li>
+         </ul>
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="entity_alias_property">entity_alias_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="495" height="301">
+         <polygon points="9 17 1 13 1 21"/>
+         <polygon points="17 17 9 13 9 21"/>
+         <rect x="51" y="3" width="62" height="32" rx="10"/>
+         <rect x="49" y="1" width="62" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="21">object</text>
+         <rect x="51" y="47" width="70" height="32" rx="10"/>
+         <rect x="49" y="45" width="70" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="65">module</text>
+         <rect x="71" y="91" width="46" height="32" rx="10"/>
+         <rect x="69" y="89" width="46" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="79" y="109">for(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#object_identifier" xlink:title="object_identifier">
+            <rect x="157" y="91" width="124" height="32"/>
+            <rect x="155" y="89" width="124" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="165" y="109">object_identifier</text></a><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#module_identifier" xlink:title="module_identifier">
+            <rect x="157" y="135" width="130" height="32"/>
+            <rect x="155" y="133" width="130" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="165" y="153">module_identifier</text></a><rect x="71" y="179" width="76" height="32" rx="10"/>
+         <rect x="69" y="177" width="76" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="79" y="197">include(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#atom" xlink:title="atom">
+            <rect x="167" y="179" width="52" height="32"/>
+            <rect x="165" y="177" width="52" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="175" y="197">atom</text></a><rect x="91" y="223" width="58" height="32" rx="10"/>
+         <rect x="89" y="221" width="58" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="241">lines(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
+            <rect x="169" y="223" width="64" height="32"/>
+            <rect x="167" y="221" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="177" y="241">integer</text></a><rect x="253" y="223" width="24" height="32" rx="10"/>
+         <rect x="251" y="221" width="24" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="261" y="241">,</text>
+         <rect x="91" y="267" width="98" height="32" rx="10"/>
+         <rect x="89" y="265" width="98" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="285">line_count(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
+            <rect x="317" y="223" width="64" height="32"/>
+            <rect x="315" y="221" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="325" y="241">integer</text></a><rect x="421" y="91" width="26" height="32" rx="10"/>
+         <rect x="419" y="89" width="26" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="429" y="109">)</text>
+         <path class="line" d="m17 17 h2 m20 0 h10 m62 0 h10 m0 0 h334 m-436 0 h20 m416 0 h20 m-456 0 q10 0 10 10 m436 0 q0 -10 10 -10 m-446 10 v24 m436 0 v-24 m-436 24 q0 10 10 10 m416 0 q10 0 10 -10 m-426 10 h10 m70 0 h10 m0 0 h326 m-426 -10 v20 m436 0 v-20 m-436 20 v24 m436 0 v-24 m-436 24 q0 10 10 10 m416 0 q10 0 10 -10 m-406 10 h10 m46 0 h10 m20 0 h10 m124 0 h10 m0 0 h6 m-170 0 h20 m150 0 h20 m-190 0 q10 0 10 10 m170 0 q0 -10 10 -10 m-180 10 v24 m170 0 v-24 m-170 24 q0 10 10 10 m150 0 q10 0 10 -10 m-160 10 h10 m130 0 h10 m20 -44 h74 m-350 0 h20 m330 0 h20 m-370 0 q10 0 10 10 m350 0 q0 -10 10 -10 m-360 10 v68 m350 0 v-68 m-350 68 q0 10 10 10 m330 0 q10 0 10 -10 m-340 10 h10 m76 0 h10 m0 0 h10 m52 0 h10 m0 0 h162 m-340 -10 v20 m350 0 v-20 m-350 20 v24 m350 0 v-24 m-350 24 q0 10 10 10 m330 0 q10 0 10 -10 m-320 10 h10 m58 0 h10 m0 0 h10 m64 0 h10 m0 0 h10 m24 0 h10 m-226 0 h20 m206 0 h20 m-246 0 q10 0 10 10 m226 0 q0 -10 10 -10 m-236 10 v24 m226 0 v-24 m-226 24 q0 10 10 10 m206 0 q10 0 10 -10 m-216 10 h10 m98 0 h10 m0 0 h88 m20 -44 h10 m64 0 h10 m20 -132 h10 m26 0 h10 m23 -88 h-3"/>
+         <polygon points="485 17 493 13 493 21"/>
+         <polygon points="485 17 477 13 477 21"/></svg><p>referenced by:
+         <ul>
+            <li><a href="#entity_alias_property_list" title="entity_alias_property_list">entity_alias_property_list</a></li>
          </ul>
       </p><br /><p style="font-size: 14px; font-weight:bold"><a name="predicate_alias_property_list">predicate_alias_property_list:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="371" height="81">
          <polygon points="9 61 1 57 1 65"/>
@@ -3750,40 +3857,51 @@
             <li><a href="#object_property" title="object_property">object_property</a></li>
             <li><a href="#protocol_property" title="protocol_property">protocol_property</a></li>
          </ul>
-      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="predicate_alias_property">predicate_alias_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="449" height="213">
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="predicate_alias_property">predicate_alias_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="495" height="301">
          <polygon points="9 17 1 13 1 21"/>
          <polygon points="17 17 9 13 9 21"/>
-         <rect x="51" y="3" width="46" height="32" rx="10"/>
-         <rect x="49" y="1" width="46" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="21">for(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_indicator" xlink:title="predicate_indicator">
-            <rect x="117" y="3" width="142" height="32"/>
-            <rect x="115" y="1" width="142" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="125" y="21">predicate_indicator</text></a><rect x="51" y="47" width="58" height="32" rx="10"/>
-         <rect x="49" y="45" width="58" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="65">from(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#entity_identifier" xlink:title="entity_identifier">
-            <rect x="129" y="47" width="120" height="32"/>
-            <rect x="127" y="45" width="120" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="137" y="65">entity_identifier</text></a><rect x="51" y="91" width="118" height="32" rx="10"/>
-         <rect x="49" y="89" width="118" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="109">non_terminal(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#non_terminal_indicator" xlink:title="non_terminal_indicator">
-            <rect x="189" y="91" width="166" height="32"/>
-            <rect x="187" y="89" width="166" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="197" y="109">non_terminal_indicator</text></a><rect x="51" y="135" width="76" height="32" rx="10"/>
-         <rect x="49" y="133" width="76" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="153">include(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#atom" xlink:title="atom">
-            <rect x="147" y="135" width="52" height="32"/>
-            <rect x="145" y="133" width="52" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="155" y="153">atom</text></a><rect x="51" y="179" width="98" height="32" rx="10"/>
-         <rect x="49" y="177" width="98" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="197">line_count(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
-            <rect x="169" y="179" width="64" height="32"/>
-            <rect x="167" y="177" width="64" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="177" y="197">integer</text></a><rect x="395" y="3" width="26" height="32" rx="10"/>
-         <rect x="393" y="1" width="26" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="403" y="21">)</text>
-         <path class="line" d="m17 17 h2 m20 0 h10 m46 0 h10 m0 0 h10 m142 0 h10 m0 0 h96 m-344 0 h20 m324 0 h20 m-364 0 q10 0 10 10 m344 0 q0 -10 10 -10 m-354 10 v24 m344 0 v-24 m-344 24 q0 10 10 10 m324 0 q10 0 10 -10 m-334 10 h10 m58 0 h10 m0 0 h10 m120 0 h10 m0 0 h106 m-334 -10 v20 m344 0 v-20 m-344 20 v24 m344 0 v-24 m-344 24 q0 10 10 10 m324 0 q10 0 10 -10 m-334 10 h10 m118 0 h10 m0 0 h10 m166 0 h10 m-334 -10 v20 m344 0 v-20 m-344 20 v24 m344 0 v-24 m-344 24 q0 10 10 10 m324 0 q10 0 10 -10 m-334 10 h10 m76 0 h10 m0 0 h10 m52 0 h10 m0 0 h156 m-334 -10 v20 m344 0 v-20 m-344 20 v24 m344 0 v-24 m-344 24 q0 10 10 10 m324 0 q10 0 10 -10 m-334 10 h10 m98 0 h10 m0 0 h10 m64 0 h10 m0 0 h122 m20 -176 h10 m26 0 h10 m3 0 h-3"/>
-         <polygon points="439 17 447 13 447 21"/>
-         <polygon points="439 17 431 13 431 21"/></svg><p>referenced by:
+         <rect x="51" y="3" width="82" height="32" rx="10"/>
+         <rect x="49" y="1" width="82" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="21">predicate</text>
+         <rect x="71" y="47" width="46" height="32" rx="10"/>
+         <rect x="69" y="45" width="46" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="79" y="65">for(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#predicate_indicator" xlink:title="predicate_indicator">
+            <rect x="137" y="47" width="142" height="32"/>
+            <rect x="135" y="45" width="142" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="145" y="65">predicate_indicator</text></a><rect x="71" y="91" width="58" height="32" rx="10"/>
+         <rect x="69" y="89" width="58" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="79" y="109">from(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#entity_identifier" xlink:title="entity_identifier">
+            <rect x="149" y="91" width="120" height="32"/>
+            <rect x="147" y="89" width="120" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="157" y="109">entity_identifier</text></a><rect x="71" y="135" width="118" height="32" rx="10"/>
+         <rect x="69" y="133" width="118" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="79" y="153">non_terminal(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#non_terminal_indicator" xlink:title="non_terminal_indicator">
+            <rect x="209" y="135" width="166" height="32"/>
+            <rect x="207" y="133" width="166" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="217" y="153">non_terminal_indicator</text></a><rect x="71" y="179" width="76" height="32" rx="10"/>
+         <rect x="69" y="177" width="76" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="79" y="197">include(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#atom" xlink:title="atom">
+            <rect x="167" y="179" width="52" height="32"/>
+            <rect x="165" y="177" width="52" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="175" y="197">atom</text></a><rect x="91" y="223" width="58" height="32" rx="10"/>
+         <rect x="89" y="221" width="58" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="241">lines(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
+            <rect x="169" y="223" width="64" height="32"/>
+            <rect x="167" y="221" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="177" y="241">integer</text></a><rect x="253" y="223" width="24" height="32" rx="10"/>
+         <rect x="251" y="221" width="24" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="261" y="241">,</text>
+         <rect x="91" y="267" width="98" height="32" rx="10"/>
+         <rect x="89" y="265" width="98" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="99" y="285">line_count(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
+            <rect x="317" y="223" width="64" height="32"/>
+            <rect x="315" y="221" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="325" y="241">integer</text></a><rect x="421" y="47" width="26" height="32" rx="10"/>
+         <rect x="419" y="45" width="26" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="429" y="65">)</text>
+         <path class="line" d="m17 17 h2 m20 0 h10 m82 0 h10 m0 0 h314 m-436 0 h20 m416 0 h20 m-456 0 q10 0 10 10 m436 0 q0 -10 10 -10 m-446 10 v24 m436 0 v-24 m-436 24 q0 10 10 10 m416 0 q10 0 10 -10 m-406 10 h10 m46 0 h10 m0 0 h10 m142 0 h10 m0 0 h102 m-350 0 h20 m330 0 h20 m-370 0 q10 0 10 10 m350 0 q0 -10 10 -10 m-360 10 v24 m350 0 v-24 m-350 24 q0 10 10 10 m330 0 q10 0 10 -10 m-340 10 h10 m58 0 h10 m0 0 h10 m120 0 h10 m0 0 h112 m-340 -10 v20 m350 0 v-20 m-350 20 v24 m350 0 v-24 m-350 24 q0 10 10 10 m330 0 q10 0 10 -10 m-340 10 h10 m118 0 h10 m0 0 h10 m166 0 h10 m0 0 h6 m-340 -10 v20 m350 0 v-20 m-350 20 v24 m350 0 v-24 m-350 24 q0 10 10 10 m330 0 q10 0 10 -10 m-340 10 h10 m76 0 h10 m0 0 h10 m52 0 h10 m0 0 h162 m-340 -10 v20 m350 0 v-20 m-350 20 v24 m350 0 v-24 m-350 24 q0 10 10 10 m330 0 q10 0 10 -10 m-320 10 h10 m58 0 h10 m0 0 h10 m64 0 h10 m0 0 h10 m24 0 h10 m-226 0 h20 m206 0 h20 m-246 0 q10 0 10 10 m226 0 q0 -10 10 -10 m-236 10 v24 m226 0 v-24 m-226 24 q0 10 10 10 m206 0 q10 0 10 -10 m-216 10 h10 m98 0 h10 m0 0 h88 m20 -44 h10 m64 0 h10 m20 -176 h10 m26 0 h10 m23 -44 h-3"/>
+         <polygon points="485 17 493 13 493 21"/>
+         <polygon points="485 17 477 13 477 21"/></svg><p>referenced by:
          <ul>
             <li><a href="#predicate_alias_property_list" title="predicate_alias_property_list">predicate_alias_property_list</a></li>
          </ul>
@@ -3839,7 +3957,7 @@
             <li><a href="#category_property" title="category_property">category_property</a></li>
             <li><a href="#object_property" title="object_property">object_property</a></li>
          </ul>
-      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="predicate_call_update_property">predicate_call_update_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="449" height="213">
+      </p><br /><p style="font-size: 14px; font-weight:bold"><a name="predicate_call_update_property">predicate_call_update_property:</a></p><svg xmlns="http://www.w3.org/2000/svg" width="455" height="257">
          <polygon points="9 17 1 13 1 21"/>
          <polygon points="17 17 9 13 9 21"/>
          <rect x="71" y="3" width="64" height="32" rx="10"/>
@@ -3855,22 +3973,30 @@
          <text class="terminal" x="59" y="109">include(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#atom" xlink:title="atom">
             <rect x="147" y="91" width="52" height="32"/>
             <rect x="145" y="89" width="52" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="155" y="109">atom</text></a><rect x="51" y="135" width="98" height="32" rx="10"/>
-         <rect x="49" y="133" width="98" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="153">line_count(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
-            <rect x="169" y="135" width="64" height="32"/>
-            <rect x="167" y="133" width="64" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="177" y="153">integer</text></a><rect x="51" y="179" width="118" height="32" rx="10"/>
-         <rect x="49" y="177" width="118" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="59" y="197">non_terminal(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#non_terminal_indicator" xlink:title="non_terminal_indicator">
-            <rect x="189" y="179" width="166" height="32"/>
-            <rect x="187" y="177" width="166" height="32" class="nonterminal"/>
-            <text class="nonterminal" x="197" y="197">non_terminal_indicator</text></a><rect x="395" y="3" width="26" height="32" rx="10"/>
-         <rect x="393" y="1" width="26" height="32" class="terminal" rx="10"/>
-         <text class="terminal" x="403" y="21">)</text>
-         <path class="line" d="m17 17 h2 m40 0 h10 m64 0 h10 m-104 0 h20 m84 0 h20 m-124 0 q10 0 10 10 m104 0 q0 -10 10 -10 m-114 10 v24 m104 0 v-24 m-104 24 q0 10 10 10 m84 0 q10 0 10 -10 m-94 10 h10 m58 0 h10 m0 0 h6 m20 -44 h10 m142 0 h10 m0 0 h38 m-344 0 h20 m324 0 h20 m-364 0 q10 0 10 10 m344 0 q0 -10 10 -10 m-354 10 v68 m344 0 v-68 m-344 68 q0 10 10 10 m324 0 q10 0 10 -10 m-334 10 h10 m76 0 h10 m0 0 h10 m52 0 h10 m0 0 h156 m-334 -10 v20 m344 0 v-20 m-344 20 v24 m344 0 v-24 m-344 24 q0 10 10 10 m324 0 q10 0 10 -10 m-334 10 h10 m98 0 h10 m0 0 h10 m64 0 h10 m0 0 h122 m-334 -10 v20 m344 0 v-20 m-344 20 v24 m344 0 v-24 m-344 24 q0 10 10 10 m324 0 q10 0 10 -10 m-334 10 h10 m118 0 h10 m0 0 h10 m166 0 h10 m20 -176 h10 m26 0 h10 m3 0 h-3"/>
-         <polygon points="439 17 447 13 447 21"/>
-         <polygon points="439 17 431 13 431 21"/></svg><p>referenced by:
+            <text class="nonterminal" x="155" y="109">atom</text></a><rect x="71" y="135" width="58" height="32" rx="10"/>
+         <rect x="69" y="133" width="58" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="79" y="153">lines(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
+            <rect x="149" y="135" width="64" height="32"/>
+            <rect x="147" y="133" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="157" y="153">integer</text></a><rect x="233" y="135" width="24" height="32" rx="10"/>
+         <rect x="231" y="133" width="24" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="241" y="153">,</text>
+         <rect x="71" y="179" width="98" height="32" rx="10"/>
+         <rect x="69" y="177" width="98" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="79" y="197">line_count(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#integer" xlink:title="integer">
+            <rect x="297" y="135" width="64" height="32"/>
+            <rect x="295" y="133" width="64" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="305" y="153">integer</text></a><rect x="51" y="223" width="118" height="32" rx="10"/>
+         <rect x="49" y="221" width="118" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="59" y="241">non_terminal(</text><a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#non_terminal_indicator" xlink:title="non_terminal_indicator">
+            <rect x="189" y="223" width="166" height="32"/>
+            <rect x="187" y="221" width="166" height="32" class="nonterminal"/>
+            <text class="nonterminal" x="197" y="241">non_terminal_indicator</text></a><rect x="401" y="3" width="26" height="32" rx="10"/>
+         <rect x="399" y="1" width="26" height="32" class="terminal" rx="10"/>
+         <text class="terminal" x="409" y="21">)</text>
+         <path class="line" d="m17 17 h2 m40 0 h10 m64 0 h10 m-104 0 h20 m84 0 h20 m-124 0 q10 0 10 10 m104 0 q0 -10 10 -10 m-114 10 v24 m104 0 v-24 m-104 24 q0 10 10 10 m84 0 q10 0 10 -10 m-94 10 h10 m58 0 h10 m0 0 h6 m20 -44 h10 m142 0 h10 m0 0 h44 m-350 0 h20 m330 0 h20 m-370 0 q10 0 10 10 m350 0 q0 -10 10 -10 m-360 10 v68 m350 0 v-68 m-350 68 q0 10 10 10 m330 0 q10 0 10 -10 m-340 10 h10 m76 0 h10 m0 0 h10 m52 0 h10 m0 0 h162 m-340 -10 v20 m350 0 v-20 m-350 20 v24 m350 0 v-24 m-350 24 q0 10 10 10 m330 0 q10 0 10 -10 m-320 10 h10 m58 0 h10 m0 0 h10 m64 0 h10 m0 0 h10 m24 0 h10 m-226 0 h20 m206 0 h20 m-246 0 q10 0 10 10 m226 0 q0 -10 10 -10 m-236 10 v24 m226 0 v-24 m-226 24 q0 10 10 10 m206 0 q10 0 10 -10 m-216 10 h10 m98 0 h10 m0 0 h88 m20 -44 h10 m64 0 h10 m-340 -10 v20 m350 0 v-20 m-350 20 v68 m350 0 v-68 m-350 68 q0 10 10 10 m330 0 q10 0 10 -10 m-340 10 h10 m118 0 h10 m0 0 h10 m166 0 h10 m0 0 h6 m20 -220 h10 m26 0 h10 m3 0 h-3"/>
+         <polygon points="445 17 453 13 453 21"/>
+         <polygon points="445 17 437 13 437 21"/></svg><p>referenced by:
          <ul>
             <li><a href="#predicate_call_update_property_list" title="predicate_call_update_property_list">predicate_call_update_property_list</a></li>
          </ul>
