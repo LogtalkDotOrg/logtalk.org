@@ -8,6 +8,31 @@ aside:
 
 ### 2024
 
+##### June 4
+
+> Logtalk 3.80.0 is now available for [downloading](download.html).
+> This release changes the debugging API to allow multiple debug
+> handlers to be loaded simultaneously; updates the compiler to
+> support for using backend proprietary directives when dynamically
+> creating objects and categories; updates the reflection API to
+> better support developer tools; fixes a regression preventing
+> linter warnings for duplicated clauses and grammar rules; fixes
+> reporting of the number of compilation warnings that failed to
+> count some of the warnings; fixes the `phrase/2-3` built-in
+> methods to properly handle a runtime bound first argument when
+> called from a meta-predicate (thanks to Alex Kouznetsov for the
+> bug report); updates the documentation of the embedding scripts;
+> adds ew `sequential_occurrences/2-3` list predicates to the `types`
+> library; updates the he `debugger` and `ports_profiler` tools for
+> the new debug API; adds support for log points to the `debugger`
+> tool; improves the `debugger` tool integration with other developer
+> tools; improves the `packs` tool reporting when a pack is available
+> from multiple registries; includes fixes for the `missing_data`
+> example; includes new and improved VSCode/VSCodium support predicates;
+> and provides portability updates for LVM and SWI-Prolog. For details
+> and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### May 15
 
 > Logtalk 3.79.0 is now available for [downloading](download.html).
