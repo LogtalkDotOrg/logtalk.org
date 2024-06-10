@@ -23,7 +23,7 @@ aside:
 > called from a meta-predicate (thanks to Alex Kouznetsov for the
 > bug report); updates the documentation of the embedding scripts;
 > adds ew `sequential_occurrences/2-3` list predicates to the `types`
-> library; updates the he `debugger` and `ports_profiler` tools for
+> library; updates the `debugger` and `ports_profiler` tools for
 > the new debug API; adds support for log points to the `debugger`
 > tool; improves the `debugger` tool integration with other developer
 > tools; improves the `packs` tool reporting when a pack is available
