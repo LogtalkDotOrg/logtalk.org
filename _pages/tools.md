@@ -272,9 +272,13 @@ Logtalk provides an extended procedure box model that supports:
 This procedure box model is leveraged by the [`debugger`](https://logtalk.org/manuals/devtools/debugger.html)
 tool to provide:
 
--   Predicate spy points
--   Context spy points
--   Breakpoints (aka line number spy points)
+-   Traditional predicate breakpoints
+-   Context breakpoints
+-   Clause breakpoints (at unification ports)
+-	Conditional breakpoints (at unification ports)
+-	Hit count breakpoints (at unification ports)
+-	Triggered breakpoints (at unification ports)
+-	Log points (at unification ports) with templated messages
 -   Extended set of debugging commands at leashed ports
 
 Another debugging tool, [`debug_messages`](https://logtalk.org/manuals/devtools/debug_messages.html).
@@ -357,12 +361,9 @@ and [VSCodium](https://open-vsx.org/extension/LogtalkDotOrg/logtalk-extension-pa
 ## Embedding
 
 Logtalk includes a set of sample [helper scripts](https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding)
+with [usage examples](https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding/SCRIPT.txt)
 for embedding the Logtalk runtime and Logtalk applications using selected backend Prolog compilers. These scripts greatly
 simplify packaging and delivering of applications and can be used as basis for e.g. automatically generating executables and JAR files.
-
-##### Examples
-
--   [Embedding examples](https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding/SCRIPT.txt)
 
 
 ## Version management

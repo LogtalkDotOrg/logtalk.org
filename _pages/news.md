@@ -8,6 +8,34 @@ aside:
 
 ### 2024
 
+##### July 16
+
+> Logtalk 3.81.0 is now available for [downloading](download.html).
+> This release updates the delegation control construct to also preserve
+> the original meta-call context; adds support for runtime constructed
+> `(^^)/2` goals; adds support for using the `(<<)/2` and `catch/3`
+> control constructs in a grammar rule body; fixes meta-arguments
+> handling issues (thanks to Alex Kouznetsov for the bug reports);
+> accounts for the renaming of the LVM backend to XVM; improves
+> documentation; improves the performance of the `json` library when
+> parsing large files (thanks to Yurii Rashkovskii for the bug report);
+> fixes the `meta_compiler` library expansion of meta-arguments that
+> call Prolog module predicates; changes the `lgtunit` object `test/3`
+> private predicate to no longer being declared as a meta-predicate,
+> simplifying writing of meta-predicate tests; adds support for
+> conditional and triggered breakpoints to the `debugger` tool;
+> improves the `debugger` tool support for log points; improves the
+> `debugger` tool performance when checking for leashed ports; fixes
+> a bug in the `lgtdoc` tool when generating reStructuredText files;
+> adds a new programming example illustrating the semantics of calling
+> an inherited meta-predicate using a message to *self* versus using
+> a *super* call; includes additional tests for the `(^^)/2` control
+> construct; adds a Docker file for building an image with Logtalk,
+> a subset of the supported Prolog backends, Jupyter, JupyterLab, and
+> the Logtalk kernel; and includes new and improved VSCode/VSCodium
+> support. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### June 4
 
 > Logtalk 3.80.0 is now available for [downloading](download.html).

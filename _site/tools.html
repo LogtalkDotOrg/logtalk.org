@@ -552,9 +552,13 @@ detection of problems that can cause poor performance.</p>
 tool to provide:</p>
 
 <ul>
-  <li>Predicate spy points</li>
-  <li>Context spy points</li>
-  <li>Breakpoints (aka line number spy points)</li>
+  <li>Traditional predicate breakpoints</li>
+  <li>Context breakpoints</li>
+  <li>Clause breakpoints (at unification ports)</li>
+  <li>Conditional breakpoints (at unification ports)</li>
+  <li>Hit count breakpoints (at unification ports)</li>
+  <li>Triggered breakpoints (at unification ports)</li>
+  <li>Log points (at unification ports) with templated messages</li>
   <li>Extended set of debugging commands at leashed ports</li>
 </ul>
 
@@ -636,14 +640,9 @@ and <a href="https://open-vsx.org/extension/LogtalkDotOrg/logtalk-extension-pack
 <h2 id="embedding">Embedding</h2>
 
 <p>Logtalk includes a set of sample <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding">helper scripts</a>
+with <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding/SCRIPT.txt">usage examples</a>
 for embedding the Logtalk runtime and Logtalk applications using selected backend Prolog compilers. These scripts greatly
 simplify packaging and delivering of applications and can be used as basis for e.g. automatically generating executables and JAR files.</p>
-
-<h5 id="examples-4">Examples</h5>
-
-<ul>
-  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding/SCRIPT.txt">Embedding examples</a></li>
-</ul>
 
 <h2 id="version-management">Version management</h2>
 

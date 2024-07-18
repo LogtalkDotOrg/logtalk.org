@@ -13,7 +13,6 @@ Logtalk on the web
 
 -   Logtalk 3 with SWI Prolog Docker [official](https://hub.docker.com/u/logtalk/) and [third-party](https://hub.docker.com/r/koryonik/logtalk-swi/) containers
 -	[Public Logtalk and Prolog pack registries](https://github.com/LogtalkDotOrg/pack-registries)
--	[ECTrafficModeller](https://github.com/hnbeck/ECTrafficModeller)
 -	[Wumpus World Simulator for AI4EU](https://github.com/kaiser185/wumpus_simul_ai4eu)
 -	[bacon-logtalk - a system for scientific discovery](https://github.com/lindseyspratt/bacon-logtalk)
 -   [SitCalc - A generic framework for passing round "state" in Logtalk applications based on Situation Calculus](https://github.com/PaulBrownMagic/SitCalc)
@@ -23,19 +22,11 @@ Logtalk on the web
 -   [Weak Bases: An encoding of Post\'s lattice in Logtalk](https://github.com/Joelbyte/weak-bases)
 -   [BANpipe: A logic-based scripting language designed to model complex compositions of time consuming analyses](https://github.com/cth/banpipe)
 -   [ESProNa: Constraint-Based Declarative Business Process Modeling](https://github.com/igler/ESProNa)
--   [Logtalk-XML: An XML parser/objectifier for Logtalk](https://bitbucket.org/StefanZimmermann/logtalk-xml/)
--   [Verdi Neruda: Meta-interpreter collection including top-down and bottom-up search strategies](http://joelbyte.github.com/verdi-neruda/)
+-   [Verdi Neruda: Meta-interpreter collection including top-down and bottom-up search strategies](https://github.com/joelbyte/verdi-neruda/)
 -   [L-FLAT: Logtalk Toolkit for Formal Languages and Automata Theory](https://github.com/l-flat/lflat)
 -   [Logtalk processing of STEP Part 21 data exchange files](https://github.com/pmoura/lgtstep)
 -   [The Cuypers Multimedia Transformation Engine](http://homepages.cwi.nl/~media/cuypers/)
 -	[dblint - a relational database linting tool](https://github.com/fusiongyro/dblint)
--   [An abstraction class to Logtalk objects and Prolog](https://dev.crazydwarves.org/trac/TER) with [SWI-Prolog](http://www.swi-prolog.org/) for Java (outdated, replaced by Scalogic)
--   [Gorgias](https://dev.crazydwarves.org/trac/Gorgias) --- an
-    argumentation-based reasoning framework exploiting Logtalk to be
-    extensible, modular and to provide debugging facilities
--   [Scalogic](https://dev.crazydwarves.org/trac/Scalogic/) --- contains
-    Scalogtalk, an SWI-Prolog/Logtalk/Gorgias wrapper in
-    [Scala](http://www.scala-lang.org/)
 
 <!-- -->
 
@@ -79,8 +70,6 @@ Logtalk on the web
 -   [AlltheWeb Logtalk
     search](http://www.alltheweb.com/search?avkw=fogg&advanced=1&cat=web&q=logtalk+prolog&dexcl=logtalk.org)
     (excluding the `logtalk.org` domain)
--   [Yahoo Logtalk
-    search](http://search.yahoo.com/search?x=op&va=logtalk+prolog)
 -   [Bing Logtalk
     search](http://www.bing.com/search?q=logtalk+prolog+-site%3Alogtalk.org)
     (excluding the `logtalk.org` domain)
@@ -95,59 +84,27 @@ Prolog compilers
 Prolog standardization
 ----------------------
 
--   [ISO/IEC
-    13211-1](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=21413) -
+-   [ISO/IEC 13211-1](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=21413) -
     Programming Language Prolog Part I: General Core
--   [ISO/IEC
-    13211-2](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=20775) -
+-   [ISO/IEC 13211-2](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=20775) -
     Programming Language Prolog Part II: Modules
--   [ISO/IEC JTC1/SC22/WG17 official home
-    page](http://www.sju.edu/~jhodgson/wg17/wg17web.html)
--   [Validation test suite for ISO Standard
-    conformance](http://www.sju.edu/%7Ejhodgson/x3j17.html) by [Jonathan
-    Hodgson](http://www.sju.edu/%7Ejhodgson)
--   [Executable Specification for Standard
-    Prolog](ftp://ftp-lifo.univ-orleans.fr/pub/Users/eddbali/SdProlog/)
-    by Pierre Deransat and AbdelAli Ed-Dbali
--   [Prolog standardization discussion
-    forums](http://prolog.logtalk.org/)
 
 Prolog on-line learning resources
 ---------------------------------
 
 -   [Try SWI-Prolog online](http://swish.swi-prolog.org/)
--   [Learn Prolog Now!](http://www.learnprolognow.org/)
--   [On-line Guide to Prolog
-    Programming](http://kti.ms.mff.cuni.cz/%7Ebartak/prolog/index.html)
-    by [Roman Barták](http://kti.ms.mff.cuni.cz/%7Ebartak)
--   [Adventure in
-    Prolog](http://www.amzi.com/AdventureInProlog/advfrtop.htm) by
-    [Amzi! Inc.](http://www.amzi.com)
--   [Prolog
-    Tutorial](http://www.csupomona.edu/%7Ejrfisher/www/prolog_tutorial/contents.html)
-    by [John Fisher](http://www.csupomona.edu/%7Ejrfisher/www/)
--   [Prolog Programming A First
-    Course](http://www.scre.ac.uk/personal/pb/prologbook/) by Paul Brna
--   [DCG tutorial](http://www.pathwayslms.com/swipltuts/dcg/) by Anne
-    Ogborn
--   [Introduction to logic programming with
-    Prolog](https://www.matchilling.com/introduction-to-logic-programming-with-prolog/)
-    by Mathias Schilling
-
-Prolog programming resources
-----------------------------
-
--   [Google Code Search](http://www.google.com/codesearch)
--   [Universal Grammar in
-    Prolog](http://www.nyu.edu/pages/linguistics/ling.html)
--   [P-99: Ninety-Nine Prolog
-    Problems](http://sites.google.com/site/prologsite/prolog-problems/)
+-   [Learn Prolog Now!](https://lpn.swi-prolog.org/lpnpage.php?pageid=top)
+-   [On-line Guide to Prolog Programming](http://kti.ms.mff.cuni.cz/%7Ebartak/prolog/index.html) by [Roman Barták](http://kti.ms.mff.cuni.cz/%7Ebartak)
+-   [Adventure in Prolog](http://www.amzi.com/AdventureInProlog/advfrtop.htm) by [Amzi! Inc.](http://www.amzi.com)
+-   [Prolog Tutorial](https://saksagan.ceng.metu.edu.tr/courses/ceng242/documents/prolog/jrfisher/contents.html) by [John Fisher](http://www.csupomona.edu/%7Ejrfisher/www/)
+-   [Prolog Programming A First Course](http://www.cs.otago.ac.nz/cosc347/References/LP/LeedsTutorial/) by Paul Brna
+-   [Introduction to logic programming with Prolog](https://www.matchilling.com/introduction-to-logic-programming-with-prolog/) by Mathias Schilling
+-   [P-99: Ninety-Nine Prolog Problems](https://peterhuistyping.github.io/Cambridge_CS_Tripos/Ref/IBProlog/P-99_Ninety-Nine%20Prolog%20Problems.pdf) (PDF)
 
 Logic programming
 -----------------
 
--   [Association for Logic Programming](http://www.cs.nmsu.edu/ALP/)
--   [The World Wide Web Virtual Library: Logic
-    Programming](http://www.comlab.ox.ac.uk/archive/logic-prog.html)
+-   [Association for Logic Programming](https://logicprogramming.org)
+-   [The World Wide Web Virtual Library: Logic Programming](https://store.fmi.uni-sofia.bg/fmi/logic/skordev/ln/lp/logic-prog.htm)
 -   [Free Online Logic Programming Books ::
     FreeTechBooks.com](http://www.freetechbooks.com/logic-programming-f13.html)
