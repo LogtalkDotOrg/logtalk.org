@@ -4,6 +4,92 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.82.0 - August 20, 2024
+========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* CHANGED: Linter warnings on suspicious cuts in disjunctions are now
+controlled by the `disjunctions` flag.
+
+* CHANGED: Linter warnings on calling Logtalk/Prolog top-level shortcuts
+or Logtalk built-in predicates as directives are now controlled by the
+`portability` flag.
+
+* ADDED: Support for runtime constructed messages for the built-in methods.
+Thanks to Alex Kouznetsov for the bug report.
+
+* FIXED: The handling of `include/1` directives by the `create_protocol/3`,
+`create_object/4`, and `create_category/4` built-in predicates to throw an
+error instead of failing when the included file is not valid. Thanks to Alex
+Kouznetsov for the bug report.
+
+* FIXED: The message term of the linter warning for a missing predicate scope
+directive when an `info/2` or `mode/2` directive exists would misreport the
+existing directive.
+
+* FIXED: Duplicated linter warnings when checking if `(\=)/2` goals are always
+true or false.
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: The default value of the `underscore_variables` linter flag to
+`dont_care` for all supported backends.
+
+Documentation
+-------------
+
+* IMPROVED: Handbook documentation of the `underscore_variables` linter flag.
+
+* IMPROVED: Handbook documentation of the `logtalk::message_prefix_stream/4`
+predicate.
+
+* FIXED: Handbook documentation of the `logtalk::ask_question/5` predicate.
+Thanks to Paul Brown for the bug report.
+
+Library
+-------
+
+* CHANGED: The `arbitrary` library check if null is a valid character for
+the current backend to not rely on exceptions but instead use the backend
+identifier.
+
+Tools
+-----
+
+* ADDED: Tests for the `linter` tool.
+
+* IMPROVED: The `packs` tool handling of alternative pack dependencies.
+
+* IMPROVED: Man page of the `packs` tool `lgtenv` script.
+
+* UPDATED: The `lgtenv` scripts to support specifying the name of the packs
+sub-directory.
+
+* FIXED: The `logtalk_allure_report` scripts when using both the single page
+and title options. Allure 2.26.0 or a later version is now required.
+
+Tests
+-----
+
+* ADDED: Additional tests for the `include/1` directive.
+
+* ADDED: Additional tests for the built-in database and reflection methods.
+
+Installers and installation scripts
+-----------------------------------
+
+* ADDED: Portable Docker image support for displaying man pages.
+
+* ADDED: Portable Docker image support for displaying the Handbook and the
+APIs Texinfo files using the `help` tool.
+
+* FIXED: The Docker file for building the portable image to properly define
+the `INFOPATH` and `MANPATH` environment variables.
+
+
 3.81.0 - July 16, 2024
 ======================
 

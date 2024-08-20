@@ -51,16 +51,17 @@ p.roffit {
 </head><body>
 <a name="NAME"></a><h2 class="nroffsh">Name</h2>
 <p class="level0">lgtenv - Logtalk script for creating packs virtual environments </p><a name="SYNOPSIS"></a><h2 class="nroffsh">Synopsis</h2>
-<p class="level0"><span Class="bold">lgtenv -v</span> <br><span Class="bold">lgtenv</span> [<span class="bold">-d <span Class="emphasis">directory</span>] [<span Class="bold">-c</span>] <br><span Class="bold">lgtenv -h</span> </p><a name="DESCRIPTION"></a><h2 class="nroffsh">Description</h2>
-<p class="level0"><span Class="bold">lgtenv</span> is a Logtalk script for creating packs virtual environments. </p><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
-<p class="level0"><span Class="bold">-d</span> Directory where to create the virtual environment. Default is the current directory. </p>
-<p class="level0"><span Class="bold">-c</span> Create directory if it does not exist. </p><a name="REQUIREMENTS"></a><h2 class="nroffsh">Requirements</h2>
+<p class="level0"><span Class="bold">lgtenv -v</span> <br><span Class="bold">lgtenv</span> [<span class="bold">-d <span Class="emphasis">directory</span>] [<span Class="bold">-c</span>] [<span class="bold">-p <span Class="emphasis">packs</span>] <br><span Class="bold">lgtenv -h</span> </p><a name="DESCRIPTION"></a><h2 class="nroffsh">Description</h2>
+<p class="level0"><span Class="bold">lgtenv</span> is a Logtalk script for creating packs virtual environments. It works by activating a <span Class="bold">LOGTALKPACKS</span> environment variable when changing the current directory to the directory where the virtual environment was created. To use the virtual environment, start Logtalk from the directory where the virtual environment was created. </p><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
+<p class="level0"><span Class="bold">-d</span> Directory where to create the virtual environment. Absolute path. Default is the current directory. </p>
+<p class="level0"><span Class="bold">-c</span> Create directory if it does not exist. </p>
+<p class="level0"><span Class="bold">-p</span> Packs sub-directory. Relative path. Default is the current directory. </p><a name="REQUIREMENTS"></a><h2 class="nroffsh">Requirements</h2>
 <p class="level0">Requires <span Class="bold">direnv</span> to be installed (see <a href="https://github.com/direnv/direnv).">https://github.com/direnv/direnv).</a> </p><a name="ENVIRONMENT"></a><h2 class="nroffsh">Environment</h2>
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. </p>
 <p class="level0"><span Class="bold">LOGTALKUSER</span> Specifies the location of the Logtalk user directory. </p><a name="SEE"></a><h2 class="nroffsh">See also</h2>
 <p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> </p>
 <p class="level0">The Logtalk User and Reference Manuals at <span Class="bold">$LOGTALKHOME/manuals/index.html</span> </p><a name="AUTHOR"></a><h2 class="nroffsh">Author</h2>
 <p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt; </p><a name="COPYRIGHT"></a><h2 class="nroffsh">Copyright</h2>
-<p class="level0">Copyright (c) 2023 Paulo Moura. </p><p class="roffit">
+<p class="level0">Copyright (c) 2023-2024 Paulo Moura. </p><p class="roffit">
  This HTML page was made with <a href="https://daniel.haxx.se/projects/roffit/">roffit</a>.
 </body></html>

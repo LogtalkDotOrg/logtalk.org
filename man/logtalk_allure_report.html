@@ -52,7 +52,7 @@ p.roffit {
 <a name="NAME"></a><h2 class="nroffsh">Name</h2>
 <p class="level0">logtalk_allure_report - Logtalk script for generating Allure reports </p><a name="SYNOPSIS"></a><h2 class="nroffsh">Synopsis</h2>
 <p class="level0"><span Class="bold">logtalk_allure_report -v</span> <br><span Class="bold">logtalk_allure_report</span> [<span class="bold">-d <span Class="emphasis">tests</span>] [<span class="bold">-i <span Class="emphasis">results</span>] [<span class="bold">-o <span Class="emphasis">report</span>] [<span class="bold">-t <span Class="emphasis">title</span>] [<span Class="bold">-p</span>] [<span Class="bold">-s</span>] [<span class="bold">-- <span Class="emphasis">environment pairs</span>] <br><span Class="bold">logtalk_allure_report -h</span> </p><a name="DESCRIPTION"></a><h2 class="nroffsh">Description</h2>
-<p class="level0"><span Class="bold">logtalk_allure_report</span> is a script for generating Allure reports (version 2.24.0 or later). Requires running first the <span Class="emphasis">logtalk_tester</span> script using the <span Class="emphasis">-f xunit</span> (or <span Class="emphasis">-f xunit_net_v2</span>) command-line option. </p><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
+<p class="level0"><span Class="bold">logtalk_allure_report</span> is a script for generating Allure reports (version 2.26.0 or later). Requires running first the <span Class="emphasis">logtalk_tester</span> script using the <span Class="emphasis">-f xunit</span> (or <span Class="emphasis">-f xunit_net_v2</span>) command-line option. </p><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
 <p class="level0"><span Class="bold">-v</span> Print script version. </p>
 <p class="level0"><span Class="bold">-d</span> The directory containing the tests (i.e. the directory where the <span Class="emphasis">logtalk_tester</span> script was run; default is the current directory). </p>
 <p class="level0"><span Class="bold">-i</span> Directory where to collect the test results (i.e. the xUnit reports) for generating the report (default is <span Class="emphasis">./allure-results</span>). </p>
@@ -67,11 +67,11 @@ p.roffit {
 <p class="level0">Run all tests on the current directory and sub-directories using the GNU Prolog backend (saving the test results in the required xUnit format), generate the Allure report, and open the report for browsing: <span Class="bold">logtalk_tester -p gnu -f xunit</span> <br><span Class="bold">logtalk_allure_report</span> <br><span Class="bold">allure open</span> </p>
 <p class="level0">Set the title for the report and information on the backend used: <span Class="bold">logtalk_allure_report -t &quot;My application tests report&quot; -- Backend=&#39;GNU Prolog&#39; Commit=f7a106e</span> <br><span Class="bold">allure open</span> </p>
 <p class="level0">Save the processed test results and the report data to permanent directories so that the report shows tests run trends: <span Class="bold">logtalk_allure_report -i &quot;$HOME/my_project/allure-results&quot; -o &quot;$HOME/my_project/allure_report&quot;</span> <br><span Class="bold">allure open &quot;$HOME/my_project/allure_report&quot;</span> </p><a name="IMPLEMENTATION"></a><h2 class="nroffsh">Implementation notes</h2>
-<p class="level0">Tested using Allure 2.24.0. </p><a name="SEE"></a><h2 class="nroffsh">See also</h2>
+<p class="level0">Tested using Allure 2.30.0. </p><a name="SEE"></a><h2 class="nroffsh">See also</h2>
 <p class="level0">The Allure website at <a href="https://docs.qameta.io/allure-report/">https://docs.qameta.io/allure-report/</a> </p>
 <p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> </p>
 <p class="level0">The Logtalk User and Reference Manuals at <span Class="bold">$LOGTALKHOME/manuals/index.html</span> </p><a name="AUTHOR"></a><h2 class="nroffsh">Author</h2>
 <p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt; </p><a name="COPYRIGHT"></a><h2 class="nroffsh">Copyright</h2>
-<p class="level0">Copyright (c) 1998-2023 Paulo Moura. </p><p class="roffit">
+<p class="level0">Copyright (c) 1998-2024 Paulo Moura. </p><p class="roffit">
  This HTML page was made with <a href="https://daniel.haxx.se/projects/roffit/">roffit</a>.
 </body></html>

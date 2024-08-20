@@ -8,6 +8,22 @@ aside:
 
 ### 2024
 
+##### August 20
+
+> Logtalk 3.82.0 is now available for [downloading](download.html).
+> This release adds support for runtime constructed messages for the
+> built-in methods; fixes error handling for the `include/1` directive
+> when dynamically creating new entities; includes changes, improvements,
+> fixes, and tests for the linter tool; improves Handbook documentation
+> of the message printing mechanism predicates; improves the `packs`
+> tool handling of alternative pack dependencies; improves support for
+> pack virtual environments; improves support for Allure test reports;
+> includes additional tests for standard directives and predicates;
+> and provides improvements and fixes for the portable Docker image.
+> Thanks to Alex Kouznetsov and Paul Brown for the bug reports. For
+> details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### July 16
 
 > Logtalk 3.81.0 is now available for [downloading](download.html).
