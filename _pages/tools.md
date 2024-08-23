@@ -256,10 +256,6 @@ report the number of times each port is traversed during the execution of
 queries. It provides valuable insight on predicate usage allowing e.g. the
 detection of problems that can cause poor performance.
 
-##### Examples
-
--   Profiling [session](https://forums.logtalk.org/viewtopic.php?f=21&t=240) of the `searching` example sample queries.
-
 
 ## Debugging
 
