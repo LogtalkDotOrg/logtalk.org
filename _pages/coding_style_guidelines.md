@@ -269,3 +269,9 @@ Top-level interpreter shortcuts
 -------------------------------
 
 Logtalk (and Prolog) define top-level interpreter shortcuts for loading source files and for `make` tasks. These shortcuts are **not** part of the language and should only be used at the top-level interpreter and never in source files.
+
+
+Entity and predicate documentation
+----------------------------------
+
+The [Logtalk Handbook](https://logtalk.org/manuals/index.html) includes a section on [documenting](https://logtalk.org/manuals/userman/documenting.html) applications. See also the Handbook section on [declaring predicates](https://logtalk.org/manuals/userman/predicates.html#declaring-predicates), notably the sub-section on the [`mode/2`](https://logtalk.org/manuals/userman/predicates.html#mode-directive) directive.

@@ -331,6 +331,9 @@ is available that can be used with a subset of the Logtalk supported Prolog back
 The latest release can be installed from [PyPI](https://pypi.org/project/logtalk-jupyter-kernel/)
 or [Conda](https://anaconda.org/conda-forge/logtalk-jupyter-kernel).
 
+There's also a [Docker image](https://hub.docker.com/r/logtalk/logtalk3-portable)
+with Logtalk, selected Prolog backends, and Jupyter pre-installed.
+
 
 ## Prolog porting
 
