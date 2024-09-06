@@ -283,6 +283,8 @@ Virtual environment scripts:
 
 Publications on research and applications using Logtalk:
 
+-	[Visualizing CHC Verification Conditions for Smart Contracts Auditing](https://ceur-ws.org/Vol-3733/)
+	Di Ianni, Marco and Fioravanti, Fabio and Matricardi, Giulia. Italian Conference on Computational Logic. June 2024.	
 -   [Ontology-Supported Scaffolding for System Safety Analysis](https://etheses.whiterose.ac.uk/31412/)
     Paul Brown. PhD thesis. November 2022.
 -   [Intelligent Decision Support for Cybersecurity Incident Response Teams: Autonomic Architecture and Mitigation Search](https://www.crisis-2021.com/agenda/)
