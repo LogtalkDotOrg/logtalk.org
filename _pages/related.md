@@ -58,8 +58,6 @@ Logtalk on the web
     Logtalk](http://scholar.google.com/scholar?q=logtalk)
 -   [ResearchGate results for
     Logtalk](https://www.researchgate.net/search.Search.html?query=Logtalk)
--   [Microsoft Academic Search results for
-    Logtalk](http://academic.research.microsoft.com/Search.aspx?query=logtalk)
 
 <!-- -->
 
