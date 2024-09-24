@@ -8,6 +8,25 @@ aside:
 
 ### 2024
 
+##### September 24
+
+> Logtalk 3.83.0 is now available for [downloading](download.html).
+> This release adds a new `consistency_error/3` built-in method;
+> makes the compiler consistency errors more informative; provides
+> linter fixes and improvements; fixes some compiler bugs, notably
+> using a `uses/2` directive to change the order of predicate arguments
+> to use it as a closure; improves the Handbook documentation of the
+> `info/2` and `mode/2` directives; improves the Handbook documentation
+> of the error handling built-in methods; improves the Handbook section
+> on lambda expressions; updates the `lgtunit`, `help`, and `tutor`
+> tools; adds additional tests for the Prolog standard logical update
+> semantics and for several Prolog standard predicates; improves tests
+> for Prolog standard control constructs and predicates; updates tests
+> for linter flags; includes fixes for the SWI-Prolog based Docker
+> image; and provides portability updates for XVM. For details and a
+> complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### August 20
 
 > Logtalk 3.82.0 is now available for [downloading](download.html).

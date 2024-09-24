@@ -6,8 +6,8 @@ aside:
   toc: true
 ---
 
-**Latest stable version:** 3.82.0  
-**Release date:** August 20, 2024
+**Latest stable version:** 3.83.0  
+**Release date:** September 24, 2024
 
 <a class="github-button" href="https://github.com/sponsors/pmoura" data-icon="octicon-heart" aria-label="Sponsor @pmoura on GitHub">Sponsor</a>
 <a class="github-button" href="https://github.com/LogtalkDotOrg/logtalk3" data-icon="octicon-star" aria-label="Star LogtalkDotOrg/logtalk3 on GitHub">Star</a>
@@ -77,8 +77,8 @@ feed](https://github.com/LogtalkDotOrg/logtalk3/commits/master.atom).
 
 ## Sources
 
-> [`logtalk-3.82.0.tar.bz2`](files/logtalk-3.82.0.tar.bz2)  
-> `3d2e4b0842457197ce5a22ce69f04cd91fd77a00a8c3422989c0c8d84c438833` (SHA-256)
+> [`logtalk-3.83.0.tar.bz2`](files/logtalk-3.83.0.tar.bz2)  
+> `9d24cb810fe7b0b392cc79e18d7f0aba915d0cbaf60fc1e86d78e416c48cb6ac` (SHA-256)
 
 Includes the HTML and Texinfo versions of the Handbook and the APIs documentation.
 The bundled  [`INSTALL.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/INSTALL.md)
@@ -105,8 +105,8 @@ Installs Logtalk on `/opt/local/share/` with integration scripts for
 supported Prolog compilers on `/opt/local/bin`. Creates an
 `/Applications/Logtalk` folder with links to the installed files.
 
-> [`logtalk-3.82.0.pkg.zip`](files/logtalk-3.82.0.pkg.zip)  
-> `16b637179d703b4c5f324946170ac1a363e302860533336a7adae11e3ab30f71` (SHA-256)
+> [`logtalk-3.83.0.pkg.zip`](files/logtalk-3.83.0.pkg.zip)  
+> `1ed9756ce8aacabba55dcb49af795aa674fedd0590ad7615e731ed7935045514` (SHA-256)
 
 #### MacPorts
 
@@ -128,13 +128,13 @@ is up-to-date.
 Installs Logtalk on `/usr/local/share` with integration scripts for
 supported Prolog compilers on `/usr/local/bin`.
 
-> [`logtalk-3.82.0-1.noarch.rpm`](files/logtalk-3.82.0-1.noarch.rpm)  
-> `1176356afee538cf106c37aa84312be9a19776312e547be851e4b59062960631` (SHA-256)
+> [`logtalk-3.83.0-1.noarch.rpm`](files/logtalk-3.83.0-1.noarch.rpm)  
+> `b0676a0bd2596905d14a531c41b6d20bda94785b63dca7938e53f93b956e8ecf` (SHA-256)
 
 Package installation from the command-line is highly recommended:
 
 ```bash
-$ sudo rpm -i logtalk-3.82.0-1.noarch.rpm
+$ sudo rpm -i logtalk-3.83.0-1.noarch.rpm
 ```
 
 Logout and login after running the installer to activate the default values
@@ -147,13 +147,13 @@ Requires dpkg 1.15.0 or a later version. Installs Logtalk on
 `/usr/share` with integration scripts for supported Prolog compilers on
 `/usr/bin`.
 
-> [`logtalk_3.82.0-1_all.deb`](files/logtalk_3.82.0-1_all.deb)  
-> `92785f8f816467bee9851a45c27f445f16a63f0149cd85111d0a0b3bfe37703c` (SHA-256)
+> [`logtalk_3.83.0-1_all.deb`](files/logtalk_3.83.0-1_all.deb)  
+> `614f0fe26c067f41bb5c005f6b3ddf4edc01b0484260fded9e4ca94912b44688` (SHA-256)
 
 Package installation from the command-line is highly recommended:
 
 ```bash
-$ sudo dpkg -i logtalk_3.82.0-1_all.deb
+$ sudo dpkg -i logtalk_3.83.0-1_all.deb
 ```
 
 Logout and login after running the installer to activate the default values
@@ -171,9 +171,9 @@ documentation. Can be used by both admin and non-admin users.
 [Installation video](https://www.youtube.com/watch?v=YE7ahXZibN4),
 courtesy of [Paul Brown](https://pbrown.me/).
 
-> [`logtalk-3.82.0.exe`](files/logtalk-3.82.0.exe)  
-> `822724af3407efd882cb142be5ad6a5bb359876d8c8bcb5b98bc232a79d3b030` (SHA-256)  
-> [VirusTotal scan results](https://www.virustotal.com/gui/url/edf0f33a1bff6396fce5f7cb25f82c0d9da936d009ddb4216703fe39d693064b)
+> [`logtalk-3.83.0.exe`](files/logtalk-3.83.0.exe)  
+> `56801f24966a0b212e00bed244421a33f2015596b638a4f11e14be6f1878b622` (SHA-256)  
+> [VirusTotal scan results](https://www.virustotal.com/gui/url/189f2e30daf623d3dd6d6fd9346b842befc4757769c545532828acbcee33ec5f)
 
 Logtalk is also available as a [Chocolatey package](https://chocolatey.org/packages/logtalk/)
 and can be installed or updated using the `choco install logtalk` and
@@ -209,22 +209,22 @@ followed by `pack_install(logtalk)`. See the pack specific
 [`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack/logtalk/README.md)
 file for details. Also available as a manual download:
 
-> [`logtalk-3.82.0.tgz`](files/swi-prolog/packs/logtalk-3.82.0.tgz)  
-> `4008546199654c1a4b7a198f555964a862a691e293c629ec2d348512aa5a36c9` (SHA-256)
+> [`logtalk-3.83.0.tgz`](files/swi-prolog/packs/logtalk-3.83.0.tgz)  
+> `86a2c42018434d18cb74b6eb9ead18a14c5cd54d816de94da445e59180a21bd6` (SHA-256)
 
 In this case, change directory to the download directory, start SWI-Prolog,
-and run the query `pack_install('logtalk-3.82.0.tgz').`
+and run the query `pack_install('logtalk-3.83.0.tgz').`
 
 There's also an **experimental** pack that encapsulates de Logtalk
 compiler and runtime in a `logtalk` module. See the pack specific
 [`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack-experimental/logtalk/README.md)
 file for details. This pack is only available as a manual download:
 
-> [`logtalk-experimental-3.82.0.tgz`](files/swi-prolog/packs/logtalk-experimental-3.82.0.tgz)  
-> `4ba0d143eb02d531846a66d4f18760f621dbcf4ebd7571b17118fc186cf8eb99` (SHA-256)
+> [`logtalk-experimental-3.83.0.tgz`](files/swi-prolog/packs/logtalk-experimental-3.83.0.tgz)  
+> `dc1c9843b1bdef36609f698c1e8fe583662f2537569467d6731cd24d1384fa70` (SHA-256)
 
 In this case, change directory to the download directory, start SWI-Prolog,
-and run the query `pack_install('logtalk-experimental-3.82.0.tgz').`
+and run the query `pack_install('logtalk-experimental-3.83.0.tgz').`
 
 
 ### Arch Linux package
@@ -239,8 +239,8 @@ Ebrahim Azarisooreh.
 HTML, ePub, PDF, and Texinfo versions of the Handbook (includes a tutorial, the User Manual, the Reference Manual, and the FAQ).
 Note that the HTML and Texinfo versions are **included** in the source and binary packages.
 
-> [`logtalk-manuals-3.82.0.tgz`](files/logtalk-manuals-3.82.0.tgz)  
-> `f6ea415036ca4590278fc8888e31f7f8886e8e879bd0b0557d9b865ea0ef72d0` (SHA-256)
+> [`logtalk-manuals-3.83.0.tgz`](files/logtalk-manuals-3.83.0.tgz)  
+> `d09368ca308b47e243bbbe88307022e16b90c9abbefc1016cbf356ed6fb3f1e9` (SHA-256)
 
 
 ## Docker images
