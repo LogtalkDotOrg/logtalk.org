@@ -104,6 +104,7 @@ The following installers are available for the latest stable version:
 Installs Logtalk on `/opt/local/share/` with integration scripts for
 supported Prolog compilers on `/opt/local/bin`. Creates an
 `/Applications/Logtalk` folder with links to the installed files.
+**Not compatible with macOS 15.x (Sequoia).**
 
 > [`logtalk-3.83.0.pkg.zip`](files/logtalk-3.83.0.pkg.zip)  
 > `1ed9756ce8aacabba55dcb49af795aa674fedd0590ad7615e731ed7935045514` (SHA-256)
