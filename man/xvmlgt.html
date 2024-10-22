@@ -52,11 +52,11 @@ p.roffit {
 <a name="NAME"></a><h2 class="nroffsh">Name</h2>
 <p class="level0">xvmlgt - Logtalk integration script for XVM </p><a name="SYNOPSIS"></a><h2 class="nroffsh">Synopsis</h2>
 <p class="level0"><span Class="bold">xvmlgt</span> [<span Class="bold">-q</span>] [<span class="bold">-g <span Class="emphasis">goal</span>] </p><a name="DESCRIPTION"></a><h2 class="nroffsh">Description</h2>
-<p class="level0"><span Class="bold">xvmlgt</span> is a Logtalk integration script for XVM. It automatically loads the XVM adapter file, the Logtalk compiler and runtime, the Logtalk default table of library names and paths, and any existing settings file found on the lookup directories. It uses the <span Class="bold">xvm</span> executable <span Class="bold">-f</span> option to load the Logtalk files. It passes any options to the <span Class="bold">xvm</span> executable; see the XVM documentation for the available options. By default, this script runs XVM using <span Class="bold">rlwrap</span> if available. </p><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
+<p class="level0"><span Class="bold">xvmlgt</span> is a Logtalk integration script for XVM. It automatically loads the XVM adapter file, the Logtalk compiler and runtime, the Logtalk default table of library names and paths, and any existing settings file found on the lookup directories. It uses the <span Class="bold">xvmpl</span> executable <span Class="bold">-f</span> option to load the Logtalk files. It passes any other options to the <span Class="bold">xvmpl</span> executable; see the XVM documentation for the available options. By default, this script runs XVM using <span Class="bold">rlwrap</span> if available. </p><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
 <p class="level0">The two most common options are: </p>
 <p class="level0"><span Class="bold">-q</span> Silence Logtalk default startup messages and compilation messages by setting the <span Class="bold">report</span> flag to <span Class="bold">warnings</span>. </p>
 <p class="level0"><span Class="bold">-g</span> <span Class="emphasis">goal</span> Initialization goal, written between double quotes, to be executed after Logtalk startup. </p><a name="REQUIREMENTS"></a><h2 class="nroffsh">Requirements</h2>
-<p class="level0">XVM 9.0.0 or a later version is required. This integration script looks for a <span Class="bold">xvmpl</span> executable in the system path. </p><a name="ENVIRONMENT"></a><h2 class="nroffsh">Environment</h2>
+<p class="level0">XVM 10.0.0 or a later version is required. This integration script looks for a <span Class="bold">xvmpl</span> executable in the system path. </p><a name="ENVIRONMENT"></a><h2 class="nroffsh">Environment</h2>
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. </p>
 <p class="level0"><span Class="bold">LOGTALKUSER</span> Specifies the location of the Logtalk user directory. </p><a name="FILES"></a><h2 class="nroffsh">Files</h2>
 <p class="level0"><span Class="bold">$LOGTALKHOME/integration/logtalk_xvm.pl</span> Prolog file used for loading the necessary files for starting Logtalk using XVM as the backend compiler. </p>
@@ -72,6 +72,6 @@ p.roffit {
 <p class="level0">The Logtalk User and Reference Manuals at <span Class="bold">$LOGTALKHOME/manuals/index.html</span> </p>
 <p class="level0">logtalk_user_setup(1),&nbsp;logtalk_version_select(1),&nbsp;logtalk_backend_select(1) </p><a name="AUTHOR"></a><h2 class="nroffsh">Author</h2>
 <p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt; </p><a name="COPYRIGHT"></a><h2 class="nroffsh">Copyright</h2>
-<p class="level0">Copyright (c) 1998-2023 Paulo Moura. </p><p class="roffit">
+<p class="level0">Copyright (c) 1998-2024 Paulo Moura. </p><p class="roffit">
  This HTML page was made with <a href="https://daniel.haxx.se/projects/roffit/">roffit</a>.
 </body></html>

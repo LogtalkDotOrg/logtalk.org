@@ -18,6 +18,7 @@ aside:
 -   [Your first project](first_project.html)
 -   [Classical symbolic AI examples](symbolic_ai_examples.html)
 -   [Comparison with other OOP languages](https://logtalk.org/manuals/userman/nomenclature.html)
+-   [Logtalking YouTube channel](https://www.youtube.com/channel/UCh0BiDU6xZUCGq66HylvXNg)
 
 
 ## Development

@@ -277,7 +277,7 @@ tool to provide:
 -	Log points (at unification ports) with templated messages
 -   Extended set of debugging commands at leashed ports
 
-Another debugging tool, [`debug_messages`](https://logtalk.org/manuals/devtools/debug_messages.html).
+Another debugging tool, [`debug_messages`](https://logtalk.org/manuals/devtools/debug_messages.html),
 allows selectively enabling of debug messages. Related, the Logtalk message printing mechanism supports a set of predefined
 [meta messages](library/logtalk_0.html#remarks) that are handy for debugging.
 
@@ -312,6 +312,7 @@ for installing third-party libraries and applications. This is a portable tool t
 registries (e.g. official, public, company private, ...) and allows user to:
 
 -	Create and publish their own pack registries
+-	Publish packs verified by checksums and optionally signed and encrypted
 -	Add, pin, update, and delete pack registries
 -	Install, pin, update, and uninstall packs
 -	List available, installed, outdated, orphaned, and dependent packs

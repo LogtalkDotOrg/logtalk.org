@@ -8,6 +8,34 @@ aside:
 
 ### 2024
 
+##### October 22
+
+> Logtalk 3.84.0 is now available for [downloading](download.html).
+> This release improves the compiler to detect and report recursive
+> references to files and entities; fixes the compiler to prevent
+> using grammar rules to try to redefine disjunction and conditional
+> control constructs; improves the Handbook glossary; improves the
+> documentation of the `logtalk_tester` script; improves the documentation
+> of the `help`, `lgtdoc`, `packs` tools; adds new directory deletion
+> predicates to the `os` library; improves the `hook_flows` library;
+> includes improved documentation and additional tests for the
+> `dictionaries` library; fixes `meta_compiler` library issues; adds
+> `lgtunit` tool support for running just a selection of tests; adds
+> `packs` tool support for installing and updating packs from local
+> archives, for `gpg` encrypted pack and registry archives, for using
+> `wget` in alternative to `curl`, and for for using `.sig` signature
+> files in alternative to `.asc` signature files; adds `tutor` tool
+> support for explaining selected `lgtunit`, `make`, and `packs` tool
+> error messages; fixes the `dead_code_scanner` tool to avoid some false
+> positives; fixes the `logtalk_tester` script to follow symbolic links
+> when looking for test driver files; adds an example of defining a DSL
+> for tests; adds additional tests for Prolog standard and de facto
+> standard predicates; improves tests coverage for the `dead_code_scanner`
+> and `packs` tools; and provides portability updates for SWI-Prolog and YAP.
+> Thanks to Alex Kouznetsov, Michael McNally, and Lindsey Spratt for their
+> contributions to this release. For details and a complete list of changes,
+> please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### September 24
 
 > Logtalk 3.83.0 is now available for [downloading](download.html).
