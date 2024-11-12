@@ -15,11 +15,12 @@ and some usage examples.
 
 ## Learning
 
-The [`tutor`](https://logtalk.org/manuals/devtools/tutor.html) tool
-helps new users understand the compiler and runtime warning and error messages
-by adding explanations and suggestions to selected messages. Usage simply requires
-loading the tool at startup. As an example, with this tool loaded, instead of
-terse compiler warnings such as:
+The [`tutor`](https://logtalk.org/manuals/devtools/tutor.html) tool helps new
+users understand the compiler and runtime warning and error messages plus the
+developer tools warning and error messages by adding explanations and
+suggestions to selected messages. Usage simply requires loading the tool
+at startup. As an example, with this tool loaded, instead of terse compiler
+warnings such as:
 
 ```text
 *     No matching clause for goal: baz(a)
@@ -159,6 +160,7 @@ The [`diagrams`](https://logtalk.org/manuals/devtools/diagrams.html) tool suppor
 -   Entity cross-referencing diagrams
 -   Predicate cross-referencing diagrams
 -   Diagrams with links to source code repositories and API documentation
+-   Diagrams with local links to directories and file that open in selected text editors
 -   Linked diagrams for source code navigation from libraries to entities to predicates
 -   Linked diagrams for source code navigation from directories to files
 -	Automatic generation of linked sub-diagrams

@@ -20,7 +20,7 @@ distribution includes adapter files for all supported Prolog compilers:
 -   [SICStus Prolog 4.1.0 or later versions](https://sicstus.sics.se)
 -   [SWI Prolog 6.6.0 or later versions](http://www.swi-prolog.org/)
 -   [Tau Prolog (version 0.3.2 or later)](http://tau-prolog.org)
--   [Trealla Prolog (version 2.18.7 or later)](https://github.com/trealla-prolog/trealla) *(experimental)*
+-   [Trealla Prolog (version 2.59.21 or later)](https://github.com/trealla-prolog/trealla) *(experimental)*
 -   [XSB 3.8.0 or later versions](http://xsb.sourceforge.net/)
 -   [YAP 6.3.4 or later versions](https://github.com/vscosta)
 

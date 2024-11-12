@@ -8,6 +8,35 @@ aside:
 
 ### 2024
 
+##### November 12
+
+> Logtalk 3.85.0 is now available for [downloading](download.html).
+> This release adds a `linter` meta-flag to allow turning on/off all
+> linter warnings; adds new `encodings` and `general` linter flags;
+> converts some linter warnings into compilation errors; adds a new
+> linter check for redundant entity qualification in predicate
+> directives; changes the `logtalk_load_context/2` built-in predicate
+> to type-check the key argument; improves error-checking for the
+> `use_module/1-2`, `export/1`, and `reexport/2` directives; fixes
+> a regression in the previous release that prevented reloading code
+> after fixing compilation errors without restarting the current
+> session; improves the documentation of the `issue_creator` tool;
+> improves the Handbook sections on performance and meta-predicates;
+> improves the Handbook documentation on the `logtalk_make/0-1`
+> built-in predicates; updates the `meta_compiler` library to support
+> optimization of meta-calls with closure meta-arguments that are
+> messages to parametric objects; adds `diagrams` tool support for
+> generating diagrams with local links to source file and directories
+> that open in selected text editors; updates the `tutor` tool to
+> explain additional compiler and developer tools warnings and errors;
+> fixes harmless repeated warning in the `packs` tool when pack
+> dependencies are not available; includes improvements and portability
+> fixes to some examples; adds new tests and improves existing tests
+> for Logtalk and standard Prolog features; and updates embedding scripts
+> to accept an optional startup application goal argument. For details
+> and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### October 22
 
 > Logtalk 3.84.0 is now available for [downloading](download.html).
