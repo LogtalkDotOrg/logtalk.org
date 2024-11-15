@@ -6,15 +6,22 @@ aside:
   toc: true
 ---
 
-This page contains benchmark results for some Prolog compilers. The main
+This page contains benchmark results for selected Prolog backends. The main
 goal of this page it to give you some data for comparing predicate
 performance in plain Prolog and using Logtalk objects. Benchmark results
 are provided for both static code and dynamic code.
 
+All results are given in number of calls per second. By default, the
+benchmark code repeats each goal up to 100000 times in order to get more
+accurate results. The exception is SICStus Prolog where a value of 1000000
+was used for more accurate results.
+
+Benchmarks run on an Apple iMac 3.8 GHz 8-Core Intel Core i7, 32GB RAM, macOS 14.7.1.
+
 ## Benchmark goals
 
 All the tests have been performed using the `benchmarks` example
-distributed with Logtalk 3.16.0, using static binding with optional
+distributed with Logtalk 3.85.0, using static binding with optional
 features (including events support) disabled. This provides the most
 relevant scenario for comparing Logtalk performance with plain Prolog
 performance. The `benchmarks` example contains loader files for easily
@@ -129,69 +136,86 @@ using `::/2` (`obj_dyndb(_)`).
 Static code benchmark results
 -----------------------------
 
-Apple MacBook Pro 15.4\" 2.9 GHz Intel Core i7, 16GB RAM, macOS 10.13.4.
-All results are given in number of calls per second. By default, the
-benchmark code repeats each goal up to 100000 times in order to get more
-accurate results. The last columns show the trade-off between plain
-Prolog and Logtalk. Dynamic binding is never used in the Prolog module
-tests.
+The last columns show the trade-off between plain Prolog and Logtalk.
+Dynamic binding is never used in the Prolog module tests.
 
 ## Static binding (no events support)
 
-| Prolog compiler              |     s11      |     s12      |     s13      |   s13/s11    |     s21      |     s22      |     s23      |   s23/s21    |     s31      |     s32      |     s33      |   s33/s31    |     s41      |     s42      |     s43      |   s43/s41    |
-|:-----------------------------|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|-------------:|
-| B-Prolog 8.1                 | 2173913      | \-           | 2631579      | 121.1 %      | 393701       | \-           | 362319       | 92.0 %       | 564972       | \-           | 469484       | 83.1 %       | 165017       | \-           | 133869       | 81.1 %       |
-| CxProlog 0.98.2              | 340702       | \-           | 308079       | 90.4 %       | 63954        | \-           | 60449        | 94.5 %       | 117756       | \-           | 110874       | 94.2 %       | 30159        | \-           | 26831        | 89.0 %       |
-| ECLiPSe 7.0\#41              | 2481564      | 2003451      | 2953668      | 119.0 %      | 129298       | 124091       | 134962       | 104.4 %      | 444949       | 417162       | 404939       | 91.0 %       | 92923        | 84782        | 86275        | 92.8 %       |
-| GNU Prolog 1.4.5             | 2127660      | \-           | 2777778      | 130.6 %      | 140252       | \-           | 155280       | 110.7 %      | 153139       | \-           | 143472       | 93.7 %       | 41391        | \-           | 39984        | 96.6 %       |
-| Qu-Prolog 10.0               | 666667       | \-           | 588235       | 88.2 %       | 47170        | \-           | 46083        | 97.7 %       | 84746        | \-           | 81967        | 96.7 %       | 14144        | \-           | 13966        | 98.7 %       |
-| SICStus Prolog 4.4.1         | 20000000     | 20000000     | 20000000     | 100.0 %      | 558659       | 561798       | 552486       | 98.9 %       | 1075269      | 1098901      | 1052632      | 97.9 %       | 278552       | 277008       | 289855       | 104.1 %      |
-| SWI-Prolog 7.7.13 (64 bits)  | 772905       | 794357       | 670767       | 86.8 %       | 29531        | 29173        | 27897        | 94.5 %       | 167705       | 169819       | 159505       | 95.1 %       | 30544        | 30780        | 29901        | 97.9 %       |
-| XSB 3.8.0+ (svn, 64 bits)    | 2127660      | 2631579      | 2702703      | 127.0 %      | 156495       | 155521       | 154799       | 98.9 %       | 315457       | 315457       | 303030       | 96.1 %       | 86505        | 86730        | 83752        | 96.8 %       |
-| YAP 6.3.5 (git, 64 bits)     | 227273       | 225225       | 236967       | 104.3 %      | 77882        | 78186        | 75358        | 96.8 %       | 213220       | 215983       | 202020       | 94.7 %       | 41736        | 41615        | 40933        | 98.1 %       |
+| Prolog compiler       |      s11      |      s12      |      s13      |    s13/s11    |
+|:----------------------|--------------:|--------------:|--------------:| -------------:|
+| CxProlog 0.98.3       | 475163        |      -        | 415265        | 87.4 %        |
+| ECLiPSe 7.0\#57       | 2542284       | 1695466       | 2460666       | 96.8 %        |
+| GNU Prolog 1.6.0      | 3571429       |      -        | 3333333       | 93.3 %        |
+| SICStus Prolog 4.9.0  | 27027027      | 25641026      | 27027027      | 100.0 %       |
+| SWI-Prolog 9.3.14     | 1586999       | 1559722       | 1562695       | 98.5 %        |
+| Trealla Prolog 2.60.0 | 131166        | 124374        | 120015        | 91.5 %        |
+| XSB 5.0.0             | 3125000       | 3030303       | 2941176       | 94.1 %        |
+| YAP 7.6.0             | 1785714       | 1724138       | 1754386       | 98.2 %        |
+
+| Prolog compiler       |      s21      |      s22      |      s23      |    s23/s21    |
+|:----------------------|--------------:|--------------:|--------------:| -------------:|
+| CxProlog 0.98.3       | 89545         |      -        | 85407         | 95.4 %        |
+| ECLiPSe 7.0\#57       | 135901        | 122859        | 120678        | 88.8 %        |
+| GNU Prolog 1.6.0      | 187617        |      -        | 198413        | 105.8 %       |
+| SICStus Prolog 4.9.0  | 766284        | 732601        | 768049        | 100.2 %       |
+| SWI-Prolog 9.3.14     | 84190         | 83572         | 82314         | 97.8 %        |
+| Trealla Prolog 2.60.0 | 11473         | 11328         | 10520         | 91.7 %        |
+| XSB 5.0.0             | 176991        | 176367        | 171527        | 96.9 %        |
+| YAP 7.6.0             | 97371         | 96339         | 95785         | 98.4 %        |
+
+| Prolog compiler       |      s31      |      s32      |      s33      |    s33/s31    |
+|:----------------------|--------------:|--------------:|--------------:| -------------:|
+| CxProlog 0.98.3       | 150145        |      -        | 141462        | 94.2 %        |
+| ECLiPSe 7.0\#57       | 436687        | 403474        | 407477        | 93.3 %        |
+| GNU Prolog 1.6.0      | 213675        |      -        | 204082        | 95.5 %        |
+| SICStus Prolog 4.9.0  | 1414427       | 1342282       | 1335113       | 94.4 %        |
+| SWI-Prolog 9.3.14     | 205188        | 205070        | 200929        | 97.9 %        |
+| Trealla Prolog 2.60.0 | 59145         | 58214         | 52192         | 88.2 %        |
+| XSB 5.0.0             | 359712        | 359712        | 346021        | 96.2 %        |
+| YAP 7.6.0             | 273224        | 276243        | 255754        | 93.6 %        |
+
+| Prolog compiler       |      s41      |      s42      |      s43      |    s43/s41    |
+|:----------------------|--------------:|--------------:|--------------:| -------------:|
+| CxProlog 0.98.3       | 48027         |      -        | 36524         | 76.0 %        |
+| ECLiPSe 7.0\#57       | 89284         | 79597         | 84087         | 94.2 %        |
+| GNU Prolog 1.6.0      | 55432         |      -        | 52521         | 94.7 %        |
+| SICStus Prolog 4.9.0  | 352113        | 345185        | 354359        | 100.6 %       |
+| SWI-Prolog 9.3.14     | 48796         | 40805         | 47235         | 96.8 %        |
+| Trealla Prolog 2.60.0 | 14647         | 14310         | 12764         | 87.1 %        |
+| XSB 5.0.0             | 97087         | 97087         | 92937         | 95.7 %        |
+| YAP 7.6.0             | 59737         | 59737         | 57571         | 96.4 %        |
 
 ## Category benchmark results
 
-All results are given in number of calls per second. By default, the
-benchmark code repeats each goal up to 100000 times in order to get more
-accurate results. The last column shows the trade-off between static
-binding (`c2`) and dynamic binding (`c3`) when calling category
-predicates.
+The last column shows the trade-off between static binding (`c2`) and
+dynamic binding (`c3`) when calling category predicates.
 
-Apple MacBook Pro 15.4\" 2.9 GHz Intel Core i7, 16GB RAM, macOS 10.13.4.
-
-| Prolog compiler              |      c1       |      c2       |      c3       |    c3/c2     |
-|:-----------------------------|--------------:|--------------:|--------------:| ------------:|
-| B-Prolog 8.1                 | 1063830       | 1020408       | 666667        | 65.3 %       |
-| CxProlog 0.98.2              | 161343        | 160189        | 151041        | 94.3 %       |
-| ECLiPSe 7.0\#41              | 961917        | 918000        | 579907        | 63.2 %       |
-| GNU Prolog 1.4.0             | 970874        | 925926        | 645161        | 69.7 %       |
-| Qu-Prolog 10.0               | 232558        | 227273        | 212766        | 93.6 %       |
-| SICStus Prolog 4.4.1         | 3225806       | 3030303       | 1886792       | 62.3 %       |
-| SWI-Prolog 7.7.13 (64 bits)  | 253204        | 256527        | 232163        | 90.5 %       |
-| XSB 3.8.0+ (svn, 64 bits)    | 1000000       | 952381        | 800000        | 84.0 %       |
-| YAP 6.3.5 (git, 64 bits)     | 134953        | 132275        | 132275        | 100.0 %      |
+| Prolog compiler       |      c1       |      c2       |      c3       |    c3/c2     |
+|:----------------------|--------------:|--------------:|--------------:| ------------:|
+| CxProlog 0.98.3       | 227929        | 226007        | 216390        | 95.7 %       |
+| ECLiPSe 7.0\#57       | 843955        | 825235        | 581380        | 70.4 %       |
+| GNU Prolog 1.6.0      | 1449275       | 1449275       | 952381        | 65.7 %       |
+| SICStus Prolog 4.9.0  | 4524887       | 4545455       | 2604167       | 57.3 %       |
+| SWI-Prolog 9.3.14     | 496887        | 491072        | 460547        | 93.8 %       |
+| Trealla Prolog 2.60.0 | 90936         | 90222         | 74027         | 82.0 %       |
+| XSB 5.0.0             | 1098901       | 1075269       | 943396        | 87.7 %       |
+| YAP 7.6.0             | 617284        | 598802        | 558659        | 93.3 %       |
 
 ## Dynamic code benchmark results
 
-All results are given in number of calls per second. By default, the
-benchmark code repeats each goal up to 100000 times in order to get more
-accurate results. The last column shows the trade-off between plain
+The last column shows the trade-off between plain
 Prolog (`d2`) and Logtalk using static binding (`d3`).
 
-Apple MacBook Pro 15.4\" 2.9 GHz Intel Core i7, 16GB RAM, macOS 10.13.4.
-
-| Prolog compiler              |      d1       |      d2       |      d3       |      d4       |      d5       |    d3/d2     |
-|:-----------------------------|--------------:|--------------:|--------------:|--------------:|--------------:|-------------:|
-| B-Prolog 8.1                 | 10068         | 1204819       | 1098901       | 487805        | 1111111       | 91.2 %       |
-| CxProlog 0.98.2              | 1889          | 47158         | 29920         | 29835         | 32284         | 63.4 %       |
-| ECLiPSe 7.0\#41              | 6741          | 877645        | 837332        | 439951        | 846068        | 95.4 %       |
-| GNU Prolog 1.4.5             | 12641         | 60423         | 65703         | 61050         | 64893         | 108.7 %      |
-| Qu-Prolog 10.0               | 1506          | 103093        | 94340         | 84746         | 93458         | 91.5 %       |
-| SICStus Prolog 4.4.1         | 12868         | 1666667       | 1587302       | 1020408       | 1562500       | 95.2 %       |
-| SWI-Prolog 7.7.13 (64 bits)  | 8393          | 641363        | 611195        | 478419        | 617894        | 95.3 %       |
-| XSB 3.8.0+ (svn, 64 bits)    | 2396          | 221239        | 228833        | 198807        | 224719        | 103.4 %      |
-| YAP 6.3.5 (git, 64 bits)     | 2668          | 268097        | 256410        | 219298        | 259067        | 95.6 %       |
+| Prolog compiler       |      d1       |      d2       |      d3       |      d4       |      d5       |    d3/d2     |
+|:----------------------|--------------:|--------------:|--------------:|--------------:|--------------:|-------------:|
+| CxProlog 0.98.3       | 126           | 143847        | 135044        | 118913        | 122753        | 93.9 %       |
+| ECLiPSe 7.0\#57       | 6868          | 970814        | 933650        | 497683        | 941957        | 96.2 %       |
+| GNU Prolog 1.6.0      | 18501         | 2325581       | 2222222       | 854701        | 2127660       | 95.6 %       |
+| SICStus Prolog 4.9.0  | 17269         | 2967359       | 2314815       | 1623377       | 2762431       | 78.0 %       |
+| SWI-Prolog 9.3.14     | 7547          | 726475        | 678440        | 528259        | 686629        | 93.4 %       |
+| Trealla Prolog 2.60.0 | 2880          | 332515        | 298230        | 205476        | 290353        | 89.7 %       |
+| XSB 5.0.0             | 2535          | 318471        | 316456        | 284091        | 330033        | 99.4 %       |
+| YAP 7.6.0             | 2297          | 145560        | 148810        | 131062        | 148588        | 102.2 %      |
 
 ## Remarks
 
@@ -199,7 +223,7 @@ Apple MacBook Pro 15.4\" 2.9 GHz Intel Core i7, 16GB RAM, macOS 10.13.4.
     some Prolog compilers. One the reasons seems to be the
     operating-system constant shuffling of processes between the cores.
 -   Some results are odd, either above the expected maximum (100% of
-    plain Prolog performance) or much lower than what\'s reasonable to
+    plain Prolog performance) or lower than what\'s reasonable to
     expect. This happens mostly on the most simple benchmark goals.
     Benchmarks where a more significant amount of work is performed seem
     to be more (but not complete) immune to these issues.
@@ -215,8 +239,8 @@ Apple MacBook Pro 15.4\" 2.9 GHz Intel Core i7, 16GB RAM, macOS 10.13.4.
     particular sensitive point in virtual machines optimization as this
     extra argument is usually passed unchanged between local predicate
     calls.
--   These are too few and too limited benchmark tests to effectively
-    compare Prolog compiler performance. Notably, some of the Prolog
+-   **These are too few and too limited benchmark tests to effectively
+    compare Prolog compiler performance.** Notably, some of the Prolog
     versions used are development versions due to the latest stable
     version being either too old or containing critical bugs.
 -   Processor caches sometimes result in tests one order of magnitude

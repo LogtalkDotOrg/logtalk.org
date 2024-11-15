@@ -275,15 +275,22 @@
 
               <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Performance</h1></header></div><meta itemprop="headline" content="Performance"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
 
-  <div class="article__content" itemprop="articleBody"><p>This page contains benchmark results for some Prolog compilers. The main
+  <div class="article__content" itemprop="articleBody"><p>This page contains benchmark results for selected Prolog backends. The main
 goal of this page it to give you some data for comparing predicate
 performance in plain Prolog and using Logtalk objects. Benchmark results
 are provided for both static code and dynamic code.</p>
 
+<p>All results are given in number of calls per second. By default, the
+benchmark code repeats each goal up to 100000 times in order to get more
+accurate results. The exception is SICStus Prolog where a value of 1000000
+was used for more accurate results.</p>
+
+<p>Benchmarks run on an Apple iMac 3.8 GHz 8-Core Intel Core i7, 32GB RAM, macOS 14.7.1.</p>
+
 <h2 id="benchmark-goals">Benchmark goals</h2>
 
 <p>All the tests have been performed using the <code class="highlighter-rouge">benchmarks</code> example
-distributed with Logtalk 3.16.0, using static binding with optional
+distributed with Logtalk 3.85.0, using static binding with optional
 features (including events support) disabled. This provides the most
 relevant scenario for comparing Logtalk performance with plain Prolog
 performance. The <code class="highlighter-rouge">benchmarks</code> example contains loader files for easily
@@ -405,12 +412,8 @@ using <code class="highlighter-rouge">::/2</code> (<code class="highlighter-roug
 
 <h2 id="static-code-benchmark-results">Static code benchmark results</h2>
 
-<p>Apple MacBook Pro 15.4" 2.9 GHz Intel Core i7, 16GB RAM, macOS 10.13.4.
-All results are given in number of calls per second. By default, the
-benchmark code repeats each goal up to 100000 times in order to get more
-accurate results. The last columns show the trade-off between plain
-Prolog and Logtalk. Dynamic binding is never used in the Prolog module
-tests.</p>
+<p>The last columns show the trade-off between plain Prolog and Logtalk.
+Dynamic binding is never used in the Prolog module tests.</p>
 
 <h2 id="static-binding-no-events-support">Static binding (no events support)</h2>
 
@@ -418,208 +421,286 @@ tests.</p>
   <thead>
     <tr>
       <th style="text-align: left">Prolog compiler</th>
-      <th style="text-align: right">    s11    </th>
-      <th style="text-align: right">    s12    </th>
-      <th style="text-align: right">    s13    </th>
-      <th style="text-align: right">  s13/s11  </th>
-      <th style="text-align: right">    s21    </th>
-      <th style="text-align: right">    s22    </th>
-      <th style="text-align: right">    s23    </th>
-      <th style="text-align: right">  s23/s21  </th>
-      <th style="text-align: right">    s31    </th>
-      <th style="text-align: right">    s32    </th>
-      <th style="text-align: right">    s33    </th>
-      <th style="text-align: right">  s33/s31  </th>
-      <th style="text-align: right">    s41    </th>
-      <th style="text-align: right">    s42    </th>
-      <th style="text-align: right">    s43    </th>
-      <th style="text-align: right">  s43/s41  </th>
+      <th style="text-align: right">     s11     </th>
+      <th style="text-align: right">     s12     </th>
+      <th style="text-align: right">     s13     </th>
+      <th style="text-align: right">   s13/s11   </th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">B-Prolog 8.1</td>
-      <td style="text-align: right">2173913</td>
+      <td style="text-align: left">CxProlog 0.98.3</td>
+      <td style="text-align: right">475163</td>
       <td style="text-align: right">-</td>
-      <td style="text-align: right">2631579</td>
-      <td style="text-align: right">121.1 %</td>
-      <td style="text-align: right">393701</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">362319</td>
-      <td style="text-align: right">92.0 %</td>
-      <td style="text-align: right">564972</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">469484</td>
-      <td style="text-align: right">83.1 %</td>
-      <td style="text-align: right">165017</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">133869</td>
-      <td style="text-align: right">81.1 %</td>
+      <td style="text-align: right">415265</td>
+      <td style="text-align: right">87.4 %</td>
     </tr>
     <tr>
-      <td style="text-align: left">CxProlog 0.98.2</td>
-      <td style="text-align: right">340702</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">308079</td>
-      <td style="text-align: right">90.4 %</td>
-      <td style="text-align: right">63954</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">60449</td>
-      <td style="text-align: right">94.5 %</td>
-      <td style="text-align: right">117756</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">110874</td>
-      <td style="text-align: right">94.2 %</td>
-      <td style="text-align: right">30159</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">26831</td>
-      <td style="text-align: right">89.0 %</td>
+      <td style="text-align: left">ECLiPSe 7.0#57</td>
+      <td style="text-align: right">2542284</td>
+      <td style="text-align: right">1695466</td>
+      <td style="text-align: right">2460666</td>
+      <td style="text-align: right">96.8 %</td>
     </tr>
     <tr>
-      <td style="text-align: left">ECLiPSe 7.0#41</td>
-      <td style="text-align: right">2481564</td>
-      <td style="text-align: right">2003451</td>
-      <td style="text-align: right">2953668</td>
-      <td style="text-align: right">119.0 %</td>
-      <td style="text-align: right">129298</td>
-      <td style="text-align: right">124091</td>
-      <td style="text-align: right">134962</td>
-      <td style="text-align: right">104.4 %</td>
-      <td style="text-align: right">444949</td>
-      <td style="text-align: right">417162</td>
-      <td style="text-align: right">404939</td>
-      <td style="text-align: right">91.0 %</td>
-      <td style="text-align: right">92923</td>
-      <td style="text-align: right">84782</td>
-      <td style="text-align: right">86275</td>
-      <td style="text-align: right">92.8 %</td>
+      <td style="text-align: left">GNU Prolog 1.6.0</td>
+      <td style="text-align: right">3571429</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">3333333</td>
+      <td style="text-align: right">93.3 %</td>
     </tr>
     <tr>
-      <td style="text-align: left">GNU Prolog 1.4.5</td>
-      <td style="text-align: right">2127660</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">2777778</td>
-      <td style="text-align: right">130.6 %</td>
-      <td style="text-align: right">140252</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">155280</td>
-      <td style="text-align: right">110.7 %</td>
-      <td style="text-align: right">153139</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">143472</td>
-      <td style="text-align: right">93.7 %</td>
-      <td style="text-align: right">41391</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">39984</td>
-      <td style="text-align: right">96.6 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Qu-Prolog 10.0</td>
-      <td style="text-align: right">666667</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">588235</td>
-      <td style="text-align: right">88.2 %</td>
-      <td style="text-align: right">47170</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">46083</td>
-      <td style="text-align: right">97.7 %</td>
-      <td style="text-align: right">84746</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">81967</td>
-      <td style="text-align: right">96.7 %</td>
-      <td style="text-align: right">14144</td>
-      <td style="text-align: right">-</td>
-      <td style="text-align: right">13966</td>
-      <td style="text-align: right">98.7 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">SICStus Prolog 4.4.1</td>
-      <td style="text-align: right">20000000</td>
-      <td style="text-align: right">20000000</td>
-      <td style="text-align: right">20000000</td>
+      <td style="text-align: left">SICStus Prolog 4.9.0</td>
+      <td style="text-align: right">27027027</td>
+      <td style="text-align: right">25641026</td>
+      <td style="text-align: right">27027027</td>
       <td style="text-align: right">100.0 %</td>
-      <td style="text-align: right">558659</td>
-      <td style="text-align: right">561798</td>
-      <td style="text-align: right">552486</td>
-      <td style="text-align: right">98.9 %</td>
-      <td style="text-align: right">1075269</td>
-      <td style="text-align: right">1098901</td>
-      <td style="text-align: right">1052632</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SWI-Prolog 9.3.14</td>
+      <td style="text-align: right">1586999</td>
+      <td style="text-align: right">1559722</td>
+      <td style="text-align: right">1562695</td>
+      <td style="text-align: right">98.5 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Trealla Prolog 2.60.0</td>
+      <td style="text-align: right">131166</td>
+      <td style="text-align: right">124374</td>
+      <td style="text-align: right">120015</td>
+      <td style="text-align: right">91.5 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">XSB 5.0.0</td>
+      <td style="text-align: right">3125000</td>
+      <td style="text-align: right">3030303</td>
+      <td style="text-align: right">2941176</td>
+      <td style="text-align: right">94.1 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">YAP 7.6.0</td>
+      <td style="text-align: right">1785714</td>
+      <td style="text-align: right">1724138</td>
+      <td style="text-align: right">1754386</td>
+      <td style="text-align: right">98.2 %</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Prolog compiler</th>
+      <th style="text-align: right">     s21     </th>
+      <th style="text-align: right">     s22     </th>
+      <th style="text-align: right">     s23     </th>
+      <th style="text-align: right">   s23/s21   </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CxProlog 0.98.3</td>
+      <td style="text-align: right">89545</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">85407</td>
+      <td style="text-align: right">95.4 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ECLiPSe 7.0#57</td>
+      <td style="text-align: right">135901</td>
+      <td style="text-align: right">122859</td>
+      <td style="text-align: right">120678</td>
+      <td style="text-align: right">88.8 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GNU Prolog 1.6.0</td>
+      <td style="text-align: right">187617</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">198413</td>
+      <td style="text-align: right">105.8 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SICStus Prolog 4.9.0</td>
+      <td style="text-align: right">766284</td>
+      <td style="text-align: right">732601</td>
+      <td style="text-align: right">768049</td>
+      <td style="text-align: right">100.2 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SWI-Prolog 9.3.14</td>
+      <td style="text-align: right">84190</td>
+      <td style="text-align: right">83572</td>
+      <td style="text-align: right">82314</td>
+      <td style="text-align: right">97.8 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Trealla Prolog 2.60.0</td>
+      <td style="text-align: right">11473</td>
+      <td style="text-align: right">11328</td>
+      <td style="text-align: right">10520</td>
+      <td style="text-align: right">91.7 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">XSB 5.0.0</td>
+      <td style="text-align: right">176991</td>
+      <td style="text-align: right">176367</td>
+      <td style="text-align: right">171527</td>
+      <td style="text-align: right">96.9 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">YAP 7.6.0</td>
+      <td style="text-align: right">97371</td>
+      <td style="text-align: right">96339</td>
+      <td style="text-align: right">95785</td>
+      <td style="text-align: right">98.4 %</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Prolog compiler</th>
+      <th style="text-align: right">     s31     </th>
+      <th style="text-align: right">     s32     </th>
+      <th style="text-align: right">     s33     </th>
+      <th style="text-align: right">   s33/s31   </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CxProlog 0.98.3</td>
+      <td style="text-align: right">150145</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">141462</td>
+      <td style="text-align: right">94.2 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ECLiPSe 7.0#57</td>
+      <td style="text-align: right">436687</td>
+      <td style="text-align: right">403474</td>
+      <td style="text-align: right">407477</td>
+      <td style="text-align: right">93.3 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GNU Prolog 1.6.0</td>
+      <td style="text-align: right">213675</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">204082</td>
+      <td style="text-align: right">95.5 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SICStus Prolog 4.9.0</td>
+      <td style="text-align: right">1414427</td>
+      <td style="text-align: right">1342282</td>
+      <td style="text-align: right">1335113</td>
+      <td style="text-align: right">94.4 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SWI-Prolog 9.3.14</td>
+      <td style="text-align: right">205188</td>
+      <td style="text-align: right">205070</td>
+      <td style="text-align: right">200929</td>
       <td style="text-align: right">97.9 %</td>
-      <td style="text-align: right">278552</td>
-      <td style="text-align: right">277008</td>
-      <td style="text-align: right">289855</td>
-      <td style="text-align: right">104.1 %</td>
     </tr>
     <tr>
-      <td style="text-align: left">SWI-Prolog 7.7.13 (64 bits)</td>
-      <td style="text-align: right">772905</td>
-      <td style="text-align: right">794357</td>
-      <td style="text-align: right">670767</td>
-      <td style="text-align: right">86.8 %</td>
-      <td style="text-align: right">29531</td>
-      <td style="text-align: right">29173</td>
-      <td style="text-align: right">27897</td>
-      <td style="text-align: right">94.5 %</td>
-      <td style="text-align: right">167705</td>
-      <td style="text-align: right">169819</td>
-      <td style="text-align: right">159505</td>
-      <td style="text-align: right">95.1 %</td>
-      <td style="text-align: right">30544</td>
-      <td style="text-align: right">30780</td>
-      <td style="text-align: right">29901</td>
-      <td style="text-align: right">97.9 %</td>
+      <td style="text-align: left">Trealla Prolog 2.60.0</td>
+      <td style="text-align: right">59145</td>
+      <td style="text-align: right">58214</td>
+      <td style="text-align: right">52192</td>
+      <td style="text-align: right">88.2 %</td>
     </tr>
     <tr>
-      <td style="text-align: left">XSB 3.8.0+ (svn, 64 bits)</td>
-      <td style="text-align: right">2127660</td>
-      <td style="text-align: right">2631579</td>
-      <td style="text-align: right">2702703</td>
-      <td style="text-align: right">127.0 %</td>
-      <td style="text-align: right">156495</td>
-      <td style="text-align: right">155521</td>
-      <td style="text-align: right">154799</td>
-      <td style="text-align: right">98.9 %</td>
-      <td style="text-align: right">315457</td>
-      <td style="text-align: right">315457</td>
-      <td style="text-align: right">303030</td>
-      <td style="text-align: right">96.1 %</td>
-      <td style="text-align: right">86505</td>
-      <td style="text-align: right">86730</td>
-      <td style="text-align: right">83752</td>
-      <td style="text-align: right">96.8 %</td>
+      <td style="text-align: left">XSB 5.0.0</td>
+      <td style="text-align: right">359712</td>
+      <td style="text-align: right">359712</td>
+      <td style="text-align: right">346021</td>
+      <td style="text-align: right">96.2 %</td>
     </tr>
     <tr>
-      <td style="text-align: left">YAP 6.3.5 (git, 64 bits)</td>
-      <td style="text-align: right">227273</td>
-      <td style="text-align: right">225225</td>
-      <td style="text-align: right">236967</td>
-      <td style="text-align: right">104.3 %</td>
-      <td style="text-align: right">77882</td>
-      <td style="text-align: right">78186</td>
-      <td style="text-align: right">75358</td>
-      <td style="text-align: right">96.8 %</td>
-      <td style="text-align: right">213220</td>
-      <td style="text-align: right">215983</td>
-      <td style="text-align: right">202020</td>
+      <td style="text-align: left">YAP 7.6.0</td>
+      <td style="text-align: right">273224</td>
+      <td style="text-align: right">276243</td>
+      <td style="text-align: right">255754</td>
+      <td style="text-align: right">93.6 %</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Prolog compiler</th>
+      <th style="text-align: right">     s41     </th>
+      <th style="text-align: right">     s42     </th>
+      <th style="text-align: right">     s43     </th>
+      <th style="text-align: right">   s43/s41   </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">CxProlog 0.98.3</td>
+      <td style="text-align: right">48027</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">36524</td>
+      <td style="text-align: right">76.0 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">ECLiPSe 7.0#57</td>
+      <td style="text-align: right">89284</td>
+      <td style="text-align: right">79597</td>
+      <td style="text-align: right">84087</td>
+      <td style="text-align: right">94.2 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">GNU Prolog 1.6.0</td>
+      <td style="text-align: right">55432</td>
+      <td style="text-align: right">-</td>
+      <td style="text-align: right">52521</td>
       <td style="text-align: right">94.7 %</td>
-      <td style="text-align: right">41736</td>
-      <td style="text-align: right">41615</td>
-      <td style="text-align: right">40933</td>
-      <td style="text-align: right">98.1 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SICStus Prolog 4.9.0</td>
+      <td style="text-align: right">352113</td>
+      <td style="text-align: right">345185</td>
+      <td style="text-align: right">354359</td>
+      <td style="text-align: right">100.6 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SWI-Prolog 9.3.14</td>
+      <td style="text-align: right">48796</td>
+      <td style="text-align: right">40805</td>
+      <td style="text-align: right">47235</td>
+      <td style="text-align: right">96.8 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Trealla Prolog 2.60.0</td>
+      <td style="text-align: right">14647</td>
+      <td style="text-align: right">14310</td>
+      <td style="text-align: right">12764</td>
+      <td style="text-align: right">87.1 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">XSB 5.0.0</td>
+      <td style="text-align: right">97087</td>
+      <td style="text-align: right">97087</td>
+      <td style="text-align: right">92937</td>
+      <td style="text-align: right">95.7 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">YAP 7.6.0</td>
+      <td style="text-align: right">59737</td>
+      <td style="text-align: right">59737</td>
+      <td style="text-align: right">57571</td>
+      <td style="text-align: right">96.4 %</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="category-benchmark-results">Category benchmark results</h2>
 
-<p>All results are given in number of calls per second. By default, the
-benchmark code repeats each goal up to 100000 times in order to get more
-accurate results. The last column shows the trade-off between static
-binding (<code class="highlighter-rouge">c2</code>) and dynamic binding (<code class="highlighter-rouge">c3</code>) when calling category
-predicates.</p>
-
-<p>Apple MacBook Pro 15.4" 2.9 GHz Intel Core i7, 16GB RAM, macOS 10.13.4.</p>
+<p>The last column shows the trade-off between static binding (<code class="highlighter-rouge">c2</code>) and
+dynamic binding (<code class="highlighter-rouge">c3</code>) when calling category predicates.</p>
 
 <table>
   <thead>
@@ -633,79 +714,68 @@ predicates.</p>
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">B-Prolog 8.1</td>
-      <td style="text-align: right">1063830</td>
-      <td style="text-align: right">1020408</td>
-      <td style="text-align: right">666667</td>
-      <td style="text-align: right">65.3 %</td>
+      <td style="text-align: left">CxProlog 0.98.3</td>
+      <td style="text-align: right">227929</td>
+      <td style="text-align: right">226007</td>
+      <td style="text-align: right">216390</td>
+      <td style="text-align: right">95.7 %</td>
     </tr>
     <tr>
-      <td style="text-align: left">CxProlog 0.98.2</td>
-      <td style="text-align: right">161343</td>
-      <td style="text-align: right">160189</td>
-      <td style="text-align: right">151041</td>
-      <td style="text-align: right">94.3 %</td>
+      <td style="text-align: left">ECLiPSe 7.0#57</td>
+      <td style="text-align: right">843955</td>
+      <td style="text-align: right">825235</td>
+      <td style="text-align: right">581380</td>
+      <td style="text-align: right">70.4 %</td>
     </tr>
     <tr>
-      <td style="text-align: left">ECLiPSe 7.0#41</td>
-      <td style="text-align: right">961917</td>
-      <td style="text-align: right">918000</td>
-      <td style="text-align: right">579907</td>
-      <td style="text-align: right">63.2 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">GNU Prolog 1.4.0</td>
-      <td style="text-align: right">970874</td>
-      <td style="text-align: right">925926</td>
-      <td style="text-align: right">645161</td>
-      <td style="text-align: right">69.7 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Qu-Prolog 10.0</td>
-      <td style="text-align: right">232558</td>
-      <td style="text-align: right">227273</td>
-      <td style="text-align: right">212766</td>
-      <td style="text-align: right">93.6 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">SICStus Prolog 4.4.1</td>
-      <td style="text-align: right">3225806</td>
-      <td style="text-align: right">3030303</td>
-      <td style="text-align: right">1886792</td>
-      <td style="text-align: right">62.3 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">SWI-Prolog 7.7.13 (64 bits)</td>
-      <td style="text-align: right">253204</td>
-      <td style="text-align: right">256527</td>
-      <td style="text-align: right">232163</td>
-      <td style="text-align: right">90.5 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">XSB 3.8.0+ (svn, 64 bits)</td>
-      <td style="text-align: right">1000000</td>
+      <td style="text-align: left">GNU Prolog 1.6.0</td>
+      <td style="text-align: right">1449275</td>
+      <td style="text-align: right">1449275</td>
       <td style="text-align: right">952381</td>
-      <td style="text-align: right">800000</td>
-      <td style="text-align: right">84.0 %</td>
+      <td style="text-align: right">65.7 %</td>
     </tr>
     <tr>
-      <td style="text-align: left">YAP 6.3.5 (git, 64 bits)</td>
-      <td style="text-align: right">134953</td>
-      <td style="text-align: right">132275</td>
-      <td style="text-align: right">132275</td>
-      <td style="text-align: right">100.0 %</td>
+      <td style="text-align: left">SICStus Prolog 4.9.0</td>
+      <td style="text-align: right">4524887</td>
+      <td style="text-align: right">4545455</td>
+      <td style="text-align: right">2604167</td>
+      <td style="text-align: right">57.3 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SWI-Prolog 9.3.14</td>
+      <td style="text-align: right">496887</td>
+      <td style="text-align: right">491072</td>
+      <td style="text-align: right">460547</td>
+      <td style="text-align: right">93.8 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Trealla Prolog 2.60.0</td>
+      <td style="text-align: right">90936</td>
+      <td style="text-align: right">90222</td>
+      <td style="text-align: right">74027</td>
+      <td style="text-align: right">82.0 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">XSB 5.0.0</td>
+      <td style="text-align: right">1098901</td>
+      <td style="text-align: right">1075269</td>
+      <td style="text-align: right">943396</td>
+      <td style="text-align: right">87.7 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">YAP 7.6.0</td>
+      <td style="text-align: right">617284</td>
+      <td style="text-align: right">598802</td>
+      <td style="text-align: right">558659</td>
+      <td style="text-align: right">93.3 %</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="dynamic-code-benchmark-results">Dynamic code benchmark results</h2>
 
-<p>All results are given in number of calls per second. By default, the
-benchmark code repeats each goal up to 100000 times in order to get more
-accurate results. The last column shows the trade-off between plain
+<p>The last column shows the trade-off between plain
 Prolog (<code class="highlighter-rouge">d2</code>) and Logtalk using static binding (<code class="highlighter-rouge">d3</code>).</p>
-
-<p>Apple MacBook Pro 15.4" 2.9 GHz Intel Core i7, 16GB RAM, macOS 10.13.4.</p>
 
 <table>
   <thead>
@@ -721,85 +791,76 @@ Prolog (<code class="highlighter-rouge">d2</code>) and Logtalk using static bind
   </thead>
   <tbody>
     <tr>
-      <td style="text-align: left">B-Prolog 8.1</td>
-      <td style="text-align: right">10068</td>
-      <td style="text-align: right">1204819</td>
-      <td style="text-align: right">1098901</td>
-      <td style="text-align: right">487805</td>
-      <td style="text-align: right">1111111</td>
-      <td style="text-align: right">91.2 %</td>
+      <td style="text-align: left">CxProlog 0.98.3</td>
+      <td style="text-align: right">126</td>
+      <td style="text-align: right">143847</td>
+      <td style="text-align: right">135044</td>
+      <td style="text-align: right">118913</td>
+      <td style="text-align: right">122753</td>
+      <td style="text-align: right">93.9 %</td>
     </tr>
     <tr>
-      <td style="text-align: left">CxProlog 0.98.2</td>
-      <td style="text-align: right">1889</td>
-      <td style="text-align: right">47158</td>
-      <td style="text-align: right">29920</td>
-      <td style="text-align: right">29835</td>
-      <td style="text-align: right">32284</td>
-      <td style="text-align: right">63.4 %</td>
+      <td style="text-align: left">ECLiPSe 7.0#57</td>
+      <td style="text-align: right">6868</td>
+      <td style="text-align: right">970814</td>
+      <td style="text-align: right">933650</td>
+      <td style="text-align: right">497683</td>
+      <td style="text-align: right">941957</td>
+      <td style="text-align: right">96.2 %</td>
     </tr>
     <tr>
-      <td style="text-align: left">ECLiPSe 7.0#41</td>
-      <td style="text-align: right">6741</td>
-      <td style="text-align: right">877645</td>
-      <td style="text-align: right">837332</td>
-      <td style="text-align: right">439951</td>
-      <td style="text-align: right">846068</td>
-      <td style="text-align: right">95.4 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">GNU Prolog 1.4.5</td>
-      <td style="text-align: right">12641</td>
-      <td style="text-align: right">60423</td>
-      <td style="text-align: right">65703</td>
-      <td style="text-align: right">61050</td>
-      <td style="text-align: right">64893</td>
-      <td style="text-align: right">108.7 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Qu-Prolog 10.0</td>
-      <td style="text-align: right">1506</td>
-      <td style="text-align: right">103093</td>
-      <td style="text-align: right">94340</td>
-      <td style="text-align: right">84746</td>
-      <td style="text-align: right">93458</td>
-      <td style="text-align: right">91.5 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">SICStus Prolog 4.4.1</td>
-      <td style="text-align: right">12868</td>
-      <td style="text-align: right">1666667</td>
-      <td style="text-align: right">1587302</td>
-      <td style="text-align: right">1020408</td>
-      <td style="text-align: right">1562500</td>
-      <td style="text-align: right">95.2 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">SWI-Prolog 7.7.13 (64 bits)</td>
-      <td style="text-align: right">8393</td>
-      <td style="text-align: right">641363</td>
-      <td style="text-align: right">611195</td>
-      <td style="text-align: right">478419</td>
-      <td style="text-align: right">617894</td>
-      <td style="text-align: right">95.3 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">XSB 3.8.0+ (svn, 64 bits)</td>
-      <td style="text-align: right">2396</td>
-      <td style="text-align: right">221239</td>
-      <td style="text-align: right">228833</td>
-      <td style="text-align: right">198807</td>
-      <td style="text-align: right">224719</td>
-      <td style="text-align: right">103.4 %</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">YAP 6.3.5 (git, 64 bits)</td>
-      <td style="text-align: right">2668</td>
-      <td style="text-align: right">268097</td>
-      <td style="text-align: right">256410</td>
-      <td style="text-align: right">219298</td>
-      <td style="text-align: right">259067</td>
+      <td style="text-align: left">GNU Prolog 1.6.0</td>
+      <td style="text-align: right">18501</td>
+      <td style="text-align: right">2325581</td>
+      <td style="text-align: right">2222222</td>
+      <td style="text-align: right">854701</td>
+      <td style="text-align: right">2127660</td>
       <td style="text-align: right">95.6 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SICStus Prolog 4.9.0</td>
+      <td style="text-align: right">17269</td>
+      <td style="text-align: right">2967359</td>
+      <td style="text-align: right">2314815</td>
+      <td style="text-align: right">1623377</td>
+      <td style="text-align: right">2762431</td>
+      <td style="text-align: right">78.0 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">SWI-Prolog 9.3.14</td>
+      <td style="text-align: right">7547</td>
+      <td style="text-align: right">726475</td>
+      <td style="text-align: right">678440</td>
+      <td style="text-align: right">528259</td>
+      <td style="text-align: right">686629</td>
+      <td style="text-align: right">93.4 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Trealla Prolog 2.60.0</td>
+      <td style="text-align: right">2880</td>
+      <td style="text-align: right">332515</td>
+      <td style="text-align: right">298230</td>
+      <td style="text-align: right">205476</td>
+      <td style="text-align: right">290353</td>
+      <td style="text-align: right">89.7 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">XSB 5.0.0</td>
+      <td style="text-align: right">2535</td>
+      <td style="text-align: right">318471</td>
+      <td style="text-align: right">316456</td>
+      <td style="text-align: right">284091</td>
+      <td style="text-align: right">330033</td>
+      <td style="text-align: right">99.4 %</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">YAP 7.6.0</td>
+      <td style="text-align: right">2297</td>
+      <td style="text-align: right">145560</td>
+      <td style="text-align: right">148810</td>
+      <td style="text-align: right">131062</td>
+      <td style="text-align: right">148588</td>
+      <td style="text-align: right">102.2 %</td>
     </tr>
   </tbody>
 </table>
@@ -811,7 +872,7 @@ Prolog (<code class="highlighter-rouge">d2</code>) and Logtalk using static bind
 some Prolog compilers. One the reasons seems to be the
 operating-system constant shuffling of processes between the cores.</li>
   <li>Some results are odd, either above the expected maximum (100% of
-plain Prolog performance) or much lower than what's reasonable to
+plain Prolog performance) or lower than what's reasonable to
 expect. This happens mostly on the most simple benchmark goals.
 Benchmarks where a more significant amount of work is performed seem
 to be more (but not complete) immune to these issues.</li>
@@ -827,8 +888,8 @@ compiled code, of a hidden execution context predicate argument is a
 particular sensitive point in virtual machines optimization as this
 extra argument is usually passed unchanged between local predicate
 calls.</li>
-  <li>These are too few and too limited benchmark tests to effectively
-compare Prolog compiler performance. Notably, some of the Prolog
+  <li><strong>These are too few and too limited benchmark tests to effectively
+compare Prolog compiler performance.</strong> Notably, some of the Prolog
 versions used are development versions due to the latest stable
 version being either too old or containing critical bugs.</li>
   <li>Processor caches sometimes result in tests one order of magnitude
