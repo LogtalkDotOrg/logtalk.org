@@ -79,11 +79,11 @@ pass unchanged arguments between predicate calls.
 
 ## Category test goals
 
-Category predicates can be called using either the `::/1` or the `:/1`
-control constructs. When using the `:/1` control construct, the lookup
+Category predicates can be called using either the `::/1` or the `^^/1`
+control constructs. When using the `^^/1` control construct, the lookup
 for both the predicate declaration and the predicate definition begins
 in *this* and is restricted to the imported categories. Depending on how
-the category is compiled, Logtalk may use static binding for `:/1`
+the category is compiled, Logtalk may use static binding for `^^/1`
 calls, providing the same performance level as calls to local object
 predicates. The following goals are used for the benchmark tests:
 
@@ -95,9 +95,9 @@ predicates. The following goals are used for the benchmark tests:
 
 The `obj_local` method calls a local object predicate; the performance
 of such calls is equal or close to plain Prolog. The `ctg_direct` method
-uses the `:/1` control construct to call an imported category predicate.
+uses the `^^/1` control construct to call an imported category predicate.
 The `ctg_self` method uses the `::/1` message sending control construct
-to call an imported category predicate. While the `:/1` calls may use
+to call an imported category predicate. While the `^^/1` calls may use
 static binding, the `::/1` calls always use dynamic binding and a lookup
 caching mechanism. Note that the choice between either control construct
 is not simply a question of performance as the control constructs
