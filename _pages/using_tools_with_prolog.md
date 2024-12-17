@@ -15,7 +15,7 @@ implementation of these and other concepts and mechanisms, precluding portable
 solutions. The Prolog adapter files used by Logtalk contain code to workaround
 some of these portability issues.
 
-For best results, always use the latest Logtalk version to benefit of any
+For best results, always use the latest Logtalk version to benefit from any
 recent improvements to the Logtalk compiler and Prolog backend adapter files
 that facilitate compiling Prolog code as Logtalk code.
 
@@ -33,7 +33,7 @@ case, this is not the guide you're looking for.
 
 Applying the Logtalk developer tools to plain Prolog code (i.e. Prolog code
 not encapsulated in modules) requires wrapping the code using Logtalk objects.
-A simply way of doing it is loading the
+A simple way of doing it is loading the
 [`hook_objects`](https://logtalk.org/library/library_index.html#hook-objects)
 library and then use the
 [`object_wrapper_hook`](https://logtalk.org/library/object_wrapper_hook_0.html)
@@ -162,7 +162,7 @@ best results when trying to use the Logtalk developer tools, take into
 account the loading order. If necessary, write a simple `loader.lgt` file
 instead of using the `forall/2` loop illustrated above.
 
-### Know issues
+### Known issues
 
 When finding a `use_module/1` or `use_module/2` directive in a Prolog module,
 Logtalk either successfully expands it to a Logtalk supported `use_module/2`
@@ -190,7 +190,7 @@ additional arguments that will be added to the closure to construct a goal.
 
 Arbitrary goals used as directives are usually flagged as errors. In most
 cases, these can be wrapped using an `initialization/1` directive to allow
-compilation to procede.
+compilation to proceed.
 
 Clauses for `term_expansion/2` and `goal_expansion/2` predicates are never
 used to expand clauses that follow in the same file. If that's the case of

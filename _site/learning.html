@@ -322,7 +322,7 @@ at startup by defining a default
   <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/shapes"><code class="highlighter-rouge">shapes</code></a> - learn about the differences between class and prototype hierarchies</li>
   <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/predicate_lookups"><code class="highlighter-rouge">predicate_lookups</code></a> - learn about the predicate lookups used when sending a message to an object</li>
   <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/inheritance"><code class="highlighter-rouge">inheritance</code></a> - learn about public, protected, and private inheritance</li>
-  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/family"><code class="highlighter-rouge">family</code></a> - no self respecting logic programming language can do without a family relations example</li>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/family"><code class="highlighter-rouge">family</code></a> - no self-respecting logic programming language can do without a family relations example</li>
 </ul>
 
 <p>Need a break after playing with the above examples? Have fun with the following ones:</p>
@@ -376,7 +376,7 @@ at startup by defining a default
   <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/instvars"><code class="highlighter-rouge">instvars</code></a></li>
 </ul>
 
-<p>Now that you got the basics of OOP in Logtalk, time to take it to the next level:</p>
+<p>Now that you got the basics of OOP in Logtalk, it’s time to take it to the next level:</p>
 
 <ul>
   <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/design_patterns"><code class="highlighter-rouge">design_patterns</code></a></li>
@@ -404,7 +404,7 @@ at startup by defining a default
   <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/wrappers"><code class="highlighter-rouge">wrappers</code></a></li>
 </ul>
 
-<p>Happy about your progress? Time to celebrate with:</p>
+<p>Happy with your progress? Time to celebrate with:</p>
 
 <ul>
   <li><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/bottles"><code class="highlighter-rouge">bottles</code></a> - sing along!</li>
@@ -504,7 +504,7 @@ true.
 W2 = 14.88304.
 </code></pre></div></div>
 
-<p>The debugger supports a several handy options. Type <code class="highlighter-rouge">h</code> or <code class="highlighter-rouge">?</code> at its prompt for inline help. Consult the user manual section on <a href="https://logtalk.org/manuals/userman/debugging.html">debugging</a> for further information.</p>
+<p>The debugger supports several handy options. Type <code class="highlighter-rouge">h</code> or <code class="highlighter-rouge">?</code> at its prompt for inline help. Consult the user manual section on <a href="https://logtalk.org/manuals/userman/debugging.html">debugging</a> for further information.</p>
 
 <p>To terminate the debugging session, you can turn off the debugger and recompile the files in normal (or optimized mode):</p>
 
@@ -540,7 +540,7 @@ true.
 :- end_object</span><span class="p">.</span>
 </code></pre></div></div>
 
-<p>As we just modified a loaded file, we can use the <a href="(https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md)"><code class="highlighter-rouge">make</code></a> tool to reload it:</p>
+<p>Since we just modified a loaded file, we can use the <a href="(https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md)"><code class="highlighter-rouge">make</code></a> tool to reload it:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?- {*}.
 % Redefining protocol physical_properties
@@ -563,7 +563,7 @@ W2 = 103.54.
 
 <h2 id="running-example-tests">Running example tests</h2>
 
-<p>Next we could also modify the example unit tests to account for the newly added <code class="highlighter-rouge">jupiter</code> object by editing the <code class="highlighter-rouge">tests.lgt</code> file. As we added a new object, <code class="highlighter-rouge">jupiter</code>, we want to add a <code class="highlighter-rouge">cover/1</code> clause for it to that we can collect cove coverage data:</p>
+<p>Next, we could also modify the example unit tests to account for the newly added <code class="highlighter-rouge">jupiter</code> object by editing the <code class="highlighter-rouge">tests.lgt</code> file. As we added a new object, <code class="highlighter-rouge">jupiter</code>, we want to add a <code class="highlighter-rouge">cover/1</code> clause for it to that we can collect cove coverage data:</p>
 
 <div class="language-logtalk highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cover<span class="p">(</span>jupiter<span class="p">).</span>
 </code></pre></div></div>

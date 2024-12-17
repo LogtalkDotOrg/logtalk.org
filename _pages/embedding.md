@@ -36,9 +36,9 @@ $ cp "$LOGTALKHOME"/paths/paths_core.pl "$HOME"/collect/paths_core.pl
 $ cp "$LOGTALKHOME"/core/core.pl "$HOME"/collect/core.pl
 ```
 
-Now that we have all the necessary files in one place, its a good idea to take a look to the files in the `integration` directory for the chosen backend Prolog compiler and check if some changes to the core files are advised. For example, in the case of GNU Prolog, we can edit the `$HOME/collect/core.pl` file and add the line `:- built_in.` to the top to give all the predicates implementing the Logtalk compiler and runtime `built-in` status. After this step, the details to embed the collected Prolog files that implement Logtalk depend on the backend Prolog compiler.
+Now that we have all the necessary files in one place, it's a good idea to take a look at the files in the `integration` directory for the chosen backend Prolog compiler and check if some changes to the core files are advised. For example, in the case of GNU Prolog, we can edit the `$HOME/collect/core.pl` file and add the line `:- built_in.` to the top to give all the predicates implementing the Logtalk compiler and runtime `built-in` status. After this step, the details to embed the collected Prolog files that implement Logtalk depend on the backend Prolog compiler.
 
-As the `paths.pl` and `core.pl` files contain initialization goals, the order of embedding of the files is not arbitrary. The initialization goals in the `paths.pl` file must be called before the initialization goals in the `core.pl` file. But the order that the GNU Prolog compiler calls the initialization goals is operating-system dependent (see its documentation and the [`adapters/NOTES.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/adapters/NOTES.md) file for details). Moreover, the files containing the pre-compiled built-in entities, `expanding_*_lgt.pl`, `monitoring_*_lgt.pl`, `forwarding_*_lgt.pl`, `user_*_lgt.pl`, `logtalk_*_lgt.pl`, and `core_messages_*_lgt.pl` must precede, in this order, the `core.pl` file. Note that we use regular expressions for the files that contain the pre-compiled built-in entities as their names, depending on the backend Prolog compiler, may include a directory hash, which is used to avoid file names conflicts. 
+As the `paths.pl` and `core.pl` files contain initialization goals, the order of embedding of the files is not arbitrary. The initialization goals in the `paths.pl` file must be called before the initialization goals in the `core.pl` file. But the order that the GNU Prolog compiler calls the initialization goals is operating-system dependent (see its documentation and the [`adapters/NOTES.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/adapters/NOTES.md) file for details). Moreover, the files containing the pre-compiled built-in entities, `expanding_*_lgt.pl`, `monitoring_*_lgt.pl`, `forwarding_*_lgt.pl`, `user_*_lgt.pl`, `logtalk_*_lgt.pl`, and `core_messages_*_lgt.pl` must precede, in this order, the `core.pl` file. Note that we use regular expressions for the files that contain the pre-compiled built-in entities as their names, depending on the backend Prolog compiler, may include a directory hash, which is used to avoid file name conflicts. 
 
 Continuing to use GNU Prolog for our tutorial, we can generate a new top-level executable file by typing (ignore the suspicious predicate warnings about `{}/1`):
 
@@ -74,7 +74,7 @@ $ rm -f "$HOME"/collect_app_files/*loader*
 
 In alternative, the embedding scripts (see below) provide an option to compile (i.e. expand) library alias paths in paths and settings files. This option allows, in general, the safe inclusion of the application loader files.
 
-Now that we have all necessary application files in the `$HOME/collect_app_files/` directory, we can concatenate them in a single Prolog file (on POSIX system we can use the `cat` utility in an automation script), say, `app_resources.pl `:
+Now that we have all the required application files in the `$HOME/collect_app_files/` directory, we can concatenate them in a single Prolog file (on POSIX system we can use the `cat` utility in an automation script), say, `app_resources.pl `:
 
 ```shell
 $ cat $(ls -t $HOME/collect_app_files/*.pl) > app_resources.pl
@@ -96,7 +96,7 @@ We just need an intermediate step before generating the `.qlf` file:
 $ cat logtalk_resources.pl ../collect_app_files/app_resources.pl > resources.pl
 ```
 
-With all the code in a single file, we can now compiled it into a `.qlf` file:
+With all the code in a single file, we can now compile it into a `.qlf` file:
 
 ```shell
 $ swipl -q -g "qcompile(resources)" -t halt
@@ -106,11 +106,11 @@ These steps are just a guideline. You may want e.g. to add a settings file, set 
 
 ## Embedding scripts
 
-Most of the embedding steps described above can easily be automated. For example embedding scripts for selected backend Prolog compilers, see:
+Most of the embedding steps described above can easily be automated. Example embedding scripts for selected backend Prolog compilers can be found at:
 
 [https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/embedding/](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/embedding/)
 
-For embedding details for specific backend Prolog compilers see those compilers documentation and the following notes:
+For embedding details for specific backend Prolog compilers, see those compilers documentation and the following notes:
 
 [https://github.com/LogtalkDotOrg/logtalk3/blob/master/adapters/NOTES.md](https://github.com/LogtalkDotOrg/logtalk3/blob/master/adapters/NOTES.md)
 

@@ -284,7 +284,7 @@ implementation of these and other concepts and mechanisms, precluding portable
 solutions. The Prolog adapter files used by Logtalk contain code to workaround
 some of these portability issues.</p>
 
-<p>For best results, always use the latest Logtalk version to benefit of any
+<p>For best results, always use the latest Logtalk version to benefit from any
 recent improvements to the Logtalk compiler and Prolog backend adapter files
 that facilitate compiling Prolog code as Logtalk code.</p>
 
@@ -302,7 +302,7 @@ case, this is not the guide you’re looking for.</p>
 
 <p>Applying the Logtalk developer tools to plain Prolog code (i.e. Prolog code
 not encapsulated in modules) requires wrapping the code using Logtalk objects.
-A simply way of doing it is loading the
+A simple way of doing it is loading the
 <a href="https://logtalk.org/library/library_index.html#hook-objects"><code class="highlighter-rouge">hook_objects</code></a>
 library and then use the
 <a href="https://logtalk.org/library/object_wrapper_hook_0.html"><code class="highlighter-rouge">object_wrapper_hook</code></a>
@@ -436,7 +436,7 @@ best results when trying to use the Logtalk developer tools, take into
 account the loading order. If necessary, write a simple <code class="highlighter-rouge">loader.lgt</code> file
 instead of using the <code class="highlighter-rouge">forall/2</code> loop illustrated above.</p>
 
-<h3 id="know-issues">Know issues</h3>
+<h3 id="known-issues">Known issues</h3>
 
 <p>When finding a <code class="highlighter-rouge">use_module/1</code> or <code class="highlighter-rouge">use_module/2</code> directive in a Prolog module,
 Logtalk either successfully expands it to a Logtalk supported <code class="highlighter-rouge">use_module/2</code>
@@ -464,7 +464,7 @@ additional arguments that will be added to the closure to construct a goal.</p>
 
 <p>Arbitrary goals used as directives are usually flagged as errors. In most
 cases, these can be wrapped using an <code class="highlighter-rouge">initialization/1</code> directive to allow
-compilation to procede.</p>
+compilation to proceed.</p>
 
 <p>Clauses for <code class="highlighter-rouge">term_expansion/2</code> and <code class="highlighter-rouge">goal_expansion/2</code> predicates are never
 used to expand clauses that follow in the same file. If that’s the case of

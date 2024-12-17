@@ -78,7 +78,7 @@ Running these tests is advisable when developing portable Logtalk applications t
 
 The Logtalk unit test framework supports both TAP and xUnit output formats. Most CI servers support one or both formats for reporting and summarizing test results. In addition, the `logtalk_tester` automation script returns a non-zero exit value in case of failed tests, accepts user-defined arguments that are passed to application being tested, and traverses (by default) directories recursively looking for test sets to execute. See the script [man page](man/logtalk_tester.html) for details.
 
-As an example, a CI server build script could contain:
+For example, a CI server build script could contain:
 
 ```shell
 # change directory to the test sets root directory
@@ -90,13 +90,13 @@ logtalk_tester -p swipack -tap -c xml -- foo bar baz
 
 By configuring the CI server TAP support to look for `tap_report.txt` files recursively inside the `tests` directory, the build report will summarize and list all the test results. By making the build script fail when the `logtalk_tester` script returns a non-zero value, the build will be marked as failed when there are failed tests. Consult your CI server documentation for details.
 
-Most CI servers have HTML publishing plug-ins that should allow linking to the code coverage reports in the build page. But depending on the plug-in and on the web browsers used to view build results, you may need to convert the XML reports to HTML (instead of relying in the browser doing the conversion on the fly, which only works in some browsers) using a XSLT processor called as part of the build process. For example:
+Most CI servers have HTML publishing plug-ins that should allow linking to the code coverage reports in the build page. But depending on the plug-in and on the web browsers used to view build results, you may need to convert the XML reports to HTML (instead of relying on the browser doing the conversion on the fly, which only works in some browsers) using a XSLT processor called as part of the build process. For example:
 
 ```shell
 $ xsltproc -o coverage_report.html coverage_report.xml
 ```
 
-Be aware that GitHub and GitLab CI/CD pipelines are often run from Docker images as root. This may result in tests that would pass when run by a normal user to fail when run as root. E.g. tests that check for expected permission errors when accessing files and directories.
+Be aware that GitHub and GitLab CI/CD pipelines often run from Docker images as root. This may result in tests that would pass when run by a normal user to fail when run as root. E.g. tests that check for expected permission errors when accessing files and directories.
 
 ## GitHub actions and workflows
 

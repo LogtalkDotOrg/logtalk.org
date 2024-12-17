@@ -6,14 +6,14 @@ aside:
   toc: true
 ---
 
-In general, Prolog coding style guidelines also apply to Logtalk programming. Guidelines, including this one, should be taken as recommendation rather than dogma. Strict use of the guidelines here presented is only expected when contributing to the Logtalk distribution. When adapting this or other guidelines, the golden rule is consistency and consensus within your development team.
+In general, Prolog coding style guidelines also apply to Logtalk programming. Guidelines, including this one, should be taken as recommendations rather than dogma. Strict use of the guidelines presented here is only expected when contributing to the Logtalk distribution. When adapting this or other guidelines, the golden rule is consistency and consensus within your development team.
 
 Organizing your source files
 ----------------------------
 
 Store your files in a directory with a simple but descriptive name. Avoid using a name already in use in the current Logtalk distribution. Besides your source files, the directory often contains utility and documentation files such as:
 
-* A loader file for your source files. Usually named `loader.lgt`, this file should load both your source files and any other files (e.g. library files) needed for compiling and running your code. Loader files may also be used to set appropriated flags for compiling and loading your source files. You may also want to have e.g. a `loader_debug.lgt` file if there's a non-trivial debugging setup for developing your code.
+* A loader file for your source files. Usually named `loader.lgt`, this file should load both your source files and any other files (e.g. library files) needed for compiling and running your code. Loader files may also be used to set appropriate flags for compiling and loading your source files. You may also want to have e.g. a `loader_debug.lgt` file if there's a non-trivial debugging setup for developing your code.
 
 * An informative `NOTES.md` or `NOTES.txt` file with a description of your code, authorship, copyright, and licensing information.
 
@@ -86,7 +86,7 @@ goal2,
 ....
 ```
 
-This helps avoiding long lines, keeps the comments aligned with the code, and allows breaking long clauses into sections.
+This helps avoid long lines, keeps the comments aligned with the code, and allows breaking long clauses into sections.
 
 Clause heads
 ------------
@@ -106,7 +106,7 @@ Trying to align the arguments with the opening parenthesis would make the alignm
 Goals in clause bodies
 ----------------------
 
-As a general rule, write one goal per line. Exceptions are green cuts and goals like `nl` after a write term goal. In this case, write the two goals in the same line. Red cuts should always be written in a separate line.
+As a general rule, write one goal per line. Exceptions are green cuts and goals like `nl` after a write term goal. In this case, write the two goals in the same line. Red cuts should always be written on a separate line.
 
 Complex goals can be more readable, however, using several lines. For example:
 

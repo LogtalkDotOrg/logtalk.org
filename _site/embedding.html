@@ -303,9 +303,9 @@
 <span class="nv">$ </span><span class="nb">cp</span> <span class="s2">"</span><span class="nv">$LOGTALKHOME</span><span class="s2">"</span>/core/core.pl <span class="s2">"</span><span class="nv">$HOME</span><span class="s2">"</span>/collect/core.pl
 </code></pre></div></div>
 
-<p>Now that we have all the necessary files in one place, its a good idea to take a look to the files in the <code class="highlighter-rouge">integration</code> directory for the chosen backend Prolog compiler and check if some changes to the core files are advised. For example, in the case of GNU Prolog, we can edit the <code class="highlighter-rouge">$HOME/collect/core.pl</code> file and add the line <code class="highlighter-rouge">:- built_in.</code> to the top to give all the predicates implementing the Logtalk compiler and runtime <code class="highlighter-rouge">built-in</code> status. After this step, the details to embed the collected Prolog files that implement Logtalk depend on the backend Prolog compiler.</p>
+<p>Now that we have all the necessary files in one place, it’s a good idea to take a look at the files in the <code class="highlighter-rouge">integration</code> directory for the chosen backend Prolog compiler and check if some changes to the core files are advised. For example, in the case of GNU Prolog, we can edit the <code class="highlighter-rouge">$HOME/collect/core.pl</code> file and add the line <code class="highlighter-rouge">:- built_in.</code> to the top to give all the predicates implementing the Logtalk compiler and runtime <code class="highlighter-rouge">built-in</code> status. After this step, the details to embed the collected Prolog files that implement Logtalk depend on the backend Prolog compiler.</p>
 
-<p>As the <code class="highlighter-rouge">paths.pl</code> and <code class="highlighter-rouge">core.pl</code> files contain initialization goals, the order of embedding of the files is not arbitrary. The initialization goals in the <code class="highlighter-rouge">paths.pl</code> file must be called before the initialization goals in the <code class="highlighter-rouge">core.pl</code> file. But the order that the GNU Prolog compiler calls the initialization goals is operating-system dependent (see its documentation and the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/adapters/NOTES.md"><code class="highlighter-rouge">adapters/NOTES.md</code></a> file for details). Moreover, the files containing the pre-compiled built-in entities, <code class="highlighter-rouge">expanding_*_lgt.pl</code>, <code class="highlighter-rouge">monitoring_*_lgt.pl</code>, <code class="highlighter-rouge">forwarding_*_lgt.pl</code>, <code class="highlighter-rouge">user_*_lgt.pl</code>, <code class="highlighter-rouge">logtalk_*_lgt.pl</code>, and <code class="highlighter-rouge">core_messages_*_lgt.pl</code> must precede, in this order, the <code class="highlighter-rouge">core.pl</code> file. Note that we use regular expressions for the files that contain the pre-compiled built-in entities as their names, depending on the backend Prolog compiler, may include a directory hash, which is used to avoid file names conflicts.</p>
+<p>As the <code class="highlighter-rouge">paths.pl</code> and <code class="highlighter-rouge">core.pl</code> files contain initialization goals, the order of embedding of the files is not arbitrary. The initialization goals in the <code class="highlighter-rouge">paths.pl</code> file must be called before the initialization goals in the <code class="highlighter-rouge">core.pl</code> file. But the order that the GNU Prolog compiler calls the initialization goals is operating-system dependent (see its documentation and the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/adapters/NOTES.md"><code class="highlighter-rouge">adapters/NOTES.md</code></a> file for details). Moreover, the files containing the pre-compiled built-in entities, <code class="highlighter-rouge">expanding_*_lgt.pl</code>, <code class="highlighter-rouge">monitoring_*_lgt.pl</code>, <code class="highlighter-rouge">forwarding_*_lgt.pl</code>, <code class="highlighter-rouge">user_*_lgt.pl</code>, <code class="highlighter-rouge">logtalk_*_lgt.pl</code>, and <code class="highlighter-rouge">core_messages_*_lgt.pl</code> must precede, in this order, the <code class="highlighter-rouge">core.pl</code> file. Note that we use regular expressions for the files that contain the pre-compiled built-in entities as their names, depending on the backend Prolog compiler, may include a directory hash, which is used to avoid file name conflicts.</p>
 
 <p>Continuing to use GNU Prolog for our tutorial, we can generate a new top-level executable file by typing (ignore the suspicious predicate warnings about <code class="highlighter-rouge">{}/1</code>):</p>
 
@@ -338,7 +338,7 @@
 
 <p>In alternative, the embedding scripts (see below) provide an option to compile (i.e. expand) library alias paths in paths and settings files. This option allows, in general, the safe inclusion of the application loader files.</p>
 
-<p>Now that we have all necessary application files in the <code class="highlighter-rouge">$HOME/collect_app_files/</code> directory, we can concatenate them in a single Prolog file (on POSIX system we can use the <code class="highlighter-rouge">cat</code> utility in an automation script), say, <code class="highlighter-rouge">app_resources.pl </code>:</p>
+<p>Now that we have all the required application files in the <code class="highlighter-rouge">$HOME/collect_app_files/</code> directory, we can concatenate them in a single Prolog file (on POSIX system we can use the <code class="highlighter-rouge">cat</code> utility in an automation script), say, <code class="highlighter-rouge">app_resources.pl </code>:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat</span> <span class="k">$(</span><span class="nb">ls</span> <span class="nt">-t</span> <span class="nv">$HOME</span>/collect_app_files/<span class="k">*</span>.pl<span class="k">)</span> <span class="o">&gt;</span> app_resources.pl
 </code></pre></div></div>
@@ -357,7 +357,7 @@
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>logtalk_resources.pl ../collect_app_files/app_resources.pl <span class="o">&gt;</span> resources.pl
 </code></pre></div></div>
 
-<p>With all the code in a single file, we can now compiled it into a <code class="highlighter-rouge">.qlf</code> file:</p>
+<p>With all the code in a single file, we can now compile it into a <code class="highlighter-rouge">.qlf</code> file:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>swipl <span class="nt">-q</span> <span class="nt">-g</span> <span class="s2">"qcompile(resources)"</span> <span class="nt">-t</span> halt
 </code></pre></div></div>
@@ -366,11 +366,11 @@
 
 <h2 id="embedding-scripts">Embedding scripts</h2>
 
-<p>Most of the embedding steps described above can easily be automated. For example embedding scripts for selected backend Prolog compilers, see:</p>
+<p>Most of the embedding steps described above can easily be automated. Example embedding scripts for selected backend Prolog compilers can be found at:</p>
 
 <p><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/embedding/">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/embedding/</a></p>
 
-<p>For embedding details for specific backend Prolog compilers see those compilers documentation and the following notes:</p>
+<p>For embedding details for specific backend Prolog compilers, see those compilers documentation and the following notes:</p>
 
 <p><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/adapters/NOTES.md">https://github.com/LogtalkDotOrg/logtalk3/blob/master/adapters/NOTES.md</a></p>
 

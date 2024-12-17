@@ -115,6 +115,8 @@ supported Prolog compilers on `/opt/local/bin`. Creates an
 port install logtalk` (or `sudo port upgrade logtalk`) in order to
 install (or upgrade) Logtalk. Check first that the
 [port](https://ports.macports.org/port/logtalk/) is up-to-date.
+Be sure to set the `LOGTALKHOME` and `LOGTALKUSER` environment variables
+as described in the command output.
 
 #### Homebrew
 
@@ -122,7 +124,8 @@ install (or upgrade) Logtalk. Check first that the
 logtalk` (or `brew upgrade logtalk`) in order to install (or upgrade)
 Logtalk. Check first that the [formula](https://formulae.brew.sh/formula/logtalk)
 is up-to-date.
-
+Be sure to set the `LOGTALKHOME` and `LOGTALKUSER` environment variables
+as described in the command output.
 
 ### Linux (e.g. Centos, Fedora)
 

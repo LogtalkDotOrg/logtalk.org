@@ -52,7 +52,7 @@ at startup by defining a default
 * [`shapes`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/shapes) - learn about the differences between class and prototype hierarchies
 * [`predicate_lookups`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/predicate_lookups) - learn about the predicate lookups used when sending a message to an object
 * [`inheritance`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/inheritance) - learn about public, protected, and private inheritance
-* [`family`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/family) - no self respecting logic programming language can do without a family relations example
+* [`family`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/family) - no self-respecting logic programming language can do without a family relations example
 
 Need a break after playing with the above examples? Have fun with the following ones:
 
@@ -93,7 +93,7 @@ Looking for how to express traditional OOP class concepts from other languages i
 * [`instmethods`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/instmethods)
 * [`instvars`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/instvars)
 
-Now that you got the basics of OOP in Logtalk, time to take it to the next level:
+Now that you got the basics of OOP in Logtalk, it's time to take it to the next level:
 
 * [`design_patterns`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/design_patterns)
 * [`aspects`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/aspects)
@@ -115,7 +115,7 @@ Looking for extending Logtalk with your constructs? Logtalk supports a term-expa
 * [`hooks`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/hooks)
 * [`wrappers`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/wrappers)
 
-Happy about your progress? Time to celebrate with:
+Happy with your progress? Time to celebrate with:
 
 * [`bottles`](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/bottles) - sing along!
 
@@ -218,7 +218,7 @@ true.
 W2 = 14.88304.
 ```
 
-The debugger supports a several handy options. Type `h` or `?` at its prompt for inline help. Consult the user manual section on [debugging](https://logtalk.org/manuals/userman/debugging.html) for further information.
+The debugger supports several handy options. Type `h` or `?` at its prompt for inline help. Consult the user manual section on [debugging](https://logtalk.org/manuals/userman/debugging.html) for further information.
 
 To terminate the debugging session, you can turn off the debugger and recompile the files in normal (or optimized mode):
 
@@ -256,7 +256,7 @@ But don't just run the provided examples. Experiment also modifying them. Contin
 :- end_object.
 ```
 
-As we just modified a loaded file, we can use the [`make`]((https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md)) tool to reload it:
+Since we just modified a loaded file, we can use the [`make`]((https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/make/NOTES.md)) tool to reload it:
 
 ```
 ?- {*}.
@@ -280,7 +280,7 @@ The `{*}` goal is a top-level shortcut to the `logtalk_make` goal (and the `logt
 
 ## Running example tests
 
-Next we could also modify the example unit tests to account for the newly added `jupiter` object by editing the `tests.lgt` file. As we added a new object, `jupiter`, we want to add a `cover/1` clause for it to that we can collect cove coverage data:
+Next, we could also modify the example unit tests to account for the newly added `jupiter` object by editing the `tests.lgt` file. As we added a new object, `jupiter`, we want to add a `cover/1` clause for it to that we can collect cove coverage data:
 
 ```logtalk
 cover(jupiter).

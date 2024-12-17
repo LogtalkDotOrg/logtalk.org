@@ -8,7 +8,7 @@ aside:
 
 Logtalk is a  *declarative object-oriented logic programming language* that
 can use most Prolog implementations as a backend compiler. It provides code
-encapsulation and code reuses features for programming in the large. It
+encapsulation and code reuse features for programming in the large. It
 doesn\'t provide, or attempt to bring to Prolog, any notion of mutable state
 that is not already available in plain Prolog or with Prolog modules. Logtalk
 main features include:
@@ -68,7 +68,7 @@ design and let the runtime system enforce your choices.
 
 Objects can be either static or dynamic. Static objects are
 defined in source files which are compiled and loaded in the same
-way as Prolog files. Dynamic object can be either defined in
+way as Prolog files. Dynamic objects can be either defined in
 source files or created at runtime.
 
 
@@ -98,7 +98,7 @@ Predicates can be implicitly called when a spied event occurs,
 allowing programming solutions which minimize object coupling. In
 addition, events provide support for behavioral reflection and can
 be used to implement the concepts of *pointcut* and *advice* found
-on Aspect-Oriented Programming.
+in Aspect-Oriented Programming.
 
 
 ### Component-based programming
@@ -121,7 +121,7 @@ to support both synchronous and asynchronous messages. Threaded
 engines, independent and-parallelism, and competitive
 or-parallelism are also supported. Easily take advantage of modern
 multi-processor and multi-core computers without bothering with
-the details of creating and destroying threads, implement thread
+the details of creating and destroying threads, implementing thread
 communication, or synchronizing threads.
 
 
@@ -137,7 +137,7 @@ directives.
 
 ### Good performance
 
-Logtalk code is compiled using the same technics that you use to
+Logtalk code is compiled using the same techniques that you use to
 write efficient Prolog code. In addition, Logtalk supports both
 static binding and dynamic binding (with method lookup caching),
 greatly improving performance. Benchmark results for some Prolog

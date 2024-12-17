@@ -11,10 +11,10 @@ goal of this page it to give you some data for comparing predicate
 performance in plain Prolog and using Logtalk objects. Benchmark results
 are provided for both static code and dynamic code.
 
-All results are given in number of calls per second. By default, the
-benchmark code repeats each goal up to 100000 times in order to get more
-accurate results. The exception is SICStus Prolog where a value of 1000000
-was used for more accurate results.
+Results are given in number of calls per second. By default, the benchmark
+code repeats each goal up to 100000 times in order to get more accurate
+results. The exception is SICStus Prolog where a value of 1000000 was used
+for more accurate results.
 
 Benchmarks run on an Apple iMac 3.8 GHz 8-Core Intel Core i7, 32GB RAM, macOS 14.7.1.
 
@@ -136,8 +136,8 @@ using `::/2` (`obj_dyndb(_)`).
 Static code benchmark results
 -----------------------------
 
-The last columns show the trade-off between plain Prolog and Logtalk.
-Dynamic binding is never used in the Prolog module tests.
+Number of calls per second. The last columns show the trade-off between plain
+Prolog and Logtalk. Dynamic binding is never used in the Prolog module tests.
 
 ## Static binding (no events support)
 
@@ -187,8 +187,8 @@ Dynamic binding is never used in the Prolog module tests.
 
 ## Category benchmark results
 
-The last column shows the trade-off between static binding (`c2`) and
-dynamic binding (`c3`) when calling category predicates.
+Number of calls per second. The last column shows the trade-off between static
+binding (`c2`) and dynamic binding (`c3`) when calling category predicates.
 
 | Prolog compiler       |      c1       |      c2       |      c3       |    c3/c2     |
 |:----------------------|--------------:|--------------:|--------------:| ------------:|
@@ -203,7 +203,7 @@ dynamic binding (`c3`) when calling category predicates.
 
 ## Dynamic code benchmark results
 
-The last column shows the trade-off between plain
+Number of calls per second. The last column shows the trade-off between plain
 Prolog (`d2`) and Logtalk using static binding (`d3`).
 
 | Prolog compiler       |      d1       |      d2       |      d3       |      d4       |      d5       |    d3/d2     |

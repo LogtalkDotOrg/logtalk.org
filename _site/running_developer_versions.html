@@ -285,7 +285,7 @@
 <span class="nv">$ </span>git clone https://github.com/LogtalkDotOrg/logtalk3.git lgt3git
 </code></pre></div></div>
 
-<p>A <code class="highlighter-rouge">lgt3git</code> directory will be created on your home directory containing a local copy of the current Logtalk development version. Later, to update your local copy to the latest development version just type:</p>
+<p>A <code class="highlighter-rouge">lgt3git</code> directory will be created in your home directory containing a local copy of the current Logtalk development version. Later, to update your local copy to the latest development version just type:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> ~/lgt3git
 <span class="nv">$ </span>git pull
@@ -357,7 +357,7 @@ setenv INFOPATH <span class="k">${</span><span class="nv">INFOPATH</span><span c
 
 <h2 id="switching-between-installed-versions">Switching between installed versions</h2>
 
-<p>If you want to run both stable and development versions of Logtalk on a POSIX system, you may instead keep the default values for the environment variables <code class="highlighter-rouge">LOGTALKHOME</code> and <code class="highlighter-rouge">LOGTALKUSER</code> and use the <code class="highlighter-rouge">logtalk_version_select</code> command to switch between installed versions. Simply perform a <code class="highlighter-rouge">git clone</code> of the Logtalk development version and install it by following the steps:</p>
+<p>If you want to run both stable and development versions of Logtalk on a POSIX system, you may instead keep the default values for the environment variables <code class="highlighter-rouge">LOGTALKHOME</code> and <code class="highlighter-rouge">LOGTALKUSER</code> and use the <code class="highlighter-rouge">logtalk_version_select</code> command to switch between installed versions. Simply perform a <code class="highlighter-rouge">git clone</code> of the Logtalk development version and install it by following these steps:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd </span>lgt3git/scripts
 <span class="nv">$ </span><span class="nb">sudo</span> ./install.sh

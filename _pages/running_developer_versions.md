@@ -17,7 +17,7 @@ $ cd ~
 $ git clone https://github.com/LogtalkDotOrg/logtalk3.git lgt3git
 ```
 
-A `lgt3git` directory will be created on your home directory containing a local copy of the current Logtalk development version. Later, to update your local copy to the latest development version just type:
+A `lgt3git` directory will be created in your home directory containing a local copy of the current Logtalk development version. Later, to update your local copy to the latest development version just type:
 
 ```shell
 $ cd ~/lgt3git
@@ -93,7 +93,7 @@ See the file [`CUSTOMIZE.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/mas
 
 ## Switching between installed versions
 
-If you want to run both stable and development versions of Logtalk on a POSIX system, you may instead keep the default values for the environment variables `LOGTALKHOME` and `LOGTALKUSER` and use the `logtalk_version_select` command to switch between installed versions. Simply perform a `git clone` of the Logtalk development version and install it by following the steps:
+If you want to run both stable and development versions of Logtalk on a POSIX system, you may instead keep the default values for the environment variables `LOGTALKHOME` and `LOGTALKUSER` and use the `logtalk_version_select` command to switch between installed versions. Simply perform a `git clone` of the Logtalk development version and install it by following these steps:
 
 ```shell
 $ cd lgt3git/scripts

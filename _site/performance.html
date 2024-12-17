@@ -280,10 +280,10 @@ goal of this page it to give you some data for comparing predicate
 performance in plain Prolog and using Logtalk objects. Benchmark results
 are provided for both static code and dynamic code.</p>
 
-<p>All results are given in number of calls per second. By default, the
-benchmark code repeats each goal up to 100000 times in order to get more
-accurate results. The exception is SICStus Prolog where a value of 1000000
-was used for more accurate results.</p>
+<p>Results are given in number of calls per second. By default, the benchmark
+code repeats each goal up to 100000 times in order to get more accurate
+results. The exception is SICStus Prolog where a value of 1000000 was used
+for more accurate results.</p>
 
 <p>Benchmarks run on an Apple iMac 3.8 GHz 8-Core Intel Core i7, 32GB RAM, macOS 14.7.1.</p>
 
@@ -412,8 +412,8 @@ using <code class="highlighter-rouge">::/2</code> (<code class="highlighter-roug
 
 <h2 id="static-code-benchmark-results">Static code benchmark results</h2>
 
-<p>The last columns show the trade-off between plain Prolog and Logtalk.
-Dynamic binding is never used in the Prolog module tests.</p>
+<p>Number of calls per second. The last columns show the trade-off between plain
+Prolog and Logtalk. Dynamic binding is never used in the Prolog module tests.</p>
 
 <h2 id="static-binding-no-events-support">Static binding (no events support)</h2>
 
@@ -699,8 +699,8 @@ Dynamic binding is never used in the Prolog module tests.</p>
 
 <h2 id="category-benchmark-results">Category benchmark results</h2>
 
-<p>The last column shows the trade-off between static binding (<code class="highlighter-rouge">c2</code>) and
-dynamic binding (<code class="highlighter-rouge">c3</code>) when calling category predicates.</p>
+<p>Number of calls per second. The last column shows the trade-off between static
+binding (<code class="highlighter-rouge">c2</code>) and dynamic binding (<code class="highlighter-rouge">c3</code>) when calling category predicates.</p>
 
 <table>
   <thead>
@@ -774,7 +774,7 @@ dynamic binding (<code class="highlighter-rouge">c3</code>) when calling categor
 
 <h2 id="dynamic-code-benchmark-results">Dynamic code benchmark results</h2>
 
-<p>The last column shows the trade-off between plain
+<p>Number of calls per second. The last column shows the trade-off between plain
 Prolog (<code class="highlighter-rouge">d2</code>) and Logtalk using static binding (<code class="highlighter-rouge">d3</code>).</p>
 
 <table>
