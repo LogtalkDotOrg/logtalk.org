@@ -8,6 +8,31 @@ aside:
 
 ### 2024
 
+##### December 18
+
+> Logtalk 3.86.0 is now available for [downloading](download.html).
+> This release adds an experimental `logtalk::message_prefix_file/6`
+> hook predicate to the message printing mechanism; fixes case where
+> a false positive left-recursion linter warning would be printed;
+> fixes several grammar and spelling typos in the documentation;
+> changes the The `lgtunit` tool test compilation warning and error
+> messages for better integration with other developer tools; adds
+> experimental `diagrams` tool support for the d2 graph language;
+> updates the `diagrams` tool to support additional text editors
+> when generating diagrams with links to local files; updates the
+> `diagrams` tool to use a Unicode glyph for the zoom icon instead
+> of an image file; fixs a bug in the `lgtdoc` tool when printing
+> a warning on missing entity directive `info/1` keys; updates the
+> `tutor` tool to explain additional linter warnings; updates the
+> `tutor` tool to support displaying warnings and errors augmented
+> with explanations in VSCode; adds a new benchmarks example
+> contributed by Paul Tarau; adds additional Prolog standards
+> compliance tests; improves installation instructions; updates
+> the VSCode support to also list the `lgtunit` tool warning and
+> error messages in the "PROBLEMS" pane; and provides portability
+> updates for Ciao Prolog and XSB. For details and a complete list
+> of changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### November 12
 
 > Logtalk 3.85.0 is now available for [downloading](download.html).
