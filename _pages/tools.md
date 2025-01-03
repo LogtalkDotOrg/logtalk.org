@@ -6,7 +6,7 @@ aside:
   toc: true
 ---
 
-Logtalk includes a comprehensive set of developer tools allows you to write,
+Logtalk includes a comprehensive set of developer tools that allows you to write,
 debug, profile, document, diagram, and test your code. Most of the tools are
 implemented as Logtalk applications using the
 [reflection API](manuals/userman/reflection.html). This API can be used to
@@ -225,7 +225,7 @@ tests in GitHub and GitLab issue trackers is supported using the
 
 The [`dead_code_scanner`](https://logtalk.org/manuals/devtools/dead_code_scanner.html)
 tool detects likely dead code in Logtalk entities and in Prolog modules (when compiled as objects). It can also
-detect code typos that often result in false positives. It can be run automatically was one of the actions of
+detect code typos that often result in false positives. It can be run automatically as one of the actions of
 the [`make`](#make) tool.
 
 
@@ -311,7 +311,7 @@ for all the `make` features.
 
 Logtalk provides a [`packs`](https://logtalk.org/manuals/devtools/packs.html)
 for installing third-party libraries and applications. This is a portable tool that supports multiple
-registries (e.g. official, public, company private, ...) and allows user to:
+registries (e.g., official, public, company private, ...) and allows the user to:
 
 -	Create and publish their own pack registries
 -	Publish packs verified by checksums and optionally signed and encrypted
@@ -330,7 +330,7 @@ This tool can be used not only for Logtalk packs but also for Prolog packs.
 ## Literate programming
 
 A [Jupyter kernel for Logtalk](https://github.com/LogtalkDotOrg/logtalk-jupyter-kernel)
-is available that can be used with a subset of the Logtalk supported Prolog backends.
+is available that can be used with a subset of the Logtalk-supported Prolog backends.
 The latest release can be installed from [PyPI](https://pypi.org/project/logtalk-jupyter-kernel/)
 or [Conda](https://anaconda.org/conda-forge/logtalk-jupyter-kernel).
 
@@ -365,7 +365,7 @@ and [VSCodium](https://open-vsx.org/extension/LogtalkDotOrg/logtalk-extension-pa
 Logtalk includes a set of sample [helper scripts](https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding)
 with [usage examples](https://github.com/LogtalkDotOrg/logtalk3/tree/master/scripts/embedding/SCRIPT.txt)
 for embedding the Logtalk runtime and Logtalk applications using selected backend Prolog compilers. These scripts greatly
-simplify packaging and delivering of applications and can be used as basis for e.g. automatically generating executables and JAR files.
+simplify packaging and delivering of applications and can be used as basis for, e.g., automatically generating executables and JAR files.
 
 
 ## Version management
@@ -385,7 +385,7 @@ GitHub actions and workflows are [available](https://github.com/logtalk-actions)
 
 ## Project scaffolding
 
-The following tools are not part of the Logtalk distribution but kindly contributed by Logtalk users:
+The following tools are not part of the Logtalk distribution but are kindly contributed by Logtalk users:
 
 ### Cookiecutter Logtalk
 
@@ -412,7 +412,7 @@ Logtalk supports the [SICStus Prolog 4](http://www.sics.se/isl/sicstus.html) pro
 
 ### PDT
 
-[PDT](https://sewiki.iai.uni-bonn.de/research/pdt/docs/start) is an open source Prolog IDE provided as a plug-in for the Eclipse IDE. PDT is being extended with Logtalk support.
+[PDT](https://sewiki.iai.uni-bonn.de/research/pdt/docs/start) is an open-source Prolog IDE provided as a plug-in for the Eclipse IDE. PDT is being extended with Logtalk support.
 
 PDT currently requires a recent version of SWI-Prolog. It's possible to start up Logtalk automatically by configuring PDT runtime preferences. The configuration depends on the operating-system. After installing Logtalk and setting the `LOGTALKHOME` and `LOGTALKUSER` environment variables, open Eclipse preferences, select PDT runtime preferences, and enter the following configuration data for the SWI-Prolog executable and for the extra environment variables (change the paths to match your SWI-Prolog and Logtalk installations and your home directory; also, restart Eclipse after entering and saving the configuration data):
 
@@ -427,7 +427,7 @@ Notes: full paths should be used; no quotes should be used.
 
 	cmd.exe /c start "cmdwindow" /min "C:\Program Files\pl\bin\swipl-win.exe" -f "%LOGTALKHOME%\integration\logtalk_swi.pl"
 
-Notes: if you're using a recent SWI-Prolog development version you may use the `-s` option instead of `-f`.
+Notes: if you're using a recent SWI-Prolog development version, you may use the `-s` option instead of `-f`.
 
 ##### Linux example configuration
 
@@ -496,4 +496,4 @@ If the `Info.plist` is using XML syntax, then use instead:
 </dict>
 ```
 
-After saving the `Info.plist` file, close TextMate if open and re-open it. Then try to QuickLook a Logtalk source file. You should get a preview window with nice syntax highlighting for your code. If not, move the TextMate application to a different folder (e.g. you Desktop) and then back to its original location. This is usually enough to get the Finder to notice and register the Quick Look changes in the application bundle.
+After saving the `Info.plist` file, close TextMate if open and re-open it. Then try to QuickLook a Logtalk source file. You should get a preview window with nice syntax highlighting for your code. If not, move the TextMate application to a different folder (e.g., your Desktop) and then back to its original location. This is usually enough to get the Finder to notice and register the Quick Look changes in the application bundle.

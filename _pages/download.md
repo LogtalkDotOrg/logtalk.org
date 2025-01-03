@@ -14,7 +14,7 @@ aside:
 
 ## Requirements
 
-Logtalk runs on any operating-system with a standards compliant modern
+Logtalk runs on any operating-system with a standards-compliant modern
 Prolog compiler. The interface between Logtalk and a specific backend
 Prolog compiler is accomplished using a small
 [adapter file](backend_requirements.html). The Logtalk distribution
@@ -54,9 +54,9 @@ of compliance with both official and de facto standards.
 
 ## License
 
-Logtalk is an open source programming language, distributed under the
+Logtalk is an open-source programming language, distributed under the
 [Apache License 2.0](https://github.com/LogtalkDotOrg/logtalk3/blob/master/LICENSE.txt).
-The copyright notice and license applies to all files in this release
+The copyright notice and license apply to all files in this release
 (including sources, documentation, and examples) unless otherwise
 explicitly stated (see the [`NOTICE.txt`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/NOTICE.txt)
 file for details on bundled third-party resources).
@@ -169,7 +169,7 @@ for the Logtalk environment variables.
 Be sure to install a [compatible](#requirements) Prolog compiler
 **before** running the Logtalk installer. Creates a `Logtalk` program
 group in the `Start Menu` with integration shortcuts for supported
-Prolog compilers and shortcuts for the accessing the Logtalk
+Prolog compilers and shortcuts for accessing the Logtalk
 documentation. Can be used by both admin and non-admin users.
 
 [Installation video](https://www.youtube.com/watch?v=YE7ahXZibN4),
@@ -183,7 +183,7 @@ Logtalk is also available as a [Chocolatey package](https://chocolatey.org/packa
 and can be installed or updated using the `choco install logtalk` and
 `choco upgrade logtalk` commands. Alternatively, on Windows 10 or Windows
 Server 2019, you can use the Windows Subsystem for Linux (WSL) and install
-Logtalk using one of the Linux installers listed in this page.
+Logtalk using one of the Linux installers listed on this page.
 
 Logtalk is also available as a [winget package](https://github.com/microsoft/winget-pkgs/tree/master/manifests/l/Logtalk/Logtalk),
 thanks to the GitHub user [SpecterShell](https://github.com/SpecterShell),
@@ -195,7 +195,7 @@ protection` (in the `Windows Defender Security Center` preferences) if
 enabled as the Logtalk installer creates the the Logtalk user directory
 inside the `Documents` directory by default.
 
-Automatically generated installers for the latest git versions can be download from
+Automatically generated installers for the latest git versions can be downloaded from
 [AppVeyor](https://ci.appveyor.com/project/pmoura/logtalk3/build/artifacts).
 
 
@@ -205,11 +205,11 @@ Logtalk is also available as a SWI-Prolog pack. The
 [pack](http://www.swi-prolog.org/pack/list?p=logtalk) is handy for *deployment*
 but not ideal for *development*, however, as all the files in the distribution
 (manuals, examples, ...) are buried in a relatively deep sub-directory.
-The pack can be easily installed typing the query `pack_install(logtalk)`
+The pack can be easily installed by typing the query `pack_install(logtalk)`
 at the top-level (use the `pack_info(logtalk)` query after installation
 to find the installation directory). When upgrading an older pack, use
 `pack_install(logtalk, [update(true)])` or simply `pack_remove(logtalk)`
-followed by `pack_install(logtalk)`. See the pack specific
+followed by `pack_install(logtalk)`. See the pack-specific
 [`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack/logtalk/README.md)
 file for details. Also available as a manual download:
 
@@ -227,7 +227,7 @@ file for details. This pack is only available as a manual download:
 > [`logtalk-experimental-3.86.0.tgz`](files/swi-prolog/packs/logtalk-experimental-3.86.0.tgz)  
 > `6fabd83b6d33dd9b054e7cf2a8d2995f1157566d2a7255cb9af686bc3075626c` (SHA-256)
 
-In this case, change directory to the download directory, start SWI-Prolog,
+In this case, change the current directory to the download directory, start SWI-Prolog,
 and run the query `pack_install('logtalk-experimental-3.86.0.tgz').`
 
 
@@ -263,15 +263,15 @@ See e.g. [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v
 
 Older releases are available [here](/files/) (but note that time stamps
 do not match the release dates due to all the moving of these files
-between servers along the years).
+between servers over the years).
 
 
 ## Sponsorship
 
-If you want to express you appreciation for Logtalk and help keep it a
+If you want to express your appreciation for Logtalk and help keep it a
 sustainable project, your [sponsorship](https://github.com/sponsors/pmoura)
-is much appreciated. Both one time sponsorships and recurring sponsorships
-are available, hopefully allow everyone to show their love and support for
+is much appreciated. Both one-time sponsorships and recurring sponsorships
+are available, hopefully allowing everyone to show their love and support for
 Logtalk.
 
 

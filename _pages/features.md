@@ -27,8 +27,8 @@ are first-class entities, alongside objects and categories.
 Object (and category) identifiers can be compound terms containing free
 variables that can be used to parametrize object (or category) predicates.
 Notably, this allows the interpretation of predicate clauses as providing
-*instantiations* of a parametric object identifier. I.e. using a parametric
-object we can associate any number of predicates with a compound term.
+*instantiations* of a parametric object identifier. I.e., using a parametric
+object, we can associate any number of predicates with a compound term.
 Parameters are logical variables shared with all object (and category)
 directives and clauses.
 
@@ -54,8 +54,8 @@ some generic object.
 
 Logtalk supports private, protected, and public inheritance in a
 way similar to C++. Moreover, any entity relation can be qualified
-using a scope keyword. E.g. an object can *privately* implement a
-protocol, thus making all protocol declared predicates private.
+using a scope keyword. E.g., an object can *privately* implement a
+protocol, thus making all protocol-declared predicates private.
 
 
 ### Private, protected, and public predicates
@@ -67,7 +67,7 @@ design and let the runtime system enforce your choices.
 ### Static and dynamic objects
 
 Objects can be either static or dynamic. Static objects are
-defined in source files which are compiled and loaded in the same
+defined in source files that are compiled and loaded in the same
 way as Prolog files. Dynamic objects can be either defined in
 source files or created at runtime.
 
@@ -83,7 +83,7 @@ Logtalk uses standard Prolog syntax with the addition of a few
 operators and directives for a smooth learning curve. Prolog code
 can be easily encapsulated inside objects with little or no
 changes. Moreover, Logtalk can transparently interpret most Prolog
-modules as Logtalk objects for easy reusing of existing code (e.g.
+modules as Logtalk objects for easy reuse of existing code (e.g.,
 libraries).
 
 
@@ -95,7 +95,7 @@ Native support for lambda expressions, including currying.
 ### Event-driven programming
 
 Predicates can be implicitly called when a spied event occurs,
-allowing programming solutions which minimize object coupling. In
+allowing programming solutions that minimize object coupling. In
 addition, events provide support for behavioral reflection and can
 be used to implement the concepts of *pointcut* and *advice* found
 in Aspect-Oriented Programming.
@@ -106,7 +106,7 @@ in Aspect-Oriented Programming.
 Predicates can be encapsulated inside *categories*, which can be
 virtually imported by any object, without any code duplication and
 irrespective of object hierarchies. Thus, objects may be defined
-through composition of categories, which act as fine-grained units
+through the composition of categories, which act as fine-grained units
 of code reuse. A category may also extend an existing category.
 Categories can be used to implement *aspects* and mixin-like
 behavior without resorting to inheritance. Categories also support
@@ -115,7 +115,7 @@ behavior without resorting to inheritance. Categories also support
 
 ### Multi-threading programming
 
-High level multi-threading programming is available when running
+High-level multi-threading programming is available when running
 Logtalk with selected backend Prolog compilers, allowing objects
 to support both synchronous and asynchronous messages. Threaded
 engines, independent and-parallelism, and competitive
@@ -147,21 +147,21 @@ compilers are available [here](performance.html).
 ### Close integration with Prolog standards
 
 Logtalk is designed for smooth integration with any Prolog
-compiler that conforms or closely follows official and de facto
+compiler that conforms to, or closely follows, official and de facto
 Prolog standards.
 
 
 ### Compatible with most Prolog compilers
 
 Logtalk interfaces with a specific backend Prolog compiler via a
-minimal configuration file making it compatible with almost any
+minimal configuration file, making it compatible with almost any
 modern compiler.
 
 
 ### Comprehensive set of developer tools
 
 The Logtalk distribution includes make, linting, debugging, documenting,
-diagraming, testing, assertion, profiling, porting, metrics, versioning,
+diagramming, testing, assertion, profiling, porting, metrics, versioning,
 and packaging [developer tools](tools.html). Several of these tools can
 also be [applied](using_tools_with_prolog.html) to plain Prolog and Prolog
 module code bases.

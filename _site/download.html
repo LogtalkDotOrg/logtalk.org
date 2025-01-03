@@ -283,7 +283,7 @@
 
 <h2 id="requirements">Requirements</h2>
 
-<p>Logtalk runs on any operating-system with a standards compliant modern
+<p>Logtalk runs on any operating-system with a standards-compliant modern
 Prolog compiler. The interface between Logtalk and a specific backend
 Prolog compiler is accomplished using a small
 <a href="backend_requirements.html">adapter file</a>. The Logtalk distribution
@@ -326,9 +326,9 @@ of compliance with both official and de facto standards.</p>
 
 <h2 id="license">License</h2>
 
-<p>Logtalk is an open source programming language, distributed under the
+<p>Logtalk is an open-source programming language, distributed under the
 <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/LICENSE.txt">Apache License 2.0</a>.
-The copyright notice and license applies to all files in this release
+The copyright notice and license apply to all files in this release
 (including sources, documentation, and examples) unless otherwise
 explicitly stated (see the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/NOTICE.txt"><code class="highlighter-rouge">NOTICE.txt</code></a>
 file for details on bundled third-party resources).</p>
@@ -441,7 +441,7 @@ for the Logtalk environment variables.</p>
 <p>Be sure to install a <a href="#requirements">compatible</a> Prolog compiler
 <strong>before</strong> running the Logtalk installer. Creates a <code class="highlighter-rouge">Logtalk</code> program
 group in the <code class="highlighter-rouge">Start Menu</code> with integration shortcuts for supported
-Prolog compilers and shortcuts for the accessing the Logtalk
+Prolog compilers and shortcuts for accessing the Logtalk
 documentation. Can be used by both admin and non-admin users.</p>
 
 <p><a href="https://www.youtube.com/watch?v=YE7ahXZibN4">Installation video</a>,
@@ -457,7 +457,7 @@ courtesy of <a href="https://pbrown.me/">Paul Brown</a>.</p>
 and can be installed or updated using the <code class="highlighter-rouge">choco install logtalk</code> and
 <code class="highlighter-rouge">choco upgrade logtalk</code> commands. Alternatively, on Windows 10 or Windows
 Server 2019, you can use the Windows Subsystem for Linux (WSL) and install
-Logtalk using one of the Linux installers listed in this page.</p>
+Logtalk using one of the Linux installers listed on this page.</p>
 
 <p>Logtalk is also available as a <a href="https://github.com/microsoft/winget-pkgs/tree/master/manifests/l/Logtalk/Logtalk">winget package</a>,
 thanks to the GitHub user <a href="https://github.com/SpecterShell">SpecterShell</a>,
@@ -469,7 +469,7 @@ protection</code> (in the <code class="highlighter-rouge">Windows Defender Secur
 enabled as the Logtalk installer creates the the Logtalk user directory
 inside the <code class="highlighter-rouge">Documents</code> directory by default.</p>
 
-<p>Automatically generated installers for the latest git versions can be download from
+<p>Automatically generated installers for the latest git versions can be downloaded from
 <a href="https://ci.appveyor.com/project/pmoura/logtalk3/build/artifacts">AppVeyor</a>.</p>
 
 <h3 id="swi-prolog-packs">SWI-Prolog packs</h3>
@@ -478,11 +478,11 @@ inside the <code class="highlighter-rouge">Documents</code> directory by default
 <a href="http://www.swi-prolog.org/pack/list?p=logtalk">pack</a> is handy for <em>deployment</em>
 but not ideal for <em>development</em>, however, as all the files in the distribution
 (manuals, examples, …) are buried in a relatively deep sub-directory.
-The pack can be easily installed typing the query <code class="highlighter-rouge">pack_install(logtalk)</code>
+The pack can be easily installed by typing the query <code class="highlighter-rouge">pack_install(logtalk)</code>
 at the top-level (use the <code class="highlighter-rouge">pack_info(logtalk)</code> query after installation
 to find the installation directory). When upgrading an older pack, use
 <code class="highlighter-rouge">pack_install(logtalk, [update(true)])</code> or simply <code class="highlighter-rouge">pack_remove(logtalk)</code>
-followed by <code class="highlighter-rouge">pack_install(logtalk)</code>. See the pack specific
+followed by <code class="highlighter-rouge">pack_install(logtalk)</code>. See the pack-specific
 <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack/logtalk/README.md"><code class="highlighter-rouge">README.md</code></a>
 file for details. Also available as a manual download:</p>
 
@@ -504,7 +504,7 @@ file for details. This pack is only available as a manual download:</p>
 <code class="highlighter-rouge">6fabd83b6d33dd9b054e7cf2a8d2995f1157566d2a7255cb9af686bc3075626c</code> (SHA-256)</p>
 </blockquote>
 
-<p>In this case, change directory to the download directory, start SWI-Prolog,
+<p>In this case, change the current directory to the download directory, start SWI-Prolog,
 and run the query <code class="highlighter-rouge">pack_install('logtalk-experimental-3.86.0.tgz').</code></p>
 
 <h3 id="arch-linux-package">Arch Linux package</h3>
@@ -538,14 +538,14 @@ See e.g. <a href="https://mybinder.org/v2/gh/LogtalkDotOrg/notebooks/master"><im
 
 <p>Older releases are available <a href="/files/">here</a> (but note that time stamps
 do not match the release dates due to all the moving of these files
-between servers along the years).</p>
+between servers over the years).</p>
 
 <h2 id="sponsorship">Sponsorship</h2>
 
-<p>If you want to express you appreciation for Logtalk and help keep it a
+<p>If you want to express your appreciation for Logtalk and help keep it a
 sustainable project, your <a href="https://github.com/sponsors/pmoura">sponsorship</a>
-is much appreciated. Both one time sponsorships and recurring sponsorships
-are available, hopefully allow everyone to show their love and support for
+is much appreciated. Both one-time sponsorships and recurring sponsorships
+are available, hopefully allowing everyone to show their love and support for
 Logtalk.</p>
 
 <h2 id="registration">Registration</h2>
@@ -625,7 +625,7 @@ License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL
 </div>
     </aside>
     <footer class="site-info"><p class="menu menu--center">
-        <span>© Paulo Moura 2018-2024</span>
+        <span>© Paulo Moura 2018-2025</span>
 <!--
         <a type="application/rss+xml" href="/feed.xml">RSS</a>
 -->
