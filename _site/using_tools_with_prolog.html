@@ -295,16 +295,16 @@ issues in Prolog code. Other tools, such as <a href="tools.html#testing"><code c
 directly support Prolog code.</p>
 
 <p><strong>Note:</strong> If you’re instead considering porting a Prolog application to Logtalk,
-there’s a tool, <a href="tools.html#prolog-porting"><code class="highlighter-rouge">wrapper</code></a> that can help. In that
+there’s a <a href="tools.html#prolog-porting"><code class="highlighter-rouge">wrapper</code></a> tool that can help. In that
 case, this is not the guide you’re looking for.</p>
 
 <h3 id="plain-prolog-code">Plain Prolog code</h3>
 
-<p>Applying the Logtalk developer tools to plain Prolog code (i.e. Prolog code
+<p>Applying the Logtalk developer tools to plain Prolog code (i.e., Prolog code
 not encapsulated in modules) requires wrapping the code using Logtalk objects.
 A simple way of doing it is loading the
 <a href="https://logtalk.org/library/library_index.html#hook-objects"><code class="highlighter-rouge">hook_objects</code></a>
-library and then use the
+library and then using the
 <a href="https://logtalk.org/library/object_wrapper_hook_0.html"><code class="highlighter-rouge">object_wrapper_hook</code></a>
 object. For example, assuming a <code class="highlighter-rouge">foo.pl</code> file:</p>
 
@@ -327,7 +327,7 @@ Prolog code. For example:</p>
 </code></pre></div></div>
 
 <p>Keep in mind that some Prolog directives are not valid inside objects and
-can cause compilation errors. If that’s the case, is best to make a copy
+can cause compilation errors. If that’s the case, it is best to make a copy
 of the Prolog files and edit them to add the object wrapper and either
 move the directives to outside the object or comment them.</p>
 
@@ -342,7 +342,7 @@ built-in predicates.</p>
 
 <p>Start by loading the Prolog modules as usual (modules and objects live
 in different namespaces, which avoids most conflicts). This first step
-allows Logtalk to query the runtime about module exported predicates.
+allows Logtalk to query the runtime about module-exported predicates.
 For example, if you use a <code class="highlighter-rouge">loader.pl</code> file to load your application:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>| ?- [loader].
@@ -401,7 +401,7 @@ you can use instead the following <code class="highlighter-rouge">loader.lgt</co
 </code></pre></div></div>
 
 <p>Change the <code class="highlighter-rouge">logtalk_compile/2</code> to <code class="highlighter-rouge">logtalk_load/2</code> if necessary and also play
-with the available compiler options to fine tune for your case.</p>
+with the available compiler options to fine-tune for your case.</p>
 
 <h3 id="prolog-code-using-a-term-expansion-mechanism">Prolog code using a term-expansion mechanism</h3>
 
@@ -409,7 +409,7 @@ with the available compiler options to fine tune for your case.</p>
 term-expansion mechanism. When the Prolog system implements this mechanism
 using <code class="highlighter-rouge">term_expansion/2</code> and <code class="highlighter-rouge">goal_expansion</code> predicates with clauses for
 them collected in a selected number of modules, it’s possible to instruct
-Logtalk own term-expansion mechanism to call the Prolog defined expansions.
+Logtalk own term-expansion mechanism to call the Prolog-defined expansions.
 For example, assume that the used Prolog libraries and user modules
 defining expansions store them in the <code class="highlighter-rouge">user</code> and <code class="highlighter-rouge">system</code> modules. In this
 case, before attempting to compile the Prolog code as Logtalk objects, try
@@ -422,7 +422,7 @@ the following queries:</p>
 ...
 </code></pre></div></div>
 
-<p>This workaround will not work, however, when the module defined expansion
+<p>This workaround will not work, however, when the module-defined expansion
 predicates make calls to loading context predicates (such as the
 <code class="highlighter-rouge">prolog_load_context/2</code> provided by some backend Prolog compilers) that
 expect the compilation context to be a module.</p>
@@ -431,7 +431,7 @@ expect the compilation context to be a module.</p>
 
 <p>Most Prolog applications load their files in a specific order. For example,
 when user-defined operators are used, the file defining those operators is
-loaded first. Some Prolog applications use an explicit loader file. For
+loaded first. Some Prolog applications use an explicit loader file. For the
 best results when trying to use the Logtalk developer tools, take into
 account the loading order. If necessary, write a simple <code class="highlighter-rouge">loader.lgt</code> file
 instead of using the <code class="highlighter-rouge">forall/2</code> loop illustrated above.</p>
@@ -439,8 +439,8 @@ instead of using the <code class="highlighter-rouge">forall/2</code> loop illust
 <h3 id="known-issues">Known issues</h3>
 
 <p>When finding a <code class="highlighter-rouge">use_module/1</code> or <code class="highlighter-rouge">use_module/2</code> directive in a Prolog module,
-Logtalk either successfully expands it to a Logtalk supported <code class="highlighter-rouge">use_module/2</code>
-directive (which takes as first argument a module name instead of a file
+Logtalk either successfully expands it to a Logtalk-supported <code class="highlighter-rouge">use_module/2</code>
+directive (which takes as its first argument a module name instead of a file
 specification) or prints an error and aborts the compilation of the source
 file. If you get an error, load the module file first and try again. Note
 that the expansion from a Prolog <code class="highlighter-rouge">use_module/1</code> directive to a Logtalk
@@ -454,12 +454,12 @@ to outside the modules before attempting to compile the modules as objects.</p>
 <p>Meta-predicate templates (in <code class="highlighter-rouge">meta_predicate/1</code> directives) using <code class="highlighter-rouge">:</code> for
 a meta-argument will result in a compilation error. The error results from
 Logtalk not being based on a predicate-prefixing mechanism as found in
-module systems and also in lack of standardization making <code class="highlighter-rouge">:</code> ambiguous as
+module systems and also in lack of standardization making <code class="highlighter-rouge">:</code> ambiguous, as
 it can signal a goal, a closure, or an argument that will not be called as
 a goal (or used to construct a goal) but still requires module-prefixing.
 When the meta-argument is a goal or a closure, the workaround is to update
 the <code class="highlighter-rouge">meta_predicate/1</code> directive, replacing <code class="highlighter-rouge">:</code> by <code class="highlighter-rouge">0</code>, in case of a goal,
-or <code class="highlighter-rouge">N</code>, in case of a closure with the integer <code class="highlighter-rouge">N</code> being the number of
+or <code class="highlighter-rouge">N</code>, in case of a closure, with the integer <code class="highlighter-rouge">N</code> being the number of
 additional arguments that will be added to the closure to construct a goal.</p>
 
 <p>Arbitrary goals used as directives are usually flagged as errors. In most
@@ -467,7 +467,7 @@ cases, these can be wrapped using an <code class="highlighter-rouge">initializat
 compilation to proceed.</p>
 
 <p>Clauses for <code class="highlighter-rouge">term_expansion/2</code> and <code class="highlighter-rouge">goal_expansion/2</code> predicates are never
-used to expand clauses that follow in the same file. If that’s the case of
+used to expand clauses that follow in the same file. If that’s the case for
 any module that you’re trying to compile as a Logtalk object, the only
 solution is to move the expansion clauses to a separate file and compile
 it before that file with the clauses to be expanded.</p>

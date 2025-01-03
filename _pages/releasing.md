@@ -20,7 +20,7 @@ This script performs a git clone and builds the sources archive, the manuals arc
 
 ## Distribution files
 
-The `BIBLIOGRAPHY.bib`, `CITATION.cff`, `VERSION.txt` should be update just before the new release is tagged. Same for the `core/core.pl` file, where the `'$lgt_version_data'/1` predicate definiton should have the status changed to `stable`. Any status version, e.g. `b04`, should also be removed from the `docs/sources/_conf.py` and `manuals/sources/conf.py` files. The `scripts/debian/changelog` file should be changed to reflect the released date and release week day.
+The `BIBLIOGRAPHY.bib`, `CITATION.cff`, `VERSION.txt` should be updated just before the new release is tagged. Same for the `core/core.pl` file, where the `'$lgt_version_data'/1` predicate definiton should have the status changed to `stable`. Any status version, e.g., `b04`, should also be removed from the `docs/sources/_conf.py` and `manuals/sources/conf.py` files. The `scripts/debian/changelog` file should be changed to reflect the release date and release week day.
 
 ## Windows installer
 
@@ -74,7 +74,7 @@ After uploading the generated archives, to update the SWI-Prolog pack, start `sw
 
 ## Chocolatey package
 
-The first step is to update the [LogtalkDotOrg/chocolatey-packages](https://github.com/LogtalkDotOrg/chocolatey-packages) repo `logtalk.nuspec` and `chocolateyInstall.ps1` files with the data for the new stable release, commit, and push the changes. Then, from a Windows system `cmd` shell, change directory to the repo clone and type the commands:
+The first step is to update the [LogtalkDotOrg/chocolatey-packages](https://github.com/LogtalkDotOrg/chocolatey-packages) repo `logtalk.nuspec` and `chocolateyInstall.ps1` files with the data for the new stable release, commit, and push the changes. Then, from a Windows system `cmd` shell, change the current directory to the repo clone and type the commands:
 
 ```text
 git pull
@@ -82,7 +82,7 @@ choco pack
 choco push -s https://push.chocolatey.org/
 ```
 
-The above commands assume the API key is set. If that's not the case, before pushing a new release, the following command is required (with `KEY` replace by the actual key):
+The above commands assume the API key is set. If that's not the case, before pushing a new release, the following command is required (with `KEY` replaced by the actual key):
 
 ```
 choco apikey --key KEY --source https://push.chocolatey.org/

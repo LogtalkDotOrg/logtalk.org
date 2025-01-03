@@ -275,11 +275,11 @@
 
               <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Learning by examples</h1></header></div><meta itemprop="headline" content="Learning by examples"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
 
-  <div class="article__content" itemprop="articleBody"><p>Logtalk is a programming language that extends and subsumes Prolog. Thus, a good knowledge of Prolog paves the way for a quick learning of Logtalk programming. Basic knowledge of object-oriented programming also helps, specially if from a generalized, first principles, approach. It is highly recommended that you start with the tutorial available at:</p>
+  <div class="article__content" itemprop="articleBody"><p>Logtalk is a programming language that extends and subsumes Prolog. Thus, a good knowledge of Prolog paves the way for a quick learning of Logtalk programming. Basic knowledge of object-oriented programming also helps, specially if from a generalized, first principles approach. It is highly recommended that you start with the tutorial available at:</p>
 
 <p><a href="https://learnxinyminutes.com/docs/logtalk/">Learn X in Y minutes Where X=Logtalk</a></p>
 
-<p>There’s also a <a href="https://github.com/LogtalkDotOrg/logtalk-jupyter-kernel">Jupyter notebook</a> version of this tutorial that you can run with a subset of the Logtalk supported Prolog backends. You can also run it online: <a href="https://mybinder.org/v2/gh/LogtalkDotOrg/notebooks/master"><img src="https://mybinder.org/badge_logo.svg" alt="Binder" /></a></p>
+<p>There’s also a <a href="https://github.com/LogtalkDotOrg/logtalk-jupyter-kernel">Jupyter notebook</a> version of this tutorial that you can run with a subset of the Logtalk-supported Prolog backends. You can also run it online: <a href="https://mybinder.org/v2/gh/LogtalkDotOrg/notebooks/master"><img src="https://mybinder.org/badge_logo.svg" alt="Binder" /></a></p>
 
 <p>Note that the Logtalk distribution includes HTML versions of the user manual,
 the reference manual, and the APIs documentation. Documentation can also be
@@ -287,7 +287,7 @@ browsed at:</p>
 
 <p><a href="documentation.html">Logtalk documentation resources</a></p>
 
-<p>The Logtalk distribution also includes a large number of well documented
+<p>The Logtalk distribution also includes a large number of well-documented
 programming examples that introduce most of the language features. The
 examples included are fully documented with source code comments and sample
 goals:</p>
@@ -295,13 +295,13 @@ goals:</p>
 <p><a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples">Programming examples</a>
 (described <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/examples/NOTES.md">here</a>).</p>
 
-<p>All examples include a <code class="highlighter-rouge">loader.lgt</code> file that loads the example and any dependencies, a <code class="highlighter-rouge">NOTES.md</code> file with a description of the example, and a <code class="highlighter-rouge">SCRIPT.txt</code> file with sample queries (including how to load the example) for you to try. Most examples also include a <code class="highlighter-rouge">tests.lgt</code> file with unit tests and a <code class="highlighter-rouge">tester.lgt</code> loader file to run them. Being programming examples, it is expected that you run them side-by-side with the source code open in your <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding">favorite editor</a> after reading their documentation.</p>
+<p>All examples include a <code class="highlighter-rouge">loader.lgt</code> file that loads the example and any dependencies, a <code class="highlighter-rouge">NOTES.md</code> file with a description of the example, and a <code class="highlighter-rouge">SCRIPT.txt</code> file with sample queries (including how to load the example) for you to try. Most examples also include a <code class="highlighter-rouge">tests.lgt</code> file with unit tests and a <code class="highlighter-rouge">tester.lgt</code> loader file to run them. Being programming examples, it is expected that you run them side by side with the source code open in your <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding">favorite editor</a> after reading their documentation.</p>
 
 <p><a href="tools.html">Learning and development tools</a></p>
 
 <p>To help new users understand and act on compiler and runtime warning and error messages, load the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/tutor/NOTES.md"><code class="highlighter-rouge">tutor</code></a> tool at startup.
 To help new users trace query execution, also load the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md"><code class="highlighter-rouge">debugger</code></a> tool at startup.
-These and other developer tools (e.g. for testing and documentation) can be automatically loaded
+These and other developer tools (e.g., for testing and documentation) can be automatically loaded
 at startup by defining a default
 <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/settings-sample.lgt">settings file</a>.</p>
 
@@ -424,7 +424,7 @@ true.
 <p>In the context of the top-level interpreter, the <code class="highlighter-rouge">{}/1</code> goal is just a handy shortcut for
 the <a href="https://logtalk.org/manuals/refman/predicates/logtalk_load_1.html"><code class="highlighter-rouge">logtalk_load/1</code></a>
 predicate. The argument uses <em>library notation</em> to specify the file to load: <code class="highlighter-rouge">planets</code> is
-the library name (an alias to a directory of source files) and <code class="highlighter-rouge">loader</code> is the
+the library name (an alias to a directory of source files), and <code class="highlighter-rouge">loader</code> is the
 file name (with the extension omitted).</p>
 
 <p>Let’s try a query:</p>
@@ -433,7 +433,7 @@ file name (with the extension omitted).</p>
 W2 = 14.88304.
 </code></pre></div></div>
 
-<p>How do Logtalk arrived to this solution? Let’s recompile the example in <em>debug</em> mode:</p>
+<p>How did Logtalk arrive at this solution? Let’s recompile the example in <em>debug</em> mode:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?- {+d}.
 % Reloading files in debug mode
@@ -506,7 +506,7 @@ W2 = 14.88304.
 
 <p>The debugger supports several handy options. Type <code class="highlighter-rouge">h</code> or <code class="highlighter-rouge">?</code> at its prompt for inline help. Consult the user manual section on <a href="https://logtalk.org/manuals/userman/debugging.html">debugging</a> for further information.</p>
 
-<p>To terminate the debugging session, you can turn off the debugger and recompile the files in normal (or optimized mode):</p>
+<p>To terminate the debugging session, you can turn off the debugger and recompile the files in normal (or optimized) mode:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>?- debugger::nodebug.
    Debugger switched off.
@@ -563,7 +563,7 @@ W2 = 103.54.
 
 <h2 id="running-example-tests">Running example tests</h2>
 
-<p>Next, we could also modify the example unit tests to account for the newly added <code class="highlighter-rouge">jupiter</code> object by editing the <code class="highlighter-rouge">tests.lgt</code> file. As we added a new object, <code class="highlighter-rouge">jupiter</code>, we want to add a <code class="highlighter-rouge">cover/1</code> clause for it to that we can collect cove coverage data:</p>
+<p>Next, we could also modify the example unit tests to account for the newly added <code class="highlighter-rouge">jupiter</code> object by editing the <code class="highlighter-rouge">tests.lgt</code> file. As we added a new object, <code class="highlighter-rouge">jupiter</code>, we want to add a <code class="highlighter-rouge">cover/1</code> clause for it so that we can collect code coverage data:</p>
 
 <div class="language-logtalk highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cover<span class="p">(</span>jupiter<span class="p">).</span>
 </code></pre></div></div>

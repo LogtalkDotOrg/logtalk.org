@@ -17,7 +17,7 @@ $ cd ~
 $ git clone https://github.com/LogtalkDotOrg/logtalk3.git lgt3git
 ```
 
-A `lgt3git` directory will be created in your home directory containing a local copy of the current Logtalk development version. Later, to update your local copy to the latest development version just type:
+A `lgt3git` directory will be created in your home directory containing a local copy of the current Logtalk development version. Later, to update your local copy to the latest development version, just type:
 
 ```shell
 $ cd ~/lgt3git
@@ -85,7 +85,7 @@ You may run Logtalk by typing the name of the integration script with the `.sh` 
 
 ### Windows systems
 
-Use the shortcuts available from the `Logtalk` program group in the `Start Menu`. Note that, depending on the chosen backend Prolog compiler, the first run of some shortcuts may need to be run as administrator.
+Use the shortcuts available from the `Logtalk` program group in the `Start Menu`. Note that, depending on the chosen backend Prolog compiler, the first run of some shortcuts may need to be run as an administrator.
 
 ## Customizing
 
@@ -100,7 +100,7 @@ $ cd lgt3git/scripts
 $ sudo ./install.sh
 ```
 
-The `install.sh` shell script accepts an optional prefix and thus can also be used non-administrative users. For example:
+The `install.sh` shell script accepts an optional prefix and thus can also be used by non-administrative users. For example:
 
 ```shell
 $ cd lgt3git/scripts

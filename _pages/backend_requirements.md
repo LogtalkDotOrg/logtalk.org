@@ -6,7 +6,7 @@ aside:
   toc: true
 ---
 
-Logtalk requires a backend Prolog compiler that supports **both** official and de facto Prolog standards. This means, support for the ISO Prolog Core standard plus the following de facto standard predicates:
+Logtalk requires a backend Prolog compiler that supports **both** official and de facto Prolog standards. This means support for the ISO Prolog Core standard plus the following de facto standard predicates:
 
 * `predicate_property/2`
 * `setup_call_cleanup/3`
@@ -16,9 +16,9 @@ Logtalk requires a backend Prolog compiler that supports **both** official and d
 
 The `setup_call_cleanup/3` predicate is only required for systems providing a compatible threads implementation and for support of some tools features that require checking query determinism. In the second case, it can be replaced by `call_cleanup/2` or `call_det/2` predicates.
 
-Logtalk coinduction features requires that the backend Prolog compiler supports cyclic terms and either the `*->/2` soft-cut control construct or the `if/3` soft-cut built-in predicate.
+Logtalk coinduction features require that the backend Prolog compiler supports cyclic terms and either the `*->/2` soft-cut control construct or the `if/3` soft-cut built-in predicate.
 
-The de facto standard `dialect` and `version_data` flags are required. Notably, the `version_data` flag is used at Logtalk startup to check that it's running on a supported Prolog backend version and used by tools such as `diagrams` and `lgtunit` to add version information to diagrams and testing log files.
+The de facto standard `dialect` and `version_data` flags are required. Notably, the `version_data` flag is used at Logtalk startup to check that it's running on a supported Prolog backend version and is used by tools such as `diagrams` and `lgtunit` to add version information to diagrams and testing log files.
 
 In addition, Logtalk requires basic access to the operating-system (either as Prolog built-in predicates or as library predicates) including:
 

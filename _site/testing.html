@@ -303,7 +303,7 @@ tool documentation. See also the <a href="blog.html?tag=testing">technical blog 
 <span class="nv">$ </span>logtalk_tester <span class="nt">-p</span> &lt;back-end Prolog compiler&gt;
 </code></pre></div></div>
 
-<p>Similar on Windows using the PowerShell script. If you didn’t use one of the provided Logtalk installers or the installation script, you may need to type the script extension (e.g. <code class="highlighter-rouge">logtalk_tester.sh</code> instead of just <code class="highlighter-rouge">logtalk_tester</code>).</p>
+<p>Similar on Windows using the PowerShell script. If you didn’t use one of the provided Logtalk installers or the installation script, you may need to type the script extension (e.g., <code class="highlighter-rouge">logtalk_tester.sh</code> instead of just <code class="highlighter-rouge">logtalk_tester</code>).</p>
 
 <p>The identifiers for the supported back-end Prolog compilers can be listed by typing:</p>
 
@@ -311,13 +311,13 @@ tool documentation. See also the <a href="blog.html?tag=testing">technical blog 
 ...
 </code></pre></div></div>
 
-<p>Logtalk source code can be compiled in three different modes: <em>optimal</em>, <em>normal</em>, and <em>debug</em>. The <code class="highlighter-rouge">logtalk_tester</code> accepts an option, <code class="highlighter-rouge">-m</code>, to set the mode to be used to run the unit tests. Be aware, however, that running the unit tests in debug mode will be slower compared with the other two modes. Also, running the tests in optimal mode may flag errors not reported when running in normal mode due to e.g. the more extended use of static binding.</p>
+<p>Logtalk source code can be compiled in three different modes: <em>optimal</em>, <em>normal</em>, and <em>debug</em>. The <code class="highlighter-rouge">logtalk_tester</code> accepts an option, <code class="highlighter-rouge">-m</code>, to set the mode to be used to run the unit tests. Be aware, however, that running the unit tests in debug mode will be slower compared with the other two modes. Also, running the tests in optimal mode may flag errors not reported when running in normal mode due to, e.g., the more extended use of static binding.</p>
 
 <p>Note that, when running the unit tests using stable Logtalk releases, failed tests usually result from bugs in the backend Prolog compilers or from their lack of compliance with official and de facto standards. The most common issues are non-standard exception handling and syntax errors due to parser bugs. These issues can only be fixed by the developers of those Prolog compilers.</p>
 
 <h2 id="running-unit-tests-on-windows-systems">Running unit tests on Windows systems</h2>
 
-<p>In alternative to the <code class="highlighter-rouge">logtalk_tester.ps1</code> PowerShell script, it’s also possible to use the <code class="highlighter-rouge">logtalk_tester.sh</code> Bash script on Windows operating-systems by installing either the <a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux (WSL)</a> or <a href="https://gitforwindows.org">Git for Windows</a>, which includes a bash shell implementation. After installation, you can start the bash shell by selecting <code class="highlighter-rouge">Git Bash</code> from the context menu. You will also need to add the <code class="highlighter-rouge">$LOGTALKHOME/scripts</code> and <code class="highlighter-rouge">$LOGTALKHOME/integration</code> directories plus the backend Prolog compiler executable directories to the system path environment variable. For example, assuming that you will be using YAP as backend Prolog compiler, the contents of your <code class="highlighter-rouge">~/.profile</code> file would contain something like:</p>
+<p>In alternative to the <code class="highlighter-rouge">logtalk_tester.ps1</code> PowerShell script, it’s also possible to use the <code class="highlighter-rouge">logtalk_tester.sh</code> Bash script on Windows operating-systems by installing either the <a href="https://docs.microsoft.com/en-us/windows/wsl/">Windows Subsystem for Linux (WSL)</a> or <a href="https://gitforwindows.org">Git for Windows</a>, which includes a bash shell implementation. After installation, you can start the bash shell by selecting <code class="highlighter-rouge">Git Bash</code> from the context menu. You will also need to add the <code class="highlighter-rouge">$LOGTALKHOME/scripts</code> and <code class="highlighter-rouge">$LOGTALKHOME/integration</code> directories plus the backend Prolog compiler executable directories to the system path environment variable. For example, assuming that you will be using YAP as the backend Prolog compiler, the contents of your <code class="highlighter-rouge">~/.profile</code> file would contain something like:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># YAP</span>
 <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"/C/Program Files/Yap64/bin"</span>:<span class="nv">$PATH</span>
@@ -325,22 +325,22 @@ tool documentation. See also the <a href="blog.html?tag=testing">technical blog 
 <span class="nb">export </span><span class="nv">PATH</span><span class="o">=</span><span class="s2">"</span><span class="nv">$LOGTALKHOME</span><span class="s2">/scripts"</span>:<span class="s2">"</span><span class="nv">$LOGTALKHOME</span><span class="s2">/integration"</span>:<span class="nv">$PATH</span>
 </code></pre></div></div>
 
-<p>When calling the scripts, you will need to use the <code class="highlighter-rouge">.sh</code> extension (e.g. use <code class="highlighter-rouge">yaplgt.sh</code> instead of simply <code class="highlighter-rouge">yaplgt</code>).</p>
+<p>When calling the scripts, you will need to use the <code class="highlighter-rouge">.sh</code> extension (e.g., use <code class="highlighter-rouge">yaplgt.sh</code> instead of simply <code class="highlighter-rouge">yaplgt</code>).</p>
 
 <h2 id="testing-backend-prolog-compilers">Testing backend Prolog compilers</h2>
 
-<p>Starting with Logtalk 3.00.0-rc4 (released on 2014), a set of unit tests for testing backend Prolog compilers for conformance with official and de facto standards is also provided. You can run them by typing:</p>
+<p>Starting with Logtalk 3.00.0-rc4 (released in 2014), a set of unit tests for testing backend Prolog compilers for conformance with official and de facto standards is also provided. You can run them by typing:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cd</span> <span class="nv">$LOGTALKUSER</span>/tests/prolog
 <span class="nv">$ </span>logtalk_tester <span class="nt">-p</span> &lt;back-end Prolog compiler&gt;
 ...
 </code></pre></div></div>
 
-<p>Running these tests is advisable when developing portable Logtalk applications to ensure that all targeted backend Prolog compilers work as expected and that relevant differences between systems are accounted for. For more details about these tests see their <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tests/prolog/NOTES.md">documentation</a></p>
+<p>Running these tests is advisable when developing portable Logtalk applications to ensure that all targeted backend Prolog compilers work as expected and that relevant differences between systems are accounted for. For more details about these tests, see their <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tests/prolog/NOTES.md">documentation</a></p>
 
 <h2 id="using-a-continuous-integration-server">Using a continuous integration server</h2>
 
-<p>The Logtalk unit test framework supports both TAP and xUnit output formats. Most CI servers support one or both formats for reporting and summarizing test results. In addition, the <code class="highlighter-rouge">logtalk_tester</code> automation script returns a non-zero exit value in case of failed tests, accepts user-defined arguments that are passed to application being tested, and traverses (by default) directories recursively looking for test sets to execute. See the script <a href="man/logtalk_tester.html">man page</a> for details.</p>
+<p>The Logtalk unit test framework supports both TAP and xUnit output formats. Most CI servers support one or both formats for reporting and summarizing test results. In addition, the <code class="highlighter-rouge">logtalk_tester</code> automation script returns a non-zero exit value in case of failed tests, accepts user-defined arguments that are passed to the application being tested, and traverses (by default) directories recursively looking for test sets to execute. See the script <a href="man/logtalk_tester.html">man page</a> for details.</p>
 
 <p>For example, a CI server build script could contain:</p>
 
@@ -353,12 +353,12 @@ logtalk_tester <span class="nt">-p</span> swipack <span class="nt">-tap</span> <
 
 <p>By configuring the CI server TAP support to look for <code class="highlighter-rouge">tap_report.txt</code> files recursively inside the <code class="highlighter-rouge">tests</code> directory, the build report will summarize and list all the test results. By making the build script fail when the <code class="highlighter-rouge">logtalk_tester</code> script returns a non-zero value, the build will be marked as failed when there are failed tests. Consult your CI server documentation for details.</p>
 
-<p>Most CI servers have HTML publishing plug-ins that should allow linking to the code coverage reports in the build page. But depending on the plug-in and on the web browsers used to view build results, you may need to convert the XML reports to HTML (instead of relying on the browser doing the conversion on the fly, which only works in some browsers) using a XSLT processor called as part of the build process. For example:</p>
+<p>Most CI servers have HTML publishing plug-ins that should allow linking to the code coverage reports in the build page. But depending on the plug-in and on the web browsers used to view build results, you may need to convert the XML reports to HTML (instead of relying on the browser doing the conversion on the fly, which only works in some browsers) using an XSLT processor called as part of the build process. For example:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>xsltproc <span class="nt">-o</span> coverage_report.html coverage_report.xml
 </code></pre></div></div>
 
-<p>Be aware that GitHub and GitLab CI/CD pipelines often run from Docker images as root. This may result in tests that would pass when run by a normal user to fail when run as root. E.g. tests that check for expected permission errors when accessing files and directories.</p>
+<p>Be aware that GitHub and GitLab CI/CD pipelines often run from Docker images as root. This may result in tests that would pass when run by a normal user to fail when run as root. E.g., tests that check for expected permission errors when accessing files and directories.</p>
 
 <h2 id="github-actions-and-workflows">GitHub actions and workflows</h2>
 
@@ -370,7 +370,7 @@ logtalk_tester <span class="nt">-p</span> swipack <span class="nt">-tap</span> <
 
 <h2 id="caveats">Caveats</h2>
 
-<p>Logtalk can act as a shared resource when doing concurrent builds and using an initialization goal that turns off the <code class="highlighter-rouge">clean</code> flag for improved performance when running large test sets. In this case, when two or more builds use the same Logtalk resources (e.g. library or tool files), a race condition may happen if the builds try to compile and load the same file. CI servers usually support, natively or using a plug-in, a way to throttle concurrent builds and/or the definition of locks for shared resources. A better solution, supported in Logtalk 3.11.0 and later versions, is to ensure that each Logtalk instance uses a unique scratch directory for temporary files. This requires a backend Prolog system supporting an initialization goal that is called, or an initialization file that is loaded, before Logtalk itself is loaded. Using SWI-Prolog as an example and assuming a POSIX system, add to its <code class="highlighter-rouge">.swiplrc</code> initialization file the following code:</p>
+<p>Logtalk can act as a shared resource when doing concurrent builds and using an initialization goal that turns off the <code class="highlighter-rouge">clean</code> flag for improved performance when running large test sets. In this case, when two or more builds use the same Logtalk resources (e.g., library or tool files), a race condition may happen if the builds try to compile and load the same file. CI servers usually support, natively or using a plug-in, a way to throttle concurrent builds and/or the definition of locks for shared resources. A better solution, supported in Logtalk 3.11.0 and later versions, is to ensure that each Logtalk instance uses a unique scratch directory for temporary files. This requires a backend Prolog system supporting an initialization goal that is called, or an initialization file that is loaded, before Logtalk itself is loaded. Using SWI-Prolog as an example and assuming a POSIX system, add to its <code class="highlighter-rouge">.swiplrc</code> initialization file the following code:</p>
 
 <div class="language-logtalk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">:- multifile</span><span class="p">(</span>logtalk_library_path<span class="o">/</span><span class="m">2</span><span class="p">).</span>
 <span class="k">:- dynamic</span><span class="p">(</span>logtalk_library_path<span class="o">/</span><span class="m">2</span><span class="p">).</span>
@@ -397,7 +397,7 @@ logtalk_tester <span class="nt">-p</span> swipack <span class="nt">-tap</span> <
     make_directory<span class="p">(</span><span class="nv">Directory</span><span class="p">).</span>
 </code></pre></div></div>
 
-<p>You can add this code to a file, e.g. <code class="highlighter-rouge">multiple_logtalk_instances_setup.pl</code>, and then start Logtalk using:</p>
+<p>You can add this code to a file, e.g., <code class="highlighter-rouge">multiple_logtalk_instances_setup.pl</code>, and then start Logtalk using:</p>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>gplgt <span class="nt">--init-goal</span> <span class="s2">"consult(multiple_logtalk_instances_setup)"</span>
 </code></pre></div></div>

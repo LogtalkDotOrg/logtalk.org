@@ -275,7 +275,7 @@
 
               <div class="col-main cell cell--auto"><article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>Backend Prolog compiler requirements</h1></header></div><meta itemprop="headline" content="Backend Prolog compiler requirements"><meta itemprop="author" content="Paulo Moura"/><div class="js-article-content"><div class="layout--article">
 
-  <div class="article__content" itemprop="articleBody"><p>Logtalk requires a backend Prolog compiler that supports <strong>both</strong> official and de facto Prolog standards. This means, support for the ISO Prolog Core standard plus the following de facto standard predicates:</p>
+  <div class="article__content" itemprop="articleBody"><p>Logtalk requires a backend Prolog compiler that supports <strong>both</strong> official and de facto Prolog standards. This means support for the ISO Prolog Core standard plus the following de facto standard predicates:</p>
 
 <ul>
   <li><code class="highlighter-rouge">predicate_property/2</code></li>
@@ -287,9 +287,9 @@
 
 <p>The <code class="highlighter-rouge">setup_call_cleanup/3</code> predicate is only required for systems providing a compatible threads implementation and for support of some tools features that require checking query determinism. In the second case, it can be replaced by <code class="highlighter-rouge">call_cleanup/2</code> or <code class="highlighter-rouge">call_det/2</code> predicates.</p>
 
-<p>Logtalk coinduction features requires that the backend Prolog compiler supports cyclic terms and either the <code class="highlighter-rouge">*-&gt;/2</code> soft-cut control construct or the <code class="highlighter-rouge">if/3</code> soft-cut built-in predicate.</p>
+<p>Logtalk coinduction features require that the backend Prolog compiler supports cyclic terms and either the <code class="highlighter-rouge">*-&gt;/2</code> soft-cut control construct or the <code class="highlighter-rouge">if/3</code> soft-cut built-in predicate.</p>
 
-<p>The de facto standard <code class="highlighter-rouge">dialect</code> and <code class="highlighter-rouge">version_data</code> flags are required. Notably, the <code class="highlighter-rouge">version_data</code> flag is used at Logtalk startup to check that it’s running on a supported Prolog backend version and used by tools such as <code class="highlighter-rouge">diagrams</code> and <code class="highlighter-rouge">lgtunit</code> to add version information to diagrams and testing log files.</p>
+<p>The de facto standard <code class="highlighter-rouge">dialect</code> and <code class="highlighter-rouge">version_data</code> flags are required. Notably, the <code class="highlighter-rouge">version_data</code> flag is used at Logtalk startup to check that it’s running on a supported Prolog backend version and is used by tools such as <code class="highlighter-rouge">diagrams</code> and <code class="highlighter-rouge">lgtunit</code> to add version information to diagrams and testing log files.</p>
 
 <p>In addition, Logtalk requires basic access to the operating-system (either as Prolog built-in predicates or as library predicates) including:</p>
 

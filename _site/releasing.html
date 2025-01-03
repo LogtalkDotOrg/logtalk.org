@@ -289,7 +289,7 @@ file in the directory for details. The main release script is:</p>
 
 <h2 id="distribution-files">Distribution files</h2>
 
-<p>The <code class="highlighter-rouge">BIBLIOGRAPHY.bib</code>, <code class="highlighter-rouge">CITATION.cff</code>, <code class="highlighter-rouge">VERSION.txt</code> should be update just before the new release is tagged. Same for the <code class="highlighter-rouge">core/core.pl</code> file, where the <code class="highlighter-rouge">'$lgt_version_data'/1</code> predicate definiton should have the status changed to <code class="highlighter-rouge">stable</code>. Any status version, e.g. <code class="highlighter-rouge">b04</code>, should also be removed from the <code class="highlighter-rouge">docs/sources/_conf.py</code> and <code class="highlighter-rouge">manuals/sources/conf.py</code> files. The <code class="highlighter-rouge">scripts/debian/changelog</code> file should be changed to reflect the released date and release week day.</p>
+<p>The <code class="highlighter-rouge">BIBLIOGRAPHY.bib</code>, <code class="highlighter-rouge">CITATION.cff</code>, <code class="highlighter-rouge">VERSION.txt</code> should be updated just before the new release is tagged. Same for the <code class="highlighter-rouge">core/core.pl</code> file, where the <code class="highlighter-rouge">'$lgt_version_data'/1</code> predicate definiton should have the status changed to <code class="highlighter-rouge">stable</code>. Any status version, e.g., <code class="highlighter-rouge">b04</code>, should also be removed from the <code class="highlighter-rouge">docs/sources/_conf.py</code> and <code class="highlighter-rouge">manuals/sources/conf.py</code> files. The <code class="highlighter-rouge">scripts/debian/changelog</code> file should be changed to reflect the release date and release week day.</p>
 
 <h2 id="windows-installer">Windows installer</h2>
 
@@ -343,14 +343,14 @@ up-to-date using the scripts:</p>
 
 <h2 id="chocolatey-package">Chocolatey package</h2>
 
-<p>The first step is to update the <a href="https://github.com/LogtalkDotOrg/chocolatey-packages">LogtalkDotOrg/chocolatey-packages</a> repo <code class="highlighter-rouge">logtalk.nuspec</code> and <code class="highlighter-rouge">chocolateyInstall.ps1</code> files with the data for the new stable release, commit, and push the changes. Then, from a Windows system <code class="highlighter-rouge">cmd</code> shell, change directory to the repo clone and type the commands:</p>
+<p>The first step is to update the <a href="https://github.com/LogtalkDotOrg/chocolatey-packages">LogtalkDotOrg/chocolatey-packages</a> repo <code class="highlighter-rouge">logtalk.nuspec</code> and <code class="highlighter-rouge">chocolateyInstall.ps1</code> files with the data for the new stable release, commit, and push the changes. Then, from a Windows system <code class="highlighter-rouge">cmd</code> shell, change the current directory to the repo clone and type the commands:</p>
 
 <div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git pull
 choco pack
 choco push -s https://push.chocolatey.org/
 </code></pre></div></div>
 
-<p>The above commands assume the API key is set. If that’s not the case, before pushing a new release, the following command is required (with <code class="highlighter-rouge">KEY</code> replace by the actual key):</p>
+<p>The above commands assume the API key is set. If that’s not the case, before pushing a new release, the following command is required (with <code class="highlighter-rouge">KEY</code> replaced by the actual key):</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>choco apikey --key KEY --source https://push.chocolatey.org/
 </code></pre></div></div>

@@ -283,7 +283,7 @@
 
 <ul>
   <li>
-    <p>A loader file for your source files. Usually named <code class="highlighter-rouge">loader.lgt</code>, this file should load both your source files and any other files (e.g. library files) needed for compiling and running your code. Loader files may also be used to set appropriate flags for compiling and loading your source files. You may also want to have e.g. a <code class="highlighter-rouge">loader_debug.lgt</code> file if there’s a non-trivial debugging setup for developing your code.</p>
+    <p>A loader file for your source files. Usually named <code class="highlighter-rouge">loader.lgt</code>, this file should load both your source files and any other files (e.g., library files) needed for compiling and running your code. Loader files may also be used to set appropriate flags for compiling and loading your source files. You may also want to have, e.g., a <code class="highlighter-rouge">loader_debug.lgt</code> file if there’s a non-trivial debugging setup for developing your code.</p>
   </li>
   <li>
     <p>An informative <code class="highlighter-rouge">NOTES.md</code> or <code class="highlighter-rouge">NOTES.txt</code> file with a description of your code, authorship, copyright, and licensing information.</p>
@@ -292,10 +292,10 @@
     <p>A <code class="highlighter-rouge">SCRIPT.txt</code> file containing instructions on how to load your source files and sample queries.</p>
   </li>
   <li>
-    <p>A loader file for your tests (which also loads your source files), usually named <code class="highlighter-rouge">tester.lgt</code> (this is the name expected by the testing automation script), side-by-side with ​the <code class="highlighter-rouge">loader.lgt</code> file (so that the user can run your code tests simply by replacing <code class="highlighter-rouge">loader</code> by <code class="highlighter-rouge">tester</code> in the <code class="highlighter-rouge">logtalk_load/1</code> goal that loads your code).</p>
+    <p>A loader file for your tests (which also loads your source files), usually named <code class="highlighter-rouge">tester.lgt</code> (this is the name expected by the testing automation script), side by side with ​the <code class="highlighter-rouge">loader.lgt</code> file (so that the user can run your code tests simply by replacing <code class="highlighter-rouge">loader</code> by <code class="highlighter-rouge">tester</code> in the <code class="highlighter-rouge">logtalk_load/1</code> goal that loads your code).</p>
   </li>
   <li>
-    <p>A file contain your unit tests, usually named <code class="highlighter-rouge">tests.lgt</code>. If there’s a single tests file, keep it in the same directory as the ​<code class="highlighter-rouge">loader.lgt</code> and <code class="highlighter-rouge">tester.lgt</code>​ files. If there are multiple test files, use a <code class="highlighter-rouge">tests</code> or <code class="highlighter-rouge">test_files</code> sub-directory.</p>
+    <p>A file containing your unit tests, usually named <code class="highlighter-rouge">tests.lgt</code>. If there’s a single tests file, keep it in the same directory as the ​<code class="highlighter-rouge">loader.lgt</code> and <code class="highlighter-rouge">tester.lgt</code>​ files. If there are multiple test files, use a <code class="highlighter-rouge">tests</code> or <code class="highlighter-rouge">test_files</code> sub-directory.</p>
   </li>
   <li>
     <p>A <em>doclet</em> file for generating documentation and diagrams for your source code, usually named <code class="highlighter-rouge">doclet.lgt</code> (this is the name expected by the doclet automation script).</p>
@@ -306,7 +306,7 @@
 
 <h2 id="source-file-names">Source file names</h2>
 
-<p>Logtalk source files use by default the <code class="highlighter-rouge">.lgt</code> file name extension. You can also use in alternative the <code class="highlighter-rouge">.logtalk</code> extension. When a source file contains a single entity, use the entity name for the source file name. For parametric objects and parametric categories, append the number of parameters to the file name. For source files containing multiple entities, use a descriptive name. In this case, the name is often the same as the name of the directory holding your files.</p>
+<p>Logtalk source files use by default the <code class="highlighter-rouge">.lgt</code> file name extension. You can also use the <code class="highlighter-rouge">.logtalk</code> extension. When a source file contains a single entity, use the entity name for the source file name. For parametric objects and parametric categories, append the number of parameters to the file name. For source files containing multiple entities, use a descriptive name. In this case, the name is often the same as the name of the directory holding your files.</p>
 
 <h2 id="source-file-text-encoding">Source file text encoding</h2>
 
@@ -314,9 +314,9 @@
 
 <h2 id="source-code-layout-and-indentation">Source code layout and indentation</h2>
 
-<p>Indent your source file using tabs, not spaces. Never mix tabs and spaces for indentation. But do use spaces for alignment that is not related to indenting. One tab is one level of indentation and is <strong>independent</strong> of each team member preferred setting, contributing to <strong>accessibility</strong>. A common setting is a tab width equivalent to four spaces. <strong>Check that when changing the tab width that your code and comments remain perfectly indented</strong>. Use one tab for indenting the code encapsulated inside an entity. Indent the body of predicate clauses using one tab.</p>
+<p>Indent your source file using tabs, not spaces. Never mix tabs and spaces for indentation. But do use spaces for alignment that is not related to indenting. One tab is one level of indentation and is <strong>independent</strong> of each team member preferred setting, contributing to <strong>accessibility</strong>. A common setting is a tab width equivalent to four spaces. <strong>Check that when changing the tab width, your code and comments remain perfectly indented</strong>. Use one tab for indenting the code encapsulated inside an entity. Indent the body of predicate clauses using one tab.</p>
 
-<p>Clauses for the same predicate should be separated by at most one blank line. Closely related predicates (e.g. a predicate followed by its auxiliary predicates) should be separated by one or two blank lines. Clauses of other predicates can be separated by two or three blank lines, depending on code complexity.</p>
+<p>Clauses for the same predicate should be separated by at most one blank line. Closely related predicates (e.g., a predicate followed by its auxiliary predicates) should be separated by one or two blank lines. Clauses of other predicates can be separated by two or three blank lines, depending on code complexity.</p>
 
 <h2 id="directives-layout">Directives layout</h2>
 
@@ -368,7 +368,7 @@ goal1<span class="p">,</span>
     <span class="p">...</span>
 </code></pre></div></div>
 
-<p>Trying to align the arguments with the opening parenthesis would make the alignment break under different tab widths or even worse could result in a mix of tabs and spaces for indentation.</p>
+<p>Trying to align the arguments with the opening parenthesis would make the alignment break under different tab widths or, even worse, could result in a mix of tabs and spaces for indentation.</p>
 
 <h2 id="goals-in-clause-bodies">Goals in clause bodies</h2>
 
@@ -391,11 +391,11 @@ goal1<span class="p">,</span>
 
 <h2 id="meta-arguments">Meta-arguments</h2>
 
-<p>Goal arguments in meta-predicates calls (e.g. <code class="highlighter-rouge">findall/3</code>) should be simple. Ideally, a single predicate call. Complex meta-arguments are hard to read, debug, and, depending on the backend Prolog compiler, may result in poor performance. In some cases, a lambda expression can be used to avoid adding an auxiliary predicate just for the meta-call.</p>
+<p>Goal arguments in meta-predicate calls (e.g. <code class="highlighter-rouge">findall/3</code>) should be simple. Ideally, a single predicate call. Complex meta-arguments are hard to read, debug, and, depending on the backend Prolog compiler, may result in poor performance. In some cases, a lambda expression can be used to avoid adding an auxiliary predicate just for the meta-call.</p>
 
 <h2 id="disjunctions">Disjunctions</h2>
 
-<p>Disjunctions should always be wrapped between parenthesis and the <code class="highlighter-rouge">;</code> operator should be the first term in the line. For example:</p>
+<p>Disjunctions should always be wrapped in parentheses and the <code class="highlighter-rouge">;</code> operator should be the first term in the line. For example:</p>
 
 <div class="language-logtalk highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">...</span>
 <span class="p">(</span>   alternative1
@@ -421,11 +421,11 @@ head <span class="o">:-</span>
     alternative2<span class="p">.</span>
 </code></pre></div></div>
 
-<p>One exception to this guideline is when the head of the clause performs costly access to a sub-term in complex compound argument.</p>
+<p>One exception to this guideline is when the head of the clause performs costly access to a sub-term in a complex compound argument.</p>
 
 <h2 id="if-then-else-constructs">If-then-else constructs</h2>
 
-<p>Always use parenthesis around if-then-else constructs and always include the “else” part. I.e. write if necessary <code class="highlighter-rouge">(If -&gt; Then; fail)</code> instead of <code class="highlighter-rouge">(If -&gt; Then)</code>. An actual example of the recommended layout:</p>
+<p>Always use parentheses around if-then-else constructs and always include the “else” part. I.e., write if necessary <code class="highlighter-rouge">(If -&gt; Then; fail)</code> instead of <code class="highlighter-rouge">(If -&gt; Then)</code>. An actual example of the recommended layout:</p>
 
 <div class="language-logtalk highlighter-rouge"><div class="highlight"><pre class="highlight"><code>is_prime<span class="p">(</span><span class="nv">N</span><span class="p">,</span> <span class="nv">Sqrt</span><span class="p">,</span> <span class="nv">Prime</span><span class="p">)</span> <span class="o">:-</span>
     <span class="p">(</span>   <span class="nv">N</span> <span class="o">&gt;</span> <span class="nv">Sqrt</span> <span class="o">-&gt;</span>
@@ -461,7 +461,7 @@ head <span class="o">:-</span>
 write_person_database<span class="p">.</span>
 </code></pre></div></div>
 
-<p>In cases where a failure-driven loop can mask unexpected failures, consider using in alternative the <code class="highlighter-rouge">forall/2</code> meta-predicate.</p>
+<p>In cases where a failure-driven loop can mask unexpected failures, consider using instead the <code class="highlighter-rouge">forall/2</code> meta-predicate.</p>
 
 <h2 id="predicate-arguments">Predicate arguments</h2>
 
@@ -469,11 +469,11 @@ write_person_database<span class="p">.</span>
 
 <h2 id="operators">Operators</h2>
 
-<p>As a general rule, use spaces around binary operators. E.g. write <code class="highlighter-rouge">Total is Sum * N - OverHead</code>, not <code class="highlighter-rouge">Total is Sum*N-OverHead</code>.</p>
+<p>As a general rule, use spaces around binary operators. E.g., write <code class="highlighter-rouge">Total is Sum * N - OverHead</code>, not <code class="highlighter-rouge">Total is Sum*N-OverHead</code>.</p>
 
 <h2 id="list-elements">List elements</h2>
 
-<p>Use a single space after commas that separate elements. Also use a single space after the <code class="highlighter-rouge">|</code> separating the enumerated elements from the list with the remaining elements. I.e. write <code class="highlighter-rouge">[First, Second| Rest]</code>, not <code class="highlighter-rouge">[First,Second|Rest]</code>.</p>
+<p>Use a single space after commas that separate elements. Also use a single space after the <code class="highlighter-rouge">|</code> separating the enumerated elements from the list with the remaining elements. I.e., write <code class="highlighter-rouge">[First, Second| Rest]</code>, not <code class="highlighter-rouge">[First,Second|Rest]</code>.</p>
 
 <h2 id="clause-rules-and-directives">Clause rules and directives</h2>
 
@@ -485,17 +485,17 @@ write_person_database<span class="p">.</span>
 
 <h2 id="predicate-names">Predicate names</h2>
 
-<p>Use descriptive predicate names using underscores if necessary to link words. Do not use CamelCase notation for predicate names (e.g. write <code class="highlighter-rouge">number_of_sides</code>, not <code class="highlighter-rouge">numberOfSides</code>). Avoid word abbreviations. But if you abbreviate a word, do so consistently. Also avoid names with digits in the middle as this may hurt readability.</p>
+<p>Use descriptive predicate names using underscores if necessary to link words. Do not use CamelCase notation for predicate names (e.g., write <code class="highlighter-rouge">number_of_sides</code>, not <code class="highlighter-rouge">numberOfSides</code>). Avoid word abbreviations. But if you abbreviate a word, do so consistently. Also avoid names with digits in the middle as this may hurt readability.</p>
 
-<p>For dynamic predicates, Logtalk uses a convention of ending its names with an underscore (e.g. <code class="highlighter-rouge">random_seed_</code>) although this style is sometimes also used for auxiliary predicate names.</p>
+<p>For dynamic predicates, Logtalk uses a convention of ending their names with an underscore (e.g., <code class="highlighter-rouge">random_seed_</code>) although this style is sometimes also used for auxiliary predicate names.</p>
 
 <p>For public predicates, when defining an interface, always consider reusing names. This makes APIs easier to understand and use. For example, the predicate <code class="highlighter-rouge">member/2</code> is used with both lists and sets. The predicate <code class="highlighter-rouge">size/2</code> is used with both dictionaries and heaps. Most developer tools that require processing files, directories, and libraries share a common interface.</p>
 
 <h2 id="variable-names">Variable names</h2>
 
-<p>Use descriptive variable names in CamelCase notation (e.g. write <code class="highlighter-rouge">SourceFile</code>, not <code class="highlighter-rouge">Source_file</code>). Again, avoid word abbreviations. But if you do abbreviate words, be consistent. Also avoid names with digits in the middle as this may hurt readability.</p>
+<p>Use descriptive variable names in CamelCase notation (e.g., write <code class="highlighter-rouge">SourceFile</code>, not <code class="highlighter-rouge">Source_file</code>). Again, avoid word abbreviations. But if you do abbreviate words, be consistent. Also avoid names with digits in the middle, as this may hurt readability.</p>
 
-<p>In the case of singleton variables, use either the anonymous variable, <code class="highlighter-rouge">_</code>, or a variable name starting with an underscore followed with an uppercase letter (e.g. <code class="highlighter-rouge">_Width</code>). Note that the interpretation of variables that start with an underscore as either singleton variables or anonymous variables depends on the used back-end compiler (see the Logtalk compiler flag <code class="highlighter-rouge">underscore_variables</code> for more information).</p>
+<p>In the case of singleton variables, use either the anonymous variable, <code class="highlighter-rouge">_</code>, or a variable name starting with an underscore followed with an uppercase letter (e.g., <code class="highlighter-rouge">_Width</code>). Note that the interpretation of variables that start with an underscore as either singleton variables or anonymous variables depends on the used back-end compiler (see the Logtalk compiler flag <code class="highlighter-rouge">underscore_variables</code> for more information).</p>
 
 <h2 id="sequences">Sequences</h2>
 

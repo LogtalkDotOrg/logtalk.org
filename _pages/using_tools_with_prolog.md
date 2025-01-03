@@ -26,16 +26,16 @@ issues in Prolog code. Other tools, such as [`lgtunit`](tools.html#testing),
 directly support Prolog code.
 
 **Note:** If you're instead considering porting a Prolog application to Logtalk,
-there's a tool, [`wrapper`](tools.html#prolog-porting) that can help. In that
+there's a [`wrapper`](tools.html#prolog-porting) tool that can help. In that
 case, this is not the guide you're looking for.
 
 ### Plain Prolog code
 
-Applying the Logtalk developer tools to plain Prolog code (i.e. Prolog code
+Applying the Logtalk developer tools to plain Prolog code (i.e., Prolog code
 not encapsulated in modules) requires wrapping the code using Logtalk objects.
 A simple way of doing it is loading the
 [`hook_objects`](https://logtalk.org/library/library_index.html#hook-objects)
-library and then use the
+library and then using the
 [`object_wrapper_hook`](https://logtalk.org/library/object_wrapper_hook_0.html)
 object. For example, assuming a `foo.pl` file:
 
@@ -56,7 +56,7 @@ Prolog code. For example:
 	:- end_object.
 
 Keep in mind that some Prolog directives are not valid inside objects and
-can cause compilation errors. If that's the case, is best to make a copy
+can cause compilation errors. If that's the case, it is best to make a copy
 of the Prolog files and edit them to add the object wrapper and either
 move the directives to outside the object or comment them.
 
@@ -72,7 +72,7 @@ built-in predicates.
 
 Start by loading the Prolog modules as usual (modules and objects live
 in different namespaces, which avoids most conflicts). This first step
-allows Logtalk to query the runtime about module exported predicates.
+allows Logtalk to query the runtime about module-exported predicates.
 For example, if you use a `loader.pl` file to load your application:
 
 	| ?- [loader].
@@ -127,7 +127,7 @@ you can use instead the following `loader.lgt` file:
 	)).
 
 Change the `logtalk_compile/2` to `logtalk_load/2` if necessary and also play
-with the available compiler options to fine tune for your case.
+with the available compiler options to fine-tune for your case.
 
 
 ### Prolog code using a term-expansion mechanism
@@ -136,7 +136,7 @@ Some Prolog systems and their typical applications may make use of a
 term-expansion mechanism. When the Prolog system implements this mechanism
 using `term_expansion/2` and `goal_expansion` predicates with clauses for
 them collected in a selected number of modules, it's possible to instruct
-Logtalk own term-expansion mechanism to call the Prolog defined expansions.
+Logtalk own term-expansion mechanism to call the Prolog-defined expansions.
 For example, assume that the used Prolog libraries and user modules
 defining expansions store them in the `user` and `system` modules. In this
 case, before attempting to compile the Prolog code as Logtalk objects, try
@@ -148,7 +148,7 @@ the following queries:
 	| ?- set_logtalk_flag(hook, hook_set([user,system])).
 	...
 
-This workaround will not work, however, when the module defined expansion
+This workaround will not work, however, when the module-defined expansion
 predicates make calls to loading context predicates (such as the
 `prolog_load_context/2` provided by some backend Prolog compilers) that
 expect the compilation context to be a module.
@@ -157,7 +157,7 @@ expect the compilation context to be a module.
 
 Most Prolog applications load their files in a specific order. For example,
 when user-defined operators are used, the file defining those operators is
-loaded first. Some Prolog applications use an explicit loader file. For
+loaded first. Some Prolog applications use an explicit loader file. For the
 best results when trying to use the Logtalk developer tools, take into
 account the loading order. If necessary, write a simple `loader.lgt` file
 instead of using the `forall/2` loop illustrated above.
@@ -165,8 +165,8 @@ instead of using the `forall/2` loop illustrated above.
 ### Known issues
 
 When finding a `use_module/1` or `use_module/2` directive in a Prolog module,
-Logtalk either successfully expands it to a Logtalk supported `use_module/2`
-directive (which takes as first argument a module name instead of a file
+Logtalk either successfully expands it to a Logtalk-supported `use_module/2`
+directive (which takes as its first argument a module name instead of a file
 specification) or prints an error and aborts the compilation of the source
 file. If you get an error, load the module file first and try again. Note
 that the expansion from a Prolog `use_module/1` directive to a Logtalk
@@ -180,12 +180,12 @@ to outside the modules before attempting to compile the modules as objects.
 Meta-predicate templates (in `meta_predicate/1` directives) using `:` for
 a meta-argument will result in a compilation error. The error results from
 Logtalk not being based on a predicate-prefixing mechanism as found in
-module systems and also in lack of standardization making `:` ambiguous as
+module systems and also in lack of standardization making `:` ambiguous, as
 it can signal a goal, a closure, or an argument that will not be called as
 a goal (or used to construct a goal) but still requires module-prefixing.
 When the meta-argument is a goal or a closure, the workaround is to update
 the `meta_predicate/1` directive, replacing `:` by `0`, in case of a goal,
-or `N`, in case of a closure with the integer `N` being the number of
+or `N`, in case of a closure, with the integer `N` being the number of
 additional arguments that will be added to the closure to construct a goal.
 
 Arbitrary goals used as directives are usually flagged as errors. In most
@@ -193,7 +193,7 @@ cases, these can be wrapped using an `initialization/1` directive to allow
 compilation to proceed.
 
 Clauses for `term_expansion/2` and `goal_expansion/2` predicates are never
-used to expand clauses that follow in the same file. If that's the case of
+used to expand clauses that follow in the same file. If that's the case for
 any module that you're trying to compile as a Logtalk object, the only
 solution is to move the expansion clauses to a separate file and compile
 it before that file with the clauses to be expanded.

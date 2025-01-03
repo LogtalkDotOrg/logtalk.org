@@ -6,11 +6,11 @@ aside:
   toc: true
 ---
 
-Logtalk is a programming language that extends and subsumes Prolog. Thus, a good knowledge of Prolog paves the way for a quick learning of Logtalk programming. Basic knowledge of object-oriented programming also helps, specially if from a generalized, first principles, approach. It is highly recommended that you start with the tutorial available at:
+Logtalk is a programming language that extends and subsumes Prolog. Thus, a good knowledge of Prolog paves the way for a quick learning of Logtalk programming. Basic knowledge of object-oriented programming also helps, specially if from a generalized, first principles approach. It is highly recommended that you start with the tutorial available at:
 
 [Learn X in Y minutes Where X=Logtalk](https://learnxinyminutes.com/docs/logtalk/)
 
-There's also a [Jupyter notebook](https://github.com/LogtalkDotOrg/logtalk-jupyter-kernel) version of this tutorial that you can run with a subset of the Logtalk supported Prolog backends. You can also run it online: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LogtalkDotOrg/notebooks/master)
+There's also a [Jupyter notebook](https://github.com/LogtalkDotOrg/logtalk-jupyter-kernel) version of this tutorial that you can run with a subset of the Logtalk-supported Prolog backends. You can also run it online: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LogtalkDotOrg/notebooks/master)
 
 Note that the Logtalk distribution includes HTML versions of the user manual,
 the reference manual, and the APIs documentation. Documentation can also be
@@ -18,7 +18,7 @@ browsed at:
 
 [Logtalk documentation resources](documentation.html)
 
-The Logtalk distribution also includes a large number of well documented
+The Logtalk distribution also includes a large number of well-documented
 programming examples that introduce most of the language features. The
 examples included are fully documented with source code comments and sample
 goals:
@@ -26,13 +26,13 @@ goals:
 [Programming examples](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples)
 (described [here](https://github.com/LogtalkDotOrg/logtalk3/blob/master/examples/NOTES.md)).
 
-All examples include a `loader.lgt` file that loads the example and any dependencies, a `NOTES.md` file with a description of the example, and a `SCRIPT.txt` file with sample queries (including how to load the example) for you to try. Most examples also include a `tests.lgt` file with unit tests and a `tester.lgt` loader file to run them. Being programming examples, it is expected that you run them side-by-side with the source code open in your [favorite editor](https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding) after reading their documentation.
+All examples include a `loader.lgt` file that loads the example and any dependencies, a `NOTES.md` file with a description of the example, and a `SCRIPT.txt` file with sample queries (including how to load the example) for you to try. Most examples also include a `tests.lgt` file with unit tests and a `tester.lgt` loader file to run them. Being programming examples, it is expected that you run them side by side with the source code open in your [favorite editor](https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding) after reading their documentation.
 
 [Learning and development tools](tools.html)
 
 To help new users understand and act on compiler and runtime warning and error messages, load the [`tutor`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/tutor/NOTES.md) tool at startup.
 To help new users trace query execution, also load the [`debugger`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/debugger/NOTES.md) tool at startup.
-These and other developer tools (e.g. for testing and documentation) can be automatically loaded
+These and other developer tools (e.g., for testing and documentation) can be automatically loaded
 at startup by defining a default
 [settings file](https://github.com/LogtalkDotOrg/logtalk3/tree/master/settings-sample.lgt).
 
@@ -134,7 +134,7 @@ true.
 In the context of the top-level interpreter, the `{}/1` goal is just a handy shortcut for
 the [`logtalk_load/1`](https://logtalk.org/manuals/refman/predicates/logtalk_load_1.html)
 predicate. The argument uses _library notation_ to specify the file to load: `planets` is
-the library name (an alias to a directory of source files) and `loader` is the
+the library name (an alias to a directory of source files), and `loader` is the
 file name (with the extension omitted).
 
 Let's try a query:
@@ -144,7 +144,7 @@ Let's try a query:
 W2 = 14.88304.
 ```
 
-How do Logtalk arrived to this solution? Let's recompile the example in _debug_ mode:
+How did Logtalk arrive at this solution? Let's recompile the example in _debug_ mode:
 
 ```
 ?- {+d}.
@@ -220,7 +220,7 @@ W2 = 14.88304.
 
 The debugger supports several handy options. Type `h` or `?` at its prompt for inline help. Consult the user manual section on [debugging](https://logtalk.org/manuals/userman/debugging.html) for further information.
 
-To terminate the debugging session, you can turn off the debugger and recompile the files in normal (or optimized mode):
+To terminate the debugging session, you can turn off the debugger and recompile the files in normal (or optimized) mode:
 
 ```
 ?- debugger::nodebug.
@@ -280,7 +280,7 @@ The `{*}` goal is a top-level shortcut to the `logtalk_make` goal (and the `logt
 
 ## Running example tests
 
-Next, we could also modify the example unit tests to account for the newly added `jupiter` object by editing the `tests.lgt` file. As we added a new object, `jupiter`, we want to add a `cover/1` clause for it to that we can collect cove coverage data:
+Next, we could also modify the example unit tests to account for the newly added `jupiter` object by editing the `tests.lgt` file. As we added a new object, `jupiter`, we want to add a `cover/1` clause for it so that we can collect code coverage data:
 
 ```logtalk
 cover(jupiter).
