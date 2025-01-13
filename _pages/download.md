@@ -6,8 +6,8 @@ aside:
   toc: true
 ---
 
-**Latest stable version:** 3.86.0  
-**Release date:** December 18, 2024
+**Latest stable version:** 3.87.0  
+**Release date:** January 8, 2025
 
 <a class="github-button" href="https://github.com/sponsors/pmoura" data-icon="octicon-heart" aria-label="Sponsor @pmoura on GitHub">Sponsor</a>
 <a class="github-button" href="https://github.com/LogtalkDotOrg/logtalk3" data-icon="octicon-star" aria-label="Star LogtalkDotOrg/logtalk3 on GitHub">Star</a>
@@ -77,8 +77,8 @@ feed](https://github.com/LogtalkDotOrg/logtalk3/commits/master.atom).
 
 ## Sources
 
-> [`logtalk-3.86.0.tar.bz2`](files/logtalk-3.86.0.tar.bz2)  
-> `2013db1d1a5de405b76d8f790d7a506ab32f7cb3fb7069ab24fb9a87476c9ba0` (SHA-256)
+> [`logtalk-3.87.0.tar.bz2`](files/logtalk-3.87.0.tar.bz2)  
+> `bcf89fd67fce4f2be00a1b111d9bc101190e236d656eee3e3be38e929932613c` (SHA-256)
 
 Includes the HTML and Texinfo versions of the Handbook and the APIs documentation.
 The bundled  [`INSTALL.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/INSTALL.md)
@@ -106,8 +106,8 @@ supported Prolog compilers on `/opt/local/bin`. Creates an
 `/Applications/Logtalk` folder with links to the installed files.
 **Not compatible with macOS 15.x (Sequoia).**
 
-> [`logtalk-3.86.0.pkg.zip`](files/logtalk-3.86.0.pkg.zip)  
-> `251f8925858a3dbeefc64ce313c0785b13eaac3a8fafc3f0a6741f0c57117f43` (SHA-256)
+> [`logtalk-3.87.0.pkg.zip`](files/logtalk-3.87.0.pkg.zip)  
+> `65a87f016de80bc6a2921c81262ea6ad47f9ed28855a69cae765882e86f7053b` (SHA-256)
 
 #### MacPorts
 
@@ -132,13 +132,13 @@ as described in the command output.
 Installs Logtalk on `/usr/local/share` with integration scripts for
 supported Prolog compilers on `/usr/local/bin`.
 
-> [`logtalk-3.86.0-1.noarch.rpm`](files/logtalk-3.86.0-1.noarch.rpm)  
-> `bae337a25bb5e8c24a5b1d1a4442cb806d8f75bb3a333594dc99cafa7ebf0ae8` (SHA-256)
+> [`logtalk-3.87.0-1.noarch.rpm`](files/logtalk-3.87.0-1.noarch.rpm)  
+> `f21c6957bc7127d4ef56fe24fff7fd19b02ea6e91527b9b5afb7584165002013` (SHA-256)
 
 Package installation from the command-line is highly recommended:
 
 ```bash
-$ sudo rpm -i logtalk-3.86.0-1.noarch.rpm
+$ sudo rpm -i logtalk-3.87.0-1.noarch.rpm
 ```
 
 Logout and login after running the installer to activate the default values
@@ -151,13 +151,13 @@ Requires dpkg 1.15.0 or a later version. Installs Logtalk on
 `/usr/share` with integration scripts for supported Prolog compilers on
 `/usr/bin`.
 
-> [`logtalk_3.86.0-1_all.deb`](files/logtalk_3.86.0-1_all.deb)  
-> `35466448564bb16be145104eadad6192b241c50b4d34ecdb1dede7b857a25231` (SHA-256)
+> [`logtalk_3.87.0-1_all.deb`](files/logtalk_3.87.0-1_all.deb)  
+> `bc0d19972e3e692104d6093a041386266320c65c6c2329d1096bbfab8b822331` (SHA-256)
 
 Package installation from the command-line is highly recommended:
 
 ```bash
-$ sudo dpkg -i logtalk_3.86.0-1_all.deb
+$ sudo dpkg -i logtalk_3.87.0-1_all.deb
 ```
 
 Logout and login after running the installer to activate the default values
@@ -175,9 +175,9 @@ documentation. Can be used by both admin and non-admin users.
 [Installation video](https://www.youtube.com/watch?v=YE7ahXZibN4),
 courtesy of [Paul Brown](https://pbrown.me/).
 
-> [`logtalk-3.86.0.exe`](files/logtalk-3.86.0.exe)  
-> `df5c2bdda4d187b7464280058bc8084e768fc4c168078250f0d5b691bd97d157` (SHA-256)  
-> [VirusTotal scan results](https://www.virustotal.com/gui/url/f946902f6cc5f3bd25193d5338254ffb11ebd443fcdde1f1b9c01cdd46358baa)
+> [`logtalk-3.87.0.exe`](files/logtalk-3.87.0.exe)  
+> `bf73a2cd5560a462ab7dab558b2f028ecbb3044c43bfc0a38ba5b1c57910a3ce` (SHA-256)  
+> [VirusTotal scan results](https://www.virustotal.com/gui/url/53ff1f9afa8d6ee8201580e1e3dc83a5e040c12e5d1f27e2131c5aee2616b5bb)
 
 Logtalk is also available as a [Chocolatey package](https://chocolatey.org/packages/logtalk/)
 and can be installed or updated using the `choco install logtalk` and
@@ -213,22 +213,22 @@ followed by `pack_install(logtalk)`. See the pack-specific
 [`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack/logtalk/README.md)
 file for details. Also available as a manual download:
 
-> [`logtalk-3.86.0.tgz`](files/swi-prolog/packs/logtalk-3.86.0.tgz)  
-> `8ce047079b587a24be0fd511e21b6cce81e4c769e8cec47c0a654df090dc1ed3` (SHA-256)
+> [`logtalk-3.87.0.tgz`](files/swi-prolog/packs/logtalk-3.87.0.tgz)  
+> `7ee394b165dd602936e45be8b3504a6d4ac5fd4f0776fb4c01ef78924a9cf70d` (SHA-256)
 
 In this case, change directory to the download directory, start SWI-Prolog,
-and run the query `pack_install('logtalk-3.86.0.tgz').`
+and run the query `pack_install('logtalk-3.87.0.tgz').`
 
 There's also an **experimental** pack that encapsulates de Logtalk
 compiler and runtime in a `logtalk` module. See the pack specific
 [`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack-experimental/logtalk/README.md)
 file for details. This pack is only available as a manual download:
 
-> [`logtalk-experimental-3.86.0.tgz`](files/swi-prolog/packs/logtalk-experimental-3.86.0.tgz)  
-> `6fabd83b6d33dd9b054e7cf2a8d2995f1157566d2a7255cb9af686bc3075626c` (SHA-256)
+> [`logtalk-experimental-3.87.0.tgz`](files/swi-prolog/packs/logtalk-experimental-3.87.0.tgz)  
+> `bc8e0ae71ccb2ac11c09ec05b7f764efe1dd16196e4bce9fda012f1f01fb00d1` (SHA-256)
 
 In this case, change the current directory to the download directory, start SWI-Prolog,
-and run the query `pack_install('logtalk-experimental-3.86.0.tgz').`
+and run the query `pack_install('logtalk-experimental-3.87.0.tgz').`
 
 
 ### Arch Linux package
@@ -243,8 +243,8 @@ Ebrahim Azarisooreh.
 HTML, ePub, PDF, and Texinfo versions of the Handbook (includes a tutorial, the User Manual, the Reference Manual, and the FAQ).
 Note that the HTML and Texinfo versions are **included** in the source and binary packages.
 
-> [`logtalk-manuals-3.86.0.tgz`](files/logtalk-manuals-3.86.0.tgz)  
-> `918b9914075663ad3b33cfc2fb5783a4a80c8773590731da9ef2a7159d7c8102` (SHA-256)
+> [`logtalk-manuals-3.87.0.tgz`](files/logtalk-manuals-3.87.0.tgz)  
+> `0a68d42c402b80da3e5f869fc36d20cfddbb2fcf89c066cce5585afbdaca1b18` (SHA-256)
 
 
 ## Docker images

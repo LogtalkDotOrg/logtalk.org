@@ -56,13 +56,13 @@ p.roffit {
 <p class="level0"><span Class="bold">-v</span> Print script version. </p>
 <p class="level0"><span Class="bold">-p</span> Backend Prolog compiler. Required. The following identifiers are used: B-Prolog - <span Class="emphasis">b</span>, CxProlog - <span Class="emphasis">cx</span>, ECLiPSe - <span Class="emphasis">eclipse</span>, GNU Prolog - <span Class="emphasis">gnu</span>, GNU Prolog (native code) - <span Class="emphasis">gnunc</span>, JIProlog - <span Class="emphasis">ji</span>, XVM - <span Class="emphasis">xvm</span>, SICStus Prolog - <span Class="emphasis">sicstus</span>, SWI-Prolog - <span Class="emphasis">swi</span>, SWI-Prolog with Logtalk pack - <span Class="emphasis">swipack</span>, Tau Prolog - <span Class="emphasis">tau</span>, XSB - <span Class="emphasis">xsb</span>, YAP - <span Class="emphasis">yap</span>. </p>
 <p class="level0"><span Class="bold">-d</span> Directory to store the doclet run logs. Default is the local <span Class="emphasis">./logtalk_doclet_logs</span> directory. </p>
-<p class="level0"><span Class="bold">-t</span> Timeout in seconds for running each doclet. Default is <span Class="emphasis">0</span>; i.e. disabled. </p>
+<p class="level0"><span Class="bold">-t</span> Timeout in seconds for running each doclet. Default is <span Class="emphasis">0</span> (i.e., disabled). </p>
 <p class="level0"><span Class="bold">-s</span> Path prefix to suppress when printing doclet paths. Default is the empty string. </p>
 <p class="level0"><span Class="bold">--</span> Arguments to be passed to the integration script used to run the doclets (no default). </p>
 <p class="level0"><span Class="bold">-h</span> Provide help on script usage. </p><a name="EXIT"></a><h2 class="nroffsh">Exit status</h2>
-<p class="level0"><span Class="bold">0</span> All doclets succeeded and there are no timed out or crashed doclets. </p>
-<p class="level0"><span Class="bold">1</span> Some doclets failed but there are no timed out or crashed doclets. </p>
-<p class="level0"><span Class="bold">3</span> One or more doclets timed out while executing but there are no crashed doclets. </p>
+<p class="level0"><span Class="bold">0</span> All doclets succeeded. There are no timed out or crashed doclets. </p>
+<p class="level0"><span Class="bold">1</span> Some doclets failed. But there are no timed out or crashed doclets. </p>
+<p class="level0"><span Class="bold">3</span> One or more doclets timed out while executing. But there are no crashed doclets. </p>
 <p class="level0"><span Class="bold">7</span> One or more doclets crashed the process running them. </p><a name="IMPLEMENTATION"></a><h2 class="nroffsh">Implementation notes</h2>
 <p class="level0">The <span Class="emphasis">gnunc</span> backend requires creating a GNU Prolog executable that includes Logtalk named <span Class="emphasis">gplgtnc</span> and making it available in the system <span Class="emphasis">PATH</span>. This executable can be created using the embedding script provided in the Logtalk distribution. For example: <span Class="bold">gprolog_embed_logtalk.sh -c -d ~/collect -s none -- --new-top-level &amp;&amp; mv ~/collect/logtalk ~/collect/gplgtnc</span> </p><a name="ENVIRONMENT"></a><h2 class="nroffsh">Environment</h2>
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. </p>

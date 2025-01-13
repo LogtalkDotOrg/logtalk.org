@@ -6,6 +6,17 @@ aside:
   toc: true
 ---
 
+##### January 8
+
+> Logtalk 3.87.0 is now available for [downloading](download.html).
+> This release adds new loaded file properties to the reflection API;
+> updates the documentation on integration scripts and developer tool
+> requirements; removes deprecated tool JScript scripts; fixes a bug
+> in the `lgtenv.ps1` PowerShell script; adds additional tests for
+> the Prolog standard all-solution meta-predicates; and improves the
+> support for VSCode and VSCodium. For details and a complete list
+> of changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ### 2024
 
 ##### December 18

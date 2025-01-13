@@ -37,6 +37,7 @@ LOGTALKHOME=$HOME/lgt3git
 LOGTALKUSER=$HOME/lgt3git
 PATH=$PATH:$LOGTALKHOME/tools/diagrams
 PATH=$PATH:$LOGTALKHOME/tools/lgtdoc/xml
+PATH=$PATH:$LOGTALKHOME/tools/packs
 PATH=$PATH:$LOGTALKHOME/scripts
 PATH=$PATH:$LOGTALKHOME/integration
 MANPATH=$MANPATH:$LOGTALKHOME/man
@@ -51,6 +52,7 @@ LOGTALKHOME=$HOME/lgt3git
 LOGTALKUSER=$HOME/lgt3git
 PATH=$PATH:$LOGTALKHOME/tools/diagrams
 PATH=$PATH:$LOGTALKHOME/tools/lgtdoc/xml
+PATH=$PATH:$LOGTALKHOME/tools/packs
 PATH=$PATH:$LOGTALKHOME/scripts
 PATH=$PATH:$LOGTALKHOME/integration
 MANPATH=$MANPATH:$LOGTALKHOME/man
@@ -65,6 +67,7 @@ setenv LOGTALKHOME "${HOME}"/lgt3git
 setenv LOGTALKUSER "${HOME}"/lgt3git
 setenv PATH "${PATH}":"${LOGTALKHOME}"/tools/diagrams
 setenv PATH "${PATH}":"${LOGTALKHOME}"/tools/lgtdoc/xml
+setenv PATH "${PATH}":"${LOGTALKHOME}"/tools/packs
 setenv PATH "${PATH}":"${LOGTALKHOME}"/scripts
 setenv PATH "${PATH}":"${LOGTALKHOME}"/integration
 setenv MANPATH "${MANPATH}":"${LOGTALKHOME}"/man
