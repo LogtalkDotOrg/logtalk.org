@@ -26,7 +26,7 @@ goals:
 [Programming examples](https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples)
 (described [here](https://github.com/LogtalkDotOrg/logtalk3/blob/master/examples/NOTES.md)).
 
-All examples include a `loader.lgt` file that loads the example and any dependencies, a `NOTES.md` file with a description of the example, and a `SCRIPT.txt` file with sample queries (including how to load the example) for you to try. Most examples also include a `tests.lgt` file with unit tests and a `tester.lgt` loader file to run them. Being programming examples, it is expected that you run them side by side with the source code open in your [favorite editor](https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding) after reading their documentation.
+All examples include a `loader.lgt` file that loads the example and any dependencies, a `NOTES.md` file with a description of the example. Starting with Logtalk 3.88.0, most of the example `NOTES.md` files can be open as a Jupyter notebook. Most examples also include a `tests.lgt` file with unit tests and a `tester.lgt` loader file to run them. Being programming examples, it is expected that you run them side by side with the source code open in your [favorite editor](https://github.com/LogtalkDotOrg/logtalk3/tree/master/coding) after reading their documentation.
 
 [Learning and development tools](tools.html)
 

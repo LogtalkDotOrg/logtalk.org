@@ -6,6 +6,18 @@ aside:
   toc: true
 ---
 
+##### January 29
+
+> Logtalk 3.88.0 is now available for [downloading](download.html).
+> This release improves the developer tools documentation; improves
+> manual installation instructions; includes a fix for the `packs` tool
+> om Apple macOS 15; consolidate the examples `NOTES.md` and `SCRIPT.txt`
+> files into a single `NOTES.md` file; updates the contents of the
+> examples `NOTES.md` files to allow open them as Jupyter notebooks;
+> and improves the Prolog embedding scripts to avoid an error with
+> a large number of application files. For details and a complete list
+> of changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### January 8
 
 > Logtalk 3.87.0 is now available for [downloading](download.html).
