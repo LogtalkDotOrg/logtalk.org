@@ -251,6 +251,31 @@ Note that the HTML and Texinfo versions are **included** in the source and binar
 
 Docker images are [available](https://hub.docker.com/u/logtalk/) using selected backend Prolog compilers and also including Jupyter and the Logtalk kernel.
 
+The [portable Docker image](https://hub.docker.com/r/logtalk/logtalk3-portable) can be used as a [dev container](https://containers.dev).
+An example of a minimal `.devcontainer/devcontainer.json` file using SWI-Prolog as the backend for use with VSCode is:
+
+```json
+{
+    "name": "Logtalk",
+    "image": "logtalk/logtalk3-portable:latest",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "logtalkdotorg.logtalk-extension-pack"
+            ],
+            "settings": {
+                "logtalk.home.path": "/usr/local/share/logtalk",
+                "logtalk.user.path": "/root/logtalk",
+                "logtalk.backend": "swi"
+            }
+         }
+    }
+}
+```
+
+The possible values for the `logtalk.backend` setting are: `b`, `ciao`, `cx`, `eclipse`, `gnu`, `swi`, `trealla`, `xsb`, and `yap`.
+These are the subset of supported backends that are installed in the portable Docker image.
+
 
 ## Jupyter kernel
 

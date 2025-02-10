@@ -527,6 +527,30 @@ Note that the HTML and Texinfo versions are <strong>included</strong> in the sou
 
 <p>Docker images are <a href="https://hub.docker.com/u/logtalk/">available</a> using selected backend Prolog compilers and also including Jupyter and the Logtalk kernel.</p>
 
+<p>The <a href="https://hub.docker.com/r/logtalk/logtalk3-portable">portable Docker image</a> can be used as a <a href="https://containers.dev">dev container</a>.
+An example of a minimal <code class="highlighter-rouge">.devcontainer/devcontainer.json</code> file using SWI-Prolog as the backend for use with VSCode is:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Logtalk"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"logtalk/logtalk3-portable:latest"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"customizations"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"vscode"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"extensions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="s2">"logtalkdotorg.logtalk-extension-pack"</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"settings"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"logtalk.home.path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/local/share/logtalk"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"logtalk.user.path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/root/logtalk"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"logtalk.backend"</span><span class="p">:</span><span class="w"> </span><span class="s2">"swi"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The possible values for the <code class="highlighter-rouge">logtalk.backend</code> setting are: <code class="highlighter-rouge">b</code>, <code class="highlighter-rouge">ciao</code>, <code class="highlighter-rouge">cx</code>, <code class="highlighter-rouge">eclipse</code>, <code class="highlighter-rouge">gnu</code>, <code class="highlighter-rouge">swi</code>, <code class="highlighter-rouge">trealla</code>, <code class="highlighter-rouge">xsb</code>, and <code class="highlighter-rouge">yap</code>.
+These are the subset of supported backends that are installed in the portable Docker image.</p>
+
 <h2 id="jupyter-kernel">Jupyter kernel</h2>
 
 <p>A Jupyter kernel is available from <a href="https://pypi.org/project/logtalk-jupyter-kernel/">PyPI</a>
