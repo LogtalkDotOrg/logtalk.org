@@ -6,6 +6,23 @@ aside:
   toc: true
 ---
 
+##### February 14
+
+> Logtalk 3.89.0 is now available for [downloading](download.html).
+> This release adds new glossary entires; update the developer tools
+> documentation on requirements; improves the `packs` tool handling
+> of failed pack archive downloads; update the `diagrams` tool for the
+> new d2 0.6.9 release; adds a new example, `jupyter`, illustrating
+> how to write source files that can be interpreted as scripts and open
+> as Jupyter notebooks; improves the instructions on how to run the
+> examples documentation as Jupyter notebooks; includes multiple
+> improvements and fixes to examples documentation for a better
+> experience when open as notebooks; includes fixes and improvements
+> for the portable Docker image; improves portability of the embedding
+> and release scripts; and includes examples portability updates for
+> Trealla Prolog and XVM. For details and a complete list of changes,
+> please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### January 29
 
 > Logtalk 3.88.0 is now available for [downloading](download.html).
