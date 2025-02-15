@@ -174,6 +174,7 @@ The [`diagrams`](https://logtalk.org/manuals/devtools/diagrams.html) tool suppor
 
 Linked diagrams with live URLs to code and documentation (click on the nodes, labels, zoom icons, and directory and file names to navigate):
 
+-	[Logtalk `heaps` library diagram](diagrams/heaps/heaps_entity_diagram.svg)
 -	[Logtalk `ports_profiler` object cross-referencing diagram](docs/ports_profiler_object_xref_diagram.svg)
 -   [Logtalk developer `tools` library diagram](library/tools_inheritance_diagram.svg)
 -   [Logtalk developer `tools` directory diagram](diagrams/tools/tools_directory_load_diagram.svg)
