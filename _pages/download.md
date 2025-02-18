@@ -7,7 +7,7 @@ aside:
 ---
 
 **Latest stable version:** 3.89.1  
-**Release date:** February 14, 2025
+**Release date:** February 18, 2025
 
 <a class="github-button" href="https://github.com/sponsors/pmoura" data-icon="octicon-heart" aria-label="Sponsor @pmoura on GitHub">Sponsor</a>
 <a class="github-button" href="https://github.com/LogtalkDotOrg/logtalk3" data-icon="octicon-star" aria-label="Star LogtalkDotOrg/logtalk3 on GitHub">Star</a>
