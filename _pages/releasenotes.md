@@ -4,6 +4,27 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.89.1 - February 18, 2025
+==========================
+
+Installers and installation scripts
+-----------------------------------
+
+* ADDED: The `README.md` file for the portable Docker image to the image
+(available as `~/README.md`).
+
+* UPDATED: The portable Docker image `README.md` file with VSCode and
+VSCodium usage instructions.
+
+* UPDATED: The portable Docker image to provide a SSH server (not running
+by default).
+
+* UPDATED: The portable Docker image to include Tau Prolog 0.3.4.
+
+* UPDATED: The publishing scripts for the Docker images to also push the
+`README.md` files.
+
+
 3.89.0 - February 14, 2025
 ==========================
 

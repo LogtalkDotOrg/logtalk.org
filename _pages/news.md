@@ -6,6 +6,14 @@ aside:
   toc: true
 ---
 
+##### February 18
+
+> Logtalk 3.89.1 is now available for [downloading](download.html).
+> This release adds Tau Prolog 0.3.4 and a SSH server to the portable
+> Docker image and updates its usage instructions for both VSCode and
+> VSCodium. For details and a complete list of changes, please consult
+> the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### February 14
 
 > Logtalk 3.89.0 is now available for [downloading](download.html).
