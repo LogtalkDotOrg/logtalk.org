@@ -55,7 +55,12 @@ p.roffit {
 <p class="level0"><span Class="bold">lgtenv</span> is a Logtalk script for creating packs virtual environments. It works by activating a <span Class="bold">LOGTALKPACKS</span> environment variable when changing the current directory to the directory where the virtual environment was created. To use the virtual environment, start Logtalk from the directory where the virtual environment was created. </p><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
 <p class="level0"><span Class="bold">-d</span> Directory where to create the virtual environment. Absolute path. Default is the current directory. </p>
 <p class="level0"><span Class="bold">-c</span> Create directory if it does not exist. </p>
-<p class="level0"><span Class="bold">-p</span> Packs sub-directory. Relative path. Default is the current directory. </p><a name="REQUIREMENTS"></a><h2 class="nroffsh">Requirements</h2>
+<p class="level0"><span Class="bold">-p</span> Packs sub-directory. Relative path. Default is the current directory. </p><a name="EXIT"></a><h2 class="nroffsh">Exit status</h2>
+<p class="level0"><span Class="bold">0</span> Success. </p>
+<p class="level0"><span Class="bold">1</span> Usage error. </p>
+<p class="level0"><span Class="bold">3</span> Directory not found. </p>
+<p class="level0"><span Class="bold">5</span> Directory not writable. </p>
+<p class="level0"><span Class="bold">7</span> Dependency <span Class="bold">direnv</span> not found. </p><a name="REQUIREMENTS"></a><h2 class="nroffsh">Requirements</h2>
 <p class="level0">Requires <span Class="bold">direnv</span> to be installed (see <a href="https://github.com/direnv/direnv).">https://github.com/direnv/direnv).</a> </p><a name="ENVIRONMENT"></a><h2 class="nroffsh">Environment</h2>
 <p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. </p>
 <p class="level0"><span Class="bold">LOGTALKUSER</span> Specifies the location of the Logtalk user directory. </p><a name="SEE"></a><h2 class="nroffsh">See also</h2>

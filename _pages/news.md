@@ -6,6 +6,18 @@ aside:
   toc: true
 ---
 
+##### March 25
+
+> Logtalk 3.90.0 is now available for [downloading](download.html). This
+> release provides fixes and improvements to the Bash and PowerShell scripts
+> used for backend integration, embedding, tools, Docker images, releases,
+> and installation; adds support for generating single file versions of the
+> Handbook and APIs documentation in LLM friendly Markdown format; adds new
+> predicates to the `random` and `types` libraries; adds new `apache_poi` and
+> `lips` programming examples; and fixes a VSCode code navigation issue with
+> single references to local predicates. For details and a complete list of
+> changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### February 18
 
 > Logtalk 3.89.1 is now available for [downloading](download.html).

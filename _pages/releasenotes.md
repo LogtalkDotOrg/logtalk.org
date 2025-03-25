@@ -4,6 +4,123 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.90.0 - March 25, 2025
+=======================
+
+Prolog adapter and integration files
+------------------------------------
+
+* CHANGED: Moved all common setup code from the Bash shell integration scripts
+to a shared setup script.
+
+* CHANGED: Moved all common setup code from the PowerShell integration scripts
+to a module.
+
+* FIXED: The PowerShell integration scripts were not setting the `LOGTALKUSER`
+environment variable correctly when not defined by the user.
+
+* FIXED: The `gplgt.ps1` PowerShell integration script to run without the GUI.
+
+Documentation
+-------------
+
+* ADDED: Support for generating single file versions of the Handbook and APIs
+documentation in LLM friendly Markdown format.
+
+* IMPROVED: The documentation of the `logtalk_tester.sh` Bash script.
+
+Library
+-------
+
+* ADDED: Predicates `between/4` and `sequence/4-5` to the `float` object in
+the `types` library.
+
+* ADDED: Predicates `softmax/2-3` to the `numberlist` object in the `types`
+library.
+
+* ADDED: Predicates to the `random` library for drawing samples from common
+probability distributions.
+
+Tools
+-----
+
+* CHANGED: Moved all common setup code from the `lgtdoc` tool Bash shell
+scripts to a shared setup script.
+
+* CHANGED: Moved all common setup code from the `lgtdoc` tool PowerShell
+integration scripts to a module.
+
+* CHANGED: The `packs` tool `lgtenv.*` scripts to exit with a specific code
+for each error.
+
+* ADDED: Predicates `write_max_depth/1` and `set_write_max_depth/1` to the
+`debugger` tool.
+
+* IMPROVED: The `logtalk_tester.*` scripts handling of the `-b` and `-u`
+options.
+
+* IMPROVED: The `lgt2svg.*` scripts handling of file paths and checking of the
+d2 and Graphviz commands availability.
+
+* FIXED: The `logtalk_tester.ps1` PowerShell script `xunit_net_v2` format
+option.
+
+* FIXED: The `issue_creator` tool to workaround GitLab creating CI/CD pipelines
+in a detached HEAD state.
+
+* FIXED: The `logtalk_allure_report.ps1` PowerShell script creation of the
+`executor.json` file to wrap the key-value pairs in object syntax.
+
+* FIXED: The `logtalk_doclet.ps1` PowerShell script handling of the prefix and
+timeout options.
+
+* FIXED: The Bash shell scripts to exit with code 1 in case of wrong usage.
+
+Examples
+--------
+
+* ADDED: New `apache_poi` Java example of using the Apache POI library to read
+and write Excel spreadsheets.
+
+* ADDED: New `lips` example of the classical naive list reverse benchmark
+computing million of logical inferences per second.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* ADDED: File `.augmentignore` for improved indexing using Augment Code.
+
+* FIXED: VSCode support to also return single references to local predicates.
+
+Installers and installation scripts
+-----------------------------------
+
+* CHANGED: The `logtalk_user_setup.*` scripts to create a symbolic link to the
+APIs documentation` sub-directory in the `LOGTALKHOME` directory.
+
+* UPDATED: The Windows installation script to also create a symbolic link to
+the `scripts` directory to simplify access to the embedding scripts.
+
+* UPDATED: The distribution cleanup script to account for recently added
+scripts.
+
+* FIXED: The Docker image publishing scripts to use the `--no-cache` option
+to ensure that updated dependencies are pulled.
+
+* FIXED: The `logtalk_user_setup.ps1` PowerShell script handling of the case
+where the values of the `LOGTALKHOME` and `LOGTALKUSER` environment variables
+are the same plus a typo when copying the `scratch` directory.
+
+* FIXED: The `logtalk_user_setup.*` scripts creation of symbolic links to all
+tool scripts in the `LOGTALKHOME` directory.
+
+* FIXED: Typos in the `update_html_versions.ps1` and `update_svg_diagrams.ps1`
+PowerShell scripts handling of the SICStus Prolog backend.
+
+* FIXED: The embedding scripts setting of the `settings_file` flag value to
+`deny`.
+
+
 3.89.1 - February 18, 2025
 ==========================
 
