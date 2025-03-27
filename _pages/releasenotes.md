@@ -4,6 +4,16 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.90.1 - March 27, 2025
+=======================
+
+Tools
+-----
+
+* FIXED: PowerShell script coding patterns that could trigger false positives
+when using some vendors security scanning tools.
+
+
 3.90.0 - March 25, 2025
 =======================
 

@@ -6,6 +6,13 @@ aside:
   toc: true
 ---
 
+##### March 27
+
+> Logtalk 3.90.1 is now available for [downloading](download.html). This
+> release fixes PowerShell script coding patterns that could trigger false
+> positives when using some vendors security scanning tools. For details
+> and a complete list of changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### March 25
 
 > Logtalk 3.90.0 is now available for [downloading](download.html). This
