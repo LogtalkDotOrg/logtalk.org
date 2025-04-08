@@ -6,6 +6,20 @@ aside:
   toc: true
 ---
 
+##### April 8
+
+> Logtalk 3.91.0 is now available for [downloading](download.html). This
+> release provides improved `lgtunit` tool support for flaky tests; fixes
+> for the `lgtunit` tool support for QuickCheck; fixes for the `lgtunit`
+> tool support for TAP and xUnit output formats; improves the `lgtdoc`
+> tool support for reStructuredText output; updates the `lgtdoc` tool
+> handling of reStructuredText template files; updates the developer tools
+> requirements for Ubuntu to avoid requiring the full Texlive installation;
+> updates the Windows installation script to also detect the new SICStus
+> Prolog 4.10.x versions; and includes fixes and improvements to the portable
+> Docker image. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### March 27
 
 > Logtalk 3.90.1 is now available for [downloading](download.html). This
