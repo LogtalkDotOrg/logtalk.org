@@ -4,6 +4,105 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.91.1 - April 15, 2025
+=====================
+
+Tools
+-----
+
+* FIXED: Internal predicate call bug in the `lgtunit` tool `xunit_output`
+object.
+
+Examples
+--------
+
+* FIXED: Only run the `apache_poi` example tests when the required JAR files
+are available.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: The `build_release.sh` script to accept options to customize the
+git clone URL and for selectively turn off the building of each archive and
+installer.
+
+* FIXED: Workaround intermittent portable Docker image build failures when
+installing `tzdata`.
+
+
+3.91.0 - April 8, 2025
+======================
+
+Logtalk compiler and runtime
+----------------------------
+
+* FIXED: The documentation of the `logtalk::expand_library_path/2` predicate
+to clarify that only expands library aliases (atoms) or compound terms in
+library notation.
+
+Library
+-------
+
+* FIXED: Avoid a non-tail recursive predicate linter warning when loading the
+`random` library with the `tail_recursive` set to `warning`.
+
+Tools
+-----
+
+* CHANGED: The `lgtunit` tool messages for passed and skipped tests to also
+include the flaky flag.
+
+* ADDED: Flaky test property/note support to the `lgtunit` tool TAP and xUnit
+output formats.
+
+* IMPROVED: The `lgtdoc` tool no longer replaces the ASCII comma with the
+Unicode fullwidth comma when generating reStructuredText index entries for
+entity names.
+
+* UPDATED: Developer tools requirements for Ubuntu to avoid requiring the
+full Texlive installation.
+
+* FIXED: The `lgtdoc` tool to ignore the `home` and `startup` library names
+when looking for the name of the library when processing directory files.
+
+* FIXED: Renamed the `lgtdoc` tool Sphinx configuration template file to
+`conf.py.jinja` as the still documented `conf.py_t` name is no longer
+recognized by recent Sphinx versions.
+
+* FIXED: Bug in the `lgtunit` tool where the `quick_check/3` test dialect
+would throw an error when using the `pc/1` option.
+
+* FIXED: Bug in the `lgtunit` tool where broken QuickCheck tests would be
+reported as backend bugs.
+
+* FIXED: Regression in the `lgtunit` tool TAP and xUnit output formats where
+failed tests would not be reported.
+
+* FIXED: Missing handling of broken QuickCheck tests in the `lgtunit` tool
+TAP and xUnit output formats.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* UPDATED: VSCode support for the changes to the `lgtunit` tool messages.
+
+Installers and installation scripts
+-----------------------------------
+
+* UPDATED: The Windows installation script to also detect the new SICStus
+Prolog 4.10.x versions.
+
+* UPDATED: The portable Docker image documentation on how to browse Allure
+reports from the host.
+
+* UPDATED: The portable Docker image to also include the `issue_creator`
+tool dependencies `gh` and `glab`.
+
+* FIXED: The portable Docker image Texlive requirements.
+
+* FIXED: The portable Docker image Allure installation.
+
+
 3.90.1 - March 27, 2025
 =======================
 

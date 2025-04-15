@@ -6,6 +6,17 @@ aside:
   toc: true
 ---
 
+##### April 15
+
+> Logtalk 3.91.1 is now available for [downloading](download.html). This
+> release fixes a bug in `lgtunit` tool `xunit_output` object, fixes the
+> `apache_poi` example to only run tests when the required JAR files are
+> available, updates the release script to accept options to customize the
+> git clone URL and for selectively turn off the building of each archive and
+> installer, and provides a workaround for intermittent portable Docker image
+> build failures when installing `tzdata`. For details and a complete list of
+> changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### April 8
 
 > Logtalk 3.91.0 is now available for [downloading](download.html). This

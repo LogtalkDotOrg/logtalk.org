@@ -6,8 +6,8 @@ aside:
   toc: true
 ---
 
-**Latest stable version:** 3.91.0  
-**Release date:** April 8, 2025
+**Latest stable version:** 3.91.1  
+**Release date:** April 15, 2025
 
 <a class="github-button" href="https://github.com/sponsors/pmoura" data-icon="octicon-heart" aria-label="Sponsor @pmoura on GitHub">Sponsor</a>
 <a class="github-button" href="https://github.com/LogtalkDotOrg/logtalk3" data-icon="octicon-star" aria-label="Star LogtalkDotOrg/logtalk3 on GitHub">Star</a>
@@ -77,8 +77,8 @@ feed](https://github.com/LogtalkDotOrg/logtalk3/commits/master.atom).
 
 ## Sources
 
-> [`logtalk-3.91.0.tar.bz2`](files/logtalk-3.91.0.tar.bz2)  
-> `82f2e67a0921aa39b0255086227b4bdd0b933c14110619a3ee3d25f97fae4c99` (SHA-256)
+> [`logtalk-3.91.1.tar.bz2`](files/logtalk-3.91.1.tar.bz2)  
+> `17fcfd52ab40cba605e82d6bd167a2eab3e5927cc6b5b16f55e4c6149e5c7a44` (SHA-256)
 
 Includes the HTML and Texinfo versions of the Handbook and the APIs documentation.
 The bundled  [`INSTALL.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/INSTALL.md)
@@ -106,8 +106,8 @@ supported Prolog compilers on `/opt/local/bin`. Creates an
 `/Applications/Logtalk` folder with links to the installed files.
 **Not compatible with macOS 15.x (Sequoia).**
 
-> [`logtalk-3.91.0.pkg.zip`](files/logtalk-3.91.0.pkg.zip)  
-> `6fdf039e9d0e14b0ecb1a0a62891c8977beadb9e6dcd9d2d546d7d6509b7b60d` (SHA-256)
+> [`logtalk-3.91.1.pkg.zip`](files/logtalk-3.91.1.pkg.zip)  
+> `bb3a3be42815e3b6541749bee82aa21bbdffdbf3dfe0db24a87219b050901d2d` (SHA-256)
 
 #### MacPorts
 
@@ -132,13 +132,13 @@ as described in the command output.
 Installs Logtalk on `/usr/local/share` with integration scripts for
 supported Prolog compilers on `/usr/local/bin`.
 
-> [`logtalk-3.91.0-1.noarch.rpm`](files/logtalk-3.91.0-1.noarch.rpm)  
-> `58c9a3f121e7600ae754ad05155fa1b1ab54054bb9eb88b4b718981c6cb2289a` (SHA-256)
+> [`logtalk-3.91.1-1.noarch.rpm`](files/logtalk-3.91.1-1.noarch.rpm)  
+> `51863de2d94252c0992b3c1ae6efde9fb54cbcf47a017a71f13ae2014bdb1b7a` (SHA-256)
 
 Package installation from the command-line is highly recommended:
 
 ```bash
-$ sudo rpm -i logtalk-3.91.0-1.noarch.rpm
+$ sudo rpm -i logtalk-3.91.1-1.noarch.rpm
 ```
 
 Logout and login after running the installer to activate the default values
@@ -151,13 +151,13 @@ Requires dpkg 1.15.0 or a later version. Installs Logtalk on
 `/usr/share` with integration scripts for supported Prolog compilers on
 `/usr/bin`.
 
-> [`logtalk_3.91.0-1_all.deb`](files/logtalk_3.91.0-1_all.deb)  
-> `f7a6af28d50778bf6cff217c4792869549bf7cf8b735feb5c2e6a06ec1ebdb21` (SHA-256)
+> [`logtalk_3.91.1-1_all.deb`](files/logtalk_3.91.1-1_all.deb)  
+> `2f5796ae18db19024cbc6ca5a2af23f1319919df83d0b0afc82eb86ec88cb19a` (SHA-256)
 
 Package installation from the command-line is highly recommended:
 
 ```bash
-$ sudo dpkg -i logtalk_3.91.0-1_all.deb
+$ sudo dpkg -i logtalk_3.91.1-1_all.deb
 ```
 
 Logout and login after running the installer to activate the default values
@@ -175,9 +175,9 @@ documentation. Can be used by both admin and non-admin users.
 [Installation video](https://www.youtube.com/watch?v=YE7ahXZibN4),
 courtesy of [Paul Brown](https://pbrown.me/).
 
-> [`logtalk-3.91.0.exe`](files/logtalk-3.91.0.exe)  
-> `ddf12dff8ae80e91e4d29c7077f178986d49a4314495e1e885de6f464638b688` (SHA-256)  
-> [VirusTotal scan results](https://www.virustotal.com/gui/url/a2c3641f1d029dfd01f00db2c886d933b558e6bfdea7eb113a759e247da3c44f)
+> [`logtalk-3.91.1.exe`](files/logtalk-3.91.1.exe)  
+> `b5de5113fde3902254ed6e06827ce047a0b09a3796ee808659b25bf164b81824` (SHA-256)  
+> [VirusTotal scan results](https://www.virustotal.com/gui/url/8b859ddff0edb2f16dc19d4081df2819f178755af5207b411424888ca8365675)
 
 Logtalk is also available as a [Chocolatey package](https://chocolatey.org/packages/logtalk/)
 and can be installed or updated using the `choco install logtalk` and
@@ -213,22 +213,22 @@ followed by `pack_install(logtalk)`. See the pack-specific
 [`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack/logtalk/README.md)
 file for details. Also available as a manual download:
 
-> [`logtalk-3.91.0.tgz`](files/swi-prolog/packs/logtalk-3.91.0.tgz)  
-> `e17e2429fb748d33dc961a8967d91168b588562d0b0998d12fdc48f188da3b4c` (SHA-256)
+> [`logtalk-3.91.1.tgz`](files/swi-prolog/packs/logtalk-3.91.1.tgz)  
+> `d275e0f644b5a779f264cd1c2dbef022ce19d709c5682f94e5963d497c731055` (SHA-256)
 
 In this case, change directory to the download directory, start SWI-Prolog,
-and run the query `pack_install('logtalk-3.91.0.tgz').`
+and run the query `pack_install('logtalk-3.91.1.tgz').`
 
 There's also an **experimental** pack that encapsulates de Logtalk
 compiler and runtime in a `logtalk` module. See the pack specific
 [`README.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/pack-experimental/logtalk/README.md)
 file for details. This pack is only available as a manual download:
 
-> [`logtalk-experimental-3.91.0.tgz`](files/swi-prolog/packs/logtalk-experimental-3.91.0.tgz)  
-> `5d930ef64c20b0ff91bb8fc08773971c2c3fbde5e35391d79510f78888706b96` (SHA-256)
+> [`logtalk-experimental-3.91.1.tgz`](files/swi-prolog/packs/logtalk-experimental-3.91.1.tgz)  
+> `32c83b52a1080234d9af1cd4bac38308897325eea895509a0996697c8438ff5f` (SHA-256)
 
 In this case, change the current directory to the download directory, start SWI-Prolog,
-and run the query `pack_install('logtalk-experimental-3.91.0.tgz').`
+and run the query `pack_install('logtalk-experimental-3.91.1.tgz').`
 
 
 ### Arch Linux package
@@ -243,8 +243,8 @@ Ebrahim Azarisooreh.
 HTML, ePub, PDF, and Texinfo versions of the Handbook (includes a tutorial, the User Manual, the Reference Manual, and the FAQ).
 Note that the HTML and Texinfo versions are **included** in the source and binary packages.
 
-> [`logtalk-manuals-3.91.0.tgz`](files/logtalk-manuals-3.91.0.tgz)  
-> `d183b13cd8281336c22d515723eef19245b3c61fcb28c44b649f5d76acb0be21` (SHA-256)
+> [`logtalk-manuals-3.91.1.tgz`](files/logtalk-manuals-3.91.1.tgz)  
+> `c5941d6d29fd33ec8df918704350870cecaea7e95718bb49acda47f7f5c1304c` (SHA-256)
 
 
 ## Docker images
