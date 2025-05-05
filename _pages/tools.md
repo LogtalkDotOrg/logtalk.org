@@ -386,7 +386,11 @@ GitHub actions and workflows are [available](https://github.com/logtalk-actions)
 
 ## Project scaffolding
 
-The following tools are not part of the Logtalk distribution but are kindly contributed by Logtalk users:
+The following tools are not part of the Logtalk distribution but are readily available:
+
+### Logtalk for VScode
+
+The [Logtalk for VScode](https://marketplace.visualstudio.com/items?itemName=LogtalkDotOrg.logtalk-for-vscode) extension provides a "Create Project" command that prompts the user for a directory where to create a new project and populates that directory with `loader.lgt`, `tests.lgt`, `tester.lgt`, and `settings.lgt` files plus `.gitingore` and `.editorconfig` files.
 
 ### Cookiecutter Logtalk
 

@@ -274,7 +274,7 @@ An example of a minimal `.devcontainer/devcontainer.json` file using SWI-Prolog 
 }
 ```
 
-The possible values for the `logtalk.backend` setting are: `b`, `ciao`, `cx`, `eclipse`, `gnu`, `swi`, `trealla`, `xsb`, and `yap`.
+The possible values for the `logtalk.backend` setting are: `b`, `ciao`, `cx`, `eclipse`, `gnu`, `swi`, `tau`, `trealla`, `xsb`, and `yap`.
 These are the subset of supported backends that are installed in the portable Docker image.
 
 
