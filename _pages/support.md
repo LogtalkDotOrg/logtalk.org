@@ -13,7 +13,7 @@ and [chat room](https://app.gitter.im/#/room/#LogtalkDotOrg_logtalk3:gitter.im) 
 Contributors to these forums are expected to comply with the
 [code of conduct](https://github.com/LogtalkDotOrg/logtalk3/blob/master/CODE_OF_CONDUCT.md).
 
-Private support (including by e-mail) is only available for sponsors and users with a support contract.
+Private support (including by e-mail) is only available for [sponsors](https://github.com/sponsors/pmoura) and users with a [support contract](support_contracts.html).
 
 ## Research projects
 
