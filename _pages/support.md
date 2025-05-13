@@ -8,10 +8,12 @@ aside:
 
 ## Community
 
-Public and community-supported [discussion forums](https://github.com/LogtalkDotOrg/logtalk3/discussions) (the old discussion forums are still [available](https://forums.logtalk.org/))
+Public and community-supported [discussion forums](https://github.com/LogtalkDotOrg/logtalk3/discussions)
 and [chat room](https://app.gitter.im/#/room/#LogtalkDotOrg_logtalk3:gitter.im) are available.
 Contributors to these forums are expected to comply with the
 [code of conduct](https://github.com/LogtalkDotOrg/logtalk3/blob/master/CODE_OF_CONDUCT.md).
+
+Private support (including by e-mail) is only available for sponsors and users with a support contract.
 
 ## Research projects
 
