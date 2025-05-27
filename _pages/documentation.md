@@ -286,7 +286,9 @@ Virtual environment scripts:
 Publications on research and applications using Logtalk:
 
 -	[Visualizing CHC Verification Conditions for Smart Contracts Auditing](https://ceur-ws.org/Vol-3733/)
-	Di Ianni, Marco and Fioravanti, Fabio and Matricardi, Giulia. Italian Conference on Computational Logic. June 2024.	
+	Di Ianni, Marco and Fioravanti, Fabio and Matricardi, Giulia. Italian Conference on Computational Logic. June 2024.
+-	[Technologies of semantic web as an environment of application development and integration](https://dx.doi.org/10.25743/ICT.2023.28.1.009).
+	E. A. Cherkashin. Computational Technologies, 2023, vol. 28, no. 1, pp. 81–91.
 -   [Ontology-Supported Scaffolding for System Safety Analysis](https://etheses.whiterose.ac.uk/31412/)
     Paul Brown. PhD thesis. November 2022.
 -   [Intelligent Decision Support for Cybersecurity Incident Response Teams: Autonomic Architecture and Mitigation Search](https://www.crisis-2021.com/agenda/)
@@ -305,7 +307,7 @@ Publications on research and applications using Logtalk:
     Paul S. Brown, Anthony G. Cohn, Glen Hart, Vania Dimitrova.
     Artificial Intelligence in Education. AIED 2020. Lecture Notes in Computer Science, vol 12164. Springer, Cham.
     June 2020
--   [Representation of MDA Transformation with Logical Objects](http://dx.doi.org/10.1109/SIBIRCON48586.2019.8958008).
+-   [Representation of MDA Transformation with Logical Objects](https://dx.doi.org/10.1109/SIBIRCON48586.2019.8958008).
     E.Cherkashin, A.Shigarov, V.Paramonov.
     International Multi-Conference on Engineering, Computer and Information Sciences (SIBIRCON).
     October 2019
