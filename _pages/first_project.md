@@ -6,7 +6,7 @@ aside:
   toc: true
 ---
 
-Ready to start your first Logtalk project? Follow these simple steps and suggestions for smooth sailing. Additional, detailed advice can be found in the Logtalk [Handbook](https://logtalk.org/manuals/userman/programming.html).
+Ready to start your first Logtalk project? Follow these simple steps and suggestions for smooth sailing. Additional, detailed advice can be found in the Logtalk [Handbook](https://logtalk.org/handbook/userman/programming.html).
 
 
 ## Basic setup

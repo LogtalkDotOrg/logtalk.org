@@ -132,7 +132,7 @@ An example session, using the [`planets`](https://github.com/LogtalkDotOrg/logta
 true.
 ```
 In the context of the top-level interpreter, the `{}/1` goal is just a handy shortcut for
-the [`logtalk_load/1`](https://logtalk.org/manuals/refman/predicates/logtalk_load_1.html)
+the [`logtalk_load/1`](https://logtalk.org/handbook/refman/predicates/logtalk_load_1.html)
 predicate. The argument uses _library notation_ to specify the file to load: `planets` is
 the library name (an alias to a directory of source files), and `loader` is the
 file name (with the extension omitted).
@@ -163,7 +163,7 @@ How did Logtalk arrive at this solution? Let's recompile the example in _debug_ 
 true.
 ```
 
-The `{+d}` goal is a top-level shortcut for the [`logtalk_make/1`](https://logtalk.org/manuals/refman/predicates/logtalk_make_1.html)
+The `{+d}` goal is a top-level shortcut for the [`logtalk_make/1`](https://logtalk.org/handbook/refman/predicates/logtalk_make_1.html)
 predicate that recompiles loaded files in debug mode.
 
 We also need to load the debugger (hint: you can load the debugger and other tools automatically at startup by defining a default [settings file](https://github.com/LogtalkDotOrg/logtalk3/tree/master/settings-sample.lgt)):
@@ -218,7 +218,7 @@ true.
 W2 = 14.88304.
 ```
 
-The debugger supports several handy options. Type `h` or `?` at its prompt for inline help. Consult the user manual section on [debugging](https://logtalk.org/manuals/userman/debugging.html) for further information.
+The debugger supports several handy options. Type `h` or `?` at its prompt for inline help. Consult the user manual section on [debugging](https://logtalk.org/handbook/userman/debugging.html) for further information.
 
 To terminate the debugging session, you can turn off the debugger and recompile the files in normal (or optimized) mode:
 

@@ -139,7 +139,7 @@ General
 > the Prolog community. Nevertheless, the Logtalk compiler is able to
 > compile simple modules (using a common subset of module directives) as
 > objects for backward-compatibility with existing code (see the [Prolog
-> integration and migration guide](manuals/userman/migration.html) for
+> integration and migration guide](handbook/userman/migration.html) for
 > details).
 
 > []{#general-4}*Does the Logtalk implementation use term-expansion?*
@@ -172,7 +172,7 @@ Compatibility
 > control construct `{}/1` that allows bypassing of the Logtalk compiler
 > when compiling a predicate call). Logtalk also allows modules to be
 > compiled as objects (see the [Prolog integration and migration
-> guide](manuals/userman/migration.html) for details).
+> guide](handbook/userman/migration.html) for details).
 
 ::: {.subtopictitle}
 Installation

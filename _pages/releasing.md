@@ -20,7 +20,7 @@ This script performs a git clone and builds the sources archive, the manuals arc
 
 ## Distribution files
 
-The `BIBLIOGRAPHY.bib`, `CITATION.cff`, `VERSION.txt` should be updated just before the new release is tagged. Same for the `core/core.pl` file, where the `'$lgt_version_data'/1` predicate definiton should have the status changed to `stable`. Any status version, e.g., `b04`, should also be removed from the `docs/sources/_conf.py` and `manuals/sources/conf.py` files. The `scripts/debian/changelog` file should be changed to reflect the release date and release week day.
+The `BIBLIOGRAPHY.bib`, `CITATION.cff`, `VERSION.txt` should be updated just before the new release is tagged. Same for the `core/core.pl` file, where the `'$lgt_version_data'/1` predicate definiton should have the status changed to `stable`. Any status version, e.g., `b04`, should also be removed from the `docs/apis/sources/_conf.py` and `docs/handbook/sources/conf.py` files. The `scripts/debian/changelog` file should be changed to reflect the release date and release week day.
 
 ## Windows installer
 
@@ -38,7 +38,7 @@ release in case some installer issue is found.
 The HTML and SVG versions of the Handbook and the API documentation are usually kept
 up-to-date using the scripts:
 
-- [https://github.com/LogtalkDotOrg/logtalk3/blob/master/manuals/sources/build_manuals.sh](https://github.com/LogtalkDotOrg/logtalk3/blob/master/manuals/sources/build_manuals.sh)
+- [https://github.com/LogtalkDotOrg/logtalk3/blob/master/handbook/sources/build_manuals.sh](https://github.com/LogtalkDotOrg/logtalk3/blob/master/handbook/sources/build_manuals.sh)
 - [https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_html_docs.sh](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_html_docs.sh)
 - [https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh](https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh)
 
@@ -53,7 +53,7 @@ $ sudo pip install --upgrade sphinx_rtd_theme
 
 It may also be necessary to patch the Pygments installation with the latest version of syntax highlighting support files from the `coding/pygments` directory.
 
-Before running the documentation scripts, the version data in the `manuals/sources/conf.py` and `docs/sources/_conf.py` files must be updated.
+Before running the documentation scripts, the version data in the `docs/handbook/sources/conf.py` and `docs/apis/sources/_conf.py` files must be updated.
 
 ## Docker stable image
 

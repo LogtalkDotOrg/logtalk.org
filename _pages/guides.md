@@ -13,11 +13,11 @@ aside:
 	-	[Logtalk parametric objects](https://logtalk.org/learning/logtalk_parametric_objects.pdf) (PDF)
 -   [Quick start](https://github.com/LogtalkDotOrg/logtalk3/blob/master/QUICK_START.md)
 -   [Tutorials](documentation.html#tutorials)
--   [Glossary](https://logtalk.org/manuals/glossary.html)
+-   [Glossary](https://logtalk.org/handbook/glossary.html)
 -   [Learning by examples](learning.html)
 -   [Your first project](first_project.html)
 -   [Classical symbolic AI examples](symbolic_ai_examples.html)
--   [Comparison with other OOP languages](https://logtalk.org/manuals/userman/nomenclature.html)
+-   [Comparison with other OOP languages](https://logtalk.org/handbook/userman/nomenclature.html)
 -   [Logtalking YouTube channel](https://www.youtube.com/channel/UCh0BiDU6xZUCGq66HylvXNg)
 
 

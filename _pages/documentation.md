@@ -11,7 +11,7 @@ aside:
 -   Learn X in Y minutes Where X=Logtalk (recommended starting point for new users for a quick overview):
     - [English](https://learnxinyminutes.com/docs/logtalk/)
     - [Italian](https://learnxinyminutes.com/docs/it-it/logtalk-it/)
--   [Handbook tutorial](manuals/tutorial/index.html)
+-   [Handbook tutorial](handbook/tutorial/index.html)
 -   [Logtalking YouTube channel](https://www.youtube.com/channel/UCh0BiDU6xZUCGq66HylvXNg)
 
 
@@ -24,11 +24,11 @@ aside:
 
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
--   [HTML version](manuals/index.html) @ the Logtalk website (stable)
--   [PDF version](manuals/TheLogtalkHandbook-3.91.1.pdf) (stable)
--   [ePub version](manuals/TheLogtalkHandbook-3.91.1.epub) (stable)
--   [Texinfo version](manuals/TheLogtalkHandbook-3.91.1.info) (stable; experimental)
--   [Markdown version](manuals/TheLogtalkHandbook-3.91.1.md) (stable; for AI coding tools indexing and RAG)
+-   [HTML version](handbook/index.html) @ the Logtalk website (stable)
+-   [PDF version](handbook/TheLogtalkHandbook-3.92.0.pdf) (stable)
+-   [ePub version](handbook/TheLogtalkHandbook-3.92.0.epub) (stable)
+-   [Texinfo version](handbook/TheLogtalkHandbook-3.92.0.info) (stable; experimental)
+-   [Markdown version](handbook/TheLogtalkHandbook-3.92.0.md) (stable; for AI coding tools indexing and RAG)
 
 <!-- -->
 
@@ -39,20 +39,20 @@ The Handbook includes the user manual, reference manual, glossary, FAQ, plus lib
 
 Core, library, tools, ports, and contributions API documentation (automatically generated from source code).
 
--   [HTML API documentation](library/index.html) (stable)
+-   [HTML API documentation](apis/index.html) (stable)
 -   SVG diagrams (stable)
-    -   [Core](library/core_inheritance_diagram.svg)
-    -   [Library](library/library_inheritance_diagram.svg)
-    -   [Tools](library/tools_inheritance_diagram.svg)
-    -   [Ports](library/ports_inheritance_diagram.svg)
-    -   [Contributions](library/contributions_inheritance_diagram.svg)
+    -   [Core](apis/core_inheritance_diagram.svg)
+    -   [Library](apis/library_inheritance_diagram.svg)
+    -   [Tools](apis/tools_inheritance_diagram.svg)
+    -   [Ports](apis/ports_inheritance_diagram.svg)
+    -   [Contributions](apis/contributions_inheritance_diagram.svg)
 
 <!-- -->
 
--   [PDF version](docs/LogtalkAPIs-3.91.1.pdf) (stable; experimental)
--   [ePub version](docs/LogtalkAPIs-3.91.1.epub) (stable; experimental)
--   [Texinfo version](docs/LogtalkAPIs-3.91.1.info) (stable; experimental)
--   [Markdown version](docs/LogtalkAPIs-3.91.1.md) (stable; for AI coding tools indexing and RAG)
+-   [PDF version](apis/LogtalkAPIs-3.92.0.pdf) (stable; experimental)
+-   [ePub version](apis/LogtalkAPIs-3.92.0.epub) (stable; experimental)
+-   [Texinfo version](apis/LogtalkAPIs-3.92.0.info) (stable; experimental)
+-   [Markdown version](apis/LogtalkAPIs-3.92.0.md) (stable; for AI coding tools indexing and RAG)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.

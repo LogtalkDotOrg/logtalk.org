@@ -274,4 +274,4 @@ Logtalk (and Prolog) define top-level interpreter shortcuts for loading source f
 Entity and predicate documentation
 ----------------------------------
 
-The [Logtalk Handbook](https://logtalk.org/manuals/index.html) includes a section on [documenting](https://logtalk.org/manuals/userman/documenting.html) applications. See also the Handbook section on [declaring predicates](https://logtalk.org/manuals/userman/predicates.html#declaring-predicates), notably the sub-section on the [`mode/2`](https://logtalk.org/manuals/userman/predicates.html#mode-directive) directive.
+The [Logtalk Handbook](https://logtalk.org/handbook/index.html) includes a section on [documenting](https://logtalk.org/handbook/userman/documenting.html) applications. See also the Handbook section on [declaring predicates](https://logtalk.org/handbook/userman/predicates.html#declaring-predicates), notably the sub-section on the [`mode/2`](https://logtalk.org/handbook/userman/predicates.html#mode-directive) directive.

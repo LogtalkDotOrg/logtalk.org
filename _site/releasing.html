@@ -289,7 +289,7 @@ file in the directory for details. The main release script is:</p>
 
 <h2 id="distribution-files">Distribution files</h2>
 
-<p>The <code class="highlighter-rouge">BIBLIOGRAPHY.bib</code>, <code class="highlighter-rouge">CITATION.cff</code>, <code class="highlighter-rouge">VERSION.txt</code> should be updated just before the new release is tagged. Same for the <code class="highlighter-rouge">core/core.pl</code> file, where the <code class="highlighter-rouge">'$lgt_version_data'/1</code> predicate definiton should have the status changed to <code class="highlighter-rouge">stable</code>. Any status version, e.g., <code class="highlighter-rouge">b04</code>, should also be removed from the <code class="highlighter-rouge">docs/sources/_conf.py</code> and <code class="highlighter-rouge">manuals/sources/conf.py</code> files. The <code class="highlighter-rouge">scripts/debian/changelog</code> file should be changed to reflect the release date and release week day.</p>
+<p>The <code class="highlighter-rouge">BIBLIOGRAPHY.bib</code>, <code class="highlighter-rouge">CITATION.cff</code>, <code class="highlighter-rouge">VERSION.txt</code> should be updated just before the new release is tagged. Same for the <code class="highlighter-rouge">core/core.pl</code> file, where the <code class="highlighter-rouge">'$lgt_version_data'/1</code> predicate definiton should have the status changed to <code class="highlighter-rouge">stable</code>. Any status version, e.g., <code class="highlighter-rouge">b04</code>, should also be removed from the <code class="highlighter-rouge">docs/apis/sources/_conf.py</code> and <code class="highlighter-rouge">docs/handbook/sources/conf.py</code> files. The <code class="highlighter-rouge">scripts/debian/changelog</code> file should be changed to reflect the release date and release week day.</p>
 
 <h2 id="windows-installer">Windows installer</h2>
 
@@ -308,7 +308,7 @@ release in case some installer issue is found.</p>
 up-to-date using the scripts:</p>
 
 <ul>
-  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/manuals/sources/build_manuals.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/manuals/sources/build_manuals.sh</a></li>
+  <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/handbook/sources/build_manuals.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/handbook/sources/build_manuals.sh</a></li>
   <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_html_docs.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_html_docs.sh</a></li>
   <li><a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh">https://github.com/LogtalkDotOrg/logtalk3/blob/master/scripts/update_svg_diagrams.sh</a></li>
 </ul>
@@ -323,7 +323,7 @@ up-to-date using the scripts:</p>
 
 <p>It may also be necessary to patch the Pygments installation with the latest version of syntax highlighting support files from the <code class="highlighter-rouge">coding/pygments</code> directory.</p>
 
-<p>Before running the documentation scripts, the version data in the <code class="highlighter-rouge">manuals/sources/conf.py</code> and <code class="highlighter-rouge">docs/sources/_conf.py</code> files must be updated.</p>
+<p>Before running the documentation scripts, the version data in the <code class="highlighter-rouge">docs/handbook/sources/conf.py</code> and <code class="highlighter-rouge">docs/apis/sources/_conf.py</code> files must be updated.</p>
 
 <h2 id="docker-stable-image">Docker stable image</h2>
 

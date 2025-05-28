@@ -289,7 +289,7 @@
 
 <p>These fundamental characteristics make module systems relatively simple to implement but also effectively prevent extending them to provide several key features present in Logtalk, some of them described here, that support a wide range of code encapsulation and reuse scenarios typically found in applications. Notably, Logtalk enables simple implementations of <a href="https://github.com/LogtalkDotOrg/logtalk3/tree/master/examples/design_patterns">common design patterns</a> that are cumbersome at best using Prolog modules.</p>
 
-<p>Logtalk also fixes some murky predicate semantics found in Prolog, improves some of its key mechanisms, and provides unique <a href="https://logtalk.org/manuals/libraries/index.html">libraries</a>. Note that all advantages described next <em>coexist</em> with Prolog. I.e., Logtalk acts strictly as an <em>add-on</em>. It does not patch or modify Prolog’s own built-in features.</p>
+<p>Logtalk also fixes some murky predicate semantics found in Prolog, improves some of its key mechanisms, and provides unique <a href="https://logtalk.org/handbook/libraries/index.html">libraries</a>. Note that all advantages described next <em>coexist</em> with Prolog. I.e., Logtalk acts strictly as an <em>add-on</em>. It does not patch or modify Prolog’s own built-in features.</p>
 
 <h3 id="protocols-interfaces">Protocols (interfaces)</h3>
 
@@ -374,7 +374,7 @@
 
 <h3 id="portability">Portability</h3>
 
-<p>Logtalk is written in highly portable code and currently supports <a href="download.html#requirements">14 backend Prolog systems</a>. It can support any Prolog system that complies with both official and de facto core standards and is independent of the presence or absence of a module system. Logtalk <a href="https://logtalk.org/manuals/libraries/index.html">libraries</a> and <a href="tools.html">developer tools</a> are also portable. Portability contributes to robustness (by allowing testing with a larger number of Prolog systems) and risk mitigation (by facilitating switching between Prolog systems).</p>
+<p>Logtalk is written in highly portable code and currently supports <a href="download.html#requirements">14 backend Prolog systems</a>. It can support any Prolog system that complies with both official and de facto core standards and is independent of the presence or absence of a module system. Logtalk <a href="https://logtalk.org/handbook/libraries/index.html">libraries</a> and <a href="tools.html">developer tools</a> are also portable. Portability contributes to robustness (by allowing testing with a larger number of Prolog systems) and risk mitigation (by facilitating switching between Prolog systems).</p>
 
 <p>In contrast, the ISO Prolog standard for modules is ignored (for sound reasons) by Prolog implementers. Worse, Prolog systems implementing a module system have significant differences that hinder portability. A few examples:</p>
 
@@ -399,11 +399,11 @@
 <p>Logtalk provides <strong>fully portable</strong> implementations of key mechanisms to all supported backend Prolog compilers. These include:</p>
 
 <ul>
-  <li><a href="https://logtalk.org/manuals/refman/directives/conditional_compilation_directives.html">Conditional compilation</a></li>
-  <li><a href="https://logtalk.org/manuals/userman/expansion.html">Term-expansion</a></li>
-  <li><a href="https://logtalk.org/manuals/userman/printing.html">Message printing</a></li>
-  <li><a href="https://logtalk.org/manuals/userman/printing.html#asking-questions">Question asking</a></li>
-  <li><a href="https://logtalk.org/manuals/userman/reflection.html">Reflection</a></li>
+  <li><a href="https://logtalk.org/handbook/refman/directives/conditional_compilation_directives.html">Conditional compilation</a></li>
+  <li><a href="https://logtalk.org/handbook/userman/expansion.html">Term-expansion</a></li>
+  <li><a href="https://logtalk.org/handbook/userman/printing.html">Message printing</a></li>
+  <li><a href="https://logtalk.org/handbook/userman/printing.html#asking-questions">Question asking</a></li>
+  <li><a href="https://logtalk.org/handbook/userman/reflection.html">Reflection</a></li>
 </ul>
 
 <p>Conditional compilation directives are found nowadays in most Prolog systems, although some implementations are buggy, including in some high-profile systems, if you need more than the very basic usage.</p>

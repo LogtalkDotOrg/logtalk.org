@@ -6,6 +6,25 @@ aside:
   toc: true
 ---
 
+##### May 28
+
+> Logtalk 3.92.0 is now available for [downloading](download.html). This
+> release fixes bugs in the implementation of the `asserta/1-2` and
+> `clause/2` built-in methods; consolidates Handbook, APIs documentation,
+> and man pages in a `docs` directory; adds new glossary entries to the
+> Handbook; improves Handbook documentation on performance and on writing
+> multi-threading applications; improves the `lgtunit` tool documentation
+> on timing tests; adds a new `json_lines` library implementing the JSON
+> Lines standard proposal; provides improved `packs` tool support for
+> experimental and deprecated packs; updates the `packs` tool `update/2-3`
+> predicates to allow restricting the required status for pack updates;
+> improves several examples, notably the multi-threading examples; updates
+> the release build script to include the APIs documentation in the manuals
+> archive; updates the portable Docker image to include the JAR files
+> required by the Java examples; and includes examples portability updates
+> for SWI-Prolog, Trealla Prolog, and XVM. For details and a complete list of
+> changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### April 15
 
 > Logtalk 3.91.1 is now available for [downloading](download.html). This
