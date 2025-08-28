@@ -6,6 +6,20 @@ aside:
   toc: true
 ---
 
+##### August 28
+
+> Logtalk 3.93.0 is now available for [downloading](download.html). This
+> release adds support for declaring synchronized predicates in calls to
+> the `create_object/4` and `create_category/4` built-in predicates;
+> improves the `sets` library; improves the `debugger` tool; fixes a
+> `packs` tool issue when restoring pack environments; updates the
+> testing automation script to also report the operating-system version;
+> adds additional tests for the Prolog standard `atom_concat/3` predicate;
+> adds CodeMirror 6.x support; improves TextMate 2.x and Vim support for
+> automatic indentation; and includes fixes and improvements for VSCode
+> support. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### May 28
 
 > Logtalk 3.92.0 is now available for [downloading](download.html). This
