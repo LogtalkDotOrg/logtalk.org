@@ -6,6 +6,21 @@ aside:
   toc: true
 ---
 
+##### September 30
+
+> Logtalk 3.94.0 is now available for [downloading](download.html). This
+> release adds support for the object and category `references/2` property
+> for querying entity references not covered by other properties; adds a
+> linter warning for entity parameter variables not in parameter variable
+> syntax; updates the `lgtunit` tool code coverage linter warnings for
+> better integration with IDEs; adds support for creating entity specific
+> predicate breakpoints to the `debugger` tool; fixes some usability issues
+> in the `debugger` tool; updates the preliminary `diagrams` tool support
+> for Mermaid; adds additional tests for Logtalk built-in predicates; and
+> includes updates and fixes for the VSCode support. For details and a
+> complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### August 28
 
 > Logtalk 3.93.0 is now available for [downloading](download.html). This

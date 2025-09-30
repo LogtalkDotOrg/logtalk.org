@@ -4,6 +4,79 @@ permalink: releasenotes.html
 title: Release Notes
 ---
 
+3.94.0 - September 30, 2025
+===========================
+
+Logtalk compiler and runtime
+----------------------------
+
+* ADDED: Object and category `references/2` property for querying entity
+references in calls to the execution-context built-in methods and in
+directives for multifile predicates/non-terminals not covered by other
+properties.
+
+* ADDED: Linter warning for entity parameter variables not in parameter
+variable syntax. Controlled by the `naming` linter flag.
+
+Documentation
+-------------
+
+* FIXED: Incomplete documentation of the `discontiguous/1` directive.
+
+Tools
+-----
+
+* CHANGED: The `lgtunit` tool code coverage linter warnings to be printed when
+compiling the tests instead of when printing the code coverage results.
+
+* ADDED: Support for creating entity specific predicate breakpoints to the
+`debugger` tool.
+
+* UPDATED: The `tutor` tool to explain the new linter warning for entity
+parameters not in parameter variable syntax.
+
+* FIXED: The `debugger` tool to not change from debugging with breakpoints to
+tracing for the next top-level query if the `trace/0` predicate was not used.
+
+* FIXED: The `debugger` tool to allow creating a triggered breakpoint that
+depends on a clause breakpoint for a parametric entity.
+
+* FIXED: Preliminary `diagrams` tool support for Mermaid resulted in syntax
+errors with recent Mermaid versions.
+
+Examples
+--------
+
+* UPDATED: The `errors` example to illustrate additional linter warnings.
+
+Tests
+-----
+
+* ADDED: Additional tests for the `object_property/2` and `category_property/2`
+built-in predicates.
+
+IDEs, text editors, and syntax highlighters support
+---------------------------------------------------
+
+* CHANGED: VSCode support for finding predicate references no longer includes
+predicate declarations.
+
+* ADDED: VSCode support for finding predicate declarations and definitions from
+a `(@)/1` goal.
+
+* FIXED: VSCode support error when trying to find predicate references from an
+`alias/2` directive with a protocol or category in its first argument.
+
+* FIXED: VSCode support failure to find a predicate declaration from a clause
+for a multifile predicate or from a `multifile/1` predicate directive.
+
+* FIXED: VSCode support `find_references/4` predicate bug where some references
+would be missed in the case of parametric entities.
+
+* FIXED: VSCode support `find_references/4` predicate bug where predicate
+references in `alias/2` directives would be missed.
+
+
 3.93.0 - August 28, 2025
 ========================
 
