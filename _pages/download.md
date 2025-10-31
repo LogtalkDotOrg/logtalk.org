@@ -104,7 +104,7 @@ The following installers are available for the latest stable version:
 Installs Logtalk on `/opt/local/share/` with integration scripts for
 supported Prolog compilers on `/opt/local/bin`. Creates an
 `/Applications/Logtalk` folder with links to the installed files.
-**Not compatible with macOS 15.x (Sequoia).**
+**Not compatible with macOS 15.x (Sequoia) and later versions.**
 
 > [`logtalk-3.95.0.pkg.zip`](files/logtalk-3.95.0.pkg.zip)  
 > `31c3f57e55ea738e06a6db39836b3efc6fd7c6d4f004f6ba95d14366c9ad2507` (SHA-256)
@@ -286,6 +286,7 @@ A Jupyter kernel is available from [PyPI](https://pypi.org/project/logtalk-jupyt
 and [Conda](https://anaconda.org/conda-forge/logtalk-jupyter-kernel) supporting
 Logtalk notebooks using selected backend Prolog compilers.
 See e.g. [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/LogtalkDotOrg/notebooks/master) for an online example.
+For JupyterLab users, there's also a [Logtalk CodeMirror Extension](https://pypi.org/project/jupyterlab-logtalk-codemirror-extension/).
 
 ## Older versions
 
