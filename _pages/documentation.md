@@ -285,6 +285,8 @@ Virtual environment scripts:
 
 Publications on research and applications using Logtalk:
 
+-	[Structural Pattern Recognition and Interpretation Infrastructure Based on Knowledge Graphs and Logical Inference](http://dx.doi.org/10.2174/0129503752359989250901065548)
+	Evgeny Cherkashin and Igor Bychkov. Current Artificial Intelligence. September 2025.
 -	[Visualizing CHC Verification Conditions for Smart Contracts Auditing](https://ceur-ws.org/Vol-3733/)
 	Di Ianni, Marco and Fioravanti, Fabio and Matricardi, Giulia. Italian Conference on Computational Logic. June 2024.
 -	[Technologies of semantic web as an environment of application development and integration](https://dx.doi.org/10.25743/ICT.2023.28.1.009).
