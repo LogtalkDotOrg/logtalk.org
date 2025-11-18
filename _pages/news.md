@@ -6,6 +6,21 @@ aside:
   toc: true
 ---
 
+##### November 18
+
+> Logtalk 3.96.0 is now available for [downloading](download.html). This
+> release adds predicates for sorting loaded files by their dependencies;
+> improves the `make` target `all` to minimize compilation warnings due to
+> out-of-order loading of modified source files; updates the `format`
+> library linter checker for control sequences that take two arguments;
+> improves tests for the `os` library; updates the Handbook sections on the
+> programing and on the `make` tool; updates the `logtalk_doclet.sh` and
+> `logtalk_tester.sh` scripts for reimplementations of the GNU `coreutils`
+> package; adds support for the Context7 MCP server; updates the VSCode
+> support; and includes portability updates for GNU Prolog, Quintus Prolog,
+> SICStus Prolog, Trealla Prolog, XSB, and YAP. For details and a complete
+> list of changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### October 30
 
 > Logtalk 3.95.0 is now available for [downloading](download.html). This
