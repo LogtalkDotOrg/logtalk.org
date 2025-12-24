@@ -25,10 +25,10 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](handbook/index.html) @ the Logtalk website (stable)
--   [PDF version](handbook/TheLogtalkHandbook-3.96.0.pdf) (stable)
--   [ePub version](handbook/TheLogtalkHandbook-3.96.0.epub) (stable)
--   [Texinfo version](handbook/TheLogtalkHandbook-3.96.0.info) (stable; experimental)
--   [Markdown version](handbook/TheLogtalkHandbook-3.96.0.md) (stable; for AI coding tools indexing and RAG)
+-   [PDF version](handbook/TheLogtalkHandbook-3.97.0.pdf) (stable)
+-   [ePub version](handbook/TheLogtalkHandbook-3.97.0.epub) (stable)
+-   [Texinfo version](handbook/TheLogtalkHandbook-3.97.0.info) (stable; experimental)
+-   [Markdown version](handbook/TheLogtalkHandbook-3.97.0.md) (stable; for AI coding tools indexing and RAG)
 
 <!-- -->
 
@@ -49,10 +49,10 @@ Core, library, tools, ports, and contributions API documentation (automatically 
 
 <!-- -->
 
--   [PDF version](apis/LogtalkAPIs-3.96.0.pdf) (stable; experimental)
--   [ePub version](apis/LogtalkAPIs-3.96.0.epub) (stable; experimental)
--   [Texinfo version](apis/LogtalkAPIs-3.96.0.info) (stable; experimental)
--   [Markdown version](apis/LogtalkAPIs-3.96.0.md) (stable; for AI coding tools indexing and RAG)
+-   [PDF version](apis/LogtalkAPIs-3.97.0.pdf) (stable; experimental)
+-   [ePub version](apis/LogtalkAPIs-3.97.0.epub) (stable; experimental)
+-   [Texinfo version](apis/LogtalkAPIs-3.97.0.info) (stable; experimental)
+-   [Markdown version](apis/LogtalkAPIs-3.97.0.md) (stable; for AI coding tools indexing and RAG)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -444,6 +444,8 @@ Publications on research and applications using Logtalk:
     Marta-Monica Dogaru. Bachelor Thesis, Technical University of
     Catalonia, Babeş-Bolyai University Cluj-Napoca, Faculty of
     Mathematics and Computer Science, Romania, 2008.
+-   [TER: JADE et Gorgias](https://www.academia.edu/1064361/TER_JADE_et_Gorgias).
+    Victor Noël and Franck Cassignol. Research report. 2007.
 -   [Design Dependencies Within the Automatic Generation of Hypermedia
     Presentations](http://www.cwi.nl/ftp/CWIreports/INS/INS-R0205.pdf).
     Oscar Rosell Martinez. Master Thesis, Technical University of

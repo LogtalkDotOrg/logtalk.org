@@ -53,7 +53,7 @@ p.roffit {
 <p class="level0">lgt2html - Logtalk script for converting XML documenting files into (X)HTML files </p><a name="SYNOPSIS"></a><h2 class="nroffsh">Synopsis</h2>
 <p class="level0"><span Class="bold">lgt2html</span> [<span class="bold">-f <span Class="emphasis">format</span>] [<span class="bold">-d <span Class="emphasis">directory</span>] [<span class="bold">-i <span Class="emphasis">index</span>] [<span class="bold">-t <span Class="emphasis">title</span>] [<span class="bold">-p <span Class="emphasis">processor</span>] <br><span Class="bold">lgt2html</span> <span Class="bold">-h</span> </p><a name="DESCRIPTION"></a><h2 class="nroffsh">Description</h2>
 <p class="level0"><span Class="bold">lgt2html</span> is a Logtalk script for converting all XML documenting files in the current directory into (X)HTML files. </p><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
-<p class="level0"><span Class="bold">-f </span> <span Class="emphasis">format</span> Output file format (either <span Class="emphasis">xhtml</span> or <span Class="emphasis">html</span>). </p>
+<p class="level0"><span Class="bold">-f </span> <span Class="emphasis">format</span> Output file format (<span Class="emphasis">xhtml</span>, <span Class="emphasis">html</span>, or <span Class="emphasis">html5</span>). </p>
 <p class="level0"><span Class="bold">-d</span> <span Class="emphasis">directory</span> Output directory for the generated (X)HTML files. </p>
 <p class="level0"><span Class="bold">-i</span> <span Class="emphasis">index</span> Name of the index file. </p>
 <p class="level0"><span Class="bold">-t</span> <span Class="emphasis">title</span> Title to be used in the index file. </p>
@@ -67,10 +67,12 @@ p.roffit {
 <p class="level0"><span Class="bold">$LOGTALKHOME/tools/lgtdoc/xml/logtalk_entity.xsd</span> The Logtalk entity XML Schema file. </p>
 <p class="level0"><span Class="bold">$LOGTALKHOME/tools/lgtdoc/xml/logtalk_index.xsd</span> The Logtalk index XML Schema file. </p>
 <p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk.css</span> The default CSS file for the generated (X)HTML files. </p>
-<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk_entity_to_html.xsl</span> The Logtalk entity XSLT file for generating HTML files. </p>
-<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk_index_to_html.xsl</span> The Logtalk index XSLT file for generating HTML files. </p>
-<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk_entity_to_xhtml.xsl</span> The Logtalk entity XSLT file for generating XHTML files. </p>
-<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk_index_to_xhtml.xsl</span> The Logtalk index XSLT file for generating XHTML files. </p><a name="SEE"></a><h2 class="nroffsh">See also</h2>
+<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk_entity_to_html.xsl</span> The Logtalk entity XSLT file for generating HTML 4.01 files. </p>
+<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk_index_to_html.xsl</span> The Logtalk index XSLT file for generating HTML 4.01 files. </p>
+<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk_entity_to_html_5.xsl</span> The Logtalk entity XSLT file for generating HTML 5 files. </p>
+<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk_index_to_html_5.xsl</span> The Logtalk index XSLT file for generating HTML 5 files. </p>
+<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk_entity_to_xhtml.xsl</span> The Logtalk entity XSLT file for generating XHTML 1.1 files. </p>
+<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtdoc/xml/logtalk_index_to_xhtml.xsl</span> The Logtalk index XSLT file for generating XHTML 1.1 files. </p><a name="SEE"></a><h2 class="nroffsh">See also</h2>
 <p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> </p>
 <p class="level0">The Logtalk Handbook at <span Class="bold">$LOGTALKHOME/docs/handbook/index.html</span> </p>
 <p class="level0">logtalk_user_setup(1),&nbsp;lgt2txt(1),&nbsp;lgt2md(1),&nbsp;lgt2xml(1),&nbsp;lgt2pdf(1) </p><a name="AUTHOR"></a><h2 class="nroffsh">Author</h2>

@@ -6,6 +6,27 @@ aside:
   toc: true
 ---
 
+##### December 22
+
+> Logtalk 3.97.0 is now available for [downloading](download.html). This
+> release fixes expanding of relative file paths when compiling and loading
+> files that could cause spurious redefinition warnings with some backends;
+> includes documentation improvements; provides new libraries for the
+> CCSDS and TOON data formats; provides a new version of the `help` tool
+> that uses a terminal-based browser; updates the `debugger` tool for better
+> integration with IDEs; includes updates to the `diagrams` tool generated
+> dependency diagrams; improves support for Allure test reports; adds
+> `lgtdoc` tool support for exporting documentation in HTML 5 format;
+> fixes the `lgtunit` tool saving of source locations for tests defined in
+> included files; improves the performance of `diagrams` and `lgtdoc` tool
+> tests; includes additional tests for the de facto standard `format/2-3`
+> predicates; updates the Windows installer to also detect ECLiPSe 7.2
+> versions; fixes the Windows installer to support running in system context
+> for deployment via enterprise management tools; fixes the Windows installer
+> to support the base installation without requiring a user documents folder;
+> and provides updated VSCode support. For details and a complete list of
+> changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### November 18
 
 > Logtalk 3.96.0 is now available for [downloading](download.html). This
