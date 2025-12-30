@@ -6,6 +6,16 @@ aside:
   toc: true
 ---
 
+##### December 30
+
+> Logtalk 3.97.1 is now available for [downloading](download.html). This is
+> a minor release that provides a new macOS installer that supports recent
+> macOS versions; fixes typos in the directives for an internal runtime
+> predicate that affected Ciao Prolog and GNU Prolog embedding scripts;
+> and updates the portable Docker image to create the alternative GNU Prolog
+> native code backend (`gplgtnc`). For details and a complete list of changes,
+> please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### December 22
 
 > Logtalk 3.97.0 is now available for [downloading](download.html). This
