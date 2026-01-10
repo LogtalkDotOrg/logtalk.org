@@ -128,13 +128,13 @@ Prolog integration scripts:
 -   ECLiPSe: [`eclipselgt`](man/eclipselgt.html)
 -   GNU Prolog: [`gplgt`](man/gplgt.html)
 -   JIProlog: [`jiplgt`](man/jiplgt.html)
--   LVM: [`lvmlgt`](man/lvmlgt.html)
 -   Quintus Prolog: [`quintuslgt`](man/quintuslgt.html)
 -   SICStus Prolog: [`sicstuslgt`](man/sicstuslgt.html)
 -   SWI-Prolog: [`swilgt`](man/swilgt.html)
 -   Tau Prolog: [`taulgt`](man/taulgt.html)
 -   Trealla ProLog: [`tplgt`](man/tplgt.html)
 -   XSB: [`xsblgt`](man/xsblgt.html)
+-   XVM: [`xvmlgt`](man/xvmlgt.html)
 -   YAP: [`yaplgt`](man/yaplgt.html)
 
 Configuration scripts:
