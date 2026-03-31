@@ -6,6 +6,24 @@ aside:
   toc: true
 ---
 
+##### February 27
+
+> Logtalk 3.98.0 is now available for [downloading](download.html). This release
+> adds several new libraries for AI/ML, data formats, networking/protocols,
+> utilities, and data structures; includes significant updates for existing
+> libraries; implements stricter checks for the arguments of the `create_object/4`
+> and `create_category/4` built-in predicates; includes fixes for the `include/1`
+> and `initialization/1` directives and for the `predicate_property/2` built-in
+> predicate; includes documentation improvements; improves the testing and
+> documentation automation scripts; prives fixes and improvements for the `help`
+> tool; adds a new example to illustrate the new MCP server library; adds new
+> Prolog standard compliance tests; updates the VSCode support for more detailed
+> code coverage stats; and includes portability updates for GNU Prolog and
+> SICStus Prolog. For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
+### 2025
+
 ##### December 30
 
 > Logtalk 3.97.1 is now available for [downloading](download.html). This is

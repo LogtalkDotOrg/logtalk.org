@@ -98,6 +98,7 @@ Prolog on-line learning resources
 -   [Prolog Programming A First Course](http://www.cs.otago.ac.nz/cosc347/References/LP/LeedsTutorial/) by Paul Brna
 -   [Introduction to logic programming with Prolog](https://www.matchilling.com/introduction-to-logic-programming-with-prolog/) by Mathias Schilling
 -   [P-99: Ninety-Nine Prolog Problems](https://peterhuistyping.github.io/Cambridge_CS_Tripos/Ref/IBProlog/P-99_Ninety-Nine%20Prolog%20Problems.pdf) (PDF)
+-	[Prolog Projects For Newbies](https://gitlab.com/PaulBrownMagic/PPFN/)
 
 Logic programming
 -----------------

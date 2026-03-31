@@ -159,12 +159,14 @@ The [`diagrams`](https://logtalk.org/handbook/devtools/diagrams.html) tool suppo
 -   Inheritance diagrams
 -   Entity cross-referencing diagrams
 -   Predicate cross-referencing diagrams
+-	Predicate caller diagrams
 -   Diagrams with links to source code repositories and API documentation
 -   Diagrams with local links to directories and files that open in selected text editors
 -   Linked diagrams for source code navigation from libraries to entities to predicates
 -   Linked diagrams for source code navigation from directories to files
 -	Automatic generation of linked sub-diagrams
--   Support for the [d2](https://d2lang.com) and [Graphviz](https://graphviz.org) graph languages
+-	Optional coupling metrics overlay in entity diagram nodes
+-   Support for the [d2](https://d2lang.com), [Graphviz](https://graphviz.org), [PlanUML](https://plantuml.com), and [Cytoscape Exchange (CX2) JSON](https://cytoscape.org/cx/cx2/specification/cytoscape-exchange-format-specification-(version-2)/) graph languages
 -   Exporting of diagrams to SVG, PDF, and other formats
 -	Diagram exporting automation scripts (for use with e.g. the [`doclet`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md) tool)
 -   User customization of diagram details
@@ -191,6 +193,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 -   User-defined test dialects
 -   QuickCheck support (for property-based testing)
 -   Code coverage reports (at the predicate clause level; supports links to selected source code hosting providers)
+-	Code coverage stats exports in Cobertura XML and LCOV formats
 -   Test assertions (for easier debugging of failed tests)
 -   Support for testing input/output predicates
 -   Support for suppressing irrelevant text/binary output by the code under testing
@@ -200,7 +203,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 -   Test set and per test annotations
 -   Parametrized unit tests
 -   Testing automation scripts (supports CI/CD pipelines with detailed test and code coverage reports)
--   TAP and xUnit test reports
+-   TAP, xUnit, Subunit, and CTRF test reports
 -   Test set condition, setup, and cleanup goals
 -   Per test condition, setup, and cleanup goals
 -   Flaky tests marking and reporting
@@ -215,6 +218,18 @@ on testing best practices for more information. Automatic bug report creation fo
 tests in GitHub and GitLab issue trackers is supported using the
 [`issue_creator`](https://logtalk.org/handbook/devtools/issue_creator.html) tool.
 
+The [`mutation_testing`](https://logtalk.org/handbook/devtools/mutation_testing.html)
+tool can be used to check the quality of tests
+
+- Deterministic mutant discovery per entity predicate directive, predicate/non-terminal clause/rule, and mutator.
+- Configurable mutator sets and campaign size limits.
+- Deterministic sampled execution (`sampling(all|count(N)|rate(R))` plus `seed/1`).
+- Mutation score computation (killed versus survived mutants).
+- Mutation generation guided by code coverage stats.
+- Threshold gating suitable for CI/CD checks.
+- Exporting of mutation campaign reports in plain text and JSON formats.
+
+
 ##### Examples
 
 -   [Code coverage report](diagrams/coverage_report.html) for the [`diagrams`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/diagrams/NOTES.md) tool
@@ -227,14 +242,22 @@ tests in GitHub and GitLab issue trackers is supported using the
 The [`dead_code_scanner`](https://logtalk.org/handbook/devtools/dead_code_scanner.html)
 tool detects likely dead code in Logtalk entities and in Prolog modules (when compiled as objects). It can also
 detect code typos that often result in false positives. It can be run automatically as one of the actions of
-the [`make`](#make) tool.
+the [`make`](#make) tool. It suport exporting findings in a custom JSON format (schema provided) and in the
+SARIF format.
 
 
 ## Code metrics
 
 The [`code_metrics`](https://logtalk.org/handbook/devtools/code_metrics.html)
-tool allows applying code metrics to source code. Several basic metrics are provided:
+tool allows applying code metrics to source code. Several standard metrics are
+provided:
 
+-   Lines
+-   Maintainability Index
+-   Lack of Cohesion Of Methods (LCOM4)
+-   Weighted Methods per Class (WMC)
+-   Response For a Class (RFC)
+-   Cognitive Complexity
 -   Halstead complexity
 -   Cyclomatic complexity
 -   Efferent coupling
@@ -323,6 +346,7 @@ registries (e.g., official, public, company private, ...) and allows the user to
 -	Specify multiple pack versions
 -	Work with minimal specifications for registries and packs
 -	Define, save, and restore virtual environments (registries/packs setups)
+-	Lock files for deterministic installs and CI/CD reproducibility
 
 There's also an [index](https://github.com/LogtalkDotOrg/pack-registries) of public pack registries.
 This tool can be used not only for Logtalk packs but also for Prolog packs.

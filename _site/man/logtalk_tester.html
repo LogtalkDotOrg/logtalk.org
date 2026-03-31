@@ -69,7 +69,7 @@ p.roffit {
 <p class="level0"><span Class="bold">-e</span> Regular expression for excluding directories (using the <span Class="emphasis">find</span> command support for POSIX-extended regular expressions). </p>
 <p class="level0"><span Class="bold">-i</span> Integration script command-line options (no default). </p>
 <p class="level0"><span Class="bold">-g</span> Initialization goal. Default is <span Class="emphasis">true</span> (no period). Called after loading the Logtalk compiler/runtime and before running the tests. </p>
-<p class="level0"><span Class="bold">-r</span> Random generator starting seed (no default). </p>
+<p class="level0"><span Class="bold">-r</span> Random generator starting seed (no default). Only meaningful when running property-based tests (aka QuickCheck). The seed must be a valid value for the portable random generator provided by the <span Class="emphasis">random</span> library. </p>
 <p class="level0"><span Class="bold">-w</span> Wipe test set default scratch directories (<span Class="emphasis">./.lgt_tmp</span> and <span Class="emphasis">./lgt_tmp</span>) before running it. This option should not be used when running parallel processes that use the same test sets. </p>
 <p class="level0"><span Class="bold">--</span> Arguments to be passed to the tests (no default). </p>
 <p class="level0"><span Class="bold">-h</span> Provide help on script usage. </p><a name="EXIT"></a><h2 class="nroffsh">Exit status</h2>
@@ -100,10 +100,11 @@ p.roffit {
 <p class="level0"><span Class="bold">LOGTALKUSER</span> Specifies the location of the Logtalk user directory. </p><a name="FILES"></a><h2 class="nroffsh">Files</h2>
 <p class="level0"><span Class="bold">$LOGTALKUSER/library/tester_versions.lgt</span> Logtalk source file used for printing the Logtalk and backend Prolog compiler versions. </p>
 <p class="level0"><span Class="bold">$LOGTALKUSER/library/parallel_logtalk_processes_setup.pl</span> Logtalk source file used for parallel Logtalk processes with selected backend Prolog compilers. </p>
-<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtunit/automation_report.lgt</span> Logtalk source file that intercepts unit test execution messages and generates report files that are parsed by this script. </p><a name="SEE"></a><h2 class="nroffsh">See also</h2>
+<p class="level0"><span Class="bold">$LOGTALKUSER/tools/lgtunit/automation_report.lgt</span> Logtalk source file that intercepts unit test execution messages and generates report files that are parsed by this script. </p>
+<p class="level0"><span Class="bold">./logtalk_tester_logs</span> Default directory created with logs of the results, stats, and any errors resulting from running the test sets. In the case of a broken test set or a crash while running a test set, the files in this directory may provided useful information for debugging the problem. </p><a name="SEE"></a><h2 class="nroffsh">See also</h2>
 <p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> </p>
 <p class="level0">The Logtalk Handbook at <span Class="bold">$LOGTALKHOME/docs/handbook/index.html</span> </p><a name="AUTHOR"></a><h2 class="nroffsh">Author</h2>
 <p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt; </p><a name="COPYRIGHT"></a><h2 class="nroffsh">Copyright</h2>
-<p class="level0">Copyright (c) 1998-2025 Paulo Moura. </p><p class="roffit">
+<p class="level0">Copyright (c) 1998-2026 Paulo Moura. </p><p class="roffit">
  This HTML page was made with <a href="https://daniel.haxx.se/projects/roffit/">roffit</a>.
 </body></html>

@@ -430,12 +430,14 @@ The <a href="https://logtalk.org/handbook/devtools/diagrams.html"><code class="h
   <li>Inheritance diagrams</li>
   <li>Entity cross-referencing diagrams</li>
   <li>Predicate cross-referencing diagrams</li>
+  <li>Predicate caller diagrams</li>
   <li>Diagrams with links to source code repositories and API documentation</li>
   <li>Diagrams with local links to directories and files that open in selected text editors</li>
   <li>Linked diagrams for source code navigation from libraries to entities to predicates</li>
   <li>Linked diagrams for source code navigation from directories to files</li>
   <li>Automatic generation of linked sub-diagrams</li>
-  <li>Support for the <a href="https://d2lang.com">d2</a> and <a href="https://graphviz.org">Graphviz</a> graph languages</li>
+  <li>Optional coupling metrics overlay in entity diagram nodes</li>
+  <li>Support for the <a href="https://d2lang.com">d2</a>, <a href="https://graphviz.org">Graphviz</a>, <a href="https://plantuml.com">PlanUML</a>, and <a href="https://cytoscape.org/cx/cx2/specification/cytoscape-exchange-format-specification-(version-2)/">Cytoscape Exchange (CX2) JSON</a> graph languages</li>
   <li>Exporting of diagrams to SVG, PDF, and other formats</li>
   <li>Diagram exporting automation scripts (for use with e.g. the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md"><code class="highlighter-rouge">doclet</code></a> tool)</li>
   <li>User customization of diagram details</li>
@@ -465,6 +467,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
   <li>User-defined test dialects</li>
   <li>QuickCheck support (for property-based testing)</li>
   <li>Code coverage reports (at the predicate clause level; supports links to selected source code hosting providers)</li>
+  <li>Code coverage stats exports in Cobertura XML and LCOV formats</li>
   <li>Test assertions (for easier debugging of failed tests)</li>
   <li>Support for testing input/output predicates</li>
   <li>Support for suppressing irrelevant text/binary output by the code under testing</li>
@@ -474,7 +477,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
   <li>Test set and per test annotations</li>
   <li>Parametrized unit tests</li>
   <li>Testing automation scripts (supports CI/CD pipelines with detailed test and code coverage reports)</li>
-  <li>TAP and xUnit test reports</li>
+  <li>TAP, xUnit, Subunit, and CTRF test reports</li>
   <li>Test set condition, setup, and cleanup goals</li>
   <li>Per test condition, setup, and cleanup goals</li>
   <li>Flaky tests marking and reporting</li>
@@ -490,6 +493,19 @@ on testing best practices for more information. Automatic bug report creation fo
 tests in GitHub and GitLab issue trackers is supported using the
 <a href="https://logtalk.org/handbook/devtools/issue_creator.html"><code class="highlighter-rouge">issue_creator</code></a> tool.</p>
 
+<p>The <a href="https://logtalk.org/handbook/devtools/mutation_testing.html"><code class="highlighter-rouge">mutation_testing</code></a>
+tool can be used to check the quality of tests</p>
+
+<ul>
+  <li>Deterministic mutant discovery per entity predicate directive, predicate/non-terminal clause/rule, and mutator.</li>
+  <li>Configurable mutator sets and campaign size limits.</li>
+  <li>Deterministic sampled execution (<code class="highlighter-rouge">sampling(all|count(N)|rate(R))</code> plus <code class="highlighter-rouge">seed/1</code>).</li>
+  <li>Mutation score computation (killed versus survived mutants).</li>
+  <li>Mutation generation guided by code coverage stats.</li>
+  <li>Threshold gating suitable for CI/CD checks.</li>
+  <li>Exporting of mutation campaign reports in plain text and JSON formats.</li>
+</ul>
+
 <h5 id="examples-2">Examples</h5>
 
 <ul>
@@ -503,14 +519,22 @@ tests in GitHub and GitLab issue trackers is supported using the
 <p>The <a href="https://logtalk.org/handbook/devtools/dead_code_scanner.html"><code class="highlighter-rouge">dead_code_scanner</code></a>
 tool detects likely dead code in Logtalk entities and in Prolog modules (when compiled as objects). It can also
 detect code typos that often result in false positives. It can be run automatically as one of the actions of
-the <a href="#make"><code class="highlighter-rouge">make</code></a> tool.</p>
+the <a href="#make"><code class="highlighter-rouge">make</code></a> tool. It suport exporting findings in a custom JSON format (schema provided) and in the
+SARIF format.</p>
 
 <h2 id="code-metrics">Code metrics</h2>
 
 <p>The <a href="https://logtalk.org/handbook/devtools/code_metrics.html"><code class="highlighter-rouge">code_metrics</code></a>
-tool allows applying code metrics to source code. Several basic metrics are provided:</p>
+tool allows applying code metrics to source code. Several standard metrics are
+provided:</p>
 
 <ul>
+  <li>Lines</li>
+  <li>Maintainability Index</li>
+  <li>Lack of Cohesion Of Methods (LCOM4)</li>
+  <li>Weighted Methods per Class (WMC)</li>
+  <li>Response For a Class (RFC)</li>
+  <li>Cognitive Complexity</li>
   <li>Halstead complexity</li>
   <li>Cyclomatic complexity</li>
   <li>Efferent coupling</li>
@@ -603,6 +627,7 @@ registries (e.g., official, public, company private, …) and allows the user to
   <li>Specify multiple pack versions</li>
   <li>Work with minimal specifications for registries and packs</li>
   <li>Define, save, and restore virtual environments (registries/packs setups)</li>
+  <li>Lock files for deterministic installs and CI/CD reproducibility</li>
 </ul>
 
 <p>There’s also an <a href="https://github.com/LogtalkDotOrg/pack-registries">index</a> of public pack registries.
@@ -849,7 +874,7 @@ License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL
 </div>
     </aside>
     <footer class="site-info"><p class="menu menu--center">
-        <span>© Paulo Moura 2018-2025</span>
+        <span>© Paulo Moura 2018-2026</span>
 <!--
         <a type="application/rss+xml" href="/feed.xml">RSS</a>
 -->

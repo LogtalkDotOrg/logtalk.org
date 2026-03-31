@@ -74,6 +74,20 @@ setenv MANPATH "${MANPATH}":"${LOGTALKHOME}"/man
 setenv INFOPATH ${INFOPATH}:"${LOGTALKHOME}"/docs:"${LOGTALKHOME}"/manuals
 ```
 
+If you use a **fish** shell, add the following line to your `~/.config/fish/config.fish` file:
+
+```shell
+set -gx LOGTALKHOME $HOME/lgt3git
+set -gx LOGTALKUSER $HOME/lgt3git
+fish_add_path $LOGTALKHOME/tools/diagrams
+fish_add_path $LOGTALKHOME/tools/lgtdoc/xml
+fish_add_path $LOGTALKHOME/tools/packs
+fish_add_path $LOGTALKHOME/scripts
+fish_add_path $LOGTALKHOME/integration
+set -gx MANPATH $MANPATH $LOGTALKHOME/man
+set -gx INFOPATH $INFOPATH $LOGTALKHOME/docs $LOGTALKHOME/manuals
+```
+
 If your `lgt3git` directory is not in your home directory or if you cloned to the default `logtalk3` directory, adjust the paths above accordingly. Don't use relative paths such as `../` or `./` in the definition of the environment variables. Some Prolog compilers have trouble expanding environment variables, resulting in `file not found` errors when attempting to use the Logtalk integration scripts.
 
 ### Windows installation
