@@ -25,10 +25,10 @@ aside:
 The Handbook includes the user manual, reference manual, glossary, FAQ, plus libraries and developer tools documentation.
 
 -   [HTML version](handbook/index.html) @ the Logtalk website (stable)
--   [PDF version](handbook/TheLogtalkHandbook-3.98.0.pdf) (stable)
--   [ePub version](handbook/TheLogtalkHandbook-3.98.0.epub) (stable)
--   [Texinfo version](handbook/TheLogtalkHandbook-3.98.0.info) (stable; experimental)
--   [Markdown version](handbook/TheLogtalkHandbook-3.98.0.md) (stable; for AI coding tools indexing and RAG)
+-   [PDF version](handbook/TheLogtalkHandbook-3.99.0.pdf) (stable)
+-   [ePub version](handbook/TheLogtalkHandbook-3.99.0.epub) (stable)
+-   [Texinfo version](handbook/TheLogtalkHandbook-3.99.0.info) (stable; experimental)
+-   [Markdown version](handbook/TheLogtalkHandbook-3.99.0.md) (stable; for AI coding tools indexing and RAG)
 
 <!-- -->
 
@@ -49,10 +49,10 @@ Core, library, tools, ports, and contributions API documentation (automatically 
 
 <!-- -->
 
--   [PDF version](apis/LogtalkAPIs-3.98.0.pdf) (stable; experimental)
--   [ePub version](apis/LogtalkAPIs-3.98.0.epub) (stable; experimental)
--   [Texinfo version](apis/LogtalkAPIs-3.98.0.info) (stable; experimental)
--   [Markdown version](apis/LogtalkAPIs-3.98.0.md) (stable; for AI coding tools indexing and RAG)
+-   [PDF version](apis/LogtalkAPIs-3.99.0.pdf) (stable; experimental)
+-   [ePub version](apis/LogtalkAPIs-3.99.0.epub) (stable; experimental)
+-   [Texinfo version](apis/LogtalkAPIs-3.99.0.info) (stable; experimental)
+-   [Markdown version](apis/LogtalkAPIs-3.99.0.md) (stable; for AI coding tools indexing and RAG)
 
 The SVG diagrams provide links to both the API documentation and to the
 source code.
@@ -508,7 +508,7 @@ Publications on research and applications using Logtalk:
 -   Michael Igler (testing, bug reports)
 -   Michael McNally (feedback on tutorials, examples, and documentation)
 -   Michael Sheets (text editor support)
--   Michael T. Richter (Textadept text editor support, pengines example, [Rosetta Code](https://rosettacode.org/) tasks)
+-   Michael T. Richter (2-3 tree dictionary implementation, Textadept text editor support, pengines example, [Rosetta Code](https://rosettacode.org/) tasks)
 -   Neda Saeedloei (coinduction examples)
 -   Neng-Fa Zhou (bug reports)
 -   Nicolas Pelletier (bug reports, text editor support)

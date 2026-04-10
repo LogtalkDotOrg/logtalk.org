@@ -6,6 +6,45 @@ aside:
   toc: true
 ---
 
+##### April 9
+
+> Logtalk 3.99.0 is now available for [downloading](download.html). This
+> release adds a `force` target to the `logtalk_make/1` built-in predicate
+> to force reloading of all files; adds new `linter_reporter`, `tool_diagnostics`,
+> and `sarif` tools for supporting generating machine-readable diagnostics
+> by other developer tools and writing SARIF reports from those diagnostics
+> for integration with CI/CD pieplines; adds a new `mutation_testing` tool
+> for mutation-based testing; adds a new `sbom` tool for generating SBOMs
+> for loaded applications; adds additional metrics to the `code_metrics` tool;
+> adds `diagrams` tool support for caller diagrams, coupling metrics overlay
+> in entity nodes, and highlighting of cyclic relations in dependency
+> diagrams; adds `lgtunit` support for exporting code coverage stats in
+> Cobertura XML and LCOV formats; adds `lgtunit` support for exporting tests
+> results in the Subunit and CTRF (Common Test Report Format) formats;
+> adds `packs` tool support for lock files for deterministic installs
+> and CI/CD reproducibility; adds a programmatic query API to the `packs` tool;
+> adds `logtalk_tester` testing automation scripts support for concurrent running
+> of tests sets using a new `-j` option; adds a new `application` library for
+> declaring application metadata; adds a new `character_sets` library implementing
+> conversion between character codes and bytes plus character set metadata; adds
+> a new `hashes` library implementing commonly used hashing algorithms; adds a
+> new `toml` library for parsing and generating TOML v1.0.0 files; adds a new
+> `tzif` library for parsing TZif files and answering time zone related queries;
+> adds a new `dates_tz` library linking the `dates` and `tzif` libraries for
+> zone-aware date-time conversions; adds a new `mime_types` library providing
+> predicates over MIME data; adds a new version of the `linda` library decoupling
+> client and server APIs; adds a 2-3 tree implementation to the `dictionaries`
+> library (contributed by Michael T. Richter); adds new predicates to the `dates`
+> and `iso8601` libraries, notably for calendar arithmetic and formating date-times;
+> adds `uuid` library support for version 3 and 5 UUIDs; adds support for
+> additional types to the `types` and `arbitrary` libraries; includes compiler,
+> tool, and library bug fixes; updates VSCode support for new extension
+> functionality; updates support for the Context7 MCP server; and includes
+> portability updates for Ciao Prolog, CxProlog, ECLiPSe, GNU Prolog, JIProlog,
+> SICStus Prolog, SWI-Prolog, Tau Prolog, and Trealla Prolog. For details and a
+> complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### February 27
 
 > Logtalk 3.98.0 is now available for [downloading](download.html). This release
@@ -15,7 +54,7 @@ aside:
 > and `create_category/4` built-in predicates; includes fixes for the `include/1`
 > and `initialization/1` directives and for the `predicate_property/2` built-in
 > predicate; includes documentation improvements; improves the testing and
-> documentation automation scripts; prives fixes and improvements for the `help`
+> documentation automation scripts; provides fixes and improvements for the `help`
 > tool; adds a new example to illustrate the new MCP server library; adds new
 > Prolog standard compliance tests; updates the VSCode support for more detailed
 > code coverage stats; and includes portability updates for GNU Prolog and
