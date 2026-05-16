@@ -11,7 +11,7 @@ permalink: index.html
   </div>
 </div>
 
-<p align="right" style="font-size:12px; padding:0px; margin:0px">@ v3.99.0 - April 9, 2026</p>
+<p align="right" style="font-size:12px; padding:0px; margin:0px">@ v3.100.1 - May 16, 2026</p>
 <p align="right" style="font-size:12px; padding:0px; margin:0px">
 <a class="github-button" href="https://github.com/sponsors/pmoura" data-icon="octicon-heart" aria-label="Sponsor @pmoura on GitHub">Sponsor</a>
 <a class="github-button" href="https://github.com/LogtalkDotOrg/logtalk3" data-icon="octicon-star" aria-label="Star LogtalkDotOrg/logtalk3 on GitHub">Star</a>
@@ -30,7 +30,8 @@ As a multi-paradigm language, it includes support for modules, prototypes,
 classes, protocols (interfaces), categories (components and hot patching),
 event-driven programming, and high-level multi-threading programming (on
 selected backends). Distributed under a commercial-friendly license, it
-includes full documentation, portable libraries, portable developer tools,
-and a large number of programming examples to help get you started.
+includes full documentation, extensive portable libraries, a comprehensive
+set of portable developer tools, and a large number of programming examples
+to help get you started.
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>

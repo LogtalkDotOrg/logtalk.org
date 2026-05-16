@@ -6,6 +6,37 @@ aside:
   toc: true
 ---
 
+##### May 16
+
+> Logtalk 3.100.1 is now available for [downloading](download.html). This
+> is a patch release, fixing the integration scripts check for an outdated
+> Logtalk user directory and a lookup cache handling bug breaking embedding
+> scripts using a settings file with multi-threaded backends. For details
+> and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
+##### May 14
+
+> Logtalk 3.100.0 is now available for [downloading](download.html). This
+> release adds `logtalk::halt/0-1` public predicates and `logtalk::halt_hook/2`
+> user-defined hook predicate; adds new machine learning libraries implementing
+> classification, anomaly detection, regression, ranking, clustering, dimension
+> reduction, and pattern mining algorithms; adds new geospatial libraries; adds
+> new space communications and telemetry libraries; adds new combinatorics
+> libraries; adds a new linear algebra library; adds a new HMAC library; adds
+> new ISO 639, ISO 3166, ISO 4217, ISO 9362, ISO 13616, RFC 6901, and IEEE 754
+> libraries; adds a HMAC library; adds a new JSON pointer library; adds MessagePack
+> and WKT/WKB interchange format libraries; adds `hashes` library support for
+> computing keyed digests and access metadata for fixed-size cryptographic hash
+> objects; adds new distance and combinatorial number predicates to the `types`
+> library; adds new `intervals` library functionality for relation algebra and
+> constraint networks; improves performance of several libraries; adds a testing
+> and documentation automation scripts support for completion sounds that depend
+> on the exit code; adds a Handbook overview of libraries by scope; and adds
+> syntax highlight support for the Fresh editor. For details and a complete list
+> of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### April 9
 
 > Logtalk 3.99.0 is now available for [downloading](download.html). This
