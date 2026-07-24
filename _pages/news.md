@@ -6,6 +6,35 @@ aside:
   toc: true
 ---
 
+##### July 23
+
+> Logtalk 3.101.0 is now available for [downloading](download.html). This
+> release adds a read-only `sockets` compilation flag to declare if a backend
+> provides compatible sockets support; improves the performance of the
+> `logtalk_make(force)` goal; adds new HTTP (client and server), WebSocket
+> (client and server), HTMX, JWT, REST, OpenAI, OpenAPI, OpenID, S3 (client),
+> Gravatar, JSON Graph, JSON-LD, JSON Patch (RFC 6902), JSONPath (RFC 9535),
+> Crypto, HOTP/TOTP (RFC 4226/RFC 6238) libraries; adds `html` library support
+> for CSS/JS resource declarations, aggregation, and dependency-aware ordering;
+> adds support for additional hash functions to the `hashes` and `hmac`
+> libraries; adds support for incremental hashing to the `hashes` library;
+> includes bug fixes, additional predicates, and performance improvements for
+> several libraries; fixes `uuid` library compliance issues and adds additional
+> UUID v3 and UUID v7 predicates that take a time zone offset argument;
+> adds testing automation scripts support for selecting the tests sets to run
+> using a regular expression and for suppressing all user output; fixes `sarif`
+> tool compliance issues; adds an option to the `mutation_testing` tool for
+> passing additional options to the testing automation scripts; improves the
+> `linter_reporter` tool support for SARIF reports; improves the performance
+> of the `sbom` tool; adds additional linter checks to the `lgtdoc` tool; adds
+> 13 new programing examples to illustrate the new HTTP and related libraries;
+> adds additional tests for Logtalk language features; fixes several Windows-only
+> tool and library issues with some backends; and updates the Windows installer
+> to also detect ECLiPSe 8.0 versions. Thanks to Andrew Davison for his help in
+> diagnosing timing issues in the `linda` library and the new HTTP libraries.
+> For details and a complete list of changes, please consult the
+> [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### May 16
 
 > Logtalk 3.100.1 is now available for [downloading](download.html). This
