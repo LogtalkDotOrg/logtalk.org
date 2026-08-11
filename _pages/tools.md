@@ -89,6 +89,7 @@ working code that also complies with coding guidelines. Lint checks include:
 -   If-then-else and soft cut control constructs where the test is a unification between a variable and a ground term
 -   Missing parenthesis around if-then-else and disjunction control constructs in the presence of cuts in the first argument
 -   Cuts in clauses for multifile predicates
+-	Cuts followed by goals that throw an error
 -   Missing cuts in repeat loops
 -   Possible non-steadfast predicate definitions
 -   Non-tail recursive predicate definitions

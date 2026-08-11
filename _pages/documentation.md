@@ -285,6 +285,8 @@ Virtual environment scripts:
 
 Publications on research and applications using Logtalk:
 
+-	[How Rules Represent Causal Knowledge: Causal Modeling with Probabilistic Logic Programming](https://dx.doi.org/10.4204/EPTCS.450.35)
+	Kilian Rueckschloss and Felix Weitkaemper. Proceedings 42nd International Conference on Logic Programming (ICLP 2026). July 2026.
 -	[Structural Pattern Recognition and Interpretation Infrastructure Based on Knowledge Graphs and Logical Inference](http://dx.doi.org/10.2174/0129503752359989250901065548)
 	Evgeny Cherkashin and Igor Bychkov. Current Artificial Intelligence. September 2025.
 -	[Visualizing CHC Verification Conditions for Smart Contracts Auditing](https://ceur-ws.org/Vol-3733/)
