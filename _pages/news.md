@@ -6,6 +6,47 @@ aside:
   toc: true
 ---
 
+##### November 19
+
+> Logtalk 3.103.0 is now available for [downloading](download.html). This
+> release fixes runtime multi-threading issues; adds support for Shumway
+> Prolog; adds new constraint solving, probabilistic logic programming,
+> Datalog, SAT, SMT, OMT, flow networks, temporal networks, recommendation,
+> time-series forecasting, feature selection, and clustering libraries;
+> provides significant updates and improvements to existing libraries;
+> improves testing support by developer tools and automation scripts;
+> improves `packs` tool support for lock files; updates the `sbom` tool
+> CycloneDX export version; includes `diagrams` tool fixes and updated
+> Mermaid support; adds two new programming examples; adds AI coding
+> assistant support files; updates the portable Docker image with
+> additional services to enable additional libraries; updates the Prolog
+> conformance tests; and includes portability updates for  Trealla Prolog.
+> Thanks to Andrew Davison, Arun Majumdar, Gustavo Brown, and Lindsey
+> Spratt for their contributions. For details and a complete list of
+> changes, please consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
+##### September 14
+
+> Logtalk 3.102.0 is now available for [downloading](download.html). This
+> release adds new compiler linter checks; fixes compiler and make tool
+> issues; updates Trealla Prolog support; adds new text processing, data
+> interchange, cryptography, networking, optimization, machine learning,
+> identifier, and data structure libraries; updates the unicode_data
+> library to Unicode 17.0.0; adds Ed25519, X25519, XChaCha20-Poly1305,
+> bcrypt b2, and generalized BLAKE2 support to the `crypto` library; adds
+> new MCP specifications, MCP Apps, completions, resource templates, OAuth,
+> and output schemas to the `mcp_server` library; adds ordered multiplayer
+> dataset support to the `ranking_protocols` library; improves and fixes
+> issues in HTTP, hashing, random, linear algebra, and string distance
+> libraries; adds diagnostics support to the ports_profiler tool; adds
+> new HTTP server scripts; improves the `lgtunit`, `linter_reporter`,
+> `tutor`, and `dead_code_scanner tools`; adds new MCP and HTTP SSE
+> examples; includes additional standards compliance tests; and provides
+> installer, Docker image, documentation, and VSCode support updates.
+> Thanks to Andrew Davison and Lindsey Spratt for their contributions
+> and bug reports. For details and a complete list of changes, please
+> consult the [release notes](https://github.com/LogtalkDotOrg/logtalk3/blob/master/RELEASE_NOTES.md).
+
 ##### July 23
 
 > Logtalk 3.101.0 is now available for [downloading](download.html). This

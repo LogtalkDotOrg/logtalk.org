@@ -174,6 +174,7 @@ The [`diagrams`](https://logtalk.org/handbook/devtools/diagrams.html) tool suppo
 -	Optional highlighting of cyclic relations in directory dependency diagrams, library dependency diagrams, and entity diagrams
 -	Optional coupling metrics overlay in entity diagram nodes
 -   Support for the [d2](https://d2lang.com), [Graphviz](https://graphviz.org), [PlanUML](https://plantuml.com), and [Cytoscape Exchange (CX2) JSON](https://cytoscape.org/cx/cx2/specification/cytoscape-exchange-format-specification-(version-2)/) graph languages
+-	Experimental support for the Mermaid graph language
 -   Exporting of diagrams to SVG, PDF, and other formats
 -	Diagram exporting automation scripts (for use with e.g. the [`doclet`](https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md) tool)
 -   User customization of diagram details
@@ -201,7 +202,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 -   User-defined test dialects
 -   QuickCheck support (for property-based testing)
 -   Code coverage reports (at the predicate clause level; supports links to selected source code hosting providers)
--	Code coverage stats exports in Cobertura XML and LCOV formats
+-	Code coverage stats exports in Cobertura XML, LCOV, and Sonar Generic Coverage XML formats
 -   Test assertions (for easier debugging of failed tests)
 -   Support for testing input/output predicates
 -   Support for suppressing irrelevant text/binary output by the code under testing
@@ -223,8 +224,9 @@ QuickCheck support includes both test idioms and predicates that can be used e.g
 Test automation is provided by the [`logtalk_tester`](man/logtalk_tester.html) Bash and PowerShell scripts.
 See also the [testing guide](testing.html) and the [blog posts](blog.html?tag=testing)
 on testing best practices for more information. Automatic bug report creation for failed
-tests in GitHub and GitLab issue trackers is supported using the
-[`issue_creator`](https://logtalk.org/handbook/devtools/issue_creator.html) tool.
+tests in GitHub, GitLab, Azure DevOps, Gitea, and Jira issue trackers is supported using the
+[`issue_creator`](https://logtalk.org/handbook/devtools/issue_creator.html) tool. Related,
+the automation scripts support while-listing expected test failures.
 
 The [`mutation_testing`](https://logtalk.org/handbook/devtools/mutation_testing.html)
 tool can be used to check the quality of tests

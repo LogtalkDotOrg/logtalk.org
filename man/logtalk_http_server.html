@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<title>logtalk_http_server man page</title>
+<meta name="generator" content="roffit">
+<STYLE type="text/css">
+pre {
+  overflow: auto;
+  margin: 0;
+}
+
+P.level0, pre.level0 {
+ padding-left: 2em;
+}
+
+P.level1, pre.level1 {
+ padding-left: 4em;
+}
+
+P.level2, pre.level2 {
+ padding-left: 6em;
+}
+
+span.emphasis {
+ font-style: italic;
+}
+
+span.bold {
+ font-weight: bold;
+}
+
+span.manpage {
+ font-weight: bold;
+}
+
+h2.nroffsh {
+ background-color: #e0e0e0;
+}
+
+span.nroffip {
+ font-weight: bold;
+ font-size: 120%;
+ font-family: monospace;
+}
+
+p.roffit {
+ text-align: center;
+ font-size: 80%;
+}
+</STYLE>
+</head><body>
+<a name="NAME"></a><h2 class="nroffsh">Name</h2>
+<p class="level0">logtalk_http_server - Logtalk script for serving a directory over HTTP </p><a name="SYNOPSIS"></a><h2 class="nroffsh">Synopsis</h2>
+<p class="level0"><span Class="bold">logtalk_http_server -v</span> <br><span Class="bold">logtalk_http_server -p prolog</span> [<span class="bold">-n <span Class="emphasis">port</span>] [<span Class="emphasis">directory</span>] <br><span Class="bold">logtalk_http_server -h</span> </p><a name="DESCRIPTION"></a><h2 class="nroffsh">Description</h2>
+<p class="level0"><span Class="bold">logtalk_http_server</span> starts a local HTTP server using the Logtalk <span Class="emphasis">http_socket_transport</span> transport. The server listens on the loopback address <span Class="emphasis">127.0.0.1</span> and serves static files from the selected document root. Requests for directories return HTML directory listings. The server URL is printed after the listener is ready. Stop the server by interrupting the script, usually by typing Control-C. </p><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
+<p class="level0"><span Class="bold">-v</span> Print script version. </p>
+<p class="level0"><span Class="bold">-p</span> Backend Prolog compiler. Required. The following identifiers are used: ECLiPSe - <span Class="emphasis">eclipse</span>, SICStus Prolog - <span Class="emphasis">sicstus</span>, SWI-Prolog - <span Class="emphasis">swi</span>, Trealla Prolog - <span Class="emphasis">trealla</span>, and XVM - <span Class="emphasis">xvm</span>. </p>
+<p class="level0"><span Class="bold">-n</span> Server port. Must be an integer between 1 and 65535. Default is <span Class="emphasis">8080</span>. </p>
+<p class="level0"><span Class="bold">-h</span> Provide help on script usage. </p><a name="ARGUMENTS"></a><h2 class="nroffsh">Arguments</h2>
+<p class="level0"><span Class="emphasis">directory</span> Absolute or relative path to the directory to serve. Default is the current directory. </p><a name="EXIT"></a><h2 class="nroffsh">Exit status</h2>
+<p class="level0"><span Class="bold">0</span> The version or help information was printed, or the server terminated normally. </p>
+<p class="level0"><span Class="bold">1</span> An invalid option, backend, port, or document root was specified, or a required integration script or Logtalk driver could not be found. </p>
+<p class="level0"><span Class="bold">other</span> Exit status returned by the selected backend Prolog integration script. </p><a name="EXAMPLES"></a><h2 class="nroffsh">Examples</h2>
+<p class="level0">Serve the current directory on the default port using SWI-Prolog: <span Class="bold">logtalk_http_server -p swi</span> </p>
+<p class="level0">Serve the relative directory <span Class="emphasis">public</span> on port 8000 using Trealla Prolog: <span Class="bold">logtalk_http_server -p trealla -n 8000 public</span> </p>
+<p class="level0">Serve an absolute directory path using SICStus Prolog: <span Class="bold">logtalk_http_server -p sicstus /srv/www</span> </p><a name="IMPLEMENTATION"></a><h2 class="nroffsh">Implementation notes</h2>
+<p class="level0">The ECLiPSe and SICStus Prolog backends serve requests serially without requiring thread support. Backends with thread support use the open-ended server loop provided by the <span Class="emphasis">http_server</span> library. Responses close their HTTP connections so that subsequent browser requests can be accepted portably by all supported backends. </p>
+<p class="level0">The SICStus Prolog integration script is invoked with <span Class="emphasis">--noinfo</span>. The SWI-Prolog, Trealla Prolog, and XVM integration scripts are invoked with <span Class="emphasis">-q</span>. ECLiPSe does not provide an equivalent quiet option. </p>
+<p class="level0">The server binds only to the IPv4 loopback address and is not directly reachable from other hosts. </p><a name="ENVIRONMENT"></a><h2 class="nroffsh">Environment</h2>
+<p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. The script uses it to locate its Logtalk driver. </p>
+<p class="level0"><span Class="bold">LOGTALKUSER</span> Specifies the location of the Logtalk user directory and its scratch directory. </p><a name="FILES"></a><h2 class="nroffsh">Files</h2>
+<p class="level0"><span Class="bold">$LOGTALKHOME/scripts/logtalk_http_server.lgt</span> Logtalk source file defining the static-file handler and server loop used by the script. </p><a name="SEE"></a><h2 class="nroffsh">See also</h2>
+<p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> </p>
+<p class="level0">The Logtalk Handbook at <span Class="bold">$LOGTALKHOME/docs/handbook/index.html</span> </p><a name="AUTHOR"></a><h2 class="nroffsh">Author</h2>
+<p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt; </p><a name="COPYRIGHT"></a><h2 class="nroffsh">Copyright</h2>
+<p class="level0">Copyright (c) 1998-2026 Paulo Moura. </p><p class="roffit">
+ This HTML page was made with <a href="https://daniel.haxx.se/projects/roffit/">roffit</a>.
+</body></html>

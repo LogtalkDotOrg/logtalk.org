@@ -13,14 +13,13 @@ Follow these steps to run a Logtalk developer version:
 From the command-line, type the following commands:
 
 ```shell
-$ cd ~
-$ git clone https://github.com/LogtalkDotOrg/logtalk3.git lgt3git
+$ git clone https://github.com/LogtalkDotOrg/logtalk3.git
 ```
 
-A `lgt3git` directory will be created in your home directory containing a local copy of the current Logtalk development version. Later, to update your local copy to the latest development version, just type:
+A `logtalk3` directory will be created in your current directory containing a local copy of the current Logtalk development version. Later, to update your local copy to the latest development version, just type:
 
 ```shell
-$ cd ~/lgt3git
+$ cd logtalk3
 $ git pull
 ```
 
@@ -33,8 +32,8 @@ In alternative, use one of several available GUI front-ends to `git`.
 If you use a **bash** shell, add the following lines to your `~/.profile` file:
 
 ```shell
-LOGTALKHOME=$HOME/lgt3git
-LOGTALKUSER=$HOME/lgt3git
+LOGTALKHOME=$HOME/logtalk3
+LOGTALKUSER=$HOME/logtalk3
 PATH=$PATH:$LOGTALKHOME/tools/diagrams
 PATH=$PATH:$LOGTALKHOME/tools/lgtdoc/xml
 PATH=$PATH:$LOGTALKHOME/tools/packs
@@ -48,8 +47,8 @@ export LOGTALKHOME LOGTALKUSER PATH MANPATH INFOPATH
 If you use a **zsh** shell, add the following lines to your `~/.zshenv` file:
 
 ```shell
-LOGTALKHOME=$HOME/lgt3git
-LOGTALKUSER=$HOME/lgt3git
+LOGTALKHOME=$HOME/logtalk3
+LOGTALKUSER=$HOME/logtalk3
 PATH=$PATH:$LOGTALKHOME/tools/diagrams
 PATH=$PATH:$LOGTALKHOME/tools/lgtdoc/xml
 PATH=$PATH:$LOGTALKHOME/tools/packs
@@ -63,8 +62,8 @@ export LOGTALKHOME LOGTALKUSER PATH MANPATH INFOPATH
 If you use a **csh** shell, add the following line to your `~/.cshrc` file:
 
 ```shell
-setenv LOGTALKHOME "${HOME}"/lgt3git
-setenv LOGTALKUSER "${HOME}"/lgt3git
+setenv LOGTALKHOME "${HOME}"/logtalk3
+setenv LOGTALKUSER "${HOME}"/logtalk3
 setenv PATH "${PATH}":"${LOGTALKHOME}"/tools/diagrams
 setenv PATH "${PATH}":"${LOGTALKHOME}"/tools/lgtdoc/xml
 setenv PATH "${PATH}":"${LOGTALKHOME}"/tools/packs
@@ -77,8 +76,8 @@ setenv INFOPATH ${INFOPATH}:"${LOGTALKHOME}"/docs:"${LOGTALKHOME}"/manuals
 If you use a **fish** shell, add the following line to your `~/.config/fish/config.fish` file:
 
 ```shell
-set -gx LOGTALKHOME $HOME/lgt3git
-set -gx LOGTALKUSER $HOME/lgt3git
+set -gx LOGTALKHOME $HOME/logtalk3
+set -gx LOGTALKUSER $HOME/logtalk3
 fish_add_path $LOGTALKHOME/tools/diagrams
 fish_add_path $LOGTALKHOME/tools/lgtdoc/xml
 fish_add_path $LOGTALKHOME/tools/packs
@@ -88,11 +87,11 @@ set -gx MANPATH $MANPATH $LOGTALKHOME/man
 set -gx INFOPATH $INFOPATH $LOGTALKHOME/docs $LOGTALKHOME/manuals
 ```
 
-If your `lgt3git` directory is not in your home directory or if you cloned to the default `logtalk3` directory, adjust the paths above accordingly. Don't use relative paths such as `../` or `./` in the definition of the environment variables. Some Prolog compilers have trouble expanding environment variables, resulting in `file not found` errors when attempting to use the Logtalk integration scripts.
+If your `logtalk3` directory is not in your home directory or if you cloned to the default `logtalk3` directory, adjust the paths above accordingly. Don't use relative paths such as `../` or `./` in the definition of the environment variables. Some Prolog compilers have trouble expanding environment variables, resulting in `file not found` errors when attempting to use the Logtalk integration scripts.
 
 ### Windows installation
 
-Checkout the Logtalk development version into the directory `C:\lgt3git`. If you want to have Logtalk integration shortcuts for the supported Prolog compilers created, install [Inno Setup Unicode 5.3.0](http://www.jrsoftware.org/isinfo.php) (or a later version) and open the `C:\lgt3git\scripts\windows\logtalk.iss` file. Rebuild the Windows GUI installer and run it to install the Logtalk development version. You can also download an installer for the latest git commit from [AppVeyor](https://ci.appveyor.com/project/pmoura/logtalk3/build/artifacts). In alternative, install Windows Subsystem for Linux (WSL) or a Bash shell such as the one provided by [Git for Windows](http://msysgit.github.io) and follow the steps above for the POSIX installation.
+Checkout the Logtalk development version into the directory `C:\logtalk3`. If you want to have Logtalk integration shortcuts for the supported Prolog compilers created, install [Inno Setup Unicode 5.3.0](http://www.jrsoftware.org/isinfo.php) (or a later version) and open the `C:\logtalk3\scripts\windows\logtalk.iss` file. Rebuild the Windows GUI installer and run it to install the Logtalk development version. You can also download an installer for the latest git commit from [AppVeyor](https://ci.appveyor.com/project/pmoura/logtalk3/build/artifacts). In alternative, install Windows Subsystem for Linux (WSL) or a Bash shell such as the one provided by [Git for Windows](http://msysgit.github.io) and follow the steps above for the POSIX installation.
 
 ## Running
 
@@ -113,14 +112,14 @@ See the file [`CUSTOMIZE.md`](https://github.com/LogtalkDotOrg/logtalk3/blob/mas
 If you want to run both stable and development versions of Logtalk on a POSIX system, you may instead keep the default values for the environment variables `LOGTALKHOME` and `LOGTALKUSER` and use the `logtalk_version_select` command to switch between installed versions. Simply perform a `git clone` of the Logtalk development version and install it by following these steps:
 
 ```shell
-$ cd lgt3git/scripts
+$ cd logtalk3/scripts
 $ sudo ./install.sh
 ```
 
 The `install.sh` shell script accepts an optional prefix and thus can also be used by non-administrative users. For example:
 
 ```shell
-$ cd lgt3git/scripts
+$ cd logtalk3/scripts
 $ ./install.sh -p $HOME
 ```
 
@@ -128,7 +127,15 @@ Logtalk development versions are identified by the name that will be used once t
 
 ```shell
 $ logtalk_version_select -l
-Available versions: lgt2440 lgt2441 lgt3000a32 lgt3000a33
-$ sudo logtalk_version_select lgt3000a33
-Switched to version: lgt3000a33
+Available versions:
+  logtalk-3.100.0-b01
+  logtalk-3.100.0-stable
+  logtalk-3.100.1-stable
+  logtalk-3.101.0-b01
+  logtalk-3.101.0-stable
+  logtalk-3.102.0-b01
+  logtalk-3.102.0-stable
+  logtalk-3.103.0-b01
+$ sudo logtalk_version_select logtalk-3.102.0-stable
+Switched to version: logtalk-3.102.0-stable
 ```

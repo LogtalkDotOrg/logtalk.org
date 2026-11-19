@@ -445,6 +445,7 @@ The <a href="https://logtalk.org/handbook/devtools/diagrams.html"><code class="h
   <li>Optional highlighting of cyclic relations in directory dependency diagrams, library dependency diagrams, and entity diagrams</li>
   <li>Optional coupling metrics overlay in entity diagram nodes</li>
   <li>Support for the <a href="https://d2lang.com">d2</a>, <a href="https://graphviz.org">Graphviz</a>, <a href="https://plantuml.com">PlanUML</a>, and <a href="https://cytoscape.org/cx/cx2/specification/cytoscape-exchange-format-specification-(version-2)/">Cytoscape Exchange (CX2) JSON</a> graph languages</li>
+  <li>Experimental support for the Mermaid graph language</li>
   <li>Exporting of diagrams to SVG, PDF, and other formats</li>
   <li>Diagram exporting automation scripts (for use with e.g. the <a href="https://github.com/LogtalkDotOrg/logtalk3/blob/master/tools/doclet/NOTES.md"><code class="highlighter-rouge">doclet</code></a> tool)</li>
   <li>User customization of diagram details</li>
@@ -474,7 +475,7 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
   <li>User-defined test dialects</li>
   <li>QuickCheck support (for property-based testing)</li>
   <li>Code coverage reports (at the predicate clause level; supports links to selected source code hosting providers)</li>
-  <li>Code coverage stats exports in Cobertura XML and LCOV formats</li>
+  <li>Code coverage stats exports in Cobertura XML, LCOV, and Sonar Generic Coverage XML formats</li>
   <li>Test assertions (for easier debugging of failed tests)</li>
   <li>Support for testing input/output predicates</li>
   <li>Support for suppressing irrelevant text/binary output by the code under testing</li>
@@ -497,8 +498,9 @@ can be used to test both Logtalk and Prolog code and provides an extensive set o
 <p>Test automation is provided by the <a href="man/logtalk_tester.html"><code class="highlighter-rouge">logtalk_tester</code></a> Bash and PowerShell scripts.
 See also the <a href="testing.html">testing guide</a> and the <a href="blog.html?tag=testing">blog posts</a>
 on testing best practices for more information. Automatic bug report creation for failed
-tests in GitHub and GitLab issue trackers is supported using the
-<a href="https://logtalk.org/handbook/devtools/issue_creator.html"><code class="highlighter-rouge">issue_creator</code></a> tool.</p>
+tests in GitHub, GitLab, Azure DevOps, Gitea, and Jira issue trackers is supported using the
+<a href="https://logtalk.org/handbook/devtools/issue_creator.html"><code class="highlighter-rouge">issue_creator</code></a> tool. Related,
+the automation scripts support while-listing expected test failures.</p>
 
 <p>The <a href="https://logtalk.org/handbook/devtools/mutation_testing.html"><code class="highlighter-rouge">mutation_testing</code></a>
 tool can be used to check the quality of tests</p>

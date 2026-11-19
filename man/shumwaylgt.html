@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+ "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<title>shumwaylgt man page</title>
+<meta name="generator" content="roffit">
+<STYLE type="text/css">
+pre {
+  overflow: auto;
+  margin: 0;
+}
+
+P.level0, pre.level0 {
+ padding-left: 2em;
+}
+
+P.level1, pre.level1 {
+ padding-left: 4em;
+}
+
+P.level2, pre.level2 {
+ padding-left: 6em;
+}
+
+span.emphasis {
+ font-style: italic;
+}
+
+span.bold {
+ font-weight: bold;
+}
+
+span.manpage {
+ font-weight: bold;
+}
+
+h2.nroffsh {
+ background-color: #e0e0e0;
+}
+
+span.nroffip {
+ font-weight: bold;
+ font-size: 120%;
+ font-family: monospace;
+}
+
+p.roffit {
+ text-align: center;
+ font-size: 80%;
+}
+</STYLE>
+</head><body>
+<a name="NAME"></a><h2 class="nroffsh">Name</h2>
+<p class="level0">shumwaylgt - Logtalk integration script for Shumway Prolog </p><a name="SYNOPSIS"></a><h2 class="nroffsh">Synopsis</h2>
+<p class="level0"><span Class="bold">shumwaylgt</span> [<span class="bold">-g <span Class="emphasis">goal</span>] </p><a name="DESCRIPTION"></a><h2 class="nroffsh">Description</h2>
+<p class="level0"><span Class="bold">shumwaylgt</span> is a Logtalk integration script for Shumway Prolog. It automatically loads the Shumway Prolog adapter file, the Logtalk compiler and runtime, the Logtalk default table of library names and paths, and any existing settings file found on the lookup directories. It passes any options to the <span Class="bold">shumway</span> executable; see the Shumway Prolog documentation for the available options. </p><a name="OPTIONS"></a><h2 class="nroffsh">Options</h2>
+<p class="level0">The two most common options are: </p>
+<p class="level0"><span Class="bold">-q</span> Silence Logtalk default startup messages and compilation messages by setting the <span Class="bold">report</span> flag to <span Class="bold">warnings</span>. </p>
+<p class="level0"><span Class="bold">-g</span> <span Class="emphasis">goal</span> Initialization goal, written between double quotes, to be executed after Logtalk startup. </p><a name="REQUIREMENTS"></a><h2 class="nroffsh">Requirements</h2>
+<p class="level0">Shumway Prolog 0.9.3 or later is required. This integration script looks for a <span Class="bold">shumway</span> executable in the system path. </p><a name="ENVIRONMENT"></a><h2 class="nroffsh">Environment</h2>
+<p class="level0"><span Class="bold">LOGTALKHOME</span> Specifies the location of the Logtalk installation. </p>
+<p class="level0"><span Class="bold">LOGTALKUSER</span> Specifies the location of the Logtalk user directory. </p><a name="FILES"></a><h2 class="nroffsh">Files</h2>
+<p class="level0"><span Class="bold">$LOGTALKHOME/integration/logtalk_shumway.pl</span> Prolog file used for loading the necessary files for starting Logtalk using Shumway Prolog as the backend compiler. </p>
+<p class="level0"><span Class="bold">$LOGTALKHOME/adapters/shumway.pl</span> The Shumway Prolog adapter file. </p>
+<p class="level0"><span Class="bold">$LOGTALKHOME/core/core.pl</span> The Logtalk core compiler and runtime file. </p>
+<p class="level0"><span Class="bold">$LOGTALKHOME/paths/paths.pl</span> The default table of library names and paths. </p>
+<p class="level0"><span Class="bold">./settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). It may not exist. </p>
+<p class="level0"><span Class="bold">$LOGTALKUSER/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). It may not exist. </p>
+<p class="level0"><span Class="bold">$HOME/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). It may not exist. </p>
+<p class="level0"><span Class="bold">$XDG_CONFIG_HOME/logtalk/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). It may not exist. </p>
+<p class="level0"><span Class="bold">$HOME/.config/logtalk/settings.lgt</span> Logtalk settings file (for overriding default settings in the adapter files). It may not exist. </p><a name="SEE"></a><h2 class="nroffsh">See also</h2>
+<p class="level0">The Logtalk website at <a href="https://logtalk.org/">https://logtalk.org/</a> </p>
+<p class="level0">The Logtalk Handbook at <span Class="bold">$LOGTALKHOME/docs/handbook/index.html</span> </p>
+<p class="level0">The Shumway Prolog website at <a href="https://github.com/gusbro/Shumway">https://github.com/gusbro/Shumway</a> </p>
+<p class="level0">logtalk_user_setup(1),&nbsp;logtalk_version_select(1),&nbsp;logtalk_backend_select(1) </p><a name="AUTHOR"></a><h2 class="nroffsh">Author</h2>
+<p class="level0">Paulo Moura &lt;pmoura@logtalk.org&gt; </p><a name="COPYRIGHT"></a><h2 class="nroffsh">Copyright</h2>
+<p class="level0">Copyright (c) 1998-2026 Paulo Moura. </p><p class="roffit">
+ This HTML page was made with <a href="https://daniel.haxx.se/projects/roffit/">roffit</a>.
+</body></html>
